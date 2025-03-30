@@ -322,6 +322,7 @@
             <div id="eventsList" class="events-list">
                 <!-- Events will be populated here -->
             </div>
+            <div id="saveStatusContainer" class="save-status-container"></div>
             <div class="event-selection-submit">
                 <button id="saveEventsBtn" class="btn btn-primary">Save My Results</button>
             </div>
@@ -1031,6 +1032,11 @@
         color: #3498db;
         margin-left: 10px;
     }
+    
+    .save-status-container {
+        margin: 15px 0;
+        min-height: 30px;
+    }
 </style>
 {% endblock %}
 
@@ -1423,142 +1429,45 @@
             duosmiumParsingStatus.className = 'duosmium-parsing-status parsing-loading';
             duosmiumParsingStatus.style.display = 'block';
             
-            // Simulate fetch (in a real app, this would be an actual API call)
-            // For this demo, we'll pretend to parse the sample URL
-            setTimeout(function() {
-                // Check if it's the demo URL
-                if (url.includes('2025-01-25_NY_nyc_north_regional_c')) {
-                    parseDuosmiumData('2025 New York City North Regional (Div. C)', url);
-                } else {
-                    // Mock error for other URLs
-                    duosmiumParsingStatus.innerHTML = 'Error: Could not fetch or parse results from this URL';
+            // Call the API to fetch and parse Duosmium results
+            fetch(`/api/parse-duosmium?url=${encodeURIComponent(url)}`)
+                .then(response => {
+                    if (!response.ok) {
+                        return response.json().then(data => {
+                            throw new Error(data.error || 'Failed to parse Duosmium results');
+                        });
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (!data || !data.teams || data.teams.length === 0) {
+                        throw new Error('No Bronx Science teams found in these results');
+                    }
+                    
+                    // Store parsed data
+                    parsedDuosmiumData = data;
+                    
+                    // Show success message
+                    duosmiumParsingStatus.innerHTML = `
+                        <i class="fas fa-check-circle"></i> Successfully parsed results for ${data.teams.length} Bronx Science teams!
+                        <p>Click "Continue" to select which events you competed in.</p>
+                        <button id="continueToEventsBtn" class="btn btn-primary" style="margin-top: 10px;">Continue</button>
+                    `;
+                    duosmiumParsingStatus.className = 'duosmium-parsing-status parsing-success';
+                    
+                    // Add event listener to continue button
+                    document.getElementById('continueToEventsBtn').addEventListener('click', function() {
+                        duosmiumImportModal.style.display = 'none';
+                        showEventSelectionModal();
+                    });
+                })
+                .catch(error => {
+                    console.error('Error parsing Duosmium:', error);
+                    duosmiumParsingStatus.innerHTML = `<i class="fas fa-exclamation-circle"></i> Error: ${error.message}`;
                     duosmiumParsingStatus.className = 'duosmium-parsing-status parsing-error';
-                }
-            }, 1500);
+                    duosmiumParsingStatus.style.display = 'block';
+                });
         });
-        
-        // Parse Duosmium data
-        function parseDuosmiumData(competitionName, url) {
-            // In a real app, this would parse the actual HTML from the Duosmium page
-            // For this demo, we'll use hardcoded data based on the sample
-            
-            const date = new Date('2025-01-25');
-            const location = 'Bronx High School of Science';
-            
-            // Extract Bronx Science teams
-            const teams = [
-                {
-                    teamName: 'Bronx H.S. of Science A NY',
-                    rank: 1,
-                    totalScore: 59,
-                    events: [
-                        { eventName: 'Air Trajectory', place: 2 },
-                        { eventName: 'Anatomy and Physiology', place: 2 },
-                        { eventName: 'Astronomy', place: 4 },
-                        { eventName: 'Bungee Drop', place: 1 },
-                        { eventName: 'Chemistry Lab', place: 1 },
-                        { eventName: 'Codebusters', place: 3 },
-                        { eventName: 'Disease Detectives', place: 2 },
-                        { eventName: 'Dynamic Planet', place: 1 },
-                        { eventName: 'Ecology', place: 9 },
-                        { eventName: 'Electric Vehicle', place: 8 },
-                        { eventName: 'Entomology', place: 7 },
-                        { eventName: 'Experimental Design', place: 1 },
-                        { eventName: 'Forensics', place: 3 },
-                        { eventName: 'Geologic Mapping', place: 1 },
-                        { eventName: 'Helicopter', place: 2 },
-                        { eventName: 'Materials Science', place: 2 },
-                        { eventName: 'Microbe Mission', place: 5 },
-                        { eventName: 'Optics', place: 22 },
-                        { eventName: 'Robot Tour', place: 5 },
-                        { eventName: 'Tower', place: 2 },
-                        { eventName: 'Wind Power', place: 7 },
-                        { eventName: 'Write It Do It', place: 12 }
-                    ]
-                },
-                {
-                    teamName: 'Bronx H.S. of Science B NY',
-                    rank: 2,
-                    totalScore: 77,
-                    events: [
-                        { eventName: 'Air Trajectory', place: 14 },
-                        { eventName: 'Anatomy and Physiology', place: 9 },
-                        { eventName: 'Astronomy', place: 3 },
-                        { eventName: 'Bungee Drop', place: 4 },
-                        { eventName: 'Chemistry Lab', place: 2 },
-                        { eventName: 'Codebusters', place: 1 },
-                        { eventName: 'Disease Detectives', place: 1 },
-                        { eventName: 'Dynamic Planet', place: 4 },
-                        { eventName: 'Ecology', place: 4 },
-                        { eventName: 'Electric Vehicle', place: 34 },
-                        { eventName: 'Entomology', place: 11 },
-                        { eventName: 'Experimental Design', place: 6 },
-                        { eventName: 'Forensics', place: 4 },
-                        { eventName: 'Geologic Mapping', place: 5 },
-                        { eventName: 'Helicopter', place: 6 },
-                        { eventName: 'Materials Science', place: 5 },
-                        { eventName: 'Microbe Mission', place: 1 },
-                        { eventName: 'Optics', place: 1 },
-                        { eventName: 'Robot Tour', place: 2 },
-                        { eventName: 'Tower', place: 4 },
-                        { eventName: 'Wind Power', place: 11 },
-                        { eventName: 'Write It Do It', place: 4 }
-                    ]
-                },
-                {
-                    teamName: 'Bronx H.S. of Science C NY',
-                    rank: 4,
-                    totalScore: 120,
-                    events: [
-                        { eventName: 'Air Trajectory', place: 5 },
-                        { eventName: 'Anatomy and Physiology', place: 4 },
-                        { eventName: 'Astronomy', place: 15 },
-                        { eventName: 'Bungee Drop', place: 2 },
-                        { eventName: 'Chemistry Lab', place: 5 },
-                        { eventName: 'Codebusters', place: 6 },
-                        { eventName: 'Disease Detectives', place: 14 },
-                        { eventName: 'Dynamic Planet', place: 2 },
-                        { eventName: 'Ecology', place: 15 },
-                        { eventName: 'Electric Vehicle', place: 35 },
-                        { eventName: 'Entomology', place: 6 },
-                        { eventName: 'Experimental Design', place: 2 },
-                        { eventName: 'Forensics', place: 5 },
-                        { eventName: 'Geologic Mapping', place: 6 },
-                        { eventName: 'Helicopter', place: 1 },
-                        { eventName: 'Materials Science', place: 6 },
-                        { eventName: 'Microbe Mission', place: 4 },
-                        { eventName: 'Optics', place: 11 },
-                        { eventName: 'Robot Tour', place: 15 },
-                        { eventName: 'Tower', place: 11 },
-                        { eventName: 'Wind Power', place: 10 },
-                        { eventName: 'Write It Do It', place: 5 }
-                    ]
-                }
-            ];
-            
-            // Store parsed data
-            parsedDuosmiumData = {
-                competitionName: competitionName,
-                date: date,
-                location: location,
-                url: url,
-                teams: teams
-            };
-            
-            // Show success message
-            duosmiumParsingStatus.innerHTML = `
-                <i class="fas fa-check-circle"></i> Successfully parsed results for ${teams.length} Bronx Science teams!
-                <p>Click "Continue" to select which events you competed in.</p>
-                <button id="continueToEventsBtn" class="btn btn-primary" style="margin-top: 10px;">Continue</button>
-            `;
-            duosmiumParsingStatus.className = 'duosmium-parsing-status parsing-success';
-            
-            // Add event listener to continue button
-            document.getElementById('continueToEventsBtn').addEventListener('click', function() {
-                duosmiumImportModal.style.display = 'none';
-                showEventSelectionModal();
-            });
-        }
         
         // Show event selection modal
         function showEventSelectionModal() {
@@ -1575,6 +1484,16 @@
             
             // Populate events list for the first team
             populateEventsList(parsedDuosmiumData.teams[0]);
+            
+            // Reset any previous loading messages
+            const existingMessage = document.querySelector('.duosmium-parsing-status');
+            if (existingMessage && existingMessage.parentNode === document.querySelector('.event-selection-body')) {
+                existingMessage.remove();
+            }
+            
+            // Reset save button state
+            saveEventsBtn.disabled = false;
+            saveEventsBtn.textContent = 'Save My Results';
             
             // Show modal
             eventSelectionModal.style.display = 'block';
@@ -1641,6 +1560,9 @@
                 return;
             }
             
+            // Get total number of teams from the parsed data
+            const totalTeams = parsedDuosmiumData.totalTeams || 0;
+            
             checkboxes.forEach(checkbox => {
                 const eventName = checkbox.dataset.event;
                 const place = parseInt(checkbox.dataset.place);
@@ -1648,7 +1570,7 @@
                 selectedEvents.push({
                     eventName: eventName,
                     placement: place,
-                    outOf: 34, // Number of teams in the competition
+                    outOf: totalTeams,
                     medal: place <= 3,
                     medalType: place === 1 ? 'gold' : place === 2 ? 'silver' : place === 3 ? 'bronze' : null
                 });
@@ -1659,33 +1581,92 @@
                 competitionId: generateId(),
                 competitionName: parsedDuosmiumData.competitionName,
                 date: parsedDuosmiumData.date,
-                type: 'regional', // Based on the competition name
+                // Determine competition type from the name
+                type: determineCompetitionType(parsedDuosmiumData.competitionName),
                 eventResults: selectedEvents,
                 teamRank: selectedTeam.rank,
-                teamOutOf: 34 // Total number of teams in the competition
+                teamOutOf: totalTeams
             };
             
             // Add to user's competition results
             addCompetitionResult(competitionResult);
         });
         
+        // Helper function to determine competition type from name
+        function determineCompetitionType(competitionName) {
+            const lowerName = competitionName.toLowerCase();
+            
+            if (lowerName.includes('national') || lowerName.includes('nationals')) {
+                return 'national';
+            } else if (lowerName.includes('state') || lowerName.includes('states')) {
+                return 'state';
+            } else if (lowerName.includes('regional') || lowerName.includes('regionals')) {
+                return 'regional';
+            } else {
+                return 'invitational';
+            }
+        }
+        
         // Add competition result to user data
         function addCompetitionResult(competitionResult) {
-            // In a real app, this would update the Firestore database
-            // For this demo, we'll update the local state
+            // Get the status container
+            const saveStatusContainer = document.getElementById('saveStatusContainer');
             
-            // Add to competitionResults array
-            competitionResults.push(competitionResult);
+            // Clear any existing status messages
+            saveStatusContainer.innerHTML = '';
             
-            // Update UI
-            countMedals();
-            applyFilters();
+            // Show loading indicator
+            const loadingMessage = document.createElement('div');
+            loadingMessage.className = 'duosmium-parsing-status parsing-loading';
+            loadingMessage.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Saving your results to the database...';
+            loadingMessage.style.display = 'block';
+            saveStatusContainer.appendChild(loadingMessage);
             
-            // Close modal
-            eventSelectionModal.style.display = 'none';
+            // Disable save button
+            saveEventsBtn.disabled = true;
+            saveEventsBtn.textContent = 'Saving...';
             
-            // Show success message
-            alert('Competition results successfully added to your profile!');
+            // In a real app, update Firebase with the new competition result
+            fetch(`/api/Members/${currentUser.id}/addCompetitionResult`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(competitionResult)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to save competition results');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Competition results saved:', data);
+                
+                // Add to local state
+                competitionResults.push(competitionResult);
+                
+                // Update UI
+                countMedals();
+                applyFilters();
+                
+                // Close modal
+                eventSelectionModal.style.display = 'none';
+                
+                // Show success message
+                alert('Competition results successfully added to your profile!');
+            })
+            .catch(error => {
+                console.error('Error saving competition results:', error);
+                
+                // Show error message
+                loadingMessage.className = 'duosmium-parsing-status parsing-error';
+                loadingMessage.innerHTML = `<i class="fas fa-exclamation-circle"></i> Error: ${error.message}`;
+                
+                // Re-enable save button
+                saveEventsBtn.disabled = false;
+                saveEventsBtn.textContent = 'Save My Results';
+            });
         }
         
         // Helper function to generate an ID

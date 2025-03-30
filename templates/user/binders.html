@@ -12,39 +12,92 @@
 
 <section class="section">
     <div class="container">
-        <div class="binders-header">
-            <div class="section-title">
-                <h2>My Study Binders</h2>
-            </div>
-            <button id="createBinderBtn" class="create-binder-btn">
-                <i class="fas fa-plus"></i> Create New Binder
-            </button>
+        <div class="page-tabs">
+            <button class="tab-btn active" data-tab="binders-tab">My Binders</button>
+            <button class="tab-btn" data-tab="tests-tab">Event Tests</button>
         </div>
         
-        <div class="binders-container">
-            <div class="filter-bar">
-                <div class="search-box">
-                    <input type="text" id="binderSearch" placeholder="Search binders...">
-                    <i class="fas fa-search"></i>
+        <!-- Binders Tab Content -->
+        <div id="binders-tab" class="tab-content active">
+            <div class="binders-header">
+                <div class="section-title">
+                    <h2>My Study Binders</h2>
                 </div>
-                <div class="filter-options">
-                    <select id="eventFilter">
-                        <option value="all">All Events</option>
-                    </select>
-                    <select id="sortOption">
-                        <option value="newest">Newest First</option>
-                        <option value="oldest">Oldest First</option>
-                        <option value="az">A-Z</option>
-                        <option value="za">Z-A</option>
-                    </select>
-                </div>
+                <button id="createBinderBtn" class="create-binder-btn">
+                    <i class="fas fa-plus"></i> Create New Binder
+                </button>
             </div>
             
-            <div id="bindersGrid" class="binders-grid">
-                <!-- Binders will be loaded here from Firebase -->
-                <div class="loading-indicator">
-                    <i class="fas fa-spinner fa-spin"></i>
-                    <p>Loading your binders...</p>
+            <div class="binders-container">
+                <div class="filter-bar">
+                    <div class="search-box">
+                        <input type="text" id="binderSearch" placeholder="Search binders...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="filter-options">
+                        <select id="eventFilter">
+                            <option value="all">All Events</option>
+                        </select>
+                        <select id="sortOption">
+                            <option value="newest">Newest First</option>
+                            <option value="oldest">Oldest First</option>
+                            <option value="az">A-Z</option>
+                            <option value="za">Z-A</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div id="bindersGrid" class="binders-grid">
+                    <!-- Binders will be loaded here from Firebase -->
+                    <div class="loading-indicator">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Loading your binders...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tests Tab Content -->
+        <div id="tests-tab" class="tab-content">
+            <div class="tests-header">
+                <div class="section-title">
+                    <h2>Event Tests Library</h2>
+                </div>
+                <button id="uploadTestBtn" class="upload-test-btn">
+                    <i class="fas fa-upload"></i> Upload Test
+                </button>
+            </div>
+            
+            <div class="tests-container">
+                <div class="filter-bar">
+                    <div class="search-box">
+                        <input type="text" id="testSearch" placeholder="Search tests...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="filter-options">
+                        <select id="testEventFilter">
+                            <option value="all">All Events</option>
+                        </select>
+                        <select id="testYearFilter">
+                            <option value="all">All Years</option>
+                        </select>
+                        <select id="testTypeFilter">
+                            <option value="all">All Types</option>
+                            <option value="invitational">Invitational</option>
+                            <option value="regional">Regional</option>
+                            <option value="state">State</option>
+                            <option value="national">National</option>
+                            <option value="practice">Practice</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div id="testsGrid" class="tests-grid">
+                    <!-- Tests will be loaded here from Firebase -->
+                    <div class="loading-indicator">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Loading tests...</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -150,6 +203,93 @@
         </div>
     </div>
 </div>
+
+<!-- Upload Test Modal -->
+<div id="uploadTestModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2>Upload Test</h2>
+        <form id="testUploadForm">
+            <div class="form-group">
+                <label for="testName">Test Name</label>
+                <input type="text" id="testName" name="testName" required placeholder="e.g., MIT Invitational Anatomy Test" maxlength="100">
+            </div>
+            <div class="form-group">
+                <label for="testEvent">Event</label>
+                <select id="testEvent" name="eventName" required>
+                    <option value="" disabled selected>Select an event</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="testYear">Year</label>
+                <input type="number" id="testYear" name="year" required min="2000" max="2100" placeholder="e.g., 2023">
+            </div>
+            <div class="form-group">
+                <label for="testCompetition">Competition Name (Optional)</label>
+                <input type="text" id="testCompetition" name="competitionName" placeholder="e.g., MIT Invitational">
+            </div>
+            <div class="form-group">
+                <label for="testType">Competition Type</label>
+                <select id="testType" name="competitionType" required>
+                    <option value="" disabled selected>Select competition type</option>
+                    <option value="invitational">Invitational</option>
+                    <option value="regional">Regional</option>
+                    <option value="state">State</option>
+                    <option value="national">National</option>
+                    <option value="practice">Practice</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="testDescription">Description (Optional)</label>
+                <textarea id="testDescription" name="description" rows="3" placeholder="Brief description of the test"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="testVisibility">Visibility</label>
+                <select id="testVisibility" name="visibility" required>
+                    <option value="public">Public (All members)</option>
+                    <option value="team">Team (Event members only)</option>
+                    <option value="private">Private (Only me)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="testTags">Tags (Optional, comma separated)</label>
+                <input type="text" id="testTags" name="tags" placeholder="e.g., nervous system, cardiovascular">
+            </div>
+            <div class="form-group">
+                <label for="testFile">Test PDF</label>
+                <input type="file" id="testFile" name="testFile" accept=".pdf" required>
+                <p class="file-hint">Maximum file size: 10MB. PDF files only.</p>
+            </div>
+            <div class="form-footer">
+                <button type="button" class="cancel-btn">Cancel</button>
+                <button type="submit" class="upload-btn">Upload Test</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Test Viewer Modal -->
+<div id="testViewerModal" class="modal viewer-modal">
+    <div class="modal-content viewer-content">
+        <div class="viewer-header">
+            <div class="viewer-title">
+                <h2 id="viewerTitle">Test Title</h2>
+                <div class="viewer-meta">
+                    <span id="viewerEvent" class="event-badge">Event Name</span>
+                    <span id="viewerType" class="type-badge">Competition Type</span>
+                    <span id="viewerYear" class="year-badge">Year</span>
+                </div>
+            </div>
+            <div class="viewer-controls">
+                <a id="downloadTestBtn" href="#" class="download-btn" download><i class="fas fa-download"></i> Download</a>
+                <button class="close-viewer-btn"><i class="fas fa-times"></i></button>
+            </div>
+        </div>
+        <div class="viewer-body">
+            <iframe id="pdfViewer" class="pdf-viewer"></iframe>
+        </div>
+    </div>
+</div>
 {% endblock %}
 
 {% block extra_css %}
@@ -157,6 +297,242 @@
 <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 
 <style>
+    /* Tab Navigation */
+    .page-tabs {
+        display: flex;
+        margin-bottom: 30px;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .tab-btn {
+        padding: 15px 25px;
+        background: none;
+        border: none;
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: #555;
+        cursor: pointer;
+        position: relative;
+    }
+    
+    .tab-btn:after {
+        content: '';
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: transparent;
+        transition: all 0.3s;
+    }
+    
+    .tab-btn.active {
+        color: var(--primary-color);
+    }
+    
+    .tab-btn.active:after {
+        background: var(--accent-color);
+    }
+    
+    .tab-content {
+        display: none;
+    }
+    
+    .tab-content.active {
+        display: block;
+    }
+    
+    /* Tests Section Styles */
+    .tests-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+    
+    .upload-test-btn {
+        background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 30px;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        transition: all 0.3s;
+    }
+    
+    .upload-test-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .tests-container {
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+    }
+    
+    .tests-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+    }
+    
+    .test-card {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        padding: 20px;
+        transition: all 0.3s;
+        display: flex;
+        flex-direction: column;
+        border-top: 5px solid var(--accent-color);
+        cursor: pointer;
+    }
+    
+    .test-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .test-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--primary-color);
+        margin-bottom: 10px;
+    }
+    
+    .test-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 15px;
+    }
+    
+    .test-event {
+        font-size: 0.9rem;
+        color: var(--accent-color);
+        font-weight: 500;
+    }
+    
+    .test-badge {
+        display: inline-block;
+        padding: 3px 8px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 500;
+    }
+    
+    .year-badge {
+        background-color: #e9f5fe;
+        color: #3498db;
+    }
+    
+    .type-badge {
+        background-color: #f8e9fe;
+        color: #9b59b6;
+    }
+    
+    .test-description {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 15px;
+        flex-grow: 1;
+    }
+    
+    .test-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: auto;
+        padding-top: 10px;
+        border-top: 1px solid #eee;
+    }
+    
+    .test-info {
+        font-size: 0.8rem;
+        color: #888;
+    }
+    
+    .file-hint {
+        font-size: 0.8rem;
+        color: #888;
+        margin-top: 5px;
+    }
+    
+    /* PDF Viewer Modal Styles */
+    .viewer-modal .modal-content {
+        width: 90%;
+        height: 90%;
+        max-width: 1200px;
+        margin: 2% auto;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .viewer-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        border-bottom: 1px solid #eee;
+        background-color: #f9f9f9;
+        border-radius: 15px 15px 0 0;
+    }
+    
+    .viewer-title h2 {
+        margin: 0 0 10px 0;
+        font-size: 1.5rem;
+    }
+    
+    .viewer-meta {
+        display: flex;
+        gap: 10px;
+    }
+    
+    .viewer-controls {
+        display: flex;
+        gap: 10px;
+    }
+    
+    .download-btn {
+        background-color: var(--accent-color);
+        color: white;
+        text-decoration: none;
+        padding: 8px 15px;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+    
+    .close-viewer-btn {
+        background-color: #f5f5f5;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    .viewer-body {
+        flex-grow: 1;
+        overflow: hidden;
+        border-radius: 0 0 15px 15px;
+    }
+    
+    .pdf-viewer {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+    
+    /* Existing Binder Styles */
     .binders-header {
         display: flex;
         justify-content: space-between;
@@ -656,7 +1032,30 @@
             return;
         }
         
-        // Elements
+        // Tab Navigation
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabId = button.dataset.tab;
+                
+                // Hide all tabs and remove active class
+                tabContents.forEach(tab => tab.classList.remove('active'));
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Show selected tab and add active class
+                document.getElementById(tabId).classList.add('active');
+                button.classList.add('active');
+                
+                // Load tests if tests tab is active and not already loaded
+                if (tabId === 'tests-tab' && allTests.length === 0) {
+                    loadTests();
+                }
+            });
+        });
+        
+        // Elements for Binders
         const bindersGrid = document.getElementById('bindersGrid');
         const createBinderBtn = document.getElementById('createBinderBtn');
         const createBinderModal = document.getElementById('createBinderModal');
@@ -669,10 +1068,25 @@
         const sortOption = document.getElementById('sortOption');
         const binderEvent = document.getElementById('binderEvent');
         
+        // Elements for Tests
+        const testsGrid = document.getElementById('testsGrid');
+        const uploadTestBtn = document.getElementById('uploadTestBtn');
+        const uploadTestModal = document.getElementById('uploadTestModal');
+        const testUploadForm = document.getElementById('testUploadForm');
+        const testSearch = document.getElementById('testSearch');
+        const testEventFilter = document.getElementById('testEventFilter');
+        const testYearFilter = document.getElementById('testYearFilter');
+        const testTypeFilter = document.getElementById('testTypeFilter');
+        const testEvent = document.getElementById('testEvent');
+        const testViewerModal = document.getElementById('testViewerModal');
+        
         // Current binder being edited
         let currentBinder = null;
         let allBinders = [];
         let editor = null;
+        
+        // Current test data
+        let allTests = [];
         
         // Initialize Quill editor
         function initEditor() {
@@ -772,17 +1186,37 @@
                     
                     // Populate the event filter dropdown
                     userEvents.forEach(event => {
+                        // Populate binder event dropdowns
                         const option = document.createElement('option');
                         option.value = event;
                         option.textContent = event;
                         binderEvent.appendChild(option);
                         
-                        // Also add to the filter dropdown
                         const filterOption = document.createElement('option');
                         filterOption.value = event;
                         filterOption.textContent = event;
                         eventFilter.appendChild(filterOption);
+                        
+                        // Populate test event dropdowns
+                        const testEventOption = document.createElement('option');
+                        testEventOption.value = event;
+                        testEventOption.textContent = event;
+                        testEvent.appendChild(testEventOption);
+                        
+                        const testFilterOption = document.createElement('option');
+                        testFilterOption.value = event;
+                        testFilterOption.textContent = event;
+                        testEventFilter.appendChild(testFilterOption);
                     });
+                    
+                    // Populate year filter with past 10 years
+                    const currentYear = new Date().getFullYear();
+                    for (let year = currentYear; year >= currentYear - 10; year--) {
+                        const yearOption = document.createElement('option');
+                        yearOption.value = year;
+                        yearOption.textContent = year;
+                        testYearFilter.appendChild(yearOption);
+                    }
                 })
                 .catch(error => {
                     console.error('Error loading user events:', error);
@@ -1253,19 +1687,386 @@
             });
         }
         
+        // Load tests for the Tests tab
+        function loadTests() {
+            testsGrid.innerHTML = `
+                <div class="loading-indicator">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Loading tests...</p>
+                </div>
+            `;
+            
+            // Fetch tests from Firebase
+            fetch('/api/Tests')
+                .then(response => {
+                    if (!response.ok) {
+                        if (response.status === 404) {
+                            // No tests found, show empty state
+                            renderEmptyTestsState();
+                            return null;
+                        }
+                        throw new Error('Failed to load tests');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (!data) return;
+                    
+                    // Extract test data
+                    allTests = data.map(item => {
+                        const id = Object.keys(item)[0];
+                        return {
+                            id: id,
+                            ...item[id]
+                        };
+                    });
+                    
+                    // Sort and render tests
+                    sortAndRenderTests();
+                })
+                .catch(error => {
+                    console.error('Error loading tests:', error);
+                    testsGrid.innerHTML = `
+                        <div class="error-message" style="grid-column: 1 / -1; text-align: center; padding: 40px; color: #e74c3c;">
+                            <i class="fas fa-exclamation-circle" style="font-size: 3rem; margin-bottom: 15px;"></i>
+                            <h3>Error Loading Tests</h3>
+                            <p>${error.message}</p>
+                        </div>
+                    `;
+                });
+        }
+        
+        // Show empty state when no tests exist
+        function renderEmptyTestsState() {
+            testsGrid.innerHTML = `
+                <div class="empty-state" style="grid-column: 1 / -1; text-align: center; padding: 50px 20px;">
+                    <i class="fas fa-file-pdf" style="font-size: 4rem; color: #ddd; margin-bottom: 20px;"></i>
+                    <h3>No Tests Yet</h3>
+                    <p>Upload your first test to start building the test library.</p>
+                    <button class="upload-test-btn" style="margin: 20px auto; display: inline-flex;">
+                        <i class="fas fa-upload"></i> Upload Your First Test
+                    </button>
+                </div>
+            `;
+            
+            // Add event listener to the button in empty state
+            testsGrid.querySelector('.upload-test-btn').addEventListener('click', () => {
+                uploadTestModal.style.display = 'block';
+            });
+        }
+        
+        // Sort and filter tests based on user selection
+        function sortAndRenderTests() {
+            const searchText = testSearch.value.toLowerCase();
+            const selectedEvent = testEventFilter.value;
+            const selectedYear = testYearFilter.value;
+            const selectedType = testTypeFilter.value;
+            
+            // Filter tests
+            let filteredTests = [...allTests];
+            
+            if (selectedEvent !== 'all') {
+                filteredTests = filteredTests.filter(test => test.eventName === selectedEvent);
+            }
+            
+            if (selectedYear !== 'all') {
+                filteredTests = filteredTests.filter(test => test.year == selectedYear);
+            }
+            
+            if (selectedType !== 'all') {
+                filteredTests = filteredTests.filter(test => test.competitionType === selectedType);
+            }
+            
+            if (searchText) {
+                filteredTests = filteredTests.filter(test => 
+                    test.testName.toLowerCase().includes(searchText) || 
+                    (test.description && test.description.toLowerCase().includes(searchText)) ||
+                    (test.competitionName && test.competitionName.toLowerCase().includes(searchText))
+                );
+            }
+            
+            // Sort tests by newest first
+            filteredTests.sort((a, b) => new Date(b.uploadedAt) - new Date(a.uploadedAt));
+            
+            // Render the filtered and sorted tests
+            renderTests(filteredTests);
+        }
+        
+        // Render tests to the grid
+        function renderTests(tests) {
+            if (tests.length === 0) {
+                testsGrid.innerHTML = `
+                    <div class="no-results" style="grid-column: 1 / -1; text-align: center; padding: 40px;">
+                        <i class="fas fa-search" style="font-size: 3rem; color: #ddd; margin-bottom: 15px;"></i>
+                        <h3>No Tests Found</h3>
+                        <p>Try adjusting your search or filters.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            testsGrid.innerHTML = '';
+            
+            tests.forEach(test => {
+                if (!shouldShowTest(test)) return; // Skip tests user shouldn't see
+                
+                const testCard = document.createElement('div');
+                testCard.className = 'test-card';
+                testCard.dataset.id = test.id;
+                
+                const uploadedAt = new Date(test.uploadedAt).toLocaleDateString();
+                const fileSizeMB = (test.fileSize / (1024 * 1024)).toFixed(1);
+                
+                testCard.innerHTML = `
+                    <h3 class="test-title">${test.testName}</h3>
+                    <div class="test-meta">
+                        <span class="test-event">${test.eventName}</span>
+                        <span class="test-badge year-badge">${test.year}</span>
+                        <span class="test-badge type-badge">${capitalizeFirst(test.competitionType)}</span>
+                    </div>
+                    <p class="test-description">${test.description || 'No description provided.'}</p>
+                    <div class="test-footer">
+                        <span class="test-info">${fileSizeMB} MB • Uploaded ${uploadedAt}</span>
+                        <div class="test-actions">
+                            ${test.uploadedBy === currentUser.id ? 
+                                `<button class="action-btn delete-test-btn" title="Delete Test"><i class="fas fa-trash-alt"></i></button>` : ''}
+                        </div>
+                    </div>
+                `;
+                
+                // Add click event for the entire card to open test viewer
+                testCard.addEventListener('click', function(e) {
+                    // Don't open viewer if clicking delete button
+                    if (e.target.closest('.action-btn')) return;
+                    
+                    const testId = this.dataset.id;
+                    openTestViewer(testId);
+                });
+                
+                // Add delete button event if the test was uploaded by the current user
+                const deleteBtn = testCard.querySelector('.delete-test-btn');
+                if (deleteBtn) {
+                    deleteBtn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        if (confirm('Are you sure you want to delete this test? This action cannot be undone.')) {
+                            deleteTest(testCard.dataset.id);
+                        }
+                    });
+                }
+                
+                testsGrid.appendChild(testCard);
+            });
+        }
+        
+        // Check if user should see a test based on visibility
+        function shouldShowTest(test) {
+            if (test.visibility === 'public') return true;
+            if (test.uploadedBy === currentUser.id) return true;
+            if (test.visibility === 'team') {
+                // For team visibility, check if user is part of the event team
+                const memberData = JSON.parse(sessionStorage.getItem('currentUser'));
+                return memberData.events && memberData.events.includes(test.eventName);
+            }
+            return false;
+        }
+        
+        // Capitalize first letter of a string
+        function capitalizeFirst(str) {
+            return str.charAt(0).toUpperCase() + str.slice(1);
+        }
+        
+        // Open test viewer
+        function openTestViewer(testId) {
+            // Find the test in our array
+            currentTest = allTests.find(test => test.id === testId);
+            
+            if (!currentTest) {
+                alert('Test not found');
+                return;
+            }
+            
+            // Update view count
+            updateViewCount(testId);
+            
+            // Set viewer title and metadata
+            document.getElementById('viewerTitle').textContent = currentTest.testName;
+            document.getElementById('viewerEvent').textContent = currentTest.eventName;
+            document.getElementById('viewerType').textContent = capitalizeFirst(currentTest.competitionType);
+            document.getElementById('viewerYear').textContent = currentTest.year;
+            
+            // Set download link
+            const downloadBtn = document.getElementById('downloadTestBtn');
+            downloadBtn.href = currentTest.fileUrl;
+            downloadBtn.download = `${currentTest.eventName}_${currentTest.year}_${currentTest.testName}.pdf`;
+            
+            // Load PDF in iframe
+            const pdfViewer = document.getElementById('pdfViewer');
+            pdfViewer.src = currentTest.fileUrl;
+            
+            // Show the viewer modal
+            testViewerModal.style.display = 'block';
+        }
+        
+        // Update view count for a test
+        function updateViewCount(testId) {
+            fetch(`/api/Tests/${testId}/view`, {
+                method: 'POST'
+            }).catch(error => {
+                console.error('Error updating view count:', error);
+            });
+        }
+        
+        // Delete a test
+        function deleteTest(testId) {
+            fetch(`/api/Tests/${testId}`, {
+                method: 'DELETE'
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to delete test');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Remove test from the array
+                allTests = allTests.filter(test => test.id !== testId);
+                
+                // Re-render the tests
+                sortAndRenderTests();
+                
+                alert('Test deleted successfully');
+            })
+            .catch(error => {
+                console.error('Error deleting test:', error);
+                alert('Error: ' + error.message);
+            });
+        }
+        
+        // Upload a test
+        function uploadTest(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(testUploadForm);
+            const testFile = formData.get('testFile');
+            
+            // Check file size (max 10MB)
+            if (testFile.size > 10 * 1024 * 1024) {
+                alert('File is too large. Maximum size is 10MB.');
+                return;
+            }
+            
+            // Check file type
+            if (testFile.type !== 'application/pdf') {
+                alert('Only PDF files are allowed.');
+                return;
+            }
+            
+            // Prepare tags array
+            const tagsString = formData.get('tags');
+            const tags = tagsString ? tagsString.split(',').map(tag => tag.trim()).filter(tag => tag) : [];
+            
+            // Create reader to get file as data URL
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                // Show upload progress
+                const uploadBtn = document.querySelector('.upload-btn');
+                uploadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Uploading...';
+                uploadBtn.disabled = true;
+                
+                // Create test object
+                const testData = {
+                    eventName: formData.get('eventName'),
+                    testName: formData.get('testName'),
+                    description: formData.get('description'),
+                    year: parseInt(formData.get('year')),
+                    competitionName: formData.get('competitionName'),
+                    competitionType: formData.get('competitionType'),
+                    uploadedBy: currentUser.id,
+                    fileBase64: e.target.result.split(',')[1], // Remove the data:application/pdf;base64, part
+                    fileName: testFile.name,
+                    fileSize: testFile.size,
+                    uploadedAt: new Date().toISOString(),
+                    viewCount: 0,
+                    tags: tags,
+                    visibility: formData.get('visibility')
+                };
+                
+                // Save to Firebase
+                fetch('/api/Tests', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(testData)
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to upload test');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Add new test to our array with its ID
+                    const newTest = {
+                        id: data.id,
+                        ...testData,
+                        fileUrl: data.fileUrl // Use the URL returned from the server
+                    };
+                    
+                    // Remove the base64 data to save memory
+                    delete newTest.fileBase64;
+                    
+                    allTests.push(newTest);
+                    
+                    // Re-render tests
+                    sortAndRenderTests();
+                    
+                    // Close modal and reset form
+                    uploadTestModal.style.display = 'none';
+                    testUploadForm.reset();
+                    
+                    // Reset upload button
+                    uploadBtn.innerHTML = 'Upload Test';
+                    uploadBtn.disabled = false;
+                    
+                    // Switch to tests tab if not already there
+                    if (!document.getElementById('tests-tab').classList.contains('active')) {
+                        document.querySelector('[data-tab="tests-tab"]').click();
+                    }
+                })
+                .catch(error => {
+                    console.error('Error uploading test:', error);
+                    alert('Error: ' + error.message);
+                    
+                    // Reset upload button
+                    uploadBtn.innerHTML = 'Upload Test';
+                    uploadBtn.disabled = false;
+                });
+            };
+            
+            reader.readAsDataURL(testFile);
+        }
+        
         // Setup event listeners
         
-        // Create binder button
-        createBinderBtn.addEventListener('click', function() {
-            createBinderModal.style.display = 'block';
+        // Upload test button
+        uploadTestBtn.addEventListener('click', function() {
+            uploadTestModal.style.display = 'block';
         });
         
-        // Close modals when clicking X
-        document.querySelectorAll('.close-btn, .close-editor-btn, .cancel-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                createBinderModal.style.display = 'none';
-                binderEditorModal.style.display = 'none';
-            });
+        // Test upload form submission
+        testUploadForm.addEventListener('submit', uploadTest);
+        
+        // Test search and filter events
+        testSearch.addEventListener('input', sortAndRenderTests);
+        testEventFilter.addEventListener('change', sortAndRenderTests);
+        testYearFilter.addEventListener('change', sortAndRenderTests);
+        testTypeFilter.addEventListener('change', sortAndRenderTests);
+        
+        // Close viewer when clicking X
+        document.querySelector('.close-viewer-btn').addEventListener('click', function() {
+            testViewerModal.style.display = 'none';
         });
         
         // Close modals when clicking outside
@@ -1274,7 +2075,36 @@
                 createBinderModal.style.display = 'none';
             } else if (e.target === binderEditorModal) {
                 binderEditorModal.style.display = 'none';
+            } else if (e.target === uploadTestModal) {
+                uploadTestModal.style.display = 'none';
+            } else if (e.target === testViewerModal) {
+                testViewerModal.style.display = 'none';
             }
+        });
+        
+        // Close modals with cancel buttons
+        document.querySelectorAll('.cancel-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const modal = this.closest('.modal');
+                if (modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+        
+        // Create binder button
+        createBinderBtn.addEventListener('click', function() {
+            createBinderModal.style.display = 'block';
+        });
+        
+        // Close modals when clicking X
+        document.querySelectorAll('.close-btn, .close-editor-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const modal = this.closest('.modal');
+                if (modal) {
+                    modal.style.display = 'none';
+                }
+            });
         });
         
         // Add section button
@@ -1293,7 +2123,7 @@
         // Save content button
         document.getElementById('saveContentBtn').addEventListener('click', saveContent);
         
-        // Filter and search events
+        // Filter and search events for binders
         binderSearch.addEventListener('input', sortAndRenderBinders);
         eventFilter.addEventListener('change', sortAndRenderBinders);
         sortOption.addEventListener('change', sortAndRenderBinders);

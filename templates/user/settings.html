@@ -720,12 +720,18 @@
         function loadAvailableEvents() {
             const availableEventsList = document.getElementById('availableEventsList');
             
-            // This is a placeholder - in a real implementation, you would fetch from a database
+            // Updated for 2025 Division C events
             const allEvents = [
-                'Anatomy & Physiology', 'Astronomy', 'Biology', 'Chemistry', 'Dynamic Planet',
-                'Earth Science', 'Ecology', 'Experimental Design', 'Forensics', 'Fossils',
-                'Genetics', 'Geology', 'Herpetology', 'Microbe Mission', 'Ornithology',
-                'Remote Sensing', 'Rocks & Minerals', 'Tower Building', 'Water Quality', 'Wright Stuff'
+                // Life, Personal & Social Science
+                'Anatomy and Physiology', 'Disease Detectives', 'Ecology', 'Entomology', 'Microbe Mission',
+                // Earth and Space Science
+                'Astronomy', 'Dynamic Planet', 'Fossils', 'Geologic Mapping',
+                // Physical Science & Chemistry
+                'Air Trajectory', 'Chem Lab', 'Forensics', 'Materials Science', 'Optics', 'Wind Power',
+                // Technology & Engineering
+                'Electric Vehicle', 'Helicopter', 'Robot Tour', 'Tower',
+                // Inquiry & Nature of Science
+                'Bungee Drop', 'Codebusters', 'Experimental Design', 'Write It Do It'
             ];
             
             // Filter out events the user is already in
