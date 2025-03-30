@@ -1,0 +1,349 @@
+{% extends "layout.html" %}
+
+{% block title %}Login - Bronx Science Olympiad{% endblock %}
+
+{% block content %}
+<div class="hero" style="height: 40vh; background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/static/images/login-bg.jpg');">
+    <div class="hero-content">
+        <h1>Login</h1>
+        <p>Access your Science Olympiad account</p>
+    </div>
+</div>
+
+<section class="section">
+    <div class="container">
+        <div class="login-container">
+            <div class="login-card">
+                <div class="login-header">
+                    <h2>Login to Your Account</h2>
+                    <p>Enter your credentials to access your Science Olympiad dashboard</p>
+                </div>
+                
+                <form id="login-form" class="login-form">
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    
+                    <div class="form-options">
+                        <div class="remember-me">
+                            <input type="checkbox" id="remember" name="remember">
+                            <label for="remember">Remember me</label>
+                        </div>
+                        <a href="#" class="forgot-password">Forgot password?</a>
+                    </div>
+                    
+                    <div id="login-error" class="login-error"></div>
+                    
+                    <button type="submit" class="login-btn">Login</button>
+                </form>
+                
+                <div class="login-footer">
+                    <p>Don't have an account? <a href="{{ url_for('apply') }}">Apply Now</a></p>
+                </div>
+            </div>
+            
+            <div class="login-info">
+                <div class="info-content">
+                    <h3>Why Login?</h3>
+                    <div class="info-feature">
+                        <div class="info-icon"><i class="fas fa-book"></i></div>
+                        <div class="info-text">
+                            <h4>Access Study Materials</h4>
+                            <p>Get exclusive access to our study guides, practice tests, and reference materials for your events.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-feature">
+                        <div class="info-icon"><i class="fas fa-chart-line"></i></div>
+                        <div class="info-text">
+                            <h4>Track Your Progress</h4>
+                            <p>Monitor your scores, attendance, and performance across all your Science Olympiad events.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-feature">
+                        <div class="info-icon"><i class="fas fa-calendar-alt"></i></div>
+                        <div class="info-text">
+                            <h4>Stay Updated</h4>
+                            <p>Receive notifications about practice schedules, upcoming competitions, and team announcements.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .login-container {
+        display: flex;
+        gap: 40px;
+        margin: 20px 0;
+    }
+    
+    .login-card {
+        flex: 1;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+    }
+    
+    .login-info {
+        flex: 1;
+        display: flex;
+        align-items: center;
+    }
+    
+    .login-header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    
+    .login-header h2 {
+        color: var(--primary-color);
+        margin-bottom: 10px;
+    }
+    
+    .login-header p {
+        color: #666;
+    }
+    
+    .login-form {
+        margin-bottom: 30px;
+    }
+    
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #333;
+    }
+    
+    .form-group input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-family: inherit;
+        font-size: 1rem;
+        transition: all 0.3s;
+    }
+    
+    .form-group input:focus {
+        border-color: var(--accent-color);
+        box-shadow: 0 0 0 3px rgba(155, 89, 182, 0.2);
+        outline: none;
+    }
+    
+    .form-options {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    
+    .remember-me {
+        display: flex;
+        align-items: center;
+    }
+    
+    .remember-me input {
+        margin-right: 8px;
+        accent-color: var(--accent-color);
+    }
+    
+    .forgot-password {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-size: 0.9rem;
+    }
+    
+    .forgot-password:hover {
+        text-decoration: underline;
+    }
+    
+    .login-error {
+        color: #e74c3c;
+        margin-bottom: 20px;
+        padding: 10px;
+        border-radius: 8px;
+        background-color: rgba(231, 76, 60, 0.1);
+        display: none;
+    }
+    
+    .login-btn {
+        width: 100%;
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: white;
+        border: none;
+        padding: 12px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    
+    .login-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .login-footer {
+        text-align: center;
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid #eee;
+    }
+    
+    .login-footer a {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 600;
+    }
+    
+    .login-footer a:hover {
+        text-decoration: underline;
+    }
+    
+    .info-content {
+        padding: 20px;
+    }
+    
+    .info-content h3 {
+        color: var(--primary-color);
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+    
+    .info-feature {
+        display: flex;
+        margin-bottom: 30px;
+    }
+    
+    .info-icon {
+        font-size: 2rem;
+        color: var(--accent-color);
+        margin-right: 20px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .info-text h4 {
+        color: var(--primary-color);
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+    
+    .info-text p {
+        margin: 0;
+        color: #666;
+        line-height: 1.6;
+    }
+    
+    @media (max-width: 768px) {
+        .login-container {
+            flex-direction: column;
+        }
+        
+        .form-options {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const loginForm = document.getElementById('login-form');
+        const loginError = document.getElementById('login-error');
+        
+        // Check if user just applied
+        const applicantId = localStorage.getItem('applicantId');
+        if (applicantId) {
+            // Clear it once used
+            localStorage.removeItem('applicantId');
+        }
+        
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const loginBtn = document.querySelector('.login-btn');
+            
+            // Reset error
+            loginError.style.display = 'none';
+            loginError.textContent = '';
+            
+            // Disable button and show loading state
+            loginBtn.textContent = 'Logging in...';
+            loginBtn.disabled = true;
+            
+            // Use the dedicated email lookup endpoint
+            fetch(`/api/Members/find-by-email/${encodeURIComponent(email)}`)
+                .then(response => {
+                    if (!response.ok) {
+                        if (response.status === 404) {
+                            throw new Error('No account found with this email');
+                        }
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Get the member ID and data
+                    const memberId = Object.keys(data)[0];
+                    const memberData = data[memberId];
+                    
+                    // Check password (in a real app, this should be done server-side!)
+                    if (memberData.password !== password) {
+                        throw new Error('Incorrect password');
+                    }
+                    
+                    // Login successful
+                    // Store user info in session storage
+                    const userInfo = {
+                        id: memberId,
+                        firstName: memberData.firstName,
+                        lastName: memberData.lastName,
+                        email: memberData.email,
+                        grade: memberData.grade,
+                        events: memberData.events,
+                        status: memberData.status
+                    };
+                    
+                    sessionStorage.setItem('currentUser', JSON.stringify(userInfo));
+                    
+                    // Redirect to dashboard or home
+                    window.location.href = '/'; // Or a dashboard page
+                })
+                .catch(error => {
+                    console.error('Login error:', error);
+                    loginError.textContent = error.message || 'Login failed. Please try again.';
+                    loginError.style.display = 'block';
+                })
+                .finally(() => {
+                    loginBtn.textContent = 'Login';
+                    loginBtn.disabled = false;
+                });
+        });
+    });
+</script>
+{% endblock %} 

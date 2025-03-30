@@ -1,0 +1,15 @@
+# Python pycache:
+__pycache__/
+.pytest_cache/
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Documentation and planning
+README.md
+Plan.txt
+
+# Tests
+test_*.py 

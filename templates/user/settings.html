@@ -1,0 +1,1110 @@
+{% extends "layout.html" %}
+
+{% block title %}Account Settings - Bronx Science Olympiad{% endblock %}
+
+{% block content %}
+<div class="hero" style="height: 30vh; background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/static/images/settings-bg.jpg');">
+    <div class="hero-content">
+        <h1>Account Settings</h1>
+        <p>Manage your profile and preferences</p>
+    </div>
+</div>
+
+<section class="section">
+    <div class="container">
+        <div class="settings-container">
+            <!-- Settings Navigation -->
+            <div class="settings-nav">
+                <ul>
+                    <li class="active" data-target="profile-section"><i class="fas fa-user"></i> Profile</li>
+                    <li data-target="account-section"><i class="fas fa-lock"></i> Account</li>
+                    <li data-target="notifications-section"><i class="fas fa-bell"></i> Notifications</li>
+                    <li data-target="events-section"><i class="fas fa-calendar"></i> My Events</li>
+                </ul>
+            </div>
+            
+            <!-- Settings Content -->
+            <div class="settings-content">
+                <!-- Profile Section -->
+                <div id="profile-section" class="settings-section active">
+                    <h2>Profile Information</h2>
+                    <p class="section-description">Update your personal information and how others see you.</p>
+                    
+                    <div class="profile-photo-container">
+                        <div class="profile-photo">
+                            <img id="profileImage" src="/static/images/default-profile.png" alt="Profile Photo">
+                            <div class="profile-photo-overlay">
+                                <i class="fas fa-camera"></i>
+                                <span>Change Photo</span>
+                            </div>
+                        </div>
+                        <input type="file" id="profilePhotoInput" accept="image/*" style="display: none;">
+                    </div>
+                    
+                    <form id="profileForm" class="settings-form">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="displayName">Display Name (optional)</label>
+                            <input type="text" id="displayName" name="displayName" placeholder="How you want to be known">
+                        </div>
+                        <div class="form-group">
+                            <label for="grade">Grade</label>
+                            <select id="grade" name="grade" required>
+                                <option value="9">9th Grade</option>
+                                <option value="10">10th Grade</option>
+                                <option value="11">11th Grade</option>
+                                <option value="12">12th Grade</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="bio">About Me</label>
+                            <textarea id="bio" name="bio" rows="4" placeholder="Share a little about yourself..."></textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="save-btn">Save Profile</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Account Section -->
+                <div id="account-section" class="settings-section">
+                    <h2>Account Settings</h2>
+                    <p class="section-description">Manage your email and password.</p>
+                    
+                    <div class="settings-card">
+                        <h3>Email Address</h3>
+                        <form id="emailForm" class="settings-form">
+                            <div class="form-group">
+                                <label for="currentEmail">Current Email</label>
+                                <input type="email" id="currentEmail" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="newEmail">New Email</label>
+                                <input type="email" id="newEmail" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="emailPassword">Current Password</label>
+                                <input type="password" id="emailPassword" name="password" required>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="save-btn">Update Email</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="settings-card">
+                        <h3>Change Password</h3>
+                        <form id="passwordForm" class="settings-form">
+                            <div class="form-group">
+                                <label for="currentPassword">Current Password</label>
+                                <input type="password" id="currentPassword" name="currentPassword" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="newPassword">New Password</label>
+                                <input type="password" id="newPassword" name="newPassword" required>
+                                <div class="password-strength">
+                                    <div class="strength-meter"></div>
+                                    <span class="strength-text">Password strength</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirm New Password</label>
+                                <input type="password" id="confirmPassword" name="confirmPassword" required>
+                                <span class="match-message"></span>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="save-btn">Update Password</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Notifications Section -->
+                <div id="notifications-section" class="settings-section">
+                    <h2>Notification Preferences</h2>
+                    <p class="section-description">Control how and when you receive notifications.</p>
+                    
+                    <form id="notificationsForm" class="settings-form">
+                        <div class="toggle-group">
+                            <div class="toggle-label">
+                                <span>Email Notifications</span>
+                                <p>Receive updates about events, competitions, and important announcements</p>
+                            </div>
+                            <label class="toggle">
+                                <input type="checkbox" id="emailNotifications" name="emailNotifications" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        
+                        <div class="toggle-group">
+                            <div class="toggle-label">
+                                <span>Event Reminders</span>
+                                <p>Get reminders about upcoming events, meetings, and deadlines</p>
+                            </div>
+                            <label class="toggle">
+                                <input type="checkbox" id="reminderNotifications" name="reminderNotifications" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="save-btn">Save Preferences</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Events Section -->
+                <div id="events-section" class="settings-section">
+                    <h2>My Events</h2>
+                    <p class="section-description">Manage the events you're participating in.</p>
+                    
+                    <div class="events-list" id="userEventsList">
+                        <div class="loading-events">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Loading your events...</p>
+                        </div>
+                    </div>
+                    
+                    <div class="add-events-container">
+                        <h3>Add Events</h3>
+                        <p>Select additional events to join:</p>
+                        <div class="available-events" id="availableEventsList">
+                            <div class="loading-events">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                <p>Loading available events...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .settings-container {
+        display: flex;
+        gap: 30px;
+        margin-top: 20px;
+    }
+    
+    .settings-nav {
+        width: 250px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        padding: 20px 0;
+        align-self: flex-start;
+        position: sticky;
+        top: 90px;
+    }
+    
+    .settings-nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .settings-nav li {
+        padding: 15px 20px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        transition: all 0.2s;
+        color: #555;
+    }
+    
+    .settings-nav li:hover {
+        background-color: #f9f9f9;
+        color: var(--primary-color);
+    }
+    
+    .settings-nav li.active {
+        background-color: #f0f0f0;
+        color: var(--primary-color);
+        border-left: 3px solid var(--primary-color);
+    }
+    
+    .settings-content {
+        flex: 1;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        padding: 30px;
+    }
+    
+    .settings-section {
+        display: none;
+    }
+    
+    .settings-section.active {
+        display: block;
+    }
+    
+    .section-description {
+        color: #777;
+        margin-bottom: 25px;
+    }
+    
+    .settings-card {
+        border: 1px solid #eee;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 25px;
+    }
+    
+    .settings-card h3 {
+        margin-top: 0;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #eee;
+        font-size: 1.2rem;
+    }
+    
+    .settings-form {
+        margin-top: 20px;
+    }
+    
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-family: inherit;
+    }
+    
+    .form-group textarea {
+        resize: vertical;
+    }
+    
+    .form-actions {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 25px;
+    }
+    
+    .save-btn {
+        background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 8px;
+        font-weight: 500;
+        cursor: pointer;
+    }
+    
+    /* Profile Photo */
+    .profile-photo-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+    
+    .profile-photo {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        overflow: hidden;
+        position: relative;
+        border: 5px solid #f5f5f5;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+    }
+    
+    .profile-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .profile-photo-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+    
+    .profile-photo:hover .profile-photo-overlay {
+        opacity: 1;
+    }
+    
+    .profile-photo-overlay i {
+        font-size: 1.5rem;
+        margin-bottom: 5px;
+    }
+    
+    /* Password Strength */
+    .password-strength {
+        margin-top: 8px;
+    }
+    
+    .strength-meter {
+        height: 5px;
+        width: 100%;
+        background-color: #eee;
+        border-radius: 3px;
+        overflow: hidden;
+    }
+    
+    .strength-meter div {
+        height: 100%;
+        width: 0;
+        transition: width 0.3s;
+    }
+    
+    .strength-text {
+        font-size: 0.8rem;
+        color: #777;
+    }
+    
+    .match-message {
+        font-size: 0.8rem;
+        display: block;
+        margin-top: 5px;
+    }
+    
+    /* Toggle Switch */
+    .toggle-group {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .toggle-label {
+        flex: 1;
+    }
+    
+    .toggle-label span {
+        font-weight: 500;
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    .toggle-label p {
+        margin: 0;
+        color: #777;
+        font-size: 0.9rem;
+    }
+    
+    .toggle {
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 24px;
+    }
+    
+    .toggle input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+    
+    .toggle-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: .4s;
+        border-radius: 34px;
+    }
+    
+    .toggle-slider:before {
+        position: absolute;
+        content: "";
+        height: 18px;
+        width: 18px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        transition: .4s;
+        border-radius: 50%;
+    }
+    
+    input:checked + .toggle-slider {
+        background-color: var(--accent-color);
+    }
+    
+    input:checked + .toggle-slider:before {
+        transform: translateX(26px);
+    }
+    
+    /* Events List */
+    .events-list {
+        margin-bottom: 30px;
+    }
+    
+    .event-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        margin-bottom: 10px;
+    }
+    
+    .event-info {
+        flex: 1;
+    }
+    
+    .event-name {
+        font-weight: 500;
+        margin-bottom: 5px;
+    }
+    
+    .event-description {
+        color: #777;
+        font-size: 0.9rem;
+    }
+    
+    .event-actions button {
+        background: none;
+        border: none;
+        color: #e74c3c;
+        cursor: pointer;
+    }
+    
+    .available-events {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+        margin-top: 15px;
+    }
+    
+    .available-event {
+        border: 1px solid #eee;
+        border-radius: 8px;
+        padding: 15px;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    
+    .available-event:hover {
+        border-color: var(--accent-color);
+        background-color: #f9f9f9;
+    }
+    
+    .available-event.selected {
+        border-color: var(--accent-color);
+        background-color: rgba(155, 89, 182, 0.1);
+    }
+    
+    .loading-events {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        color: #777;
+    }
+    
+    .loading-events i {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        color: var(--accent-color);
+    }
+    
+    /* Success and Error Messages */
+    .message {
+        padding: 10px 15px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .success-message {
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+    }
+    
+    .error-message {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .settings-container {
+            flex-direction: column;
+        }
+        
+        .settings-nav {
+            width: 100%;
+            position: static;
+        }
+        
+        .settings-nav ul {
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .settings-nav li {
+            padding: 10px 15px;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Check if user is logged in
+        const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+        if (!currentUser) {
+            window.location.href = '{{ url_for("login") }}';
+            return;
+        }
+        
+        // Elements
+        const navItems = document.querySelectorAll('.settings-nav li');
+        const sections = document.querySelectorAll('.settings-section');
+        const profileForm = document.getElementById('profileForm');
+        const emailForm = document.getElementById('emailForm');
+        const passwordForm = document.getElementById('passwordForm');
+        const notificationsForm = document.getElementById('notificationsForm');
+        const profilePhotoContainer = document.querySelector('.profile-photo');
+        const profilePhotoInput = document.getElementById('profilePhotoInput');
+        const profileImage = document.getElementById('profileImage');
+        const newPassword = document.getElementById('newPassword');
+        const confirmPassword = document.getElementById('confirmPassword');
+        const strengthMeter = document.querySelector('.strength-meter');
+        const strengthText = document.querySelector('.strength-text');
+        const matchMessage = document.querySelector('.match-message');
+        const currentEmail = document.getElementById('currentEmail');
+        
+        // Initialize user data
+        let userData = null;
+        
+        // Load user data
+        function loadUserData() {
+            fetch(`/api/Members/${currentUser.id}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to load user data');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Extract member data
+                    userData = Object.values(data)[0];
+                    
+                    // Populate form fields
+                    populateUserData();
+                    
+                    // Load user events
+                    loadUserEvents();
+                    
+                    // Load available events
+                    loadAvailableEvents();
+                })
+                .catch(error => {
+                    console.error('Error loading user data:', error);
+                    showMessage('error-message', `Error: ${error.message}`, document.querySelector('.settings-content'));
+                });
+        }
+        
+        // Populate form fields with user data
+        function populateUserData() {
+            // Profile form
+            document.getElementById('firstName').value = userData.firstName || '';
+            document.getElementById('lastName').value = userData.lastName || '';
+            document.getElementById('displayName').value = userData.displayName || '';
+            document.getElementById('grade').value = userData.grade || '9';
+            document.getElementById('bio').value = userData.bio || '';
+            
+            // Email
+            currentEmail.value = userData.email || '';
+            
+            // Notification preferences
+            document.getElementById('emailNotifications').checked = 
+                userData.notificationPreferences?.email !== undefined ? 
+                userData.notificationPreferences.email : true;
+            
+            document.getElementById('reminderNotifications').checked = 
+                userData.notificationPreferences?.reminders !== undefined ? 
+                userData.notificationPreferences.reminders : true;
+            
+            // Profile image
+            if (userData.profilePicUrl) {
+                profileImage.src = userData.profilePicUrl;
+            }
+        }
+        
+        // Load user events
+        function loadUserEvents() {
+            const userEventsList = document.getElementById('userEventsList');
+            
+            if (!userData.events || userData.events.length === 0) {
+                userEventsList.innerHTML = `
+                    <div class="empty-state" style="text-align: center; padding: 20px;">
+                        <i class="fas fa-calendar-times" style="font-size: 3rem; color: #ddd; margin-bottom: 15px;"></i>
+                        <h3>No Events Yet</h3>
+                        <p>You haven't joined any events yet. Add events below to get started.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            userEventsList.innerHTML = '';
+            
+            userData.events.forEach(event => {
+                const eventItem = document.createElement('div');
+                eventItem.className = 'event-item';
+                eventItem.innerHTML = `
+                    <div class="event-info">
+                        <div class="event-name">${event}</div>
+                        <div class="event-description">Active member</div>
+                    </div>
+                    <div class="event-actions">
+                        <button class="remove-event-btn" data-event="${event}">
+                            <i class="fas fa-times"></i> Remove
+                        </button>
+                    </div>
+                `;
+                
+                // Add event listener for remove button
+                eventItem.querySelector('.remove-event-btn').addEventListener('click', function() {
+                    const eventName = this.dataset.event;
+                    if (confirm(`Are you sure you want to remove ${eventName} from your events?`)) {
+                        removeEventFromUser(eventName);
+                    }
+                });
+                
+                userEventsList.appendChild(eventItem);
+            });
+        }
+        
+        // Load available events
+        function loadAvailableEvents() {
+            const availableEventsList = document.getElementById('availableEventsList');
+            
+            // This is a placeholder - in a real implementation, you would fetch from a database
+            const allEvents = [
+                'Anatomy & Physiology', 'Astronomy', 'Biology', 'Chemistry', 'Dynamic Planet',
+                'Earth Science', 'Ecology', 'Experimental Design', 'Forensics', 'Fossils',
+                'Genetics', 'Geology', 'Herpetology', 'Microbe Mission', 'Ornithology',
+                'Remote Sensing', 'Rocks & Minerals', 'Tower Building', 'Water Quality', 'Wright Stuff'
+            ];
+            
+            // Filter out events the user is already in
+            const userEvents = userData.events || [];
+            const availableEvents = allEvents.filter(event => !userEvents.includes(event));
+            
+            availableEventsList.innerHTML = '';
+            
+            if (availableEvents.length === 0) {
+                availableEventsList.innerHTML = `
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 10px;">
+                        <p>You've joined all available events!</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            availableEvents.forEach(event => {
+                const eventItem = document.createElement('div');
+                eventItem.className = 'available-event';
+                eventItem.innerHTML = `
+                    <div class="event-name">${event}</div>
+                `;
+                
+                // Add click event to toggle selection
+                eventItem.addEventListener('click', function() {
+                    this.classList.toggle('selected');
+                });
+                
+                availableEventsList.appendChild(eventItem);
+            });
+            
+            // Add button to add selected events
+            const addButton = document.createElement('button');
+            addButton.className = 'save-btn';
+            addButton.style.marginTop = '20px';
+            addButton.textContent = 'Add Selected Events';
+            addButton.addEventListener('click', addSelectedEvents);
+            
+            availableEventsList.insertAdjacentElement('afterend', addButton);
+        }
+        
+        // Add selected events to user
+        function addSelectedEvents() {
+            const selectedEvents = document.querySelectorAll('.available-event.selected');
+            
+            if (selectedEvents.length === 0) {
+                alert('Please select at least one event to add');
+                return;
+            }
+            
+            // Get current user events
+            const userEvents = userData.events || [];
+            
+            // Add selected events
+            selectedEvents.forEach(eventElement => {
+                const eventName = eventElement.querySelector('.event-name').textContent;
+                if (!userEvents.includes(eventName)) {
+                    userEvents.push(eventName);
+                }
+            });
+            
+            // Update user data
+            updateUserData({ events: userEvents }, function() {
+                // Reload user events and available events
+                loadUserEvents();
+                loadAvailableEvents();
+                showMessage('success-message', 'Events updated successfully', document.getElementById('events-section'));
+            });
+        }
+        
+        // Remove event from user
+        function removeEventFromUser(eventName) {
+            // Get current user events
+            const userEvents = userData.events || [];
+            
+            // Remove the event
+            const updatedEvents = userEvents.filter(event => event !== eventName);
+            
+            // Update user data
+            updateUserData({ events: updatedEvents }, function() {
+                // Reload user events and available events
+                loadUserEvents();
+                loadAvailableEvents();
+                showMessage('success-message', `Removed ${eventName} from your events`, document.getElementById('events-section'));
+            });
+        }
+        
+        // Update user data in Firebase
+        function updateUserData(data, callback) {
+            fetch(`/api/Members/${currentUser.id}`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to update user data');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Update local user data
+                for (const key in data) {
+                    userData[key] = data[key];
+                }
+                
+                // Execute callback
+                if (callback && typeof callback === 'function') {
+                    callback();
+                }
+            })
+            .catch(error => {
+                console.error('Error updating user data:', error);
+                showMessage('error-message', `Error: ${error.message}`, document.querySelector('.settings-content'));
+            });
+        }
+        
+        // Show success or error message
+        function showMessage(type, text, parent) {
+            // Remove any existing messages
+            const existingMessages = parent.querySelectorAll('.message');
+            existingMessages.forEach(message => message.remove());
+            
+            // Create new message
+            const message = document.createElement('div');
+            message.className = `message ${type}`;
+            message.innerHTML = `
+                <i class="${type === 'success-message' ? 'fas fa-check-circle' : 'fas fa-exclamation-circle'}"></i>
+                <span>${text}</span>
+            `;
+            
+            // Insert at the top of the parent
+            parent.insertBefore(message, parent.firstChild);
+            
+            // Remove after 5 seconds
+            setTimeout(() => {
+                message.remove();
+            }, 5000);
+        }
+        
+        // Upload profile photo
+        function uploadProfilePhoto(file) {
+            // Create form data for the file
+            const formData = new FormData();
+            formData.append('file', file);
+            formData.append('userId', currentUser.id);
+            
+            fetch('/api/profile-photo', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to upload profile photo');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Update profile photo URL in user data
+                updateUserData({ profilePicUrl: data.url }, function() {
+                    // Update image source
+                    profileImage.src = data.url;
+                    showMessage('success-message', 'Profile photo updated successfully', document.getElementById('profile-section'));
+                });
+            })
+            .catch(error => {
+                console.error('Error uploading profile photo:', error);
+                showMessage('error-message', `Error: ${error.message}`, document.getElementById('profile-section'));
+            });
+        }
+        
+        // Check password strength
+        function checkPasswordStrength(password) {
+            // Define strength criteria
+            const hasLower = /[a-z]/.test(password);
+            const hasUpper = /[A-Z]/.test(password);
+            const hasNumber = /\d/.test(password);
+            const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+            const isLongEnough = password.length >= 8;
+            
+            // Calculate strength score (0-4)
+            let score = [hasLower, hasUpper, hasNumber, hasSpecial, isLongEnough].filter(Boolean).length;
+            
+            // Update the strength meter
+            let percent = (score / 5) * 100;
+            let color = '';
+            let text = '';
+            
+            if (score === 0) {
+                color = '#ddd';
+                text = 'Enter a password';
+            } else if (score <= 2) {
+                color = '#f14646';
+                text = 'Weak';
+            } else if (score <= 3) {
+                color = '#ffb900';
+                text = 'Medium';
+            } else {
+                color = '#2ecc71';
+                text = 'Strong';
+            }
+            
+            // Create strength indicator if it doesn't exist
+            if (!strengthMeter.querySelector('div')) {
+                const indicator = document.createElement('div');
+                strengthMeter.appendChild(indicator);
+            }
+            
+            // Update styles
+            const indicator = strengthMeter.querySelector('div');
+            indicator.style.width = `${percent}%`;
+            indicator.style.backgroundColor = color;
+            strengthText.textContent = text;
+            strengthText.style.color = color;
+        }
+        
+        // Check if passwords match
+        function checkPasswordsMatch() {
+            const password = newPassword.value;
+            const confirm = confirmPassword.value;
+            
+            if (confirm) {
+                if (password === confirm) {
+                    matchMessage.textContent = 'Passwords match';
+                    matchMessage.style.color = '#2ecc71';
+                } else {
+                    matchMessage.textContent = 'Passwords do not match';
+                    matchMessage.style.color = '#f14646';
+                }
+            } else {
+                matchMessage.textContent = '';
+            }
+        }
+        
+        // Navigation between settings sections
+        navItems.forEach(item => {
+            item.addEventListener('click', function() {
+                // Remove active class from all items
+                navItems.forEach(i => i.classList.remove('active'));
+                
+                // Add active class to clicked item
+                this.classList.add('active');
+                
+                // Hide all sections
+                sections.forEach(section => section.classList.remove('active'));
+                
+                // Show the target section
+                const targetSection = this.dataset.target;
+                document.getElementById(targetSection).classList.add('active');
+            });
+        });
+        
+        // Profile photo upload
+        profilePhotoContainer.addEventListener('click', function() {
+            profilePhotoInput.click();
+        });
+        
+        profilePhotoInput.addEventListener('change', function() {
+            if (this.files && this.files[0]) {
+                const file = this.files[0];
+                
+                // Check file type and size
+                if (!file.type.match('image.*')) {
+                    alert('Please select an image file');
+                    return;
+                }
+                
+                if (file.size > 5 * 1024 * 1024) { // 5MB
+                    alert('File size should be less than 5MB');
+                    return;
+                }
+                
+                // Preview the image
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    profileImage.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+                
+                // Upload the file
+                uploadProfilePhoto(file);
+            }
+        });
+        
+        // Password strength and match checking
+        newPassword.addEventListener('input', function() {
+            checkPasswordStrength(this.value);
+            checkPasswordsMatch();
+        });
+        
+        confirmPassword.addEventListener('input', checkPasswordsMatch);
+        
+        // Profile form submission
+        profileForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const profileData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                displayName: document.getElementById('displayName').value,
+                grade: document.getElementById('grade').value,
+                bio: document.getElementById('bio').value
+            };
+            
+            updateUserData(profileData, function() {
+                showMessage('success-message', 'Profile updated successfully', document.getElementById('profile-section'));
+            });
+        });
+        
+        // Email form submission
+        emailForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const newEmail = document.getElementById('newEmail').value;
+            const password = document.getElementById('emailPassword').value;
+            
+            // In a real implementation, this would verify the password and update email securely
+            // For this demo, we'll just update the email
+            updateUserData({ email: newEmail }, function() {
+                currentEmail.value = newEmail;
+                document.getElementById('newEmail').value = '';
+                document.getElementById('emailPassword').value = '';
+                showMessage('success-message', 'Email updated successfully', document.getElementById('account-section'));
+            });
+        });
+        
+        // Password form submission
+        passwordForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const currentPassword = document.getElementById('currentPassword').value;
+            const newPasswordValue = newPassword.value;
+            const confirmPasswordValue = confirmPassword.value;
+            
+            // Check if passwords match
+            if (newPasswordValue !== confirmPasswordValue) {
+                showMessage('error-message', 'Passwords do not match', document.getElementById('account-section'));
+                return;
+            }
+            
+            // Check password strength
+            if (newPasswordValue.length < 8) {
+                showMessage('error-message', 'Password must be at least 8 characters long', document.getElementById('account-section'));
+                return;
+            }
+            
+            // In a real implementation, this would verify the current password and update securely
+            // For this demo, we'll just update the password
+            updateUserData({ password: newPasswordValue }, function() {
+                document.getElementById('currentPassword').value = '';
+                newPassword.value = '';
+                confirmPassword.value = '';
+                strengthMeter.innerHTML = '';
+                strengthText.textContent = 'Password strength';
+                strengthText.style.color = '#777';
+                matchMessage.textContent = '';
+                showMessage('success-message', 'Password updated successfully', document.getElementById('account-section'));
+            });
+        });
+        
+        // Notifications form submission
+        notificationsForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const notificationPreferences = {
+                email: document.getElementById('emailNotifications').checked,
+                reminders: document.getElementById('reminderNotifications').checked
+            };
+            
+            updateUserData({ notificationPreferences }, function() {
+                showMessage('success-message', 'Notification preferences updated successfully', document.getElementById('notifications-section'));
+            });
+        });
+        
+        // Load user data on page load
+        loadUserData();
+    });
+</script>
+{% endblock %} 

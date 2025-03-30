@@ -1,0 +1,568 @@
+{% extends "layout.html" %}
+
+{% block title %}Earth Science Events - Bronx Science Olympiad{% endblock %}
+
+{% block content %}
+<div class="hero" style="height: 60vh; background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/static/images/earth-science-bg.jpg');">
+    <div class="hero-content">
+        <h1>Earth Science Events</h1>
+        <p>Explore our planet's dynamic systems, from geology to astronomy</p>
+        <div class="hero-cta">
+            <a href="#events" class="btn"><i class="fas fa-globe-americas"></i> Discover Events</a>
+        </div>
+    </div>
+</div>
+
+<section id="benefits" class="section">
+    <div class="container">
+        <div class="section-title">
+            <h2>Earth and Space Science</h2>
+            <p class="source-link">Events from <a href="https://www.soinc.org/events/2025-division-c-events" target="_blank">Science Olympiad</a></p>
+        </div>
+        <div class="section-content">
+            <p class="intro-text">Earth and Space Science events in Science Olympiad cover a wide range of topics from astronomy to geology. These events challenge students to understand the processes that shape our planet and the cosmic context in which it exists.</p>
+        </div>
+        <!-- Decorative Elements -->
+        <div class="atom-orbit" style="right: 10%; top: 20%;"></div>
+    </div>
+</section>
+
+<section id="events" class="section" style="background-color: #f5f7fa;">
+    <div class="container">
+        <div class="section-title">
+            <h2>2025 Earth and Space Science Events</h2>
+        </div>
+        <div class="section-content">
+            <div class="earth-events">
+                <div class="earth-event">
+                    <div class="event-icon"><i class="fas fa-star"></i></div>
+                    <h3>Astronomy</h3>
+                    <p>Students will demonstrate an understanding of stellar evolution and variable stars through analysis, calculation, and graphical interpretation of provided data.</p>
+                    <div class="event-details">
+                        <span class="event-type"><i class="fas fa-book"></i> Study Event</span>
+                        <span class="event-team"><i class="fas fa-users"></i> Team of 2</span>
+                    </div>
+                </div>
+                
+                <div class="earth-event">
+                    <div class="event-icon"><i class="fas fa-mountain"></i></div>
+                    <h3>Dynamic Planet</h3>
+                    <p>Students will use process skills to complete tasks related to Earth's fresh waters, including physical and ecological processes, human impacts, and conservation.</p>
+                    <div class="event-details">
+                        <span class="event-type"><i class="fas fa-book"></i> Study Event</span>
+                        <span class="event-team"><i class="fas fa-users"></i> Team of 2</span>
+                    </div>
+                </div>
+                
+                <div class="earth-event">
+                    <div class="event-icon"><i class="fas fa-bone"></i></div>
+                    <h3>Fossils</h3>
+                    <p>Students will demonstrate their knowledge of ancient life by identifying fossils and their classifications, as well as answering questions on preservation, evolution, and paleoecology.</p>
+                    <div class="event-details">
+                        <span class="event-type"><i class="fas fa-book"></i> Study Event</span>
+                        <span class="event-team"><i class="fas fa-users"></i> Team of 2</span>
+                    </div>
+                </div>
+                
+                <div class="earth-event">
+                    <div class="event-icon"><i class="fas fa-map"></i></div>
+                    <h3>Geologic Mapping</h3>
+                    <p>Students will demonstrate their understanding of topographic maps, geologic maps, structural geology, and geological tools and techniques.</p>
+                    <div class="event-details">
+                        <span class="event-type"><i class="fas fa-book"></i> Study Event</span>
+                        <span class="event-team"><i class="fas fa-users"></i> Team of 2</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section-title">
+            <h2>Earth Science Concepts</h2>
+        </div>
+        <div class="section-content">
+            <div class="concept-categories">
+                <div class="concept-category">
+                    <h3><i class="fas fa-star"></i> Astronomy Concepts</h3>
+                    <div class="concept-grid">
+                        <div class="concept">
+                            <div class="concept-icon">
+                                <i class="fas fa-sun"></i>
+                            </div>
+                            <h4>Stellar Evolution</h4>
+                            <p>The life cycle of stars from formation to death</p>
+                        </div>
+                        <div class="concept">
+                            <div class="concept-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h4>Variable Stars</h4>
+                            <p>Stars that change in brightness over time</p>
+                        </div>
+                        <div class="concept">
+                            <div class="concept-icon">
+                                <i class="fas fa-galaxy"></i>
+                            </div>
+                            <h4>Galaxies</h4>
+                            <p>Structure and classification of galaxies</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="concept-category">
+                    <h3><i class="fas fa-mountain"></i> Geology Concepts</h3>
+                    <div class="concept-grid">
+                        <div class="concept">
+                            <div class="concept-icon">
+                                <i class="fas fa-layer-group"></i>
+                            </div>
+                            <h4>Stratigraphy</h4>
+                            <p>Study of rock layers and layering</p>
+                        </div>
+                        <div class="concept">
+                            <div class="concept-icon">
+                                <i class="fas fa-water"></i>
+                            </div>
+                            <h4>Hydrology</h4>
+                            <p>Movement and distribution of water</p>
+                        </div>
+                        <div class="concept">
+                            <div class="concept-icon">
+                                <i class="fas fa-gem"></i>
+                            </div>
+                            <h4>Mineralogy</h4>
+                            <p>Properties and classification of minerals</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="concept-category">
+                    <h3><i class="fas fa-globe-americas"></i> Interactive Earth Systems</h3>
+                    <div class="earth-systems">
+                        <div class="system-circle" id="atmosphere">
+                            <span>Atmosphere</span>
+                        </div>
+                        <div class="system-circle" id="hydrosphere">
+                            <span>Hydrosphere</span>
+                        </div>
+                        <div class="system-circle" id="geosphere">
+                            <span>Geosphere</span>
+                        </div>
+                        <div class="system-circle" id="biosphere">
+                            <span>Biosphere</span>
+                        </div>
+                        <div class="system-interactions">
+                            <div class="interaction" data-systems="atmosphere-hydrosphere">
+                                <span>Evaporation & Precipitation</span>
+                            </div>
+                            <div class="interaction" data-systems="atmosphere-geosphere">
+                                <span>Weathering & Erosion</span>
+                            </div>
+                            <div class="interaction" data-systems="hydrosphere-geosphere">
+                                <span>Sediment Transport</span>
+                            </div>
+                            <div class="interaction" data-systems="biosphere-atmosphere">
+                                <span>Photosynthesis & Respiration</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="study-resources">
+                <h3>Recommended Resources</h3>
+                <div class="resources-grid">
+                    <div class="resource">
+                        <div class="resource-icon"><i class="fas fa-book"></i></div>
+                        <h4>Textbooks</h4>
+                        <ul>
+                            <li>Earth Science: The Physical Setting</li>
+                            <li>Essentials of Geology</li>
+                            <li>Astronomy: A Beginner's Guide</li>
+                        </ul>
+                    </div>
+                    <div class="resource">
+                        <div class="resource-icon"><i class="fas fa-globe"></i></div>
+                        <h4>Websites</h4>
+                        <ul>
+                            <li>USGS.gov</li>
+                            <li>NASA Earth Observatory</li>
+                            <li>NOAA.gov</li>
+                        </ul>
+                    </div>
+                    <div class="resource">
+                        <div class="resource-icon"><i class="fas fa-tools"></i></div>
+                        <h4>Tools</h4>
+                        <ul>
+                            <li>Topographic Maps</li>
+                            <li>Rock and Mineral Sets</li>
+                            <li>Fossil Identification Guides</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Decorative Elements -->
+        <div class="atom-orbit" style="left: 5%; bottom: 10%;"></div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .intro-text {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        text-align: center;
+        max-width: 900px;
+        margin: 0 auto 2rem;
+    }
+    
+    .earth-events {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 30px;
+    }
+    
+    .earth-event {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        transition: all 0.3s;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .earth-event:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 5px;
+        height: 100%;
+        background: linear-gradient(180deg, #27ae60, #2980b9);
+        transition: all 0.3s ease;
+    }
+    
+    .earth-event:hover {
+        transform: translateY(-15px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+    
+    .earth-event:hover:before {
+        width: 100%;
+        opacity: 0.05;
+    }
+    
+    .event-icon {
+        font-size: 3rem;
+        color: #27ae60;
+        margin-bottom: 20px;
+    }
+    
+    .earth-event h3 {
+        color: var(--primary-color);
+        margin: 0 0 15px 0;
+        font-size: 1.5rem;
+    }
+    
+    .earth-event p {
+        color: #555;
+        margin: 0 0 20px 0;
+        line-height: 1.6;
+    }
+    
+    .event-details {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid #eee;
+    }
+    
+    .event-type, .event-team {
+        font-size: 0.9rem;
+        color: #666;
+    }
+    
+    .event-type i, .event-team i {
+        margin-right: 5px;
+        color: #27ae60;
+    }
+    
+    .concept-categories {
+        margin-top: 40px;
+    }
+    
+    .concept-category {
+        margin-bottom: 60px;
+    }
+    
+    .concept-category h3 {
+        color: var(--primary-color);
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 1.8rem;
+    }
+    
+    .concept-category h3 i {
+        margin-right: 10px;
+        color: #27ae60;
+    }
+    
+    .concept-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 30px;
+    }
+    
+    .concept {
+        background: white;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        text-align: center;
+        transition: all 0.3s;
+    }
+    
+    .concept:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+    
+    .concept-icon {
+        font-size: 2.5rem;
+        color: #27ae60;
+        margin-bottom: 15px;
+    }
+    
+    .concept h4 {
+        color: var(--primary-color);
+        margin: 0 0 10px 0;
+    }
+    
+    .concept p {
+        color: #666;
+        margin: 0;
+    }
+    
+    .earth-systems {
+        position: relative;
+        height: 400px;
+        margin-top: 50px;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        padding: 20px;
+    }
+    
+    .system-circle {
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        transition: all 0.3s;
+        cursor: pointer;
+    }
+    
+    .system-circle:hover {
+        transform: scale(1.1);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    #atmosphere {
+        top: 50px;
+        left: 50px;
+        background: linear-gradient(135deg, #3498db, #2980b9);
+    }
+    
+    #hydrosphere {
+        top: 50px;
+        right: 50px;
+        background: linear-gradient(135deg, #2980b9, #1abc9c);
+    }
+    
+    #geosphere {
+        bottom: 50px;
+        left: 50px;
+        background: linear-gradient(135deg, #e67e22, #d35400);
+    }
+    
+    #biosphere {
+        bottom: 50px;
+        right: 50px;
+        background: linear-gradient(135deg, #27ae60, #2ecc71);
+    }
+    
+    .system-interactions {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+    }
+    
+    .interaction {
+        position: absolute;
+        font-size: 0.85rem;
+        font-weight: bold;
+        color: #555;
+        background: rgba(255,255,255,0.8);
+        padding: 5px 10px;
+        border-radius: 20px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .interaction[data-systems="atmosphere-hydrosphere"] {
+        top: 80px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .interaction[data-systems="atmosphere-geosphere"] {
+        left: 120px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
+    .interaction[data-systems="hydrosphere-geosphere"] {
+        bottom: 80px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .interaction[data-systems="biosphere-atmosphere"] {
+        right: 120px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
+    .study-resources {
+        margin-top: 60px;
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+    
+    .study-resources h3 {
+        color: var(--primary-color);
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    
+    .resources-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 30px;
+    }
+    
+    .resource {
+        text-align: center;
+        transition: all 0.3s;
+    }
+    
+    .resource:hover {
+        transform: translateY(-5px);
+    }
+    
+    .resource-icon {
+        font-size: 2.5rem;
+        color: #27ae60;
+        margin-bottom: 15px;
+    }
+    
+    .resource h4 {
+        color: var(--primary-color);
+        margin: 0 0 15px 0;
+    }
+    
+    .resource ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        text-align: left;
+    }
+    
+    .resource ul li {
+        margin-bottom: 8px;
+        padding-left: 20px;
+        position: relative;
+        color: #555;
+    }
+    
+    .resource ul li:before {
+        content: '•';
+        position: absolute;
+        left: 0;
+        color: #27ae60;
+    }
+    
+    @media (max-width: 992px) {
+        .earth-systems {
+            height: auto;
+            padding: 30px;
+        }
+        
+        .system-circle {
+            position: static;
+            margin: 20px auto;
+        }
+        
+        .interaction {
+            display: none;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .earth-events, .concept-grid, .resources-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add interactive behavior for earth systems
+        const systems = document.querySelectorAll('.system-circle');
+        
+        systems.forEach(system => {
+            system.addEventListener('mouseenter', function() {
+                const id = this.id;
+                
+                // Show related interactions
+                const interactions = document.querySelectorAll('.interaction');
+                interactions.forEach(interaction => {
+                    const systems = interaction.getAttribute('data-systems');
+                    if (systems.includes(id)) {
+                        interaction.style.fontWeight = 'bold';
+                        interaction.style.backgroundColor = 'rgba(39, 174, 96, 0.2)';
+                    }
+                });
+            });
+            
+            system.addEventListener('mouseleave', function() {
+                // Reset interactions
+                const interactions = document.querySelectorAll('.interaction');
+                interactions.forEach(interaction => {
+                    interaction.style.fontWeight = 'bold';
+                    interaction.style.backgroundColor = 'rgba(255,255,255,0.8)';
+                });
+            });
+        });
+    });
+</script>
+{% endblock %} 
