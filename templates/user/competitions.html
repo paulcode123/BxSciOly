@@ -12,139 +12,255 @@
 
 <section class="section">
     <div class="container">
-        <div class="section-title">
-            <h2>Competition Timeline 2025-2026</h2>
-            <p class="text-muted">Current system date for testing: {{ now.strftime('%B %d, %Y') }}</p>
-        </div>
-        
-        <div class="timeline">
-            <div class="timeline-container">
-                <div class="timeline-item">
-                    <div class="timeline-date">October 2025</div>
-                    <div class="timeline-content">
-                        <h3>MIT Invitational</h3>
-                        <p><span class="badge">In-person competition</span></p>
-                        <div class="competition-details">
-                            <div class="detail-item">
-                                <i class="fas fa-calendar-alt"></i> Tournament: Oct 18, 2025
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-clock"></i> Apply: Aug 15 - Sep 1, 2025
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-users"></i> Team Release: Sep 15, 2025
-                            </div>
+        <div class="competitions-container">
+            <!-- Competitions Navigation -->
+            <div class="competitions-nav">
+                <ul>
+                    <li class="active" data-target="results-section"><i class="fas fa-trophy"></i> My Results</li>
+                    <li data-target="upcoming-section"><i class="fas fa-calendar-alt"></i> Upcoming</li>
+                    <li data-target="past-section"><i class="fas fa-history"></i> Past Competitions</li>
+                </ul>
+            </div>
+            
+            <!-- Competitions Content -->
+            <div class="competitions-content">
+                <!-- Results Section -->
+                <div id="results-section" class="competitions-section active">
+                    <h2>My Competition Results</h2>
+                    <p class="section-description">View your performance in competitions and tournaments.</p>
+                    
+                    <div class="duosmium-import">
+                        <button id="importDuosmiumBtn" class="btn btn-primary">
+                            <i class="fas fa-file-import"></i> Import from Duosmium
+                        </button>
+                    </div>
+                    
+                    <div class="results-filter">
+                        <div class="filter-group">
+                            <label for="filterEvent">Event</label>
+                            <select id="filterEvent">
+                                <option value="all">All Events</option>
+                                <!-- Events will be loaded dynamically -->
+                            </select>
                         </div>
-                        <div class="action-buttons">
-                            {% if now >= '2025-08-15'|datetime and now <= '2025-09-01'|datetime %}
-                            <a href="#" class="btn btn-primary">Apply Now</a>
-                            {% elif now >= '2025-09-15'|datetime and now <= '2025-10-18'|datetime %}
-                            <a href="#" class="btn btn-info">See Roster</a>
-                            {% endif %}
+                        <div class="filter-group">
+                            <label for="filterYear">Year</label>
+                            <select id="filterYear">
+                                <option value="all">All Years</option>
+                                <option value="2025">2025</option>
+                                <option value="2024">2024</option>
+                                <option value="2023">2023</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="filterType">Type</label>
+                            <select id="filterType">
+                                <option value="all">All Types</option>
+                                <option value="invitational">Invitationals</option>
+                                <option value="regional">Regionals</option>
+                                <option value="state">State</option>
+                                <option value="national">National</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="filterMedals">Show</label>
+                            <select id="filterMedals">
+                                <option value="all">All Results</option>
+                                <option value="medals">Medals Only</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="medal-summary">
+                        <div class="medal-item">
+                            <div class="medal gold">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <span id="goldCount">0</span>
+                        </div>
+                        <div class="medal-item">
+                            <div class="medal silver">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <span id="silverCount">0</span>
+                        </div>
+                        <div class="medal-item">
+                            <div class="medal bronze">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <span id="bronzeCount">0</span>
+                        </div>
+                    </div>
+                    
+                    <div class="results-list" id="userResultsList">
+                        <div class="loading-results">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Loading your competition results...</p>
                         </div>
                     </div>
                 </div>
                 
-                <div class="timeline-item">
-                    <div class="timeline-date">November 2025</div>
-                    <div class="timeline-content">
-                        <h3>Rickards Invitational</h3>
-                        <p><span class="badge">Satellite invitational</span></p>
-                        <div class="competition-details">
-                            <div class="detail-item">
-                                <i class="fas fa-calendar-alt"></i> Tournament: Nov 15, 2025
+                <!-- Upcoming Competitions Section -->
+                <div id="upcoming-section" class="competitions-section">
+                    <h2>Competition Timeline 2025-2026</h2>
+                    <p class="section-description">View upcoming competitions and application deadlines.</p>
+                    
+                    <div class="timeline">
+                        <div class="timeline-container">
+                            <div class="timeline-item">
+                                <div class="timeline-date">October 2025</div>
+                                <div class="timeline-content">
+                                    <h3>MIT Invitational</h3>
+                                    <p><span class="badge">In-person competition</span></p>
+                                    <div class="competition-details">
+                                        <div class="detail-item">
+                                            <i class="fas fa-calendar-alt"></i> Tournament: Oct 18, 2025
+                                        </div>
+                                        <div class="detail-item">
+                                            <i class="fas fa-clock"></i> Apply: Aug 15 - Sep 1, 2025
+                                        </div>
+                                        <div class="detail-item">
+                                            <i class="fas fa-users"></i> Team Release: Sep 15, 2025
+                                        </div>
+                                    </div>
+                                    <div class="action-buttons">
+                                        <a href="#" class="btn btn-primary apply-btn" data-start="2025-08-15" data-end="2025-09-01">Apply Now</a>
+                                        <a href="#" class="btn btn-info roster-btn" data-start="2025-09-15" data-end="2025-10-18">See Roster</a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="detail-item">
-                                <i class="fas fa-clock"></i> Apply: Sep 20 - Oct 5, 2025
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-date">November 2025</div>
+                                <div class="timeline-content">
+                                    <h3>Rickards Invitational</h3>
+                                    <p><span class="badge">Satellite invitational</span></p>
+                                    <div class="competition-details">
+                                        <div class="detail-item">
+                                            <i class="fas fa-calendar-alt"></i> Tournament: Nov 15, 2025
+                                        </div>
+                                        <div class="detail-item">
+                                            <i class="fas fa-clock"></i> Apply: Jul 1 - Jul 15, 2025
+                                        </div>
+                                        <div class="detail-item">
+                                            <i class="fas fa-users"></i> Team Release: Aug 1, 2025
+                                        </div>
+                                    </div>
+                                    <div class="action-buttons">
+                                        <a href="#" class="btn btn-primary apply-btn" data-start="2025-07-01" data-end="2025-07-15">Apply Now</a>
+                                        <a href="#" class="btn btn-info roster-btn" data-start="2025-08-01" data-end="2025-11-15">See Roster</a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="detail-item">
-                                <i class="fas fa-users"></i> Team Release: Oct 15, 2025
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-date">December 2025</div>
+                                <div class="timeline-content">
+                                    <h3>Seal SO</h3>
+                                    <p><span class="badge">Satellite invitational</span></p>
+                                    <div class="competition-details">
+                                        <div class="detail-item">
+                                            <i class="fas fa-calendar-alt"></i> Tournament: Dec 10, 2025
+                                        </div>
+                                        <div class="detail-item">
+                                            <i class="fas fa-clock"></i> Apply: Oct 15 - Nov 1, 2025
+                                        </div>
+                                        <div class="detail-item">
+                                            <i class="fas fa-users"></i> Team Release: Nov 15, 2025
+                                        </div>
+                                    </div>
+                                    <div class="action-buttons">
+                                        <a href="#" class="btn btn-primary apply-btn" data-start="2025-10-15" data-end="2025-11-01">Apply Now</a>
+                                        <a href="#" class="btn btn-info roster-btn" data-start="2025-11-15" data-end="2025-12-10">See Roster</a>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="action-buttons">
-                            {% if now >= '2025-09-20'|datetime and now <= '2025-10-05'|datetime %}
-                            <a href="#" class="btn btn-primary">Apply Now</a>
-                            {% elif now >= '2025-10-15'|datetime and now <= '2025-11-15'|datetime %}
-                            <a href="#" class="btn btn-info">See Roster</a>
-                            {% endif %}
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-date">January 2026</div>
+                                <div class="timeline-content">
+                                    <h3>Regionals</h3>
+                                    <p><span class="badge">Regional competition</span></p>
+                                    <div class="competition-details">
+                                        <div class="detail-item">
+                                            <i class="fas fa-calendar-alt"></i> Tournament: Jan 25, 2026
+                                        </div>
+                                        <div class="detail-item">
+                                            <i class="fas fa-clock"></i> Apply: Nov 15 - Dec 5, 2025
+                                        </div>
+                                        <div class="detail-item">
+                                            <i class="fas fa-users"></i> Team Release: Dec 20, 2025
+                                        </div>
+                                    </div>
+                                    <div class="action-buttons">
+                                        <a href="#" class="btn btn-primary apply-btn" data-start="2025-11-15" data-end="2025-12-05">Apply Now</a>
+                                        <a href="#" class="btn btn-info roster-btn" data-start="2025-12-20" data-end="2026-01-25">See Roster</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-date">March 2026</div>
+                                <div class="timeline-content">
+                                    <h3>States</h3>
+                                    <p><span class="badge">State-level competition</span></p>
+                                    <div class="competition-details">
+                                        <div class="detail-item">
+                                            <i class="fas fa-calendar-alt"></i> Tournament: Mar 20, 2026
+                                        </div>
+                                        <div class="detail-item">
+                                            <i class="fas fa-clock"></i> Apply: Feb 1 - Feb 15, 2026
+                                        </div>
+                                        <div class="detail-item">
+                                            <i class="fas fa-users"></i> Team Release: Feb 25, 2026
+                                        </div>
+                                    </div>
+                                    <div class="action-buttons">
+                                        <a href="#" class="btn btn-primary apply-btn" data-start="2026-02-01" data-end="2026-02-15">Apply Now</a>
+                                        <a href="#" class="btn btn-info roster-btn" data-start="2026-02-25" data-end="2026-03-20">See Roster</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="timeline-item">
-                    <div class="timeline-date">December 2025</div>
-                    <div class="timeline-content">
-                        <h3>Seal SO</h3>
-                        <p><span class="badge">Satellite invitational</span></p>
-                        <div class="competition-details">
-                            <div class="detail-item">
-                                <i class="fas fa-calendar-alt"></i> Tournament: Dec 10, 2025
+                <!-- Past Competitions Section -->
+                <div id="past-section" class="competitions-section">
+                    <h2>Past Competitions</h2>
+                    <p class="section-description">View complete information about past competitions.</p>
+                    
+                    <div class="past-competitions">
+                        <div class="competition-card">
+                            <div class="competition-date past-date">
+                                <span class="month">NOV</span>
+                                <span class="day">12</span>
+                                <span class="year">2023</span>
                             </div>
-                            <div class="detail-item">
-                                <i class="fas fa-clock"></i> Apply: Oct 15 - Nov 1, 2025
+                            <div class="competition-details">
+                                <h3>Columbia Invitational</h3>
+                                <p class="competition-location"><i class="fas fa-map-marker-alt"></i> New York, NY</p>
+                                <p class="competition-result">Team Rank: <strong>5th</strong> out of 45 teams</p>
                             </div>
-                            <div class="detail-item">
-                                <i class="fas fa-users"></i> Team Release: Nov 15, 2025
-                            </div>
-                        </div>
-                        <div class="action-buttons">
-                            {% if now >= '2025-10-15'|datetime and now <= '2025-11-01'|datetime %}
-                            <a href="#" class="btn btn-primary">Apply Now</a>
-                            {% elif now >= '2025-11-15'|datetime and now <= '2025-12-10'|datetime %}
-                            <a href="#" class="btn btn-info">See Roster</a>
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">January 2026</div>
-                    <div class="timeline-content">
-                        <h3>Regionals</h3>
-                        <p><span class="badge">Regional competition</span></p>
-                        <div class="competition-details">
-                            <div class="detail-item">
-                                <i class="fas fa-calendar-alt"></i> Tournament: Jan 25, 2026
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-clock"></i> Apply: Nov 15 - Dec 5, 2025
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-users"></i> Team Release: Dec 20, 2025
+                            <div class="competition-actions">
+                                <button class="view-details-btn">View Details</button>
                             </div>
                         </div>
-                        <div class="action-buttons">
-                            {% if now >= '2025-11-15'|datetime and now <= '2025-12-05'|datetime %}
-                            <a href="#" class="btn btn-primary">Apply Now</a>
-                            {% elif now >= '2025-12-20'|datetime and now <= '2026-01-25'|datetime %}
-                            <a href="#" class="btn btn-info">See Roster</a>
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">March 2026</div>
-                    <div class="timeline-content">
-                        <h3>States</h3>
-                        <p><span class="badge">State-level competition</span></p>
-                        <div class="competition-details">
-                            <div class="detail-item">
-                                <i class="fas fa-calendar-alt"></i> Tournament: Mar 20, 2026
+                        
+                        <div class="competition-card">
+                            <div class="competition-date past-date">
+                                <span class="month">OCT</span>
+                                <span class="day">22</span>
+                                <span class="year">2023</span>
                             </div>
-                            <div class="detail-item">
-                                <i class="fas fa-clock"></i> Apply: Feb 1 - Feb 15, 2026
+                            <div class="competition-details">
+                                <h3>Princeton Invitational</h3>
+                                <p class="competition-location"><i class="fas fa-map-marker-alt"></i> Princeton, NJ</p>
+                                <p class="competition-result">Team Rank: <strong>8th</strong> out of 36 teams</p>
                             </div>
-                            <div class="detail-item">
-                                <i class="fas fa-users"></i> Team Release: Feb 25, 2026
+                            <div class="competition-actions">
+                                <button class="view-details-btn">View Details</button>
                             </div>
-                        </div>
-                        <div class="action-buttons">
-                            {% if now >= '2026-02-01'|datetime and now <= '2026-02-15'|datetime %}
-                            <a href="#" class="btn btn-primary">Apply Now</a>
-                            {% elif now >= '2026-02-25'|datetime and now <= '2026-03-20'|datetime %}
-                            <a href="#" class="btn btn-info">See Roster</a>
-                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -153,7 +269,510 @@
     </div>
 </section>
 
+<!-- Competition Details Modal -->
+<div id="competitionDetailsModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <div id="competitionDetailsContent">
+            <!-- Competition details will be loaded here -->
+        </div>
+    </div>
+</div>
+
+<!-- Duosmium Import Modal -->
+<div id="duosmiumImportModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn duosmium-close">&times;</span>
+        <div class="duosmium-modal-header">
+            <h2>Import Results from Duosmium</h2>
+            <p>Paste a link to the Duosmium results page to import your competition results</p>
+        </div>
+        <div class="duosmium-modal-body">
+            <div class="duosmium-form">
+                <div class="duosmium-field">
+                    <label for="duosmiumUrl">Duosmium Results URL</label>
+                    <input type="text" id="duosmiumUrl" placeholder="https://www.duosmium.org/results/...">
+                </div>
+                <div class="duosmium-submit">
+                    <button id="parseDuosmiumBtn" class="btn btn-primary">Parse Results</button>
+                </div>
+            </div>
+            <div id="duosmiumParsingStatus" class="duosmium-parsing-status">
+                <!-- Parsing status will appear here -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Event Selection Modal -->
+<div id="eventSelectionModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn event-selection-close">&times;</span>
+        <div class="event-selection-header">
+            <h2>Select Your Events</h2>
+            <p>Select the events you participated in for this competition</p>
+        </div>
+        <div class="event-selection-body">
+            <div class="team-selection">
+                <label for="teamSelect">Select your team:</label>
+                <select id="teamSelect">
+                    <!-- Teams will be populated here -->
+                </select>
+            </div>
+            <div id="eventsList" class="events-list">
+                <!-- Events will be populated here -->
+            </div>
+            <div class="event-selection-submit">
+                <button id="saveEventsBtn" class="btn btn-primary">Save My Results</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
 <style>
+    .competitions-container {
+        display: flex;
+        gap: 30px;
+        margin-top: 20px;
+    }
+    
+    .competitions-nav {
+        width: 250px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        padding: 20px 0;
+        align-self: flex-start;
+        position: sticky;
+        top: 90px;
+    }
+    
+    .competitions-nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .competitions-nav li {
+        padding: 15px 20px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        transition: all 0.2s;
+        color: #555;
+    }
+    
+    .competitions-nav li:hover {
+        background-color: #f9f9f9;
+        color: var(--primary-color);
+    }
+    
+    .competitions-nav li.active {
+        background-color: #f0f0f0;
+        color: var(--primary-color);
+        border-left: 3px solid var(--primary-color);
+    }
+    
+    .competitions-content {
+        flex: 1;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        padding: 30px;
+    }
+    
+    .competitions-section {
+        display: none;
+    }
+    
+    .competitions-section.active {
+        display: block;
+    }
+    
+    .section-description {
+        color: #777;
+        margin-bottom: 25px;
+    }
+    
+    /* Results Section */
+    .results-filter {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-bottom: 25px;
+        padding: 15px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+    }
+    
+    .filter-group {
+        display: flex;
+        flex-direction: column;
+        min-width: 150px;
+    }
+    
+    .filter-group label {
+        font-size: 0.8rem;
+        color: #666;
+        margin-bottom: 5px;
+    }
+    
+    .filter-group select {
+        padding: 8px 12px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+    
+    .medal-summary {
+        display: flex;
+        gap: 25px;
+        margin-bottom: 25px;
+        padding: 15px;
+        background-color: #f5f5f5;
+        border-radius: 8px;
+        justify-content: center;
+    }
+    
+    .medal-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+    
+    .medal {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .medal i {
+        font-size: 1.8rem;
+    }
+    
+    .gold {
+        background: linear-gradient(145deg, #ffd700, #ffc800);
+        color: #b8860b;
+    }
+    
+    .silver {
+        background: linear-gradient(145deg, #e0e0e0, #c0c0c0);
+        color: #808080;
+    }
+    
+    .bronze {
+        background: linear-gradient(145deg, #cd7f32, #b87333);
+        color: #8b4513;
+    }
+    
+    .medal-item span {
+        font-weight: 600;
+        font-size: 1.2rem;
+    }
+    
+    .results-list {
+        margin-top: 20px;
+    }
+    
+    .result-item {
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        transition: all 0.2s;
+    }
+    
+    .result-item:hover {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transform: translateY(-2px);
+    }
+    
+    .result-medal {
+        flex: 0 0 60px;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .result-medal i {
+        font-size: 2rem;
+    }
+    
+    .result-gold i {
+        color: #ffd700;
+    }
+    
+    .result-silver i {
+        color: #c0c0c0;
+    }
+    
+    .result-bronze i {
+        color: #cd7f32;
+    }
+    
+    .result-info {
+        flex: 1;
+        padding: 0 15px;
+    }
+    
+    .result-competition {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 3px;
+    }
+    
+    .result-event {
+        color: var(--accent-color);
+        font-weight: 500;
+    }
+    
+    .result-date {
+        color: #777;
+        font-size: 0.9rem;
+    }
+    
+    .result-placement {
+        flex: 0 0 100px;
+        text-align: right;
+        padding-right: 15px;
+    }
+    
+    .result-placement-number {
+        font-size: 1.8rem;
+        font-weight: 700;
+        line-height: 1;
+    }
+    
+    .result-placement-suffix {
+        font-size: 0.9rem;
+        color: #777;
+    }
+    
+    .result-outof {
+        font-size: 0.9rem;
+        color: #777;
+    }
+    
+    .loading-results {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px;
+        color: #777;
+    }
+    
+    .loading-results i {
+        font-size: 2rem;
+        margin-bottom: 15px;
+        color: var(--accent-color);
+    }
+    
+    .empty-results {
+        text-align: center;
+        padding: 30px;
+    }
+    
+    .empty-results i {
+        font-size: 3rem;
+        color: #ddd;
+        margin-bottom: 15px;
+    }
+    
+    /* Competition Cards */
+    .competition-card {
+        display: flex;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        margin-bottom: 20px;
+        overflow: hidden;
+        transition: all 0.2s;
+    }
+    
+    .competition-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .competition-date {
+        flex: 0 0 80px;
+        background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 15px 0;
+    }
+    
+    .competition-date .month {
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        font-weight: 500;
+    }
+    
+    .competition-date .day {
+        font-size: 1.8rem;
+        font-weight: 700;
+        line-height: 1;
+    }
+    
+    .past-date {
+        background: linear-gradient(135deg, #6c757d, #5a6268);
+    }
+    
+    .past-date .year {
+        font-size: 0.8rem;
+        margin-top: 5px;
+    }
+    
+    .competition-details {
+        flex: 1;
+        padding: 15px;
+    }
+    
+    .competition-details h3 {
+        margin: 0 0 5px;
+        font-size: 1.2rem;
+    }
+    
+    .competition-location, .competition-info, .competition-result {
+        margin: 5px 0;
+        font-size: 0.9rem;
+        color: #666;
+    }
+    
+    .competition-location i {
+        margin-right: 5px;
+        color: var(--accent-color);
+    }
+    
+    .competition-result strong {
+        color: #333;
+    }
+    
+    .competition-actions {
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        border-left: 1px solid #eee;
+    }
+    
+    .view-details-btn {
+        padding: 8px 15px;
+        background-color: #f5f5f5;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    
+    .view-details-btn:hover {
+        background-color: var(--accent-color);
+        color: white;
+        border-color: var(--accent-color);
+    }
+    
+    /* Modal */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        overflow: auto;
+    }
+    
+    .modal-content {
+        background-color: white;
+        margin: 5% auto;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        width: 90%;
+        max-width: 800px;
+        position: relative;
+    }
+    
+    .close-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #777;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .competitions-container {
+            flex-direction: column;
+        }
+        
+        .competitions-nav {
+            width: 100%;
+            position: static;
+        }
+        
+        .competitions-nav ul {
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .competitions-nav li {
+            padding: 10px 15px;
+        }
+        
+        .competition-card {
+            flex-direction: column;
+        }
+        
+        .competition-date {
+            flex: 0;
+            padding: 10px;
+            flex-direction: row;
+            gap: 10px;
+        }
+        
+        .competition-actions {
+            border-left: none;
+            border-top: 1px solid #eee;
+            justify-content: flex-end;
+        }
+        
+        .results-filter {
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .result-item {
+            flex-direction: column;
+            text-align: center;
+        }
+        
+        .result-medal {
+            margin-bottom: 10px;
+        }
+        
+        .result-placement {
+            margin-top: 10px;
+            text-align: center;
+        }
+    }
+    
+    /* Timeline Styles */
     .timeline {
         position: relative;
         max-width: 1200px;
@@ -234,10 +853,6 @@
         font-size: 0.85em;
     }
     
-    .competition-details {
-        margin: 15px 0;
-    }
-    
     .detail-item {
         margin-bottom: 5px;
         color: #555;
@@ -279,12 +894,7 @@
         background-color: #27ae60;
     }
     
-    .text-muted {
-        color: #6c757d;
-        font-size: 0.9rem;
-        margin-top: 5px;
-    }
-    
+    /* Responsive Timeline */
     @media screen and (max-width: 768px) {
         .timeline::after {
             left: 31px;
@@ -302,20 +912,786 @@
             right: auto;
         }
     }
-</style>
-
-{% block scripts %}
-<script>
-    // Add custom filter to Jinja
-    // This is just for demonstration - in actual implementation, 
-    // this function would need to be defined in the Flask backend
-    function current_date_between(start_date, end_date) {
-        const now = new Date();
-        const start = new Date(start_date);
-        const end = new Date(end_date);
-        return now >= start && now <= end;
+    
+    /* Duosmium Import */
+    .duosmium-import {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 20px;
     }
-</script>
+    
+    .duosmium-modal-header,
+    .event-selection-header {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    
+    .duosmium-form {
+        margin-bottom: 20px;
+    }
+    
+    .duosmium-field {
+        margin-bottom: 15px;
+    }
+    
+    .duosmium-field label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 500;
+    }
+    
+    .duosmium-field input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+    }
+    
+    .duosmium-submit,
+    .event-selection-submit {
+        text-align: center;
+        margin-top: 20px;
+    }
+    
+    .duosmium-parsing-status {
+        margin-top: 20px;
+        padding: 15px;
+        border-radius: 5px;
+        display: none;
+    }
+    
+    .parsing-loading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background-color: #e9f5fe;
+        color: #3498db;
+    }
+    
+    .parsing-error {
+        background-color: #fce4e4;
+        color: #e74c3c;
+    }
+    
+    .parsing-success {
+        background-color: #e8f8f5;
+        color: #2ecc71;
+    }
+    
+    /* Event Selection */
+    .team-selection {
+        margin-bottom: 20px;
+    }
+    
+    .team-selection label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 500;
+    }
+    
+    .team-selection select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+    }
+    
+    .events-list {
+        max-height: 400px;
+        overflow-y: auto;
+        border: 1px solid #eee;
+        border-radius: 5px;
+        padding: 10px;
+    }
+    
+    .event-item {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .event-item:last-child {
+        border-bottom: none;
+    }
+    
+    .event-checkbox {
+        margin-right: 10px;
+    }
+    
+    .event-name {
+        flex: 1;
+    }
+    
+    .event-place {
+        font-weight: 600;
+        color: #3498db;
+        margin-left: 10px;
+    }
+</style>
 {% endblock %}
 
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Check if user is logged in
+        const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+        if (!currentUser) {
+            window.location.href = '{{ url_for("login") }}';
+            return;
+        }
+        
+        // Elements
+        const navItems = document.querySelectorAll('.competitions-nav li');
+        const sections = document.querySelectorAll('.competitions-section');
+        const filterEvent = document.getElementById('filterEvent');
+        const filterYear = document.getElementById('filterYear');
+        const filterType = document.getElementById('filterType');
+        const filterMedals = document.getElementById('filterMedals');
+        const userResultsList = document.getElementById('userResultsList');
+        const goldCount = document.getElementById('goldCount');
+        const silverCount = document.getElementById('silverCount');
+        const bronzeCount = document.getElementById('bronzeCount');
+        const modal = document.getElementById('competitionDetailsModal');
+        const modalContent = document.getElementById('competitionDetailsContent');
+        const closeBtn = document.querySelector('.close-btn');
+        const detailBtns = document.querySelectorAll('.view-details-btn');
+        
+        // Timeline elements
+        const applyButtons = document.querySelectorAll('.apply-btn');
+        const rosterButtons = document.querySelectorAll('.roster-btn');
+        
+        // Initialize user data
+        let userData = null;
+        let competitionResults = [];
+        let userEvents = [];
+        let filteredResults = [];
+        
+        // Load user data
+        function loadUserData() {
+            fetch(`/api/Members/${currentUser.id}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to load user data');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Extract member data
+                    userData = Object.values(data)[0];
+                    
+                    // Get competition results
+                    competitionResults = userData.competitionResults || [];
+                    
+                    // Get user events
+                    userEvents = userData.events || [];
+                    
+                    // Populate event filter
+                    populateEventFilter();
+                    
+                    // Apply initial filters and render results
+                    applyFilters();
+                    
+                    // Count medals
+                    countMedals();
+                })
+                .catch(error => {
+                    console.error('Error loading user data:', error);
+                    userResultsList.innerHTML = `
+                        <div class="error-message" style="text-align: center; padding: 20px; color: #721c24;">
+                            <i class="fas fa-exclamation-circle" style="font-size: 2rem; margin-bottom: 10px;"></i>
+                            <h3>Error Loading Results</h3>
+                            <p>${error.message}</p>
+                        </div>
+                    `;
+                });
+        }
+        
+        // Populate event filter with user's events
+        function populateEventFilter() {
+            if (userEvents && userEvents.length > 0) {
+                // Create a set of unique events from both user events and competition results
+                const uniqueEvents = new Set(userEvents);
+                
+                // Add events from competition results
+                competitionResults.forEach(comp => {
+                    comp.eventResults.forEach(result => {
+                        uniqueEvents.add(result.eventName);
+                    });
+                });
+                
+                // Clear existing options except "All Events"
+                while (filterEvent.options.length > 1) {
+                    filterEvent.remove(1);
+                }
+                
+                // Add event options
+                uniqueEvents.forEach(event => {
+                    const option = document.createElement('option');
+                    option.value = event;
+                    option.textContent = event;
+                    filterEvent.appendChild(option);
+                });
+            }
+        }
+        
+        // Apply filters to competition results
+        function applyFilters() {
+            const selectedEvent = filterEvent.value;
+            const selectedYear = filterYear.value;
+            const selectedType = filterType.value;
+            const showMedalsOnly = filterMedals.value === 'medals';
+            
+            // Filter results
+            filteredResults = [];
+            
+            competitionResults.forEach(comp => {
+                // Filter by year
+                if (selectedYear !== 'all') {
+                    const compYear = new Date(comp.date).getFullYear().toString();
+                    if (compYear !== selectedYear) return;
+                }
+                
+                // Filter by competition type
+                if (selectedType !== 'all' && comp.type !== selectedType) return;
+                
+                // Filter by event
+                comp.eventResults.forEach(result => {
+                    if (selectedEvent === 'all' || result.eventName === selectedEvent) {
+                        // Filter by medals
+                        if (!showMedalsOnly || result.medal) {
+                            filteredResults.push({
+                                competition: comp.competitionName,
+                                competitionType: comp.type,
+                                date: comp.date,
+                                event: result.eventName,
+                                placement: result.placement,
+                                outOf: result.outOf,
+                                medal: result.medal,
+                                medalType: result.medalType
+                            });
+                        }
+                    }
+                });
+            });
+            
+            // Sort by date (newest first)
+            filteredResults.sort((a, b) => new Date(b.date) - new Date(a.date));
+            
+            // Render filtered results
+            renderResults();
+        }
+        
+        // Count medals
+        function countMedals() {
+            let gold = 0;
+            let silver = 0;
+            let bronze = 0;
+            
+            competitionResults.forEach(comp => {
+                comp.eventResults.forEach(result => {
+                    if (result.medal) {
+                        if (result.medalType === 'gold') gold++;
+                        else if (result.medalType === 'silver') silver++;
+                        else if (result.medalType === 'bronze') bronze++;
+                    }
+                });
+            });
+            
+            goldCount.textContent = gold;
+            silverCount.textContent = silver;
+            bronzeCount.textContent = bronze;
+        }
+        
+        // Render competition results
+        function renderResults() {
+            if (filteredResults.length === 0) {
+                userResultsList.innerHTML = `
+                    <div class="empty-results">
+                        <i class="fas fa-trophy"></i>
+                        <h3>No Results Found</h3>
+                        <p>No competition results match your current filters.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            userResultsList.innerHTML = '';
+            
+            filteredResults.forEach(result => {
+                const resultItem = document.createElement('div');
+                resultItem.className = 'result-item';
+                
+                // Format date
+                const date = new Date(result.date);
+                const formattedDate = date.toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric'
+                });
+                
+                // Get ordinal suffix
+                const ordinal = getOrdinalSuffix(result.placement);
+                
+                // Determine medal class
+                let medalHTML = '';
+                if (result.medal) {
+                    medalHTML = `
+                        <div class="result-medal result-${result.medalType}">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                    `;
+                } else {
+                    medalHTML = `<div class="result-medal"></div>`;
+                }
+                
+                resultItem.innerHTML = `
+                    ${medalHTML}
+                    <div class="result-info">
+                        <div class="result-competition">${result.competition}</div>
+                        <div class="result-event">${result.event}</div>
+                        <div class="result-date">${formattedDate}</div>
+                    </div>
+                    <div class="result-placement">
+                        <div class="result-placement-number">${result.placement}<span class="result-placement-suffix">${ordinal}</span></div>
+                        <div class="result-outof">out of ${result.outOf}</div>
+                    </div>
+                `;
+                
+                userResultsList.appendChild(resultItem);
+            });
+        }
+        
+        // Helper to get ordinal suffix (1st, 2nd, 3rd, etc.)
+        function getOrdinalSuffix(num) {
+            const j = num % 10;
+            const k = num % 100;
+            
+            if (j === 1 && k !== 11) {
+                return 'st';
+            }
+            if (j === 2 && k !== 12) {
+                return 'nd';
+            }
+            if (j === 3 && k !== 13) {
+                return 'rd';
+            }
+            return 'th';
+        }
+        
+        // Handle timeline buttons visibility based on date
+        function updateTimelineButtons() {
+            // Use a test date instead of the actual current date
+            // Test date: August 20, 2025 (during MIT application period)
+            // and after Rickards team release date but before tournament
+            const now = new Date('2025-08-20T12:00:00');
+            console.log('Using test date for competition buttons:', now.toLocaleDateString());
+            
+            // Update Apply buttons
+            applyButtons.forEach(button => {
+                const startDate = new Date(button.dataset.start);
+                const endDate = new Date(button.dataset.end);
+                endDate.setHours(23, 59, 59, 999); // End of day
+                
+                if (now >= startDate && now <= endDate) {
+                    button.style.display = 'inline-block';
+                } else {
+                    button.style.display = 'none';
+                }
+            });
+            
+            // Update Roster buttons
+            rosterButtons.forEach(button => {
+                const startDate = new Date(button.dataset.start);
+                const endDate = new Date(button.dataset.end);
+                endDate.setHours(23, 59, 59, 999); // End of day
+                
+                if (now >= startDate && now <= endDate) {
+                    button.style.display = 'inline-block';
+                } else {
+                    button.style.display = 'none';
+                }
+            });
+        }
+        
+        // Navigation between competitions sections
+        navItems.forEach(item => {
+            item.addEventListener('click', function() {
+                // Remove active class from all items
+                navItems.forEach(i => i.classList.remove('active'));
+                
+                // Add active class to clicked item
+                this.classList.add('active');
+                
+                // Hide all sections
+                sections.forEach(section => section.classList.remove('active'));
+                
+                // Show the target section
+                const targetSection = this.dataset.target;
+                document.getElementById(targetSection).classList.add('active');
+                
+                // Update timeline buttons if showing upcoming section
+                if (targetSection === 'upcoming-section') {
+                    updateTimelineButtons();
+                }
+            });
+        });
+        
+        // Filter change events
+        filterEvent.addEventListener('change', applyFilters);
+        filterYear.addEventListener('change', applyFilters);
+        filterType.addEventListener('change', applyFilters);
+        filterMedals.addEventListener('change', applyFilters);
+        
+        // Modal functionality
+        detailBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // In a real implementation, load competition details
+                modalContent.innerHTML = `
+                    <h2>Competition Details</h2>
+                    <p>Details about the competition would be loaded here.</p>
+                `;
+                modal.style.display = 'block';
+            });
+        });
+        
+        // Close modal
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+        
+        // Update timeline buttons when page loads
+        updateTimelineButtons();
+        
+        // Load user data on page load
+        loadUserData();
+        
+        // Duosmium import elements
+        const importDuosmiumBtn = document.getElementById('importDuosmiumBtn');
+        const duosmiumImportModal = document.getElementById('duosmiumImportModal');
+        const duosmiumCloseBtn = document.querySelector('.duosmium-close');
+        const parseDuosmiumBtn = document.getElementById('parseDuosmiumBtn');
+        const duosmiumUrl = document.getElementById('duosmiumUrl');
+        const duosmiumParsingStatus = document.getElementById('duosmiumParsingStatus');
+        
+        // Event selection elements
+        const eventSelectionModal = document.getElementById('eventSelectionModal');
+        const eventSelectionCloseBtn = document.querySelector('.event-selection-close');
+        const teamSelect = document.getElementById('teamSelect');
+        const eventsList = document.getElementById('eventsList');
+        const saveEventsBtn = document.getElementById('saveEventsBtn');
+        
+        // Store parsed Duosmium data
+        let parsedDuosmiumData = null;
+        
+        // Open Duosmium import modal
+        importDuosmiumBtn.addEventListener('click', function() {
+            duosmiumImportModal.style.display = 'block';
+            duosmiumUrl.value = '';
+            duosmiumParsingStatus.style.display = 'none';
+            duosmiumParsingStatus.className = 'duosmium-parsing-status';
+        });
+        
+        // Close Duosmium import modal
+        duosmiumCloseBtn.addEventListener('click', function() {
+            duosmiumImportModal.style.display = 'none';
+        });
+        
+        // Parse Duosmium results
+        parseDuosmiumBtn.addEventListener('click', function() {
+            const url = duosmiumUrl.value.trim();
+            
+            if (!url || !url.includes('duosmium.org/results')) {
+                duosmiumParsingStatus.innerHTML = 'Please enter a valid Duosmium URL';
+                duosmiumParsingStatus.className = 'duosmium-parsing-status parsing-error';
+                duosmiumParsingStatus.style.display = 'block';
+                return;
+            }
+            
+            // Show loading state
+            duosmiumParsingStatus.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Parsing results...';
+            duosmiumParsingStatus.className = 'duosmium-parsing-status parsing-loading';
+            duosmiumParsingStatus.style.display = 'block';
+            
+            // Simulate fetch (in a real app, this would be an actual API call)
+            // For this demo, we'll pretend to parse the sample URL
+            setTimeout(function() {
+                // Check if it's the demo URL
+                if (url.includes('2025-01-25_NY_nyc_north_regional_c')) {
+                    parseDuosmiumData('2025 New York City North Regional (Div. C)', url);
+                } else {
+                    // Mock error for other URLs
+                    duosmiumParsingStatus.innerHTML = 'Error: Could not fetch or parse results from this URL';
+                    duosmiumParsingStatus.className = 'duosmium-parsing-status parsing-error';
+                }
+            }, 1500);
+        });
+        
+        // Parse Duosmium data
+        function parseDuosmiumData(competitionName, url) {
+            // In a real app, this would parse the actual HTML from the Duosmium page
+            // For this demo, we'll use hardcoded data based on the sample
+            
+            const date = new Date('2025-01-25');
+            const location = 'Bronx High School of Science';
+            
+            // Extract Bronx Science teams
+            const teams = [
+                {
+                    teamName: 'Bronx H.S. of Science A NY',
+                    rank: 1,
+                    totalScore: 59,
+                    events: [
+                        { eventName: 'Air Trajectory', place: 2 },
+                        { eventName: 'Anatomy and Physiology', place: 2 },
+                        { eventName: 'Astronomy', place: 4 },
+                        { eventName: 'Bungee Drop', place: 1 },
+                        { eventName: 'Chemistry Lab', place: 1 },
+                        { eventName: 'Codebusters', place: 3 },
+                        { eventName: 'Disease Detectives', place: 2 },
+                        { eventName: 'Dynamic Planet', place: 1 },
+                        { eventName: 'Ecology', place: 9 },
+                        { eventName: 'Electric Vehicle', place: 8 },
+                        { eventName: 'Entomology', place: 7 },
+                        { eventName: 'Experimental Design', place: 1 },
+                        { eventName: 'Forensics', place: 3 },
+                        { eventName: 'Geologic Mapping', place: 1 },
+                        { eventName: 'Helicopter', place: 2 },
+                        { eventName: 'Materials Science', place: 2 },
+                        { eventName: 'Microbe Mission', place: 5 },
+                        { eventName: 'Optics', place: 22 },
+                        { eventName: 'Robot Tour', place: 5 },
+                        { eventName: 'Tower', place: 2 },
+                        { eventName: 'Wind Power', place: 7 },
+                        { eventName: 'Write It Do It', place: 12 }
+                    ]
+                },
+                {
+                    teamName: 'Bronx H.S. of Science B NY',
+                    rank: 2,
+                    totalScore: 77,
+                    events: [
+                        { eventName: 'Air Trajectory', place: 14 },
+                        { eventName: 'Anatomy and Physiology', place: 9 },
+                        { eventName: 'Astronomy', place: 3 },
+                        { eventName: 'Bungee Drop', place: 4 },
+                        { eventName: 'Chemistry Lab', place: 2 },
+                        { eventName: 'Codebusters', place: 1 },
+                        { eventName: 'Disease Detectives', place: 1 },
+                        { eventName: 'Dynamic Planet', place: 4 },
+                        { eventName: 'Ecology', place: 4 },
+                        { eventName: 'Electric Vehicle', place: 34 },
+                        { eventName: 'Entomology', place: 11 },
+                        { eventName: 'Experimental Design', place: 6 },
+                        { eventName: 'Forensics', place: 4 },
+                        { eventName: 'Geologic Mapping', place: 5 },
+                        { eventName: 'Helicopter', place: 6 },
+                        { eventName: 'Materials Science', place: 5 },
+                        { eventName: 'Microbe Mission', place: 1 },
+                        { eventName: 'Optics', place: 1 },
+                        { eventName: 'Robot Tour', place: 2 },
+                        { eventName: 'Tower', place: 4 },
+                        { eventName: 'Wind Power', place: 11 },
+                        { eventName: 'Write It Do It', place: 4 }
+                    ]
+                },
+                {
+                    teamName: 'Bronx H.S. of Science C NY',
+                    rank: 4,
+                    totalScore: 120,
+                    events: [
+                        { eventName: 'Air Trajectory', place: 5 },
+                        { eventName: 'Anatomy and Physiology', place: 4 },
+                        { eventName: 'Astronomy', place: 15 },
+                        { eventName: 'Bungee Drop', place: 2 },
+                        { eventName: 'Chemistry Lab', place: 5 },
+                        { eventName: 'Codebusters', place: 6 },
+                        { eventName: 'Disease Detectives', place: 14 },
+                        { eventName: 'Dynamic Planet', place: 2 },
+                        { eventName: 'Ecology', place: 15 },
+                        { eventName: 'Electric Vehicle', place: 35 },
+                        { eventName: 'Entomology', place: 6 },
+                        { eventName: 'Experimental Design', place: 2 },
+                        { eventName: 'Forensics', place: 5 },
+                        { eventName: 'Geologic Mapping', place: 6 },
+                        { eventName: 'Helicopter', place: 1 },
+                        { eventName: 'Materials Science', place: 6 },
+                        { eventName: 'Microbe Mission', place: 4 },
+                        { eventName: 'Optics', place: 11 },
+                        { eventName: 'Robot Tour', place: 15 },
+                        { eventName: 'Tower', place: 11 },
+                        { eventName: 'Wind Power', place: 10 },
+                        { eventName: 'Write It Do It', place: 5 }
+                    ]
+                }
+            ];
+            
+            // Store parsed data
+            parsedDuosmiumData = {
+                competitionName: competitionName,
+                date: date,
+                location: location,
+                url: url,
+                teams: teams
+            };
+            
+            // Show success message
+            duosmiumParsingStatus.innerHTML = `
+                <i class="fas fa-check-circle"></i> Successfully parsed results for ${teams.length} Bronx Science teams!
+                <p>Click "Continue" to select which events you competed in.</p>
+                <button id="continueToEventsBtn" class="btn btn-primary" style="margin-top: 10px;">Continue</button>
+            `;
+            duosmiumParsingStatus.className = 'duosmium-parsing-status parsing-success';
+            
+            // Add event listener to continue button
+            document.getElementById('continueToEventsBtn').addEventListener('click', function() {
+                duosmiumImportModal.style.display = 'none';
+                showEventSelectionModal();
+            });
+        }
+        
+        // Show event selection modal
+        function showEventSelectionModal() {
+            if (!parsedDuosmiumData) return;
+            
+            // Populate team select
+            teamSelect.innerHTML = '';
+            parsedDuosmiumData.teams.forEach(team => {
+                const option = document.createElement('option');
+                option.value = team.teamName;
+                option.textContent = `${team.teamName} (Rank: ${team.rank})`;
+                teamSelect.appendChild(option);
+            });
+            
+            // Populate events list for the first team
+            populateEventsList(parsedDuosmiumData.teams[0]);
+            
+            // Show modal
+            eventSelectionModal.style.display = 'block';
+        }
+        
+        // Populate events list
+        function populateEventsList(team) {
+            eventsList.innerHTML = '';
+            
+            team.events.forEach(event => {
+                const eventItem = document.createElement('div');
+                eventItem.className = 'event-item';
+                
+                // Show medal for top 3 placements
+                let medalIcon = '';
+                if (event.place === 1) {
+                    medalIcon = '<i class="fas fa-medal" style="color: gold; margin-right: 5px;"></i>';
+                } else if (event.place === 2) {
+                    medalIcon = '<i class="fas fa-medal" style="color: silver; margin-right: 5px;"></i>';
+                } else if (event.place === 3) {
+                    medalIcon = '<i class="fas fa-medal" style="color: #cd7f32; margin-right: 5px;"></i>';
+                }
+                
+                const suffix = getOrdinalSuffix(event.place);
+                
+                eventItem.innerHTML = `
+                    <input type="checkbox" class="event-checkbox" data-event="${event.eventName}" data-place="${event.place}">
+                    <div class="event-name">${medalIcon}${event.eventName}</div>
+                    <div class="event-place">${event.place}${suffix} place</div>
+                `;
+                
+                eventsList.appendChild(eventItem);
+            });
+        }
+        
+        // Team selection change
+        teamSelect.addEventListener('change', function() {
+            const selectedTeamName = this.value;
+            const selectedTeam = parsedDuosmiumData.teams.find(team => team.teamName === selectedTeamName);
+            
+            if (selectedTeam) {
+                populateEventsList(selectedTeam);
+            }
+        });
+        
+        // Close event selection modal
+        eventSelectionCloseBtn.addEventListener('click', function() {
+            eventSelectionModal.style.display = 'none';
+        });
+        
+        // Save selected events to user results
+        saveEventsBtn.addEventListener('click', function() {
+            const selectedTeamName = teamSelect.value;
+            const selectedTeam = parsedDuosmiumData.teams.find(team => team.teamName === selectedTeamName);
+            
+            if (!selectedTeam) return;
+            
+            // Get selected events
+            const selectedEvents = [];
+            const checkboxes = document.querySelectorAll('.event-checkbox:checked');
+            
+            if (checkboxes.length === 0) {
+                alert('Please select at least one event that you participated in.');
+                return;
+            }
+            
+            checkboxes.forEach(checkbox => {
+                const eventName = checkbox.dataset.event;
+                const place = parseInt(checkbox.dataset.place);
+                
+                selectedEvents.push({
+                    eventName: eventName,
+                    placement: place,
+                    outOf: 34, // Number of teams in the competition
+                    medal: place <= 3,
+                    medalType: place === 1 ? 'gold' : place === 2 ? 'silver' : place === 3 ? 'bronze' : null
+                });
+            });
+            
+            // Create competition result object
+            const competitionResult = {
+                competitionId: generateId(),
+                competitionName: parsedDuosmiumData.competitionName,
+                date: parsedDuosmiumData.date,
+                type: 'regional', // Based on the competition name
+                eventResults: selectedEvents,
+                teamRank: selectedTeam.rank,
+                teamOutOf: 34 // Total number of teams in the competition
+            };
+            
+            // Add to user's competition results
+            addCompetitionResult(competitionResult);
+        });
+        
+        // Add competition result to user data
+        function addCompetitionResult(competitionResult) {
+            // In a real app, this would update the Firestore database
+            // For this demo, we'll update the local state
+            
+            // Add to competitionResults array
+            competitionResults.push(competitionResult);
+            
+            // Update UI
+            countMedals();
+            applyFilters();
+            
+            // Close modal
+            eventSelectionModal.style.display = 'none';
+            
+            // Show success message
+            alert('Competition results successfully added to your profile!');
+        }
+        
+        // Helper function to generate an ID
+        function generateId() {
+            return 'id_' + Math.random().toString(36).substr(2, 9);
+        }
+    });
+</script>
 {% endblock %} 
