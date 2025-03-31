@@ -3,7 +3,7 @@
 {% block title %}My Competitions - Bronx Science Olympiad{% endblock %}
 
 {% block content %}
-<div class="hero" style="height: 30vh; background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/static/images/competitions-bg.jpg');">
+<div class="hero" style="height: 30vh; background: linear-gradient(135deg, #3498db, #2c3e50);">
     <div class="hero-content">
         <h1>My Competitions</h1>
         <p>Track your competition schedule and results</p>
@@ -124,7 +124,7 @@
                                         </div>
                                     </div>
                                     <div class="action-buttons">
-                                        <a href="#" class="btn btn-primary apply-btn" data-start="2025-08-15" data-end="2025-09-01">Apply Now</a>
+                                        <a href="{{ url_for('competition_apply') }}?id={{competitionId}}" class="btn btn-primary apply-btn" data-start="2025-08-15" data-end="2025-09-01">Apply Now</a>
                                         <a href="#" class="btn btn-info roster-btn" data-start="2025-09-15" data-end="2025-10-18">See Roster</a>
                                     </div>
                                 </div>
@@ -1296,11 +1296,28 @@
             const now = new Date('2025-08-20T12:00:00');
             console.log('Using test date for competition buttons:', now.toLocaleDateString());
             
+            // Set competition IDs
+            const competitionIds = {
+                'MIT Invitational': 'mit2025',
+                'Rickards Invitational': 'rickards2025',
+                'Seal SO': 'seal2025',
+                'Regionals': 'regionals2026',
+                'States': 'states2026'
+            };
+            
             // Update Apply buttons
             applyButtons.forEach(button => {
                 const startDate = new Date(button.dataset.start);
                 const endDate = new Date(button.dataset.end);
                 endDate.setHours(23, 59, 59, 999); // End of day
+                
+                // Get competition name from the parent timeline item
+                const timelineItem = button.closest('.timeline-item');
+                const competitionName = timelineItem.querySelector('h3').textContent;
+                const competitionId = competitionIds[competitionName] || 'unknown';
+                
+                // Update the href with the competition ID
+                button.href = `{{ url_for('competition_apply') }}?id=${competitionId}`;
                 
                 if (now >= startDate && now <= endDate) {
                     button.style.display = 'inline-block';

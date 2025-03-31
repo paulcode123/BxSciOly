@@ -1,0 +1,724 @@
+{% extends "layout.html" %}
+
+{% block title %}Apply for Competition - Bronx Science Olympiad{% endblock %}
+
+{% block content %}
+<div class="hero" style="height: 30vh; background: linear-gradient(135deg, #3498db, #2c3e50);">
+    <div class="hero-content">
+        <h1>Competition Application</h1>
+        <p>Apply to compete in upcoming tournaments</p>
+    </div>
+</div>
+
+<section class="section">
+    <div class="container">
+        <div class="application-container">
+            <div class="application-header">
+                <h2 id="competitionName">Apply for Competition</h2>
+                <p id="competitionDate" class="competition-date"></p>
+                <p id="applicationDeadline" class="application-deadline"></p>
+            </div>
+
+            <!-- User Information Section -->
+            <div class="application-section">
+                <h3>Your Information</h3>
+                <p class="section-note">This information is from your profile. If it's incorrect, please update it on the <a href="{{ url_for('user_settings') }}">settings page</a>.</p>
+                
+                <div class="user-info-grid">
+                    <div class="info-item">
+                        <label>Name</label>
+                        <p id="userName1" class="info-value">Loading...</p>
+                    </div>
+                    <div class="info-item">
+                        <label>Email</label>
+                        <p id="userEmail" class="info-value">Loading...</p>
+                    </div>
+                    <div class="info-item">
+                        <label>Grade</label>
+                        <p id="userGrade" class="info-value">Loading...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Past Performance Section -->
+            <div class="application-section" id="pastPerformanceSection">
+                <h3>Past Performance</h3>
+                <p class="section-note">Your recent competition results. If these are incorrect, please update them on the <a href="{{ url_for('user_competitions') }}">competitions page</a>.</p>
+                
+                <div id="pastResults" class="past-results">
+                    <p class="loading-text">Loading your past results...</p>
+                </div>
+            </div>
+
+            <!-- Event Selection Section -->
+            <div class="application-section">
+                <h3>Event Selection</h3>
+                <p class="section-note">Select the events you would like to compete in for this tournament.</p>
+                
+                <div class="events-container">
+                    <div class="current-events">
+                        <h4>Your Current Events</h4>
+                        <div id="currentEvents" class="events-grid">
+                            <p class="loading-text">Loading your events...</p>
+                        </div>
+                    </div>
+
+                    <div class="add-events-toggle">
+                        <button id="toggleAddEvents" class="toggle-btn">
+                            <i class="fas fa-plus"></i> Add Additional Events
+                        </button>
+                    </div>
+                    
+                    <div id="additionalEvents" class="additional-events" style="display: none;">
+                        <h4>Additional Events</h4>
+                        <p class="section-note">Select events you're not currently participating in but would like to try for this competition.</p>
+                        <div id="otherEvents" class="events-grid">
+                            <!-- Other events will be populated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Application Questions Section -->
+            <div class="application-section">
+                <h3>Application Questions</h3>
+                <p class="section-note">Please answer the following questions about your interest and preparation for this competition.</p>
+                
+                <div class="question-item">
+                    <label for="whyCompete">1. Why do you want to compete in this tournament?</label>
+                    <textarea id="whyCompete" rows="4" placeholder="Explain your motivation for participating in this competition..."></textarea>
+                </div>
+                
+                <div class="question-item">
+                    <label for="preparationPlan">2. If accepted, what will you work on before competition day?</label>
+                    <textarea id="preparationPlan" rows="4" placeholder="Describe your preparation plan..."></textarea>
+                </div>
+                
+                <div class="question-item" id="firstTimeQuestion" style="display: none;">
+                    <label for="firstTimePrep">3. Since this is your first tournament, what preparations have you done to master your events and make sure you're ready for test day?</label>
+                    <textarea id="firstTimePrep" rows="4" placeholder="Describe your preparation efforts so far..."></textarea>
+                </div>
+                
+                <div class="question-item" id="returningQuestion" style="display: none;">
+                    <label for="pastInfluence">3. How have past results influenced your preparations for this tournament?</label>
+                    <textarea id="pastInfluence" rows="4" placeholder="Explain how your past competition experiences have shaped your approach..."></textarea>
+                </div>
+            </div>
+
+            <!-- Submit Section -->
+            <div class="application-actions">
+                <button id="submitApplication" class="submit-btn">Submit Application</button>
+                <button id="cancelApplication" class="cancel-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .application-container {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        padding: 30px;
+        margin-top: 20px;
+    }
+    
+    .application-header {
+        text-align: center;
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .competition-date {
+        color: #555;
+        font-size: 1.1rem;
+        margin: 5px 0;
+    }
+    
+    .application-deadline {
+        color: #e74c3c;
+        font-weight: 500;
+    }
+    
+    .application-section {
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .application-section h3 {
+        margin-bottom: 15px;
+        color: #333;
+    }
+    
+    .section-note {
+        color: #777;
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+    }
+    
+    .user-info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    
+    .info-item {
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+    }
+    
+    .info-item label {
+        display: block;
+        font-size: 0.8rem;
+        color: #666;
+        margin-bottom: 5px;
+    }
+    
+    .info-value {
+        font-weight: 500;
+        margin: 0;
+    }
+    
+    .past-results {
+        max-height: 200px;
+        overflow-y: auto;
+        border: 1px solid #eee;
+        border-radius: 5px;
+        padding: 10px;
+    }
+    
+    .result-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .result-item:last-child {
+        border-bottom: none;
+    }
+    
+    .result-medal {
+        margin-right: 10px;
+    }
+    
+    .result-medal i.gold {
+        color: gold;
+    }
+    
+    .result-medal i.silver {
+        color: silver;
+    }
+    
+    .result-medal i.bronze {
+        color: #cd7f32;
+    }
+    
+    .events-container {
+        margin-top: 20px;
+    }
+    
+    .events-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+        margin-top: 15px;
+    }
+    
+    .event-item {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        background-color: #f5f5f5;
+        border-radius: 5px;
+        transition: all 0.2s;
+    }
+    
+    .event-item:hover {
+        background-color: #e9f5fe;
+    }
+    
+    .event-checkbox {
+        margin-right: 10px;
+    }
+    
+    .add-events-toggle {
+        margin: 20px 0;
+        text-align: center;
+    }
+    
+    .toggle-btn {
+        background-color: #f5f5f5;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 8px 15px;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    
+    .toggle-btn:hover {
+        background-color: #e9f5fe;
+    }
+    
+    .question-item {
+        margin-bottom: 20px;
+    }
+    
+    .question-item label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: 500;
+    }
+    
+    .question-item textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 0.95rem;
+        resize: vertical;
+    }
+    
+    .application-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 15px;
+    }
+    
+    .submit-btn {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.2s;
+    }
+    
+    .submit-btn:hover {
+        background-color: var(--accent-color);
+    }
+    
+    .cancel-btn {
+        background-color: #f5f5f5;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    
+    .cancel-btn:hover {
+        background-color: #e1e1e1;
+    }
+    
+    .loading-text {
+        color: #777;
+        text-align: center;
+        padding: 20px;
+    }
+    
+    /* Responsive design */
+    @media (max-width: 768px) {
+        .user-info-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .application-actions {
+            flex-direction: column;
+        }
+        
+        .submit-btn, .cancel-btn {
+            width: 100%;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Check if user is logged in
+        const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+        if (!currentUser) {
+            window.location.href = '{{ url_for("login") }}';
+            return;
+        }
+        
+        // Get competition ID from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const competitionId = urlParams.get('id');
+        
+        if (!competitionId) {
+            alert('No competition selected. Please select a competition first.');
+            window.location.href = '{{ url_for("user_competitions") }}';
+            return;
+        }
+        
+        // Elements
+        const competitionName = document.getElementById('competitionName');
+        const competitionDate = document.getElementById('competitionDate');
+        const applicationDeadline = document.getElementById('applicationDeadline');
+        const userName1 = document.getElementById('userName1');
+        const userEmail = document.getElementById('userEmail');
+        const userGrade = document.getElementById('userGrade');
+        const pastResults = document.getElementById('pastResults');
+        const currentEvents = document.getElementById('currentEvents');
+        const otherEvents = document.getElementById('otherEvents');
+        const toggleAddEvents = document.getElementById('toggleAddEvents');
+        const additionalEvents = document.getElementById('additionalEvents');
+        const firstTimeQuestion = document.getElementById('firstTimeQuestion');
+        const returningQuestion = document.getElementById('returningQuestion');
+        const submitApplication = document.getElementById('submitApplication');
+        const cancelApplication = document.getElementById('cancelApplication');
+        
+        // All Science Olympiad events
+        const allEvents = [
+            'Anatomy & Physiology', 'Astronomy', 'Bridge', 'Cell Biology', 
+            'Chemistry Lab', 'Codebusters', 'Detector Building', 'Disease Detectives', 
+            'Dynamic Planet', 'Ecology', 'Experimental Design', 'Fermi Questions', 
+            'Flight', 'Forensics', 'Forestry', 'Fossils', 'Geologic Mapping',
+            'Green Generation', 'Microbe Mission', 'Optics', 'Ornithology', 
+            'Remote Sensing', 'Robot Tour', 'Rocks & Minerals', 'Sounds of Music',
+            'Tower', 'Wind Power', 'Write It Do It'
+        ];
+        
+        // Load competition data
+        function loadCompetitionData() {
+            // Create competition data based on the ID
+            let compName = 'Competition';
+            let compDate = new Date();
+            let deadline = new Date();
+            deadline.setDate(deadline.getDate() - 14); // 2 weeks before competition
+            
+            // Set competition data based on the ID
+            if (competitionId.includes('mit')) {
+                compName = 'MIT Invitational';
+                compDate = new Date('2025-10-18');
+                deadline = new Date('2025-09-01');
+            } else if (competitionId.includes('rickards')) {
+                compName = 'Rickards Invitational';
+                compDate = new Date('2025-11-15');
+                deadline = new Date('2025-07-15');
+            } else if (competitionId.includes('seal')) {
+                compName = 'Seal SO';
+                compDate = new Date('2025-12-10');
+                deadline = new Date('2025-11-01');
+            } else if (competitionId.includes('regional')) {
+                compName = 'Regionals';
+                compDate = new Date('2026-01-25');
+                deadline = new Date('2025-12-05');
+            } else if (competitionId.includes('state')) {
+                compName = 'States';
+                compDate = new Date('2026-03-20');
+                deadline = new Date('2026-02-15');
+            }
+            
+            // Update UI with competition data
+            competitionName.textContent = `Apply for ${compName}`;
+            
+            competitionDate.textContent = `Competition Date: ${compDate.toLocaleDateString('en-US', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            })}`;
+            
+            applicationDeadline.textContent = `Application Deadline: ${deadline.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            })}`;
+        }
+        
+        // Load user data
+        function loadUserData() {
+            fetch(`/api/Members/${currentUser.id}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to load user data');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Get user data
+                    const userData = Object.values(data)[0];
+                    
+                    // Update user info
+                    console.log(userData);
+                    console.log(userData.firstName, userData.lastName);
+                    userName1.textContent = `${userData.firstName} ${userData.lastName}`;
+                    console.log(userName1.textContent);
+                    userEmail.textContent = userData.email;
+                    userGrade.textContent = userData.grade || 'Not specified';
+                    
+                    // Get competition results
+                    const competitionResults = userData.competitionResults || [];
+                    
+                    // Check if user has past results
+                    if (competitionResults.length > 0) {
+                        // Show returning questions
+                        returningQuestion.style.display = 'block';
+                        
+                        // Render past results
+                        renderPastResults(competitionResults);
+                    } else {
+                        // Show first-time questions
+                        firstTimeQuestion.style.display = 'block';
+                        
+                        // Show no results message
+                        pastResults.innerHTML = `
+                            <div class="empty-results" style="text-align: center; padding: 20px; color: #777;">
+                                <i class="fas fa-trophy" style="font-size: 2rem; margin-bottom: 10px; color: #ddd;"></i>
+                                <p>No past competition results found.</p>
+                            </div>
+                        `;
+                    }
+                    
+                    // Get user events
+                    const userEvents = userData.events || [];
+                    
+                    // Render current events
+                    renderCurrentEvents(userEvents);
+                    
+                    // Render other events
+                    renderOtherEvents(userEvents);
+                })
+                .catch(error => {
+                    console.error('Error loading user data:', error);
+                    alert('Failed to load your profile data. Please try again later.');
+                });
+        }
+        
+        // Render past results
+        function renderPastResults(results) {
+            if (results.length === 0) {
+                pastResults.innerHTML = '<p>No past competition results found.</p>';
+                return;
+            }
+            
+            pastResults.innerHTML = '';
+            
+            // Sort by date (newest first)
+            results.sort((a, b) => new Date(b.date) - new Date(a.date));
+            
+            // Take only the 5 most recent results
+            const recentResults = results.slice(0, 5);
+            
+            recentResults.forEach(result => {
+                // Format date
+                const date = new Date(result.date);
+                const formattedDate = date.toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric'
+                });
+                
+                // Create result item
+                const resultItem = document.createElement('div');
+                resultItem.className = 'result-item';
+                
+                let eventsList = '';
+                
+                // Get medal counts
+                let medals = {gold: 0, silver: 0, bronze: 0};
+                
+                result.eventResults.forEach(event => {
+                    if (event.medal) {
+                        medals[event.medalType]++;
+                    }
+                });
+                
+                // Create medals display
+                let medalsDisplay = '';
+                if (medals.gold > 0) {
+                    medalsDisplay += `<span class="result-medal"><i class="fas fa-medal gold"></i> ${medals.gold}</span>`;
+                }
+                if (medals.silver > 0) {
+                    medalsDisplay += `<span class="result-medal"><i class="fas fa-medal silver"></i> ${medals.silver}</span>`;
+                }
+                if (medals.bronze > 0) {
+                    medalsDisplay += `<span class="result-medal"><i class="fas fa-medal bronze"></i> ${medals.bronze}</span>`;
+                }
+                
+                resultItem.innerHTML = `
+                    <div>
+                        <strong>${result.competitionName}</strong>
+                        <div style="color: #777; font-size: 0.9rem;">${formattedDate}</div>
+                    </div>
+                    <div>
+                        <div style="text-align: right; margin-bottom: 5px;">Team Rank: ${result.teamRank} of ${result.teamOutOf}</div>
+                        <div>${medalsDisplay}</div>
+                    </div>
+                `;
+                
+                pastResults.appendChild(resultItem);
+            });
+        }
+        
+        // Render current events
+        function renderCurrentEvents(userEvents) {
+            if (!userEvents || userEvents.length === 0) {
+                currentEvents.innerHTML = '<p>You are not currently registered for any events.</p>';
+                return;
+            }
+            
+            currentEvents.innerHTML = '';
+            
+            userEvents.forEach(event => {
+                const eventItem = document.createElement('div');
+                eventItem.className = 'event-item';
+                eventItem.innerHTML = `
+                    <input type="checkbox" class="event-checkbox" value="${event}" checked>
+                    <span>${event}</span>
+                `;
+                currentEvents.appendChild(eventItem);
+            });
+        }
+        
+        // Render other events
+        function renderOtherEvents(userEvents) {
+            otherEvents.innerHTML = '';
+            
+            // Filter out events the user is already in
+            const otherEventsList = allEvents.filter(event => !userEvents.includes(event));
+            
+            if (otherEventsList.length === 0) {
+                otherEvents.innerHTML = '<p>You are already registered for all available events.</p>';
+                return;
+            }
+            
+            otherEventsList.forEach(event => {
+                const eventItem = document.createElement('div');
+                eventItem.className = 'event-item';
+                eventItem.innerHTML = `
+                    <input type="checkbox" class="event-checkbox" value="${event}">
+                    <span>${event}</span>
+                `;
+                otherEvents.appendChild(eventItem);
+            });
+        }
+        
+        // Toggle additional events
+        toggleAddEvents.addEventListener('click', function() {
+            if (additionalEvents.style.display === 'none') {
+                additionalEvents.style.display = 'block';
+                toggleAddEvents.innerHTML = '<i class="fas fa-minus"></i> Hide Additional Events';
+            } else {
+                additionalEvents.style.display = 'none';
+                toggleAddEvents.innerHTML = '<i class="fas fa-plus"></i> Add Additional Events';
+            }
+        });
+        
+        // Submit application
+        submitApplication.addEventListener('click', function() {
+            // Get form values
+            const selectedEvents = [];
+            
+            // Get current events
+            document.querySelectorAll('#currentEvents .event-checkbox:checked').forEach(checkbox => {
+                selectedEvents.push(checkbox.value);
+            });
+            
+            // Get additional events
+            document.querySelectorAll('#otherEvents .event-checkbox:checked').forEach(checkbox => {
+                selectedEvents.push(checkbox.value);
+            });
+            
+            // Get question answers
+            const whyCompete = document.getElementById('whyCompete').value.trim();
+            const preparationPlan = document.getElementById('preparationPlan').value.trim();
+            const firstTimePrep = document.getElementById('firstTimePrep').value.trim();
+            const pastInfluence = document.getElementById('pastInfluence').value.trim();
+            
+            // Validate form
+            if (selectedEvents.length === 0) {
+                alert('Please select at least one event to compete in.');
+                return;
+            }
+            
+            if (!whyCompete) {
+                alert('Please explain why you want to compete in this tournament.');
+                return;
+            }
+            
+            if (!preparationPlan) {
+                alert('Please describe your preparation plan.');
+                return;
+            }
+            
+            if (firstTimeQuestion.style.display !== 'none' && !firstTimePrep) {
+                alert('Please describe your preparation efforts so far.');
+                return;
+            }
+            
+            if (returningQuestion.style.display !== 'none' && !pastInfluence) {
+                alert('Please explain how past results have influenced your preparations.');
+                return;
+            }
+            
+            // Create application object
+            const application = {
+                userId: currentUser.id,
+                competitionId: competitionId,
+                events: selectedEvents,
+                questions: {
+                    whyCompete: whyCompete,
+                    preparationPlan: preparationPlan
+                },
+                status: 'pending',
+                appliedAt: new Date().toISOString()
+            };
+            
+            // Add conditional questions
+            if (firstTimeQuestion.style.display !== 'none') {
+                application.questions.firstTimePrep = firstTimePrep;
+            }
+            
+            if (returningQuestion.style.display !== 'none') {
+                application.questions.pastInfluence = pastInfluence;
+            }
+            
+            // Submit application
+            fetch('/api/Applications', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(application)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to submit application');
+                }
+                return response.json();
+            })
+            .then(data => {
+                alert('Your application has been submitted successfully!');
+                window.location.href = '{{ url_for("user_competitions") }}';
+            })
+            .catch(error => {
+                console.error('Error submitting application:', error);
+                alert('Failed to submit your application. Please try again later.');
+            });
+        });
+        
+        // Cancel application
+        cancelApplication.addEventListener('click', function() {
+            if (confirm('Are you sure you want to cancel your application? All your entered data will be lost.')) {
+                window.location.href = '{{ url_for("user_competitions") }}';
+            }
+        });
+        
+        // Load data
+        loadCompetitionData();
+        loadUserData();
+    });
+</script>
+{% endblock %} 

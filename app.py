@@ -84,5 +84,13 @@ def user_competitions():
 def user_settings():
     return render_template('user/settings.html')
 
+@app.route('/user/competition/apply')
+def competition_apply():
+    return render_template('user/competition_apply.html')
+
+@app.route('/user/topic-space')
+def topic_space():
+    return render_template('/topic_space.html')
+
 if __name__ == '__main__':
     app.run(debug=True, host='localhost', port=5000) 

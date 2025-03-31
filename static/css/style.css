@@ -624,4 +624,19 @@ footer:before {
     .tab-link {
         margin-bottom: 5px;
     }
+}
+
+/* Department hero sections */
+.dept-hero {
+    height: 60vh;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
 } 
