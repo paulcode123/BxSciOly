@@ -5,181 +5,813 @@
 {% block content %}
 <div class="hero" style="height: 30vh; background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/static/images/events-bg.jpg');">
     <div class="hero-content">
-        <h1>My Events</h1>
-        <p>Manage your Science Olympiad events</p>
+        <h1><i class="fas fa-trophy"></i> My Events</h1>
+        <p>Your Science Olympiad events, teams, and learning resources</p>
     </div>
 </div>
 
 <section class="section">
     <div class="container">
+        <!-- Events Overview -->
+        <div id="eventsOverview" class="events-overview">
         <div class="section-title">
-            <h2>My Events</h2>
+                <h2>Your Events</h2>
+                <p>Select an event to view team roster, study materials, and learning resources</p>
         </div>
-        <div class="section-content">
-            <div class="user-events">
-                <div class="event-list-header">
-                    <div class="filter-options">
-                        <select id="filterEventType">
-                            <option value="all">All Events</option>
-                            <option value="biology">Biology</option>
-                            <option value="chemistry">Chemistry</option>
-                            <option value="earth">Earth Science</option>
-                            <option value="physics">Math & Physics</option>
-                            <option value="build">Build</option>
-                        </select>
-                        <div class="search-box">
-                            <input type="text" id="eventSearch" placeholder="Search events...">
-                            <i class="fas fa-search"></i>
-                        </div>
+            <div id="eventsGrid" class="events-grid">
+                <!-- Events will be loaded here -->
+                <div class="loading-indicator">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Loading your events...</p>
+                </div>
                     </div>
                 </div>
                 
-                <div id="eventsContainer" class="events-container">
-                    <!-- Events will be loaded here from Firebase -->
-                    <div class="loading-indicator">
-                        <i class="fas fa-spinner fa-spin"></i>
-                        <p>Loading your events...</p>
+        <!-- Event Detail View -->
+        <div id="eventDetail" class="event-detail hidden">
+            <div class="event-header">
+                <button id="backToEvents" class="back-btn">
+                    <i class="fas fa-arrow-left"></i> Back to Events
+                </button>
+                <div class="event-info">
+                    <h2 id="eventTitle">Event Name</h2>
+                    <p id="eventDescription">Event description and information</p>
+                            </div>
+                <button id="openLearningPath" class="learning-path-btn">
+                    <i class="fas fa-graduation-cap"></i> Continue Learning
+                </button>
+                        </div>
+            
+            <!-- Event Tabs -->
+            <div class="event-tabs">
+                <button class="event-tab active" data-tab="roster">
+                    <i class="fas fa-users"></i> Team Roster
+                </button>
+                <button class="event-tab" data-tab="materials">
+                    <i class="fas fa-book"></i> Study Materials
+                </button>
+                <button class="event-tab" data-tab="tests">
+                    <i class="fas fa-file-pdf"></i> Tests Library
+                </button>
+                <button class="event-tab" data-tab="leaderboard">
+                    <i class="fas fa-medal"></i> Learning Leaderboard
+                </button>
+            </div>
+            
+            <!-- Tab Contents -->
+            <div class="tab-content active" id="roster-tab">
+                <div class="roster-container">
+                    <div class="roster-header">
+                        <h3>Team Members</h3>
+                        <div class="roster-stats">
+                            <span id="memberCount">0 members</span>
+                        </div>
+                    </div>
+                    <div id="rosterGrid" class="roster-grid">
+                        <!-- Roster will be loaded here -->
+                    </div>
+                    </div>
+                </div>
+                
+            <div class="tab-content" id="materials-tab">
+                <div class="materials-container">
+                    <div class="materials-header">
+                        <h3>Study Materials</h3>
+                        <button id="createBinderBtn" class="create-btn">
+                            <i class="fas fa-plus"></i> Create Binder
+                        </button>
+                    </div>
+                    
+                    <div class="materials-sections">
+                        <div class="material-section">
+                            <h4><i class="fas fa-lock"></i> My Private Binders</h4>
+                            <div id="privateBinders" class="binders-grid">
+                                <!-- Private binders will be loaded here -->
+                            </div>
+                        </div>
+                        
+                        <div class="material-section">
+                            <h4><i class="fas fa-globe"></i> Team Shared Binders</h4>
+                            <div id="publicBinders" class="binders-grid">
+                                <!-- Public binders will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="tests-tab">
+                <div class="tests-container">
+                    <div class="tests-header">
+                        <h3>Tests Library</h3>
+                        <button id="uploadTestBtn" class="create-btn">
+                            <i class="fas fa-upload"></i> Upload Test
+                        </button>
+                    </div>
+                    
+                    <div class="tests-filters">
+                        <select id="yearFilter">
+                            <option value="all">All Years</option>
+                        </select>
+                        <select id="typeFilter">
+                            <option value="all">All Types</option>
+                            <option value="invitational">Invitational</option>
+                            <option value="regional">Regional</option>
+                            <option value="state">State</option>
+                            <option value="national">National</option>
+                            <option value="practice">Practice</option>
+                        </select>
+                    </div>
+                    
+                    <div id="testsGrid" class="tests-grid">
+                        <!-- Tests will be loaded here -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="leaderboard-tab">
+                <div class="leaderboard-container">
+                    <div class="leaderboard-header">
+                        <h3>Learning Leaderboard</h3>
+                        <div class="leaderboard-stats">
+                            <div class="stat-item">
+                                <span class="stat-value" id="yourRank">-</span>
+                                <span class="stat-label">Your Rank</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value" id="yourPoints">0</span>
+                                <span class="stat-label">Your Points</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="leaderboard-content">
+                        <div class="leaderboard-explanation">
+                            <h4>How to Earn Points</h4>
+                            <div class="points-guide">
+                                <div class="point-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Complete a learning module: <strong>10 points</strong></span>
+                                </div>
+                                <div class="point-item">
+                                    <i class="fas fa-quiz"></i>
+                                    <span>Pass a practice quiz: <strong>15 points</strong></span>
+                                </div>
+                                <div class="point-item">
+                                    <i class="fas fa-book"></i>
+                                    <span>Create a study binder: <strong>5 points</strong></span>
+                                </div>
+                                <div class="point-item">
+                                    <i class="fas fa-upload"></i>
+                                    <span>Upload a test: <strong>20 points</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="leaderboardList" class="leaderboard-list">
+                            <!-- Leaderboard will be loaded here -->
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+
+
+<!-- Create Binder Modal -->
+<div id="createBinderModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2>Create New Binder</h2>
+        <form id="binderForm">
+            <div class="form-group">
+                <label for="binderTitle">Binder Title</label>
+                <input type="text" id="binderTitle" name="title" required placeholder="e.g., Anatomy Notes" maxlength="100">
+            </div>
+            <input type="hidden" id="binderEvent" name="eventName" value="">
+            <div class="form-group">
+                <label for="binderDescription">Description</label>
+                <textarea id="binderDescription" name="description" rows="3" placeholder="Brief description of the binder contents"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="binderVisibility">Visibility</label>
+                <select id="binderVisibility" name="visibility" required>
+                    <option value="private">Private (Only me)</option>
+                    <option value="team">Team (Event members only)</option>
+                </select>
+            </div>
+            <div class="form-group sections-group">
+                <label>Sections</label>
+                <p class="hint-text">Add sections to organize your binder content</p>
+                <div id="sectionsList">
+                    <div class="section-item">
+                        <input type="text" name="sections[]" placeholder="Section Title" required>
+                        <button type="button" class="remove-section-btn"><i class="fas fa-times"></i></button>
+                    </div>
+                </div>
+                <button type="button" id="addSectionBtn" class="add-section-btn">
+                    <i class="fas fa-plus"></i> Add Section
+                </button>
+            </div>
+            <div class="form-footer">
+                <button type="button" class="cancel-btn">Cancel</button>
+                <button type="submit" class="create-btn-submit">Create Binder</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Upload Test Modal -->
+<div id="uploadTestModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2>Upload Test</h2>
+        <form id="testUploadForm">
+            <div class="form-group">
+                <label for="testName">Test Name</label>
+                <input type="text" id="testName" name="testName" required placeholder="e.g., MIT Invitational Anatomy Test" maxlength="100">
+            </div>
+            <input type="hidden" id="testEvent" name="eventName" value="">
+            <div class="form-group">
+                <label for="testYear">Year</label>
+                <input type="number" id="testYear" name="year" required min="2000" max="2100" placeholder="e.g., 2023">
+            </div>
+            <div class="form-group">
+                <label for="testCompetition">Competition Name (Optional)</label>
+                <input type="text" id="testCompetition" name="competitionName" placeholder="e.g., MIT Invitational">
+            </div>
+            <div class="form-group">
+                <label for="testType">Competition Type</label>
+                <select id="testType" name="competitionType" required>
+                    <option value="" disabled selected>Select competition type</option>
+                    <option value="invitational">Invitational</option>
+                    <option value="regional">Regional</option>
+                    <option value="state">State</option>
+                    <option value="national">National</option>
+                    <option value="practice">Practice</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="testDescription">Description (Optional)</label>
+                <textarea id="testDescription" name="description" rows="3" placeholder="Brief description of the test"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="testTags">Tags (Optional, comma separated)</label>
+                <input type="text" id="testTags" name="tags" placeholder="e.g., nervous system, cardiovascular">
+            </div>
+            <div class="form-group">
+                <label for="testFile">Test PDF</label>
+                <input type="file" id="testFile" name="testFile" accept=".pdf" required>
+                <p class="file-hint">Maximum file size: 10MB. PDF files only.</p>
+            </div>
+            <div class="form-footer">
+                <button type="button" class="cancel-btn">Cancel</button>
+                <button type="submit" class="create-btn-submit">Upload Test</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
 {% endblock %}
 
 {% block extra_css %}
 <style>
-    .user-events {
-        background-color: white;
-        border-radius: 15px;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        padding: 30px;
+    /* Main Layout */
+    .events-overview {
+        margin-bottom: 40px;
     }
     
-    .event-list-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 25px;
-    }
-    
-    .filter-options {
-        display: flex;
-        gap: 15px;
-        align-items: center;
-    }
-    
-    .filter-options select {
-        padding: 10px 15px;
-        border-radius: 8px;
-        border: 1px solid #ddd;
-        font-family: inherit;
-        background-color: white;
-    }
-    
-    .search-box {
-        position: relative;
-    }
-    
-    .search-box input {
-        padding: 10px 15px;
-        padding-right: 40px;
-        border-radius: 8px;
-        border: 1px solid #ddd;
-        width: 250px;
-    }
-    
-    .search-box i {
-        position: absolute;
-        right: 15px;
-        top: 50%;
-        transform: translateY(-50%);
-        color: #777;
-    }
-    
-    .events-container {
+    .events-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-        gap: 20px;
-        margin-top: 20px;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 25px;
+        margin-top: 30px;
     }
     
     .event-card {
-        background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-        border-radius: 10px;
-        padding: 20px;
-        transition: all 0.3s;
-        border-left: 5px solid var(--accent-color);
+        background: white;
+        border-radius: 15px;
+        padding: 25px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        border-top: 5px solid var(--accent-color);
     }
     
     .event-card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+    
+    .event-card h3 {
+        color: var(--primary-color);
+        margin-bottom: 15px;
+        font-size: 1.4rem;
+    }
+    
+    .event-stats {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+        font-size: 0.9rem;
+        color: #666;
+    }
+    
+    .event-progress {
+        background-color: #f0f0f0;
+        border-radius: 10px;
+        height: 8px;
+        margin-bottom: 15px;
+        overflow: hidden;
+    }
+    
+    .progress-bar {
+        height: 100%;
+        background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+        border-radius: 10px;
+        transition: width 0.3s ease;
+    }
+    
+    .event-actions {
+        display: flex;
+        gap: 10px;
+    }
+    
+    .quick-action {
+        flex: 1;
+        padding: 8px 12px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        background: white;
+        color: #666;
+        text-decoration: none;
+        text-align: center;
+        font-size: 0.8rem;
+        transition: all 0.2s;
+    }
+    
+    .quick-action:hover {
+        background: var(--accent-color);
+        color: white;
+        border-color: var(--accent-color);
+    }
+    
+    /* Event Detail */
+    .event-detail {
+        animation: slideIn 0.3s ease;
     }
     
     .event-header {
         display: flex;
-        justify-content: space-between;
         align-items: center;
-        margin-bottom: 15px;
-    }
-    
-    .event-title {
-        font-size: 1.2rem;
-        color: var(--primary-color);
-        font-weight: 600;
-    }
-    
-    .event-category {
-        background-color: var(--accent-color);
-        color: white;
-        padding: 4px 10px;
+        justify-content: space-between;
+        background: white;
+        padding: 25px;
         border-radius: 15px;
-        font-size: 0.8rem;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
     }
     
-    .event-details {
-        margin-bottom: 15px;
+    .back-btn {
+        background: #f5f5f5;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 8px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #666;
+        transition: all 0.2s;
     }
     
-    .event-description {
-        color: #555;
-        font-size: 0.95rem;
-        line-height: 1.5;
-        margin-bottom: 15px;
+    .back-btn:hover {
+        background: #e0e0e0;
+        color: var(--primary-color);
     }
     
-    .event-progress {
-        margin-top: 15px;
+    .event-info {
+        flex: 1;
+        margin: 0 30px;
     }
     
-    .progress-label {
+    .event-info h2 {
+        color: var(--primary-color);
+        margin-bottom: 8px;
+    }
+    
+    .event-info p {
+        color: #666;
+        margin: 0;
+    }
+    
+    .learning-path-btn {
+        background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+        color: white;
+        border: none;
+        padding: 15px 25px;
+        border-radius: 30px;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        transition: all 0.3s;
+    }
+    
+    .learning-path-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(155, 89, 182, 0.3);
+    }
+    
+    /* Event Tabs */
+    .event-tabs {
+        display: flex;
+        background: white;
+        border-radius: 15px;
+        padding: 10px;
+        margin-bottom: 30px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .event-tab {
+        flex: 1;
+        padding: 15px 20px;
+        border: none;
+        background: none;
+        border-radius: 10px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        color: #666;
+        font-weight: 500;
+        transition: all 0.2s;
+    }
+    
+    .event-tab:hover {
+        background: rgba(155, 89, 182, 0.1);
+        color: var(--accent-color);
+    }
+    
+    .event-tab.active {
+        background: var(--accent-color);
+        color: white;
+    }
+    
+    /* Tab Content */
+    .tab-content {
+        display: none;
+        background: white;
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        min-height: 500px;
+    }
+    
+    .tab-content.active {
+        display: block;
+    }
+    
+    /* Roster Styles */
+    .roster-header {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 5px;
+        align-items: center;
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .roster-stats {
+        color: #666;
         font-size: 0.9rem;
     }
     
-    .progress-bar {
-        height: 8px;
-        background-color: #eee;
-        border-radius: 4px;
-        overflow: hidden;
+    .roster-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
     }
     
-    .progress-fill {
+    .member-card {
+        text-align: center;
+        padding: 20px;
+        border-radius: 10px;
+        background: #f9f9f9;
+        transition: all 0.2s;
+    }
+    
+    .member-card:hover {
+        background: #f0f0f0;
+        transform: translateY(-2px);
+    }
+    
+    .member-avatar {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        margin: 0 auto 15px;
+        background: var(--accent-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+    
+    .member-avatar img {
+        width: 100%;
         height: 100%;
-        background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
-        border-radius: 4px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    
+    .member-name {
+        font-weight: 600;
+        color: var(--primary-color);
+        margin-bottom: 5px;
+    }
+    
+    .member-email {
+        font-size: 0.8rem;
+        color: #666;
+    }
+    
+    /* Materials Styles */
+    .materials-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .material-section {
+        margin-bottom: 40px;
+    }
+    
+    .material-section h4 {
+        color: var(--primary-color);
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .binders-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    
+    .binder-card {
+        background: #f9f9f9;
+        border-radius: 10px;
+        padding: 20px;
+        transition: all 0.2s;
+        cursor: pointer;
+        border-left: 4px solid var(--accent-color);
+    }
+    
+    .binder-card:hover {
+        background: #f0f0f0;
+        transform: translateY(-2px);
+    }
+    
+    .binder-title {
+        font-weight: 600;
+        color: var(--primary-color);
+        margin-bottom: 8px;
+    }
+    
+    .binder-description {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 10px;
+    }
+    
+    .binder-meta {
+        font-size: 0.8rem;
+        color: #888;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    /* Tests Styles */
+    .tests-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .tests-filters {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 25px;
+    }
+    
+    .tests-filters select {
+        padding: 8px 12px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        background: white;
+    }
+    
+    .tests-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+    }
+    
+    .test-card {
+        background: #f9f9f9;
+        border-radius: 10px;
+        padding: 20px;
+        transition: all 0.2s;
+        cursor: pointer;
+        border-left: 4px solid var(--secondary-color);
+    }
+    
+    .test-card:hover {
+        background: #f0f0f0;
+        transform: translateY(-2px);
+    }
+    
+    .test-title {
+        font-weight: 600;
+        color: var(--primary-color);
+        margin-bottom: 10px;
+    }
+    
+    .test-meta {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 10px;
+        flex-wrap: wrap;
+    }
+    
+    .test-badge {
+        padding: 3px 8px;
+        border-radius: 12px;
+        font-size: 0.7rem;
+        font-weight: 500;
+    }
+    
+    .year-badge {
+        background: #e3f2fd;
+        color: #1976d2;
+    }
+    
+    .type-badge {
+        background: #f3e5f5;
+        color: #7b1fa2;
+    }
+    
+    .test-description {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 10px;
+    }
+    
+    .test-stats {
+        font-size: 0.8rem;
+        color: #888;
+    }
+    
+    /* Leaderboard Styles */
+    .leaderboard-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .leaderboard-stats {
+        display: flex;
+        gap: 30px;
+    }
+    
+    .stat-item {
+        text-align: center;
+    }
+    
+    .stat-value {
+        display: block;
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: var(--accent-color);
+    }
+    
+    .stat-label {
+        font-size: 0.8rem;
+        color: #666;
+    }
+    
+    .leaderboard-content {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 30px;
+    }
+    
+    .leaderboard-explanation {
+        background: #f9f9f9;
+        padding: 20px;
+        border-radius: 10px;
+    }
+    
+    .points-guide {
+        margin-top: 15px;
+    }
+    
+    .point-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+        font-size: 0.9rem;
+    }
+    
+    .point-item i {
+        color: var(--accent-color);
+        width: 20px;
+    }
+    
+    .leaderboard-list {
+        background: #f9f9f9;
+        border-radius: 10px;
+        padding: 20px;
+        max-height: 400px;
+        overflow-y: auto;
+    }
+    
+    .leaderboard-item {
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        background: white;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+    
+    .leaderboard-item.current-user {
+        border: 2px solid var(--accent-color);
+        background: rgba(155, 89, 182, 0.05);
+    }
+    
+    .rank {
+        width: 40px;
+        text-align: center;
+        font-weight: 600;
+        color: var(--accent-color);
+    }
+    
+    .rank.first { color: #ffd700; }
+    .rank.second { color: #c0c0c0; }
+    .rank.third { color: #cd7f32; }
+    
+    .user-info {
+        flex: 1;
+        margin-left: 15px;
+    }
+    
+    .user-name {
+        font-weight: 600;
+        color: var(--primary-color);
+    }
+    
+    .user-points {
+        font-size: 0.8rem;
+        color: #666;
+    }
+    
+    .points {
+        font-weight: 600;
+        color: var(--accent-color);
+        font-size: 1.1rem;
+    }
+    
+    /* Utility Classes */
+    .hidden {
+        display: none !important;
     }
     
     .loading-indicator {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 40px;
         grid-column: 1 / -1;
+        text-align: center;
+        padding: 50px 0;
         color: #777;
     }
     
@@ -189,28 +821,197 @@
         color: var(--accent-color);
     }
     
+    .create-btn {
+        background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 500;
+        transition: all 0.2s;
+    }
+    
+    .create-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Modal Styles */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        overflow: auto;
+    }
+    
+    .modal-content {
+        background-color: white;
+        margin: 5% auto;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        width: 90%;
+        max-width: 600px;
+        position: relative;
+    }
+    
+    .close-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #777;
+    }
+    
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-family: inherit;
+    }
+    
+    .sections-group .hint-text {
+        font-size: 0.9rem;
+        color: #888;
+        margin-bottom: 10px;
+    }
+    
+    .section-item {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .remove-section-btn {
+        background: none;
+        border: none;
+        color: #e74c3c;
+        cursor: pointer;
+        font-size: 1.1rem;
+    }
+    
+    .add-section-btn {
+        background: none;
+        border: 1px dashed #ddd;
+        width: 100%;
+        padding: 10px;
+        border-radius: 8px;
+        color: #777;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+    }
+    
+    .add-section-btn:hover {
+        background-color: #f9f9f9;
+        color: var(--accent-color);
+    }
+    
+    .form-footer {
+        display: flex;
+        justify-content: flex-end;
+        gap: 15px;
+        margin-top: 30px;
+    }
+    
+    .cancel-btn {
+        background-color: #f1f1f1;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-weight: 500;
+        cursor: pointer;
+    }
+    
+    .create-btn-submit {
+        background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-weight: 500;
+        cursor: pointer;
+    }
+    
+    .file-hint {
+        font-size: 0.8rem;
+        color: #888;
+        margin-top: 5px;
+    }
+    
+
+    
+    .event-badge {
+        background-color: var(--accent-color);
+        color: white;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+    }
+    
+    /* Animations */
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    /* Responsive Design */
     @media (max-width: 768px) {
-        .event-list-header {
+        .events-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .event-header {
             flex-direction: column;
-            align-items: flex-start;
-            gap: 15px;
+            gap: 20px;
+            text-align: center;
         }
         
-        .filter-options {
-            width: 100%;
+        .event-tabs {
             flex-direction: column;
-            align-items: flex-start;
         }
         
-        .search-box, .filter-options select {
-            width: 100%;
+        .leaderboard-content {
+            grid-template-columns: 1fr;
         }
         
-        .search-box input {
-            width: 100%;
+        .roster-grid {
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
         }
         
-        .events-container {
+        .binders-grid,
+        .tests-grid {
             grid-template-columns: 1fr;
         }
     }
@@ -226,176 +1027,686 @@
             window.location.href = '{{ url_for("login") }}';
             return;
         }
+
+        // Global variables
+        let userEvents = [];
+        let currentEventData = null;
+        let allBinders = [];
+        let allTests = [];
         
-        const eventsContainer = document.getElementById('eventsContainer');
-        const filterSelect = document.getElementById('filterEventType');
-        const searchInput = document.getElementById('eventSearch');
+        // DOM elements
+        const eventsOverview = document.getElementById('eventsOverview');
+        const eventDetail = document.getElementById('eventDetail');
+        const eventsGrid = document.getElementById('eventsGrid');
+        const backToEvents = document.getElementById('backToEvents');
+        const eventTitle = document.getElementById('eventTitle');
+        const eventDescription = document.getElementById('eventDescription');
+        const openLearningPath = document.getElementById('openLearningPath');
         
-        // Load user events from Firebase
+        // Tab elements
+        const eventTabs = document.querySelectorAll('.event-tab');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        // Modal elements
+        const createBinderModal = document.getElementById('createBinderModal');
+        const uploadTestModal = document.getElementById('uploadTestModal');
+
+
+        
+        // Form elements
+        const binderForm = document.getElementById('binderForm');
+        const testUploadForm = document.getElementById('testUploadForm');
+        
+        // Initialize the page
+        loadUserEvents();
+        
+        // Check for event parameter in URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const eventParam = urlParams.get('event');
+        if (eventParam) {
+            // Wait for events to load, then show the specified event
+            setTimeout(() => {
+                if (userEvents.includes(eventParam)) {
+                    showEventDetail(eventParam);
+                }
+            }, 500);
+        }
+        
+        // Event listeners
+        backToEvents.addEventListener('click', showEventsOverview);
+        
+        // Tab switching
+        eventTabs.forEach(tab => {
+            tab.addEventListener('click', () => switchTab(tab.dataset.tab));
+        });
+        
+        // Modal event listeners
+        document.getElementById('createBinderBtn').addEventListener('click', () => {
+            document.getElementById('binderEvent').value = currentEventData.name;
+            createBinderModal.style.display = 'block';
+        });
+        
+        document.getElementById('uploadTestBtn').addEventListener('click', () => {
+            document.getElementById('testEvent').value = currentEventData.name;
+            uploadTestModal.style.display = 'block';
+        });
+        
+        // Close modals
+        document.querySelectorAll('.close-btn, .close-viewer-btn, .close-learning-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const modal = this.closest('.modal');
+                if (modal) modal.style.display = 'none';
+            });
+        });
+        
+        // Close modals when clicking outside
+        window.addEventListener('click', function(e) {
+            if (e.target.classList.contains('modal')) {
+                e.target.style.display = 'none';
+            }
+        });
+        
+        // Form submissions
+        binderForm.addEventListener('submit', createBinder);
+        testUploadForm.addEventListener('submit', uploadTest);
+        
+        // Cancel buttons
+        document.querySelectorAll('.cancel-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const modal = this.closest('.modal');
+                if (modal) modal.style.display = 'none';
+            });
+        });
+        
+        // Load user's events
         function loadUserEvents() {
-            // Clear previous content
-            eventsContainer.innerHTML = `
-                <div class="loading-indicator">
-                    <i class="fas fa-spinner fa-spin"></i>
-                    <p>Loading your events...</p>
-                </div>
-            `;
-            
-            // Fetch user's events from Firebase
-            fetch(`/api/Members/${currentUser.id}`)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Failed to load user data');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    // Get the member data
-                    const memberData = Object.values(data)[0];
-                    const userEvents = memberData.events || [];
-                    
-                    if (userEvents.length === 0) {
-                        eventsContainer.innerHTML = `
-                            <div class="no-events-message" style="grid-column: 1 / -1; text-align: center; padding: 40px;">
-                                <i class="fas fa-calendar-times" style="font-size: 3rem; color: #ddd; margin-bottom: 15px;"></i>
-                                <h3>No Events Found</h3>
-                                <p>You haven't been assigned to any events yet.</p>
-                            </div>
-                        `;
-                        return;
-                    }
-                    
-                    // For demo, create mock event data based on the user's selected events
-                    const mockEvents = userEvents.map(eventName => {
-                        // Determine category based on event name
-                        let category;
-                        if (['Anatomy and Physiology', 'Disease Detectives', 'Ecology', 'Entomology', 'Microbe Mission'].includes(eventName)) {
-                            category = 'biology';
-                        } else if (['Chem Lab', 'Forensics', 'Materials Science'].includes(eventName)) {
-                            category = 'chemistry';
-                        } else if (['Astronomy', 'Dynamic Planet', 'Fossils', 'Geologic Mapping'].includes(eventName)) {
-                            category = 'earth';
-                        } else if (['Codebusters', 'Experimental Design', 'Optics'].includes(eventName)) {
-                            category = 'physics';
-                        } else {
-                            category = 'build';
-                        }
-                        
-                        // Random progress for demo
-                        const progress = Math.floor(Math.random() * 100);
-                        
-                        return {
-                            name: eventName,
-                            category: category,
-                            description: `Study materials and resources for ${eventName}.`,
-                            progress: progress,
-                            lastUpdated: new Date().toLocaleDateString()
-                        };
-                    });
-                    
-                    // Render events
-                    renderEvents(mockEvents);
-                    
-                    // Set up filtering and search
-                    setupFiltering(mockEvents);
+        fetch(`/api/Members/${currentUser.id}`)
+            .then(response => response.json())
+            .then(data => {
+                const memberData = Object.values(data)[0];
+                    userEvents = memberData.events || [];
+                    renderEventCards();
                 })
                 .catch(error => {
-                    console.error('Error loading events:', error);
-                    eventsContainer.innerHTML = `
-                        <div class="error-message" style="grid-column: 1 / -1; text-align: center; padding: 40px; color: #e74c3c;">
-                            <i class="fas fa-exclamation-circle" style="font-size: 3rem; margin-bottom: 15px;"></i>
-                            <h3>Error Loading Events</h3>
-                            <p>${error.message}</p>
-                        </div>
-                    `;
+                    console.error('Error loading user events:', error);
+                    showError('Failed to load your events');
                 });
         }
         
-        // Render events to the container
-        function renderEvents(events) {
-            eventsContainer.innerHTML = '';
-            
-            if (events.length === 0) {
-                eventsContainer.innerHTML = `
-                    <div class="no-events-message" style="grid-column: 1 / -1; text-align: center; padding: 40px;">
-                        <i class="fas fa-filter" style="font-size: 3rem; color: #ddd; margin-bottom: 15px;"></i>
-                        <h3>No Matching Events</h3>
-                        <p>Try adjusting your filters or search terms.</p>
+        // Render event cards
+        function renderEventCards() {
+            if (userEvents.length === 0) {
+                eventsGrid.innerHTML = `
+                    <div class="empty-state" style="grid-column: 1 / -1; text-align: center; padding: 50px 20px;">
+                        <i class="fas fa-calendar-times" style="font-size: 4rem; color: #ddd; margin-bottom: 20px;"></i>
+                        <h3>No Events Assigned</h3>
+                        <p>You haven't been assigned to any events yet. Contact team leadership to get started!</p>
                     </div>
                 `;
                 return;
             }
             
-            events.forEach(event => {
-                const categoryLabel = getCategoryLabel(event.category);
+            eventsGrid.innerHTML = '';
+            
+            userEvents.forEach(eventName => {
                 const eventCard = document.createElement('div');
                 eventCard.className = 'event-card';
+                eventCard.dataset.event = eventName;
+                
+                // Generate mock data for demonstration
+                const progress = Math.floor(Math.random() * 100);
+                const memberCount = Math.floor(Math.random() * 15) + 5;
+                const binderCount = Math.floor(Math.random() * 8) + 2;
+                const testCount = Math.floor(Math.random() * 20) + 5;
+                
                 eventCard.innerHTML = `
-                    <div class="event-header">
-                        <h3 class="event-title">${event.name}</h3>
-                        <span class="event-category">${categoryLabel}</span>
+                    <h3>${eventName}</h3>
+                    <div class="event-stats">
+                        <span><i class="fas fa-users"></i> ${memberCount} members</span>
+                        <span><i class="fas fa-book"></i> ${binderCount} binders</span>
+                        <span><i class="fas fa-file-pdf"></i> ${testCount} tests</span>
                     </div>
-                    <div class="event-details">
-                        <p class="event-description">${event.description}</p>
-                        <div class="event-progress">
-                            <div class="progress-label">
-                                <span>Progress</span>
-                                <span>${event.progress}%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: ${event.progress}%"></div>
-                            </div>
-                        </div>
+                    <div class="event-progress">
+                        <div class="progress-bar" style="width: ${progress}%"></div>
                     </div>
-                    <div class="event-footer">
-                        <small>Last updated: ${event.lastUpdated}</small>
+                    <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">Learning Progress: ${progress}%</p>
+                    <div class="event-actions">
+                        <span class="quick-action">View Team</span>
+                        <span class="quick-action">Study Materials</span>
+                        <span class="quick-action">Practice Tests</span>
                     </div>
                 `;
-                eventsContainer.appendChild(eventCard);
+                
+                eventCard.addEventListener('click', () => showEventDetail(eventName));
+                eventsGrid.appendChild(eventCard);
             });
         }
         
-        // Set up filtering and search functionality
-        function setupFiltering(allEvents) {
-            filterSelect.addEventListener('change', applyFilters);
-            searchInput.addEventListener('input', applyFilters);
+        // Show event detail view
+        function showEventDetail(eventName) {
+            currentEventData = {
+                name: eventName,
+                description: getEventDescription(eventName)
+            };
             
-            function applyFilters() {
-                const filterValue = filterSelect.value;
-                const searchValue = searchInput.value.toLowerCase();
-                
-                const filteredEvents = allEvents.filter(event => {
-                    // Apply category filter
-                    if (filterValue !== 'all' && event.category !== filterValue) {
-                        return false;
-                    }
+            eventTitle.textContent = eventName;
+            eventDescription.textContent = currentEventData.description;
+            
+            eventsOverview.classList.add('hidden');
+            eventDetail.classList.remove('hidden');
+            
+            // Load the default tab (roster)
+            switchTab('roster');
+        }
+        
+        // Show events overview
+        function showEventsOverview() {
+            eventDetail.classList.add('hidden');
+            eventsOverview.classList.remove('hidden');
+        }
+        
+        // Switch between tabs
+        function switchTab(tabName) {
+            // Update tab buttons
+            eventTabs.forEach(tab => {
+                tab.classList.remove('active');
+                if (tab.dataset.tab === tabName) {
+                        tab.classList.add('active');
+                }
+            });
+            
+            // Update tab content
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+                if (content.id === `${tabName}-tab`) {
+                    content.classList.add('active');
+                }
+            });
+            
+            // Load data for the selected tab
+            switch (tabName) {
+                case 'roster':
+                    loadEventRoster();
+                    break;
+                case 'materials':
+                    loadEventMaterials();
+                    break;
+                case 'tests':
+                    loadEventTests();
+                    break;
+                case 'leaderboard':
+                    loadEventLeaderboard();
+                    break;
+            }
+        }
+        
+        // Load event roster
+        function loadEventRoster() {
+            const rosterGrid = document.getElementById('rosterGrid');
+            const memberCount = document.getElementById('memberCount');
+            
+            rosterGrid.innerHTML = '<div class="loading-indicator"><i class="fas fa-spinner fa-spin"></i><p>Loading roster...</p></div>';
+            
+            // Fetch all members and filter by event
+            fetch('/api/Members')
+                .then(response => response.json())
+                .then(data => {
+                    const allMembers = data.map(item => {
+                        const id = Object.keys(item)[0];
+                        return { id, ...item[id] };
+                    });
                     
-                    // Apply search filter
-                    if (searchValue && !event.name.toLowerCase().includes(searchValue)) {
-                        return false;
-                    }
+                    // Filter members who have this event
+                    const eventMembers = allMembers.filter(member => 
+                        member.events && member.events.includes(currentEventData.name)
+                    );
                     
-                    return true;
+                    memberCount.textContent = `${eventMembers.length} members`;
+                    renderRoster(eventMembers);
+            })
+            .catch(error => {
+                    console.error('Error loading roster:', error);
+                    rosterGrid.innerHTML = '<div class="error-message">Failed to load roster</div>';
                 });
+        }
+        
+        // Render roster
+        function renderRoster(members) {
+            const rosterGrid = document.getElementById('rosterGrid');
+            
+            if (members.length === 0) {
+                rosterGrid.innerHTML = '<div class="empty-state">No members found for this event</div>';
+                return;
+            }
+            
+            rosterGrid.innerHTML = '';
+            
+            members.forEach(member => {
+                const memberCard = document.createElement('div');
+                memberCard.className = 'member-card';
                 
-                renderEvents(filteredEvents);
-            }
+                const initials = `${member.firstName[0]}${member.lastName[0]}`.toUpperCase();
+                
+                memberCard.innerHTML = `
+                    <div class="member-avatar">
+                        ${member.profilePicUrl ? 
+                            `<img src="${member.profilePicUrl}" alt="${member.firstName} ${member.lastName}">` : 
+                            initials
+                        }
+                    </div>
+                    <div class="member-name">${member.firstName} ${member.lastName}</div>
+                    <div class="member-email">${member.email}</div>
+                `;
+                
+                rosterGrid.appendChild(memberCard);
+            });
         }
         
-        // Helper function to get human-readable category labels
-        function getCategoryLabel(category) {
-            switch (category) {
-                case 'biology': return 'Biology';
-                case 'chemistry': return 'Chemistry';
-                case 'earth': return 'Earth Science';
-                case 'physics': return 'Math & Physics';
-                case 'build': return 'Build';
-                default: return 'General';
-            }
+        // Load event materials (binders)
+        function loadEventMaterials() {
+            const privateBinders = document.getElementById('privateBinders');
+            const publicBinders = document.getElementById('publicBinders');
+            
+            privateBinders.innerHTML = '<div class="loading-indicator"><i class="fas fa-spinner fa-spin"></i><p>Loading binders...</p></div>';
+            publicBinders.innerHTML = '<div class="loading-indicator"><i class="fas fa-spinner fa-spin"></i><p>Loading binders...</p></div>';
+            
+            // Fetch binders for this event
+            fetch('/api/Binders')
+                .then(response => response.json())
+                .then(data => {
+                    const allBindersData = data.map(item => {
+                        const id = Object.keys(item)[0];
+                        return { id, ...item[id] };
+                    });
+                    
+                    // Filter binders for this event
+                    const eventBinders = allBindersData.filter(binder => 
+                        binder.eventName === currentEventData.name
+                    );
+                    
+                    // Separate private and public binders
+                    const userPrivateBinders = eventBinders.filter(binder => 
+                        binder.userId === currentUser.id && 
+                        (!binder.visibility || binder.visibility === 'private')
+                    );
+                    
+                    const teamBinders = eventBinders.filter(binder => 
+                        binder.visibility === 'team'
+                    );
+                    
+                    renderBinders(privateBinders, userPrivateBinders);
+                    renderBinders(publicBinders, teamBinders);
+                })
+                .catch(error => {
+                    console.error('Error loading binders:', error);
+                    privateBinders.innerHTML = '<div class="error-message">Failed to load binders</div>';
+                    publicBinders.innerHTML = '<div class="error-message">Failed to load binders</div>';
+                });
         }
         
-        // Load events when page loads
-        loadUserEvents();
+        // Render binders
+        function renderBinders(container, binders) {
+            if (binders.length === 0) {
+                container.innerHTML = '<div class="empty-state">No binders found</div>';
+                return;
+            }
+            
+            container.innerHTML = '';
+            
+            binders.forEach(binder => {
+                const binderCard = document.createElement('div');
+                binderCard.className = 'binder-card';
+                binderCard.dataset.id = binder.id;
+                
+                const updatedAt = binder.updatedAt ? 
+                    new Date(binder.updatedAt).toLocaleDateString() : 
+                    'Never updated';
+                
+                binderCard.innerHTML = `
+                    <div class="binder-title">${binder.title}</div>
+                    <div class="binder-description">${binder.description || 'No description'}</div>
+                    <div class="binder-meta">
+                        <span>Updated: ${updatedAt}</span>
+                        <span>${binder.sections ? binder.sections.length : 0} sections</span>
+                </div>
+            `;
+                
+                binderCard.addEventListener('click', () => openBinder(binder.id));
+                container.appendChild(binderCard);
+            });
+        }
+        
+        // Load event tests
+        function loadEventTests() {
+            const testsGrid = document.getElementById('testsGrid');
+            const yearFilter = document.getElementById('yearFilter');
+            const typeFilter = document.getElementById('typeFilter');
+            
+            testsGrid.innerHTML = '<div class="loading-indicator"><i class="fas fa-spinner fa-spin"></i><p>Loading tests...</p></div>';
+            
+            // Populate year filter
+            const currentYear = new Date().getFullYear();
+            yearFilter.innerHTML = '<option value="all">All Years</option>';
+            for (let year = currentYear; year >= currentYear - 10; year--) {
+                const option = document.createElement('option');
+                option.value = year;
+                option.textContent = year;
+                yearFilter.appendChild(option);
+            }
+            
+            // Fetch tests for this event
+            fetch('/api/Tests')
+                .then(response => response.json())
+                .then(data => {
+                    const allTestsData = data.map(item => {
+                        const id = Object.keys(item)[0];
+                        return { id, ...item[id] };
+                    });
+                    
+                    // Filter tests for this event
+                    const eventTests = allTestsData.filter(test => 
+                        test.eventName === currentEventData.name
+                    );
+                    
+                    allTests = eventTests;
+                    renderTests(eventTests);
+                    
+                    // Add filter event listeners
+                    yearFilter.addEventListener('change', filterTests);
+                    typeFilter.addEventListener('change', filterTests);
+                })
+                .catch(error => {
+                    console.error('Error loading tests:', error);
+                    testsGrid.innerHTML = '<div class="error-message">Failed to load tests</div>';
+                });
+        }
+        
+        // Filter tests
+        function filterTests() {
+            const yearFilter = document.getElementById('yearFilter');
+            const typeFilter = document.getElementById('typeFilter');
+            
+            let filteredTests = [...allTests];
+            
+            if (yearFilter.value !== 'all') {
+                filteredTests = filteredTests.filter(test => test.year == yearFilter.value);
+            }
+            
+            if (typeFilter.value !== 'all') {
+                filteredTests = filteredTests.filter(test => test.competitionType === typeFilter.value);
+            }
+            
+            renderTests(filteredTests);
+        }
+        
+        // Render tests
+        function renderTests(tests) {
+            const testsGrid = document.getElementById('testsGrid');
+            
+            if (tests.length === 0) {
+                testsGrid.innerHTML = '<div class="empty-state">No tests found</div>';
+                return;
+            }
+            
+            testsGrid.innerHTML = '';
+            
+            tests.forEach(test => {
+                const testCard = document.createElement('div');
+                testCard.className = 'test-card';
+                testCard.dataset.id = test.id;
+                
+                const uploadedAt = new Date(test.uploadedAt).toLocaleDateString();
+                const fileSizeMB = test.fileSize ? (test.fileSize / (1024 * 1024)).toFixed(1) : 'Unknown';
+                
+                testCard.innerHTML = `
+                    <div class="test-title">${test.testName}</div>
+                    <div class="test-meta">
+                        <span class="test-badge year-badge">${test.year}</span>
+                        <span class="test-badge type-badge">${capitalizeFirst(test.competitionType)}</span>
+                </div>
+                    <div class="test-description">${test.description || 'No description'}</div>
+                    <div class="test-stats">${fileSizeMB} MB • Uploaded ${uploadedAt}</div>
+                `;
+                
+                testCard.addEventListener('click', () => openTest(test));
+                testsGrid.appendChild(testCard);
+            });
+        }
+        
+        // Load event leaderboard
+        function loadEventLeaderboard() {
+            const leaderboardList = document.getElementById('leaderboardList');
+            const yourRank = document.getElementById('yourRank');
+            const yourPoints = document.getElementById('yourPoints');
+            
+            leaderboardList.innerHTML = '<div class="loading-indicator"><i class="fas fa-spinner fa-spin"></i><p>Loading leaderboard...</p></div>';
+            
+            // Generate mock leaderboard data
+            setTimeout(() => {
+                const mockLeaderboard = generateMockLeaderboard();
+                renderLeaderboard(mockLeaderboard);
+                
+                // Find current user's rank and points
+                const currentUserEntry = mockLeaderboard.find(entry => entry.id === currentUser.id);
+                if (currentUserEntry) {
+                    yourRank.textContent = currentUserEntry.rank;
+                    yourPoints.textContent = currentUserEntry.points;
+                } else {
+                    yourRank.textContent = '-';
+                    yourPoints.textContent = '0';
+                }
+            }, 500);
+        }
+        
+        // Generate mock leaderboard
+        function generateMockLeaderboard() {
+            // In a real implementation, this would fetch from the backend
+            const mockUsers = [
+                { id: currentUser.id, name: `${currentUser.firstName} ${currentUser.lastName}`, points: Math.floor(Math.random() * 200) + 50 },
+                { id: '1', name: 'Alice Johnson', points: Math.floor(Math.random() * 300) + 100 },
+                { id: '2', name: 'Bob Smith', points: Math.floor(Math.random() * 280) + 80 },
+                { id: '3', name: 'Carol Davis', points: Math.floor(Math.random() * 250) + 90 },
+                { id: '4', name: 'David Wilson', points: Math.floor(Math.random() * 220) + 70 },
+                { id: '5', name: 'Emma Brown', points: Math.floor(Math.random() * 240) + 85 },
+            ];
+            
+            // Sort by points descending
+            mockUsers.sort((a, b) => b.points - a.points);
+            
+            // Add ranks
+            mockUsers.forEach((user, index) => {
+                user.rank = index + 1;
+            });
+            
+            return mockUsers;
+        }
+        
+        // Render leaderboard
+        function renderLeaderboard(leaderboard) {
+            const leaderboardList = document.getElementById('leaderboardList');
+            leaderboardList.innerHTML = '';
+            
+            leaderboard.forEach(user => {
+                const leaderboardItem = document.createElement('div');
+                leaderboardItem.className = 'leaderboard-item';
+                
+                if (user.id === currentUser.id) {
+                    leaderboardItem.classList.add('current-user');
+                }
+                
+                const rankClass = user.rank === 1 ? 'first' : user.rank === 2 ? 'second' : user.rank === 3 ? 'third' : '';
+                
+                leaderboardItem.innerHTML = `
+                    <div class="rank ${rankClass}">${user.rank}</div>
+                    <div class="user-info">
+                        <div class="user-name">${user.name}</div>
+                        <div class="user-points">${user.points} points earned</div>
+                </div>
+                    <div class="points">${user.points}</div>
+                `;
+                
+                leaderboardList.appendChild(leaderboardItem);
+            });
+        }
+        
+        // Open learning path
+        openLearningPath.addEventListener('click', function() {
+            window.location.href = `/user/events/path?event=${encodeURIComponent(currentEventData.name)}`;
+        });
+        
+        // Utility functions
+        function getEventDescription(eventName) {
+            const descriptions = {
+                'Anatomy and Physiology': 'Study of the human body systems and their functions',
+                'Astronomy': 'Exploration of celestial objects and space phenomena',
+                'Chemistry Lab': 'Hands-on chemical analysis and laboratory techniques',
+                'Disease Detectives': 'Epidemiology and public health investigation',
+                'Forensics': 'Crime scene analysis and forensic science methods',
+                'Geology': 'Study of Earth\'s structure, processes, and materials',
+                'Experimental Design': 'Design and analysis of scientific experiments',
+                'Water Quality': 'Assessment and analysis of aquatic environments'
+            };
+            
+            return descriptions[eventName] || `Competitive Science Olympiad event focusing on ${eventName}`;
+        }
+        
+        function capitalizeFirst(str) {
+            return str.charAt(0).toUpperCase() + str.slice(1);
+        }
+        
+        function showError(message) {
+            // Simple error display - could be enhanced with a proper notification system
+            alert(message);
+        }
+        
+        function openBinder(binderId) {
+            window.location.href = `/user/events/binder?id=${binderId}`;
+        }
+        
+        function openTest(test) {
+            window.location.href = `/user/events/test?id=${test.id}`;
+        }
+        
+        // Form handling functions
+        function createBinder(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(binderForm);
+            const sectionInputs = document.querySelectorAll('input[name="sections[]"]');
+            const sections = Array.from(sectionInputs).map((input, index) => ({
+                title: input.value,
+                order: index
+            }));
+            
+            const binderData = {
+                userId: currentUser.id,
+                title: formData.get('title'),
+                eventName: formData.get('eventName'),
+                description: formData.get('description'),
+                visibility: formData.get('visibility'),
+                sections,
+                createdAt: new Date().toISOString(),
+                updatedAt: null
+            };
+            
+            // Create binder
+            fetch('/api/Binders', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(binderData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                createBinderModal.style.display = 'none';
+                binderForm.reset();
+                loadEventMaterials(); // Refresh materials
+                alert('Binder created successfully!');
+            })
+            .catch(error => {
+                console.error('Error creating binder:', error);
+                alert('Error creating binder: ' + error.message);
+            });
+        }
+        
+        function uploadTest(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(testUploadForm);
+            const testFile = formData.get('testFile');
+            
+            if (testFile.size > 10 * 1024 * 1024) {
+                alert('File is too large. Maximum size is 10MB.');
+                return;
+            }
+            
+            if (testFile.type !== 'application/pdf') {
+                alert('Only PDF files are allowed.');
+                return;
+            }
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const testData = {
+                    eventName: formData.get('eventName'),
+                    testName: formData.get('testName'),
+                    description: formData.get('description'),
+                    year: parseInt(formData.get('year')),
+                    competitionName: formData.get('competitionName'),
+                    competitionType: formData.get('competitionType'),
+                    uploadedBy: currentUser.id,
+                    fileBase64: e.target.result.split(',')[1],
+                    fileName: testFile.name,
+                    fileSize: testFile.size,
+                    uploadedAt: new Date().toISOString(),
+                    tags: formData.get('tags') ? formData.get('tags').split(',').map(tag => tag.trim()) : []
+                };
+                
+                fetch('/api/Tests', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(testData)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    uploadTestModal.style.display = 'none';
+                    testUploadForm.reset();
+                    loadEventTests(); // Refresh tests
+                    alert('Test uploaded successfully!');
+                })
+                .catch(error => {
+                    console.error('Error uploading test:', error);
+                    alert('Error uploading test: ' + error.message);
+                });
+            };
+            
+            reader.readAsDataURL(testFile);
+        }
+        
+        // Section management for binder creation
+        document.getElementById('addSectionBtn').addEventListener('click', function() {
+            const sectionsList = document.getElementById('sectionsList');
+            const newSection = document.createElement('div');
+            newSection.className = 'section-item';
+            newSection.innerHTML = `
+                <input type="text" name="sections[]" placeholder="Section Title" required>
+                <button type="button" class="remove-section-btn"><i class="fas fa-times"></i></button>
+            `;
+            
+            newSection.querySelector('.remove-section-btn').addEventListener('click', function() {
+                if (document.querySelectorAll('.section-item').length > 1) {
+                    newSection.remove();
+                }
+            });
+            
+            sectionsList.appendChild(newSection);
+        });
+        
+        // Initial remove section button
+        document.querySelector('.remove-section-btn').addEventListener('click', function() {
+            if (document.querySelectorAll('.section-item').length > 1) {
+                this.closest('.section-item').remove();
+            }
+        });
     });
 </script>
 {% endblock %} 

@@ -11,5 +11,5 @@ __pycache__/
 README.md
 Plan.txt
 
-# Tests
-test_*.py 
+# Tests (exclude test files but not the routes)
+test_firebase.py 

@@ -128,22 +128,34 @@
                 <ul>
                     <li><a href="{{ url_for('about') }}" {% if request.path == url_for('about') %}class="active"{% endif %}><i class="fas fa-info-circle"></i> About Us</a></li>
                     <li class="dropdown">
-                        <a href="#" {% if request.path in [url_for('biology'), url_for('chemistry'), url_for('earth_science'), url_for('math_physics')] %}class="active"{% endif %}><i class="fas fa-flask"></i> Academic Events</a>
+                        <a href="#" {% if request.path.startswith('/events/') %}class="active"{% endif %}><i class="fas fa-flask"></i> Events</a>
                         <div class="dropdown-content">
-                            <a href="{{ url_for('biology') }}" {% if request.path == url_for('biology') %}class="active"{% endif %}><i class="fas fa-dna"></i> Biology</a>
-                            <a href="{{ url_for('chemistry') }}" {% if request.path == url_for('chemistry') %}class="active"{% endif %}><i class="fas fa-flask"></i> Chemistry</a>
-                            <a href="{{ url_for('earth_science') }}" {% if request.path == url_for('earth_science') %}class="active"{% endif %}><i class="fas fa-globe-americas"></i> Earth Science</a>
-                            <a href="{{ url_for('math_physics') }}" {% if request.path == url_for('math_physics') %}class="active"{% endif %}><i class="fas fa-calculator"></i> Math & Physics</a>
+                            <a href="{{ url_for('construction_build') }}" {% if request.path == url_for('construction_build') %}class="active"{% endif %}><i class="fas fa-hammer"></i> Construction Build</a>
+                            <a href="{{ url_for('precision_build') }}" {% if request.path == url_for('precision_build') %}class="active"{% endif %}><i class="fas fa-bullseye"></i> Precision Build</a>
+                            <a href="{{ url_for('physics_design') }}" {% if request.path == url_for('physics_design') %}class="active"{% endif %}><i class="fas fa-cogs"></i> Physics & Design</a>
+                            <a href="{{ url_for('events_earth_science') }}" {% if request.path == url_for('events_earth_science') %}class="active"{% endif %}><i class="fas fa-globe-americas"></i> Earth Science</a>
+                            <a href="{{ url_for('classification_compilation') }}" {% if request.path == url_for('classification_compilation') %}class="active"{% endif %}><i class="fas fa-search"></i> Classification & Compilation</a>
+                            <a href="{{ url_for('events_biology') }}" {% if request.path == url_for('events_biology') %}class="active"{% endif %}><i class="fas fa-dna"></i> Biology</a>
+                            <a href="{{ url_for('experimentation_analysis') }}" {% if request.path == url_for('experimentation_analysis') %}class="active"{% endif %}><i class="fas fa-flask"></i> Chemistry & Inquiry</a>
                         </div>
                     </li>
-                    <li><a href="{{ url_for('build_events') }}" {% if request.path == url_for('build_events') %}class="active"{% endif %}><i class="fas fa-tools"></i> Build Events</a></li>
+                    <li class="dropdown">
+                        <a href="#" {% if request.path.startswith('/info/') or request.path == url_for('calendar') or request.path == url_for('house_cup') or request.path == url_for('summer_learning_project') %}class="active"{% endif %}><i class="fas fa-info-circle"></i> Info</a>
+                        <div class="dropdown-content">
+                            <a href="{{ url_for('calendar') }}" {% if request.path == url_for('calendar') %}class="active"{% endif %}><i class="fas fa-calendar-alt"></i> Calendar</a>
+                            <a href="{{ url_for('house_cup') }}" {% if request.path == url_for('house_cup') %}class="active"{% endif %}><i class="fas fa-home"></i> House Cup</a>
+                            <a href="{{ url_for('summer_learning_project') }}" {% if request.path == url_for('summer_learning_project') %}class="active"{% endif %}><i class="fas fa-graduation-cap"></i> Summer Learning Project</a>
+                            <a href="{{ url_for('leadership_applications') }}" {% if request.path == url_for('leadership_applications') %}class="active"{% endif %}><i class="fas fa-user-plus"></i> Leadership Applications</a>
+                            <a href="{{ url_for('strategic_plan') }}" {% if request.path == url_for('strategic_plan') %}class="active"{% endif %}><i class="fas fa-chart-line"></i> Strategic Plan</a>
+                        </div>
+                    </li>
                     <li id="loginLink"><a href="{{ url_for('login') }}" {% if request.path == url_for('login') %}class="active"{% endif %}><i class="fas fa-sign-in-alt"></i> Login</a></li>
                     <li id="userDropdown" class="dropdown" style="display: none;">
                         <a href="#"><i class="fas fa-user-circle"></i> <span id="userName">User</span></a>
                         <div class="dropdown-content">
-                            <a href="{{ url_for('user_events') }}"><i class="fas fa-calendar-alt"></i> Events</a>
-                            <a href="{{ url_for('user_binders') }}"><i class="fas fa-folder"></i> Binders</a>
+                            <a href="{{ url_for('user_events') }}"><i class="fas fa-graduation-cap"></i> Events</a>
                             <a href="{{ url_for('user_competitions') }}"><i class="fas fa-trophy"></i> Competitions</a>
+                            <a href="{{ url_for('user_attendance') }}"><i class="fas fa-clipboard-check"></i> Attendance</a>
                             <a href="{{ url_for('user_settings') }}"><i class="fas fa-cog"></i> Settings</a>
                             <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
                         </div>

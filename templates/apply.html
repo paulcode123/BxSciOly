@@ -3,7 +3,7 @@
 {% block title %}Apply for Science Olympiad - Bronx Science{% endblock %}
 
 {% block content %}
-<div class="hero" style="height: 40vh; background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/static/images/application-bg.jpg');">
+<div class="hero" style="height: 40vh; background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/static/images/team-photo.jpg');">
     <div class="hero-content">
         <h1>Join Our Team</h1>
         <p>Apply for the 2025-2026 Bronx Science Olympiad Team</p>
@@ -112,10 +112,97 @@
                 <div class="form-section">
                     <h3>Event Selection</h3>
                     <p class="selection-info">Select between 2-6 events you're interested in trying out for.</p>
+                    <p class="selection-note">Note: You can change your event preferences at any time through your account settings after joining the team.</p>
                     <p class="selection-counter">Events selected: <span id="eventsCounter">0</span>/6</p>
                     
                     <div class="events-container">
+                        <h4><i class="fas fa-hammer"></i> Construction Build Events</h4>
+                        <p class="subject-description">Events with wooden builds optimized for power & strength</p>
+                        <div class="events-grid">
+                            <div class="event-checkbox">
+                                <input type="checkbox" id="helicopter" name="events[]" value="Helicopter" class="event-check">
+                                <label for="helicopter">Helicopter</label>
+                            </div>
+                            <div class="event-checkbox">
+                                <input type="checkbox" id="boomilever" name="events[]" value="Boomilever" class="event-check">
+                                <label for="boomilever">Boomilever</label>
+                            </div>
+                        </div>
+
+                        <h4><i class="fas fa-ruler-combined"></i> Precision Build Events</h4>
+                        <p class="subject-description">Events requiring applied mathematics, electronics, and precise engineering</p>
+                        <div class="events-grid">
+                            <div class="event-checkbox">
+                                <input type="checkbox" id="bungeeDrop" name="events[]" value="Bungee Drop" class="event-check">
+                                <label for="bungeeDrop">Bungee Drop</label>
+                            </div>
+                            <div class="event-checkbox">
+                                <input type="checkbox" id="hovercraft" name="events[]" value="Hovercraft" class="event-check">
+                                <label for="hovercraft">Hovercraft</label>
+                            </div>
+                            <div class="event-checkbox">
+                                <input type="checkbox" id="electricVehicle" name="events[]" value="Electric Vehicle" class="event-check">
+                                <label for="electricVehicle">Electric Vehicle</label>
+                            </div>
+                            <div class="event-checkbox">
+                                <input type="checkbox" id="robotTour" name="events[]" value="Robot Tour" class="event-check">
+                                <label for="robotTour">Robot Tour</label>
+                            </div>
+                        </div>
+
+                        <h4><i class="fas fa-cogs"></i> Physics and Design Events</h4>
+                        <p class="subject-description">Theory-based test+lab events requiring mechanical and electrical engineering knowledge</p>
+                        <div class="events-grid">
+                            <div class="event-checkbox">
+                                <input type="checkbox" id="engineeringCAD" name="events[]" value="Engineering CAD" class="event-check">
+                                <label for="engineeringCAD">Engineering CAD</label>
+                            </div>
+                            <div class="event-checkbox">
+                                <input type="checkbox" id="machines" name="events[]" value="Machines" class="event-check">
+                                <label for="machines">Machines</label>
+                            </div>
+                            <div class="event-checkbox">
+                                <input type="checkbox" id="circuitLab" name="events[]" value="Circuit Lab" class="event-check">
+                                <label for="circuitLab">Circuit Lab</label>
+                            </div>
+                        </div>
+
+                        <h4><i class="fas fa-globe-americas"></i> Earth Science Events</h4>
+                        <p class="subject-description">Environmental systems events (2 reference sheets allowed during tests)</p>
+                        <div class="events-grid">
+                            <div class="event-checkbox">
+                                <input type="checkbox" id="waterQuality" name="events[]" value="Water Quality" class="event-check">
+                                <label for="waterQuality">Water Quality</label>
+                            </div>
+                            <div class="event-checkbox">
+                                <input type="checkbox" id="dynamicPlanet" name="events[]" value="Dynamic Planet" class="event-check">
+                                <label for="dynamicPlanet">Dynamic Planet</label>
+                            </div>
+                            <div class="event-checkbox">
+                                <input type="checkbox" id="remoteSensing" name="events[]" value="Remote Sensing" class="event-check">
+                                <label for="remoteSensing">Remote Sensing</label>
+                            </div>
+                        </div>
+
+                        <h4><i class="fas fa-search"></i> Classification and Compilation Events</h4>
+                        <p class="subject-description">Research, compilation and identification events (unlimited binder events)</p>
+                        <div class="events-grid">
+                            <div class="event-checkbox">
+                                <input type="checkbox" id="rocksAndMinerals" name="events[]" value="Rocks and Minerals" class="event-check">
+                                <label for="rocksAndMinerals">Rocks and Minerals</label>
+                            </div>
+                            <div class="event-checkbox">
+                                <input type="checkbox" id="entomology" name="events[]" value="Entomology" class="event-check">
+                                <label for="entomology">Entomology</label>
+                            </div>
+                            <div class="event-checkbox">
+                                <input type="checkbox" id="astronomy" name="events[]" value="Astronomy" class="event-check">
+                                <label for="astronomy">Astronomy</label>
+                            </div>
+                        </div>
+
                         <h4><i class="fas fa-dna"></i> Biology Events</h4>
+                        <p class="subject-description">Human biology events from DNA to populations</p>
                         <div class="events-grid">
                             <div class="event-checkbox">
                                 <input type="checkbox" id="anatomy" name="events[]" value="Anatomy and Physiology" class="event-check">
@@ -126,101 +213,112 @@
                                 <label for="diseaseDetectives">Disease Detectives</label>
                             </div>
                             <div class="event-checkbox">
-                                <input type="checkbox" id="ecology" name="events[]" value="Ecology" class="event-check">
-                                <label for="ecology">Ecology</label>
-                            </div>
-                            <div class="event-checkbox">
-                                <input type="checkbox" id="entomology" name="events[]" value="Entomology" class="event-check">
-                                <label for="entomology">Entomology</label>
-                            </div>
-                            <div class="event-checkbox">
-                                <input type="checkbox" id="microbeMission" name="events[]" value="Microbe Mission" class="event-check">
-                                <label for="microbeMission">Microbe Mission</label>
+                                <input type="checkbox" id="designerGenes" name="events[]" value="Designer Genes" class="event-check">
+                                <label for="designerGenes">Designer Genes</label>
                             </div>
                         </div>
 
-                        <h4><i class="fas fa-flask"></i> Chemistry Events</h4>
+                        <h4><i class="fas fa-flask"></i> Experimentation and Analysis Events</h4>
+                        <p class="subject-description">Critical analysis events requiring AP-level chemistry knowledge (for some events)</p>
                         <div class="events-grid">
                             <div class="event-checkbox">
                                 <input type="checkbox" id="chemLab" name="events[]" value="Chem Lab" class="event-check">
                                 <label for="chemLab">Chem Lab</label>
                             </div>
                             <div class="event-checkbox">
-                                <input type="checkbox" id="forensics" name="events[]" value="Forensics" class="event-check">
-                                <label for="forensics">Forensics</label>
-                            </div>
-                            <div class="event-checkbox">
                                 <input type="checkbox" id="materialScience" name="events[]" value="Materials Science" class="event-check">
                                 <label for="materialScience">Materials Science</label>
                             </div>
-                        </div>
-
-                        <h4><i class="fas fa-globe-americas"></i> Earth Science Events</h4>
-                        <div class="events-grid">
                             <div class="event-checkbox">
-                                <input type="checkbox" id="astronomy" name="events[]" value="Astronomy" class="event-check">
-                                <label for="astronomy">Astronomy</label>
-                            </div>
-                            <div class="event-checkbox">
-                                <input type="checkbox" id="dynamicPlanet" name="events[]" value="Dynamic Planet" class="event-check">
-                                <label for="dynamicPlanet">Dynamic Planet</label>
-                            </div>
-                            <div class="event-checkbox">
-                                <input type="checkbox" id="fossils" name="events[]" value="Fossils" class="event-check">
-                                <label for="fossils">Fossils</label>
-                            </div>
-                            <div class="event-checkbox">
-                                <input type="checkbox" id="geologicMapping" name="events[]" value="Geologic Mapping" class="event-check">
-                                <label for="geologicMapping">Geologic Mapping</label>
-                            </div>
-                        </div>
-
-                        <h4><i class="fas fa-calculator"></i> Math & Physics Events</h4>
-                        <div class="events-grid">
-                            <div class="event-checkbox">
-                                <input type="checkbox" id="codebusters" name="events[]" value="Codebusters" class="event-check">
-                                <label for="codebusters">Codebusters</label>
+                                <input type="checkbox" id="forensics" name="events[]" value="Forensics" class="event-check">
+                                <label for="forensics">Forensics</label>
                             </div>
                             <div class="event-checkbox">
                                 <input type="checkbox" id="experimentalDesign" name="events[]" value="Experimental Design" class="event-check">
                                 <label for="experimentalDesign">Experimental Design</label>
                             </div>
                             <div class="event-checkbox">
-                                <input type="checkbox" id="optics" name="events[]" value="Optics" class="event-check">
-                                <label for="optics">Optics</label>
+                                <input type="checkbox" id="codebusters" name="events[]" value="Codebusters" class="event-check">
+                                <label for="codebusters">Codebusters</label>
                             </div>
                         </div>
+                    </div>
+                </div>
 
-                        <h4><i class="fas fa-tools"></i> Build Events</h4>
-                        <div class="events-grid">
-                            <div class="event-checkbox">
-                                <input type="checkbox" id="airTrajectory" name="events[]" value="Air Trajectory" class="event-check">
-                                <label for="airTrajectory">Air Trajectory</label>
+                <div class="form-section">
+                    <h3>Science Olympiad Membership Agreement</h3>
+                    <div class="agreement-container">
+                        <div class="agreement-text">
+                            <p>By submitting this application, I agree to the following terms and conditions of membership in the Bronx Science Science Olympiad team:</p>
+                            
+                            <h4><i class="fas fa-graduation-cap"></i> Academic Honesty and Integrity</h4>
+                            <ul>
+                                <li>I will not use artificial intelligence (AI) tools, chatbots, or automated assistance in completing learning modules, practice tests, or any educational materials provided by the team.</li>
+                                <li>I will not plagiarize, cheat, or engage in any form of academic dishonesty during practices, competitions, or related activities.</li>
+                                <li>I will properly cite all sources and give credit where due in any research or written work.</li>
+                                <li>I understand that violations of academic honesty may result in removal from the team and forfeiture of competition opportunities.</li>
+                            </ul>
+
+                            <h4><i class="fas fa-shield-alt"></i> Code of Conduct and Anti-Bullying Policy</h4>
+                            <ul>
+                                <li>I will treat all team members, coaches, volunteers, and competitors with respect and dignity at all times.</li>
+                                <li>I will not engage in bullying, harassment, discrimination, or intimidation of any kind, whether verbal, physical, or digital.</li>
+                                <li>I will maintain appropriate language and behavior during all team activities, competitions, and related events.</li>
+                                <li>I will report any instances of bullying, harassment, or inappropriate behavior to team leadership immediately.</li>
+                                <li>I understand that violations may result in disciplinary action including warnings, suspension, or permanent removal from the team.</li>
+                            </ul>
+
+                            <h4><i class="fas fa-hard-hat"></i> Safety and Laboratory Precautions</h4>
+                            <ul>
+                                <li>I will follow all safety protocols and guidelines during laboratory work, build sessions, and competitions.</li>
+                                <li>I will wear appropriate personal protective equipment (PPE) as required and directed by coaches.</li>
+                                <li>I will handle all materials, tools, and equipment responsibly and report any safety concerns immediately.</li>
+                                <li>I will not engage in unsafe practices or horseplay during any team activities.</li>
+                                <li>I understand that failure to follow safety protocols may result in immediate removal from the activity and potential team consequences.</li>
+                            </ul>
+
+                            <h4><i class="fas fa-calendar-check"></i> Commitment and Participation</h4>
+                            <ul>
+                                <li>I understand that Science Olympiad requires significant time commitment and dedication throughout the school year.</li>
+                                <li>I will attend all required practices, meetings, and competitions unless excused by team leadership.</li>
+                                <li>I will communicate absences or conflicts in advance whenever possible.</li>
+                                <li>I will actively participate in team fundraising efforts and community service activities as assigned.</li>
+                            </ul>
+
+                            <h4><i class="fas fa-users"></i> Team Representation and Sportsmanship</h4>
+                            <ul>
+                                <li>I will represent Bronx Science with pride, integrity, and good sportsmanship at all competitions and team events.</li>
+                                <li>I will accept both victories and defeats gracefully and congratulate competitors regardless of outcomes.</li>
+                                <li>I will follow all competition rules and guidelines as set forth by Science Olympiad national and regional organizations.</li>
+                                <li>I understand that poor sportsmanship or inappropriate behavior may result in disqualification from competitions.</li>
+                            </ul>
+
+                            <h4><i class="fas fa-gavel"></i> Disciplinary Actions and Consequences</h4>
+                            <ul>
+                                <li>I understand that the team leadership reserves the right to impose disciplinary actions for violations of this agreement.</li>
+                                <li>Consequences may include but are not limited to: verbal warnings, written warnings, suspension from practices or competitions, removal from specific events, or permanent dismissal from the team.</li>
+                                <li>I understand that serious violations may also result in school disciplinary action as per Bronx Science policies.</li>
+                                <li>I have the right to appeal disciplinary decisions through the established team grievance process.</li>
+                            </ul>
+
+                            <h4><i class="fas fa-info-circle"></i> Additional Terms</h4>
+                            <ul>
+                                <li>I understand that team membership is contingent upon maintaining good academic standing at Bronx Science.</li>
+                                <li>I give permission for photographs and videos taken during team activities to be used for promotional purposes.</li>
+                                <li>I understand that this agreement remains in effect for the duration of my membership on the team.</li>
+                                <li>I acknowledge that team policies and procedures may be updated throughout the year, and I agree to comply with any reasonable changes.</li>
+                            </ul>
+
+                            <div class="agreement-footer">
+                                <p><strong>By checking the box below and submitting this application, I acknowledge that I have read, understood, and agree to abide by all terms of this Science Olympiad Membership Agreement.</strong></p>
                             </div>
-                            <div class="event-checkbox">
-                                <input type="checkbox" id="bungeeDrop" name="events[]" value="Bungee Drop" class="event-check">
-                                <label for="bungeeDrop">Bungee Drop</label>
-                            </div>
-                            <div class="event-checkbox">
-                                <input type="checkbox" id="electricVehicle" name="events[]" value="Electric Vehicle" class="event-check">
-                                <label for="electricVehicle">Electric Vehicle</label>
-                            </div>
-                            <div class="event-checkbox">
-                                <input type="checkbox" id="helicopter" name="events[]" value="Helicopter" class="event-check">
-                                <label for="helicopter">Helicopter</label>
-                            </div>
-                            <div class="event-checkbox">
-                                <input type="checkbox" id="robotTour" name="events[]" value="Robot Tour" class="event-check">
-                                <label for="robotTour">Robot Tour</label>
-                            </div>
-                            <div class="event-checkbox">
-                                <input type="checkbox" id="tower" name="events[]" value="Tower" class="event-check">
-                                <label for="tower">Tower</label>
-                            </div>
-                            <div class="event-checkbox">
-                                <input type="checkbox" id="windPower" name="events[]" value="Wind Power" class="event-check">
-                                <label for="windPower">Wind Power</label>
-                            </div>
+                        </div>
+                        
+                        <div class="agreement-checkbox">
+                            <input type="checkbox" id="agreementAccepted" name="agreementAccepted" required>
+                            <label for="agreementAccepted">
+                                <strong>I have read and agree to the Science Olympiad Membership Agreement <span class="required">*</span></strong>
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -435,12 +533,25 @@
         color: #555;
     }
     
+    .selection-note {
+        margin-bottom: 10px;
+        font-weight: 600;
+        color: #555;
+    }
+    
     .selection-counter {
         margin-bottom: 20px;
         padding: 10px 15px;
         background-color: #f5f7fa;
         border-radius: 8px;
         font-weight: 600;
+    }
+    
+    .subject-description {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 15px;
+        font-style: italic;
     }
     
     .events-container h4 {
@@ -579,6 +690,96 @@
         font-size: 0.8rem;
         color: #777;
         margin-top: 5px;
+    }
+    
+    .agreement-container {
+        background: white;
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        border-left: 5px solid var(--accent-color);
+    }
+    
+    .agreement-text {
+        margin-bottom: 25px;
+    }
+    
+    .agreement-text h4 {
+        color: var(--primary-color);
+        margin-top: 25px;
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+    }
+    
+    .agreement-text h4:first-of-type {
+        margin-top: 15px;
+    }
+    
+    .agreement-text h4 i {
+        margin-right: 10px;
+        color: var(--accent-color);
+    }
+    
+    .agreement-text ul {
+        list-style-type: none;
+        padding-left: 0;
+        margin-bottom: 20px;
+    }
+    
+    .agreement-text ul li {
+        position: relative;
+        padding-left: 25px;
+        margin-bottom: 10px;
+        line-height: 1.5;
+    }
+    
+    .agreement-text ul li:before {
+        content: '\2022';
+        color: var(--accent-color);
+        position: absolute;
+        left: 0;
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+    
+    .agreement-footer {
+        background-color: rgba(155, 89, 182, 0.1);
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+        border: 1px solid rgba(155, 89, 182, 0.3);
+    }
+    
+    .agreement-checkbox {
+        display: flex;
+        align-items: flex-start;
+        padding: 20px;
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        border: 2px solid #ddd;
+        transition: all 0.3s;
+    }
+    
+    .agreement-checkbox:hover {
+        border-color: var(--accent-color);
+        background-color: rgba(155, 89, 182, 0.05);
+    }
+    
+    .agreement-checkbox input[type="checkbox"] {
+        margin-right: 15px;
+        margin-top: 2px;
+        accent-color: var(--accent-color);
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+    }
+    
+    .agreement-checkbox label {
+        font-size: 1.1rem;
+        line-height: 1.4;
+        cursor: pointer;
     }
 </style>
 {% endblock %}
@@ -759,6 +960,12 @@
                 }
             }
             
+            // Validate membership agreement acceptance
+            const agreementAccepted = document.getElementById('agreementAccepted').checked;
+            if (!agreementAccepted) {
+                errors.push('You must read and agree to the Science Olympiad Membership Agreement to proceed.');
+            }
+            
             // Display errors if any
             if (errors.length > 0) {
                 formErrors.style.display = 'block';
@@ -788,6 +995,8 @@
                     password: document.getElementById('password').value, // Note: In production, handle password securely
                     memberStatus: document.querySelector('input[name="memberStatus"]:checked').value,
                     events: selectedEvents,
+                    agreementAccepted: document.getElementById('agreementAccepted').checked,
+                    agreementAcceptedAt: new Date().toISOString(),
                     createdAt: new Date().toISOString(),
                     status: 'pending' // Initial application status
                 };

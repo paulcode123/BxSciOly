@@ -685,7 +685,14 @@
                 application.questions.pastInfluence = pastInfluence;
             }
             
-            // Submit application
+            // Show loading state
+            submitApplication.disabled = true;
+            submitApplication.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+            
+            // Log the application data
+            console.log('Submitting application to Firebase:', application);
+            
+            // Make an API call to create the document in the Applications collection
             fetch('/api/Applications', {
                 method: 'POST',
                 headers: {
@@ -695,17 +702,38 @@
             })
             .then(response => {
                 if (!response.ok) {
-                    throw new Error('Failed to submit application');
+                    // If response is not ok, parse error message and throw
+                    return response.json().then(err => {
+                        throw new Error(`API Error: ${err.error || response.statusText}`);
+                    });
                 }
                 return response.json();
             })
             .then(data => {
+                console.log('Application successfully saved to Firebase:', data);
                 alert('Your application has been submitted successfully!');
+                
+                // Also save to localStorage as a backup
+                try {
+                    const existingApps = JSON.parse(localStorage.getItem('sciOlyApplications') || '[]');
+                    application.id = data.id; // Use the ID from Firebase
+                    existingApps.push(application);
+                    localStorage.setItem('sciOlyApplications', JSON.stringify(existingApps));
+                    console.log('Application also backed up to localStorage');
+                } catch (e) {
+                    console.warn('Could not backup to localStorage:', e);
+                }
+                
+                // Redirect to competitions page
                 window.location.href = '{{ url_for("user_competitions") }}';
             })
             .catch(error => {
-                console.error('Error submitting application:', error);
-                alert('Failed to submit your application. Please try again later.');
+                console.error('Error saving application to Firebase:', error);
+                alert(`Failed to submit your application: ${error.message}`);
+                
+                // Reset button state
+                submitApplication.disabled = false;
+                submitApplication.innerHTML = 'Submit Application';
             });
         });
         

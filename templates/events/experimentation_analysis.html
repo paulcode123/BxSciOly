@@ -1,0 +1,431 @@
+{% extends "layout.html" %}
+
+{% block title %}Chemistry & Inquiry - Bronx Science Olympiad{% endblock %}
+
+{% block content %}
+<div class="dept-hero" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/static/images/chemistry-bg.jpg');">
+    <div class="hero-content">
+        <h1>Chemistry & Inquiry</h1>
+        <p>Master critical analysis skills and advanced laboratory techniques</p>
+        <div class="hero-cta">
+            <a href="#events" class="btn"><i class="fas fa-flask"></i> Explore Events</a>
+        </div>
+    </div>
+</div>
+
+<section id="skills" class="section">
+    <div class="container">
+        <div class="section-title">
+            <h2>Skills & Knowledge Required</h2>
+        </div>
+        <div class="section-content">
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-flask"></i></div>
+                    <h3>Advanced Chemistry</h3>
+                    <p>AP-level chemistry knowledge including kinetics, stoichiometry, and material science</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-microscope"></i></div>
+                    <h3>Laboratory Techniques</h3>
+                    <p>Hands-on experimentation, measurement precision, and analytical methods</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-search"></i></div>
+                    <h3>Forensic Analysis</h3>
+                    <p>Evidence analysis, investigative methods, and scientific problem-solving</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-code"></i></div>
+                    <h3>Cryptography & Logic</h3>
+                    <p>Pattern recognition, cipher analysis, and logical reasoning skills</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="events" class="section" style="background-color: #f5f7fa;">
+    <div class="container">
+        <div class="section-title">
+            <h2>Chemistry & Inquiry Events</h2>
+        </div>
+        <div class="section-content">
+            <div class="events-grid">
+                <div class="event-card">
+                    <div class="event-icon"><i class="fas fa-atom"></i></div>
+                    <h3>Chemistry Lab</h3>
+                    <p><strong>Description:</strong> Focus on Kinetics and Stoichiometry through hands-on laboratory work and theoretical understanding of chemical processes.</p>
+                    <div class="event-details">
+                        <div class="detail-item">
+                            <i class="fas fa-flask"></i>
+                            <span><strong>Type:</strong> Lab Event</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span><strong>Focus:</strong> Kinetics & Stoichiometry</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-users"></i>
+                            <span><strong>Team Size:</strong> 2 members</span>
+                        </div>
+                    </div>
+                    <div class="event-skills">
+                        <h4>Key Skills:</h4>
+                        <ul>
+                            <li>Chemical kinetics and reaction rates</li>
+                            <li>Stoichiometric calculations and limiting reactants</li>
+                            <li>Laboratory safety and procedure execution</li>
+                            <li>Data collection and analysis techniques</li>
+                            <li>Chemical equilibrium and Le Chatelier's principle</li>
+                            <li>Quantitative analysis and precision measurement</li>
+                        </ul>
+                    </div>
+                    <div class="event-manager">
+                        <i class="fas fa-user-tie"></i>
+                        <span><strong>Event Manager:</strong> TBD</span>
+                    </div>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-icon"><i class="fas fa-cube"></i></div>
+                    <h3>Materials Science</h3>
+                    <p><strong>Description:</strong> Participants will demonstrate their understanding of the relationship between the structure and properties of materials.</p>
+                    <div class="event-details">
+                        <div class="detail-item">
+                            <i class="fas fa-book"></i>
+                            <span><strong>Type:</strong> Study + Lab Event</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-atom"></i>
+                            <span><strong>Focus:</strong> Material properties & structure</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-users"></i>
+                            <span><strong>Team Size:</strong> 2 members</span>
+                        </div>
+                    </div>
+                    <div class="event-skills">
+                        <h4>Key Skills:</h4>
+                        <ul>
+                            <li>Crystal structures and lattice systems</li>
+                            <li>Material properties and characterization</li>
+                            <li>Phase diagrams and material transformations</li>
+                            <li>Mechanical, electrical, and thermal properties</li>
+                            <li>Polymers, ceramics, and composite materials</li>
+                            <li>Material testing and analysis techniques</li>
+                        </ul>
+                    </div>
+                    <div class="event-manager">
+                        <i class="fas fa-user-tie"></i>
+                        <span><strong>Event Manager:</strong> TBD</span>
+                    </div>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-icon"><i class="fas fa-search"></i></div>
+                    <h3>Forensics</h3>
+                    <p><strong>Description:</strong> Teams will identify evidence samples and solve a crime scenario using scientific analysis and investigative techniques.</p>
+                    <div class="event-details">
+                        <div class="detail-item">
+                            <i class="fas fa-search"></i>
+                            <span><strong>Type:</strong> Investigation Event</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-fingerprint"></i>
+                            <span><strong>Focus:</strong> Evidence analysis</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-users"></i>
+                            <span><strong>Team Size:</strong> 2 members</span>
+                        </div>
+                    </div>
+                    <div class="event-skills">
+                        <h4>Key Skills:</h4>
+                        <ul>
+                            <li>Evidence collection and preservation</li>
+                            <li>Fingerprint analysis and classification</li>
+                            <li>DNA analysis and genetic markers</li>
+                            <li>Trace evidence examination</li>
+                            <li>Crime scene investigation techniques</li>
+                            <li>Scientific reasoning and deduction</li>
+                        </ul>
+                    </div>
+                    <div class="event-manager">
+                        <i class="fas fa-user-tie"></i>
+                        <span><strong>Event Manager:</strong> TBD</span>
+                    </div>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-icon"><i class="fas fa-clipboard-check"></i></div>
+                    <h3>Experimental Design</h3>
+                    <p><strong>Description:</strong> Teams will design, conduct, and analyze an experiment to solve a given problem, demonstrating scientific methodology.</p>
+                    <div class="event-details">
+                        <div class="detail-item">
+                            <i class="fas fa-flask"></i>
+                            <span><strong>Type:</strong> Design & Analysis Event</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-chart-bar"></i>
+                            <span><strong>Focus:</strong> Scientific methodology</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-users"></i>
+                            <span><strong>Team Size:</strong> 2 members</span>
+                        </div>
+                    </div>
+                    <div class="event-skills">
+                        <h4>Key Skills:</h4>
+                        <ul>
+                            <li>Hypothesis formation and testing</li>
+                            <li>Experimental design and controls</li>
+                            <li>Data collection and statistical analysis</li>
+                            <li>Variable identification and manipulation</li>
+                            <li>Error analysis and uncertainty quantification</li>
+                            <li>Scientific communication and reporting</li>
+                        </ul>
+                    </div>
+                    <div class="event-manager">
+                        <i class="fas fa-user-tie"></i>
+                        <span><strong>Event Manager:</strong> TBD</span>
+                    </div>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-icon"><i class="fas fa-code"></i></div>
+                    <h3>Codebusters</h3>
+                    <p><strong>Description:</strong> Teams will cryptanalyze and decode encrypted messages using various cipher techniques and logical reasoning.</p>
+                    <div class="event-details">
+                        <div class="detail-item">
+                            <i class="fas fa-key"></i>
+                            <span><strong>Type:</strong> Cryptanalysis Event</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-puzzle-piece"></i>
+                            <span><strong>Focus:</strong> Cipher breaking</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-users"></i>
+                            <span><strong>Team Size:</strong> 2 members</span>
+                        </div>
+                    </div>
+                    <div class="event-skills">
+                        <h4>Key Skills:</h4>
+                        <ul>
+                            <li>Classical cipher systems (Caesar, Vigenère, etc.)</li>
+                            <li>Frequency analysis and pattern recognition</li>
+                            <li>Mathematical cryptography principles</li>
+                            <li>Logical reasoning and problem-solving</li>
+                            <li>Computer programming for cipher analysis</li>
+                            <li>Cryptanalytic attack methodologies</li>
+                        </ul>
+                    </div>
+                    <div class="event-manager">
+                        <i class="fas fa-user-tie"></i>
+                        <span><strong>Event Manager:</strong> TBD</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section-title">
+            <h2>Team Leadership</h2>
+        </div>
+        <div class="section-content">
+            <div class="leadership-grid">
+                <div class="leader-card">
+                    <div class="leader-icon"><i class="fas fa-user-graduate"></i></div>
+                    <h3>Subject Directors</h3>
+                    <p><strong>2 Subject Directors</strong> lead Math, Chemistry, and Experimentation, responsible for advanced analytical skills and laboratory expertise.</p>
+                    <div class="leader-duties">
+                        <h4>Responsibilities:</h4>
+                        <ul>
+                            <li>Teaching advanced chemistry and analysis techniques</li>
+                            <li>Developing experimental design expertise</li>
+                            <li>Leading laboratory sessions and safety protocols</li>
+                            <li>Coordinating analytical equipment and materials</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="leader-card">
+                    <div class="leader-icon"><i class="fas fa-clipboard-list"></i></div>
+                    <h3>Event Managers</h3>
+                    <p>Each event has exactly 1 Event Manager responsible for organizational and communicative tasks.</p>
+                    <div class="leader-duties">
+                        <h4>Responsibilities:</h4>
+                        <ul>
+                            <li>Getting to know members on a personal level</li>
+                            <li>Creating meeting activities and competitions</li>
+                            <li>Facilitating learning and practice</li>
+                            <li>Organizing laboratory equipment and chemicals</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+        margin-top: 30px;
+    }
+    
+    .skill-item {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        text-align: center;
+        transition: all 0.3s;
+    }
+    
+    .skill-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+    
+    .skill-icon {
+        font-size: 3rem;
+        color: var(--accent-color);
+        margin-bottom: 20px;
+    }
+    
+    .events-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 30px;
+        margin-top: 30px;
+    }
+    
+    .event-card {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        transition: all 0.3s;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .event-card:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 5px;
+        height: 100%;
+        background: linear-gradient(180deg, #607D8B, #90A4AE);
+        transition: all 0.3s ease;
+    }
+    
+    .event-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+    
+    .event-card .event-icon {
+        font-size: 2.5rem;
+        color: var(--accent-color);
+        margin-bottom: 15px;
+    }
+    
+    .event-details {
+        margin: 20px 0;
+        padding: 15px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+    }
+    
+    .detail-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    
+    .detail-item i {
+        margin-right: 10px;
+        color: var(--accent-color);
+        width: 20px;
+    }
+    
+    .event-skills {
+        margin: 20px 0;
+    }
+    
+    .event-skills h4 {
+        color: var(--primary-color);
+        margin-bottom: 10px;
+    }
+    
+    .event-skills ul {
+        margin: 0;
+        padding-left: 20px;
+    }
+    
+    .event-skills li {
+        margin-bottom: 5px;
+    }
+    
+    .event-manager {
+        margin-top: 20px;
+        padding: 15px;
+        background-color: #e3f2fd;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .event-manager i {
+        margin-right: 10px;
+        color: var(--accent-color);
+    }
+    
+    .leadership-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 30px;
+    }
+    
+    .leader-card {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        transition: all 0.3s;
+    }
+    
+    .leader-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+    
+    .leader-icon {
+        font-size: 2.5rem;
+        color: var(--accent-color);
+        margin-bottom: 15px;
+    }
+    
+    .leader-duties h4 {
+        color: var(--primary-color);
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .leader-duties ul {
+        margin: 0;
+        padding-left: 20px;
+    }
+</style>
+{% endblock %} 

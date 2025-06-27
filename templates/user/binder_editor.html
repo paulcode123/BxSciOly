@@ -1,0 +1,1077 @@
+{% extends "layout.html" %}
+
+{% block title %}Binder Editor - Bronx Science Olympiad{% endblock %}
+
+{% block content %}
+<div class="hero" style="min-height: 30vh; height: auto; background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/static/images/binders-bg.jpg');">
+    <div class="hero-content">
+        <h1><i class="fas fa-edit"></i> <span id="binderTitle">Binder Editor</span></h1>
+        <p><span id="binderEvent">Event Name</span></p>
+        <div class="back-links">
+            <a href="/user/events" class="back-link">
+                <i class="fas fa-arrow-left"></i> Back to Events
+            </a>
+            <a href="#" id="backToEventBtn" class="back-link event-link" style="display: none;">
+                <i class="fas fa-arrow-left"></i> Back to <span id="eventNameLink">Event</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<section class="section">
+    <div class="container">
+        <div class="editor-container">
+            <div class="editor-header">
+                <div class="editor-controls">
+                    <button id="saveContentBtn" class="save-btn">
+                        <i class="fas fa-save"></i> Save Content
+                    </button>
+                    <button id="exportBtn" class="export-btn">
+                        <i class="fas fa-download"></i> Export PDF
+                    </button>
+                </div>
+            </div>
+            
+            <div class="editor-layout">
+                <div class="editor-sidebar">
+                    <h3>Sections</h3>
+                    <ul id="sectionNavList" class="section-nav">
+                        <!-- Section navigation will be loaded here -->
+                    </ul>
+                    <button id="addSectionBtn" class="add-section-btn">
+                        <i class="fas fa-plus"></i> Add Section
+                    </button>
+                </div>
+                
+                <div class="editor-main">
+                    <div class="toolbar-container">
+                        <div id="toolbar">
+                            <span class="ql-formats">
+                                <select class="ql-header" title="Header">
+                                    <option value="1">Heading 1</option>
+                                    <option value="2">Heading 2</option>
+                                    <option value="3">Heading 3</option>
+                                    <option selected>Normal</option>
+                                </select>
+                            </span>
+                            <span class="ql-formats">
+                                <button class="ql-bold" title="Bold"></button>
+                                <button class="ql-italic" title="Italic"></button>
+                                <button class="ql-underline" title="Underline"></button>
+                            </span>
+                            <span class="ql-formats">
+                                <select class="ql-color" title="Text Color"></select>
+                                <select class="ql-background" title="Background Color"></select>
+                            </span>
+                            <span class="ql-formats">
+                                <button class="ql-list" value="ordered" title="Numbered List"></button>
+                                <button class="ql-list" value="bullet" title="Bullet List"></button>
+                            </span>
+                            <span class="ql-formats">
+                                <button class="ql-link" title="Insert Link"></button>
+                                <button class="ql-image" title="Insert Image"></button>
+                            </span>
+                            <span class="ql-formats">
+                                <button class="ql-clean" title="Clear Formatting"></button>
+                            </span>
+                        </div>
+                    </div>
+                    <div id="editor" class="text-editor">
+                        <!-- Quill editor will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Add Section Modal -->
+<div id="addSectionModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2>Add New Section</h2>
+        <form id="addSectionForm">
+            <div class="form-group">
+                <label for="sectionTitle">Section Title</label>
+                <input type="text" id="sectionTitle" name="title" required placeholder="e.g., Introduction" maxlength="100">
+            </div>
+            <div class="form-group">
+                <label for="sectionOrder">Position</label>
+                <select id="sectionOrder" name="order" required>
+                    <option value="end">At the end</option>
+                </select>
+            </div>
+            <div class="form-footer">
+                <button type="button" class="cancel-btn">Cancel</button>
+                <button type="submit" class="create-btn">Add Section</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<!-- Quill CSS -->
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+<style>
+    .back-links {
+        margin-top: 20px;
+        margin-bottom: 15px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .back-link {
+        color: white;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 15px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+        transition: all 0.3s;
+    }
+    
+    .back-link:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateX(-5px);
+    }
+
+    .back-link.event-link {
+        background: rgba(155, 89, 182, 0.3);
+    }
+
+    .back-link.event-link:hover {
+        background: rgba(155, 89, 182, 0.5);
+    }
+
+    /* Ensure hero content doesn't get cut off */
+    .hero {
+        overflow: visible !important;
+        padding-bottom: 20px;
+    }
+
+    .hero-content {
+        padding-bottom: 20px;
+    }
+
+    .editor-container {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        min-height: 80vh;
+    }
+
+    .editor-header {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 20px 30px;
+        border-bottom: 1px solid #eee;
+        background-color: #f9f9f9;
+    }
+
+    .editor-controls {
+        display: flex;
+        gap: 15px;
+    }
+
+    .save-btn, .export-btn {
+        background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 500;
+        transition: all 0.2s;
+    }
+
+    .export-btn {
+        background: linear-gradient(135deg, #2ecc71, #27ae60);
+    }
+
+    .save-btn:hover, .export-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .editor-layout {
+        display: grid;
+        grid-template-columns: 250px 1fr;
+        height: calc(80vh - 80px);
+    }
+
+    .editor-sidebar {
+        padding: 30px 20px;
+        border-right: 1px solid #eee;
+        overflow-y: auto;
+        background-color: #f5f7fa;
+    }
+
+    .editor-sidebar h3 {
+        font-size: 1.1rem;
+        margin-top: 0;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #eee;
+        color: var(--primary-color);
+    }
+
+    .section-nav {
+        list-style-type: none;
+        padding: 0;
+        margin: 0 0 20px 0;
+    }
+
+    .section-nav li {
+        padding: 12px 15px;
+        margin-bottom: 8px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.2s;
+        background: white;
+        border: 1px solid #e0e0e0;
+        position: relative;
+    }
+
+    .section-nav li:hover {
+        background-color: rgba(155, 89, 182, 0.1);
+        border-color: var(--accent-color);
+    }
+
+    .section-nav li.active {
+        background-color: var(--accent-color);
+        color: white;
+        border-color: var(--accent-color);
+    }
+
+    .add-section-btn {
+        background: none;
+        border: 1px dashed #ddd;
+        width: 100%;
+        padding: 12px;
+        border-radius: 8px;
+        color: #777;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        font-weight: 500;
+        transition: all 0.2s;
+    }
+
+    .add-section-btn:hover {
+        background-color: rgba(155, 89, 182, 0.05);
+        color: var(--accent-color);
+        border-color: var(--accent-color);
+    }
+
+    .editor-main {
+        padding: 30px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .toolbar-container {
+        border: 1px solid #ddd;
+        border-bottom: none;
+        border-radius: 8px 8px 0 0;
+    }
+
+    .text-editor {
+        flex: 1;
+        border: 1px solid #ddd;
+        border-top: none;
+        border-radius: 0 0 8px 8px;
+        min-height: 400px;
+    }
+
+    .ql-container {
+        height: calc(100% - 42px) !important;
+        min-height: 400px;
+    }
+
+    .ql-editor {
+        min-height: 400px;
+        font-family: inherit;
+        font-size: 1rem;
+        line-height: 1.6;
+        padding: 20px;
+    }
+
+    .ql-editor img {
+        max-width: 100%;
+    }
+
+    /* Modal Styles */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        overflow: auto;
+    }
+
+    .modal-content {
+        background-color: white;
+        margin: 10% auto;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        width: 90%;
+        max-width: 500px;
+        position: relative;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #777;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: var(--primary-color);
+    }
+
+    .form-group input, .form-group select {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-family: inherit;
+        font-size: 1rem;
+    }
+
+    .form-footer {
+        display: flex;
+        justify-content: flex-end;
+        gap: 15px;
+        margin-top: 30px;
+    }
+
+    .cancel-btn {
+        background-color: #f1f1f1;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-weight: 500;
+        cursor: pointer;
+        color: #666;
+    }
+
+    .create-btn {
+        background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-weight: 500;
+        cursor: pointer;
+    }
+
+    .save-success {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: linear-gradient(135deg, #2ecc71, #27ae60);
+        color: white;
+        padding: 15px 25px;
+        border-radius: 8px;
+        box-shadow: 0 5px 20px rgba(46, 204, 113, 0.3);
+        z-index: 2000;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 500;
+        animation: slideInUp 0.3s ease;
+    }
+
+    @keyframes slideInUp {
+        from { transform: translateY(100px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+
+    @media (max-width: 768px) {
+        .editor-layout {
+            grid-template-columns: 1fr;
+        }
+        .editor-sidebar {
+            border-right: none;
+            border-bottom: 1px solid #eee;
+            max-height: 200px;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<!-- Quill JS -->
+<script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+
+<script>
+    // Wait for page to be completely loaded
+    window.addEventListener('load', function() {
+        // Additional delay to ensure all elements are ready
+        setTimeout(function() {
+            initializeBinderEditor();
+        }, 100);
+    });
+
+    function initializeBinderEditor() {
+        // Check if user is logged in
+        const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+        if (!currentUser) {
+            window.location.href = '{{ url_for("login") }}';
+            return;
+        }
+        
+        // Wait for all critical elements to be available
+        const waitForElements = () => {
+            const requiredElements = [
+                'binderTitle', 'binderEvent', 'backToEventBtn', 'eventNameLink', 'editor', 'toolbar'
+            ];
+            
+            const missingElements = requiredElements.filter(id => !document.getElementById(id));
+            
+            if (missingElements.length > 0) {
+                console.log('Still waiting for elements:', missingElements);
+                return false;
+            }
+            
+            console.log('All required elements found!');
+            return true;
+        };
+        
+        // If elements aren't ready, wait a bit more
+        if (!waitForElements()) {
+            console.log('Elements not ready, waiting 500ms more...');
+            setTimeout(() => {
+                if (!waitForElements()) {
+                    console.warn('Some elements still missing, but proceeding anyway');
+                }
+                proceedWithInitialization();
+            }, 500);
+        } else {
+            proceedWithInitialization();
+        }
+    }
+    
+    function proceedWithInitialization() {
+        const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+
+        // Verify DOM elements exist
+        console.log('Checking DOM elements...');
+        console.log('binderTitle element:', document.getElementById('binderTitle'));
+        console.log('binderEvent element:', document.getElementById('binderEvent'));
+        console.log('backToEventBtn element:', document.getElementById('backToEventBtn'));
+        console.log('eventNameLink element:', document.getElementById('eventNameLink'));
+        console.log('editor element:', document.getElementById('editor'));
+        console.log('toolbar element:', document.getElementById('toolbar'));
+        
+        // Check all elements in the page
+        console.log('All elements with IDs:', Array.from(document.querySelectorAll('[id]')).map(el => el.id));
+
+        // Get binder ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const binderId = urlParams.get('id');
+        
+        console.log('URL search params:', window.location.search);
+        console.log('Extracted binder ID:', binderId);
+        
+        if (!binderId) {
+            alert('No binder ID specified in URL');
+            window.location.href = '/user/events';
+            return;
+        }
+
+        // Global variables
+        let editor = null;
+        let currentBinder = null;
+        let currentSection = null;
+        let hasUnsavedChanges = false;
+
+        // Initialize Quill editor
+        const imageHandler = () => {
+            const input = document.createElement('input');
+            input.setAttribute('type', 'file');
+            input.setAttribute('accept', 'image/*');
+            input.click();
+            
+            input.onchange = () => {
+                const file = input.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        const range = editor.getSelection(true);
+                        editor.insertEmbed(range.index, 'image', e.target.result);
+                        hasUnsavedChanges = true;
+                        updateSaveButton();
+                    };
+                    reader.readAsDataURL(file);
+                }
+            };
+        };
+        
+        editor = new Quill('#editor', {
+            modules: {
+                toolbar: {
+                    container: '#toolbar',
+                    handlers: { image: imageHandler }
+                }
+            },
+            theme: 'snow',
+            placeholder: 'Start typing your content here...'
+        });
+        
+        editor.on('text-change', function() {
+            hasUnsavedChanges = true;
+            updateSaveButton();
+        });
+
+        // Load binder data
+        fetch(`/api/Binders/${binderId}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Binder data received:', data);
+                
+                if (!data || Object.keys(data).length === 0) {
+                    throw new Error('No binder data found');
+                }
+                
+                const binderData = Object.values(data)[0];
+                currentBinder = { id: binderId, ...binderData };
+                
+                console.log('Current binder:', currentBinder);
+                
+                if (!currentBinder.title) {
+                    throw new Error('Binder data is incomplete - missing title');
+                }
+                
+                if (currentBinder.userId !== currentUser.id) {
+                    throw new Error('You do not have permission to edit this binder');
+                }
+                
+                // Safely update DOM elements with robust retry logic
+                const updateDOMElements = () => {
+                    console.log('Attempting to update DOM elements...');
+                    console.log('Current binder data:', currentBinder);
+                    
+                    // Update title (with error protection)
+                    try {
+                        const titleElement = document.getElementById('binderTitle');
+                        console.log('titleElement found:', !!titleElement);
+                        if (titleElement) {
+                            titleElement.textContent = currentBinder.title;
+                            console.log('Title updated to:', currentBinder.title);
+                        } else {
+                            // Try alternative selectors
+                            const titleSpan = document.querySelector('h1 span#binderTitle');
+                            if (titleSpan) {
+                                titleSpan.textContent = currentBinder.title;
+                                console.log('Title updated via alternative selector');
+                            } else {
+                                console.error('Could not find title element');
+                            }
+                        }
+                    } catch (error) {
+                        console.error('Error updating title:', error);
+                    }
+                    
+                    // Update event name (with error protection)
+                    try {
+                        const eventElement = document.getElementById('binderEvent');
+                        console.log('eventElement found:', !!eventElement);
+                        console.log('Event name from binder:', currentBinder.eventName);
+                        if (eventElement) {
+                            eventElement.textContent = currentBinder.eventName || 'Unknown Event';
+                            console.log('Event updated to:', currentBinder.eventName);
+                        } else {
+                            // Try alternative selectors
+                            const eventSpan = document.querySelector('p span#binderEvent');
+                            if (eventSpan) {
+                                eventSpan.textContent = currentBinder.eventName || 'Unknown Event';
+                                console.log('Event updated via alternative selector');
+                            } else {
+                                console.error('Could not find event element');
+                            }
+                        }
+                    } catch (error) {
+                        console.error('Error updating event name:', error);
+                    }
+                    
+                    // Update page title (with error protection)
+                    try {
+                        document.title = `${currentBinder.title} - Binder Editor`;
+                    } catch (error) {
+                        console.error('Error updating page title:', error);
+                    }
+                    
+                    // Set up back to event button (with error protection)
+                    try {
+                        const backToEventBtn = document.getElementById('backToEventBtn');
+                        const eventNameLink = document.getElementById('eventNameLink');
+                        console.log('backToEventBtn found:', !!backToEventBtn);
+                        console.log('eventNameLink found:', !!eventNameLink);
+                        console.log('Current binder event name:', currentBinder.eventName);
+                        
+                        if (currentBinder.eventName) {
+                            if (backToEventBtn && eventNameLink) {
+                                eventNameLink.textContent = currentBinder.eventName;
+                                backToEventBtn.href = `/user/events?event=${encodeURIComponent(currentBinder.eventName)}`;
+                                // Force the button to be visible by overriding the inline style
+                                backToEventBtn.style.cssText = 'display: inline-flex !important; visibility: visible !important;';
+                                backToEventBtn.classList.add('back-link', 'event-link'); // Ensure classes are present
+                                console.log('Back to event button configured for:', currentBinder.eventName);
+                                console.log('Button display style:', backToEventBtn.style.display);
+                                console.log('Button computed style:', window.getComputedStyle(backToEventBtn).display);
+                                console.log('Button classes:', backToEventBtn.className);
+                            } else {
+                                console.error('Back to event button elements not found');
+                                console.log('Trying alternative selectors...');
+                                // Try to find them with more specific selectors
+                                const altBackBtn = document.querySelector('a#backToEventBtn');
+                                const altEventLink = document.querySelector('span#eventNameLink');
+                                console.log('altBackBtn found:', !!altBackBtn);
+                                console.log('altEventLink found:', !!altEventLink);
+                                
+                                if (altBackBtn && altEventLink) {
+                                    altEventLink.textContent = currentBinder.eventName;
+                                    altBackBtn.href = `/user/events?event=${encodeURIComponent(currentBinder.eventName)}`;
+                                    // Force the button to be visible by overriding the inline style
+                                    altBackBtn.style.cssText = 'display: inline-flex !important; visibility: visible !important;';
+                                    altBackBtn.classList.add('back-link', 'event-link'); // Ensure classes are present
+                                    console.log('Back button configured via alternative selectors');
+                                } else {
+                                    console.error('Alternative selectors also failed');
+                                    // Let's try to find any element with these IDs anywhere in the document
+                                    console.log('All elements with backToEventBtn:', document.querySelectorAll('#backToEventBtn'));
+                                    console.log('All elements with eventNameLink:', document.querySelectorAll('#eventNameLink'));
+                                }
+                            }
+                        } else {
+                            console.log('No event name available, not setting up back button');
+                        }
+                    } catch (error) {
+                        console.error('Error setting up back button:', error);
+                    }
+                };
+                
+                // Multiple retry attempts with increasing delays
+                const attemptUpdate = (attempt = 1) => {
+                    console.log(`DOM update attempt ${attempt}`);
+                    updateDOMElements(); // This function now handles its own errors
+                    
+                    // Check if back button was successfully set up
+                    const backBtn = document.getElementById('backToEventBtn');
+                    const eventLink = document.getElementById('eventNameLink');
+                    
+                    if (currentBinder.eventName && (!backBtn || backBtn.style.display === 'none')) {
+                        console.log('Back button not visible, retrying...');
+                        if (attempt < 5) {
+                            const delay = attempt * 200; // 200ms, 400ms, 600ms, 800ms
+                            console.log(`Retrying in ${delay}ms...`);
+                            setTimeout(() => attemptUpdate(attempt + 1), delay);
+                        } else {
+                            console.error('All DOM update attempts failed for back button');
+                        }
+                    } else {
+                        console.log(`DOM update successful on attempt ${attempt}`);
+                    }
+                };
+                
+                attemptUpdate();
+                
+                loadSections();
+            })
+            .catch(error => {
+                console.error('Error loading binder:', error);
+                alert('Error loading binder: ' + (error.message || 'Unknown error'));
+                window.location.href = '/user/events';
+            });
+
+        function loadSections() {
+            const sectionNavList = document.getElementById('sectionNavList');
+            sectionNavList.innerHTML = '';
+            
+            if (!currentBinder.sections || currentBinder.sections.length === 0) {
+                sectionNavList.innerHTML = '<li class="no-sections">No sections found</li>';
+                editor.setText('');
+                return;
+            }
+            
+            const sortedSections = [...currentBinder.sections].sort((a, b) => a.order - b.order);
+            
+            sortedSections.forEach((section, index) => {
+                const li = document.createElement('li');
+                li.textContent = section.title;
+                li.dataset.sectionTitle = section.title;
+                
+                li.addEventListener('click', function() {
+                    if (currentSection && hasUnsavedChanges) {
+                        if (confirm('You have unsaved changes. Save before switching sections?')) {
+                            saveContent().then(() => selectSection(section.title, li));
+                        } else {
+                            selectSection(section.title, li);
+                        }
+                    } else {
+                        selectSection(section.title, li);
+                    }
+                });
+                
+                sectionNavList.appendChild(li);
+            });
+            
+            if (sortedSections.length > 0) {
+                selectSection(sortedSections[0].title, sectionNavList.firstElementChild);
+            }
+        }
+
+        function selectSection(sectionTitle, liElement) {
+            document.querySelectorAll('.section-nav li').forEach(item => {
+                item.classList.remove('active');
+            });
+            liElement.classList.add('active');
+            
+            currentSection = sectionTitle;
+            loadSectionContent(sectionTitle);
+        }
+
+        function loadSectionContent(sectionTitle) {
+            editor.setText('Loading content...');
+            
+            fetch(`/api/binder-content/${binderId}/${sectionTitle}`)
+                .then(response => {
+                    if (!response.ok) {
+                        if (response.status === 404) {
+                            return { content: '' };
+                        }
+                        throw new Error('Failed to load section content');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.content) {
+                        editor.root.innerHTML = data.content;
+                    } else {
+                        editor.setText('');
+                    }
+                    hasUnsavedChanges = false;
+                    updateSaveButton();
+                })
+                .catch(error => {
+                    editor.setText('Error loading content: ' + error.message);
+                });
+        }
+
+        function updateSaveButton() {
+            const saveBtn = document.getElementById('saveContentBtn');
+            if (hasUnsavedChanges) {
+                saveBtn.innerHTML = '<i class="fas fa-save"></i> Save Changes *';
+                saveBtn.style.background = 'linear-gradient(135deg, #e74c3c, #c0392b)';
+            } else {
+                saveBtn.innerHTML = '<i class="fas fa-save"></i> Save Content';
+                saveBtn.style.background = 'linear-gradient(135deg, var(--primary-color), var(--accent-color))';
+            }
+        }
+
+        function saveContent() {
+            if (!editor || !currentSection) {
+                return Promise.reject(new Error('No content to save'));
+            }
+            
+            const content = editor.root.innerHTML;
+            const saveBtn = document.getElementById('saveContentBtn');
+            
+            saveBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Saving...';
+            saveBtn.disabled = true;
+            
+            return fetch(`/api/binder-content/${binderId}/${currentSection}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ content: content })
+            })
+            .then(response => {
+                if (!response.ok) throw new Error('Failed to save content');
+                return response.json();
+            })
+            .then(data => {
+                hasUnsavedChanges = false;
+                updateSaveButton();
+                saveBtn.disabled = false;
+                
+                const successDiv = document.createElement('div');
+                successDiv.className = 'save-success';
+                successDiv.innerHTML = '<i class="fas fa-check-circle"></i> Content saved successfully!';
+                document.body.appendChild(successDiv);
+                setTimeout(() => successDiv.remove(), 3000);
+            })
+            .catch(error => {
+                updateSaveButton();
+                saveBtn.disabled = false;
+                alert('Error saving content: ' + error.message);
+            });
+        }
+
+        function exportToPDF() {
+            const exportBtn = document.getElementById('exportBtn');
+            exportBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating PDF...';
+            exportBtn.disabled = true;
+            
+            try {
+                // Create a new window for the PDF content
+                const printWindow = window.open('', '_blank');
+                
+                // Build the complete HTML content for the PDF
+                let htmlContent = `
+                    <!DOCTYPE html>
+                    <html>
+                    <head>
+                        <title>${currentBinder.title}</title>
+                        <style>
+                            body {
+                                font-family: Arial, sans-serif;
+                                line-height: 1.6;
+                                margin: 40px;
+                                color: #333;
+                            }
+                            .header {
+                                text-align: center;
+                                border-bottom: 2px solid #333;
+                                padding-bottom: 20px;
+                                margin-bottom: 30px;
+                            }
+                            .binder-title {
+                                font-size: 28px;
+                                font-weight: bold;
+                                margin-bottom: 10px;
+                                color: #2c3e50;
+                            }
+                            .event-name {
+                                font-size: 18px;
+                                color: #7f8c8d;
+                                margin-bottom: 5px;
+                            }
+                            .export-date {
+                                font-size: 12px;
+                                color: #95a5a6;
+                            }
+                            .section {
+                                margin-bottom: 40px;
+                                page-break-inside: avoid;
+                            }
+                            .section-title {
+                                font-size: 20px;
+                                font-weight: bold;
+                                color: #2c3e50;
+                                border-bottom: 1px solid #bdc3c7;
+                                padding-bottom: 10px;
+                                margin-bottom: 20px;
+                            }
+                            .section-content {
+                                margin-left: 10px;
+                            }
+                            .no-content {
+                                font-style: italic;
+                                color: #7f8c8d;
+                            }
+                            img {
+                                max-width: 100%;
+                                height: auto;
+                                margin: 10px 0;
+                            }
+                            @media print {
+                                body { margin: 20px; }
+                                .section { page-break-inside: avoid; }
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <div class="header">
+                            <div class="binder-title">${currentBinder.title}</div>
+                            <div class="event-name">${currentBinder.eventName || 'Science Olympiad'}</div>
+                            <div class="export-date">Exported on ${new Date().toLocaleDateString()}</div>
+                        </div>
+                `;
+                
+                // Add each section's content
+                if (currentBinder.sections && currentBinder.sections.length > 0) {
+                    const sortedSections = [...currentBinder.sections].sort((a, b) => a.order - b.order);
+                    
+                    // We need to fetch all section content
+                    const sectionPromises = sortedSections.map(section => 
+                        fetch(`/api/binder-content/${binderId}/${section.title}`)
+                            .then(response => {
+                                if (response.ok) {
+                                    return response.json();
+                                }
+                                return { content: '' };
+                            })
+                            .then(data => ({
+                                title: section.title,
+                                content: data.content || ''
+                            }))
+                            .catch(() => ({
+                                title: section.title,
+                                content: ''
+                            }))
+                    );
+                    
+                    Promise.all(sectionPromises)
+                        .then(sections => {
+                            sections.forEach(section => {
+                                htmlContent += `
+                                    <div class="section">
+                                        <div class="section-title">${section.title}</div>
+                                        <div class="section-content">
+                                            ${section.content || '<div class="no-content">No content available</div>'}
+                                        </div>
+                                    </div>
+                                `;
+                            });
+                            
+                            htmlContent += '</body></html>';
+                            
+                            // Write content to the new window and trigger print
+                            printWindow.document.write(htmlContent);
+                            printWindow.document.close();
+                            
+                            // Wait for content to load, then print
+                            setTimeout(() => {
+                                printWindow.focus();
+                                printWindow.print();
+                                
+                                // Close the window after printing (optional)
+                                setTimeout(() => {
+                                    printWindow.close();
+                                }, 1000);
+                                
+                                // Reset button
+                                exportBtn.innerHTML = '<i class="fas fa-download"></i> Export PDF';
+                                exportBtn.disabled = false;
+                            }, 500);
+                        })
+                        .catch(error => {
+                            console.error('Error fetching section content for PDF:', error);
+                            printWindow.close();
+                            alert('Error generating PDF: ' + error.message);
+                            
+                            exportBtn.innerHTML = '<i class="fas fa-download"></i> Export PDF';
+                            exportBtn.disabled = false;
+                        });
+                } else {
+                    htmlContent += '<div class="section"><div class="no-content">No sections found in this binder.</div></div>';
+                    htmlContent += '</body></html>';
+                    
+                    printWindow.document.write(htmlContent);
+                    printWindow.document.close();
+                    
+                    setTimeout(() => {
+                        printWindow.focus();
+                        printWindow.print();
+                        setTimeout(() => printWindow.close(), 1000);
+                        
+                        exportBtn.innerHTML = '<i class="fas fa-download"></i> Export PDF';
+                        exportBtn.disabled = false;
+                    }, 500);
+                }
+                
+            } catch (error) {
+                console.error('Error exporting PDF:', error);
+                alert('Error exporting PDF: ' + error.message);
+                
+                exportBtn.innerHTML = '<i class="fas fa-download"></i> Export PDF';
+                exportBtn.disabled = false;
+            }
+        }
+
+        // Event listeners
+        document.getElementById('saveContentBtn').addEventListener('click', saveContent);
+
+        document.getElementById('exportBtn').addEventListener('click', function() {
+            exportToPDF();
+        });
+
+        document.getElementById('addSectionBtn').addEventListener('click', function() {
+            document.getElementById('addSectionModal').style.display = 'block';
+        });
+
+        document.querySelector('.close-btn').addEventListener('click', function() {
+            document.getElementById('addSectionModal').style.display = 'none';
+        });
+
+        document.querySelector('.cancel-btn').addEventListener('click', function() {
+            document.getElementById('addSectionModal').style.display = 'none';
+        });
+
+        document.getElementById('addSectionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const title = document.getElementById('sectionTitle').value;
+            const order = currentBinder.sections ? currentBinder.sections.length : 0;
+            
+            const newSection = { title: title, order: order };
+            if (!currentBinder.sections) currentBinder.sections = [];
+            currentBinder.sections.push(newSection);
+            
+            fetch(`/api/Binders/${binderId}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(currentBinder)
+            })
+            .then(response => response.json())
+            .then(data => {
+                loadSections();
+                document.getElementById('addSectionModal').style.display = 'none';
+                document.getElementById('addSectionForm').reset();
+            })
+            .catch(error => {
+                alert('Error adding section: ' + error.message);
+            });
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+                e.preventDefault();
+                saveContent();
+            }
+        });
+
+        // Warn about unsaved changes
+        window.addEventListener('beforeunload', (e) => {
+            if (hasUnsavedChanges) {
+                e.preventDefault();
+                e.returnValue = '';
+            }
+        });
+    } // End of proceedWithInitialization function
+</script>
+{% endblock %} 

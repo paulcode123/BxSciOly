@@ -1,9 +1,11 @@
 from flask import Flask, render_template, url_for
 from datetime import datetime
 from routes.firebase_routes import firebase_routes
+from routes.test_parsing_routes import test_parsing_routes
 
 app = Flask(__name__)
 app.register_blueprint(firebase_routes)
+app.register_blueprint(test_parsing_routes)
 
 @app.context_processor
 def inject_now():
@@ -32,29 +34,54 @@ def apply():
 def login():
     return render_template('login.html')
 
-@app.route('/academic-events')
-def academic_events():
-    return render_template('academic_events.html')
+@app.route('/calendar')
+def calendar():
+    return render_template('calendar.html')
 
-@app.route('/build-events')
-def build_events():
-    return render_template('build_events.html')
+@app.route('/leadership-applications')
+def leadership_applications():
+    return render_template('leadership_applications.html')
 
-@app.route('/biology')
-def biology():
-    return render_template('biology.html')
+@app.route('/strategic-plan')
+def strategic_plan():
+    return render_template('strategic_plan.html')
 
-@app.route('/chemistry')
-def chemistry():
-    return render_template('chemistry.html')
+@app.route('/house-cup')
+def house_cup():
+    return render_template('house_cup.html')
 
-@app.route('/earth-science')
-def earth_science():
-    return render_template('earth_science.html')
+@app.route('/summer-learning-project')
+def summer_learning_project():
+    return render_template('summer_learning_project.html')
 
-@app.route('/math-physics')
-def math_physics():
-    return render_template('math_physics.html')
+# New subject-based event routes
+@app.route('/events/construction-build')
+def construction_build():
+    return render_template('events/construction_build.html')
+
+@app.route('/events/precision-build')
+def precision_build():
+    return render_template('events/precision_build.html')
+
+@app.route('/events/physics-design')
+def physics_design():
+    return render_template('events/physics_design.html')
+
+@app.route('/events/earth-science')
+def events_earth_science():
+    return render_template('events/earth_science.html')
+
+@app.route('/events/classification-compilation')
+def classification_compilation():
+    return render_template('events/classification_compilation.html')
+
+@app.route('/events/biology')
+def events_biology():
+    return render_template('events/biology.html')
+
+@app.route('/events/experimentation-analysis')
+def experimentation_analysis():
+    return render_template('events/experimentation_analysis.html')
 
 @app.route('/firebase-demo')
 def firebase_demo():
@@ -64,6 +91,26 @@ def firebase_demo():
 @app.route('/user/events')
 def user_events():
     return render_template('user/events.html')
+
+@app.route('/user/events/path')
+def user_events_learning_path():
+    return render_template('user/learning_path.html')
+
+@app.route('/user/events/binder')
+def user_events_binder_editor():
+    return render_template('user/binder_editor.html')
+
+@app.route('/user/events/test')
+def user_events_test_viewer():
+    return render_template('user/test_viewer.html')
+
+@app.route('/events/academic')
+def academic_events():
+    return render_template('events/academic_events.html')
+
+@app.route('/events/build')
+def build_events():
+    return render_template('events/build_events.html')
 
 @app.route('/user/binders')
 def user_binders():
@@ -90,7 +137,27 @@ def competition_apply():
 
 @app.route('/user/topic-space')
 def topic_space():
-    return render_template('/topic_space.html')
+    return render_template('user/topic_space.html')
+
+@app.route('/user/topic-space/<parsed_test_id>')
+def topic_space_visualization(parsed_test_id):
+    return render_template('user/topic_space.html', parsed_test_id=parsed_test_id)
+
+@app.route('/user/parsed-test/<parsed_test_id>')
+def parsed_test_view(parsed_test_id):
+    return render_template('user/parsed_test.html', parsed_test_id=parsed_test_id)
+
+@app.route('/user/attendance')
+def user_attendance():
+    return render_template('user/attendance.html')
+
+@app.route('/user/admin/attendance')
+def admin_attendance():
+    return render_template('user/admin_attendance.html')
+
+@app.route('/platform')
+def platform():
+    return render_template('platform.html')
 
 if __name__ == '__main__':
-    app.run(debug=True, host='localhost', port=5000) 
+    app.run(debug=True, host='localhost', port=8000) 

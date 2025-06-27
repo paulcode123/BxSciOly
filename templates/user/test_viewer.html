@@ -1,0 +1,1250 @@
+{% extends "layout.html" %}
+
+{% block title %}Test Viewer - Bronx Science Olympiad{% endblock %}
+
+{% block content %}
+<div class="hero" style="min-height: 30vh; height: auto; background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/static/images/events-bg.jpg');">
+    <div class="hero-content">
+        <h1><i class="fas fa-file-pdf"></i> <span id="testTitle">Test Viewer</span></h1>
+        <div class="test-meta">
+            <span id="testEvent" class="event-badge">Event Name</span>
+            <span id="testType" class="type-badge">Competition Type</span>
+            <span id="testYear" class="year-badge">Year</span>
+        </div>
+        <div class="back-links">
+            <a href="/user/events" class="back-link">
+                <i class="fas fa-arrow-left"></i> Back to Events
+            </a>
+            <a href="#" id="backToEventBtn" class="back-link event-link" style="display: none;">
+                <i class="fas fa-arrow-left"></i> Back to <span id="eventNameLink">Event</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<section class="section">
+    <div class="container">
+        <div class="viewer-container">
+            <div class="viewer-header">
+                <div class="viewer-info">
+                    <h2 id="viewerTitle">Test Title</h2>
+                    <p id="testDescription">Test description will appear here.</p>
+                </div>
+                <div class="viewer-controls">
+                    <button id="parseTestBtn" class="parse-btn">
+                        <i class="fas fa-puzzle-piece"></i> Parse Test
+                    </button>
+                    <a id="downloadTestBtn" href="#" class="download-btn" download>
+                        <i class="fas fa-download"></i> Download
+                    </a>
+                </div>
+            </div>
+            
+            <div class="viewer-body">
+                <iframe id="pdfViewer" class="pdf-viewer"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Parse Test Modal -->
+<div id="parseTestModal" class="modal parse-modal">
+    <div class="modal-content parse-content">
+        <div class="parse-header">
+            <h2>Parse Test: <span id="parseTestTitle"></span></h2>
+            <button class="close-parse-btn"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="parse-body">
+            <div class="parse-steps">
+                <div class="step active" data-step="automatic">
+                    <div class="step-number">1</div>
+                    <div class="step-info">
+                        <h3>Automatic Parsing</h3>
+                        <p>The system will attempt to identify questions automatically.</p>
+                    </div>
+                </div>
+                <div class="step" data-step="verification">
+                    <div class="step-number">2</div>
+                    <div class="step-info">
+                        <h3>Verification</h3>
+                        <p>Review and adjust the automatically detected questions.</p>
+                    </div>
+                </div>
+                <div class="step" data-step="topics">
+                    <div class="step-number">3</div>
+                    <div class="step-info">
+                        <h3>Topic Classification</h3>
+                        <p>Review and modify AI-suggested topics for each question.</p>
+                    </div>
+                </div>
+                <div class="step" data-step="complete">
+                    <div class="step-number">4</div>
+                    <div class="step-info">
+                        <h3>Complete</h3>
+                        <p>Test has been parsed and is ready for analysis.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="parse-content-area">
+                <!-- Step 1: Automatic Parsing -->
+                <div class="parse-step-content" id="automatic-step">
+                    <div class="processing-indicator">
+                        <div class="spinner"></div>
+                        <p>Processing test document...</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <p class="status-text">Extracting text and images...</p>
+                    </div>
+                    <div class="parse-actions">
+                        <button class="secondary-btn cancel-parse-btn">Cancel</button>
+                        <button class="primary-btn continue-btn" disabled>Continue</button>
+                    </div>
+                </div>
+                
+                <!-- Step 2: Verification -->
+                <div class="parse-step-content hidden" id="verification-step">
+                    <div class="split-view">
+                        <div class="original-doc">
+                            <h4>Original Document</h4>
+                            <div class="pdf-preview" id="origDocPreview"></div>
+                        </div>
+                        <div class="questions-list">
+                            <h4>Detected Questions</h4>
+                            <div class="questions-toolbar">
+                                <button class="tool-btn" id="mergeQuestionsBtn" title="Merge selected questions">
+                                    <i class="fas fa-link"></i>
+                                </button>
+                                <button class="tool-btn" id="splitQuestionBtn" title="Split selected question">
+                                    <i class="fas fa-cut"></i>
+                                </button>
+                                <button class="tool-btn" id="addQuestionBtn" title="Add new question">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                                <button class="tool-btn" id="deleteQuestionBtn" title="Delete selected question">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                            <div class="questions-container" id="questionsList">
+                                <!-- Questions will be added here -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="parse-actions">
+                        <button class="secondary-btn back-btn">Back</button>
+                        <button class="primary-btn continue-btn">Continue to Topic Classification</button>
+                    </div>
+                </div>
+                
+                <!-- Step 3: Topic Classification -->
+                <div class="parse-step-content hidden" id="topics-step">
+                    <div class="topics-interface">
+                        <div class="question-browser">
+                            <div class="question-nav">
+                                <button class="nav-btn" id="prevQuestionBtn"><i class="fas fa-chevron-left"></i></button>
+                                <span class="question-counter">Question <span id="currentQuestionNum">1</span> of <span id="totalQuestions">0</span></span>
+                                <button class="nav-btn" id="nextQuestionBtn"><i class="fas fa-chevron-right"></i></button>
+                            </div>
+                            <div class="question-content" id="currentQuestionContent">
+                                <!-- Current question content goes here -->
+                            </div>
+                        </div>
+                        <div class="topics-panel">
+                            <h4>Question Topics</h4>
+                            <p class="hint-text">Select from suggested topics or add your own.</p>
+                            <div class="suggested-topics" id="suggestedTopics">
+                                <!-- Suggested topics will be added here -->
+                            </div>
+                            <div class="add-topic">
+                                <input type="text" id="newTopicInput" placeholder="Add new topic">
+                                <button id="addTopicBtn"><i class="fas fa-plus"></i></button>
+                            </div>
+                            <div class="selected-topics" id="selectedTopics">
+                                <!-- Selected topics will be added here -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="parse-actions">
+                        <button class="secondary-btn back-btn">Back</button>
+                        <button class="primary-btn finish-btn">Complete Parsing</button>
+                    </div>
+                </div>
+                
+                <!-- Step 4: Complete -->
+                <div class="parse-step-content hidden" id="complete-step">
+                    <div class="completion-message">
+                        <i class="fas fa-check-circle success-icon"></i>
+                        <h3>Parsing Complete!</h3>
+                        <p>The test has been successfully parsed into <span id="finalQuestionCount">0</span> questions.</p>
+                        <div class="completion-actions">
+                            <button class="action-btn" id="viewKnowledgeGraphBtn">
+                                <i class="fas fa-project-diagram"></i>
+                                <span>View Knowledge Graph</span>
+                            </button>
+                            <button class="action-btn" id="viewQuestionsBtn">
+                                <i class="fas fa-list-ol"></i>
+                                <span>View All Questions</span>
+                            </button>
+                            <button class="action-btn" id="generateBinderBtn">
+                                <i class="fas fa-book"></i>
+                                <span>Generate Study Materials</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="parse-actions">
+                        <button class="secondary-btn">Close</button>
+                        <button class="primary-btn">View Analysis Dashboard</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .back-links {
+        margin-top: 20px;
+        margin-bottom: 15px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .back-link {
+        color: white;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 15px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+        transition: all 0.3s;
+    }
+    
+    .back-link:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateX(-5px);
+    }
+
+    .back-link.event-link {
+        background: rgba(155, 89, 182, 0.3);
+    }
+
+    .back-link.event-link:hover {
+        background: rgba(155, 89, 182, 0.5);
+    }
+
+    /* Ensure hero content doesn't get cut off */
+    .hero {
+        overflow: visible !important;
+        padding-bottom: 20px;
+    }
+
+    .hero-content {
+        padding-bottom: 20px;
+    }
+
+    .test-meta {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+        flex-wrap: wrap;
+    }
+
+    .event-badge, .type-badge, .year-badge {
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+
+    .event-badge {
+        background-color: var(--accent-color);
+        color: white;
+    }
+
+    .type-badge, .year-badge {
+        background-color: rgba(255, 255, 255, 0.2);
+        color: white;
+    }
+
+    .viewer-container {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        height: 85vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .viewer-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 30px;
+        border-bottom: 1px solid #eee;
+        background-color: #f9f9f9;
+    }
+
+    .viewer-info h2 {
+        margin: 0 0 5px 0;
+        color: var(--primary-color);
+    }
+
+    .viewer-info p {
+        margin: 0;
+        color: #666;
+        font-size: 0.9rem;
+    }
+
+    .viewer-controls {
+        display: flex;
+        gap: 15px;
+    }
+
+    .parse-btn, .download-btn {
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: 500;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.2s;
+        border: none;
+        cursor: pointer;
+    }
+
+    .parse-btn {
+        background: linear-gradient(135deg, #2ecc71, #27ae60);
+        color: white;
+    }
+
+    .download-btn {
+        background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+        color: white;
+    }
+
+    .parse-btn:hover, .download-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .viewer-body {
+        flex: 1;
+        overflow: hidden;
+    }
+
+    .pdf-viewer {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+    /* Parse Test Modal Styles */
+    .parse-modal .modal-content {
+        width: 90%;
+        height: 90%;
+        max-width: 1400px;
+        margin: 2% auto;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .parse-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        border-bottom: 1px solid #eee;
+        background-color: #f9f9f9;
+        border-radius: 15px 15px 0 0;
+    }
+
+    .parse-header h2 {
+        margin: 0;
+        font-size: 1.5rem;
+    }
+
+    .close-parse-btn {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #777;
+    }
+
+    .parse-body {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        overflow: hidden;
+    }
+
+    .parse-steps {
+        display: flex;
+        padding: 20px;
+        border-bottom: 1px solid #eee;
+        background-color: #f5f7fa;
+    }
+
+    .step {
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        position: relative;
+        flex: 1;
+    }
+
+    .step:not(:last-child):after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #ddd;
+        transform: translateY(-50%);
+        z-index: 1;
+    }
+
+    .step-number {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background-color: #ddd;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        margin-right: 15px;
+        z-index: 2;
+    }
+
+    .step.active .step-number {
+        background-color: var(--accent-color);
+    }
+
+    .step-info h3 {
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    .step-info p {
+        margin: 5px 0 0;
+        font-size: 0.85rem;
+        color: #777;
+    }
+
+    .parse-content-area {
+        flex-grow: 1;
+        overflow: auto;
+        padding: 20px;
+        position: relative;
+    }
+
+    .parse-step-content {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .parse-step-content.hidden {
+        display: none;
+    }
+
+    .processing-indicator {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 50px 0;
+    }
+
+    .spinner {
+        width: 60px;
+        height: 60px;
+        border: 5px solid #f3f3f3;
+        border-top: 5px solid var(--accent-color);
+        border-radius: 50%;
+        animation: spin 1.5s linear infinite;
+        margin-bottom: 20px;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    .progress-bar {
+        width: 50%;
+        height: 8px;
+        background-color: #f3f3f3;
+        border-radius: 10px;
+        margin: 15px 0;
+        overflow: hidden;
+    }
+
+    .progress-fill {
+        height: 100%;
+        background-color: var(--accent-color);
+        width: 20%;
+        transition: width 0.3s ease;
+    }
+
+    .status-text {
+        color: #777;
+        margin-top: 5px;
+    }
+
+    .parse-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 15px;
+        padding: 20px 0 0;
+        border-top: 1px solid #eee;
+        margin-top: auto;
+    }
+
+    .primary-btn, .secondary-btn {
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: 500;
+        cursor: pointer;
+        border: none;
+    }
+
+    .primary-btn {
+        background-color: var(--accent-color);
+        color: white;
+    }
+
+    .primary-btn:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+    }
+
+    .secondary-btn {
+        background-color: #f1f1f1;
+        color: #333;
+    }
+
+    /* Verification Step Styles */
+    .split-view {
+        display: flex;
+        gap: 20px;
+        height: calc(100% - 70px);
+    }
+
+    .original-doc, .questions-list {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .original-doc h4, .questions-list h4 {
+        margin: 0;
+        padding: 15px;
+        background-color: #f9f9f9;
+        border-bottom: 1px solid #eee;
+        border-radius: 5px 5px 0 0;
+    }
+
+    .pdf-preview {
+        flex-grow: 1;
+        overflow: auto;
+        padding: 10px;
+    }
+
+    .questions-toolbar {
+        display: flex;
+        gap: 10px;
+        padding: 10px 15px;
+        background-color: #f5f5f5;
+        border-bottom: 1px solid #eee;
+    }
+
+    .tool-btn {
+        background: none;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: #555;
+    }
+
+    .tool-btn:hover {
+        background-color: #f0f0f0;
+        color: var(--accent-color);
+    }
+
+    .questions-container {
+        flex-grow: 1;
+        overflow: auto;
+        padding: 10px;
+    }
+
+    .question-item {
+        padding: 15px;
+        border: 1px solid #eee;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+
+    .question-item:hover {
+        border-color: #ddd;
+        background-color: #fafafa;
+    }
+
+    .question-item.selected {
+        border-color: var(--accent-color);
+        background-color: rgba(155, 89, 182, 0.05);
+    }
+
+    .question-number {
+        font-weight: 600;
+        margin-bottom: 5px;
+        color: var(--accent-color);
+    }
+
+    .question-preview {
+        font-size: 0.9rem;
+        color: #555;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    /* Topic Classification Step Styles */
+    .topics-interface {
+        display: flex;
+        gap: 20px;
+        height: calc(100% - 70px);
+    }
+
+    .question-browser {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .topics-panel {
+        flex: 1;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .question-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px;
+        background-color: #f9f9f9;
+        border-bottom: 1px solid #eee;
+        border-radius: 5px 5px 0 0;
+    }
+
+    .nav-btn {
+        background: none;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .question-counter {
+        font-weight: 500;
+    }
+
+    .question-content {
+        flex-grow: 1;
+        overflow: auto;
+        padding: 20px;
+    }
+
+    .topics-panel h4 {
+        margin: 0 0 15px 0;
+    }
+
+    .hint-text {
+        font-size: 0.85rem;
+        color: #777;
+        margin-bottom: 15px;
+    }
+
+    .suggested-topics {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .topic-tag {
+        background-color: #f0f0f0;
+        color: #555;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+
+    .topic-tag:hover {
+        background-color: #e0e0e0;
+    }
+
+    .topic-tag.selected {
+        background-color: var(--accent-color);
+        color: white;
+    }
+
+    .add-topic {
+        display: flex;
+        margin-bottom: 20px;
+    }
+
+    .add-topic input {
+        flex-grow: 1;
+        padding: 8px 12px;
+        border: 1px solid #ddd;
+        border-radius: 4px 0 0 4px;
+    }
+
+    .add-topic button {
+        padding: 8px 12px;
+        background-color: var(--accent-color);
+        color: white;
+        border: none;
+        border-radius: 0 4px 4px 0;
+        cursor: pointer;
+    }
+
+    .selected-topics {
+        flex-grow: 1;
+        overflow: auto;
+    }
+
+    .selected-topic-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 4px;
+        margin-bottom: 10px;
+    }
+
+    .remove-topic {
+        background: none;
+        border: none;
+        color: #e74c3c;
+        cursor: pointer;
+    }
+
+    /* Complete Step Styles */
+    .completion-message {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 50px 0;
+    }
+
+    .success-icon {
+        font-size: 5rem;
+        color: #2ecc71;
+        margin-bottom: 20px;
+    }
+
+    .completion-actions {
+        display: flex;
+        gap: 20px;
+        margin-top: 30px;
+    }
+
+    .action-btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+        border: 1px solid #eee;
+        cursor: pointer;
+        transition: all 0.3s;
+        width: 150px;
+    }
+
+    .action-btn:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .action-btn i {
+        font-size: 2rem;
+        margin-bottom: 10px;
+        color: var(--accent-color);
+    }
+
+    /* Modal Styles */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        overflow: auto;
+    }
+
+    .modal-content {
+        background-color: white;
+        margin: 5% auto;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        width: 90%;
+        max-width: 600px;
+        position: relative;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+        .split-view, .topics-interface {
+            flex-direction: column;
+        }
+        
+        .completion-actions {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .viewer-header {
+            flex-direction: column;
+            gap: 15px;
+            align-items: stretch;
+        }
+
+        .viewer-controls {
+            justify-content: center;
+        }
+
+        .test-meta {
+            justify-content: center;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Wait for page to be completely loaded
+    window.addEventListener('load', function() {
+        // Additional delay to ensure all elements are ready
+        setTimeout(function() {
+            initializeTestViewer();
+        }, 100);
+    });
+
+    function initializeTestViewer() {
+        // Check if user is logged in
+        const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+        if (!currentUser) {
+            window.location.href = '{{ url_for("login") }}';
+            return;
+        }
+        
+        // Wait for all critical elements to be available
+        const waitForElements = () => {
+            const requiredElements = [
+                'testTitle', 'testEvent', 'testType', 'testYear', 'viewerTitle', 
+                'testDescription', 'downloadTestBtn', 'pdfViewer', 'parseTestBtn',
+                'backToEventBtn', 'eventNameLink'
+            ];
+            
+            const missingElements = requiredElements.filter(id => !document.getElementById(id));
+            
+            if (missingElements.length > 0) {
+                console.log('Still waiting for elements:', missingElements);
+                return false;
+            }
+            
+            console.log('All required elements found!');
+            return true;
+        };
+        
+        // If elements aren't ready, wait a bit more
+        if (!waitForElements()) {
+            console.log('Elements not ready, waiting 500ms more...');
+            setTimeout(() => {
+                if (!waitForElements()) {
+                    console.warn('Some elements still missing, but proceeding anyway');
+                }
+                proceedWithInitialization();
+            }, 500);
+        } else {
+            proceedWithInitialization();
+        }
+    }
+    
+    function proceedWithInitialization() {
+        const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+
+        // Verify DOM elements exist
+        console.log('Checking DOM elements...');
+        console.log('testTitle element:', document.getElementById('testTitle'));
+        console.log('testEvent element:', document.getElementById('testEvent'));
+        console.log('backToEventBtn element:', document.getElementById('backToEventBtn'));
+        console.log('eventNameLink element:', document.getElementById('eventNameLink'));
+        
+        // Check all elements in the page
+        console.log('All elements with IDs:', Array.from(document.querySelectorAll('[id]')).map(el => el.id));
+
+        // Get test ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const testId = urlParams.get('id');
+        
+        console.log('URL search params:', window.location.search);
+        console.log('Extracted test ID:', testId);
+        
+        if (!testId) {
+            alert('No test ID specified');
+            window.location.href = '/user/events';
+            return;
+        }
+
+        // Global variables
+        let currentTest = null;
+
+        // Load test data
+        fetch(`/api/Tests/${testId}`)
+            .then(response => {
+                if (!response.ok) throw new Error('Test not found');
+                return response.json();
+            })
+            .then(data => {
+                console.log('Test data received:', data);
+                
+                if (!data || Object.keys(data).length === 0) {
+                    throw new Error('No test data found');
+                }
+                
+                const testData = Object.values(data)[0];
+                currentTest = { id: testId, ...testData };
+                
+                console.log('Current test:', currentTest);
+                
+                if (!currentTest.testName) {
+                    throw new Error('Test data is incomplete - missing testName');
+                }
+                
+                // Safely update DOM elements with robust retry logic
+                const updateDOMElements = () => {
+                    console.log('Attempting to update DOM elements...');
+                    console.log('Current test data:', currentTest);
+                    
+                    // Update test title (with error protection)
+                    try {
+                        const titleElement = document.getElementById('testTitle');
+                        console.log('titleElement found:', !!titleElement);
+                        if (titleElement) {
+                            titleElement.textContent = currentTest.testName;
+                            console.log('Title updated to:', currentTest.testName);
+                        } else {
+                            console.error('Could not find title element');
+                        }
+                    } catch (error) {
+                        console.error('Error updating title:', error);
+                    }
+                    
+                    // Update test event (with error protection)
+                    try {
+                        const eventElement = document.getElementById('testEvent');
+                        console.log('eventElement found:', !!eventElement);
+                        console.log('Event name from test:', currentTest.eventName);
+                        if (eventElement) {
+                            eventElement.textContent = currentTest.eventName || 'Unknown Event';
+                            console.log('Event updated to:', currentTest.eventName);
+                        } else {
+                            console.error('Could not find event element');
+                        }
+                    } catch (error) {
+                        console.error('Error updating event name:', error);
+                    }
+                    
+                    // Update other test metadata (with error protection)
+                    try {
+                        const typeElement = document.getElementById('testType');
+                        const yearElement = document.getElementById('testYear');
+                        const viewerTitleElement = document.getElementById('viewerTitle');
+                        const descriptionElement = document.getElementById('testDescription');
+                        
+                        if (typeElement) typeElement.textContent = capitalizeFirst(currentTest.competitionType);
+                        if (yearElement) yearElement.textContent = currentTest.year;
+                        if (viewerTitleElement) viewerTitleElement.textContent = currentTest.testName;
+                        if (descriptionElement) descriptionElement.textContent = currentTest.description || 'No description provided.';
+                        
+                        console.log('Metadata updated successfully');
+                    } catch (error) {
+                        console.error('Error updating metadata:', error);
+                    }
+                    
+                    // Update page title (with error protection)
+                    try {
+                        document.title = `${currentTest.testName} - Test Viewer`;
+                    } catch (error) {
+                        console.error('Error updating page title:', error);
+                    }
+                    
+                    // Set up download link (with error protection)
+                    try {
+                        const downloadBtn = document.getElementById('downloadTestBtn');
+                        if (downloadBtn) {
+                            downloadBtn.href = currentTest.fileUrl;
+                            downloadBtn.download = `${currentTest.eventName}_${currentTest.year}_${currentTest.testName}.pdf`;
+                            console.log('Download link configured');
+                        }
+                    } catch (error) {
+                        console.error('Error setting up download link:', error);
+                    }
+                    
+                    // Load PDF in iframe (with error protection)
+                    try {
+                        const pdfViewer = document.getElementById('pdfViewer');
+                        if (pdfViewer) {
+                            pdfViewer.src = currentTest.fileUrl;
+                            console.log('PDF loaded in iframe');
+                        }
+                    } catch (error) {
+                        console.error('Error loading PDF:', error);
+                    }
+                    
+                    // Set up back to event button (with error protection)
+                    try {
+                        const backToEventBtn = document.getElementById('backToEventBtn');
+                        const eventNameLink = document.getElementById('eventNameLink');
+                        console.log('backToEventBtn found:', !!backToEventBtn);
+                        console.log('eventNameLink found:', !!eventNameLink);
+                        console.log('Current test event name:', currentTest.eventName);
+                        
+                        if (currentTest.eventName) {
+                            if (backToEventBtn && eventNameLink) {
+                                eventNameLink.textContent = currentTest.eventName;
+                                backToEventBtn.href = `/user/events?event=${encodeURIComponent(currentTest.eventName)}`;
+                                // Force the button to be visible by overriding the inline style
+                                backToEventBtn.style.cssText = 'display: inline-flex !important; visibility: visible !important;';
+                                backToEventBtn.classList.add('back-link', 'event-link'); // Ensure classes are present
+                                console.log('Back to event button configured for:', currentTest.eventName);
+                                console.log('Button display style:', backToEventBtn.style.display);
+                                console.log('Button computed style:', window.getComputedStyle(backToEventBtn).display);
+                                console.log('Button classes:', backToEventBtn.className);
+                            } else {
+                                console.error('Back to event button elements not found');
+                                console.log('Trying alternative selectors...');
+                                // Try to find them with more specific selectors
+                                const altBackBtn = document.querySelector('a#backToEventBtn');
+                                const altEventLink = document.querySelector('span#eventNameLink');
+                                console.log('altBackBtn found:', !!altBackBtn);
+                                console.log('altEventLink found:', !!altEventLink);
+                                
+                                if (altBackBtn && altEventLink) {
+                                    altEventLink.textContent = currentTest.eventName;
+                                    altBackBtn.href = `/user/events?event=${encodeURIComponent(currentTest.eventName)}`;
+                                    // Force the button to be visible by overriding the inline style
+                                    altBackBtn.style.cssText = 'display: inline-flex !important; visibility: visible !important;';
+                                    altBackBtn.classList.add('back-link', 'event-link'); // Ensure classes are present
+                                    console.log('Back button configured via alternative selectors');
+                                } else {
+                                    console.error('Alternative selectors also failed');
+                                    // Let's try to find any element with these IDs anywhere in the document
+                                    console.log('All elements with backToEventBtn:', document.querySelectorAll('#backToEventBtn'));
+                                    console.log('All elements with eventNameLink:', document.querySelectorAll('#eventNameLink'));
+                                }
+                            }
+                        } else {
+                            console.log('No event name available, not setting up back button');
+                        }
+                    } catch (error) {
+                        console.error('Error setting up back button:', error);
+                    }
+                };
+                
+                // Multiple retry attempts with increasing delays
+                const attemptUpdate = (attempt = 1) => {
+                    console.log(`DOM update attempt ${attempt}`);
+                    updateDOMElements(); // This function now handles its own errors
+                    
+                    // Check if back button was successfully set up
+                    const backBtn = document.getElementById('backToEventBtn');
+                    const eventLink = document.getElementById('eventNameLink');
+                    
+                    if (currentTest.eventName && (!backBtn || backBtn.style.display === 'none')) {
+                        console.log('Back button not visible, retrying...');
+                        if (attempt < 5) {
+                            const delay = attempt * 200; // 200ms, 400ms, 600ms, 800ms
+                            console.log(`Retrying in ${delay}ms...`);
+                            setTimeout(() => attemptUpdate(attempt + 1), delay);
+                        } else {
+                            console.error('All DOM update attempts failed for back button');
+                        }
+                    } else {
+                        console.log(`DOM update successful on attempt ${attempt}`);
+                    }
+                };
+                
+                attemptUpdate();
+                
+                // Update view count (commented out - endpoint doesn't exist yet)
+                // fetch(`/api/Tests/${testId}/view`, { method: 'POST' }).catch(console.error);
+                
+                // Check if test is already parsed
+                checkIfTestIsParsed(testId);
+            })
+            .catch(error => {
+                console.error('Error loading test:', error);
+                alert('Error loading test: ' + (error.message || 'Unknown error'));
+                window.location.href = '/user/events';
+            });
+
+        function capitalizeFirst(str) {
+            return str.charAt(0).toUpperCase() + str.slice(1);
+        }
+
+        function checkIfTestIsParsed(testId) {
+            const parseTestBtn = document.getElementById('parseTestBtn');
+            
+            parseTestBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Checking...';
+            parseTestBtn.disabled = true;
+            
+            fetch('/api/parsed-tests')
+                .then(response => response.ok ? response.json() : Promise.reject('Failed to check'))
+                .then(parsedTests => {
+                    const isParsed = parsedTests.some(item => {
+                        const id = Object.keys(item)[0];
+                        return item[id].testId === testId;
+                    });
+                    
+                    let parsedTestId = null;
+                    if (isParsed) {
+                        for (const item of parsedTests) {
+                            const id = Object.keys(item)[0];
+                            if (item[id].testId === testId) {
+                                parsedTestId = id;
+                                break;
+                            }
+                        }
+                    }
+                    
+                    if (isParsed && parsedTestId) {
+                        parseTestBtn.innerHTML = '<i class="fas fa-eye"></i> View Parsed Test';
+                        parseTestBtn.dataset.parsedTestId = parsedTestId;
+                        parseTestBtn.style.background = 'linear-gradient(135deg, #3498db, #2980b9)';
+                    } else {
+                        parseTestBtn.innerHTML = '<i class="fas fa-puzzle-piece"></i> Parse Test';
+                        parseTestBtn.dataset.parsedTestId = '';
+                    }
+                    
+                    parseTestBtn.disabled = false;
+                })
+                .catch(error => {
+                    console.error('Error checking parsed tests:', error);
+                    parseTestBtn.innerHTML = '<i class="fas fa-puzzle-piece"></i> Parse Test';
+                    parseTestBtn.disabled = false;
+                });
+        }
+
+        // Parse test button event listener
+        document.getElementById('parseTestBtn').addEventListener('click', function() {
+            const parsedTestId = this.dataset.parsedTestId;
+            
+            if (parsedTestId) {
+                window.location.href = `/user/parsed-test/${parsedTestId}`;
+            } else {
+                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Starting...';
+                this.disabled = true;
+                
+                fetch('/api/parse-test', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        testId: testId,
+                        eventName: document.getElementById('testEvent').textContent
+                    })
+                })
+                .then(response => {
+                    if (!response.ok) throw new Error('Failed to parse test');
+                    return response.json();
+                })
+                .then(data => {
+                    window.location.href = `/user/parsed-test/${data.id}`;
+                })
+                .catch(error => {
+                    console.error('Error parsing test:', error);
+                    this.innerHTML = '<i class="fas fa-puzzle-piece"></i> Parse Test';
+                    this.disabled = false;
+                    alert('Error parsing test: ' + error.message);
+                });
+            }
+        });
+
+        // Parse modal functionality (simplified version for demo)
+        const parseTestModal = document.getElementById('parseTestModal');
+        const closeParseBtn = document.querySelector('.close-parse-btn');
+        const cancelParseBtn = document.querySelector('.cancel-parse-btn');
+
+        if (closeParseBtn) {
+            closeParseBtn.addEventListener('click', function() {
+                parseTestModal.style.display = 'none';
+            });
+        }
+
+        if (cancelParseBtn) {
+            cancelParseBtn.addEventListener('click', function() {
+                parseTestModal.style.display = 'none';
+            });
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(e) {
+            if (e.target === parseTestModal) {
+                parseTestModal.style.display = 'none';
+            }
+        });
+    } // End of proceedWithInitialization function
+</script>
+{% endblock %} 
