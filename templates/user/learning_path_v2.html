@@ -1,0 +1,1046 @@
+{% extends "layout.html" %}
+
+{% block title %}Learning Modules - {{ event_name }} - Bronx Science Olympiad{% endblock %}
+
+{% block content %}
+<div class="learning-header" id="learningHeader" data-subject="{{ subject_category }}">
+    <div class="subject-backdrop"></div>
+    <div class="learning-nav">
+        <a href="/user/events" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Events
+        </a>
+        <div class="learning-title">
+            <h1 class="module-title">{{ event_name }} Learning Path</h1>
+            <p class="subject-label">{{ subject_category }} • {{ total_modules }} Modules</p>
+        </div>
+        <div class="progress-stats">
+            <div class="stat-bubble">
+                <span class="stat-value" id="completedModules">{{ completed_modules or 0 }}</span>
+                <span class="stat-label">Completed</span>
+            </div>
+            <div class="stat-bubble">
+                <span class="stat-value" id="totalHours">{{ estimated_hours or 0 }}</span>
+                <span class="stat-label">Hours</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="modules-section">
+    <div class="container">
+        <div class="modules-container">
+            <!-- Module Timeline -->
+            <div class="module-timeline">
+                <div class="timeline-track"></div>
+                
+                <!-- Example Module Cards -->
+                <div class="module-card completed" data-module="1">
+                    <div class="module-status-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <h3>Introduction to {{ event_name }}</h3>
+                            <div class="module-meta">
+                                <span class="duration">15 min</span>
+                                <span class="type">Video + Reading</span>
+                            </div>
+                        </div>
+                        <div class="module-preview">
+                            <div class="video-thumbnail">
+                                <img src="/static/images/default-profile.png" alt="Dr. Sarah Chen" class="instructor-thumb">
+                                <div class="play-overlay">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                                <div class="video-duration">8:32</div>
+                            </div>
+                            <div class="module-info">
+                                <p class="instructor-intro">Welcome from <strong>Dr. Sarah Chen</strong>, Event Manager</p>
+                                <div class="topic-list">
+                                    <span class="topic">Event Overview</span>
+                                    <span class="topic">Competition Format</span>
+                                    <span class="topic">Key Concepts</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="module-actions">
+                            <button class="btn-action primary" onclick="openModule(1)">
+                                <i class="fas fa-eye"></i> Review Module
+                            </button>
+                            <button class="btn-action secondary" onclick="openBinder(1)">
+                                <i class="fas fa-folder"></i> View Notes
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-card current" data-module="2">
+                    <div class="module-status-icon">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <h3>Fundamental Concepts</h3>
+                            <div class="module-meta">
+                                <span class="duration">45 min</span>
+                                <span class="type">Interactive Study</span>
+                            </div>
+                        </div>
+                        <div class="module-preview">
+                            <div class="video-thumbnail">
+                                <img src="/static/images/default-profile.png" alt="Alex Rodriguez" class="instructor-thumb">
+                                <div class="play-overlay">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                                <div class="video-duration">22:15</div>
+                            </div>
+                            <div class="module-info">
+                                <p class="instructor-intro">Taught by <strong>Alex Rodriguez</strong>, Subject Director</p>
+                                <div class="topic-list">
+                                    <span class="topic">Core Principles</span>
+                                    <span class="topic">Mathematical Models</span>
+                                    <span class="topic">Lab Techniques</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="module-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 60%"></div>
+                            </div>
+                            <span class="progress-text">60% Complete</span>
+                        </div>
+                        <div class="module-actions">
+                            <button class="btn-action primary pulse" onclick="continueModule(2)">
+                                <i class="fas fa-play"></i> Continue Module
+                            </button>
+                            <button class="btn-action secondary" onclick="openBinder(2)">
+                                <i class="fas fa-sticky-note"></i> My Notes (3)
+                            </button>
+                            <button class="btn-action secondary" onclick="openConceptMap(2)">
+                                <i class="fas fa-project-diagram"></i> Concept Map
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-card locked" data-module="3">
+                    <div class="module-status-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <h3>Advanced Applications</h3>
+                            <div class="module-meta">
+                                <span class="duration">60 min</span>
+                                <span class="type">Practice Problems</span>
+                            </div>
+                        </div>
+                        <div class="module-preview locked-preview">
+                            <div class="unlock-requirements">
+                                <i class="fas fa-unlock-alt"></i>
+                                <p>Complete <strong>Fundamental Concepts</strong> to unlock</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-card locked" data-module="4">
+                    <div class="module-status-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <h3>Competition Strategies</h3>
+                            <div class="module-meta">
+                                <span class="duration">30 min</span>
+                                <span class="type">Strategy & Tips</span>
+                            </div>
+                        </div>
+                        <div class="module-preview locked-preview">
+                            <div class="unlock-requirements">
+                                <i class="fas fa-unlock-alt"></i>
+                                <p>Complete previous modules to unlock</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Side Panel -->
+            <div class="learning-panel">
+                <div class="panel-header">
+                    <h3>📚 Study Resources</h3>
+                </div>
+                <div class="panel-content">
+                    <div class="resource-section">
+                        <h4>📖 Recommended Reading</h4>
+                        <div class="resource-list">
+                            <a href="#" class="resource-item">
+                                <i class="fas fa-book"></i>
+                                <span>Campbell Biology Chapter 12</span>
+                            </a>
+                            <a href="#" class="resource-item">
+                                <i class="fas fa-external-link-alt"></i>
+                                <span>Khan Academy: DNA Replication</span>
+                            </a>
+                            <a href="#" class="resource-item">
+                                <i class="fas fa-file-pdf"></i>
+                                <span>Competition Practice Tests</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-section">
+                        <h4>🎯 Practice Problems</h4>
+                        <div class="practice-stats">
+                            <div class="practice-item">
+                                <span class="practice-name">Basic Concepts</span>
+                                <span class="practice-score">8/10</span>
+                            </div>
+                            <div class="practice-item">
+                                <span class="practice-name">Applications</span>
+                                <span class="practice-score">5/10</span>
+                            </div>
+                        </div>
+                        <button class="btn-practice">
+                            <i class="fas fa-dumbbell"></i> Practice Now
+                        </button>
+                    </div>
+                    
+                    <div class="resource-section">
+                        <h4>📊 Your Progress</h4>
+                        <div class="progress-overview">
+                            <div class="progress-ring">
+                                <svg class="progress-ring-svg" width="60" height="60">
+                                    <circle class="progress-ring-circle" cx="30" cy="30" r="25"></circle>
+                                    <circle class="progress-ring-fill" cx="30" cy="30" r="25" style="stroke-dasharray: 47, 157;"></circle>
+                                </svg>
+                                <div class="progress-text">30%</div>
+                            </div>
+                            <div class="progress-details">
+                                <p><strong>1 of 4</strong> modules completed</p>
+                                <p><strong>2.5 hours</strong> remaining</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Module Detail Modal -->
+<div id="moduleModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="modalTitle">Module Title</h2>
+            <span class="modal-close">&times;</span>
+        </div>
+        <div class="modal-body">
+            <div class="video-player">
+                <iframe src="" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="module-details">
+                <h3>Learning Objectives</h3>
+                <ul id="objectivesList"></ul>
+                
+                <h3>Resources</h3>
+                <div id="resourcesList"></div>
+                
+                <h3>Practice Problems</h3>
+                <div id="practiceProblems"></div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    /* Base CSS Variables - Default Theme */
+    :root {
+        --primary-color: #2563eb;
+        --secondary-color: #06b6d4;
+        --accent-color: #8b5cf6;
+        --success-color: #10b981;
+        --bg-primary: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        --bg-secondary: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+        --bg-pattern: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23e0f2fe' fill-opacity='0.3'%3E%3Cpath d='M20 20c0 11.046-8.954 20-20 20v20h40V20H20z'/%3E%3C/g%3E%3C/svg%3E");
+        --subject-icon: '🔬';
+    }
+
+    /* Biology Theme */
+    [data-subject*="biology" i] {
+        --primary-color: #059669;
+        --secondary-color: #10b981;
+        --accent-color: #34d399;
+        --success-color: #6ee7b7;
+        --bg-primary: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+        --bg-secondary: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+        --bg-pattern: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2310b981' fill-opacity='0.1'%3E%3Cpath d='M30 30c0-11 9-20 20-20v20h-20zm-15-7.5c0-8.5 7-15.5 15.5-15.5v15.5h-15.5z'/%3E%3C/g%3E%3C/svg%3E");
+        --subject-icon: '🧬';
+    }
+
+    /* Chemistry Theme */
+    [data-subject*="chemistry" i], [data-subject*="experimentation" i] {
+        --primary-color: #dc2626;
+        --secondary-color: #ef4444;
+        --accent-color: #f87171;
+        --success-color: #fca5a5;
+        --bg-primary: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+        --bg-secondary: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+        --bg-pattern: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ef4444' fill-opacity='0.1'%3E%3Ccircle cx='20' cy='20' r='3'/%3E%3Ccircle cx='8' cy='8' r='2'/%3E%3Ccircle cx='32' cy='8' r='2'/%3E%3Ccircle cx='8' cy='32' r='2'/%3E%3Ccircle cx='32' cy='32' r='2'/%3E%3C/g%3E%3C/svg%3E");
+        --subject-icon: '⚗️';
+    }
+
+    /* Physics Theme */
+    [data-subject*="physics" i], [data-subject*="precision" i], [data-subject*="construction" i] {
+        --primary-color: #7c3aed;
+        --secondary-color: #8b5cf6;
+        --accent-color: #a78bfa;
+        --success-color: #c4b5fd;
+        --bg-primary: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+        --bg-secondary: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+        --bg-pattern: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%238b5cf6' fill-opacity='0.1'%3E%3Cpath d='M40 40l20-20v20zm-20 0l20-20v20zm20 20l20-20v20zm-20 0l20-20v20z'/%3E%3C/g%3E%3C/svg%3E");
+        --subject-icon: '⚙️';
+    }
+
+    /* Earth Science Theme */
+    [data-subject*="earth" i] {
+        --primary-color: #0891b2;
+        --secondary-color: #0e7490;
+        --accent-color: #06b6d4;
+        --success-color: #67e8f9;
+        --bg-primary: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+        --bg-secondary: linear-gradient(135deg, #ecfeff 0%, #cffafe 100%);
+        --bg-pattern: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2306b6d4' fill-opacity='0.1'%3E%3Cpath d='M30 0c16.569 0 30 13.431 30 30 0 16.569-13.431 30-30 30C13.431 60 0 46.569 0 30 0 13.431 13.431 0 30 0zm0 10c-11.046 0-20 8.954-20 20s8.954 20 20 20 20-8.954 20-20-8.954-20-20-20z'/%3E%3C/g%3E%3C/svg%3E");
+        --subject-icon: '🌍';
+    }
+
+    /* Classification Theme */
+    [data-subject*="classification" i], [data-subject*="compilation" i] {
+        --primary-color: #ea580c;
+        --secondary-color: #fb923c;
+        --accent-color: #fdba74;
+        --success-color: #fed7aa;
+        --bg-primary: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+        --bg-secondary: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+        --bg-pattern: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23fb923c' fill-opacity='0.1'%3E%3Cpath d='M0 0h20v20H0zm20 20h20v20H20z'/%3E%3C/g%3E%3C/svg%3E");
+        --subject-icon: '🔍';
+    }
+
+    /* Base Styles */
+    body {
+        background: var(--bg-primary);
+        background-image: var(--bg-pattern);
+        min-height: 100vh;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    .learning-header {
+        background: var(--bg-secondary);
+        position: relative;
+        padding: 2rem 0;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        overflow: hidden;
+    }
+
+    .subject-backdrop {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--bg-pattern);
+        opacity: 0.3;
+        z-index: 1;
+    }
+
+    .learning-header::before {
+        content: var(--subject-icon);
+        position: absolute;
+        top: 20px;
+        right: 40px;
+        font-size: 4rem;
+        opacity: 0.1;
+        z-index: 1;
+    }
+
+    .learning-nav {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    .back-link {
+        color: var(--primary-color);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1rem;
+        background: rgba(255,255,255,0.7);
+        border-radius: 12px;
+        border: 1px solid rgba(0,0,0,0.1);
+        transition: all 0.2s ease;
+        font-weight: 500;
+    }
+
+    .back-link:hover {
+        background: rgba(255,255,255,0.9);
+        transform: translateX(-2px);
+    }
+
+    .learning-title {
+        text-align: center;
+        flex: 1;
+    }
+
+    .module-title {
+        font-size: 2rem;
+        color: var(--primary-color);
+        margin: 0 0 0.5rem 0;
+        font-weight: 700;
+    }
+
+    .subject-label {
+        color: var(--secondary-color);
+        font-size: 1rem;
+        margin: 0;
+        font-weight: 500;
+    }
+
+    .progress-stats {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .stat-bubble {
+        background: rgba(255,255,255,0.8);
+        border: 1px solid rgba(0,0,0,0.1);
+        border-radius: 12px;
+        padding: 0.75rem 1rem;
+        text-align: center;
+        min-width: 80px;
+    }
+
+    .stat-value {
+        display: block;
+        color: var(--primary-color);
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+
+    .stat-label {
+        display: block;
+        color: var(--secondary-color);
+        font-size: 0.75rem;
+        margin-top: 0.25rem;
+        font-weight: 500;
+    }
+
+    /* Module Styles */
+    .modules-section {
+        padding: 3rem 0;
+    }
+
+    .modules-container {
+        display: grid;
+        grid-template-columns: 1fr 350px;
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    .module-timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        position: relative;
+    }
+
+    .timeline-track {
+        position: absolute;
+        left: 30px;
+        top: 60px;
+        bottom: 60px;
+        width: 3px;
+        background: linear-gradient(to bottom, var(--success-color), var(--primary-color), #e5e7eb);
+        border-radius: 2px;
+        z-index: 1;
+    }
+
+    .module-card {
+        background: white;
+        border-radius: 16px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.1);
+        position: relative;
+        margin-left: 60px;
+        border: 2px solid transparent;
+        transition: all 0.3s ease;
+    }
+
+    .module-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+
+    .module-card.completed {
+        border-color: var(--success-color);
+        background: linear-gradient(135deg, rgba(16,185,129,0.05), rgba(255,255,255,1));
+    }
+
+    .module-card.current {
+        border-color: var(--primary-color);
+        background: linear-gradient(135deg, rgba(37,99,235,0.05), rgba(255,255,255,1));
+        animation: pulse-border 2s infinite;
+    }
+
+    .module-card.locked {
+        opacity: 0.6;
+        background: #f9fafb;
+    }
+
+    @keyframes pulse-border {
+        0%, 100% { border-color: var(--primary-color); }
+        50% { border-color: var(--accent-color); }
+    }
+
+    .module-status-icon {
+        position: absolute;
+        left: -30px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 60px;
+        height: 60px;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        z-index: 2;
+        border: 3px solid;
+    }
+
+    .module-card.completed .module-status-icon {
+        color: var(--success-color);
+        border-color: var(--success-color);
+    }
+
+    .module-card.current .module-status-icon {
+        color: var(--primary-color);
+        border-color: var(--primary-color);
+        animation: pulse 2s infinite;
+    }
+
+    .module-card.locked .module-status-icon {
+        color: #9ca3af;
+        border-color: #e5e7eb;
+    }
+
+    @keyframes pulse {
+        0%, 100% { transform: translateY(-50%) scale(1); }
+        50% { transform: translateY(-50%) scale(1.1); }
+    }
+
+    .module-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 1rem;
+    }
+
+    .module-header h3 {
+        color: var(--primary-color);
+        margin: 0;
+        font-size: 1.25rem;
+        font-weight: 600;
+    }
+
+    .module-meta {
+        display: flex;
+        gap: 0.5rem;
+        font-size: 0.875rem;
+    }
+
+    .duration, .type {
+        background: var(--bg-primary);
+        color: var(--secondary-color);
+        padding: 0.25rem 0.5rem;
+        border-radius: 6px;
+        font-weight: 500;
+    }
+
+    .module-preview {
+        display: grid;
+        grid-template-columns: 120px 1fr;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .video-thumbnail {
+        position: relative;
+        background: #f3f4f6;
+        border-radius: 8px;
+        overflow: hidden;
+        aspect-ratio: 16/9;
+    }
+
+    .instructor-thumb {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .play-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0,0,0,0.7);
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .play-overlay:hover {
+        background: var(--primary-color);
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    .video-duration {
+        position: absolute;
+        bottom: 4px;
+        right: 4px;
+        background: rgba(0,0,0,0.8);
+        color: white;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 0.75rem;
+    }
+
+    .instructor-intro {
+        color: #6b7280;
+        font-size: 0.875rem;
+        margin: 0 0 0.5rem 0;
+    }
+
+    .topic-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.25rem;
+    }
+
+    .topic {
+        background: var(--bg-primary);
+        color: var(--primary-color);
+        padding: 0.125rem 0.375rem;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        font-weight: 500;
+    }
+
+    .module-progress {
+        margin: 1rem 0;
+    }
+
+    .progress-bar {
+        background: #e5e7eb;
+        height: 6px;
+        border-radius: 3px;
+        overflow: hidden;
+        margin-bottom: 0.5rem;
+    }
+
+    .progress-fill {
+        background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        height: 100%;
+        border-radius: 3px;
+        transition: width 0.6s ease;
+    }
+
+    .progress-text {
+        font-size: 0.875rem;
+        color: var(--secondary-color);
+        font-weight: 500;
+    }
+
+    .module-actions {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+
+    .btn-action {
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        border: none;
+        font-size: 0.875rem;
+        font-weight: 500;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.375rem;
+        transition: all 0.2s ease;
+        text-decoration: none;
+    }
+
+    .btn-action.primary {
+        background: var(--primary-color);
+        color: white;
+    }
+
+    .btn-action.primary:hover {
+        background: var(--secondary-color);
+        transform: translateY(-1px);
+    }
+
+    .btn-action.primary.pulse {
+        animation: pulse-button 2s infinite;
+    }
+
+    @keyframes pulse-button {
+        0%, 100% { box-shadow: 0 0 0 0 rgba(37,99,235,0.4); }
+        50% { box-shadow: 0 0 0 8px rgba(37,99,235,0); }
+    }
+
+    .btn-action.secondary {
+        background: #f3f4f6;
+        color: var(--primary-color);
+        border: 1px solid #e5e7eb;
+    }
+
+    .btn-action.secondary:hover {
+        background: #e5e7eb;
+    }
+
+    .locked-preview {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        text-align: center;
+        color: #9ca3af;
+    }
+
+    .unlock-requirements i {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: #d1d5db;
+    }
+
+    /* Learning Panel */
+    .learning-panel {
+        background: white;
+        border-radius: 16px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        height: fit-content;
+        position: sticky;
+        top: 2rem;
+    }
+
+    .panel-header h3 {
+        color: var(--primary-color);
+        margin: 0 0 1rem 0;
+        font-size: 1.125rem;
+    }
+
+    .resource-section {
+        margin-bottom: 2rem;
+    }
+
+    .resource-section h4 {
+        color: var(--secondary-color);
+        margin: 0 0 0.75rem 0;
+        font-size: 1rem;
+    }
+
+    .resource-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .resource-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        color: #6b7280;
+        text-decoration: none;
+        padding: 0.5rem;
+        border-radius: 8px;
+        transition: all 0.2s ease;
+        font-size: 0.875rem;
+    }
+
+    .resource-item:hover {
+        background: var(--bg-primary);
+        color: var(--primary-color);
+    }
+
+    .practice-stats {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .practice-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.875rem;
+    }
+
+    .practice-name {
+        color: #6b7280;
+    }
+
+    .practice-score {
+        color: var(--primary-color);
+        font-weight: 600;
+    }
+
+    .btn-practice {
+        width: 100%;
+        background: var(--accent-color);
+        color: white;
+        border: none;
+        padding: 0.75rem;
+        border-radius: 8px;
+        font-weight: 500;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        transition: all 0.2s ease;
+    }
+
+    .btn-practice:hover {
+        background: var(--primary-color);
+    }
+
+    .progress-overview {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .progress-ring {
+        position: relative;
+    }
+
+    .progress-ring-svg {
+        transform: rotate(-90deg);
+    }
+
+    .progress-ring-circle {
+        fill: none;
+        stroke: #e5e7eb;
+        stroke-width: 4;
+    }
+
+    .progress-ring-fill {
+        fill: none;
+        stroke: var(--primary-color);
+        stroke-width: 4;
+        stroke-linecap: round;
+        transition: stroke-dasharray 0.6s ease;
+    }
+
+    .progress-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--primary-color);
+    }
+
+    .progress-details {
+        font-size: 0.875rem;
+        color: #6b7280;
+    }
+
+    .progress-details p {
+        margin: 0 0 0.25rem 0;
+    }
+
+    /* Modal Styles */
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        z-index: 1000;
+        backdrop-filter: blur(4px);
+    }
+
+    .modal-content {
+        background: white;
+        margin: 2% auto;
+        padding: 2rem;
+        border-radius: 16px;
+        width: 90%;
+        max-width: 800px;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        border-bottom: 1px solid #e5e7eb;
+        padding-bottom: 1rem;
+    }
+
+    .modal-header h2 {
+        color: var(--primary-color);
+        margin: 0;
+    }
+
+    .modal-close {
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #6b7280;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: all 0.2s ease;
+    }
+
+    .modal-close:hover {
+        background: #f3f4f6;
+        color: #374151;
+    }
+
+    .video-player {
+        margin-bottom: 2rem;
+    }
+
+    .video-player iframe {
+        width: 100%;
+        height: 400px;
+        border-radius: 12px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .modules-container {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+        
+        .learning-nav {
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+        }
+        
+        .progress-stats {
+            justify-content: center;
+        }
+        
+        .module-card {
+            margin-left: 0;
+        }
+        
+        .timeline-track {
+            display: none;
+        }
+        
+        .module-status-icon {
+            position: static;
+            transform: none;
+            margin-bottom: 1rem;
+        }
+        
+        .module-preview {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<script>
+// Subject Detection and Theme Application
+document.addEventListener('DOMContentLoaded', function() {
+    // This would typically come from the server/template
+    const eventName = "{{ event_name }}";
+    const subjectCategory = "{{ subject_category }}";
+    
+    // Apply subject-specific theme
+    applySubjectTheme(subjectCategory);
+    
+    // Initialize interactive elements
+    initializeModules();
+    initializeModal();
+});
+
+function applySubjectTheme(subject) {
+    const header = document.getElementById('learningHeader');
+    if (header && subject) {
+        header.setAttribute('data-subject', subject.toLowerCase());
+    }
+}
+
+function initializeModules() {
+    // Module interaction handlers
+    window.openModule = function(moduleId) {
+        console.log('Opening module:', moduleId);
+        document.getElementById('moduleModal').style.display = 'block';
+    };
+    
+    window.continueModule = function(moduleId) {
+        console.log('Continuing module:', moduleId);
+    };
+    
+    window.openBinder = function(moduleId) {
+        console.log('Opening binder for module:', moduleId);
+    };
+    
+    window.openConceptMap = function(moduleId) {
+        console.log('Opening concept map for module:', moduleId);
+    };
+}
+
+function initializeModal() {
+    const modal = document.getElementById('moduleModal');
+    const closeBtn = document.querySelector('.modal-close');
+    
+    closeBtn.onclick = function() {
+        modal.style.display = 'none';
+    };
+    
+    window.onclick = function(event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    };
+}
+</script>
+{% endblock %} 
