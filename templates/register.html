@@ -47,9 +47,17 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="email">Email Address <span class="required">*</span></label>
-                            <input type="email" id="email" name="email" required>
+                            <label for="doeEmail">DOE Email Address <span class="required">*</span></label>
+                            <input type="email" id="doeEmail" name="doeEmail" pattern=".*@nycstudents\.net$" title="Please enter a valid NYC DOE email address ending with @nycstudents.net" required>
+                            <div class="field-hint">Must be your NYC DOE email address ending with @nycstudents.net</div>
                         </div>
+                        <div class="form-group">
+                            <label for="personalEmail">BxScience or Personal Email Address <span class="required">*</span></label>
+                            <input type="email" id="personalEmail" name="personalEmail" required>
+                            <div class="field-hint">This can be your BxScience email or personal email for team communications</div>
+                        </div>
+                    </div>
+                    <div class="form-row">
                         <div class="form-group">
                             <label for="grade">Grade <span class="required">*</span></label>
                             <select id="grade" name="grade" required>
@@ -59,6 +67,11 @@
                                 <option value="11">11th Grade (Junior)</option>
                                 <option value="12">12th Grade (Senior)</option>
                             </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="phoneNumber">Phone Number <span class="required">*</span></label>
+                            <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890" required>
+                            <div class="field-hint">Format: 123-456-7890</div>
                         </div>
                     </div>
                     <div class="form-row">
@@ -72,6 +85,13 @@
                         <div class="form-group">
                             <label for="confirmPassword">Confirm Password <span class="required">*</span></label>
                             <input type="password" id="confirmPassword" name="confirmPassword" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="bio">Tell us about yourself <span class="required">*</span></label>
+                            <textarea id="bio" name="bio" rows="4" maxlength="500" data-word-limit="100" required></textarea>
+                            <div class="word-counter"><span id="bioCount">0</span>/100 words</div>
                         </div>
                     </div>
                 </div>
@@ -91,6 +111,19 @@
 
                     <div id="newMemberSection" class="conditional-section">
                         <div class="form-group">
+                            <label for="hearAboutUs">How did you hear about us? <span class="required">*</span></label>
+                            <select id="hearAboutUs" name="hearAboutUs" required>
+                                <option value="" disabled selected>Select an option</option>
+                                <option value="from a friend">From a friend</option>
+                                <option value="from a family member">From a family member</option>
+                                <option value="on insta">On Instagram</option>
+                                <option value="on tiktok">On TikTok</option>
+                                <option value="looked into it">Looked into it</option>
+                                <option value="from WTV/poster">From WTV/poster</option>
+                                <option value="on discord">On Discord</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="interestReason">Why are you interested in Science Olympiad? <span class="required">*</span></label>
                             <textarea id="interestReason" name="interestReason" rows="4" maxlength="500" data-word-limit="100" required></textarea>
                             <div class="word-counter"><span id="interestReasonCount">0</span>/100 words</div>
@@ -98,6 +131,11 @@
                     </div>
 
                     <div id="returningMemberSection" class="conditional-section" style="display: none;">
+                        <div class="form-group">
+                            <label for="yearsOnTeam">How many years have you been on the team? <span class="required">*</span></label>
+                            <input type="number" id="yearsOnTeam" name="yearsOnTeam" min="1" max="10" required>
+                            <div class="field-hint">Enter the number of years you've been on the Science Olympiad team</div>
+                        </div>
                         <div class="form-group">
                             <label for="pastExperience">List your past Science Olympiad results/experience <span class="required">*</span></label>
                             <textarea id="pastExperience" name="pastExperience" rows="4" required></textarea>
@@ -110,137 +148,78 @@
                 </div>
 
                 <div class="form-section">
+                    <h3>Time Commitment</h3>
+                    <p class="section-description">Please indicate how many hours per week you can commit to Science Olympiad during each season.</p>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="preseasonHrs">Preseason (July-September) <span class="required">*</span></label>
+                            <input type="number" id="preseasonHrs" name="preseasonHrs" min="0" max="40" step="0.5" required>
+                            <div class="field-hint">Hours per week during preseason</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="regseasonHrs">Regular Season (October-December) <span class="required">*</span></label>
+                            <input type="number" id="regseasonHrs" name="regseasonHrs" min="0" max="40" step="0.5" required>
+                            <div class="field-hint">Hours per week during regular season</div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="postseasonHrs">Post-Season (January-March) <span class="required">*</span></label>
+                            <input type="number" id="postseasonHrs" name="postseasonHrs" min="0" max="40" step="0.5" required>
+                            <div class="field-hint">Hours per week during post-season</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Notification Preferences</h3>
+                    <p class="section-description">Choose how you'd like to receive different types of notifications.</p>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="importantNotification">Important Notifications <span class="required">*</span></label>
+                            <select id="importantNotification" name="importantNotification" required>
+                                <option value="email" selected>Email</option>
+                                <option value="text">Text</option>
+                                <option value="both">Both Email & Text</option>
+                                <option value="none">None</option>
+                            </select>
+                            <div class="field-hint">Critical team updates, deadlines, and announcements</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="teamNotification">Team Notifications <span class="required">*</span></label>
+                            <select id="teamNotification" name="teamNotification" required>
+                                <option value="email" selected>Email</option>
+                                <option value="text">Text</option>
+                                <option value="both">Both Email & Text</option>
+                                <option value="none">None</option>
+                            </select>
+                            <div class="field-hint">General team updates and communications</div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="eventNotification">Event Notifications <span class="required">*</span></label>
+                            <select id="eventNotification" name="eventNotification" required>
+                                <option value="email" selected>Email</option>
+                                <option value="text">Text</option>
+                                <option value="both">Both Email & Text</option>
+                                <option value="none">None</option>
+                            </select>
+                            <div class="field-hint">Meeting reminders, event updates, and competition notifications</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
                     <h3>Event Selection</h3>
                     <p class="selection-info">Select between 2-6 events you're interested in trying out for.</p>
                     <p class="selection-note">Note: You can change your event preferences at any time through your account settings after joining the team.</p>
                     <p class="selection-counter">Events selected: <span id="eventsCounter">0</span>/6</p>
                     
-                    <div class="events-container">
-                        <h4><i class="fas fa-hammer"></i> Construction Build Events</h4>
-                        <p class="subject-description">Events with wooden builds optimized for power & strength</p>
-                        <div class="events-grid">
-                            <div class="event-checkbox">
-                                <input type="checkbox" id="helicopter" name="events[]" value="Helicopter" class="event-check">
-                                <label for="helicopter">Helicopter</label>
-                            </div>
-                            <div class="event-checkbox">
-                                <input type="checkbox" id="boomilever" name="events[]" value="Boomilever" class="event-check">
-                                <label for="boomilever">Boomilever</label>
-                            </div>
-                        </div>
-
-                        <h4><i class="fas fa-ruler-combined"></i> Precision Build Events</h4>
-                        <p class="subject-description">Events requiring applied mathematics, electronics, and precise engineering</p>
-                        <div class="events-grid">
-                            <div class="event-checkbox">
-                                <input type="checkbox" id="bungeeDrop" name="events[]" value="Bungee Drop" class="event-check">
-                                <label for="bungeeDrop">Bungee Drop</label>
-                            </div>
-                            <div class="event-checkbox">
-                                <input type="checkbox" id="hovercraft" name="events[]" value="Hovercraft" class="event-check">
-                                <label for="hovercraft">Hovercraft</label>
-                            </div>
-                            <div class="event-checkbox">
-                                <input type="checkbox" id="electricVehicle" name="events[]" value="Electric Vehicle" class="event-check">
-                                <label for="electricVehicle">Electric Vehicle</label>
-                            </div>
-                            <div class="event-checkbox">
-                                <input type="checkbox" id="robotTour" name="events[]" value="Robot Tour" class="event-check">
-                                <label for="robotTour">Robot Tour</label>
-                            </div>
-                        </div>
-
-                        <h4><i class="fas fa-cogs"></i> Physics and Design Events</h4>
-                        <p class="subject-description">Theory-based test+lab events requiring mechanical and electrical engineering knowledge</p>
-                        <div class="events-grid">
-                            <div class="event-checkbox">
-                                <input type="checkbox" id="engineeringCAD" name="events[]" value="Engineering CAD" class="event-check">
-                                <label for="engineeringCAD">Engineering CAD</label>
-                            </div>
-                            <div class="event-checkbox">
-                                <input type="checkbox" id="machines" name="events[]" value="Machines" class="event-check">
-                                <label for="machines">Machines</label>
-                            </div>
-                            <div class="event-checkbox">
-                                <input type="checkbox" id="circuitLab" name="events[]" value="Circuit Lab" class="event-check">
-                                <label for="circuitLab">Circuit Lab</label>
-                            </div>
-                        </div>
-
-                        <h4><i class="fas fa-globe-americas"></i> Earth Science Events</h4>
-                        <p class="subject-description">Environmental systems events (2 reference sheets allowed during tests)</p>
-                        <div class="events-grid">
-                            <div class="event-checkbox">
-                                <input type="checkbox" id="waterQuality" name="events[]" value="Water Quality" class="event-check">
-                                <label for="waterQuality">Water Quality</label>
-                            </div>
-                            <div class="event-checkbox">
-                                <input type="checkbox" id="dynamicPlanet" name="events[]" value="Dynamic Planet" class="event-check">
-                                <label for="dynamicPlanet">Dynamic Planet</label>
-                            </div>
-                            <div class="event-checkbox">
-                                <input type="checkbox" id="remoteSensing" name="events[]" value="Remote Sensing" class="event-check">
-                                <label for="remoteSensing">Remote Sensing</label>
-                            </div>
-                        </div>
-
-                        <h4><i class="fas fa-search"></i> Classification and Compilation Events</h4>
-                        <p class="subject-description">Research, compilation and identification events (unlimited binder events)</p>
-                        <div class="events-grid">
-                            <div class="event-checkbox">
-                                <input type="checkbox" id="rocksAndMinerals" name="events[]" value="Rocks and Minerals" class="event-check">
-                                <label for="rocksAndMinerals">Rocks and Minerals</label>
-                            </div>
-                            <div class="event-checkbox">
-                                <input type="checkbox" id="entomology" name="events[]" value="Entomology" class="event-check">
-                                <label for="entomology">Entomology</label>
-                            </div>
-                            <div class="event-checkbox">
-                                <input type="checkbox" id="astronomy" name="events[]" value="Astronomy" class="event-check">
-                                <label for="astronomy">Astronomy</label>
-                            </div>
-                        </div>
-
-                        <h4><i class="fas fa-dna"></i> Biology Events</h4>
-                        <p class="subject-description">Human biology events from DNA to populations</p>
-                        <div class="events-grid">
-                            <div class="event-checkbox">
-                                <input type="checkbox" id="anatomy" name="events[]" value="Anatomy and Physiology" class="event-check">
-                                <label for="anatomy">Anatomy and Physiology</label>
-                            </div>
-                            <div class="event-checkbox">
-                                <input type="checkbox" id="diseaseDetectives" name="events[]" value="Disease Detectives" class="event-check">
-                                <label for="diseaseDetectives">Disease Detectives</label>
-                            </div>
-                            <div class="event-checkbox">
-                                <input type="checkbox" id="designerGenes" name="events[]" value="Designer Genes" class="event-check">
-                                <label for="designerGenes">Designer Genes</label>
-                            </div>
-                        </div>
-
-                        <h4><i class="fas fa-flask"></i> Experimentation and Analysis Events</h4>
-                        <p class="subject-description">Critical analysis events requiring AP-level chemistry knowledge (for some events)</p>
-                        <div class="events-grid">
-                            <div class="event-checkbox">
-                                <input type="checkbox" id="chemLab" name="events[]" value="Chem Lab" class="event-check">
-                                <label for="chemLab">Chem Lab</label>
-                            </div>
-                            <div class="event-checkbox">
-                                <input type="checkbox" id="materialScience" name="events[]" value="Materials Science" class="event-check">
-                                <label for="materialScience">Materials Science</label>
-                            </div>
-                            <div class="event-checkbox">
-                                <input type="checkbox" id="forensics" name="events[]" value="Forensics" class="event-check">
-                                <label for="forensics">Forensics</label>
-                            </div>
-                            <div class="event-checkbox">
-                                <input type="checkbox" id="experimentalDesign" name="events[]" value="Experimental Design" class="event-check">
-                                <label for="experimentalDesign">Experimental Design</label>
-                            </div>
-                            <div class="event-checkbox">
-                                <input type="checkbox" id="codebusters" name="events[]" value="Codebusters" class="event-check">
-                                <label for="codebusters">Codebusters</label>
-                            </div>
+                    <div class="events-container" id="eventsContainer">
+                        <div class="loading-events">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Loading available events...</p>
                         </div>
                     </div>
                 </div>
@@ -692,6 +671,20 @@
         margin-top: 5px;
     }
     
+    .field-hint {
+        font-size: 0.8rem;
+        color: #777;
+        margin-top: 5px;
+        font-style: italic;
+    }
+    
+    .section-description {
+        font-size: 1rem;
+        color: #666;
+        margin-bottom: 20px;
+        line-height: 1.5;
+    }
+    
     .agreement-container {
         background: white;
         border-radius: 15px;
@@ -781,12 +774,34 @@
         line-height: 1.4;
         cursor: pointer;
     }
+    
+    .loading-events {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 20px;
+        color: #777;
+    }
+    
+    .loading-events i {
+        font-size: 2rem;
+        margin-bottom: 15px;
+        color: var(--accent-color);
+    }
+    
+    .loading-events p {
+        margin: 0;
+        font-size: 1.1rem;
+    }
 </style>
 {% endblock %}
 
 {% block extra_js %}
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        // Load events from API
+        loadEventsFromAPI();
+        
         // Toggle between new and returning member sections
         const newMemberRadio = document.getElementById('newMember');
         const returningMemberRadio = document.getElementById('returningMember');
@@ -797,20 +812,26 @@
         const interestReasonField = document.getElementById('interestReason');
         const pastExperienceField = document.getElementById('pastExperience');
         const returnReasonField = document.getElementById('returnReason');
+        const hearAboutUsField = document.getElementById('hearAboutUs');
+        const yearsOnTeamField = document.getElementById('yearsOnTeam');
         
         // Set initial state based on which radio button is checked
         if (newMemberRadio.checked) {
             newMemberSection.style.display = 'block';
             returningMemberSection.style.display = 'none';
             interestReasonField.setAttribute('required', '');
+            hearAboutUsField.setAttribute('required', '');
             pastExperienceField.removeAttribute('required');
             returnReasonField.removeAttribute('required');
+            yearsOnTeamField.removeAttribute('required');
         } else {
             newMemberSection.style.display = 'none';
             returningMemberSection.style.display = 'block';
             interestReasonField.removeAttribute('required');
+            hearAboutUsField.removeAttribute('required');
             pastExperienceField.setAttribute('required', '');
             returnReasonField.setAttribute('required', '');
+            yearsOnTeamField.setAttribute('required', '');
         }
         
         // Add event listeners for radio buttons
@@ -821,10 +842,12 @@
                 
                 // Enable validation for fields in the visible section
                 interestReasonField.setAttribute('required', '');
+                hearAboutUsField.setAttribute('required', '');
                 
                 // Disable validation for fields in the hidden section
                 pastExperienceField.removeAttribute('required');
                 returnReasonField.removeAttribute('required');
+                yearsOnTeamField.removeAttribute('required');
             }
         });
         
@@ -835,10 +858,12 @@
                 
                 // Disable validation for fields in the hidden section
                 interestReasonField.removeAttribute('required');
+                hearAboutUsField.removeAttribute('required');
                 
                 // Enable validation for fields in the visible section
                 pastExperienceField.setAttribute('required', '');
                 returnReasonField.setAttribute('required', '');
+                yearsOnTeamField.setAttribute('required', '');
             }
         });
         
@@ -859,38 +884,148 @@
             }
         });
         
-        // Event selection counter and validator
-        const eventCheckboxes = document.querySelectorAll('.event-check');
-        const eventsCounter = document.getElementById('eventsCounter');
+        // Word counter for bio field
+        const bioField = document.getElementById('bio');
+        const bioCount = document.getElementById('bioCount');
         
-        eventCheckboxes.forEach(checkbox => {
-            checkbox.addEventListener('change', function() {
-                const checkedEvents = document.querySelectorAll('.event-check:checked').length;
-                eventsCounter.textContent = checkedEvents;
-                
-                // Apply visual feedback for the counter
-                if (checkedEvents < 2) {
-                    eventsCounter.style.color = '#e74c3c'; // Red for too few
-                } else if (checkedEvents > 6) {
-                    eventsCounter.style.color = '#e74c3c'; // Red for too many
-                } else {
-                    eventsCounter.style.color = '#27ae60'; // Green for just right
-                }
-                
-                // Disable checkboxes if more than 6 are selected
-                if (checkedEvents >= 6) {
-                    eventCheckboxes.forEach(cb => {
-                        if (!cb.checked) {
-                            cb.disabled = true;
-                        }
-                    });
-                } else {
-                    eventCheckboxes.forEach(cb => {
-                        cb.disabled = false;
-                    });
-                }
-            });
+        bioField.addEventListener('input', function() {
+            const words = this.value.trim().split(/\s+/).filter(word => word.length > 0);
+            const wordCount = words.length;
+            const maxWords = parseInt(this.getAttribute('data-word-limit'));
+            
+            bioCount.textContent = wordCount;
+            
+            if (wordCount > maxWords) {
+                bioCount.style.color = '#e74c3c';
+            } else {
+                bioCount.style.color = '';
+            }
         });
+        
+        // Load events from API
+        function loadEventsFromAPI() {
+            fetch('/api/Events')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to load events');
+                    }
+                    return response.json();
+                })
+                .then(eventsData => {
+                    // Process events data and group by subject
+                    const events = eventsData.map(item => {
+                        const id = Object.keys(item)[0];
+                        return { id, ...item[id] };
+                    });
+                    
+                    // Group events by subject
+                    const eventsBySubject = {};
+                    events.forEach(event => {
+                        const subject = event.subject || 'classification-compilation';
+                        if (!eventsBySubject[subject]) {
+                            eventsBySubject[subject] = [];
+                        }
+                        eventsBySubject[subject].push(event);
+                    });
+                    
+                    // Render events by subject
+                    renderEventsBySubject(eventsBySubject);
+                })
+                .catch(error => {
+                    console.error('Error loading events:', error);
+                    document.getElementById('eventsContainer').innerHTML = `
+                        <div class="error-message">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <p>Failed to load events. Please refresh the page and try again.</p>
+                        </div>
+                    `;
+                });
+        }
+        
+        // Render events grouped by subject
+        function renderEventsBySubject(eventsBySubject) {
+            const container = document.getElementById('eventsContainer');
+            container.innerHTML = '';
+            
+            // Subject display names and icons
+            const subjectInfo = {
+                'construction-build': { name: 'Construction Build Events', icon: 'fas fa-hammer', description: 'Events with wooden builds optimized for power & strength' },
+                'precision-build': { name: 'Precision Build Events', icon: 'fas fa-ruler-combined', description: 'Events requiring applied mathematics, electronics, and precise engineering' },
+                'physics': { name: 'Physics and Design Events', icon: 'fas fa-cogs', description: 'Theory-based test+lab events requiring mechanical and electrical engineering knowledge' },
+                'earth-science': { name: 'Earth Science Events', icon: 'fas fa-globe-americas', description: 'Environmental systems events (2 reference sheets allowed during tests)' },
+                'classification-compilation': { name: 'Classification & Compilation Events', icon: 'fas fa-search', description: 'Research, compilation and identification events (unlimited binder events)' },
+                'biology': { name: 'Biology Events', icon: 'fas fa-dna', description: 'Human biology events from DNA to populations' },
+                'chemistry': { name: 'Chemistry & Inquiry Events', icon: 'fas fa-flask', description: 'Critical analysis events requiring AP-level chemistry knowledge (for some events)' }
+            };
+            
+            // Render each subject group
+            Object.keys(eventsBySubject).forEach(subject => {
+                const events = eventsBySubject[subject];
+                const info = subjectInfo[subject] || subjectInfo['classification-compilation'];
+                
+                const subjectSection = document.createElement('div');
+                subjectSection.innerHTML = `
+                    <h4><i class="${info.icon}"></i> ${info.name}</h4>
+                    <p class="subject-description">${info.description}</p>
+                    <div class="events-grid" id="events-grid-${subject}">
+                    </div>
+                `;
+                
+                container.appendChild(subjectSection);
+                
+                // Add events to this subject's grid
+                const grid = document.getElementById(`events-grid-${subject}`);
+                events.forEach(event => {
+                    const eventCheckbox = document.createElement('div');
+                    eventCheckbox.className = 'event-checkbox';
+                    eventCheckbox.innerHTML = `
+                        <input type="checkbox" id="${event.id}" name="events[]" value="${event.eventName}" class="event-check">
+                        <label for="${event.id}">${event.eventName}</label>
+                    `;
+                    grid.appendChild(eventCheckbox);
+                });
+            });
+            
+            // Re-initialize event checkboxes after rendering
+            initializeEventCheckboxes();
+        }
+        
+        // Initialize event checkboxes functionality
+        function initializeEventCheckboxes() {
+            const eventCheckboxes = document.querySelectorAll('.event-check');
+            const eventsCounter = document.getElementById('eventsCounter');
+            
+            eventCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const checkedEvents = document.querySelectorAll('.event-check:checked').length;
+                    eventsCounter.textContent = checkedEvents;
+                    
+                    // Apply visual feedback for the counter
+                    if (checkedEvents < 2) {
+                        eventsCounter.style.color = '#e74c3c'; // Red for too few
+                    } else if (checkedEvents > 6) {
+                        eventsCounter.style.color = '#e74c3c'; // Red for too many
+                    } else {
+                        eventsCounter.style.color = '#27ae60'; // Green for just right
+                    }
+                    
+                    // Disable checkboxes if more than 6 are selected
+                    if (checkedEvents >= 6) {
+                        eventCheckboxes.forEach(cb => {
+                            if (!cb.checked) {
+                                cb.disabled = true;
+                            }
+                        });
+                    } else {
+                        eventCheckboxes.forEach(cb => {
+                            cb.disabled = false;
+                        });
+                    }
+                });
+            });
+        }
+        
+
         
         // Password validation
         const passwordField = document.getElementById('password');
@@ -960,6 +1095,28 @@
                 }
             }
             
+            // Validate word count for bio field
+            const bioWords = bioField.value.trim().split(/\s+/).filter(word => word.length > 0);
+            const bioWordCount = bioWords.length;
+            const bioMaxWords = parseInt(bioField.getAttribute('data-word-limit'));
+            
+            if (bioWordCount > bioMaxWords) {
+                errors.push(`Your bio exceeds the ${bioMaxWords} word limit. Please shorten it.`);
+            }
+            
+            // Validate phone number format
+            const phoneNumber = document.getElementById('phoneNumber').value;
+            const phonePattern = /^[0-9]{3}-[0-9]{3}-[0-9]{4}$/;
+            if (!phonePattern.test(phoneNumber)) {
+                errors.push('Please enter a valid phone number in the format 123-456-7890');
+            }
+            
+            // Validate DOE email format
+            const doeEmail = document.getElementById('doeEmail').value;
+            if (!doeEmail.endsWith('@nycstudents.net')) {
+                errors.push('DOE email address must end with @nycstudents.net');
+            }
+            
             // Validate membership agreement acceptance
             const agreementAccepted = document.getElementById('agreementAccepted').checked;
             if (!agreementAccepted) {
@@ -983,18 +1140,27 @@
                 // Get selected events
                 const selectedEvents = [];
                 document.querySelectorAll('.event-check:checked').forEach(checkbox => {
-                    selectedEvents.push(checkbox.value);
+                    selectedEvents.push(checkbox.value); // This will be the eventName from the Events collection
                 });
                 
                 // Build the member data object
                 const memberData = {
                     firstName: document.getElementById('firstName').value,
                     lastName: document.getElementById('lastName').value,
-                    email: document.getElementById('email').value,
+                    doeEmail: document.getElementById('doeEmail').value,
+                    personalEmail: document.getElementById('personalEmail').value,
+                    phoneNumber: document.getElementById('phoneNumber').value,
                     grade: document.getElementById('grade').value,
                     password: document.getElementById('password').value, // Note: In production, handle password securely
                     memberStatus: document.querySelector('input[name="memberStatus"]:checked').value,
+                    bio: document.getElementById('bio').value,
                     events: selectedEvents,
+                    preseasonHrs: parseFloat(document.getElementById('preseasonHrs').value),
+                    regseasonHrs: parseFloat(document.getElementById('regseasonHrs').value),
+                    postseasonHrs: parseFloat(document.getElementById('postseasonHrs').value),
+                    importantNotification: document.getElementById('importantNotification').value,
+                    teamNotification: document.getElementById('teamNotification').value,
+                    eventNotification: document.getElementById('eventNotification').value,
                     agreementAccepted: document.getElementById('agreementAccepted').checked,
                     agreementAcceptedAt: new Date().toISOString(),
                     createdAt: new Date().toISOString(),
@@ -1004,9 +1170,11 @@
                 // Add specific fields based on member type
                 if (memberData.memberStatus === 'new') {
                     memberData.interestReason = document.getElementById('interestReason').value;
+                    memberData.howDidYouHearAboutUs = document.getElementById('hearAboutUs').value;
                 } else {
                     memberData.pastExperience = document.getElementById('pastExperience').value;
                     memberData.returnReason = document.getElementById('returnReason').value;
+                    memberData.yearsInTeam = parseInt(document.getElementById('yearsOnTeam').value);
                 }
                 
                 // Post to Firebase Members collection

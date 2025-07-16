@@ -455,7 +455,7 @@
                     console.log(userData.firstName, userData.lastName);
                     userName1.textContent = `${userData.firstName} ${userData.lastName}`;
                     console.log(userName1.textContent);
-                    userEmail.textContent = userData.email;
+                    userEmail.textContent = userData.doeEmail || userData.personalEmail || 'Email not available';
                     userGrade.textContent = userData.grade || 'Not specified';
                     
                     // Get competition results

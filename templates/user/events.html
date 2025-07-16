@@ -44,11 +44,17 @@
             
             <!-- Event Tabs -->
             <div class="event-tabs">
-                <button class="event-tab active" data-tab="roster">
+                <button class="event-tab active" data-tab="general">
+                    <i class="fas fa-info-circle"></i> General
+                </button>
+                <button class="event-tab" data-tab="roster">
                     <i class="fas fa-users"></i> Team Roster
                 </button>
                 <button class="event-tab" data-tab="materials">
-                    <i class="fas fa-book"></i> Study Materials
+                    <i class="fas fa-book"></i> Binders
+                </button>
+                <button class="event-tab" data-tab="modules">
+                    <i class="fas fa-graduation-cap"></i> Modules
                 </button>
                 <button class="event-tab" data-tab="tests">
                     <i class="fas fa-file-pdf"></i> Tests Library
@@ -59,7 +65,19 @@
             </div>
             
             <!-- Tab Contents -->
-            <div class="tab-content active" id="roster-tab">
+            <div class="tab-content active" id="general-tab">
+                <div class="general-container">
+                    <div class="general-header">
+                        <h3>Event Overview</h3>
+                    </div>
+                    
+                    <div id="generalContent" class="general-content">
+                        <!-- General content will be loaded here -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="roster-tab">
                 <div class="roster-container">
                     <div class="roster-header">
                         <h3>Team Members</h3>
@@ -97,6 +115,41 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="modules-tab">
+                <div class="modules-container">
+                    <div class="modules-header">
+                        <h3>Learning Path</h3>
+                        <div class="modules-progress">
+                            <div class="progress-info">
+                                <span id="modulesCompleted">0</span> / <span id="totalModules">0</span> completed
+                            </div>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar-fill" id="modulesProgressBar"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="learning-path">
+                        <div id="modulesPath" class="modules-path">
+                            <!-- Modules will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Module Side Panel (moved outside) -->
+            <div id="moduleSidePanel" class="module-side-panel">
+                <div class="side-panel-header">
+                    <h4 id="sidePanelTitle">Module Title</h4>
+                    <button id="closeSidePanel" class="close-side-panel">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div id="sidePanelContent" class="side-panel-content">
+                    <!-- Module content will be loaded here -->
                 </div>
             </div>
             
@@ -299,6 +352,7 @@
         transition: all 0.3s ease;
         cursor: pointer;
         border-top: 5px solid var(--accent-color);
+        position: relative;
     }
     
     .event-card:hover {
@@ -306,10 +360,26 @@
         box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
     }
     
+    .event-icon {
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    
+    .event-icon i {
+        font-size: 3rem;
+        color: var(--accent-color);
+        background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    }
+    
     .event-card h3 {
         color: var(--primary-color);
         margin-bottom: 15px;
         font-size: 1.4rem;
+        text-align: center;
     }
     
     .event-stats {
@@ -335,29 +405,7 @@
         transition: width 0.3s ease;
     }
     
-    .event-actions {
-        display: flex;
-        gap: 10px;
-    }
-    
-    .quick-action {
-        flex: 1;
-        padding: 8px 12px;
-        border: 1px solid #ddd;
-        border-radius: 6px;
-        background: white;
-        color: #666;
-        text-decoration: none;
-        text-align: center;
-        font-size: 0.8rem;
-        transition: all 0.2s;
-    }
-    
-    .quick-action:hover {
-        background: var(--accent-color);
-        color: white;
-        border-color: var(--accent-color);
-    }
+
     
     /* Event Detail */
     .event-detail {
@@ -475,6 +523,808 @@
     
     .tab-content.active {
         display: block;
+    }
+    
+    /* General Tab Styles */
+    .general-container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .general-header {
+        text-align: center;
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid var(--accent-color);
+    }
+    
+    .general-header h3 {
+        color: var(--primary-color);
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+    
+    .general-content {
+        line-height: 1.6;
+    }
+    
+    .welcome-section {
+        background: linear-gradient(135deg, #f8f9ff 0%, #e8f4fd 100%);
+        padding: 30px;
+        border-radius: 15px;
+        margin-bottom: 30px;
+        border-left: 5px solid var(--accent-color);
+    }
+    
+    .welcome-section h4 {
+        color: var(--primary-color);
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+    }
+    
+    .welcome-section p {
+        color: #555;
+        margin-bottom: 15px;
+    }
+    
+    .info-section {
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        margin-bottom: 25px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        border: 1px solid #e9ecef;
+    }
+    
+    .info-section h4 {
+        color: var(--primary-color);
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .info-section ul {
+        margin-left: 20px;
+        color: #555;
+    }
+    
+    .info-section li {
+        margin-bottom: 8px;
+    }
+    
+    .resources-section {
+        background: #f8f9fa;
+        padding: 25px;
+        border-radius: 12px;
+        border: 1px solid #dee2e6;
+    }
+    
+    .resources-section h4 {
+        color: var(--primary-color);
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .resources-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+    }
+    
+    .resource-card {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        border: 1px solid #e9ecef;
+        transition: all 0.2s;
+        text-decoration: none;
+        color: inherit;
+    }
+    
+    .resource-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        border-color: var(--accent-color);
+    }
+    
+    .resource-card h5 {
+        color: var(--primary-color);
+        margin-bottom: 8px;
+        font-size: 1rem;
+    }
+    
+    .resource-card p {
+        color: #666;
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+    
+    .resource-meta {
+        font-size: 0.8rem;
+        color: #888;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+    
+    .not-available {
+        text-align: center;
+        padding: 60px 20px;
+        color: #666;
+    }
+    
+    .not-available i {
+        font-size: 4rem;
+        color: #ddd;
+        margin-bottom: 20px;
+    }
+    
+    .not-available h4 {
+        color: #999;
+        margin-bottom: 10px;
+    }
+    
+    /* Modules Tab Styles */
+    .modules-container {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    
+    .modules-header {
+        text-align: center;
+        margin-bottom: 40px;
+        padding: 30px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 20px;
+        color: white;
+        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    }
+    
+    .modules-header h3 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        font-weight: 700;
+    }
+    
+    .modules-progress {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .progress-info {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+        font-weight: 500;
+    }
+    
+    .progress-bar-container {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 25px;
+        height: 12px;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .progress-bar-fill {
+        background: linear-gradient(90deg, #4ade80, #22c55e);
+        height: 100%;
+        border-radius: 25px;
+        transition: width 0.5s ease;
+        width: 0%;
+    }
+    
+    .learning-path {
+        position: relative;
+        padding: 20px 0;
+        background: linear-gradient(135deg, #e8f5e8 0%, #f0f8ff 100%);
+        border-radius: 20px;
+        margin-bottom: 30px;
+    }
+    
+    .modules-path {
+        position: relative;
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    /* Duolingo-style section headers */
+    .duo-section-header {
+        background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+        border-radius: 20px;
+        padding: 25px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        border: 2px solid #e2e8f0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .section-info h3 {
+        color: var(--primary-color);
+        margin: 0 0 5px 0;
+        font-size: 1.8rem;
+        font-weight: 700;
+    }
+    
+    .section-info p {
+        color: #64748b;
+        margin: 0;
+        font-size: 1rem;
+    }
+    
+    .section-progress {
+        text-align: right;
+        min-width: 150px;
+    }
+    
+    .section-progress-bar {
+        background: #e2e8f0;
+        border-radius: 25px;
+        height: 8px;
+        width: 100%;
+        overflow: hidden;
+        margin-bottom: 8px;
+    }
+    
+    .section-progress-fill {
+        background: linear-gradient(90deg, #58cc02, #7dd321);
+        height: 100%;
+        border-radius: 25px;
+        transition: width 0.5s ease;
+    }
+    
+    .section-progress-text {
+        color: #58cc02;
+        font-weight: 600;
+        font-size: 0.9rem;
+    }
+    
+    /* Duolingo-style section containers */
+    .duo-section-container {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        margin-bottom: 50px;
+        position: relative;
+        padding: 0 20px;
+    }
+    
+    .duo-section-container::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: linear-gradient(180deg, #58cc02, #7dd321, #58cc02);
+        transform: translateX(-50%);
+        z-index: 1;
+        border-radius: 2px;
+    }
+    
+    /* Duolingo-style module items */
+    .duo-module-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 2;
+    }
+    
+    .duo-module-card {
+        background: white;
+        border-radius: 20px;
+        padding: 15px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+        position: relative;
+        text-align: center;
+        width: 150px;
+        height: 150px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 4px solid transparent;
+        overflow: visible;
+        margin: 20px 10px;
+    }
+    
+    .duo-module-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, var(--module-color) 0%, rgba(255, 255, 255, 0.1) 100%);
+        opacity: 0.1;
+        transition: opacity 0.3s ease;
+    }
+    
+    .duo-module-card:hover::before {
+        opacity: 0.2;
+    }
+    
+    .duo-module-card:hover {
+        transform: translateY(-8px) scale(1.05);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        border-color: var(--module-color);
+    }
+    
+    .duo-module-card.completed {
+        border-color: #58cc02;
+        background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+    }
+    
+    .duo-module-card.locked {
+        opacity: 0.6;
+        cursor: not-allowed;
+        background: #f8f9fa;
+        filter: grayscale(1);
+    }
+    
+    .duo-module-card.locked:hover {
+        transform: none;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        border-color: transparent;
+    }
+    
+    .duo-module-icon {
+        position: relative;
+        margin-bottom: 8px;
+    }
+    
+    .icon-circle {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        color: white;
+        background: var(--module-color);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .duo-module-card:hover .icon-circle {
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    .crown-icon {
+        position: absolute;
+        top: -20px;
+        right: -20px;
+        font-size: 1.5rem;
+        z-index: 10;
+        animation: bounce 2s infinite;
+        background: white;
+        border-radius: 50%;
+        padding: 2px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .lock-icon {
+        position: absolute;
+        top: -15px;
+        right: -15px;
+        font-size: 1.2rem;
+        z-index: 10;
+        background: white;
+        border-radius: 50%;
+        padding: 3px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .duo-module-title {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--primary-color);
+        margin-bottom: 4px;
+        text-align: center;
+        line-height: 1.2;
+    }
+    
+    .duo-module-type {
+        font-size: 1.2rem;
+        margin-bottom: 4px;
+    }
+    
+    .duo-module-xp {
+        font-size: 0.8rem;
+        color: #58cc02;
+        font-weight: 600;
+    }
+    
+    /* Unit Challenge styles */
+    .duo-challenge-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 2;
+        margin: 20px 0;
+    }
+    
+    .duo-challenge-card {
+        background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+        border-radius: 20px;
+        padding: 25px;
+        box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+        position: relative;
+        text-align: center;
+        width: 180px;
+        height: 160px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 4px solid transparent;
+        color: white;
+        margin: 20px 10px;
+    }
+    
+    .duo-challenge-card:hover {
+        transform: translateY(-8px) scale(1.05);
+        box-shadow: 0 20px 40px rgba(245, 158, 11, 0.4);
+        border-color: #fbbf24;
+    }
+    
+    .challenge-icon .icon-circle {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+    
+    .challenge-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+    
+    .challenge-description {
+        font-size: 0.85rem;
+        opacity: 0.9;
+        margin-bottom: 8px;
+    }
+    
+    .challenge-reward {
+        font-size: 0.9rem;
+        font-weight: 600;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 4px 12px;
+        border-radius: 15px;
+    }
+    
+    /* Animations */
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0);
+        }
+        40% {
+            transform: translateY(-10px);
+        }
+        60% {
+            transform: translateY(-5px);
+        }
+    }
+    
+    /* Connector adjustments */
+    .duo-connector {
+        display: none; /* Hide individual connectors since we use the section line */
+    }
+    
+    /* Empty state styles */
+    .duo-empty-state {
+        text-align: center;
+        padding: 60px 30px;
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        border-radius: 20px;
+        margin: 20px 0;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+    
+    .empty-state-icon {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        font-size: 2.5rem;
+        color: white;
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+    }
+    
+    .duo-empty-state h4 {
+        color: var(--primary-color);
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+        font-weight: 700;
+    }
+    
+    .duo-empty-state p {
+        color: #64748b;
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+    
+    .empty-state-features {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 30px;
+        flex-wrap: wrap;
+    }
+    
+    .feature-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 20px;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        font-size: 0.9rem;
+        color: #475569;
+    }
+    
+    .feature-item i {
+        color: #667eea;
+        font-size: 1.1rem;
+    }
+    
+    /* Module Side Panel Styles */
+    .module-side-panel {
+        position: fixed;
+        top: 0;
+        right: -400px;
+        width: 400px;
+        height: 100vh;
+        background: white;
+        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+        z-index: 1000;
+        transition: right 0.3s ease;
+        overflow-y: auto;
+    }
+    
+    .module-side-panel.active {
+        right: 0;
+    }
+    
+    .side-panel-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 25px 30px 20px;
+        border-bottom: 1px solid #e9ecef;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+    }
+    
+    .side-panel-header h4 {
+        margin: 0;
+        font-size: 1.3rem;
+        font-weight: 600;
+    }
+    
+    .close-side-panel {
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        color: white;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+    }
+    
+    .close-side-panel:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: scale(1.1);
+    }
+    
+    .side-panel-content {
+        padding: 30px;
+        line-height: 1.6;
+    }
+    
+    .module-content-section {
+        margin-bottom: 30px;
+    }
+    
+    .module-content-section h5 {
+        color: var(--primary-color);
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .module-content-section p {
+        color: #555;
+        margin-bottom: 15px;
+    }
+    
+    .module-content-section ul {
+        margin-left: 20px;
+        color: #555;
+    }
+    
+    .module-content-section li {
+        margin-bottom: 8px;
+    }
+    
+    .module-links {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .module-link {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 15px;
+        background: #f8f9fa;
+        border-radius: 10px;
+        text-decoration: none;
+        color: inherit;
+        transition: all 0.2s;
+        border: 1px solid #e9ecef;
+    }
+    
+    .module-link:hover {
+        background: #e9ecef;
+        transform: translateX(5px);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .module-link-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.1rem;
+        flex-shrink: 0;
+    }
+    
+    .module-link-icon.video {
+        background: linear-gradient(135deg, #ef4444, #dc2626);
+    }
+    
+    .module-link-icon.reading {
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    }
+    
+    .module-link-icon.research {
+        background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    }
+    
+    .module-link-icon.ai {
+        background: linear-gradient(135deg, #06b6d4, #0891b2);
+    }
+    
+    .module-link-content {
+        flex: 1;
+    }
+    
+    .module-link-title {
+        font-weight: 600;
+        color: var(--primary-color);
+        margin-bottom: 4px;
+    }
+    
+    .module-link-description {
+        font-size: 0.9rem;
+        color: #666;
+    }
+    
+    .problems-list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .problem-item {
+        display: flex;
+        gap: 12px;
+        padding: 15px;
+        background: #f8f9fa;
+        border-radius: 10px;
+        border: 1px solid #e9ecef;
+    }
+    
+    .problem-number {
+        font-weight: 600;
+        color: var(--accent-color);
+        min-width: 25px;
+    }
+    
+    .problem-text {
+        flex: 1;
+        color: #555;
+        line-height: 1.5;
+    }
+    
+    .module-actions {
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid #e9ecef;
+    }
+    
+    .module-action-btn {
+        width: 100%;
+        padding: 15px;
+        border: none;
+        border-radius: 10px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+        margin-bottom: 10px;
+    }
+    
+    .module-action-btn.primary {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+    }
+    
+    .module-action-btn.primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+    }
+    
+    .module-action-btn.secondary {
+        background: #f8f9fa;
+        color: #666;
+        border: 1px solid #e9ecef;
+    }
+    
+    .module-action-btn.secondary:hover {
+        background: #e9ecef;
+    }
+    
+    .module-completion-status {
+        text-align: center;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+    
+    .module-completion-status.completed {
+        background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+        border: 2px solid #22c55e;
+        color: #166534;
+    }
+    
+    .module-completion-status.in-progress {
+        background: linear-gradient(135deg, #fef3c7, #fde68a);
+        border: 2px solid #f59e0b;
+        color: #92400e;
     }
     
     /* Roster Styles */
@@ -821,6 +1671,17 @@
         color: var(--accent-color);
     }
     
+    .error-message {
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: 50px 20px;
+        color: #e74c3c;
+        background-color: #fdf2f2;
+        border: 1px solid #fecaca;
+        border-radius: 10px;
+        margin: 20px 0;
+    }
+    
     .create-btn {
         background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
         color: white;
@@ -1118,23 +1979,39 @@
             });
         });
         
+        // Module side panel close button
+        document.getElementById('closeSidePanel').addEventListener('click', closeModuleSidePanel);
+        
+        // Close module side panel when clicking outside
+        document.addEventListener('click', handleOutsideClick);
+        
         // Load user's events
-        function loadUserEvents() {
-        fetch(`/api/Members/${currentUser.id}`)
-            .then(response => response.json())
-            .then(data => {
-                const memberData = Object.values(data)[0];
-                    userEvents = memberData.events || [];
-                    renderEventCards();
-                })
-                .catch(error => {
-                    console.error('Error loading user events:', error);
-                    showError('Failed to load your events');
+        async function loadUserEvents() {
+            try {
+                // Fetch all events from the Events collection
+                const eventsResponse = await fetch('/api/Events');
+                const eventsData = await eventsResponse.json();
+                
+                // Process events data and filter for user's events
+                const allEvents = eventsData.map(item => {
+                    const id = Object.keys(item)[0];
+                    return { id, ...item[id] };
                 });
+                
+                // Filter events where the current user is in the members array
+                userEvents = allEvents.filter(event => 
+                    event.members && event.members.includes(currentUser.id)
+                );
+                
+                await renderEventCards();
+            } catch (error) {
+                console.error('Error loading user events:', error);
+                showError('Failed to load your events');
+            }
         }
         
         // Render event cards
-        function renderEventCards() {
+        async function renderEventCards() {
             if (userEvents.length === 0) {
                 eventsGrid.innerHTML = `
                     <div class="empty-state" style="grid-column: 1 / -1; text-align: center; padding: 50px 20px;">
@@ -1146,40 +2023,180 @@
                 return;
             }
             
-            eventsGrid.innerHTML = '';
+            eventsGrid.innerHTML = '<div class="loading-indicator"><i class="fas fa-spinner fa-spin"></i><p>Loading event data...</p></div>';
             
-            userEvents.forEach(eventName => {
-                const eventCard = document.createElement('div');
-                eventCard.className = 'event-card';
-                eventCard.dataset.event = eventName;
+            try {
+                // Fetch all necessary data in parallel
+                const [membersResponse, bindersResponse, testsResponse] = await Promise.all([
+                    fetch('/api/Members'),
+                    fetch('/api/Binders'),
+                    fetch('/api/Tests')
+                ]);
                 
-                // Generate mock data for demonstration
-                const progress = Math.floor(Math.random() * 100);
-                const memberCount = Math.floor(Math.random() * 15) + 5;
-                const binderCount = Math.floor(Math.random() * 8) + 2;
-                const testCount = Math.floor(Math.random() * 20) + 5;
+                const membersData = await membersResponse.json();
+                const bindersData = await bindersResponse.json();
+                const testsData = await testsResponse.json();
                 
-                eventCard.innerHTML = `
-                    <h3>${eventName}</h3>
-                    <div class="event-stats">
-                        <span><i class="fas fa-users"></i> ${memberCount} members</span>
-                        <span><i class="fas fa-book"></i> ${binderCount} binders</span>
-                        <span><i class="fas fa-file-pdf"></i> ${testCount} tests</span>
-                    </div>
-                    <div class="event-progress">
-                        <div class="progress-bar" style="width: ${progress}%"></div>
-                    </div>
-                    <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">Learning Progress: ${progress}%</p>
-                    <div class="event-actions">
-                        <span class="quick-action">View Team</span>
-                        <span class="quick-action">Study Materials</span>
-                        <span class="quick-action">Practice Tests</span>
-                    </div>
-                `;
+                // Process data
+                const allMembers = membersData.map(item => {
+                    const id = Object.keys(item)[0];
+                    return { id, ...item[id] };
+                });
                 
-                eventCard.addEventListener('click', () => showEventDetail(eventName));
-                eventsGrid.appendChild(eventCard);
-            });
+                const allBinders = bindersData.map(item => {
+                    const id = Object.keys(item)[0];
+                    return { id, ...item[id] };
+                });
+                
+                const allTests = testsData.map(item => {
+                    const id = Object.keys(item)[0];
+                    return { id, ...item[id] };
+                });
+                
+                eventsGrid.innerHTML = '';
+                
+                // Render each event card with real data
+                for (const event of userEvents) {
+                    const eventCard = document.createElement('div');
+                    eventCard.className = 'event-card';
+                    eventCard.dataset.event = event.eventName;
+                    
+                    // Calculate real data using event.members array
+                    const memberCount = event.members ? event.members.length : 0;
+                    
+                    const binderCount = allBinders.filter(binder => 
+                        binder.eventName === event.eventName
+                    ).length;
+                    
+                    const testCount = allTests.filter(test => 
+                        test.eventName === event.eventName
+                    ).length;
+                    
+                    // Get learning progress for this event
+                    const progress = await getUserLearningProgress(event.eventName);
+                    
+                    // Get event icon from event data or fallback to function
+                    const eventIcon = event.icon || getEventIcon(event.eventName);
+                    
+                    eventCard.innerHTML = `
+                        <div class="event-icon">
+                            <i class="${eventIcon}"></i>
+                        </div>
+                        <h3>${event.eventName}</h3>
+                        <div class="event-stats">
+                            <span><i class="fas fa-users"></i> ${memberCount} members</span>
+                            <span><i class="fas fa-book"></i> ${binderCount} binders</span>
+                            <span><i class="fas fa-file-pdf"></i> ${testCount} tests</span>
+                        </div>
+                        <div class="event-progress">
+                            <div class="progress-bar" style="width: ${progress}%"></div>
+                        </div>
+                        <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">Learning Progress: ${progress}%</p>
+                    `;
+                    
+                    eventCard.addEventListener('click', () => showEventDetail(event.eventName));
+                    eventsGrid.appendChild(eventCard);
+                }
+                
+            } catch (error) {
+                console.error('Error loading event data:', error);
+                eventsGrid.innerHTML = '<div class="error-message">Failed to load event data. Please try refreshing the page.</div>';
+            }
+        }
+        
+        // Get user's learning progress for an event
+        async function getUserLearningProgress(eventName) {
+            try {
+                const response = await fetch(`/api/LearningModules/event/${encodeURIComponent(eventName)}`);
+                if (response.ok) {
+                    const modules = await response.json();
+                    if (modules.length === 0) return 0;
+                    
+                    // For now, simulate some progress based on the user
+                    // In a real implementation, you'd fetch actual user progress
+                    const completedModules = Math.floor(modules.length * 0.3); // 30% completion as example
+                    return Math.round((completedModules / modules.length) * 100);
+                } else {
+                    return 0;
+                }
+            } catch (error) {
+                console.error('Error fetching learning progress:', error);
+                return 0;
+            }
+        }
+        
+        // Get icon for event
+        function getEventIcon(eventName) {
+            const eventIcons = {
+                'Anatomy and Physiology': 'fas fa-heartbeat',
+                'Astronomy': 'fas fa-star',
+                'Biology': 'fas fa-leaf',
+                'Chemistry Lab': 'fas fa-flask',
+                'Disease Detectives': 'fas fa-search',
+                'Forensics': 'fas fa-fingerprint',
+                'Geology': 'fas fa-mountain',
+                'Materials Science': 'fas fa-atom',
+                'Experimental Design': 'fas fa-microscope',
+                'Water Quality': 'fas fa-tint',
+                'Physics': 'fas fa-bolt',
+                'Environmental Chemistry': 'fas fa-seedling',
+                'Microbes': 'fas fa-bacteria',
+                'Ornithology': 'fas fa-dove',
+                'Protein Modeling': 'fas fa-dna',
+                'Write It Do It': 'fas fa-pen',
+                'Codebusters': 'fas fa-key',
+                'Detector Building': 'fas fa-tools',
+                'Flight': 'fas fa-plane',
+                'Helicopter': 'fas fa-helicopter',
+                'Scrambler': 'fas fa-car',
+                'Towers': 'fas fa-building',
+                'Elastic Launch Glider': 'fas fa-paper-plane',
+                'Remote Sensing': 'fas fa-satellite',
+                'Solar System': 'fas fa-globe',
+                'Dynamic Planet': 'fas fa-earth-americas',
+                'Fossils': 'fas fa-fish',
+                'Rocks and Minerals': 'fas fa-gem',
+                'Optics': 'fas fa-eye',
+                'Thermodynamics': 'fas fa-thermometer-half',
+                'Machines': 'fas fa-cogs',
+                'Magnetic Levitation': 'fas fa-magnet',
+                'Metric Mastery': 'fas fa-ruler',
+                'Mission Possible': 'fas fa-rocket',
+                'Mousetrap Vehicle': 'fas fa-mouse',
+                'Wheeled Vehicle': 'fas fa-wheelchair',
+                'Wind Power': 'fas fa-wind',
+                'Wright Stuff': 'fas fa-paper-plane',
+                'Cybersecurity': 'fas fa-shield-alt',
+                'Game On': 'fas fa-gamepad',
+                'Invasive Species': 'fas fa-spider',
+                'Meteorology': 'fas fa-cloud-sun',
+                'Crime Busters': 'fas fa-user-secret',
+                'Fast Facts': 'fas fa-brain',
+                'Heredity': 'fas fa-code-branch',
+                'Hovercraft': 'fas fa-hdd',
+                'Ping Pong Parachute': 'fas fa-parachute-box',
+                'Reach for the Stars': 'fas fa-rocket',
+                'Road Scholar': 'fas fa-road',
+                'Solar Power': 'fas fa-solar-panel',
+                'Storm the Castle': 'fas fa-chess-rook',
+                'Air Trajectory': 'fas fa-paper-plane',
+                'Boomilever': 'fas fa-bridge',
+                'Chemistry': 'fas fa-vial',
+                'Crave the Wave': 'fas fa-wave-square',
+                'Epidemiology': 'fas fa-virus',
+                'Experimental Design': 'fas fa-flask',
+                'Geocaching': 'fas fa-compass',
+                'Green Generation': 'fas fa-leaf',
+                'Helicopters': 'fas fa-helicopter',
+                'Metric Mastery': 'fas fa-ruler-combined',
+                'Picture This': 'fas fa-camera',
+                'Solar System': 'fas fa-sun',
+                'Sound of Music': 'fas fa-music',
+                'Storm the Castle': 'fas fa-chess-rook',
+                'Write It Do It': 'fas fa-pencil-alt'
+            };
+            
+            return eventIcons[eventName] || 'fas fa-trophy';
         }
         
         // Show event detail view
@@ -1195,8 +2212,8 @@
             eventsOverview.classList.add('hidden');
             eventDetail.classList.remove('hidden');
             
-            // Load the default tab (roster)
-            switchTab('roster');
+            // Load the default tab (general)
+            switchTab('general');
         }
         
         // Show events overview
@@ -1225,11 +2242,17 @@
             
             // Load data for the selected tab
             switch (tabName) {
+                case 'general':
+                    loadEventGeneral();
+                    break;
                 case 'roster':
                     loadEventRoster();
                     break;
                 case 'materials':
                     loadEventMaterials();
+                    break;
+                case 'modules':
+                    loadEventModules();
                     break;
                 case 'tests':
                     loadEventTests();
@@ -1240,34 +2263,695 @@
             }
         }
         
+        // Load event general information
+        async function loadEventGeneral() {
+            const generalContent = document.getElementById('generalContent');
+            
+            try {
+                // Fetch event data from Events collection
+                const eventsResponse = await fetch('/api/Events');
+                const eventsData = await eventsResponse.json();
+                
+                // Find the current event
+                const allEvents = eventsData.map(item => {
+                    const id = Object.keys(item)[0];
+                    return { id, ...item[id] };
+                });
+                
+                const currentEvent = allEvents.find(event => event.eventName === currentEventData.name);
+                
+                if (currentEvent && currentEvent.generalInfo) {
+                    const generalInfo = currentEvent.generalInfo;
+                    
+                    generalContent.innerHTML = `
+                        <div class="welcome-section">
+                            <h4><i class="fas fa-handshake"></i> Welcome from Your Event Managers</h4>
+                            <p>${generalInfo.welcome || 'Welcome to ' + currentEvent.eventName + '! We\'re excited to have you on our team this year.'}</p>
+                        </div>
+                        
+                        <div class="info-section">
+                            <h4><i class="fas fa-info-circle"></i> About ${currentEvent.eventName}</h4>
+                            <p><strong>Subject:</strong> ${currentEvent.subject || 'Classification & Compilation'}</p>
+                            <p><strong>Meeting Day:</strong> ${currentEvent.meetingDay || 'TBD'}</p>
+                            <p><strong>Meeting Block:</strong> ${currentEvent.meetingBlock || 'TBD'}</p>
+                            <p><strong>Meeting Room:</strong> ${currentEvent.meetingRoom || 'TBD'}</p>
+                            <p><strong>Description:</strong> ${currentEvent.description || 'No description available.'}</p>
+                            ${generalInfo.about ? `<p><strong>About:</strong> ${generalInfo.about}</p>` : ''}
+                            ${generalInfo.contentOverview ? `<p><strong>Content Overview:</strong> ${generalInfo.contentOverview}</p>` : ''}
+                            ${generalInfo.tips ? `
+                                <p><strong>Tips:</strong></p>
+                                <p>${generalInfo.tips}</p>
+                            ` : ''}
+                        </div>
+                        
+                        ${generalInfo.resources && generalInfo.resources.length > 0 ? `
+                            <div class="resources-section">
+                                <h4><i class="fas fa-link"></i> Learning Resources</h4>
+                                <div class="resources-grid">
+                                    ${generalInfo.resources.map(resource => `
+                                        <a href="${resource.url}" target="_blank" class="resource-card">
+                                            <h5>${resource.title}</h5>
+                                            <p>${resource.description || 'No description available'}</p>
+                                            <div class="resource-meta">
+                                                <i class="fas fa-external-link-alt"></i>
+                                                <span>External Resource</span>
+                                            </div>
+                                        </a>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        ` : `
+                            <div class="resources-section">
+                                <h4><i class="fas fa-link"></i> Learning Resources</h4>
+                                <p>No resources have been added for this event yet. Check back later!</p>
+                            </div>
+                        `}
+                    `;
+                } else {
+                    generalContent.innerHTML = `
+                        <div class="not-available">
+                            <i class="fas fa-info-circle"></i>
+                            <h4>General Information Not Available</h4>
+                            <p>General information and resources are not available for ${currentEventData.name} yet.</p>
+                            <p>Contact your Event Managers to get more information about this event!</p>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                console.error('Error loading event general information:', error);
+                generalContent.innerHTML = `
+                    <div class="not-available">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h4>Error Loading Information</h4>
+                        <p>Failed to load general information for ${currentEventData.name}.</p>
+                        <p>Please try refreshing the page or contact support if the problem persists.</p>
+                    </div>
+                `;
+            }
+        }
+        
+        // Global modules variable
+        let modules = [];
+        let userProgress = {}; // Store user progress separately
+        
+        // Load event modules
+        async function loadEventModules() {
+            const modulesPath = document.getElementById('modulesPath');
+            const modulesCompleted = document.getElementById('modulesCompleted');
+            const totalModules = document.getElementById('totalModules');
+            const modulesProgressBar = document.getElementById('modulesProgressBar');
+            
+            try {
+                // Fetch modules for this event from the API
+                const response = await fetch(`/api/LearningModules/event/${encodeURIComponent(currentEventData.name)}`);
+                
+                if (response.ok) {
+                    const apiModules = await response.json();
+                    console.log('API Modules received:', apiModules); // Debug log
+                    
+                    if (apiModules.length > 0) {
+                        // Transform API modules to match the expected format
+                        modules = apiModules.map(module => {
+                            // Get content from the new schema structure
+                            const content = module.content || {};
+                            const objectives = content.objectives || [];
+                            const resources = content.resources || [];
+                            
+                            // Transform resources to links format
+                            const allLinks = resources.map(resource => ({
+                                type: resource.type || 'external',
+                                title: resource.title,
+                                description: resource.description,
+                                url: resource.url,
+                                icon: getResourceIcon(resource.type || 'external')
+                            }));
+                            
+                            return {
+                                id: module.id,
+                                title: module.title,
+                                duration: module.duration || 'N/A',
+                                completed: userProgress[module.id] || false,
+                                unit: module.unit || 'Unit 1',
+                                points: module.points || 10,
+                                prerequisites: module.prerequisites || [],
+                                validationType: module.validationType || 'none',
+                                content: {
+                                    overview: content.overview || module.title,
+                                    objectives: objectives,
+                                    links: allLinks
+                                },
+                                rawData: module
+                            };
+                        });
+                        
+                        console.log('Transformed modules with content:', modules); // Debug log
+                        
+                        // Initialize progress if not already set
+                        if (Object.keys(userProgress).length === 0 && modules.length > 0) {
+                            userProgress[modules[0].id] = true;
+                            modules[0].completed = true;
+                            if (modules.length > 1) {
+                                userProgress[modules[1].id] = true;
+                                modules[1].completed = true;
+                            }
+                        }
+                
+                        // Calculate progress
+                        const completedCount = modules.filter(m => m.completed).length;
+                        const totalCount = modules.length;
+                        const progressPercentage = totalCount > 0 ? (completedCount / totalCount) * 100 : 0;
+                
+                        // Update progress display
+                        modulesCompleted.textContent = completedCount;
+                        totalModules.textContent = totalCount;
+                        modulesProgressBar.style.width = progressPercentage + '%';
+                
+                        // Render modules in Duolingo style
+                        renderDuolingoModules();
+                    } else {
+                        showNoModulesMessage();
+                    }
+                } else {
+                    console.error('Failed to fetch modules');
+                    showNoModulesMessage();
+                }
+            } catch (error) {
+                console.error('Error loading modules:', error);
+                showNoModulesMessage();
+            }
+        }
+        
+        function renderDuolingoModules() {
+            const modulesPath = document.getElementById('modulesPath');
+            modulesPath.innerHTML = '';
+            
+            // Safety check
+            if (!modules || modules.length === 0) {
+                showNoModulesMessage();
+                return;
+            }
+            
+            // Group modules by unit
+            const units = {};
+            modules.forEach((module, index) => {
+                const unitName = module.unit || 'Unit 1';
+                if (!units[unitName]) {
+                    units[unitName] = [];
+                }
+                units[unitName].push({...module, originalIndex: index});
+            });
+            
+            // Create units
+            Object.keys(units).forEach((unitName, unitIndex) => {
+                const unitModules = units[unitName];
+                
+                // Create unit header
+                const unitHeader = document.createElement('div');
+                unitHeader.className = 'duo-section-header';
+                unitHeader.innerHTML = `
+                    <div class="section-info">
+                        <h3>${unitName}</h3>
+                        <p>${unitModules.length} lessons</p>
+                    </div>
+                    <div class="section-progress">
+                        <div class="section-progress-bar">
+                            <div class="section-progress-fill" style="width: ${calculateSectionProgress(unitModules)}%"></div>
+                        </div>
+                        <span class="section-progress-text">${Math.round(calculateSectionProgress(unitModules))}% complete</span>
+                    </div>
+                `;
+                modulesPath.appendChild(unitHeader);
+                
+                // Create unit container
+                const unitContainer = document.createElement('div');
+                unitContainer.className = 'duo-section-container';
+                
+                // Add modules to unit
+                unitModules.forEach((module, moduleIndex) => {
+                    const isLocked = checkModuleLocked(module, module.originalIndex);
+                    const moduleElement = createDuolingoModule(module, moduleIndex, isLocked);
+                    unitContainer.appendChild(moduleElement);
+                });
+                
+                // Add unit challenge at the end of each unit (except the last incomplete one)
+                if (calculateSectionProgress(unitModules) >= 80) {
+                    const challenge = createUnitChallenge(unitName, unitIndex);
+                    unitContainer.appendChild(challenge);
+                }
+                
+                modulesPath.appendChild(unitContainer);
+            });
+        }
+        
+        function createDuolingoModule(module, moduleIndex, isLocked) {
+            const moduleItem = document.createElement('div');
+            moduleItem.className = 'duo-module-item';
+            
+            const colors = [
+                '#58cc02', '#00cd9c', '#ce82ff', '#ff9600', '#1cb0f6', 
+                '#ff4b4b', '#ffc800', '#78c83d', '#00b4d8', '#a855f7'
+            ];
+            const color = colors[moduleIndex % colors.length];
+            
+            const statusClass = module.completed ? 'completed' : isLocked ? 'locked' : 'available';
+            const crownClass = module.completed ? 'crowned' : '';
+            
+            moduleItem.innerHTML = `
+                <div class="duo-module-card ${statusClass} ${crownClass}" data-module-id="${module.id}" style="--module-color: ${color}">
+                    <div class="duo-module-icon">
+                        <div class="icon-circle">
+                            <i class="${getModuleIcon(module.validationType)}"></i>
+                        </div>
+                        ${module.completed ? '<div class="crown-icon">👑</div>' : ''}
+                        ${isLocked ? '<div class="lock-icon">🔒</div>' : ''}
+                    </div>
+                    <div class="duo-module-title">${module.title}</div>
+                    <div class="duo-module-type">${getModuleTypeEmoji(module.validationType)}</div>
+                    <div class="duo-module-xp">+${module.points} XP</div>
+                </div>
+                <div class="duo-connector"></div>
+            `;
+            
+            // Add click handler
+            const moduleCard = moduleItem.querySelector('.duo-module-card');
+            if (!isLocked) {
+                moduleCard.addEventListener('click', () => {
+                    showModuleSidePanel(module);
+                });
+                moduleCard.style.cursor = 'pointer';
+            } else {
+                moduleCard.style.cursor = 'not-allowed';
+            }
+            
+            return moduleItem;
+        }
+        
+        function createUnitChallenge(sectionName, sectionIndex) {
+            const challengeItem = document.createElement('div');
+            challengeItem.className = 'duo-challenge-item';
+            
+            challengeItem.innerHTML = `
+                <div class="duo-challenge-card">
+                    <div class="challenge-icon">
+                        <div class="icon-circle">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                    </div>
+                    <div class="challenge-title">Unit Challenge</div>
+                    <div class="challenge-description">Test your knowledge of ${sectionName}</div>
+                    <div class="challenge-reward">+50 XP</div>
+                </div>
+            `;
+            
+            challengeItem.addEventListener('click', () => {
+                alert(`Unit Challenge for ${sectionName} - This would launch a comprehensive test!`);
+            });
+            
+            return challengeItem;
+        }
+        
+        function calculateSectionProgress(sectionModules) {
+            const completed = sectionModules.filter(m => m.completed).length;
+            return sectionModules.length > 0 ? (completed / sectionModules.length) * 100 : 0;
+        }
+        
+        function getModuleTypeEmoji(validationType) {
+            const emojis = {
+                'none': '📚',
+                'notesUpload': '📝',
+                'problems': '🧮',
+                'AIconversation': '🤖'
+            };
+            return emojis[validationType] || '📖';
+        }
+        
+        function getModuleIcon(validationType) {
+            const icons = {
+                'none': 'fas fa-book',
+                'notesUpload': 'fas fa-edit',
+                'problems': 'fas fa-calculator',
+                'AIconversation': 'fas fa-robot'
+            };
+            return icons[validationType] || 'fas fa-book';
+        }
+        
+        function checkModuleLocked(module, index) {
+            if (index === 0) return false; // First module is never locked
+            
+            // Safety check
+            if (!module || !modules || modules.length === 0) return true;
+            
+            // Check if prerequisites are met
+            if (module.prerequisites && module.prerequisites.length > 0) {
+                return !module.prerequisites.every(prereqId => {
+                    const prereqModule = modules.find(m => m.id === prereqId);
+                    return prereqModule && prereqModule.completed;
+                });
+            }
+            
+            // Default: check if previous module is completed
+            if (index > 0 && modules[index - 1]) {
+                return !modules[index - 1].completed;
+            }
+            
+            return false; // If no previous module, not locked
+        }
+        
+        function showNoModulesMessage() {
+            const modulesPath = document.getElementById('modulesPath');
+            const modulesCompleted = document.getElementById('modulesCompleted');
+            const totalModules = document.getElementById('totalModules');
+            const modulesProgressBar = document.getElementById('modulesProgressBar');
+            
+            modulesPath.innerHTML = `
+                <div class="duo-empty-state">
+                    <div class="empty-state-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h4>Ready to Start Learning?</h4>
+                    <p>No learning modules have been created for this event yet.</p>
+                    <p>Contact your Event Managers to get your learning path started!</p>
+                    <div class="empty-state-features">
+                        <div class="feature-item">
+                            <i class="fas fa-trophy"></i>
+                            <span>Earn XP for completing modules</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-medal"></i>
+                            <span>Complete unit challenges</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Track your progress</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+                
+            modulesCompleted.textContent = '0';
+            totalModules.textContent = '0';
+            modulesProgressBar.style.width = '0%';
+        }
+        
+        function getResourceIcon(resourceType) {
+            const icons = {
+                'reading': 'fas fa-book',
+                'video': 'fas fa-play',
+                'research': 'fas fa-search',
+                'ai': 'fas fa-robot',
+                'external': 'fas fa-external-link-alt'
+            };
+            return icons[resourceType] || 'fas fa-link';
+        }
+        
+        // Show module side panel
+        function showModuleSidePanel(module) {
+            const sidePanel = document.getElementById('moduleSidePanel');
+            const sidePanelTitle = document.getElementById('sidePanelTitle');
+            const sidePanelContent = document.getElementById('sidePanelContent');
+            
+            // Debug log
+            console.log('Showing module side panel for:', module);
+            
+            // Set title
+            sidePanelTitle.textContent = module.title;
+            
+            // Generate content based on module type and content
+            let contentHTML = '';
+            
+            if (module.content) {
+                // Module has detailed content
+                contentHTML = `
+                    <div class="module-completion-status ${module.completed ? 'completed' : 'in-progress'}">
+                        <i class="fas ${module.completed ? 'fa-check-circle' : 'fa-clock'}"></i>
+                        <strong>${module.completed ? 'Completed' : 'In Progress'}</strong>
+                        <div>Duration: ${module.duration}</div>
+                    </div>
+                    
+                    <div class="module-content-section">
+                        <h5><i class="fas fa-info-circle"></i> Overview</h5>
+                        <p>${module.content.overview}</p>
+                    </div>
+                    
+                    <div class="module-content-section">
+                        <h5><i class="fas fa-bullseye"></i> Learning Objectives</h5>
+                        ${module.content.objectives.length > 0 ? `
+                        <ul>
+                            ${module.content.objectives.map(obj => `<li>${obj}</li>`).join('')}
+                        </ul>
+                        ` : '<p>No learning objectives specified for this module.</p>'}
+                    </div>
+                    
+                    <div class="module-content-section">
+                        <h5><i class="fas fa-link"></i> Resources & Links</h5>
+                        ${module.content.links.length > 0 ? `
+                        <div class="module-links">
+                            ${module.content.links.map(link => `
+                                <a href="${link.url}" target="_blank" class="module-link">
+                                    <div class="module-link-icon ${link.type}">
+                                        <i class="${link.icon}"></i>
+                                    </div>
+                                    <div class="module-link-content">
+                                        <div class="module-link-title">${link.title}</div>
+                                            <div class="module-link-description">${link.description || ''}</div>
+                                    </div>
+                                </a>
+                            `).join('')}
+                        </div>
+                        ` : '<p>No resources available for this module.</p>'}
+                    </div>
+                    
+                    ${module.rawData && module.rawData.problems && module.rawData.problems.length > 0 ? `
+                        <div class="module-content-section">
+                            <h5><i class="fas fa-question-circle"></i> Practice Problems</h5>
+                            <div class="problems-list">
+                                ${module.rawData.problems.map((problem, index) => `
+                                    <div class="problem-item">
+                                        <div class="problem-number">${index + 1}.</div>
+                                        <div class="problem-text">${problem}</div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    ` : ''}
+                    
+                    ${module.rawData && module.rawData.systemPrompt ? `
+                        <div class="module-content-section">
+                            <h5><i class="fas fa-robot"></i> AI Tutor Configuration</h5>
+                            <p><strong>System Prompt:</strong> ${module.rawData.systemPrompt}</p>
+                        </div>
+                    ` : ''}
+                    
+                    <div class="module-actions">
+                        ${module.completed ? 
+                            `<button class="module-action-btn secondary" onclick="reviewModule('${module.id}')">
+                                <i class="fas fa-redo"></i> Review Module
+                            </button>` :
+                            `<button class="module-action-btn primary" onclick="completeModule('${module.id}')">
+                                <i class="fas fa-check"></i> Mark as Complete
+                            </button>
+                            <button class="module-action-btn secondary" onclick="startModule('${module.id}')">
+                                <i class="fas fa-play"></i> Start Module
+                            </button>`
+                        }
+                    </div>
+                `;
+            } else {
+                // Fallback content for modules without detailed content
+                // Check if module has objectives or resources from the raw API data
+                const hasObjectives = module.rawData && module.rawData.objectives && Array.isArray(module.rawData.objectives) && module.rawData.objectives.length > 0;
+                const hasResources = (module.rawData && module.rawData.resources && Array.isArray(module.rawData.resources) && module.rawData.resources.length > 0) ||
+                                   (module.rawData && module.rawData.links && Array.isArray(module.rawData.links) && module.rawData.links.length > 0);
+                
+                contentHTML = `
+                    <div class="module-completion-status ${module.completed ? 'completed' : 'in-progress'}">
+                        <i class="fas ${module.completed ? 'fa-check-circle' : 'fa-clock'}"></i>
+                        <strong>${module.completed ? 'Completed' : 'In Progress'}</strong>
+                        <div>Duration: ${module.duration}</div>
+                    </div>
+                    
+                    <div class="module-content-section">
+                        <h5><i class="fas fa-info-circle"></i> Module Information</h5>
+                        <p>${module.description}</p>
+                        <p><strong>Type:</strong> ${module.type.charAt(0).toUpperCase() + module.type.slice(1)} Module</p>
+                        <p><strong>Duration:</strong> ${module.duration}</p>
+                        ${module.rawData && module.rawData.overview ? `<p><strong>Overview:</strong> ${module.rawData.overview}</p>` : ''}
+                    </div>
+                    
+                    ${hasObjectives ? `
+                        <div class="module-content-section">
+                            <h5><i class="fas fa-bullseye"></i> Learning Objectives</h5>
+                            <ul>
+                                ${module.rawData.objectives.map(obj => `<li>${obj}</li>`).join('')}
+                            </ul>
+                        </div>
+                    ` : ''}
+                    
+                    ${hasResources ? `
+                        <div class="module-content-section">
+                            <h5><i class="fas fa-link"></i> Resources & Links</h5>
+                            <div class="module-links">
+                                ${(() => {
+                                    let allResourcesHtml = '';
+                                    
+                                    // Add resources
+                                    if (module.rawData.resources && Array.isArray(module.rawData.resources)) {
+                                        allResourcesHtml += module.rawData.resources.map(resource => `
+                                            <a href="${resource.url}" target="_blank" class="module-link">
+                                                <div class="module-link-icon ${resource.type}">
+                                                    <i class="${getResourceIcon(resource.type)}"></i>
+                                                </div>
+                                                <div class="module-link-content">
+                                                    <div class="module-link-title">${resource.title}</div>
+                                                    <div class="module-link-description">${resource.description || ''}</div>
+                                                </div>
+                                            </a>
+                                        `).join('');
+                                    }
+                                    
+                                    // Add links
+                                    if (module.rawData.links && Array.isArray(module.rawData.links)) {
+                                        allResourcesHtml += module.rawData.links.map(link => `
+                                            <a href="${link.url || '#'}" target="_blank" class="module-link">
+                                                <div class="module-link-icon ${link.type || 'external'}">
+                                                    <i class="${getResourceIcon(link.type || 'external')}"></i>
+                                                </div>
+                                                <div class="module-link-content">
+                                                    <div class="module-link-title">${link.title}</div>
+                                                    <div class="module-link-description">${link.description || ''}</div>
+                                                </div>
+                                            </a>
+                                        `).join('');
+                                    }
+                                    
+                                    return allResourcesHtml;
+                                })()}
+                            </div>
+                        </div>
+                    ` : ''}
+                    
+                    <div class="module-actions">
+                        ${module.completed ? 
+                            `<button class="module-action-btn secondary" onclick="reviewModule('${module.id}')">
+                                <i class="fas fa-redo"></i> Review Module
+                            </button>` :
+                            `<button class="module-action-btn primary" onclick="completeModule('${module.id}')">
+                                <i class="fas fa-check"></i> Mark as Complete
+                            </button>
+                            <button class="module-action-btn secondary" onclick="startModule('${module.id}')">
+                                <i class="fas fa-play"></i> Start Module
+                            </button>`
+                        }
+                    </div>
+                `;
+            }
+            
+            sidePanelContent.innerHTML = contentHTML;
+            sidePanel.classList.add('active');
+        }
+        
+        // Module action functions
+        function completeModule(moduleId) {
+            // Find and complete the module
+            const module = modules.find(m => m.id === moduleId);
+            if (module) {
+                module.completed = true;
+                userProgress[moduleId] = true; // Store in progress tracking
+                
+                // Update progress display without refetching
+                const completedCount = modules.filter(m => m.completed).length;
+                const totalCount = modules.length;
+                const progressPercentage = totalCount > 0 ? (completedCount / totalCount) * 100 : 0;
+                
+                document.getElementById('modulesCompleted').textContent = completedCount;
+                document.getElementById('modulesProgressBar').style.width = progressPercentage + '%';
+                
+                // Re-render modules to update UI
+                renderModules();
+                
+                // Close side panel
+                document.getElementById('moduleSidePanel').classList.remove('active');
+                
+                // Show success message
+                alert(`Great job completing "${module.title}"!`);
+            }
+        }
+        
+        function startModule(moduleId) {
+            const module = modules.find(m => m.id === moduleId);
+            if (module) {
+                alert(`Starting "${module.title}"... This would open the actual module content.`);
+            }
+        }
+        
+        function reviewModule(moduleId) {
+            const module = modules.find(m => m.id === moduleId);
+            if (module) {
+                alert(`Reviewing "${module.title}"... This would reopen the module content.`);
+            }
+        }
+        
+        // Close side panel functionality
+        function closeModuleSidePanel() {
+            document.getElementById('moduleSidePanel').classList.remove('active');
+        }
+        
+        // Close panel when clicking outside
+        function handleOutsideClick(e) {
+            const sidePanel = document.getElementById('moduleSidePanel');
+            if (sidePanel && sidePanel.classList.contains('active')) {
+                if (!sidePanel.contains(e.target) && !e.target.closest('.duo-module-card')) {
+                    sidePanel.classList.remove('active');
+                }
+            }
+        }
+        
         // Load event roster
-        function loadEventRoster() {
+        async function loadEventRoster() {
             const rosterGrid = document.getElementById('rosterGrid');
             const memberCount = document.getElementById('memberCount');
             
             rosterGrid.innerHTML = '<div class="loading-indicator"><i class="fas fa-spinner fa-spin"></i><p>Loading roster...</p></div>';
             
-            // Fetch all members and filter by event
-            fetch('/api/Members')
-                .then(response => response.json())
-                .then(data => {
-                    const allMembers = data.map(item => {
-                        const id = Object.keys(item)[0];
-                        return { id, ...item[id] };
-                    });
-                    
-                    // Filter members who have this event
-                    const eventMembers = allMembers.filter(member => 
-                        member.events && member.events.includes(currentEventData.name)
-                    );
-                    
-                    memberCount.textContent = `${eventMembers.length} members`;
-                    renderRoster(eventMembers);
-            })
-            .catch(error => {
-                    console.error('Error loading roster:', error);
-                    rosterGrid.innerHTML = '<div class="error-message">Failed to load roster</div>';
+            try {
+                // Fetch event data to get member IDs
+                const eventsResponse = await fetch('/api/Events');
+                const eventsData = await eventsResponse.json();
+                
+                const allEvents = eventsData.map(item => {
+                    const id = Object.keys(item)[0];
+                    return { id, ...item[id] };
                 });
+                
+                const currentEvent = allEvents.find(event => event.eventName === currentEventData.name);
+                
+                if (!currentEvent || !currentEvent.members || currentEvent.members.length === 0) {
+                    memberCount.textContent = '0 members';
+                    rosterGrid.innerHTML = '<div class="empty-state">No members found for this event</div>';
+                    return;
+                }
+                
+                // Fetch all members to get their details
+                const membersResponse = await fetch('/api/Members');
+                const membersData = await membersResponse.json();
+                
+                const allMembers = membersData.map(item => {
+                    const id = Object.keys(item)[0];
+                    return { id, ...item[id] };
+                });
+                
+                // Filter members who are in the event's members array
+                const eventMembers = allMembers.filter(member => 
+                    currentEvent.members.includes(member.id)
+                );
+                
+                memberCount.textContent = `${eventMembers.length} members`;
+                renderRoster(eventMembers);
+                
+            } catch (error) {
+                console.error('Error loading roster:', error);
+                rosterGrid.innerHTML = '<div class="error-message">Failed to load roster</div>';
+            }
         }
         
         // Render roster
@@ -1295,7 +2979,7 @@
                         }
                     </div>
                     <div class="member-name">${member.firstName} ${member.lastName}</div>
-                    <div class="member-email">${member.email}</div>
+                    <div class="member-email">${member.doeEmail || member.personalEmail || 'Email not available'}</div>
                 `;
                 
                 rosterGrid.appendChild(memberCard);

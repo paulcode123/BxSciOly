@@ -64,6 +64,11 @@
                             </select>
                         </div>
                         <div class="form-group">
+                            <label for="phoneNumber">Phone Number</label>
+                            <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890" required>
+                            <div class="field-hint">Format: 123-456-7890</div>
+                        </div>
+                        <div class="form-group">
                             <label for="bio">About Me</label>
                             <textarea id="bio" name="bio" rows="4" placeholder="Share a little about yourself..."></textarea>
                         </div>
@@ -79,22 +84,28 @@
                     <p class="section-description">Manage your email and password.</p>
                     
                     <div class="settings-card">
-                        <h3>Email Address</h3>
+                        <h3>Email Addresses</h3>
                         <form id="emailForm" class="settings-form">
                             <div class="form-group">
-                                <label for="currentEmail">Current Email</label>
-                                <input type="email" id="currentEmail" disabled>
+                                <label for="currentDoeEmail">Current DOE Email</label>
+                                <input type="email" id="currentDoeEmail" disabled>
+                                <div class="field-hint">Your NYC DOE email address cannot be changed</div>
                             </div>
                             <div class="form-group">
-                                <label for="newEmail">New Email</label>
-                                <input type="email" id="newEmail" name="email" required>
+                                <label for="currentPersonalEmail">Current Personal Email</label>
+                                <input type="email" id="currentPersonalEmail" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="newPersonalEmail">New Personal Email</label>
+                                <input type="email" id="newPersonalEmail" name="personalEmail" required>
+                                <div class="field-hint">This can be your BxScience email or personal email for team communications</div>
                             </div>
                             <div class="form-group">
                                 <label for="emailPassword">Current Password</label>
                                 <input type="password" id="emailPassword" name="password" required>
                             </div>
                             <div class="form-actions">
-                                <button type="submit" class="save-btn">Update Email</button>
+                                <button type="submit" class="save-btn">Update Personal Email</button>
                             </div>
                         </form>
                     </div>
@@ -132,26 +143,37 @@
                     <p class="section-description">Control how and when you receive notifications.</p>
                     
                     <form id="notificationsForm" class="settings-form">
-                        <div class="toggle-group">
-                            <div class="toggle-label">
-                                <span>Email Notifications</span>
-                                <p>Receive updates about events, competitions, and important announcements</p>
-                            </div>
-                            <label class="toggle">
-                                <input type="checkbox" id="emailNotifications" name="emailNotifications" checked>
-                                <span class="toggle-slider"></span>
-                            </label>
+                        <div class="form-group">
+                            <label for="importantNotification">Important Notifications</label>
+                            <select id="importantNotification" name="importantNotification">
+                                <option value="email">Email</option>
+                                <option value="text">Text</option>
+                                <option value="both">Both Email & Text</option>
+                                <option value="none">None</option>
+                            </select>
+                            <div class="field-hint">Critical team updates, deadlines, and announcements</div>
                         </div>
                         
-                        <div class="toggle-group">
-                            <div class="toggle-label">
-                                <span>Event Reminders</span>
-                                <p>Get reminders about upcoming events, meetings, and deadlines</p>
-                            </div>
-                            <label class="toggle">
-                                <input type="checkbox" id="reminderNotifications" name="reminderNotifications" checked>
-                                <span class="toggle-slider"></span>
-                            </label>
+                        <div class="form-group">
+                            <label for="teamNotification">Team Notifications</label>
+                            <select id="teamNotification" name="teamNotification">
+                                <option value="email">Email</option>
+                                <option value="text">Text</option>
+                                <option value="both">Both Email & Text</option>
+                                <option value="none">None</option>
+                            </select>
+                            <div class="field-hint">General team updates and communications</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="eventNotification">Event Notifications</label>
+                            <select id="eventNotification" name="eventNotification">
+                                <option value="email">Email</option>
+                                <option value="text">Text</option>
+                                <option value="both">Both Email & Text</option>
+                                <option value="none">None</option>
+                            </select>
+                            <div class="field-hint">Meeting reminders, event updates, and competition notifications</div>
                         </div>
                         
                         <div class="form-actions">
@@ -395,6 +417,13 @@
         margin-top: 5px;
     }
     
+    .field-hint {
+        font-size: 0.8rem;
+        color: #777;
+        margin-top: 5px;
+        font-style: italic;
+    }
+    
     /* Toggle Switch */
     .toggle-group {
         display: flex;
@@ -492,6 +521,14 @@
     .event-description {
         color: #777;
         font-size: 0.9rem;
+        line-height: 1.4;
+    }
+    
+    .available-event .event-description {
+        margin-top: 5px;
+        font-size: 0.8rem;
+        color: #999;
+        line-height: 1.3;
     }
     
     .event-actions button {
@@ -538,6 +575,20 @@
         font-size: 1.5rem;
         margin-bottom: 10px;
         color: var(--accent-color);
+    }
+    
+    .error-message {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        color: #e74c3c;
+        text-align: center;
+    }
+    
+    .error-message i {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
     }
     
     /* Success and Error Messages */
@@ -612,7 +663,6 @@
         const strengthMeter = document.querySelector('.strength-meter');
         const strengthText = document.querySelector('.strength-text');
         const matchMessage = document.querySelector('.match-message');
-        const currentEmail = document.getElementById('currentEmail');
         
         // Initialize user data
         let userData = null;
@@ -652,19 +702,17 @@
             document.getElementById('lastName').value = userData.lastName || '';
             document.getElementById('displayName').value = userData.displayName || '';
             document.getElementById('grade').value = userData.grade || '9';
+            document.getElementById('phoneNumber').value = userData.phoneNumber || '';
             document.getElementById('bio').value = userData.bio || '';
             
-            // Email
-            currentEmail.value = userData.email || '';
+            // Email addresses
+            document.getElementById('currentDoeEmail').value = userData.doeEmail || '';
+            document.getElementById('currentPersonalEmail').value = userData.personalEmail || '';
             
             // Notification preferences
-            document.getElementById('emailNotifications').checked = 
-                userData.notificationPreferences?.email !== undefined ? 
-                userData.notificationPreferences.email : true;
-            
-            document.getElementById('reminderNotifications').checked = 
-                userData.notificationPreferences?.reminders !== undefined ? 
-                userData.notificationPreferences.reminders : true;
+            document.getElementById('importantNotification').value = userData.importantNotification || 'email';
+            document.getElementById('teamNotification').value = userData.teamNotification || 'email';
+            document.getElementById('eventNotification').value = userData.eventNotification || 'email';
             
             // Profile image
             if (userData.profilePicUrl) {
@@ -676,96 +724,162 @@
         function loadUserEvents() {
             const userEventsList = document.getElementById('userEventsList');
             
-            if (!userData.events || userData.events.length === 0) {
-                userEventsList.innerHTML = `
-                    <div class="empty-state" style="text-align: center; padding: 20px;">
-                        <i class="fas fa-calendar-times" style="font-size: 3rem; color: #ddd; margin-bottom: 15px;"></i>
-                        <h3>No Events Yet</h3>
-                        <p>You haven't joined any events yet. Add events below to get started.</p>
-                    </div>
-                `;
-                return;
-            }
+            // Show loading state
+            userEventsList.innerHTML = `
+                <div class="loading-events">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Loading your events...</p>
+                </div>
+            `;
             
-            userEventsList.innerHTML = '';
-            
-            userData.events.forEach(event => {
-                const eventItem = document.createElement('div');
-                eventItem.className = 'event-item';
-                eventItem.innerHTML = `
-                    <div class="event-info">
-                        <div class="event-name">${event}</div>
-                        <div class="event-description">Active member</div>
-                    </div>
-                    <div class="event-actions">
-                        <button class="remove-event-btn" data-event="${event}">
-                            <i class="fas fa-times"></i> Remove
-                        </button>
-                    </div>
-                `;
-                
-                // Add event listener for remove button
-                eventItem.querySelector('.remove-event-btn').addEventListener('click', function() {
-                    const eventName = this.dataset.event;
-                    if (confirm(`Are you sure you want to remove ${eventName} from your events?`)) {
-                        removeEventFromUser(eventName);
+            // Fetch all events from API
+            fetch('/api/Events')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to load events');
                     }
+                    return response.json();
+                })
+                .then(eventsData => {
+                    // Process events data
+                    const allEvents = eventsData.map(item => {
+                        const id = Object.keys(item)[0];
+                        return { id, ...item[id] };
+                    });
+                    
+                    // Filter events where current user is a member
+                    const userEvents = allEvents.filter(event => 
+                        event.members && event.members.includes(currentUser.id)
+                    );
+                    
+                    userEventsList.innerHTML = '';
+                    
+                    if (userEvents.length === 0) {
+                        userEventsList.innerHTML = `
+                            <div class="empty-state" style="text-align: center; padding: 20px;">
+                                <i class="fas fa-calendar-times" style="font-size: 3rem; color: #ddd; margin-bottom: 15px;"></i>
+                                <h3>No Events Yet</h3>
+                                <p>You haven't joined any events yet. Add events below to get started.</p>
+                            </div>
+                        `;
+                        return;
+                    }
+                    
+                    userEvents.forEach(event => {
+                        const eventItem = document.createElement('div');
+                        eventItem.className = 'event-item';
+                        eventItem.innerHTML = `
+                            <div class="event-info">
+                                <div class="event-name">${event.eventName}</div>
+                                <div class="event-description">${event.description || 'Active member'}</div>
+                            </div>
+                            <div class="event-actions">
+                                <button class="remove-event-btn" data-event-id="${event.id}" data-event-name="${event.eventName}">
+                                    <i class="fas fa-times"></i> Remove
+                                </button>
+                            </div>
+                        `;
+                        
+                        // Add event listener for remove button
+                        eventItem.querySelector('.remove-event-btn').addEventListener('click', function() {
+                            const eventId = this.dataset.eventId;
+                            const eventName = this.dataset.eventName;
+                            if (confirm(`Are you sure you want to remove ${eventName} from your events?`)) {
+                                removeEventFromUser(eventId, eventName);
+                            }
+                        });
+                        
+                        userEventsList.appendChild(eventItem);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading user events:', error);
+                    userEventsList.innerHTML = `
+                        <div class="error-message">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <p>Failed to load your events. Please refresh the page and try again.</p>
+                        </div>
+                    `;
                 });
-                
-                userEventsList.appendChild(eventItem);
-            });
         }
         
         // Load available events
         function loadAvailableEvents() {
             const availableEventsList = document.getElementById('availableEventsList');
             
-            // This is a placeholder - in a real implementation, you would fetch from a database
-            const allEvents = [
-                'Anatomy & Physiology', 'Astronomy', 'Biology', 'Chemistry', 'Dynamic Planet',
-                'Earth Science', 'Ecology', 'Experimental Design', 'Forensics', 'Fossils',
-                'Genetics', 'Geology', 'Herpetology', 'Microbe Mission', 'Ornithology',
-                'Remote Sensing', 'Rocks & Minerals', 'Tower Building', 'Water Quality', 'Wright Stuff'
-            ];
+            // Show loading state
+            availableEventsList.innerHTML = `
+                <div class="loading-events">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Loading available events...</p>
+                </div>
+            `;
             
-            // Filter out events the user is already in
-            const userEvents = userData.events || [];
-            const availableEvents = allEvents.filter(event => !userEvents.includes(event));
-            
-            availableEventsList.innerHTML = '';
-            
-            if (availableEvents.length === 0) {
-                availableEventsList.innerHTML = `
-                    <div style="grid-column: 1 / -1; text-align: center; padding: 10px;">
-                        <p>You've joined all available events!</p>
-                    </div>
-                `;
-                return;
-            }
-            
-            availableEvents.forEach(event => {
-                const eventItem = document.createElement('div');
-                eventItem.className = 'available-event';
-                eventItem.innerHTML = `
-                    <div class="event-name">${event}</div>
-                `;
-                
-                // Add click event to toggle selection
-                eventItem.addEventListener('click', function() {
-                    this.classList.toggle('selected');
+            // Fetch events from API
+            fetch('/api/Events')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to load events');
+                    }
+                    return response.json();
+                })
+                .then(eventsData => {
+                    // Process events data
+                    const allEvents = eventsData.map(item => {
+                        const id = Object.keys(item)[0];
+                        return { id, ...item[id] };
+                    });
+                    
+                    // Filter out events the user is already in
+                    const availableEvents = allEvents.filter(event => 
+                        !event.members || !event.members.includes(currentUser.id)
+                    );
+                    
+                    availableEventsList.innerHTML = '';
+                    
+                    if (availableEvents.length === 0) {
+                        availableEventsList.innerHTML = `
+                            <div style="grid-column: 1 / -1; text-align: center; padding: 10px;">
+                                <p>You've joined all available events!</p>
+                            </div>
+                        `;
+                        return;
+                    }
+                    
+                    availableEvents.forEach(event => {
+                        const eventItem = document.createElement('div');
+                        eventItem.className = 'available-event';
+                        eventItem.innerHTML = `
+                            <div class="event-name">${event.eventName}</div>
+                            <div class="event-description">${event.description || ''}</div>
+                        `;
+                        
+                        // Add click event to toggle selection
+                        eventItem.addEventListener('click', function() {
+                            this.classList.toggle('selected');
+                        });
+                        
+                        availableEventsList.appendChild(eventItem);
+                    });
+                    
+                    // Add button to add selected events
+                    const addButton = document.createElement('button');
+                    addButton.className = 'save-btn';
+                    addButton.style.marginTop = '20px';
+                    addButton.textContent = 'Add Selected Events';
+                    addButton.addEventListener('click', addSelectedEvents);
+                    
+                    availableEventsList.insertAdjacentElement('afterend', addButton);
+                })
+                .catch(error => {
+                    console.error('Error loading available events:', error);
+                    availableEventsList.innerHTML = `
+                        <div class="error-message">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <p>Failed to load events. Please refresh the page and try again.</p>
+                        </div>
+                    `;
                 });
-                
-                availableEventsList.appendChild(eventItem);
-            });
-            
-            // Add button to add selected events
-            const addButton = document.createElement('button');
-            addButton.className = 'save-btn';
-            addButton.style.marginTop = '20px';
-            addButton.textContent = 'Add Selected Events';
-            addButton.addEventListener('click', addSelectedEvents);
-            
-            availableEventsList.insertAdjacentElement('afterend', addButton);
         }
         
         // Add selected events to user
@@ -777,41 +891,107 @@
                 return;
             }
             
-            // Get current user events
-            const userEvents = userData.events || [];
-            
-            // Add selected events
-            selectedEvents.forEach(eventElement => {
-                const eventName = eventElement.querySelector('.event-name').textContent;
-                if (!userEvents.includes(eventName)) {
-                    userEvents.push(eventName);
-                }
-            });
-            
-            // Update user data
-            updateUserData({ events: userEvents }, function() {
-                // Reload user events and available events
-                loadUserEvents();
-                loadAvailableEvents();
-                showMessage('success-message', 'Events updated successfully', document.getElementById('events-section'));
-            });
+            // Get all events to find the selected ones
+            fetch('/api/Events')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to load events');
+                    }
+                    return response.json();
+                })
+                .then(eventsData => {
+                    const allEvents = eventsData.map(item => {
+                        const id = Object.keys(item)[0];
+                        return { id, ...item[id] };
+                    });
+                    
+                    let updatePromises = [];
+                    
+                    selectedEvents.forEach(eventElement => {
+                        const eventName = eventElement.querySelector('.event-name').textContent;
+                        const event = allEvents.find(e => e.eventName === eventName);
+                        
+                        if (event) {
+                            // Add current user to the event's members array
+                            const updatedMembers = event.members || [];
+                            if (!updatedMembers.includes(currentUser.id)) {
+                                updatedMembers.push(currentUser.id);
+                                
+                                // Update the event
+                                const updatePromise = fetch(`/api/Events/${event.id}`, {
+                                    method: 'PATCH',
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify({ members: updatedMembers })
+                                });
+                                updatePromises.push(updatePromise);
+                            }
+                        }
+                    });
+                    
+                    // Wait for all updates to complete
+                    Promise.all(updatePromises)
+                        .then(() => {
+                            // Reload user events and available events
+                            loadUserEvents();
+                            loadAvailableEvents();
+                            showMessage('success-message', 'Events updated successfully', document.getElementById('events-section'));
+                        })
+                        .catch(error => {
+                            console.error('Error updating events:', error);
+                            showMessage('error-message', 'Failed to update events. Please try again.', document.getElementById('events-section'));
+                        });
+                })
+                .catch(error => {
+                    console.error('Error loading events for update:', error);
+                    showMessage('error-message', 'Failed to load events. Please try again.', document.getElementById('events-section'));
+                });
         }
         
         // Remove event from user
-        function removeEventFromUser(eventName) {
-            // Get current user events
-            const userEvents = userData.events || [];
-            
-            // Remove the event
-            const updatedEvents = userEvents.filter(event => event !== eventName);
-            
-            // Update user data
-            updateUserData({ events: updatedEvents }, function() {
-                // Reload user events and available events
-                loadUserEvents();
-                loadAvailableEvents();
-                showMessage('success-message', `Removed ${eventName} from your events`, document.getElementById('events-section'));
-            });
+        function removeEventFromUser(eventId, eventName) {
+            // Get the current event data
+            fetch(`/api/Events/${eventId}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to load event data');
+                    }
+                    return response.json();
+                })
+                .then(eventData => {
+                    // Extract event data
+                    const event = Object.values(eventData)[0];
+                    
+                    // Remove current user from the event's members array
+                    const updatedMembers = event.members || [];
+                    const filteredMembers = updatedMembers.filter(memberId => memberId !== currentUser.id);
+                    
+                    // Update the event
+                    return fetch(`/api/Events/${eventId}`, {
+                        method: 'PATCH',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ members: filteredMembers })
+                    });
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to update event');
+                    }
+                    return response.json();
+                })
+                .then(() => {
+                    // Reload user events and available events
+                    loadUserEvents();
+                    loadAvailableEvents();
+                    showMessage('success-message', `Removed ${eventName} from your events`, document.getElementById('events-section'));
+                })
+                .catch(error => {
+                    console.error('Error removing event:', error);
+                    showMessage('error-message', `Error: ${error.message}`, document.getElementById('events-section'));
+                });
         }
         
         // Update user data in Firebase
@@ -1025,11 +1205,20 @@
         profileForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
+            // Validate phone number format
+            const phoneNumber = document.getElementById('phoneNumber').value;
+            const phonePattern = /^[0-9]{3}-[0-9]{3}-[0-9]{4}$/;
+            if (!phonePattern.test(phoneNumber)) {
+                showMessage('error-message', 'Please enter a valid phone number in the format 123-456-7890', document.getElementById('profile-section'));
+                return;
+            }
+            
             const profileData = {
                 firstName: document.getElementById('firstName').value,
                 lastName: document.getElementById('lastName').value,
                 displayName: document.getElementById('displayName').value,
                 grade: document.getElementById('grade').value,
+                phoneNumber: phoneNumber,
                 bio: document.getElementById('bio').value
             };
             
@@ -1042,16 +1231,16 @@
         emailForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const newEmail = document.getElementById('newEmail').value;
+            const newPersonalEmail = document.getElementById('newPersonalEmail').value;
             const password = document.getElementById('emailPassword').value;
             
             // In a real implementation, this would verify the password and update email securely
-            // For this demo, we'll just update the email
-            updateUserData({ email: newEmail }, function() {
-                currentEmail.value = newEmail;
-                document.getElementById('newEmail').value = '';
+            // For this demo, we'll just update the personal email
+            updateUserData({ personalEmail: newPersonalEmail }, function() {
+                document.getElementById('currentPersonalEmail').value = newPersonalEmail;
+                document.getElementById('newPersonalEmail').value = '';
                 document.getElementById('emailPassword').value = '';
-                showMessage('success-message', 'Email updated successfully', document.getElementById('account-section'));
+                showMessage('success-message', 'Personal email updated successfully', document.getElementById('account-section'));
             });
         });
         
@@ -1093,12 +1282,13 @@
         notificationsForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const notificationPreferences = {
-                email: document.getElementById('emailNotifications').checked,
-                reminders: document.getElementById('reminderNotifications').checked
+            const notificationData = {
+                importantNotification: document.getElementById('importantNotification').value,
+                teamNotification: document.getElementById('teamNotification').value,
+                eventNotification: document.getElementById('eventNotification').value
             };
             
-            updateUserData({ notificationPreferences }, function() {
+            updateUserData(notificationData, function() {
                 showMessage('success-message', 'Notification preferences updated successfully', document.getElementById('notifications-section'));
             });
         });

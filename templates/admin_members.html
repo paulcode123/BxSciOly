@@ -1,0 +1,795 @@
+{% extends 'layout.html' %}
+
+{% block title %}Member Management - Admin{% endblock %}
+
+{% block content %}
+<div class="admin-page">
+    <!-- Navigation Header -->
+    <div class="admin-nav">
+        <div class="nav-left">
+            <a href="/admin/dashboard" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Back to Dashboard
+            </a>
+            <h1><i class="fas fa-users"></i> Member Management</h1>
+        </div>
+        <div class="nav-right">
+            <button class="btn-info" onclick="exportMembers()">
+                <i class="fas fa-download"></i> Export
+            </button>
+            <button class="btn-secondary" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </div>
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="stats-row">
+        <div class="stat-item">
+            <div class="stat-icon">
+                <i class="fas fa-users"></i>
+            </div>
+            <div class="stat-content">
+                <h3 id="totalMembers">--</h3>
+                <p>Total Members</p>
+            </div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-icon">
+                <i class="fas fa-user-check"></i>
+            </div>
+            <div class="stat-content">
+                <h3 id="activeMembers">--</h3>
+                <p>Active Members</p>
+            </div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-icon">
+                <i class="fas fa-user-plus"></i>
+            </div>
+            <div class="stat-content">
+                <h3 id="newMembers">--</h3>
+                <p>New Members</p>
+            </div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-icon">
+                <i class="fas fa-trophy"></i>
+            </div>
+            <div class="stat-content">
+                <h3 id="avgEvents">--</h3>
+                <p>Avg Events</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content-container">
+        <div class="panel">
+            <div class="panel-header">
+                <h2>Team Members</h2>
+                <div class="panel-actions">
+                    <div class="search-container">
+                        <input type="text" id="memberSearch" placeholder="Search members..." onkeyup="filterMembers()">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <select id="statusFilter" onchange="filterMembers()">
+                        <option value="">All Status</option>
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                        <option value="pending">Pending</option>
+                    </select>
+                    <select id="gradeFilter" onchange="filterMembers()">
+                        <option value="">All Grades</option>
+                        <option value="9">Grade 9</option>
+                        <option value="10">Grade 10</option>
+                        <option value="11">Grade 11</option>
+                        <option value="12">Grade 12</option>
+                    </select>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="table-container">
+                    <table class="modern-table">
+                        <thead>
+                            <tr>
+                                <th>Member</th>
+                                <th>Grade</th>
+                                <th>Status</th>
+                                <th>Events</th>
+                                <th>Progress</th>
+                                <th>Last Activity</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="membersTableBody">
+                            <!-- Members will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Member Details Modal -->
+<div id="memberDetailsModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Member Details</h3>
+            <button class="close-btn" onclick="closeModal('memberDetailsModal')">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div id="memberDetailsContent">
+                <!-- Member details will be loaded here -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .admin-page {
+        min-height: 100vh;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        padding: 0;
+    }
+
+    .admin-nav {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 1.5rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-left {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .back-btn {
+        color: rgba(255, 255, 255, 0.9);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .back-btn:hover {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+    }
+
+    .admin-nav h1 {
+        color: white;
+        margin: 0;
+        font-size: 1.75rem;
+        font-weight: 600;
+    }
+
+    .nav-right {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .btn-primary, .btn-secondary, .btn-info {
+        padding: 0.625rem 1.25rem;
+        border-radius: 25px;
+        border: none;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .btn-secondary {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-info {
+        background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+        color: white;
+    }
+
+    .btn-info:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(6, 182, 212, 0.4);
+    }
+
+    .stats-row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        padding: 2rem;
+        margin-top: -0.5rem;
+    }
+
+    .stat-item {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        transition: transform 0.3s ease;
+    }
+
+    .stat-item:hover {
+        transform: translateY(-3px);
+    }
+
+    .stat-icon {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.2rem;
+    }
+
+    .stat-content h3 {
+        margin: 0;
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: #1e293b;
+    }
+
+    .stat-content p {
+        margin: 0.25rem 0 0 0;
+        color: #64748b;
+        font-size: 0.875rem;
+    }
+
+    .content-container {
+        padding: 0 2rem 2rem 2rem;
+    }
+
+    .panel {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+    }
+
+    .panel-header {
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        padding: 1.5rem 2rem;
+        border-bottom: 1px solid #e2e8f0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .panel-header h2 {
+        margin: 0;
+        color: #1e293b;
+        font-size: 1.25rem;
+        font-weight: 600;
+    }
+
+    .panel-actions {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .panel-body {
+        padding: 2rem;
+    }
+
+    .search-container {
+        position: relative;
+    }
+
+    .search-container input {
+        padding: 0.75rem 1rem;
+        padding-right: 2.5rem;
+        border: 2px solid #e2e8f0;
+        border-radius: 8px;
+        width: 250px;
+    }
+
+    .search-container i {
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #9ca3af;
+    }
+
+    .table-container {
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .modern-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .modern-table th {
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        padding: 1rem 1.5rem;
+        text-align: left;
+        font-weight: 600;
+        color: #374151;
+        border-bottom: 2px solid #e2e8f0;
+    }
+
+    .modern-table td {
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid #f1f5f9;
+        vertical-align: middle;
+    }
+
+    .modern-table tr:hover {
+        background: #f8fafc;
+    }
+
+    .member-info {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .member-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 600;
+        font-size: 1.125rem;
+    }
+
+    .member-details h4 {
+        margin: 0;
+        color: #1e293b;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    .member-details p {
+        margin: 0.25rem 0 0 0;
+        color: #64748b;
+        font-size: 0.875rem;
+    }
+
+    .status-badge {
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .status-active {
+        background: #dcfce7;
+        color: #166534;
+    }
+
+    .status-inactive {
+        background: #fee2e2;
+        color: #991b1b;
+    }
+
+    .status-pending {
+        background: #fef3c7;
+        color: #92400e;
+    }
+
+    .events-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.25rem;
+    }
+
+    .event-tag {
+        background: #f1f5f9;
+        color: #475569;
+        padding: 0.125rem 0.5rem;
+        border-radius: 12px;
+        font-size: 0.75rem;
+        font-weight: 500;
+    }
+
+    .progress-bar {
+        width: 100%;
+        height: 6px;
+        background: #e2e8f0;
+        border-radius: 3px;
+        overflow: hidden;
+        margin-bottom: 0.25rem;
+    }
+
+    .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #10b981, #059669);
+        transition: width 0.3s ease;
+    }
+
+    .progress-text {
+        font-size: 0.75rem;
+        color: #64748b;
+    }
+
+    .action-buttons {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .action-buttons button {
+        padding: 0.375rem 0.75rem;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 0.875rem;
+        transition: all 0.3s ease;
+    }
+
+    .view-btn {
+        background: #3b82f6;
+        color: white;
+    }
+
+    .edit-btn {
+        background: #f59e0b;
+        color: white;
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(4px);
+    }
+
+    .modal-content {
+        background: white;
+        margin: 3% auto;
+        border-radius: 12px;
+        width: 90%;
+        max-width: 800px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .modal-header {
+        padding: 1.5rem 2rem;
+        border-bottom: 1px solid #e2e8f0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .modal-header h3 {
+        margin: 0;
+        color: #1e293b;
+        font-size: 1.25rem;
+    }
+
+    .close-btn {
+        background: none;
+        border: none;
+        color: #9ca3af;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 0.25rem;
+        transition: color 0.3s ease;
+    }
+
+    .close-btn:hover {
+        color: #6b7280;
+    }
+
+    .modal-body {
+        padding: 2rem;
+    }
+
+    @media (max-width: 768px) {
+        .admin-nav {
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .nav-left {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .stats-row {
+            grid-template-columns: 1fr;
+            padding: 1rem;
+        }
+
+        .content-container {
+            padding: 0 1rem 1rem 1rem;
+        }
+
+        .panel-header {
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .panel-actions {
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .search-container input {
+            width: 100%;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    let allMembers = [];
+    let filteredMembers = [];
+
+    document.addEventListener('DOMContentLoaded', function() {
+        loadStats();
+        loadMembers();
+    });
+
+    async function loadStats() {
+        try {
+            const adminId = sessionStorage.getItem('adminId');
+            const response = await fetch('/api/admin/members', { headers: { 'X-Admin-ID': adminId ? adminId : '' } });
+            const members = await response.json();
+            
+            const activeMembers = members.filter(m => m.status === 'active');
+            const newMembers = members.filter(m => m.memberStatus === 'new');
+            const totalEvents = members.reduce((sum, m) => sum + (m.events?.length || 0), 0);
+            
+            document.getElementById('totalMembers').textContent = members.length;
+            document.getElementById('activeMembers').textContent = activeMembers.length;
+            document.getElementById('newMembers').textContent = newMembers.length;
+            document.getElementById('avgEvents').textContent = Math.round(totalEvents / members.length) || 0;
+        } catch (error) {
+            console.error('Error loading stats:', error);
+        }
+    }
+
+    async function loadMembers() {
+        try {
+            const adminId = sessionStorage.getItem('adminId');
+            const response = await fetch('/api/admin/members', { headers: { 'X-Admin-ID': adminId ? adminId : '' } });
+            allMembers = await response.json();
+            filteredMembers = [...allMembers];
+            displayMembers();
+        } catch (error) {
+            console.error('Error loading members:', error);
+        }
+    }
+
+    function displayMembers() {
+        const tbody = document.getElementById('membersTableBody');
+        tbody.innerHTML = '';
+
+        if (filteredMembers.length === 0) {
+            tbody.innerHTML = `
+                <tr>
+                    <td colspan="7" class="empty-state">
+                        <div class="empty-content">
+                            <i class="fas fa-users"></i>
+                            <p>No members found</p>
+                        </div>
+                    </td>
+                </tr>
+            `;
+            return;
+        }
+
+        filteredMembers.forEach(member => {
+            const initials = (member.firstName?.charAt(0) || '') + (member.lastName?.charAt(0) || '');
+            const progress = member.learningProgress || [];
+            const avgProgress = progress.length > 0 ? 
+                Math.round(progress.reduce((sum, p) => sum + (p.modulesCompleted / p.totalModules * 100), 0) / progress.length) : 0;
+
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">${initials}</div>
+                        <div class="member-details">
+                            <h4>${member.firstName} ${member.lastName}</h4>
+                            <p>${member.doeEmail}</p>
+                        </div>
+                    </div>
+                </td>
+                <td>Grade ${member.grade}</td>
+                <td>
+                    <span class="status-badge status-${member.status}">
+                        ${member.status}
+                    </span>
+                </td>
+                <td>
+                    <div class="events-list">
+                        ${member.events ? member.events.slice(0, 3).map(event => 
+                            `<span class="event-tag">${event}</span>`
+                        ).join('') : '<span class="event-tag">None</span>'}
+                        ${member.events && member.events.length > 3 ? 
+                            `<span class="event-tag">+${member.events.length - 3} more</span>` : ''}
+                    </div>
+                </td>
+                <td>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: ${avgProgress}%"></div>
+                    </div>
+                    <div class="progress-text">${avgProgress}% Complete</div>
+                </td>
+                <td>
+                    ${member.lastLogin ? 
+                        new Date(member.lastLogin).toLocaleDateString() : 
+                        'Never'
+                    }
+                </td>
+                <td>
+                    <div class="action-buttons">
+                        <button class="view-btn" onclick="viewMember('${member.id}')">
+                            <i class="fas fa-eye"></i> View
+                        </button>
+                        <button class="edit-btn" onclick="editMember('${member.id}')">
+                            <i class="fas fa-edit"></i> Edit
+                        </button>
+                    </div>
+                </td>
+            `;
+            tbody.appendChild(row);
+        });
+    }
+
+    function filterMembers() {
+        const searchTerm = document.getElementById('memberSearch').value.toLowerCase();
+        const statusFilter = document.getElementById('statusFilter').value;
+        const gradeFilter = document.getElementById('gradeFilter').value;
+
+        filteredMembers = allMembers.filter(member => {
+            const matchesSearch = !searchTerm || 
+                member.firstName.toLowerCase().includes(searchTerm) ||
+                member.lastName.toLowerCase().includes(searchTerm) ||
+                member.doeEmail.toLowerCase().includes(searchTerm);
+
+            const matchesStatus = !statusFilter || member.status === statusFilter;
+            const matchesGrade = !gradeFilter || member.grade === gradeFilter;
+
+            return matchesSearch && matchesStatus && matchesGrade;
+        });
+
+        displayMembers();
+    }
+
+    function viewMember(memberId) {
+        const member = allMembers.find(m => m.id === memberId);
+        if (!member) return;
+
+        const detailsContent = document.getElementById('memberDetailsContent');
+        detailsContent.innerHTML = `
+            <div class="member-profile">
+                <div class="profile-header">
+                    <div class="profile-avatar">
+                        ${(member.firstName?.charAt(0) || '') + (member.lastName?.charAt(0) || '')}
+                    </div>
+                    <div class="profile-info">
+                        <h3>${member.firstName} ${member.lastName}</h3>
+                        <p>${member.doeEmail}</p>
+                        <p>Grade ${member.grade} • ${member.memberStatus} Member</p>
+                    </div>
+                </div>
+                
+                <div class="profile-details">
+                    <div class="detail-section">
+                        <h4>Contact Information</h4>
+                        <p><strong>DOE Email:</strong> ${member.doeEmail}</p>
+                        <p><strong>Personal Email:</strong> ${member.personalEmail || 'Not provided'}</p>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h4>Academic Information</h4>
+                        <p><strong>Grade:</strong> ${member.grade}</p>
+                        <p><strong>Status:</strong> ${member.status}</p>
+                        <p><strong>Member Type:</strong> ${member.memberStatus}</p>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h4>Science Olympiad Events</h4>
+                        <div class="events-list">
+                            ${member.events ? member.events.map(event => 
+                                `<span class="event-tag">${event}</span>`
+                            ).join('') : '<p>No events assigned</p>'}
+                        </div>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h4>Activity</h4>
+                        <p><strong>Last Login:</strong> ${member.lastLogin ? new Date(member.lastLogin).toLocaleDateString() : 'Never'}</p>
+                        <p><strong>Account Created:</strong> ${member.createdAt ? new Date(member.createdAt).toLocaleDateString() : 'Unknown'}</p>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        document.getElementById('memberDetailsModal').style.display = 'block';
+    }
+
+    function editMember(memberId) {
+        // Implementation for editing member
+        console.log('Edit member:', memberId);
+        // You could open an edit modal or navigate to an edit page
+    }
+
+    function exportMembers() {
+        const csvContent = [
+            ['Name', 'Email', 'Grade', 'Status', 'Member Type', 'Events', 'Last Login'],
+            ...filteredMembers.map(member => [
+                `${member.firstName} ${member.lastName}`,
+                member.doeEmail,
+                member.grade,
+                member.status,
+                member.memberStatus,
+                member.events ? member.events.join('; ') : '',
+                member.lastLogin ? new Date(member.lastLogin).toLocaleDateString() : 'Never'
+            ])
+        ].map(row => row.join(',')).join('\n');
+
+        const blob = new Blob([csvContent], { type: 'text/csv' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `members-${new Date().toISOString().split('T')[0]}.csv`;
+        a.click();
+        window.URL.revokeObjectURL(url);
+    }
+
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = 'none';
+    }
+
+    function logout() {
+        if (confirm('Are you sure you want to logout?')) {
+            sessionStorage.removeItem('admin_token');
+            window.location.href = '/admin/login';
+        }
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal')) {
+            event.target.style.display = 'none';
+        }
+    }
+</script>
+{% endblock %} 

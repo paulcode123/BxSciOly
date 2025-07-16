@@ -1,0 +1,1232 @@
+{% extends 'layout.html' %}
+
+{% block title %}Attendance Management - Admin{% endblock %}
+
+{% block content %}
+<div class="admin-page">
+    <!-- Navigation Header -->
+    <div class="admin-nav">
+        <div class="nav-left">
+            <a href="/admin/dashboard" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Back to Dashboard
+            </a>
+            <h1><i class="fas fa-clipboard-check"></i> Attendance Management</h1>
+        </div>
+        <div class="nav-right">
+            <button class="btn-primary" onclick="createAttendanceEvent()">
+                <i class="fas fa-plus"></i> Create Event
+            </button>
+            <button class="btn-secondary" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </div>
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="stats-row">
+        <div class="stat-item">
+            <div class="stat-icon">
+                <i class="fas fa-calendar-alt"></i>
+            </div>
+            <div class="stat-content">
+                <h3 id="totalEvents">--</h3>
+                <p>Total Events</p>
+            </div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-icon">
+                <i class="fas fa-users"></i>
+            </div>
+            <div class="stat-content">
+                <h3 id="totalMembers">--</h3>
+                <p>Total Members</p>
+            </div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="stat-content">
+                <h3 id="attendanceRate">--</h3>
+                <p>Avg Attendance</p>
+            </div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-icon">
+                <i class="fas fa-clock"></i>
+            </div>
+            <div class="stat-content">
+                <h3 id="upcomingEvents">--</h3>
+                <p>Upcoming</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="content-container">
+        <!-- Event Selection Panel -->
+        <div class="panel">
+            <div class="panel-header">
+                <h2>Event Selection</h2>
+                <div class="panel-actions">
+                    <button class="btn-outline" onclick="refreshEvents()">
+                        <i class="fas fa-sync-alt"></i> Refresh
+                    </button>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label>Select Event:</label>
+                    <select id="attendanceEventSelect" onchange="loadEventAttendance()">
+                        <option value="">Choose an event...</option>
+                    </select>
+                </div>
+                <div id="eventDetails" class="event-details" style="display: none;">
+                    <div class="event-info">
+                        <h4 id="eventName"></h4>
+                        <p id="eventDescription"></p>
+                        <div class="event-meta">
+                            <span id="eventDate"></span> • 
+                            <span id="eventLocation"></span> • 
+                            <span id="eventCode"></span>
+                        </div>
+                    </div>
+                    <div class="event-actions">
+                        <button class="btn-success" onclick="generateAttendanceCode()">
+                            <i class="fas fa-qrcode"></i> Generate Code
+                        </button>
+                        <button class="btn-info" onclick="exportAttendance()">
+                            <i class="fas fa-download"></i> Export
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Attendance Management Panel -->
+        <div class="panel">
+            <div class="panel-header">
+                <h2>Member Attendance</h2>
+                <div class="panel-actions">
+                    <div class="search-container">
+                        <input type="text" id="memberSearch" placeholder="Search members..." onkeyup="filterMembers()">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div id="attendanceTable" class="table-container">
+                    <table class="modern-table">
+                        <thead>
+                            <tr>
+                                <th>Member</th>
+                                <th>Email</th>
+                                <th>Grade</th>
+                                <th>Status</th>
+                                <th>Check-in Time</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="attendanceTableBody">
+                            <tr>
+                                <td colspan="6" class="empty-state">
+                                    <div class="empty-content">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <p>Select an event to view attendance</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Create Event Modal -->
+<div id="createEventModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Create New Attendance Event</h3>
+            <button class="close-btn" onclick="closeModal('createEventModal')">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form id="createEventForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Event Name:</label>
+                        <input type="text" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Event Type:</label>
+                        <select name="eventType" required>
+                            <option value="meeting">Meeting</option>
+                            <option value="practice">Practice</option>
+                            <option value="competition">Competition</option>
+                            <option value="workshop">Workshop</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Description:</label>
+                    <textarea name="description" rows="3"></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Date:</label>
+                        <input type="date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Start Time:</label>
+                        <input type="time" name="startTime" required>
+                    </div>
+                    <div class="form-group">
+                        <label>End Time:</label>
+                        <input type="time" name="endTime">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Location:</label>
+                    <input type="text" name="location">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" onclick="closeModal('createEventModal')">Cancel</button>
+                    <button type="submit" class="btn-primary">Create Event</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Manual Check-in Modal -->
+<div id="manualCheckinModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Manual Check-in</h3>
+            <button class="close-btn" onclick="closeModal('manualCheckinModal')">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <p>Check in <strong id="checkinMemberName"></strong> for this event?</p>
+            <div class="form-actions">
+                <button type="button" class="btn-secondary" onclick="closeModal('manualCheckinModal')">Cancel</button>
+                <button type="button" class="btn-success" onclick="confirmManualCheckin()">Check In</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .admin-page {
+        min-height: 100vh;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        padding: 0;
+    }
+
+    .admin-nav {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 1.5rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-left {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .back-btn {
+        color: rgba(255, 255, 255, 0.9);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .back-btn:hover {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+    }
+
+    .admin-nav h1 {
+        color: white;
+        margin: 0;
+        font-size: 1.75rem;
+        font-weight: 600;
+    }
+
+    .nav-right {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .btn-primary, .btn-secondary, .btn-outline, .btn-success, .btn-info {
+        padding: 0.625rem 1.25rem;
+        border-radius: 25px;
+        border: none;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+        color: white;
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(79, 70, 229, 0.4);
+    }
+
+    .btn-secondary {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-outline {
+        background: transparent;
+        border: 2px solid #e2e8f0;
+        color: #64748b;
+    }
+
+    .btn-outline:hover {
+        background: #f8fafc;
+        border-color: #cbd5e0;
+    }
+
+    .btn-success {
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        color: white;
+    }
+
+    .btn-success:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+    }
+
+    .btn-info {
+        background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+        color: white;
+    }
+
+    .btn-info:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(6, 182, 212, 0.4);
+    }
+
+    .stats-row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        padding: 2rem;
+        margin-top: -0.5rem;
+    }
+
+    .stat-item {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        transition: transform 0.3s ease;
+    }
+
+    .stat-item:hover {
+        transform: translateY(-3px);
+    }
+
+    .stat-icon {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.2rem;
+    }
+
+    .stat-content h3 {
+        margin: 0;
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: #1e293b;
+    }
+
+    .stat-content p {
+        margin: 0.25rem 0 0 0;
+        color: #64748b;
+        font-size: 0.875rem;
+    }
+
+    .content-container {
+        padding: 0 2rem 2rem 2rem;
+        display: grid;
+        gap: 2rem;
+    }
+
+    .panel {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+    }
+
+    .panel-header {
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        padding: 1.5rem 2rem;
+        border-bottom: 1px solid #e2e8f0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .panel-header h2 {
+        margin: 0;
+        color: #1e293b;
+        font-size: 1.25rem;
+        font-weight: 600;
+    }
+
+    .panel-actions {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .panel-body {
+        padding: 2rem;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: #374151;
+    }
+
+    .form-group input, .form-group select, .form-group textarea {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border: 2px solid #e2e8f0;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+        box-sizing: border-box;
+    }
+
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+        outline: none;
+        border-color: #667eea;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    .search-container {
+        position: relative;
+    }
+
+    .search-container input {
+        padding-right: 2.5rem;
+        width: 250px;
+    }
+
+    .search-container i {
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #9ca3af;
+    }
+
+    .event-details {
+        background: #f8fafc;
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .event-info h4 {
+        margin: 0 0 0.5rem 0;
+        color: #1e293b;
+        font-size: 1.125rem;
+    }
+
+    .event-info p {
+        margin: 0 0 0.5rem 0;
+        color: #64748b;
+    }
+
+    .event-meta {
+        color: #9ca3af;
+        font-size: 0.875rem;
+    }
+
+    .event-actions {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .table-container {
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .modern-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .modern-table th {
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        padding: 1rem 1.5rem;
+        text-align: left;
+        font-weight: 600;
+        color: #374151;
+        border-bottom: 2px solid #e2e8f0;
+    }
+
+    .modern-table td {
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid #f1f5f9;
+        vertical-align: middle;
+    }
+
+    .modern-table tr:hover {
+        background: #f8fafc;
+    }
+
+    .empty-state {
+        text-align: center;
+        padding: 3rem;
+    }
+
+    .empty-content i {
+        font-size: 3rem;
+        color: #cbd5e0;
+        margin-bottom: 1rem;
+    }
+
+    .empty-content p {
+        color: #9ca3af;
+        font-size: 1.125rem;
+        margin: 0;
+    }
+
+    .status-badge {
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .status-present {
+        background: #dcfce7;
+        color: #166534;
+    }
+
+    .status-absent {
+        background: #fee2e2;
+        color: #991b1b;
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(4px);
+    }
+
+    .modal-content {
+        background: white;
+        margin: 5% auto;
+        border-radius: 12px;
+        width: 90%;
+        max-width: 600px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        animation: modalSlideIn 0.3s ease;
+    }
+
+    @keyframes modalSlideIn {
+        from {
+            transform: translateY(-50px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    .modal-header {
+        padding: 1.5rem 2rem;
+        border-bottom: 1px solid #e2e8f0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .modal-header h3 {
+        margin: 0;
+        color: #1e293b;
+        font-size: 1.25rem;
+    }
+
+    .close-btn {
+        background: none;
+        border: none;
+        color: #9ca3af;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 0.25rem;
+        transition: color 0.3s ease;
+    }
+
+    .close-btn:hover {
+        color: #6b7280;
+    }
+
+    .modal-body {
+        padding: 2rem;
+    }
+
+    .form-actions {
+        display: flex;
+        gap: 1rem;
+        justify-content: flex-end;
+        margin-top: 2rem;
+    }
+
+    @media (max-width: 768px) {
+        .admin-nav {
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .nav-left {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .stats-row {
+            grid-template-columns: 1fr;
+            padding: 1rem;
+        }
+
+        .content-container {
+            padding: 0 1rem 1rem 1rem;
+        }
+
+        .panel-header {
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form-row {
+            grid-template-columns: 1fr;
+        }
+
+        .event-details {
+            flex-direction: column;
+            gap: 1rem;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    let currentEventId = null;
+    let currentMemberId = null;
+    let allMembers = [];
+    let allEvents = [];
+    let attendanceData = [];
+    let eventMembers = []; // Members assigned to the current event
+
+    // Load initial data
+    document.addEventListener('DOMContentLoaded', function() {
+        loadStats();
+        loadEvents();
+        loadMembers();
+        loadAllEvents();
+    });
+
+    async function loadStats() {
+        try {
+            const [meetingsRes, membersRes] = await Promise.all([
+                fetch('/api/Meeting'),
+                fetch('/api/Members')
+            ]);
+
+            const meetingsData = await meetingsRes.json();
+            const membersData = await membersRes.json();
+            
+            // Flatten the data
+            const meetings = meetingsData.map(obj => {
+                const id = Object.keys(obj)[0];
+                return { id, ...obj[id] };
+            });
+            
+            const members = membersData.map(obj => {
+                const id = Object.keys(obj)[0];
+                return { id, ...obj[id] };
+            });
+
+            document.getElementById('totalEvents').textContent = meetings.length;
+            document.getElementById('totalMembers').textContent = members.length;
+            
+            // Calculate actual attendance rate across all meetings
+            const totalAttended = meetings.reduce((sum, meeting) => {
+                return sum + (meeting.attended ? meeting.attended.length : 0);
+            }, 0);
+            const totalPossible = meetings.length * members.length;
+            const attendanceRate = totalPossible > 0 ? Math.round((totalAttended / totalPossible) * 100) : 0;
+            document.getElementById('attendanceRate').textContent = attendanceRate + '%';
+            
+            document.getElementById('upcomingEvents').textContent = meetings.filter(m => {
+                let date;
+                if (m.date && typeof m.date === 'object' && m.date.seconds) {
+                    date = new Date(m.date.seconds * 1000);
+                } else if (m.date) {
+                    date = new Date(m.date);
+                } else {
+                    return false;
+                }
+                return date > new Date();
+            }).length;
+        } catch (error) {
+            console.error('Error loading stats:', error);
+        }
+    }
+
+    async function loadEvents() {
+        try {
+            const response = await fetch('/api/Meeting');
+            const meetingsData = await response.json();
+            
+            // Flatten the data
+            const meetings = meetingsData.map(obj => {
+                const id = Object.keys(obj)[0];
+                return { id, ...obj[id] };
+            });
+            
+            const select = document.getElementById('attendanceEventSelect');
+            select.innerHTML = '<option value="">Choose a meeting...</option>';
+            
+            meetings.forEach(meeting => {
+                const option = document.createElement('option');
+                option.value = meeting.id;
+                
+                // Handle different date formats safely
+                let date;
+                if (meeting.date && typeof meeting.date === 'object' && meeting.date.seconds) {
+                    date = new Date(meeting.date.seconds * 1000);
+                } else if (meeting.date) {
+                    date = new Date(meeting.date);
+                } else {
+                    date = new Date();
+                }
+                
+                option.textContent = `${meeting.eventName} - ${date.toLocaleDateString()}`;
+                select.appendChild(option);
+            });
+        } catch (error) {
+            console.error('Error loading meetings:', error);
+        }
+    }
+
+    async function loadMembers() {
+        try {
+            const response = await fetch('/api/Members');
+            const membersData = await response.json();
+            
+            // Flatten the data
+            allMembers = membersData.map(obj => {
+                const id = Object.keys(obj)[0];
+                return { id, ...obj[id] };
+            });
+        } catch (error) {
+            console.error('Error loading members:', error);
+        }
+    }
+
+    async function loadAllEvents() {
+        try {
+            const response = await fetch('/api/Events');
+            const eventsData = await response.json();
+            
+            // Flatten the data
+            allEvents = eventsData.map(obj => {
+                const id = Object.keys(obj)[0];
+                return { id, ...obj[id] };
+            });
+        } catch (error) {
+            console.error('Error loading events:', error);
+        }
+    }
+
+    async function loadEventAttendance() {
+        const meetingId = document.getElementById('attendanceEventSelect').value;
+        if (!meetingId) {
+            hideEventDetails();
+            return;
+        }
+
+        currentEventId = meetingId;
+        
+        try {
+            // Get meeting details
+            const meetingResponse = await fetch(`/api/Meeting/${meetingId}`);
+            const meetingData = await meetingResponse.json();
+            
+            // Extract the actual meeting data from the response format {meetingId: meetingData}
+            const meeting = meetingData[meetingId];
+            if (!meeting) {
+                throw new Error('Meeting not found');
+            }
+            
+            console.log('Loaded meeting data:', meeting);
+            
+            // Add the ID to the meeting object since it's not included in the response
+            meeting.id = meetingId;
+            
+            // Get attendance data from meeting
+            attendanceData = meeting.attended || [];
+            
+            // Find the corresponding event to get the members assigned to this event
+            const event = allEvents.find(e => e.eventName === meeting.eventName);
+            if (event && event.members) {
+                eventMembers = allMembers.filter(member => event.members.includes(member.id));
+                console.log(`Found ${eventMembers.length} members assigned to ${meeting.eventName}`);
+            } else {
+                eventMembers = []; // No members assigned to this event
+                console.log(`No members assigned to ${meeting.eventName}`);
+            }
+            
+            showEventDetails(meeting);
+            populateAttendanceTable();
+        } catch (error) {
+            console.error('Error loading meeting attendance:', error);
+        }
+    }
+
+    function showEventDetails(meeting) {
+        document.getElementById('eventName').textContent = meeting.eventName || 'Unknown Meeting';
+        document.getElementById('eventDescription').textContent = `Meeting for ${meeting.eventName || 'Unknown Event'} (${eventMembers.length} members assigned)`;
+        
+        // Handle different date formats safely
+        let date;
+        if (meeting.date && typeof meeting.date === 'object' && meeting.date.seconds) {
+            // Firebase timestamp format
+            date = new Date(meeting.date.seconds * 1000);
+        } else if (meeting.date) {
+            // Regular date string or Date object
+            date = new Date(meeting.date);
+        } else {
+            // Fallback to current date
+            date = new Date();
+        }
+        
+        document.getElementById('eventDate').textContent = date.toLocaleDateString();
+        document.getElementById('eventLocation').textContent = `Room ${meeting.room || 'TBD'}`;
+        
+        // Generate code only if we have a valid meeting ID
+        if (meeting.id) {
+            document.getElementById('eventCode').textContent = `Code: ${generateEventCode(meeting.id, date)}`;
+        } else {
+            document.getElementById('eventCode').textContent = 'Code: Not available';
+        }
+        
+        document.getElementById('eventDetails').style.display = 'block';
+    }
+
+    function hideEventDetails() {
+        document.getElementById('eventDetails').style.display = 'none';
+        currentEventId = null;
+        
+        // Clear attendance table
+        const tbody = document.getElementById('attendanceTableBody');
+        tbody.innerHTML = `
+            <tr>
+                <td colspan="6" class="empty-state">
+                    <div class="empty-content">
+                        <i class="fas fa-calendar-alt"></i>
+                        <p>Select an event to view attendance</p>
+                    </div>
+                </td>
+            </tr>
+        `;
+    }
+
+    function populateAttendanceTable() {
+        const tbody = document.getElementById('attendanceTableBody');
+        tbody.innerHTML = '';
+        
+        if (eventMembers.length === 0) {
+            tbody.innerHTML = `
+                <tr>
+                    <td colspan="6" class="empty-state">
+                        <div class="empty-content">
+                            <i class="fas fa-users"></i>
+                            <p>No members assigned to this event</p>
+                        </div>
+                    </td>
+                </tr>
+            `;
+            return;
+        }
+
+        eventMembers.forEach(member => {
+            const attended = attendanceData.includes(member.id);
+            const row = document.createElement('tr');
+            
+            row.innerHTML = `
+                <td>
+                    <div class="member-info">
+                        <strong>${member.firstName} ${member.lastName}</strong>
+                    </div>
+                </td>
+                <td>${member.doeEmail}</td>
+                <td>${member.grade}</td>
+                <td>
+                    <span class="status-badge ${attended ? 'status-present' : 'status-absent'}">
+                        ${attended ? 'Present' : 'Absent'}
+                    </span>
+                </td>
+                <td>
+                    ${attended ? 'Attended' : '--'}
+                </td>
+                <td>
+                    ${attended ? 
+                        `<button class="btn-outline" onclick="removeAttendance('${member.id}')">
+                            <i class="fas fa-times"></i> Remove
+                        </button>` :
+                        `<button class="btn-success" onclick="manualCheckin('${member.id}', '${member.firstName} ${member.lastName}')">
+                            <i class="fas fa-check"></i> Check In
+                        </button>`
+                    }
+                </td>
+            `;
+            
+            tbody.appendChild(row);
+        });
+    }
+
+    function filterMembers() {
+        const searchTerm = document.getElementById('memberSearch').value.toLowerCase();
+        const rows = document.querySelectorAll('#attendanceTableBody tr');
+        
+        rows.forEach(row => {
+            const text = row.textContent.toLowerCase();
+            row.style.display = text.includes(searchTerm) ? '' : 'none';
+        });
+    }
+
+    function manualCheckin(memberId, memberName) {
+        currentMemberId = memberId;
+        document.getElementById('checkinMemberName').textContent = memberName;
+        document.getElementById('manualCheckinModal').style.display = 'block';
+    }
+
+    async function confirmManualCheckin() {
+        if (!currentMemberId || !currentEventId) return;
+        
+        try {
+            // Get current meeting
+            const meetingResponse = await fetch(`/api/Meeting/${currentEventId}`);
+            const meetingData = await meetingResponse.json();
+            
+            // Extract the actual meeting data from the response format {meetingId: meetingData}
+            const meeting = meetingData[currentEventId];
+            if (!meeting) {
+                throw new Error('Meeting not found');
+            }
+            
+            // Add member to attendance
+            const updatedAttended = meeting.attended || [];
+            if (!updatedAttended.includes(currentMemberId)) {
+                updatedAttended.push(currentMemberId);
+            }
+            
+            // Update meeting - only include fields that have valid values
+            const updateData = {
+                attended: updatedAttended
+            };
+            
+            // Only add other fields if they exist and are not undefined
+            if (meeting.date !== undefined) updateData.date = meeting.date;
+            if (meeting.eventName !== undefined) updateData.eventName = meeting.eventName;
+            if (meeting.block !== undefined) updateData.block = meeting.block;
+            if (meeting.room !== undefined) updateData.room = meeting.room;
+            
+            console.log('Updating meeting with data:', updateData);
+            
+            const response = await fetch(`/api/Meeting/${currentEventId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(updateData)
+            });
+            
+            if (response.ok) {
+                console.log('Successfully updated meeting');
+                closeModal('manualCheckinModal');
+                loadEventAttendance(); // Refresh the table
+            } else {
+                const errorText = await response.text();
+                console.error('Error response:', errorText);
+                alert('Error checking in member');
+            }
+        } catch (error) {
+            console.error('Error with manual check-in:', error);
+            alert('Error checking in member');
+        }
+    }
+
+    async function removeAttendance(memberId) {
+        if (!confirm('Are you sure you want to remove this attendance record?')) return;
+        
+        try {
+            // Get current meeting
+            const meetingResponse = await fetch(`/api/Meeting/${currentEventId}`);
+            const meetingData = await meetingResponse.json();
+            
+            // Extract the actual meeting data from the response format {meetingId: meetingData}
+            const meeting = meetingData[currentEventId];
+            if (!meeting) {
+                throw new Error('Meeting not found');
+            }
+            
+            // Remove member from attendance
+            const updatedAttended = meeting.attended.filter(id => id !== memberId);
+            
+            // Update meeting - only include fields that have valid values
+            const updateData = {
+                attended: updatedAttended
+            };
+            
+            // Only add other fields if they exist and are not undefined
+            if (meeting.date !== undefined) updateData.date = meeting.date;
+            if (meeting.eventName !== undefined) updateData.eventName = meeting.eventName;
+            if (meeting.block !== undefined) updateData.block = meeting.block;
+            if (meeting.room !== undefined) updateData.room = meeting.room;
+            
+            const response = await fetch(`/api/Meeting/${currentEventId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(updateData)
+            });
+            
+            if (response.ok) {
+                loadEventAttendance(); // Refresh the table
+            } else {
+                alert('Error removing attendance');
+            }
+        } catch (error) {
+            console.error('Error removing attendance:', error);
+            alert('Error removing attendance');
+        }
+    }
+
+    function createAttendanceEvent() {
+        document.getElementById('createEventModal').style.display = 'block';
+    }
+
+    function generateAttendanceCode() {
+        if (!currentEventId) return;
+        
+        // Get current meeting to generate code for today
+        fetch(`/api/Meeting/${currentEventId}`)
+            .then(response => response.json())
+            .then(meeting => {
+                const today = new Date();
+                // Add the ID to the meeting object
+                meeting.id = currentEventId;
+                const code = generateEventCode(meeting.id, today);
+                document.getElementById('eventCode').textContent = `Code: ${code}`;
+                alert(`Today's attendance code: ${code}`);
+            })
+            .catch(error => {
+                console.error('Error generating code:', error);
+                alert('Error generating attendance code');
+            });
+    }
+    
+    // Generate a deterministic check-in code from meeting ID and date
+    function generateEventCode(meetingId, dateObj) {
+        // Handle undefined or null meeting ID
+        if (!meetingId) {
+            return 'ERROR';
+        }
+        
+        // Format date as YYYYMMDD
+        const year = dateObj.getFullYear();
+        const month = (dateObj.getMonth() + 1).toString().padStart(2, '0');
+        const day = dateObj.getDate().toString().padStart(2, '0');
+        const dateStr = `${year}${month}${day}`;
+        
+        // Create a seed from meeting ID and date
+        const seed = meetingId.substring(0, 8) + dateStr;
+        
+        // Simple hash function to create a numeric value
+        let hash = 0;
+        for (let i = 0; i < seed.length; i++) {
+            const char = seed.charCodeAt(i);
+            hash = ((hash << 5) - hash) + char;
+            hash = hash & hash; // Convert to 32bit integer
+        }
+        
+        // Use absolute value of hash
+        hash = Math.abs(hash);
+        
+        // Convert to 5-letter code (A-Z)
+        const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        let code = '';
+        for (let i = 0; i < 5; i++) {
+            code += letters.charAt(hash % 26);
+            hash = Math.floor(hash / 26);
+        }
+        
+        return code;
+    }
+
+    function exportAttendance() {
+        if (!currentEventId) return;
+        
+        // Create CSV content
+        const csvContent = [
+            ['Name', 'Email', 'Grade', 'Status', 'Check-in Time'],
+            ...allMembers.map(member => {
+                const attended = attendanceData.includes(member.id);
+                return [
+                    `${member.firstName} ${member.lastName}`,
+                    member.doeEmail,
+                    member.grade,
+                    attended ? 'Present' : 'Absent',
+                    attended ? 'Attended' : ''
+                ];
+            })
+        ].map(row => row.join(',')).join('\n');
+        
+        // Download CSV
+        const blob = new Blob([csvContent], { type: 'text/csv' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `attendance-${new Date().toISOString().split('T')[0]}.csv`;
+        a.click();
+        window.URL.revokeObjectURL(url);
+    }
+
+    function refreshEvents() {
+        loadEvents();
+    }
+
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = 'none';
+        currentMemberId = null;
+    }
+
+    function logout() {
+        if (confirm('Are you sure you want to logout?')) {
+            sessionStorage.removeItem('admin_token');
+            window.location.href = '/admin/login';
+        }
+    }
+
+    // Handle form submission
+    document.getElementById('createEventForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(this);
+        const eventData = {
+            name: formData.get('name'),
+            description: formData.get('description'),
+            eventType: formData.get('eventType'),
+            date: formData.get('date'),
+            startTime: formData.get('startTime'),
+            endTime: formData.get('endTime'),
+            location: formData.get('location'),
+            isActive: true
+        };
+        
+        try {
+            const response = await fetch('/api/admin/attendance-events', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(eventData)
+            });
+            
+            if (response.ok) {
+                closeModal('createEventModal');
+                loadEvents();
+                this.reset();
+            } else {
+                alert('Error creating event');
+            }
+        } catch (error) {
+            console.error('Error creating event:', error);
+            alert('Error creating event');
+        }
+    });
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal')) {
+            event.target.style.display = 'none';
+        }
+    }
+</script>
+{% endblock %} 

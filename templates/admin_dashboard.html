@@ -1,0 +1,494 @@
+{% extends 'layout.html' %}
+
+{% block title %}Admin Dashboard - Bronx Science Olympiad{% endblock %}
+
+{% block content %}
+<div class="admin-dashboard">
+    <!-- Admin Header -->
+    <div class="admin-header">
+        <div class="admin-info">
+            <h1>Admin Dashboard</h1>
+            <p>Welcome back, <span id="adminName">Admin</span></p>
+        </div>
+        <div class="admin-actions">
+            <button class="btn-secondary" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </div>
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="stats-container">
+        <div class="stat-card">
+            <div class="stat-icon">
+                <i class="fas fa-users"></i>
+            </div>
+            <div class="stat-content">
+                <h3 id="totalMembers">--</h3>
+                <p>Total Members</p>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon">
+                <i class="fas fa-clipboard-check"></i>
+            </div>
+            <div class="stat-content">
+                <h3 id="totalEvents">--</h3>
+                <p>Attendance Events</p>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon">
+                <i class="fas fa-calendar-alt"></i>
+            </div>
+            <div class="stat-content">
+                <h3 id="upcomingEvents">--</h3>
+                <p>Upcoming Events</p>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon">
+                <i class="fas fa-book"></i>
+            </div>
+            <div class="stat-content">
+                <h3 id="totalModules">--</h3>
+                <p>Learning Modules</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Cards -->
+    <div class="navigation-container">
+        <h2>Administrative Tools</h2>
+        <div class="nav-cards">
+            <div class="nav-card" onclick="window.location.href='/admin/attendance'">
+                <div class="nav-card-icon">
+                    <i class="fas fa-clipboard-check"></i>
+                </div>
+                <div class="nav-card-content">
+                    <h3>Attendance Management</h3>
+                    <p>Track member attendance, create events, and manage check-ins</p>
+                </div>
+                <div class="nav-card-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+
+            <div class="nav-card" onclick="window.location.href='/admin/events'">
+                <div class="nav-card-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <div class="nav-card-content">
+                    <h3>Event Management</h3>
+                    <p>Manage Science Olympiad events and member assignments</p>
+                </div>
+                <div class="nav-card-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+
+            <div class="nav-card" onclick="window.location.href='/admin/content'">
+                <div class="nav-card-icon">
+                    <i class="fas fa-book"></i>
+                </div>
+                <div class="nav-card-content">
+                    <h3>Learning Content</h3>
+                    <p>Create and manage learning modules and educational content</p>
+                </div>
+                <div class="nav-card-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+
+            <div class="nav-card" onclick="window.location.href='/admin/calendar'">
+                <div class="nav-card-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <div class="nav-card-content">
+                    <h3>Calendar Management</h3>
+                    <p>Schedule events, meetings, and important dates</p>
+                </div>
+                <div class="nav-card-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+
+            <div class="nav-card" onclick="window.location.href='/admin/members'">
+                <div class="nav-card-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="nav-card-content">
+                    <h3>Member Management</h3>
+                    <p>View and manage team member profiles and information</p>
+                </div>
+                <div class="nav-card-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+
+            <div class="nav-card" onclick="window.location.href='/admin/analytics'">
+                <div class="nav-card-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="nav-card-content">
+                    <h3>Analytics & Reports</h3>
+                    <p>View performance metrics and generate reports</p>
+                </div>
+                <div class="nav-card-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Activity -->
+    <div class="activity-container">
+        <h2>Recent Activity</h2>
+        <div class="activity-list" id="recentActivity">
+            <!-- Recent activity will be loaded here -->
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .admin-dashboard {
+        min-height: 100vh;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        padding: 0;
+    }
+    
+    .admin-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 2rem 3rem;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+    
+    .admin-header h1 {
+        margin: 0;
+        font-size: 2.5rem;
+        font-weight: 700;
+    }
+    
+    .admin-header p {
+        margin: 0.5rem 0 0 0;
+        font-size: 1.1rem;
+        opacity: 0.9;
+    }
+    
+    .admin-actions .btn-secondary {
+        background: rgba(255, 255, 255, 0.2);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+    
+    .admin-actions .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-2px);
+    }
+    
+    .stats-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        padding: 3rem;
+        margin-top: -1rem;
+    }
+    
+    .stat-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 1rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .stat-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .stat-icon {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+    }
+    
+    .stat-content h3 {
+        margin: 0;
+        font-size: 2rem;
+        font-weight: 700;
+        color: #2d3748;
+    }
+    
+    .stat-content p {
+        margin: 0.25rem 0 0 0;
+        color: #718096;
+        font-weight: 500;
+    }
+    
+    .navigation-container {
+        padding: 0 3rem 2rem 3rem;
+    }
+    
+    .navigation-container h2 {
+        margin-bottom: 2rem;
+        font-size: 1.75rem;
+        color: #2d3748;
+        font-weight: 600;
+    }
+    
+    .nav-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .nav-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 1rem;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+    }
+    
+    .nav-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        border-color: #667eea;
+    }
+    
+    .nav-card-icon {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        width: 50px;
+        height: 50px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.25rem;
+        flex-shrink: 0;
+    }
+    
+    .nav-card-content {
+        flex: 1;
+    }
+    
+    .nav-card-content h3 {
+        margin: 0;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #2d3748;
+    }
+    
+    .nav-card-content p {
+        margin: 0.5rem 0 0 0;
+        color: #718096;
+        line-height: 1.4;
+    }
+    
+    .nav-card-arrow {
+        color: #cbd5e0;
+        font-size: 1.25rem;
+        transition: all 0.3s ease;
+    }
+    
+    .nav-card:hover .nav-card-arrow {
+        color: #667eea;
+        transform: translateX(5px);
+    }
+    
+    .activity-container {
+        padding: 2rem 3rem 3rem 3rem;
+    }
+    
+    .activity-container h2 {
+        margin-bottom: 1.5rem;
+        font-size: 1.75rem;
+        color: #2d3748;
+        font-weight: 600;
+    }
+    
+    .activity-list {
+        background: white;
+        border-radius: 1rem;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        padding: 1.5rem;
+        min-height: 200px;
+    }
+    
+    .activity-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 0;
+        border-bottom: 1px solid #e2e8f0;
+    }
+    
+    .activity-item:last-child {
+        border-bottom: none;
+    }
+    
+    .activity-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #f7fafc;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #667eea;
+    }
+    
+    .activity-content {
+        flex: 1;
+    }
+    
+    .activity-content h4 {
+        margin: 0;
+        font-size: 0.9rem;
+        color: #2d3748;
+        font-weight: 600;
+    }
+    
+    .activity-content p {
+        margin: 0.25rem 0 0 0;
+        font-size: 0.8rem;
+        color: #718096;
+    }
+    
+    .activity-time {
+        color: #a0aec0;
+        font-size: 0.8rem;
+    }
+    
+    @media (max-width: 768px) {
+        .admin-header {
+            flex-direction: column;
+            text-align: center;
+            gap: 1rem;
+        }
+        
+        .stats-container {
+            grid-template-columns: 1fr;
+            padding: 2rem 1rem;
+        }
+        
+        .navigation-container {
+            padding: 0 1rem 2rem 1rem;
+        }
+        
+        .nav-cards {
+            grid-template-columns: 1fr;
+        }
+        
+        .activity-container {
+            padding: 2rem 1rem 3rem 1rem;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Load dashboard data
+    async function loadDashboardData() {
+        try {
+            const adminId = sessionStorage.getItem('adminId');
+            // Load stats
+            const [membersRes, eventsRes, calendarRes, modulesRes] = await Promise.all([
+                fetch('/api/admin/members', { headers: { 'X-Admin-ID': adminId ? adminId : '' } }),
+                fetch('/api/admin/attendance-events', { headers: { 'X-Admin-ID': adminId ? adminId : '' } }),
+                fetch('/api/admin/calendar-events', { headers: { 'X-Admin-ID': adminId ? adminId : '' } }),
+                fetch('/api/admin/learning-modules', { headers: { 'X-Admin-ID': adminId ? adminId : '' } })
+            ]);
+            
+            const members = await membersRes.json();
+            const events = await eventsRes.json();
+            const calendar = await calendarRes.json();
+            const modules = await modulesRes.json();
+            
+            // Update stats
+            document.getElementById('totalMembers').textContent = members.length;
+            document.getElementById('totalEvents').textContent = events.length;
+            document.getElementById('upcomingEvents').textContent = calendar.filter(event => new Date(event.date) > new Date()).length;
+            document.getElementById('totalModules').textContent = modules.length;
+            
+            // Load recent activity
+            loadRecentActivity();
+        } catch (error) {
+            console.error('Error loading dashboard data:', error);
+        }
+    }
+    
+    function loadRecentActivity() {
+        const activityList = document.getElementById('recentActivity');
+        activityList.innerHTML = `
+            <div class="activity-item">
+                <div class="activity-icon">
+                    <i class="fas fa-user-plus"></i>
+                </div>
+                <div class="activity-content">
+                    <h4>New member registered</h4>
+                    <p>John Doe joined the team</p>
+                </div>
+                <div class="activity-time">2 hours ago</div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-icon">
+                    <i class="fas fa-calendar-plus"></i>
+                </div>
+                <div class="activity-content">
+                    <h4>Event created</h4>
+                    <p>Weekly Practice Session added</p>
+                </div>
+                <div class="activity-time">1 day ago</div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-icon">
+                    <i class="fas fa-clipboard-check"></i>
+                </div>
+                <div class="activity-content">
+                    <h4>Attendance recorded</h4>
+                    <p>25 members attended the last meeting</p>
+                </div>
+                <div class="activity-time">2 days ago</div>
+            </div>
+        `;
+    }
+    
+    function logout() {
+        if (confirm('Are you sure you want to logout?')) {
+            sessionStorage.removeItem('admin_token');
+            window.location.href = '/admin/login';
+        }
+    }
+    
+    // Load data when page loads
+    document.addEventListener('DOMContentLoaded', loadDashboardData);
+</script>
+{% endblock %}
