@@ -1,0 +1,483 @@
+{% extends "layout.html" %}
+
+{% block title %}Sponsors - Bronx Science Olympiad{% endblock %}
+
+{% block extra_css %}
+<style>
+    .sponsors-hero {
+        height: 60vh;
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/static/images/regional-trophy.jpg');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        position: relative;
+    }
+
+    .sponsors-hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle, transparent, rgba(0,0,0,0.3));
+    }
+
+    .sponsors-hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        padding: 0 20px;
+    }
+
+    .sponsors-hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        font-weight: 700;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        animation: fadeInUp 1s ease-out;
+    }
+
+    .sponsors-hero p {
+        font-size: 1.3rem;
+        margin-bottom: 30px;
+        opacity: 0.9;
+        animation: fadeInUp 1s ease-out 0.2s both;
+    }
+
+    .sponsors-intro {
+        padding: 100px 0;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        text-align: center;
+    }
+
+    .sponsors-intro h2 {
+        font-size: 2.8rem;
+        color: var(--primary-color);
+        margin-bottom: 25px;
+        position: relative;
+    }
+
+    .sponsors-intro h2::after {
+        content: '';
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 5px;
+        background: var(--accent-color);
+        border-radius: 3px;
+    }
+
+    .sponsors-intro p {
+        font-size: 1.3rem;
+        color: #666;
+        max-width: 900px;
+        margin: 0 auto 50px;
+        line-height: 1.8;
+    }
+
+    .tiers-section {
+        padding: 100px 0;
+        background: white;
+    }
+
+    .tiers-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 40px;
+        margin-top: 60px;
+        justify-items: center;
+    }
+
+    @media (min-width: 1200px) {
+        .tiers-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .tiers-grid .contributor,
+        .tiers-grid .bronze,
+        .tiers-grid .silver {
+            flex: 0 0 calc(33.333% - 27px);
+        }
+        
+        .tiers-grid .gold,
+        .tiers-grid .wolverine {
+            flex: 0 0 calc(33.333% - 27px);
+            margin-top: 40px;
+        }
+        
+        .tiers-grid .gold {
+            margin-right: 20px;
+        }
+        
+        .tiers-grid .wolverine {
+            margin-left: 20px;
+        }
+    }
+
+    .tier-card {
+        background: white;
+        border-radius: 20px;
+        padding: 50px 35px;
+        text-align: center;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+        border: 3px solid transparent;
+        min-height: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .tier-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: var(--gradient-bg);
+        transform: scaleX(0);
+        transition: transform 0.4s ease;
+    }
+
+    .tier-card:hover::before {
+        transform: scaleX(1);
+    }
+
+    .tier-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        border-color: var(--accent-color);
+    }
+
+    .tier-header {
+        margin-bottom: 35px;
+    }
+
+    .tier-icon {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        color: var(--primary-color);
+    }
+
+    .tier-name {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+        color: var(--primary-color);
+    }
+
+    .tier-price {
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 10px;
+        background: var(--gradient-bg);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .tier-range {
+        font-size: 1.1rem;
+        color: #666;
+        font-weight: 500;
+        margin-bottom: 10px;
+    }
+
+    .tier-perks {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .tier-perks li {
+        padding: 15px 0;
+        border-bottom: 1px solid #f0f0f0;
+        position: relative;
+        padding-left: 50px;
+        text-align: left;
+        font-size: 1.05rem;
+        line-height: 1.5;
+    }
+
+    .tier-perks li:last-child {
+        border-bottom: none;
+    }
+
+    .tier-perks li::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        top: 15px;
+        color: var(--accent-color);
+        font-weight: bold;
+        font-size: 1.3rem;
+    }
+
+    .tier-perks li i {
+        margin-right: 8px;
+        color: var(--primary-color);
+        font-size: 0.9rem;
+        opacity: 0.8;
+    }
+
+    .tier-card.contributor {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-left: 5px solid #6c757d;
+    }
+
+    .tier-card.bronze {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-left: 5px solid #cd7f32;
+    }
+
+    .tier-card.silver {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-left: 5px solid #c0c0c0;
+    }
+
+    .tier-card.gold {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-left: 5px solid #ffd700;
+    }
+
+    .tier-card.wolverine {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-left: 5px solid #006400;
+    }
+
+    .contact-section {
+        padding: 100px 0;
+        background: var(--gradient-bg);
+        color: white;
+        text-align: center;
+    }
+
+    .contact-section h2 {
+        font-size: 2.8rem;
+        margin-bottom: 25px;
+    }
+
+    .contact-section p {
+        font-size: 1.3rem;
+        margin-bottom: 50px;
+        opacity: 0.9;
+    }
+
+    .contact-btn {
+        display: inline-block;
+        background: white;
+        color: var(--primary-color);
+        padding: 15px 40px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .contact-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        color: var(--primary-color);
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .sponsors-hero h1 {
+            font-size: 2.5rem;
+        }
+        
+        .sponsors-hero p {
+            font-size: 1.1rem;
+        }
+        
+        .sponsors-intro {
+            padding: 60px 0;
+        }
+        
+        .sponsors-intro h2 {
+            font-size: 2.2rem;
+        }
+        
+        .sponsors-intro p {
+            font-size: 1.1rem;
+        }
+        
+        .tiers-section {
+            padding: 60px 0;
+        }
+        
+        .tiers-grid {
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        
+        .tier-card {
+            padding: 40px 25px;
+            min-height: auto;
+        }
+        
+        .tier-icon {
+            font-size: 2.5rem;
+        }
+        
+        .tier-name {
+            font-size: 1.8rem;
+        }
+        
+        .tier-price {
+            font-size: 2.2rem;
+        }
+        
+        .contact-section {
+            padding: 60px 0;
+        }
+        
+        .contact-section h2 {
+            font-size: 2.2rem;
+        }
+        
+        .contact-section p {
+            font-size: 1.1rem;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="sponsors-hero">
+    <div class="sponsors-hero-content">
+        <h1>Support Our Mission</h1>
+        <p>Join us in fostering the next generation of scientific innovators and problem solvers</p>
+    </div>
+</section>
+
+<!-- Introduction Section -->
+<section class="sponsors-intro">
+    <div class="container">
+        <h2>Become a Sponsor</h2>
+        <p>
+            Your sponsorship directly supports our students' journey in Science Olympiad, providing resources for 
+            equipment, materials, competition fees, and educational opportunities. Every contribution helps us 
+            continue our tradition of excellence and innovation in STEM education.
+        </p>
+    </div>
+</section>
+
+<!-- Sponsorship Tiers Section -->
+<section class="tiers-section">
+    <div class="container">
+        <div class="tiers-grid">
+            <!-- Contributor Tier -->
+            <div class="tier-card contributor">
+                <div class="tier-header">
+                    <div class="tier-icon"><i class="fas fa-heart"></i></div>
+                    <div class="tier-name">Contributor</div>
+                    <div class="tier-price">$25-100</div>
+                </div>
+                <ul class="tier-perks">
+                    <li><i class="fas fa-envelope"></i> Handwritten thank-you card from the team</li>
+                    <li><i class="fas fa-camera"></i> Photos of our team and work sent at the end of the season</li>
+                </ul>
+            </div>
+
+            <!-- Bronze Tier -->
+            <div class="tier-card bronze">
+                <div class="tier-header">
+                    <div class="tier-icon"><i class="fas fa-medal"></i></div>
+                    <div class="tier-name">Bronze</div>
+                    <div class="tier-price">$100-299</div>
+                </div>
+                <ul class="tier-perks">
+                    <li><i class="fas fa-globe"></i> Companies are featured on our website</li>
+                    <li><i class="fas fa-share-alt"></i> Shout-out on team social media story and highlight (just name/logo)</li>
+                    <li><i class="fas fa-sticky-note"></i> Small Science Olympiad team sticker or magnet</li>
+                    <li><i class="fas fa-plus-circle"></i> All Contributor perks</li>
+                </ul>
+            </div>
+
+            <!-- Silver Tier -->
+            <div class="tier-card silver">
+                <div class="tier-header">
+                    <div class="tier-icon"><i class="fas fa-award"></i></div>
+                    <div class="tier-name">Silver</div>
+                    <div class="tier-price">$300-799</div>
+                </div>
+                <ul class="tier-perks">
+                    <li><i class="fas fa-tshirt"></i> Organization featured on our merchandise</li>
+                    <li><i class="fas fa-bullhorn"></i> Social media spotlight post with own choice of caption</li>
+                    <li><i class="fas fa-plus-circle"></i> All Bronze perks</li>
+                </ul>
+            </div>
+
+            <!-- Gold Tier -->
+            <div class="tier-card gold">
+                <div class="tier-header">
+                    <div class="tier-icon"><i class="fas fa-crown"></i></div>
+                    <div class="tier-name">Gold</div>
+                    <div class="tier-price">$800-1499</div>
+                </div>
+                <ul class="tier-perks">
+                    <li><i class="fas fa-tag"></i> Sticker of Organization on builds</li>
+                    <li><i class="fas fa-signature"></i> Custom team merch with signed names</li>
+                    <li><i class="fas fa-plus-circle"></i> All Silver perks</li>
+                </ul>
+            </div>
+
+            <!-- Wolverine Tier -->
+            <div class="tier-card wolverine">
+                <div class="tier-header">
+                    <div class="tier-icon"><i class="fas fa-gem"></i></div>
+                    <div class="tier-name">Wolverine</div>
+                    <div class="tier-price">$1500+</div>
+                </div>
+                <ul class="tier-perks">
+                    <li><i class="fas fa-trophy"></i> Name on Build</li>
+                    <li><i class="fas fa-microphone"></i> Shoutout at regionals</li>
+                    <li><i class="fas fa-users"></i> Invitation to call/visit for demos/Q&A with team members</li>
+                    <li><i class="fas fa-plus-circle"></i> All Gold perks</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact-section">
+    <div class="container">
+        <h2>Ready to Support Us?</h2>
+        <p>Contact us to discuss sponsorship opportunities and how your contribution can make a difference.</p>
+        <a href="mailto:bxsciolycaptain@bxscience.edu" class="contact-btn">
+            <i class="fas fa-envelope"></i> Get in Touch
+        </a>
+    </div>
+</section>
+{% endblock %} 

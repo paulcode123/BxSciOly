@@ -715,8 +715,12 @@
             document.getElementById('eventNotification').value = userData.eventNotification || 'email';
             
             // Profile image
-            if (userData.profilePicUrl) {
-                profileImage.src = userData.profilePicUrl;
+            if (userData.profilePicURL) {
+                console.log("Profile pic found")
+                profileImage.src = userData.profilePicURL;
+            }
+            else {
+                console.log("No profile pic found", userData, userData.profilePicURL)
             }
         }
         

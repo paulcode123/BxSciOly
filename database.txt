@@ -52,20 +52,28 @@
 - type: string (enum: "invitational", "satellite", "official")
 - location: string
 - description: string
+- registrationOpens: timestamp
 - registrationDeadline: timestamp
+- teamsRelease: timestamp
 - numTeams: number
+- teamPlacement: [{
+  team: string (enum: "A", "B", "C"),
+  event: string (reference to Events)
+  participants: string[] (array of member ids)
+}] (optional, post-competition)
 - results: {
     teamRank: number,
     teamOutOf: number,
     eventResults: [
       {
         eventName: string,
-        participants: string[] (references to Member ids),
+        team: string (enum: "A", "B", "C"),
         placement: number,
         outOf: number
       }
     ]
-  }
+  } (optional, post-competition)
+- duosmium: string (link to duosmium results) (optional, post-competition)
 
 
 ## Collection: Applications

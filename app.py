@@ -203,9 +203,17 @@ def admin_members():
 def admin_analytics():
     return render_template('admin_analytics.html')
 
+@app.route('/admin/competitions')
+def admin_competitions():
+    return render_template('admin_competitions.html')
+
 @app.route('/platform')
 def platform():
     return render_template('platform.html')
+
+@app.route('/sponsors')
+def sponsors():
+    return render_template('sponsors.html')
 
 if __name__ == '__main__':
     app.run(debug=True, host='localhost', port=8000) 

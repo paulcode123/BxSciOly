@@ -643,6 +643,7 @@ def update_learning_module(module_id):
         update_data = {
             'eventName': data.get('eventName'),
             'title': data.get('title'),
+            'description': data.get('description', ''),
             'duration': data.get('duration', ''),
             'unit': data.get('unit', 'Unit 1'),
             'order': int(data.get('order', 1)),
@@ -822,3 +823,37 @@ def update_calendar_event(event_id):
         return jsonify({"message": message}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500 
+
+# --- ADMIN-FRIENDLY API ENDPOINTS FOR ADMIN COMPETITIONS PAGE ---
+
+# Competitions
+@firebase_routes.route('/api/admin/competitions', methods=['GET'])
+def admin_get_competitions():
+    return get_all('Competitions')
+
+@firebase_routes.route('/api/admin/competitions', methods=['POST'])
+def admin_create_competition():
+    return create('Competitions')
+
+@firebase_routes.route('/api/admin/competitions/<competition_id>', methods=['PUT', 'PATCH'])
+def admin_update_competition(competition_id):
+    return update('Competitions', competition_id)
+
+@firebase_routes.route('/api/admin/competitions/<competition_id>', methods=['DELETE'])
+def admin_delete_competition(competition_id):
+    return delete('Competitions', competition_id)
+
+# Applications
+@firebase_routes.route('/api/admin/applications', methods=['GET'])
+def admin_get_applications():
+    return get_all('Applications')
+
+# Members
+@firebase_routes.route('/api/admin/members', methods=['GET'])
+def admin_get_members():
+    return get_all('Members')
+
+# Events
+@firebase_routes.route('/api/admin/events', methods=['GET'])
+def admin_get_events():
+    return get_all('Events') 

@@ -211,6 +211,17 @@
                 </div>
 
                 <div class="form-section">
+                    <h3>Admin Access (Temporary)</h3>
+                    <div class="form-group">
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="claimAdminRole" name="claimAdminRole">
+                            <label for="claimAdminRole">Claim admin role (full access)</label>
+                        </div>
+                        <div class="field-hint">Check this box to get full admin access to the platform. This is temporary for development purposes.</div>
+                    </div>
+                </div>
+
+                <div class="form-section">
                     <h3>Event Selection</h3>
                     <p class="selection-info">Select between 2-6 events you're interested in trying out for.</p>
                     <p class="selection-note">Note: You can change your event preferences at any time through your account settings after joining the team.</p>
@@ -504,6 +515,34 @@
         accent-color: var(--accent-color);
         width: 18px;
         height: 18px;
+    }
+    
+    .checkbox-option {
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        border: 2px solid #ddd;
+        transition: all 0.3s;
+    }
+    
+    .checkbox-option:hover {
+        border-color: var(--accent-color);
+        background-color: rgba(155, 89, 182, 0.05);
+    }
+    
+    .checkbox-option input[type="checkbox"] {
+        margin-right: 10px;
+        accent-color: var(--accent-color);
+        width: 18px;
+        height: 18px;
+    }
+    
+    .checkbox-option label {
+        font-weight: 600;
+        color: #333;
+        cursor: pointer;
     }
     
     .selection-info {
@@ -1164,7 +1203,8 @@
                     agreementAccepted: document.getElementById('agreementAccepted').checked,
                     agreementAcceptedAt: new Date().toISOString(),
                     createdAt: new Date().toISOString(),
-                    status: 'pending' // Initial registration status
+                    status: 'pending', // Initial registration status
+                    adminStatus: document.getElementById('claimAdminRole').checked ? 'full' : 'none'
                 };
                 
                 // Add specific fields based on member type
