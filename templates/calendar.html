@@ -540,7 +540,24 @@
             const prevMonth = new Date(currentYear, currentMonth, 0);
             const prevMonthDays = prevMonth.getDate();
             for (let day = startingDay - 1; day >= 0; day--) {
-                const dayElement = createDayElement(prevMonthDays - day, true);
+                const prevDay = prevMonthDays - day;
+                const dayElement = createDayElement(prevDay, true);
+                
+                // Check for events on previous month's preview days
+                const prevMonthYear = currentMonth === 0 ? currentYear - 1 : currentYear;
+                const prevMonthNum = currentMonth === 0 ? 12 : currentMonth;
+                const eventKey = `${prevMonthYear}-${prevMonthNum}-${prevDay}`;
+                
+                if (events[eventKey]) {
+                    const dayEvents = dayElement.querySelector('.day-events');
+                    events[eventKey].forEach(event => {
+                        const eventEl = document.createElement('div');
+                        eventEl.className = `event-indicator ${event.type}`;
+                        eventEl.innerHTML = `<span class="event-dot ${event.type}"></span>${event.text}`;
+                        dayEvents.appendChild(eventEl);
+                    });
+                }
+                
                 calendarDays.appendChild(dayElement);
             }
             
@@ -574,6 +591,22 @@
             const remainingCells = 42 - totalCells; // 6 weeks * 7 days
             for (let day = 1; day <= remainingCells; day++) {
                 const dayElement = createDayElement(day, true);
+                
+                // Check for events on next month's preview days
+                const nextMonthYear = currentMonth === 11 ? currentYear + 1 : currentYear;
+                const nextMonthNum = currentMonth === 11 ? 1 : currentMonth + 2;
+                const eventKey = `${nextMonthYear}-${nextMonthNum}-${day}`;
+                
+                if (events[eventKey]) {
+                    const dayEvents = dayElement.querySelector('.day-events');
+                    events[eventKey].forEach(event => {
+                        const eventEl = document.createElement('div');
+                        eventEl.className = `event-indicator ${event.type}`;
+                        eventEl.innerHTML = `<span class="event-dot ${event.type}"></span>${event.text}`;
+                        dayEvents.appendChild(eventEl);
+                    });
+                }
+                
                 calendarDays.appendChild(dayElement);
             }
         }

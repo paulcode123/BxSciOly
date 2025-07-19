@@ -1226,7 +1226,7 @@
             const confirmPassword = confirmPasswordField.value;
             
             // Check if password meets requirements
-            const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+            const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d\W_]{8,}$/;
             
             // Check if passwords match
             if (password && confirmPassword && password !== confirmPassword) {
@@ -1261,7 +1261,7 @@
             // Validate password requirements
             const password = passwordField.value;
             const confirmPassword = confirmPasswordField.value;
-            const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+            const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d\W_]{8,}$/;
             
             if (!passwordRegex.test(password)) {
                 errors.push('Password must be at least 8 characters and include both letters and numbers.');
