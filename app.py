@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, send_from_directory
 from datetime import datetime
 from routes.firebase_routes import firebase_routes
 from routes.test_parsing_routes import test_parsing_routes
@@ -214,6 +214,10 @@ def platform():
 @app.route('/sponsors')
 def sponsors():
     return render_template('sponsors.html')
+
+@app.route('/templates/approved_emails.txt')
+def serve_approved_emails():
+    return send_from_directory('templates', 'approved_emails.txt')
 
 if __name__ == '__main__':
     app.run(debug=True, host='localhost', port=8000) 

@@ -134,11 +134,19 @@
                     <div id="returningMemberSection" class="conditional-section" style="display: none;">
                         <div class="form-group">
                             <label for="yearsOnTeam">How many years have you been on the team? <span class="required">*</span></label>
-                            <input type="number" id="yearsOnTeam" name="yearsOnTeam" min="1" max="10" required>
-                            <div class="field-hint">Enter the number of years you've been on the Science Olympiad team</div>
+                            <select id="yearsOnTeam" name="yearsOnTeam" required>
+                                <option value="" disabled selected>Select number of years</option>
+                                <option value="1">1 year</option>
+                                <option value="2">2 years</option>
+                                <option value="3">3 years</option>
+                                <option value="4">4 years</option>
+                                <option value="5">5 years</option>
+                                <option value="6">6 years</option>
+                            </select>
+                            <div class="field-hint">Enter the number of years you've been on the Science Olympiad team, including your Division B experience</div>
                         </div>
                         <div class="form-group">
-                            <label for="pastExperience">List your past Science Olympiad results/experience <span class="required">*</span></label>
+                            <label for="pastExperience">List your past Science Olympiad results, medal history, and membership <span class="required">*</span></label>
                             <textarea id="pastExperience" name="pastExperience" rows="4" required></textarea>
                         </div>
                         <div class="form-group">
@@ -233,13 +241,14 @@
                 </div>
 
                 <div class="form-section">
-                    <h3>Admin Access (Temporary)</h3>
+                    <h3>Admin Access </h3>
                     <div class="form-group">
                         <div class="checkbox-option">
                             <input type="checkbox" id="claimAdminRole" name="claimAdminRole">
                             <label for="claimAdminRole">Claim admin role (full access)</label>
                         </div>
                         <div class="field-hint">Check this box to get full admin access to the platform. This is temporary for development purposes.</div>
+                        <div id="adminAccessError" class="error-message" style="display: none;"></div>
                     </div>
                 </div>
 
@@ -258,16 +267,15 @@
                 </div>
 
                 <div class="form-section">
-                    <h3>Science Olympiad Membership Agreement</h3>
-                    <div class="agreement-container">
-                        <div class="agreement-text">
+                    <h3>Science Olympiad Membership Contract</h3>
+                    <div class="contract-container">
+                        <div class="contract-text">
                             <p>By submitting this registration, I agree to the following terms and conditions of membership in the Bronx Science Science Olympiad team:</p>
                             
                             <h4><i class="fas fa-graduation-cap"></i> Academic Honesty and Integrity</h4>
                             <ul>
                                 <li>I will not use artificial intelligence (AI) tools, chatbots, or automated assistance in completing learning modules, practice tests, or any educational materials provided by the team.</li>
-                                <li>I will not plagiarize, cheat, or engage in any form of academic dishonesty during practices, competitions, or related activities.</li>
-                                <li>I will properly cite all sources and give credit where due in any research or written work.</li>
+                                <li>I will not plagiarize, cheat, or engage in any form of academic dishonesty during practices, invitationals, competitions, or related activities.</li>
                                 <li>I understand that violations of academic honesty may result in removal from the team and forfeiture of competition opportunities.</li>
                             </ul>
 
@@ -294,7 +302,6 @@
                                 <li>I understand that Science Olympiad requires significant time commitment and dedication throughout the school year.</li>
                                 <li>I will attend all required practices, meetings, and competitions unless excused by team leadership.</li>
                                 <li>I will communicate absences or conflicts in advance whenever possible.</li>
-                                <li>I will actively participate in team fundraising efforts and community service activities as assigned.</li>
                             </ul>
 
                             <h4><i class="fas fa-users"></i> Team Representation and Sportsmanship</h4>
@@ -307,7 +314,7 @@
 
                             <h4><i class="fas fa-gavel"></i> Disciplinary Actions and Consequences</h4>
                             <ul>
-                                <li>I understand that the team leadership reserves the right to impose disciplinary actions for violations of this agreement.</li>
+                                <li>I understand that the team leadership reserves the right to impose disciplinary actions for violations of this contract.</li>
                                 <li>Consequences may include but are not limited to: verbal warnings, written warnings, suspension from practices or competitions, removal from specific events, or permanent dismissal from the team.</li>
                                 <li>I understand that serious violations may also result in school disciplinary action as per Bronx Science policies.</li>
                                 <li>I have the right to appeal disciplinary decisions through the established team grievance process.</li>
@@ -317,19 +324,19 @@
                             <ul>
                                 <li>I understand that team membership is contingent upon maintaining good academic standing at Bronx Science.</li>
                                 <li>I give permission for photographs and videos taken during team activities to be used for promotional purposes.</li>
-                                <li>I understand that this agreement remains in effect for the duration of my membership on the team.</li>
+                                <li>I understand that this contract remains in effect for the duration of my membership on the team.</li>
                                 <li>I acknowledge that team policies and procedures may be updated throughout the year, and I agree to comply with any reasonable changes.</li>
                             </ul>
 
-                            <div class="agreement-footer">
-                                <p><strong>By checking the box below and submitting this registration, I acknowledge that I have read, understood, and agree to abide by all terms of this Science Olympiad Membership Agreement.</strong></p>
+                            <div class="contract-footer">
+                                <p><strong>By checking the box below and submitting this registration, I acknowledge that I have read, understood, and agree to abide by all terms of this Science Olympiad Membership Contract.</strong></p>
                             </div>
                         </div>
                         
-                        <div class="agreement-checkbox">
-                            <input type="checkbox" id="agreementAccepted" name="agreementAccepted" required>
-                            <label for="agreementAccepted">
-                                <strong>I have read and agree to the Science Olympiad Membership Agreement <span class="required">*</span></strong>
+                        <div class="contract-checkbox">
+                            <input type="checkbox" id="contractAccepted" name="contractAccepted" required>
+                            <label for="contractAccepted">
+                                <strong>I have read and agree to the Science Olympiad Membership Contract <span class="required">*</span></strong>
                             </label>
                         </div>
                     </div>
@@ -337,7 +344,7 @@
 
                 <div class="form-footer">
                     <div id="formErrors" class="error-message"></div>
-                    <button type="submit" class="submit-btn">Submit Registration</button>
+                    <button type="submit" class="submit-btn" disabled>Submit Registration</button>
                 </div>
             </form>
         </div>
@@ -379,7 +386,7 @@
                     <div class="step-icon"><i class="fas fa-trophy"></i></div>
                     <div class="step-content">
                         <h3>Join an Elite Community</h3>
-                        <p>Team selections will be announced by early November. If selected, you'll join a community of incredibly smart and talented individuals who are passionate about scientific excellence.</p>
+                        <p>Team selections will be announced shortly after tryouts. If selected, you'll join a community of incredibly smart and talented individuals who are passionate about scientific excellence.</p>
                     </div>
                 </div>
             </div>
@@ -658,12 +665,21 @@
         padding: 15px 40px;
         font-size: 1.1rem;
         font-weight: 600;
+        font-family: 'Montserrat', sans-serif;
         border-radius: 30px;
         cursor: pointer;
         transition: all 0.3s;
     }
     
-    .submit-btn:hover {
+    .submit-btn:disabled {
+        background: #ccc;
+        color: #666;
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+    }
+    
+    .submit-btn:hover:not(:disabled) {
         transform: translateY(-3px);
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
@@ -760,7 +776,7 @@
         font-style: italic;
     }
     
-    .agreement-container {
+    .contract-container {
         background: white;
         border-radius: 15px;
         padding: 30px;
@@ -768,11 +784,11 @@
         border-left: 5px solid var(--accent-color);
     }
     
-    .agreement-text {
+    .contract-text {
         margin-bottom: 25px;
     }
     
-    .agreement-text h4 {
+    .contract-text h4 {
         color: var(--primary-color);
         margin-top: 25px;
         margin-bottom: 15px;
@@ -781,29 +797,29 @@
         align-items: center;
     }
     
-    .agreement-text h4:first-of-type {
+    .contract-text h4:first-of-type {
         margin-top: 15px;
     }
     
-    .agreement-text h4 i {
+    .contract-text h4 i {
         margin-right: 10px;
         color: var(--accent-color);
     }
     
-    .agreement-text ul {
+    .contract-text ul {
         list-style-type: none;
         padding-left: 0;
         margin-bottom: 20px;
     }
     
-    .agreement-text ul li {
+    .contract-text ul li {
         position: relative;
         padding-left: 25px;
         margin-bottom: 10px;
         line-height: 1.5;
     }
     
-    .agreement-text ul li:before {
+    .contract-text ul li:before {
         content: '\2022';
         color: var(--accent-color);
         position: absolute;
@@ -812,7 +828,7 @@
         font-size: 1.2rem;
     }
     
-    .agreement-footer {
+    .contract-footer {
         background-color: rgba(155, 89, 182, 0.1);
         padding: 20px;
         border-radius: 10px;
@@ -820,7 +836,7 @@
         border: 1px solid rgba(155, 89, 182, 0.3);
     }
     
-    .agreement-checkbox {
+    .contract-checkbox {
         display: flex;
         align-items: flex-start;
         padding: 20px;
@@ -830,12 +846,12 @@
         transition: all 0.3s;
     }
     
-    .agreement-checkbox:hover {
+    .contract-checkbox:hover {
         border-color: var(--accent-color);
         background-color: rgba(155, 89, 182, 0.05);
     }
     
-    .agreement-checkbox input[type="checkbox"] {
+    .contract-checkbox input[type="checkbox"] {
         margin-right: 15px;
         margin-top: 2px;
         accent-color: var(--accent-color);
@@ -844,7 +860,7 @@
         flex-shrink: 0;
     }
     
-    .agreement-checkbox label {
+    .contract-checkbox label {
         font-size: 1.1rem;
         line-height: 1.4;
         cursor: pointer;
@@ -1018,7 +1034,13 @@
                     // Group events by subject
                     const eventsBySubject = {};
                     events.forEach(event => {
-                        const subject = event.subject || 'classification-compilation';
+                        let subject = event.subject || 'classification-compilation';
+                        
+                        // Combine construction-build and precision-build into build-events
+                        if (subject === 'construction-build' || subject === 'precision-build') {
+                            subject = 'build-events';
+                        }
+                        
                         if (!eventsBySubject[subject]) {
                             eventsBySubject[subject] = [];
                         }
@@ -1046,13 +1068,12 @@
             
             // Subject display names and icons
             const subjectInfo = {
-                'construction-build': { name: 'Construction Build Events', icon: 'fas fa-hammer', description: 'Events with wooden builds optimized for power & strength' },
-                'precision-build': { name: 'Precision Build Events', icon: 'fas fa-ruler-combined', description: 'Events requiring applied mathematics, electronics, and precise engineering' },
-                'physics': { name: 'Physics and Design Events', icon: 'fas fa-cogs', description: 'Theory-based test+lab events requiring mechanical and electrical engineering knowledge' },
-                'earth-science': { name: 'Earth Science Events', icon: 'fas fa-globe-americas', description: 'Environmental systems events (2 reference sheets allowed during tests)' },
-                'classification-compilation': { name: 'Classification & Compilation Events', icon: 'fas fa-search', description: 'Research, compilation and identification events (unlimited binder events)' },
-                'biology': { name: 'Biology Events', icon: 'fas fa-dna', description: 'Human biology events from DNA to populations' },
-                'chemistry': { name: 'Chemistry & Inquiry Events', icon: 'fas fa-flask', description: 'Critical analysis events requiring AP-level chemistry knowledge (for some events)' }
+                'build-events': { name: 'Build Events', icon: 'fas fa-hammer', description: '<em>Events requiring foundations in physics — specifically applying them to engineering, electronics, and programming.</em>' },
+                'physics': { name: 'Physics and Design Events', icon: 'fas fa-cogs', description: 'These events require a strong foundation in physics, specifically mechanics and electricity, and are often hybrid events between test and build portions.' },
+                'earth-science': { name: 'Earth Science Events', icon: 'fas fa-globe-americas', description: 'These events describe the Earth as a system and how the dynamics and processes within its unique environments affect the Earth as a whole.' },
+                'classification-compilation': { name: 'Classification & Compilation Events', icon: 'fas fa-search', description: 'This category describes events that require heavy research and compilation of information. All events in this category are binder events between Biology and Earth Science.' },
+                'biology': { name: 'Biology Events', icon: 'fas fa-dna', description: 'These events require a strong foundation in biology, specifically applied to genetics, epidemiology, and neuroscience.' },
+                'chemistry': { name: 'Chemistry & Inquiry Events', icon: 'fas fa-flask', description: 'Events that require foundations in chemistry and scientific inquiry applied to experimentation and chemical interactions.' }
             };
             
             // Render each subject group
@@ -1122,7 +1143,79 @@
             });
         }
         
-
+        // Load approved emails for admin validation
+        let approvedEmails = [];
+        
+        // Fetch approved emails from the text file
+        fetch('/templates/approved_emails.txt')
+            .then(response => response.text())
+            .then(data => {
+                approvedEmails = data.split('\n').filter(email => email.trim() !== '').map(email => email.toLowerCase().trim());
+            })
+            .catch(error => {
+                console.error('Error loading approved emails:', error);
+            });
+        
+        // Admin access validation
+        const adminCheckbox = document.getElementById('claimAdminRole');
+        const doeEmailField = document.getElementById('doeEmail');
+        
+        function validateAdminAccess() {
+            if (adminCheckbox.checked) {
+                const userEmail = doeEmailField.value.toLowerCase().trim();
+                if (!approvedEmails.includes(userEmail)) {
+                    // Show error message in the admin section
+                    const errorDiv = document.getElementById('adminAccessError');
+                    errorDiv.style.display = 'block';
+                    errorDiv.innerHTML = '<div>You don\'t qualify for admin access. See <a href="/leadership" style="color: #007bff; text-decoration: underline;">primary leadership</a> for further inquiries.</div>';
+                    return false;
+                } else {
+                    // Email is valid - hide error message
+                    const errorDiv = document.getElementById('adminAccessError');
+                    errorDiv.style.display = 'none';
+                    errorDiv.innerHTML = '';
+                }
+            }
+            return true;
+        }
+        
+        // Add event listener to admin checkbox
+        adminCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                validateAdminAccess();
+            } else {
+                // Clear error message if admin checkbox is unchecked
+                const errorDiv = document.getElementById('adminAccessError');
+                errorDiv.style.display = 'none';
+                errorDiv.innerHTML = '';
+            }
+        });
+        
+        // Add event listener to DOE email field to re-validate admin access when email changes
+        doeEmailField.addEventListener('input', function() {
+            // Only re-validate if admin checkbox is currently checked
+            if (adminCheckbox.checked) {
+                validateAdminAccess();
+            }
+        });
+        
+        // Contract checkbox functionality for submit button
+        const contractCheckbox = document.getElementById('contractAccepted');
+        const submitBtn = document.querySelector('.submit-btn');
+        
+        function updateSubmitButtonState() {
+            if (contractCheckbox.checked) {
+                submitBtn.disabled = false;
+            } else {
+                submitBtn.disabled = true;
+            }
+        }
+        
+        // Initialize button state
+        updateSubmitButtonState();
+        
+        // Add event listener to contract checkbox
+        contractCheckbox.addEventListener('change', updateSubmitButtonState);
         
         // Password validation
         const passwordField = document.getElementById('password');
@@ -1159,6 +1252,11 @@
             let errors = [];
             formErrors.innerHTML = '';
             formErrors.style.display = 'none';
+            
+            // Validate admin access first
+            if (adminCheckbox.checked && !validateAdminAccess()) {
+                return; // Stop form submission if admin validation fails
+            }
             
             // Validate password requirements
             const password = passwordField.value;
@@ -1214,10 +1312,10 @@
                 errors.push('DOE email address must end with @nycstudents.net');
             }
             
-            // Validate membership agreement acceptance
-            const agreementAccepted = document.getElementById('agreementAccepted').checked;
-            if (!agreementAccepted) {
-                errors.push('You must read and agree to the Science Olympiad Membership Agreement to proceed.');
+            // Validate membership contract acceptance
+            const contractAccepted = document.getElementById('contractAccepted').checked;
+            if (!contractAccepted) {
+                errors.push('You must read and agree to the Science Olympiad Membership Contract to proceed.');
             }
             
             // Display errors if any
@@ -1258,8 +1356,8 @@
                     importantNotification: document.getElementById('importantNotification').value,
                     teamNotification: document.getElementById('teamNotification').value,
                     eventNotification: document.getElementById('eventNotification').value,
-                    agreementAccepted: document.getElementById('agreementAccepted').checked,
-                    agreementAcceptedAt: new Date().toISOString(),
+                    contractAccepted: document.getElementById('contractAccepted').checked,
+                    contractAcceptedAt: new Date().toISOString(),
                     createdAt: new Date().toISOString(),
                     status: 'pending', // Initial registration status
                     adminStatus: document.getElementById('claimAdminRole').checked ? 'full' : 'none'
