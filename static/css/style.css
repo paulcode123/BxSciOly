@@ -640,3 +640,18 @@ footer:before {
     position: relative;
     overflow: hidden;
 } 
+
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+.form-group input[type="password"]:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(155, 89, 182, 0.2);
+    outline: none;
+} 
