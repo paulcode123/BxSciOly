@@ -1232,7 +1232,7 @@
             if (password && confirmPassword && password !== confirmPassword) {
                 confirmPasswordField.setCustomValidity("Passwords don't match");
             } else if (password && !passwordRegex.test(password)) {
-                passwordField.setCustomValidity("Password must be at least 8 characters and include letters and numbers");
+                passwordField.setCustomValidity("Password must be at least 8 characters and include letters and numbers. Symbols are allowed.");
             } else {
                 passwordField.setCustomValidity("");
                 confirmPasswordField.setCustomValidity("");
@@ -1264,7 +1264,7 @@
             const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d\W_]{8,}$/;
             
             if (!passwordRegex.test(password)) {
-                errors.push('Password must be at least 8 characters and include both letters and numbers.');
+                errors.push('Password must be at least 8 characters and include letters and numbers. Symbols are allowed.');
             }
             
             if (password !== confirmPassword) {
