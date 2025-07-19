@@ -28,7 +28,7 @@
 - teamNotification: string (enum: "none", "email", "text", "both")
 - eventNotification: string (enum: "none", "email", "text", "both")
 
-- adminStatus: string (enum: "none", "EM", "SD/BD", "full")
+- adminStatus: string (enum: "none", "full")
 
 
 ## Collection: Binders
@@ -169,7 +169,8 @@
 - userId: string (reference to Members)
 - moduleId: string (reference to LearningModules)
 - eventName: string
-- points: number (points for completion)
+- totalPoints: number (points for completion)
+- pointsGiven: number (points given by admin)
 - completed: boolean
 - completedAt: timestamp
 - c3certified: boolean

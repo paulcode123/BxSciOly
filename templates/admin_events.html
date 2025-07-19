@@ -75,6 +75,9 @@
             <button class="event-tab" data-tab="modules">
                 <i class="fas fa-graduation-cap"></i> Learning Modules
             </button>
+            <button class="event-tab" data-tab="submissions">
+                <i class="fas fa-clipboard-check"></i> Module Submissions
+            </button>
             <button class="event-tab" data-tab="general">
                 <i class="fas fa-info-circle"></i> General Content
             </button>
@@ -120,7 +123,7 @@
                     
                     <div class="form-row">
                         <div class="form-group">
-                            <label>Icon (FontAwesome Class)</label>
+                            <label>Icon (FontAwesome Class) <a href="https://fontawesome.com/icons" target="_blank" style="color: #667eea; text-decoration: none; font-size: 0.875rem;">🔗 Browse Icons</a></label>
                             <input type="text" id="eventIcon" placeholder="e.g., fas fa-atom">
                         </div>
                         <div class="form-group">
@@ -205,6 +208,53 @@
 
                 <div id="modulesGrid" class="modules-grid">
                     <!-- Modules will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="submissions-tab">
+            <div class="submissions-container">
+                <div class="submissions-header">
+                    <h3>Module Submissions</h3>
+                    <div class="submissions-actions">
+                        <button class="btn-secondary" onclick="refreshSubmissions()" title="Refresh Submissions">
+                            <i class="fas fa-sync-alt"></i> Refresh
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="submissions-stats">
+                    <div class="stat-item">
+                        <span class="stat-value" id="totalSubmissions">0</span>
+                        <span class="stat-label">Total Submissions</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="pendingReview">0</span>
+                        <span class="stat-label">Pending Review</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="avgPoints">0</span>
+                        <span class="stat-label">Avg Points Given</span>
+                    </div>
+                </div>
+
+                <div class="submissions-filters">
+                    <select id="submissionStatusFilter" onchange="filterSubmissions()">
+                        <option value="all">All Status</option>
+                        <option value="completed">Completed</option>
+                        <option value="pending">Pending Review</option>
+                    </select>
+                    <select id="submissionTypeFilter" onchange="filterSubmissions()">
+                        <option value="all">All Types</option>
+                        <option value="none">No Validation</option>
+                        <option value="notesUpload">Notes Upload</option>
+                        <option value="problems">Problems</option>
+                        <option value="AIconversation">AI Conversation</option>
+                    </select>
+                </div>
+
+                <div id="submissionsGrid" class="submissions-grid">
+                    <!-- Submissions will be loaded here -->
                 </div>
             </div>
         </div>
@@ -358,18 +408,12 @@
                     <h4><i class="fas fa-info-circle"></i> Basic Information</h4>
                     <div class="form-row">
                         <div class="form-group">
-                            <label>Module Type:</label>
-                            <select name="type" required onchange="updateModuleIcon(this.value)">
-                                <option value="reading">📚 Reading</option>
-                                <option value="video">🎥 Video</option>
-                                <option value="research">🔍 Research</option>
-                                <option value="ai">🤖 AI Tutor</option>
-                                <option value="checkpoint">🏁 Checkpoint</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
                             <label>Order:</label>
                             <input type="number" name="order" min="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Duration:</label>
+                            <input type="text" name="duration" placeholder="e.g., 15 min, 45 min">
                         </div>
                     </div>
                     <div class="form-row">
@@ -378,8 +422,23 @@
                             <input type="text" name="title" required placeholder="Enter module title">
                         </div>
                         <div class="form-group">
-                            <label>Duration:</label>
-                            <input type="text" name="duration" placeholder="e.g., 15 min, 45 min">
+                            <label>Unit:</label>
+                            <div class="unit-selector">
+                                <select name="unit" id="createUnitSelect" onchange="toggleUnitInput('create')">
+                                    <option value="">Select a unit...</option>
+                                    <option value="new">+ Add New Unit</option>
+                                </select>
+                                <input type="text" name="newUnit" id="createNewUnitInput" placeholder="Enter new unit name (e.g., Unit 1, Fundamentals)" class="hidden">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Points:</label>
+                            <input type="number" name="points" min="1" max="100" value="10">
+                        </div>
+                        <div class="form-group">
+                            <!-- Spacer to maintain layout -->
                         </div>
                     </div>
                     <div class="form-group">
@@ -404,6 +463,9 @@
                     <h4><i class="fas fa-link"></i> Resources</h4>
                     <div id="resourcesContainer">
                         <div class="resource-item">
+                            <button type="button" class="resource-remove-btn" onclick="removeResource(this)">
+                                <i class="fas fa-times"></i>
+                            </button>
                             <div class="form-row">
                                 <div class="form-group">
                                     <label>Resource Type:</label>
@@ -429,27 +491,21 @@
                             </div>
                         </div>
                     </div>
-                    <button type="button" class="btn-secondary btn-sm" onclick="addResource()">
+                    <button type="button" class="btn-primary btn-sm" onclick="addResource()">
                         <i class="fas fa-plus"></i> Add Another Resource
                     </button>
                 </div>
 
                 <div class="form-section">
                     <h4><i class="fas fa-cog"></i> Validation & Settings</h4>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Validation Type:</label>
-                            <select name="validationType" onchange="toggleValidationFields(this.value)">
-                                <option value="none">None</option>
-                                <option value="notesUpload">Notes Upload</option>
-                                <option value="problems">Problems/Quiz</option>
-                                <option value="AIconversation">AI Conversation</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Points:</label>
-                            <input type="number" name="points" min="1" max="100" value="10">
-                        </div>
+                    <div class="form-group">
+                        <label>Validation Type:</label>
+                        <select name="validationType" onchange="toggleValidationFields(this.value)">
+                            <option value="none">None</option>
+                            <option value="notesUpload">Notes Upload</option>
+                            <option value="problems">Problems/Quiz</option>
+                            <option value="AIconversation">AI Conversation</option>
+                        </select>
                     </div>
                     <div id="problemsContainer" class="hidden">
                         <div class="form-group">
@@ -493,18 +549,12 @@
                     <h4><i class="fas fa-info-circle"></i> Basic Information</h4>
                     <div class="form-row">
                         <div class="form-group">
-                            <label>Module Type:</label>
-                            <select name="type" required onchange="updateModuleIcon(this.value)">
-                                <option value="reading">📚 Reading</option>
-                                <option value="video">🎥 Video</option>
-                                <option value="research">🔍 Research</option>
-                                <option value="ai">🤖 AI Tutor</option>
-                                <option value="checkpoint">🏁 Checkpoint</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
                             <label>Order:</label>
                             <input type="number" name="order" min="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Duration:</label>
+                            <input type="text" name="duration" placeholder="e.g., 15 min, 45 min">
                         </div>
                     </div>
                     <div class="form-row">
@@ -513,8 +563,23 @@
                             <input type="text" name="title" required placeholder="Enter module title">
                         </div>
                         <div class="form-group">
-                            <label>Duration:</label>
-                            <input type="text" name="duration" placeholder="e.g., 15 min, 45 min">
+                            <label>Unit:</label>
+                            <div class="unit-selector">
+                                <select name="unit" id="editUnitSelect" onchange="toggleUnitInput('edit')">
+                                    <option value="">Select a unit...</option>
+                                    <option value="new">+ Add New Unit</option>
+                                </select>
+                                <input type="text" name="newUnit" id="editNewUnitInput" placeholder="Enter new unit name (e.g., Unit 1, Fundamentals)" class="hidden">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Points:</label>
+                            <input type="number" name="points" min="1" max="100" value="10">
+                        </div>
+                        <div class="form-group">
+                            <!-- Spacer to maintain layout -->
                         </div>
                     </div>
                     <div class="form-group">
@@ -540,27 +605,21 @@
                     <div id="editResourcesContainer">
                         <!-- Resources will be populated here -->
                     </div>
-                    <button type="button" class="btn-secondary btn-sm" onclick="addEditResource()">
+                    <button type="button" class="btn-primary btn-sm" onclick="addEditResource()">
                         <i class="fas fa-plus"></i> Add Another Resource
                     </button>
                 </div>
 
                 <div class="form-section">
                     <h4><i class="fas fa-cog"></i> Validation & Settings</h4>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Validation Type:</label>
-                            <select name="validationType" onchange="toggleEditValidationFields(this.value)">
-                                <option value="none">None</option>
-                                <option value="notesUpload">Notes Upload</option>
-                                <option value="problems">Problems/Quiz</option>
-                                <option value="AIconversation">AI Conversation</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Points:</label>
-                            <input type="number" name="points" min="1" max="100" value="10">
-                        </div>
+                    <div class="form-group">
+                        <label>Validation Type:</label>
+                        <select name="validationType" onchange="toggleEditValidationFields(this.value)">
+                            <option value="none">None</option>
+                            <option value="notesUpload">Notes Upload</option>
+                            <option value="problems">Problems/Quiz</option>
+                            <option value="AIconversation">AI Conversation</option>
+                        </select>
                     </div>
                     <div id="editProblemsContainer" class="hidden">
                         <div class="form-group">
@@ -1326,6 +1385,217 @@
         transform: translateY(-2px);
     }
 
+    /* Submissions Tab */
+    .submissions-container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .submissions-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .submissions-header h3 {
+        margin: 0;
+        color: #1e293b;
+        font-size: 1.5rem;
+    }
+
+    .submissions-actions {
+        display: flex;
+        gap: 0.75rem;
+        align-items: center;
+    }
+
+    .submissions-stats {
+        display: flex;
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .submissions-filters {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        align-items: center;
+    }
+
+    .submissions-filters select {
+        padding: 0.5rem 1rem;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        background: white;
+        font-size: 0.875rem;
+    }
+
+    .submissions-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .submission-card {
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 1.5rem;
+        transition: all 0.2s;
+    }
+
+    .submission-card:hover {
+        background: #f1f5f9;
+        transform: translateY(-2px);
+    }
+
+    .submission-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 1rem;
+    }
+
+    .submission-user {
+        flex: 1;
+    }
+
+    .submission-user h4 {
+        margin: 0 0 0.25rem 0;
+        color: #1e293b;
+        font-size: 1.125rem;
+    }
+
+    .submission-user p {
+        margin: 0;
+        color: #6b7280;
+        font-size: 0.875rem;
+    }
+
+    .submission-status {
+        padding: 0.25rem 0.75rem;
+        border-radius: 12px;
+        font-size: 0.75rem;
+        font-weight: 500;
+        text-transform: capitalize;
+    }
+
+    .submission-status.completed {
+        background: #dcfce7;
+        color: #166534;
+    }
+
+    .submission-status.pending {
+        background: #fef3c7;
+        color: #92400e;
+    }
+
+    .submission-details {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 0.75rem;
+        margin: 1rem 0;
+        padding: 0.75rem;
+        background: white;
+        border-radius: 6px;
+        border: 1px solid #e2e8f0;
+    }
+
+    .submission-detail-item {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .submission-detail-label {
+        font-size: 0.75rem;
+        color: #6b7280;
+        font-weight: 500;
+    }
+
+    .submission-detail-value {
+        font-size: 0.875rem;
+        color: #1e293b;
+        font-weight: 600;
+    }
+
+    .submission-content {
+        margin: 1rem 0;
+        padding: 1rem;
+        background: white;
+        border-radius: 6px;
+        border: 1px solid #e2e8f0;
+    }
+
+    .submission-content h5 {
+        margin: 0 0 0.75rem 0;
+        color: #1e293b;
+        font-size: 0.875rem;
+        font-weight: 600;
+    }
+
+    .submission-content p {
+        margin: 0;
+        font-size: 0.875rem;
+        color: #374151;
+        line-height: 1.4;
+    }
+
+    .submission-actions {
+        display: flex;
+        gap: 0.5rem;
+        margin-top: 1rem;
+        justify-content: flex-end;
+    }
+
+    .points-input {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .points-input label {
+        font-size: 0.875rem;
+        color: #6b7280;
+        font-weight: 500;
+    }
+
+    .points-input input {
+        width: 80px;
+        padding: 0.25rem 0.5rem;
+        border: 1px solid #d1d5db;
+        border-radius: 4px;
+        font-size: 0.875rem;
+    }
+
+    .conversation-preview {
+        max-height: 200px;
+        overflow-y: auto;
+        border: 1px solid #e2e8f0;
+        border-radius: 4px;
+        padding: 0.75rem;
+        background: #f8fafc;
+    }
+
+    .conversation-message {
+        margin-bottom: 0.75rem;
+        padding: 0.5rem;
+        border-radius: 4px;
+        font-size: 0.8rem;
+    }
+
+    .conversation-message.user {
+        background: #dbeafe;
+        color: #1e40af;
+    }
+
+    .conversation-message.assistant {
+        background: #f3e8ff;
+        color: #7c3aed;
+    }
+
     /* Modal Styles */
     .modal {
         display: none;
@@ -1506,6 +1776,26 @@
         padding: 0.375rem 0.75rem;
         font-size: 0.875rem;
         border-radius: 6px;
+    }
+
+    .unit-selector {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .unit-selector select,
+    .unit-selector input {
+        padding: 0.75rem;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        font-family: inherit;
+        font-size: 0.875rem;
+        width: 100%;
+    }
+
+    .unit-selector input.hidden {
+        display: none;
     }
 
     .module-preview {
@@ -1786,8 +2076,10 @@
         const tabContents = document.querySelectorAll('.tab-content');
 
         // Initialize
-        loadEvents();
-        loadMembers();
+        (async () => {
+            await loadEvents();
+            await loadMembers();
+        })();
 
         // Event listeners
         document.getElementById('createEventBtn').addEventListener('click', () => {
@@ -1800,6 +2092,7 @@
         });
 
         document.getElementById('createModuleBtn').addEventListener('click', () => {
+            loadExistingUnits();
             document.getElementById('createModuleModal').style.display = 'block';
         });
 
@@ -1858,7 +2151,7 @@
             });
             
             console.log('Loaded events:', allEvents); // Debug log
-            populateEventsGrid();
+            await populateEventsGrid();
         } catch (error) {
             console.error('Error loading events:', error);
                 eventsGrid.innerHTML = '<div class="error-message">Failed to load events</div>';
@@ -1878,50 +2171,119 @@
     }
 
         // Populate events grid
-    function populateEventsGrid() {
+    async function populateEventsGrid() {
         if (allEvents.length === 0) {
                 eventsGrid.innerHTML = '<div class="empty-state"><i class="fas fa-trophy"></i><p>No events found</p></div>';
             return;
         }
 
+        // Show loading state
+        eventsGrid.innerHTML = '<div class="loading-indicator"><i class="fas fa-spinner"></i><p>Loading events...</p></div>';
+
+        try {
+            // Fetch modules and binders data
+            const [modulesResponse, bindersResponse] = await Promise.all([
+                fetch('/api/LearningModules'),
+                fetch('/api/Binders')
+            ]);
+
+            const allModules = await modulesResponse.json();
+            const allBinders = await bindersResponse.json();
+
             eventsGrid.innerHTML = '';
-        allEvents.forEach(event => {
+            
+            for (const event of allEvents) {
                 const eventCard = document.createElement('div');
                 eventCard.className = 'event-card';
                 eventCard.dataset.eventId = event.id;
 
                 // Calculate stats
-            const assignedMembers = event.members ? event.members.length : 0;
+                const assignedMembers = event.members ? event.members.length : 0;
+                
+                // Count modules for this event
+                const eventModules = allModules.filter(moduleWrapper => {
+                    const module = Object.values(moduleWrapper)[0];
+                    return module.eventName === event.eventName;
+                });
+                const moduleCount = eventModules.length;
+                
+                // Count binders for this event
+                const eventBinders = allBinders.filter(binderWrapper => {
+                    const binder = Object.values(binderWrapper)[0];
+                    return binder.eventName === event.eventName;
+                });
+                const binderCount = eventBinders.length;
 
-            eventCard.innerHTML = `
-                <div class="event-header">
-                    <div class="event-icon">
-                            <i class="${event.icon || getEventIcon(event.eventName)}"></i>
+                eventCard.innerHTML = `
+                    <div class="event-header">
+                        <div class="event-icon">
+                                <i class="${event.icon || getEventIcon(event.eventName)}"></i>
+                        </div>
+                        <div class="event-title">
+                                <h3>${event.eventName || 'Unnamed Event'}</h3>
+                                <p>${event.subject || 'Classification & Compilation'}</p>
+                        </div>
                     </div>
-                    <div class="event-title">
-                            <h3>${event.eventName || 'Unnamed Event'}</h3>
-                            <p>${event.subject || 'Classification & Compilation'}</p>
+                    <div class="event-stats">
+                        <div class="event-stat">
+                                <span class="event-stat-value">${assignedMembers}</span>
+                                <span class="event-stat-label">Members</span>
+                        </div>
+                        <div class="event-stat">
+                                <span class="event-stat-value">${moduleCount}</span>
+                                <span class="event-stat-label">Modules</span>
+                        </div>
+                        <div class="event-stat">
+                                <span class="event-stat-value">${binderCount}</span>
+                                <span class="event-stat-label">Binders</span>
+                        </div>
                     </div>
-                </div>
-                <div class="event-stats">
-                    <div class="event-stat">
-                            <span class="event-stat-value">${assignedMembers}</span>
-                            <span class="event-stat-label">Members</span>
+                    `;
+
+                eventCard.addEventListener('click', () => showEventDetail(event));
+                eventsGrid.appendChild(eventCard);
+            }
+        } catch (error) {
+            console.error('Error loading event stats:', error);
+            // Fallback to basic display if API calls fail
+            eventsGrid.innerHTML = '';
+            allEvents.forEach(event => {
+                const eventCard = document.createElement('div');
+                eventCard.className = 'event-card';
+                eventCard.dataset.eventId = event.id;
+
+                const assignedMembers = event.members ? event.members.length : 0;
+
+                eventCard.innerHTML = `
+                    <div class="event-header">
+                        <div class="event-icon">
+                                <i class="${event.icon || getEventIcon(event.eventName)}"></i>
+                        </div>
+                        <div class="event-title">
+                                <h3>${event.eventName || 'Unnamed Event'}</h3>
+                                <p>${event.subject || 'Classification & Compilation'}</p>
+                        </div>
                     </div>
-                    <div class="event-stat">
-                            <span class="event-stat-value">0</span>
-                            <span class="event-stat-label">Modules</span>
+                    <div class="event-stats">
+                        <div class="event-stat">
+                                <span class="event-stat-value">${assignedMembers}</span>
+                                <span class="event-stat-label">Members</span>
+                        </div>
+                        <div class="event-stat">
+                                <span class="event-stat-value">-</span>
+                                <span class="event-stat-label">Modules</span>
+                        </div>
+                        <div class="event-stat">
+                                <span class="event-stat-value">-</span>
+                                <span class="event-stat-label">Binders</span>
+                        </div>
                     </div>
-                    <div class="event-stat">
-                            <span class="event-stat-value">0</span>
-                            <span class="event-stat-label">Tests</span>
-                    </div>
-                </div>
-                `;
+                    `;
 
                 eventCard.addEventListener('click', () => showEventDetail(event));
                 eventsGrid.appendChild(eventCard);
             });
+        }
         }
 
         // Show event detail
@@ -1974,6 +2336,10 @@
                     break;
                 case 'modules':
                     loadEventModules();
+                    loadExistingUnits();
+                    break;
+                case 'submissions':
+                    loadEventSubmissions();
                     break;
                 case 'general':
                     loadEventGeneral();
@@ -2076,6 +2442,150 @@
 
                 membersGrid.appendChild(memberCard);
             });
+        }
+
+        // Load event submissions
+        async function loadEventSubmissions() {
+            const submissionsGrid = document.getElementById('submissionsGrid');
+            const totalSubmissions = document.getElementById('totalSubmissions');
+            const pendingReview = document.getElementById('pendingReview');
+            const avgPoints = document.getElementById('avgPoints');
+
+            // Show loading state
+            submissionsGrid.innerHTML = '<div class="loading-indicator"><i class="fas fa-spinner"></i><p>Loading submissions...</p></div>';
+
+            try {
+                const response = await fetch(`/api/ModuleCompletions/event/${encodeURIComponent(currentEvent.eventName)}`, {
+                    headers: { 'X-Admin-ID': adminId }
+                });
+
+                if (response.ok) {
+                    const submissions = await response.json();
+                    
+                    totalSubmissions.textContent = submissions.length;
+                    const pendingCount = submissions.filter(s => !s.completed).length;
+                    pendingReview.textContent = pendingCount;
+                    
+                    const completedSubmissions = submissions.filter(s => s.completed);
+                    const avgPointsValue = completedSubmissions.length > 0 
+                        ? Math.round(completedSubmissions.reduce((sum, s) => sum + (s.pointsGiven || 0), 0) / completedSubmissions.length)
+                        : 0;
+                    avgPoints.textContent = avgPointsValue;
+
+                    if (submissions.length === 0) {
+                        submissionsGrid.innerHTML = '<div class="empty-state"><i class="fas fa-clipboard-check"></i><p>No module submissions for this event</p><p class="empty-state-hint">Students will appear here when they complete modules!</p></div>';
+                        return;
+                    }
+
+                    submissionsGrid.innerHTML = '';
+                    submissions.forEach(submission => {
+                        const submissionCard = document.createElement('div');
+                        submissionCard.className = 'submission-card';
+
+                        // Get user details
+                        const user = allMembers.find(m => m.id === submission.userId);
+                        const userName = user ? `${user.firstName} ${user.lastName}` : 'Unknown User';
+                        const userEmail = user ? (user.doeEmail || user.personalEmail) : '';
+
+                        // Get module details
+                        const module = allModules.find(m => m.id === submission.moduleId);
+                        const moduleTitle = module ? module.title : 'Unknown Module';
+
+                        submissionCard.innerHTML = `
+                            <div class="submission-header">
+                                <div class="submission-user">
+                                    <h4>${userName}</h4>
+                                    <p>${userEmail}</p>
+                                    <p><strong>Module:</strong> ${moduleTitle}</p>
+                                </div>
+                                <div class="submission-status ${submission.completed ? 'completed' : 'pending'}">
+                                    ${submission.completed ? 'Completed' : 'Pending Review'}
+                                </div>
+                            </div>
+                            
+                            <div class="submission-details">
+                                <div class="submission-detail-item">
+                                    <span class="submission-detail-label">Total Points:</span>
+                                    <span class="submission-detail-value">${submission.totalPoints || 0}</span>
+                                </div>
+                                <div class="submission-detail-item">
+                                    <span class="submission-detail-label">Points Given:</span>
+                                    <span class="submission-detail-value">${submission.pointsGiven || 0}</span>
+                                </div>
+                                <div class="submission-detail-item">
+                                    <span class="submission-detail-label">Validation Type:</span>
+                                    <span class="submission-detail-value">${submission.c3method || 'none'}</span>
+                                </div>
+                                <div class="submission-detail-item">
+                                    <span class="submission-detail-label">Time Spent:</span>
+                                    <span class="submission-detail-value">${submission.timeSpent || 0} min</span>
+                                </div>
+                            </div>
+
+                            ${submission.completed ? `
+                                <div class="submission-content">
+                                    ${submission.c3method === 'notesUpload' && submission.notesFileUrl ? `
+                                        <h5>Notes Upload</h5>
+                                        ${submission.notesFileUrl.startsWith('http') ? `
+                                            <p><a href="${submission.notesFileUrl}" target="_blank">
+                                                <i class="fas fa-file"></i> View Notes File
+                                                ${submission.notesFileUrl.toLowerCase().includes('.png') || submission.notesFileUrl.toLowerCase().includes('.jpg') || submission.notesFileUrl.toLowerCase().includes('.jpeg') ? 
+                                                    ' (Image)' : ' (Document)'}
+                                            </a></p>
+                                        ` : `
+                                            <p class="text-warning"><i class="fas fa-exclamation-triangle"></i> Notes file not properly uploaded (placeholder URL)</p>
+                                        `}
+                                    ` : ''}
+                                    
+                                    ${submission.c3method === 'problems' && submission.problemResponses && submission.problemResponses.length > 0 ? `
+                                        <h5>Problem Responses</h5>
+                                        ${submission.problemResponses.map((response, index) => `
+                                            <p><strong>Problem ${index + 1}:</strong> ${response}</p>
+                                        `).join('')}
+                                    ` : ''}
+                                    
+                                    ${submission.c3method === 'AIconversation' && submission.aiConversation && submission.aiConversation.length > 0 ? `
+                                        <h5>AI Conversation</h5>
+                                        <div class="conversation-preview">
+                                            ${submission.aiConversation.map(msg => `
+                                                <div class="conversation-message ${msg.role}">
+                                                    <strong>${msg.role === 'user' ? 'Student' : 'AI Tutor'}:</strong> ${msg.content}
+                                                </div>
+                                            `).join('')}
+                                        </div>
+                                    ` : ''}
+                                </div>
+                            ` : ''}
+
+                            <div class="submission-actions">
+                                ${submission.completed ? `
+                                    <div class="points-input">
+                                        <label>Points Given:</label>
+                                        <input type="number" id="points_${submission.id}" value="${submission.pointsGiven || submission.totalPoints}" min="0" max="${submission.totalPoints}">
+                                    </div>
+                                    <button class="btn-sm btn-primary" onclick="updateSubmissionPoints('${submission.id}')">
+                                        <i class="fas fa-save"></i> Update Points
+                                    </button>
+                                ` : `
+                                    <button class="btn-sm btn-warning" onclick="approveSubmission('${submission.id}')">
+                                        <i class="fas fa-check"></i> Approve
+                                    </button>
+                                `}
+                                <button class="btn-sm btn-info" onclick="viewSubmissionDetails('${submission.id}')">
+                                    <i class="fas fa-eye"></i> View Details
+                                </button>
+                            </div>
+                        `;
+
+                        submissionsGrid.appendChild(submissionCard);
+                    });
+                } else {
+                    throw new Error('Failed to load submissions');
+                }
+            } catch (error) {
+                console.error('Error loading submissions:', error);
+                submissionsGrid.innerHTML = '<div class="error-message">Failed to load submissions</div>';
+            }
         }
 
         // Load event modules
@@ -2371,12 +2881,24 @@
                 }
             }
             
+            // Handle unit selection
+            let unitValue = formData.get('unit');
+            if (unitValue === 'new') {
+                unitValue = formData.get('newUnit');
+                if (!unitValue.trim()) {
+                    alert('Please enter a unit name');
+                    return;
+                }
+            } else if (!unitValue) {
+                unitValue = `Unit ${Math.ceil(parseInt(formData.get('order')) / 3)}`; // Fallback to auto-generated unit
+            }
+
             const moduleData = {
                 eventName: currentEvent.eventName,
                 title: formData.get('title'),
                 description: formData.get('description'),
                 duration: formData.get('duration'),
-                unit: `Unit ${Math.ceil(parseInt(formData.get('order')) / 3)}`,
+                unit: unitValue,
                 order: parseInt(formData.get('order')),
                 points: parseInt(formData.get('points')) || 10,
                 prerequisites: [],
@@ -2403,6 +2925,9 @@
                     // Reset resources container
                     document.getElementById('resourcesContainer').innerHTML = `
                         <div class="resource-item">
+                            <button type="button" class="resource-remove-btn" onclick="removeResource(this)">
+                                <i class="fas fa-times"></i>
+                            </button>
                             <div class="form-row">
                                 <div class="form-group">
                                     <label>Resource Type:</label>
@@ -2465,12 +2990,24 @@
                 }
             }
             
+            // Handle unit selection
+            let unitValue = formData.get('unit');
+            if (unitValue === 'new') {
+                unitValue = formData.get('newUnit');
+                if (!unitValue.trim()) {
+                    alert('Please enter a unit name');
+                    return;
+                }
+            } else if (!unitValue) {
+                unitValue = `Unit ${Math.ceil(parseInt(formData.get('order')) / 3)}`; // Fallback to auto-generated unit
+            }
+
             const moduleData = {
                 eventName: currentEvent.eventName,
                 title: formData.get('title'),
                 description: formData.get('description'),
                 duration: formData.get('duration'),
-                unit: `Unit ${Math.ceil(parseInt(formData.get('order')) / 3)}`,
+                unit: unitValue,
                 order: parseInt(formData.get('order')),
                 points: parseInt(formData.get('points')) || 10,
                 prerequisites: [],
@@ -2588,6 +3125,7 @@
                 // Handle Firebase format: {moduleId: {moduleData}}
                 const module = moduleData[moduleId] || moduleData;
                 module.id = moduleId; // Ensure ID is set
+                loadExistingUnits();
                 populateEditForm(module);
                 document.getElementById('editModuleModal').style.display = 'block';
             } catch (error) {
@@ -2602,13 +3140,32 @@
             
             // Set basic fields
             form.querySelector('[name="moduleId"]').value = module.id;
-            form.querySelector('[name="type"]').value = getModuleTypeFromTitle(module.title);
             form.querySelector('[name="order"]').value = module.order;
             form.querySelector('[name="title"]').value = module.title;
             form.querySelector('[name="duration"]').value = module.duration || '';
             form.querySelector('[name="description"]').value = module.description || '';
             form.querySelector('[name="points"]').value = module.points || 10;
             form.querySelector('[name="validationType"]').value = module.validationType || 'none';
+            
+            // Handle unit field
+            const unitSelect = form.querySelector('[name="unit"]');
+            const newUnitInput = form.querySelector('[name="newUnit"]');
+            if (module.unit) {
+                // Check if the unit exists in the select options
+                const existingOption = Array.from(unitSelect.options).find(option => option.value === module.unit);
+                if (existingOption) {
+                    unitSelect.value = module.unit;
+                    newUnitInput.classList.add('hidden');
+                } else {
+                    // Unit doesn't exist in options, set to "new" and populate input
+                    unitSelect.value = 'new';
+                    newUnitInput.value = module.unit;
+                    newUnitInput.classList.remove('hidden');
+                }
+            } else {
+                unitSelect.value = '';
+                newUnitInput.classList.add('hidden');
+            }
             
             // Set content fields
             const content = module.content || {};
@@ -2674,15 +3231,7 @@
             `;
         }
 
-        // Get module type from title
-        function getModuleTypeFromTitle(title) {
-            const lowerTitle = title.toLowerCase();
-            if (lowerTitle.includes('video') || lowerTitle.includes('watch')) return 'video';
-            if (lowerTitle.includes('research') || lowerTitle.includes('investigate')) return 'research';
-            if (lowerTitle.includes('ai') || lowerTitle.includes('tutor')) return 'ai';
-            if (lowerTitle.includes('checkpoint') || lowerTitle.includes('quiz')) return 'checkpoint';
-            return 'reading';
-        }
+
 
         // Add resource to create form
         window.addResource = function() {
@@ -2701,26 +3250,10 @@
         // Remove resource
         window.removeResource = function(button) {
             const resourceItem = button.closest('.resource-item');
-            if (document.querySelectorAll('.resource-item').length > 1) {
-                resourceItem.remove();
-            } else {
-                // Clear the form instead of removing
-                resourceItem.querySelectorAll('input, textarea').forEach(input => input.value = '');
-                resourceItem.querySelector('select').selectedIndex = 0;
-            }
+            resourceItem.remove();
         };
 
-        // Update module icon based on type
-        window.updateModuleIcon = function(type) {
-            const iconMap = {
-                'reading': '📚',
-                'video': '🎥',
-                'research': '🔍',
-                'ai': '🤖',
-                'checkpoint': '🏁'
-            };
-            // You could update a preview icon here if needed
-        };
+
 
         // Update resource icon
         window.updateResourceIcon = function(select) {
@@ -2792,6 +3325,89 @@
             if (currentEvent) {
                 loadEventModules();
             }
+        };
+
+        // Refresh submissions
+        window.refreshSubmissions = function() {
+            if (currentEvent) {
+                loadEventSubmissions();
+            }
+        };
+
+        // Filter submissions
+        window.filterSubmissions = function() {
+            // This would filter the displayed submissions based on the filter values
+            // For now, just refresh the submissions
+            loadEventSubmissions();
+        };
+
+        // Update submission points
+        window.updateSubmissionPoints = async function(submissionId) {
+            const pointsInput = document.getElementById(`points_${submissionId}`);
+            const newPoints = parseInt(pointsInput.value);
+            
+            if (isNaN(newPoints) || newPoints < 0) {
+                alert('Please enter a valid number of points');
+                return;
+            }
+            
+            try {
+                const response = await fetch(`/api/ModuleCompletions/${submissionId}`, {
+                    method: 'PATCH',
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'X-Admin-ID': adminId
+                    },
+                    body: JSON.stringify({
+                        pointsGiven: newPoints
+                    })
+                });
+                
+                if (response.ok) {
+                    alert('Points updated successfully!');
+                    loadEventSubmissions(); // Refresh the display
+                } else {
+                    alert('Error updating points');
+                }
+            } catch (error) {
+                console.error('Error updating points:', error);
+                alert('Error updating points');
+            }
+        };
+
+        // Approve submission
+        window.approveSubmission = async function(submissionId) {
+            if (!confirm('Are you sure you want to approve this submission?')) return;
+            
+            try {
+                const response = await fetch(`/api/ModuleCompletions/${submissionId}`, {
+                    method: 'PATCH',
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'X-Admin-ID': adminId
+                    },
+                    body: JSON.stringify({
+                        completed: true,
+                        completedAt: new Date().toISOString()
+                    })
+                });
+                
+                if (response.ok) {
+                    alert('Submission approved successfully!');
+                    loadEventSubmissions(); // Refresh the display
+                } else {
+                    alert('Error approving submission');
+                }
+            } catch (error) {
+                console.error('Error approving submission:', error);
+                alert('Error approving submission');
+            }
+        };
+
+        // View submission details
+        window.viewSubmissionDetails = function(submissionId) {
+            // This would open a modal with detailed submission information
+            alert('Submission details modal would open here');
         };
 
         // Utility functions
@@ -2945,6 +3561,63 @@
         window.closeModal = function(modalId) {
             document.getElementById(modalId).style.display = 'none';
         };
+
+        // Unit selector functions
+        window.toggleUnitInput = function(mode) {
+            const selectId = mode === 'create' ? 'createUnitSelect' : 'editUnitSelect';
+            const inputId = mode === 'create' ? 'createNewUnitInput' : 'editNewUnitInput';
+            
+            const select = document.getElementById(selectId);
+            const input = document.getElementById(inputId);
+            
+            if (select.value === 'new') {
+                input.classList.remove('hidden');
+                input.focus();
+            } else {
+                input.classList.add('hidden');
+                input.value = '';
+            }
+        };
+
+        // Load existing units for the current event
+        async function loadExistingUnits() {
+            if (!currentEvent) return;
+            
+            try {
+                const response = await fetch(`/api/LearningModules/event/${encodeURIComponent(currentEvent.eventName)}`);
+                const modules = await response.json();
+                
+                // Extract unique units
+                const units = [...new Set(modules.map(module => module.unit).filter(unit => unit))];
+                
+                // Populate unit selects
+                const createSelect = document.getElementById('createUnitSelect');
+                const editSelect = document.getElementById('editUnitSelect');
+                
+                // Clear existing options except the first two
+                while (createSelect.children.length > 2) {
+                    createSelect.removeChild(createSelect.lastChild);
+                }
+                while (editSelect.children.length > 2) {
+                    editSelect.removeChild(editSelect.lastChild);
+                }
+                
+                // Add existing units
+                units.forEach(unit => {
+                    const createOption = document.createElement('option');
+                    createOption.value = unit;
+                    createOption.textContent = unit;
+                    createSelect.appendChild(createOption);
+                    
+                    const editOption = document.createElement('option');
+                    editOption.value = unit;
+                    editOption.textContent = unit;
+                    editSelect.appendChild(editOption);
+                });
+            } catch (error) {
+                console.error('Error loading existing units:', error);
+            }
+        }
 
         // Logout function
         window.logout = function() {

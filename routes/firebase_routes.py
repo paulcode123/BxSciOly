@@ -256,6 +256,58 @@ def upload_profile_photo():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+@firebase_routes.route('/api/notes-upload', methods=['POST'])
+def upload_notes_file():
+    """
+    Upload a notes file to Firebase Storage for module completion
+    """
+    print("Uploading notes file")
+    try:
+        # Check if file is in the request
+        if 'file' not in request.files:
+            return jsonify({"error": "No file provided"}), 400
+        
+        # Get file and user ID
+        file = request.files['file']
+        user_id = request.form.get('userId')
+        module_id = request.form.get('moduleId')
+        
+        if not user_id or not module_id:
+            return jsonify({"error": "User ID and Module ID are required"}), 400
+        
+        if file.filename == '':
+            return jsonify({"error": "No file selected"}), 400
+            
+        # Check file type (allow common document formats and images)
+        allowed_types = ['application/pdf', 'application/msword', 
+                        'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                        'text/plain', 'image/png', 'image/jpeg', 'image/jpg']
+        if file.content_type not in allowed_types:
+            return jsonify({"error": "Only PDF, DOC, DOCX, TXT, PNG, and JPG files are allowed"}), 400
+        
+        # Generate a unique filename with timestamp
+        timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
+        file_extension = file.filename.split('.')[-1]
+        filename = f"notes_{user_id}_{module_id}_{timestamp}.{file_extension}"
+        
+        # Upload to Firebase Storage
+        blob_path = f"notes/{filename}"
+        blob = bucket.blob(blob_path)
+        
+        # Set appropriate content type
+        blob.upload_from_file(file, content_type=file.content_type)
+        
+        # Make the blob publicly accessible
+        blob.make_public()
+        
+        # Get the public URL
+        url = blob.public_url
+        
+        return jsonify({"url": url, "success": True})
+    
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 @firebase_routes.route('/api/Members/<user_id>/addCompetitionResult', methods=['POST'])
 def add_competition_result(user_id):
     """Add a competition result to a user's profile."""
@@ -763,6 +815,252 @@ def get_user_module_progress(user_id):
             completions.append(completion_data)
         
         return jsonify(completions), 200
+        
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/ModuleCompletions', methods=['POST'])
+def create_module_completion():
+    """Create a new module completion with verification"""
+    try:
+        data = request.get_json()
+        user_id = data.get('userId')
+        module_id = data.get('moduleId')
+        event_name = data.get('eventName')
+        
+        if not all([user_id, module_id, event_name]):
+            return jsonify({"error": "userId, moduleId, and eventName are required"}), 400
+        
+        # Get module to check validation type and total points
+        module_ref = db.collection('LearningModules').document(module_id)
+        module_doc = module_ref.get()
+        
+        if not module_doc.exists:
+            return jsonify({"error": "Module not found"}), 404
+        
+        module_data = module_doc.to_dict()
+        validation_type = module_data.get('validationType', 'none')
+        total_points = module_data.get('points', 10)
+        
+        # Create completion data
+        completion_data = {
+            'userId': user_id,
+            'moduleId': module_id,
+            'eventName': event_name,
+            'totalPoints': total_points,
+            'pointsGiven': total_points,  # Default to full points
+            'completed': False,  # Will be set to True after verification
+            'completedAt': None,
+            'c3certified': False,
+            'c2certified': False,
+            'timeSpent': data.get('timeSpent', 0),
+            'c3method': validation_type,
+            'notesFileUrl': None,
+            'problemResponses': [],
+            'aiConversation': []
+        }
+        
+        # Handle different validation types
+        if validation_type == 'notesUpload':
+            if 'notesFile' not in data:
+                return jsonify({"error": "Notes file required for notesUpload validation"}), 400
+            # Handle file upload (simplified for now)
+            completion_data['notesFileUrl'] = data.get('notesFileUrl', '')
+            completion_data['completed'] = True  # Auto-complete for notes upload
+            
+        elif validation_type == 'problems':
+            if 'problemResponses' not in data:
+                return jsonify({"error": "Problem responses required for problems validation"}), 400
+            completion_data['problemResponses'] = data['problemResponses']
+            completion_data['completed'] = True  # Auto-complete for problems
+            
+        elif validation_type == 'AIconversation':
+            if 'aiConversation' not in data:
+                return jsonify({"error": "AI conversation required for AIconversation validation"}), 400
+            completion_data['aiConversation'] = data['aiConversation']
+            completion_data['completed'] = True  # Auto-complete for AI conversation
+            
+        elif validation_type == 'none':
+            completion_data['completed'] = True  # Auto-complete for no validation
+            completion_data['completedAt'] = firestore.SERVER_TIMESTAMP
+        
+        # Set completion timestamp if completed
+        if completion_data['completed']:
+            completion_data['completedAt'] = firestore.SERVER_TIMESTAMP
+        
+        # Use composite key for completion tracking
+        completion_id = f"{user_id}_{module_id}"
+        db.collection('ModuleCompletions').document(completion_id).set(completion_data)
+        
+        return jsonify({
+            "id": completion_id,
+            "message": "Module completion created successfully",
+            "completed": completion_data['completed'],
+            "pointsEarned": completion_data['pointsGiven'] if completion_data['completed'] else 0
+        }), 201
+        
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/ModuleCompletions/<completion_id>', methods=['PUT', 'PATCH'])
+def update_module_completion(completion_id):
+    """Update a module completion (for admin review)"""
+    try:
+        data = request.get_json()
+        
+        completion_ref = db.collection('ModuleCompletions').document(completion_id)
+        completion_doc = completion_ref.get()
+        
+        if not completion_doc.exists:
+            return jsonify({"error": "Module completion not found"}), 404
+        
+        # For PATCH, only update specified fields
+        if request.method == 'PATCH':
+            completion_ref.update(data)
+            message = "Module completion updated successfully"
+        else:
+            completion_ref.set(data)
+            message = "Module completion replaced successfully"
+        
+        return jsonify({"message": message}), 200
+        
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/ModuleCompletions/event/<event_name>', methods=['GET'])
+def get_module_completions_by_event(event_name):
+    """Get all module completions for an event (for admin review)"""
+    try:
+        # Check admin auth
+        admin_id = request.headers.get('X-Admin-ID')
+        if not admin_id:
+            return jsonify({"error": "Admin authentication required"}), 401
+        
+        completions_query = db.collection('ModuleCompletions').where('eventName', '==', event_name).stream()
+        completions = []
+        
+        for completion in completions_query:
+            completion_data = completion.to_dict()
+            completion_data['id'] = completion.id
+            completions.append(completion_data)
+        
+        return jsonify(completions), 200
+        
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/ModuleCompletions/user/<user_id>/event/<event_name>', methods=['GET'])
+def get_user_module_completions_for_event(user_id, event_name):
+    """Get a user's module completions for a specific event"""
+    try:
+        completions_query = db.collection('ModuleCompletions').where('userId', '==', user_id).where('eventName', '==', event_name).stream()
+        completions = []
+        
+        for completion in completions_query:
+            completion_data = completion.to_dict()
+            completion_data['id'] = completion.id
+            completions.append(completion_data)
+        
+        return jsonify(completions), 200
+        
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/leaderboard/event/<event_name>', methods=['GET'])
+def get_event_leaderboard(event_name):
+    """Get leaderboard for an event based on module completion points"""
+    try:
+        # Get all module completions for this event
+        completions_query = db.collection('ModuleCompletions').where('eventName', '==', event_name).where('completed', '==', True).stream()
+        
+        # Group by user and calculate total points
+        user_points = {}
+        for completion in completions_query:
+            completion_data = completion.to_dict()
+            user_id = completion_data['userId']
+            points = completion_data.get('pointsGiven', 0)
+            
+            if user_id not in user_points:
+                user_points[user_id] = 0
+            user_points[user_id] += points
+        
+        # Get user details for leaderboard
+        leaderboard = []
+        for user_id, total_points in user_points.items():
+            # Get user details
+            user_doc = db.collection('Members').document(user_id).get()
+            if user_doc.exists:
+                user_data = user_doc.to_dict()
+                leaderboard.append({
+                    'userId': user_id,
+                    'firstName': user_data.get('firstName', ''),
+                    'lastName': user_data.get('lastName', ''),
+                    'totalPoints': total_points
+                })
+        
+        # Sort by points (descending)
+        leaderboard.sort(key=lambda x: x['totalPoints'], reverse=True)
+        
+        return jsonify(leaderboard), 200
+        
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/ai/conversation', methods=['POST'])
+def ai_conversation():
+    """Handle AI conversation for module validation"""
+    try:
+        data = request.get_json()
+        message = data.get('message')
+        system_prompt = data.get('systemPrompt', '')
+        conversation_history = data.get('conversationHistory', [])
+        
+        if not message:
+            return jsonify({"error": "Message is required"}), 400
+        
+        # Load OpenAI API key
+        with open('api_keys.json', 'r') as f:
+            api_keys = json.load(f)
+            openai_api_key = api_keys.get('OpenAiAPIKey')
+        
+        if not openai_api_key:
+            return jsonify({"error": "OpenAI API key not configured"}), 500
+        
+        # Prepare conversation for OpenAI
+        messages = []
+        if system_prompt:
+            messages.append({"role": "system", "content": system_prompt})
+        
+        # Add conversation history
+        for msg in conversation_history:
+            messages.append({
+                "role": "user" if msg.get('role') == 'user' else "assistant",
+                "content": msg.get('content', '')
+            })
+        
+        # Add current message
+        messages.append({"role": "user", "content": message})
+        
+        # Call OpenAI API
+        import openai
+        openai.api_key = openai_api_key
+        
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=messages,
+            max_tokens=500,
+            temperature=0.7
+        )
+        
+        ai_response = response.choices[0].message.content
+        
+        return jsonify({
+            "response": ai_response,
+            "conversation": conversation_history + [
+                {"role": "user", "content": message},
+                {"role": "assistant", "content": ai_response}
+            ]
+        }), 200
         
     except Exception as e:
         return jsonify({"error": str(e)}), 500

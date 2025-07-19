@@ -164,6 +164,7 @@
                             <a href="{{ url_for('user_events') }}"><i class="fas fa-graduation-cap"></i> Events</a>
                             <a href="{{ url_for('user_competitions') }}"><i class="fas fa-trophy"></i> Competitions</a>
                             <a href="{{ url_for('user_attendance') }}"><i class="fas fa-clipboard-check"></i> Attendance</a>
+                            <a href="{{ url_for('admin_login') }}" id="adminConsoleBtn" style="display: none;"><i class="fas fa-user-shield"></i> Admin Console</a>
                             <a href="{{ url_for('user_settings') }}"><i class="fas fa-cog"></i> Settings</a>
                             <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
                         </div>
@@ -195,15 +196,32 @@
             const userDropdown = document.getElementById('userDropdown');
             const userName = document.getElementById('userName');
             const logoutBtn = document.getElementById('logoutBtn');
+            const adminConsoleBtn = document.getElementById('adminConsoleBtn');
             
             // Check if user data exists in session storage
             const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
             
+            // Debug: Log user data to console
+            console.log('Current user data:', currentUser);
+            
             if (currentUser) {
                 // User is logged in
+                console.log(currentUser)
                 loginLink.style.display = 'none';
                 userDropdown.style.display = 'inline-block';
                 userName.textContent = currentUser.firstName;
+                
+                // Debug: Log admin status
+                console.log('Admin status:', currentUser.adminStatus);
+                
+                // Show admin console button if user has full admin status
+                if (currentUser.adminStatus === 'full') {
+                    console.log('Showing admin console button');
+                    adminConsoleBtn.style.display = 'block';
+                    adminConsoleBtn.style.visibility = 'visible';
+                } else {
+                    console.log('Admin status is not full:', currentUser.adminStatus);
+                }
                 
                 // Handle logout
                 logoutBtn.addEventListener('click', function(e) {
