@@ -126,7 +126,14 @@
             </a>
             <nav>
                 <ul>
-                    <li><a href="{{ url_for('about') }}" {% if request.path == url_for('about') %}class="active"{% endif %}><i class="fas fa-info-circle"></i> About Us</a></li>
+                    <li class="dropdown">
+                        <a href="#" {% if request.path.startswith('/about') or request.path == url_for('leadership') or request.path == url_for('our_team') or request.path == url_for('what_we_do') %}class="active"{% endif %}><i class="fas fa-info-circle"></i> About Us</a>
+                        <div class="dropdown-content">
+                            <a href="{{ url_for('leadership') }}" {% if request.path == url_for('leadership') %}class="active"{% endif %}><i class="fas fa-users"></i> Leadership</a>
+                            <a href="{{ url_for('our_team') }}" {% if request.path == url_for('our_team') %}class="active"{% endif %}><i class="fas fa-trophy"></i> Our Team</a>
+                            <a href="{{ url_for('what_we_do') }}" {% if request.path == url_for('what_we_do') %}class="active"{% endif %}><i class="fas fa-flask"></i> What We Do</a>
+                        </div>
+                    </li>
                     <li class="dropdown">
                         <a href="#" {% if request.path.startswith('/events/') %}class="active"{% endif %}><i class="fas fa-flask"></i> Events</a>
                         <div class="dropdown-content">
@@ -140,13 +147,14 @@
                         </div>
                     </li>
                     <li class="dropdown">
-                        <a href="#" {% if request.path.startswith('/info/') or request.path == url_for('calendar') or request.path == url_for('house_cup') or request.path == url_for('summer_learning_project') %}class="active"{% endif %}><i class="fas fa-info-circle"></i> Info</a>
+                        <a href="#" {% if request.path.startswith('/info/') or request.path == url_for('calendar') or request.path == url_for('house_cup') or request.path == url_for('summer_learning_project') or request.path == url_for('sponsors') %}class="active"{% endif %}><i class="fas fa-info-circle"></i> Info</a>
                         <div class="dropdown-content">
                             <a href="{{ url_for('calendar') }}" {% if request.path == url_for('calendar') %}class="active"{% endif %}><i class="fas fa-calendar-alt"></i> Calendar</a>
                             <a href="{{ url_for('house_cup') }}" {% if request.path == url_for('house_cup') %}class="active"{% endif %}><i class="fas fa-home"></i> House Cup</a>
                             <a href="{{ url_for('summer_learning_project') }}" {% if request.path == url_for('summer_learning_project') %}class="active"{% endif %}><i class="fas fa-graduation-cap"></i> Summer Learning Project</a>
                             <a href="{{ url_for('leadership_applications') }}" {% if request.path == url_for('leadership_applications') %}class="active"{% endif %}><i class="fas fa-user-plus"></i> Leadership Applications</a>
                             <a href="{{ url_for('strategic_plan') }}" {% if request.path == url_for('strategic_plan') %}class="active"{% endif %}><i class="fas fa-chart-line"></i> Strategic Plan</a>
+                            <a href="{{ url_for('sponsors') }}" {% if request.path == url_for('sponsors') %}class="active"{% endif %}><i class="fas fa-handshake"></i> Sponsors</a>
                         </div>
                     </li>
                     <li id="loginLink"><a href="{{ url_for('login') }}" {% if request.path == url_for('login') %}class="active"{% endif %}><i class="fas fa-sign-in-alt"></i> Login</a></li>

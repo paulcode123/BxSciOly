@@ -29,11 +29,12 @@
                     <h2>My Competition Results</h2>
                     <p class="section-description">View your performance in competitions and tournaments.</p>
                     
-                    <div class="duosmium-import">
+                    <!-- Duosmium import button hidden as requested -->
+                    <!-- <div class="duosmium-import">
                         <button id="importDuosmiumBtn" class="btn btn-primary">
                             <i class="fas fa-file-import"></i> Import from Duosmium
                         </button>
-                    </div>
+                    </div> -->
                     
                     <div class="results-filter">
                         <div class="filter-group">
@@ -106,121 +107,11 @@
                     <p class="section-description">View upcoming competitions and application deadlines.</p>
                     
                     <div class="timeline">
-                        <div class="timeline-container">
-                            <div class="timeline-item">
-                                <div class="timeline-date">October 2025</div>
-                                <div class="timeline-content">
-                                    <h3>MIT Invitational</h3>
-                                    <p><span class="badge">In-person competition</span></p>
-                                    <div class="competition-details">
-                                        <div class="detail-item">
-                                            <i class="fas fa-calendar-alt"></i> Tournament: Oct 18, 2025
+                        <div class="timeline-container" id="upcomingTimelineContainer">
+                            <div class="loading-upcoming-competitions">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                <p>Loading upcoming competitions...</p>
                                         </div>
-                                        <div class="detail-item">
-                                            <i class="fas fa-clock"></i> Apply: Aug 15 - Sep 1, 2025
-                                        </div>
-                                        <div class="detail-item">
-                                            <i class="fas fa-users"></i> Team Release: Sep 15, 2025
-                                        </div>
-                                    </div>
-                                    <div class="action-buttons">
-                                        <a href="{{ url_for('competition_apply') }}?id={{competitionId}}" class="btn btn-primary apply-btn" data-start="2025-08-15" data-end="2025-09-01">Apply Now</a>
-                                        <a href="#" class="btn btn-info roster-btn" data-start="2025-09-15" data-end="2025-10-18">See Roster</a>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="timeline-item">
-                                <div class="timeline-date">November 2025</div>
-                                <div class="timeline-content">
-                                    <h3>Rickards Invitational</h3>
-                                    <p><span class="badge">Satellite invitational</span></p>
-                                    <div class="competition-details">
-                                        <div class="detail-item">
-                                            <i class="fas fa-calendar-alt"></i> Tournament: Nov 15, 2025
-                                        </div>
-                                        <div class="detail-item">
-                                            <i class="fas fa-clock"></i> Apply: Jul 1 - Jul 15, 2025
-                                        </div>
-                                        <div class="detail-item">
-                                            <i class="fas fa-users"></i> Team Release: Aug 1, 2025
-                                        </div>
-                                    </div>
-                                    <div class="action-buttons">
-                                        <a href="#" class="btn btn-primary apply-btn" data-start="2025-07-01" data-end="2025-07-15">Apply Now</a>
-                                        <a href="#" class="btn btn-info roster-btn" data-start="2025-08-01" data-end="2025-11-15">See Roster</a>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="timeline-item">
-                                <div class="timeline-date">December 2025</div>
-                                <div class="timeline-content">
-                                    <h3>Seal SO</h3>
-                                    <p><span class="badge">Satellite invitational</span></p>
-                                    <div class="competition-details">
-                                        <div class="detail-item">
-                                            <i class="fas fa-calendar-alt"></i> Tournament: Dec 10, 2025
-                                        </div>
-                                        <div class="detail-item">
-                                            <i class="fas fa-clock"></i> Apply: Oct 15 - Nov 1, 2025
-                                        </div>
-                                        <div class="detail-item">
-                                            <i class="fas fa-users"></i> Team Release: Nov 15, 2025
-                                        </div>
-                                    </div>
-                                    <div class="action-buttons">
-                                        <a href="#" class="btn btn-primary apply-btn" data-start="2025-10-15" data-end="2025-11-01">Apply Now</a>
-                                        <a href="#" class="btn btn-info roster-btn" data-start="2025-11-15" data-end="2025-12-10">See Roster</a>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="timeline-item">
-                                <div class="timeline-date">January 2026</div>
-                                <div class="timeline-content">
-                                    <h3>Regionals</h3>
-                                    <p><span class="badge">Regional competition</span></p>
-                                    <div class="competition-details">
-                                        <div class="detail-item">
-                                            <i class="fas fa-calendar-alt"></i> Tournament: Jan 25, 2026
-                                        </div>
-                                        <div class="detail-item">
-                                            <i class="fas fa-clock"></i> Apply: Nov 15 - Dec 5, 2025
-                                        </div>
-                                        <div class="detail-item">
-                                            <i class="fas fa-users"></i> Team Release: Dec 20, 2025
-                                        </div>
-                                    </div>
-                                    <div class="action-buttons">
-                                        <a href="#" class="btn btn-primary apply-btn" data-start="2025-11-15" data-end="2025-12-05">Apply Now</a>
-                                        <a href="#" class="btn btn-info roster-btn" data-start="2025-12-20" data-end="2026-01-25">See Roster</a>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="timeline-item">
-                                <div class="timeline-date">March 2026</div>
-                                <div class="timeline-content">
-                                    <h3>States</h3>
-                                    <p><span class="badge">State-level competition</span></p>
-                                    <div class="competition-details">
-                                        <div class="detail-item">
-                                            <i class="fas fa-calendar-alt"></i> Tournament: Mar 20, 2026
-                                        </div>
-                                        <div class="detail-item">
-                                            <i class="fas fa-clock"></i> Apply: Feb 1 - Feb 15, 2026
-                                        </div>
-                                        <div class="detail-item">
-                                            <i class="fas fa-users"></i> Team Release: Feb 25, 2026
-                                        </div>
-                                    </div>
-                                    <div class="action-buttons">
-                                        <a href="#" class="btn btn-primary apply-btn" data-start="2026-02-01" data-end="2026-02-15">Apply Now</a>
-                                        <a href="#" class="btn btn-info roster-btn" data-start="2026-02-25" data-end="2026-03-20">See Roster</a>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -230,41 +121,14 @@
                     <h2>Past Competitions</h2>
                     <p class="section-description">View complete information about past competitions.</p>
                     
-                    <div class="past-competitions">
-                        <div class="competition-card">
-                            <div class="competition-date past-date">
-                                <span class="month">NOV</span>
-                                <span class="day">12</span>
-                                <span class="year">2023</span>
+                    <div class="past-competitions" id="pastCompetitionsList">
+                        <div class="loading-past-competitions">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Loading past competitions...</p>
                             </div>
-                            <div class="competition-details">
-                                <h3>Columbia Invitational</h3>
-                                <p class="competition-location"><i class="fas fa-map-marker-alt"></i> New York, NY</p>
-                                <p class="competition-result">Team Rank: <strong>5th</strong> out of 45 teams</p>
                             </div>
-                            <div class="competition-actions">
-                                <button class="view-details-btn">View Details</button>
                             </div>
                         </div>
-                        
-                        <div class="competition-card">
-                            <div class="competition-date past-date">
-                                <span class="month">OCT</span>
-                                <span class="day">22</span>
-                                <span class="year">2023</span>
-                            </div>
-                            <div class="competition-details">
-                                <h3>Princeton Invitational</h3>
-                                <p class="competition-location"><i class="fas fa-map-marker-alt"></i> Princeton, NJ</p>
-                                <p class="competition-result">Team Rank: <strong>8th</strong> out of 36 teams</p>
-                            </div>
-                            <div class="competition-actions">
-                                <button class="view-details-btn">View Details</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </section>
@@ -279,56 +143,7 @@
     </div>
 </div>
 
-<!-- Duosmium Import Modal -->
-<div id="duosmiumImportModal" class="modal">
-    <div class="modal-content">
-        <span class="close-btn duosmium-close">&times;</span>
-        <div class="duosmium-modal-header">
-            <h2>Import Results from Duosmium</h2>
-            <p>Paste a link to the Duosmium results page to import your competition results</p>
-        </div>
-        <div class="duosmium-modal-body">
-            <div class="duosmium-form">
-                <div class="duosmium-field">
-                    <label for="duosmiumUrl">Duosmium Results URL</label>
-                    <input type="text" id="duosmiumUrl" placeholder="https://www.duosmium.org/results/...">
-                </div>
-                <div class="duosmium-submit">
-                    <button id="parseDuosmiumBtn" class="btn btn-primary">Parse Results</button>
-                </div>
-            </div>
-            <div id="duosmiumParsingStatus" class="duosmium-parsing-status">
-                <!-- Parsing status will appear here -->
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Event Selection Modal -->
-<div id="eventSelectionModal" class="modal">
-    <div class="modal-content">
-        <span class="close-btn event-selection-close">&times;</span>
-        <div class="event-selection-header">
-            <h2>Select Your Events</h2>
-            <p>Select the events you participated in for this competition</p>
-        </div>
-        <div class="event-selection-body">
-            <div class="team-selection">
-                <label for="teamSelect">Select your team:</label>
-                <select id="teamSelect">
-                    <!-- Teams will be populated here -->
-                </select>
-            </div>
-            <div id="eventsList" class="events-list">
-                <!-- Events will be populated here -->
-            </div>
-            <div id="saveStatusContainer" class="save-status-container"></div>
-            <div class="event-selection-submit">
-                <button id="saveEventsBtn" class="btn btn-primary">Save My Results</button>
-            </div>
-        </div>
-    </div>
-</div>
+<!-- Note: Duosmium import modals have been removed as requested -->
 {% endblock %}
 
 {% block extra_css %}
@@ -534,6 +349,15 @@
         font-weight: 500;
     }
     
+    .team-badge {
+        background-color: #e9ecef;
+        color: #495057;
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-size: 0.8em;
+        margin-left: 8px;
+    }
+    
     .result-date {
         color: #777;
         font-size: 0.9rem;
@@ -561,7 +385,7 @@
         color: #777;
     }
     
-    .loading-results {
+    .loading-results, .loading-past-competitions {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -569,18 +393,26 @@
         color: #777;
     }
     
-    .loading-results i {
+    .loading-results i, .loading-past-competitions i, .loading-upcoming-competitions i {
         font-size: 2rem;
         margin-bottom: 15px;
         color: var(--accent-color);
     }
     
-    .empty-results {
+    .loading-upcoming-competitions {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px;
+        color: #777;
+    }
+    
+    .empty-results, .empty-past-competitions, .empty-upcoming-competitions {
         text-align: center;
         padding: 30px;
     }
     
-    .empty-results i {
+    .empty-results i, .empty-past-competitions i, .empty-upcoming-competitions i {
         font-size: 3rem;
         color: #ddd;
         margin-bottom: 15px;
@@ -659,6 +491,13 @@
         color: #333;
     }
     
+    .user-events {
+        margin: 5px 0;
+        font-size: 0.9rem;
+        color: #666;
+        font-style: italic;
+    }
+    
     .competition-actions {
         display: flex;
         align-items: center;
@@ -712,6 +551,34 @@
         font-size: 1.5rem;
         cursor: pointer;
         color: #777;
+    }
+    
+    .competition-details-modal {
+        margin-top: 20px;
+    }
+    
+    .detail-section {
+        margin-bottom: 25px;
+        padding: 15px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+    }
+    
+    .detail-section h3 {
+        margin-top: 0;
+        margin-bottom: 10px;
+        color: var(--primary-color);
+        border-bottom: 2px solid var(--accent-color);
+        padding-bottom: 5px;
+    }
+    
+    .detail-section ul {
+        margin: 10px 0;
+        padding-left: 20px;
+    }
+    
+    .detail-section li {
+        margin-bottom: 5px;
     }
     
     /* Responsive Design */
@@ -914,129 +781,7 @@
         }
     }
     
-    /* Duosmium Import */
-    .duosmium-import {
-        display: flex;
-        justify-content: flex-end;
-        margin-bottom: 20px;
-    }
-    
-    .duosmium-modal-header,
-    .event-selection-header {
-        margin-bottom: 20px;
-        text-align: center;
-    }
-    
-    .duosmium-form {
-        margin-bottom: 20px;
-    }
-    
-    .duosmium-field {
-        margin-bottom: 15px;
-    }
-    
-    .duosmium-field label {
-        display: block;
-        margin-bottom: 5px;
-        font-weight: 500;
-    }
-    
-    .duosmium-field input {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        font-size: 1rem;
-    }
-    
-    .duosmium-submit,
-    .event-selection-submit {
-        text-align: center;
-        margin-top: 20px;
-    }
-    
-    .duosmium-parsing-status {
-        margin-top: 20px;
-        padding: 15px;
-        border-radius: 5px;
-        display: none;
-    }
-    
-    .parsing-loading {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        background-color: #e9f5fe;
-        color: #3498db;
-    }
-    
-    .parsing-error {
-        background-color: #fce4e4;
-        color: #e74c3c;
-    }
-    
-    .parsing-success {
-        background-color: #e8f8f5;
-        color: #2ecc71;
-    }
-    
-    /* Event Selection */
-    .team-selection {
-        margin-bottom: 20px;
-    }
-    
-    .team-selection label {
-        display: block;
-        margin-bottom: 5px;
-        font-weight: 500;
-    }
-    
-    .team-selection select {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        font-size: 1rem;
-    }
-    
-    .events-list {
-        max-height: 400px;
-        overflow-y: auto;
-        border: 1px solid #eee;
-        border-radius: 5px;
-        padding: 10px;
-    }
-    
-    .event-item {
-        display: flex;
-        align-items: center;
-        padding: 10px;
-        border-bottom: 1px solid #eee;
-    }
-    
-    .event-item:last-child {
-        border-bottom: none;
-    }
-    
-    .event-checkbox {
-        margin-right: 10px;
-    }
-    
-    .event-name {
-        flex: 1;
-    }
-    
-    .event-place {
-        font-weight: 600;
-        color: #3498db;
-        margin-left: 10px;
-    }
-    
-    .save-status-container {
-        margin: 15px 0;
-        min-height: 30px;
-    }
+    /* Note: Duosmium import CSS has been removed as requested */
 </style>
 {% endblock %}
 
@@ -1066,34 +811,35 @@
         const closeBtn = document.querySelector('.close-btn');
         const detailBtns = document.querySelectorAll('.view-details-btn');
         
-        // Timeline elements
-        const applyButtons = document.querySelectorAll('.apply-btn');
-        const rosterButtons = document.querySelectorAll('.roster-btn');
+        // Timeline elements will be dynamically created
         
         // Initialize user data
         let userData = null;
-        let competitionResults = [];
+        let competitionsData = [];
         let userEvents = [];
         let filteredResults = [];
         
-        // Load user data
+        // Load user data and competitions
         function loadUserData() {
-            fetch(`/api/Members/${currentUser.id}`)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Failed to load user data');
-                    }
-                    return response.json();
-                })
-                .then(data => {
+            Promise.all([
+                fetch(`/api/Members/${currentUser.id}`),
+                fetch('/api/Competitions')
+            ])
+            .then(responses => Promise.all(responses.map(r => r.json())))
+            .then(([userResponse, competitionsResponse]) => {
                     // Extract member data
-                    userData = Object.values(data)[0];
-                    
-                    // Get competition results
-                    competitionResults = userData.competitionResults || [];
+                userData = Object.values(userResponse)[0];
+                
+                // Extract competitions data
+                competitionsData = Object.values(competitionsResponse).map(comp => 
+                    typeof comp === 'object' && comp !== null ? Object.values(comp)[0] : comp
+                );
                     
                     // Get user events
                     userEvents = userData.events || [];
+                
+                // Process competition results for the user
+                processUserCompetitionResults();
                     
                     // Populate event filter
                     populateEventFilter();
@@ -1103,9 +849,15 @@
                     
                     // Count medals
                     countMedals();
+                
+                // Load past competitions
+                loadPastCompetitions();
+                
+                // Load upcoming competitions
+                loadUpcomingCompetitions();
                 })
                 .catch(error => {
-                    console.error('Error loading user data:', error);
+                console.error('Error loading data:', error);
                     userResultsList.innerHTML = `
                         <div class="error-message" style="text-align: center; padding: 20px; color: #721c24;">
                             <i class="fas fa-exclamation-circle" style="font-size: 2rem; margin-bottom: 10px;"></i>
@@ -1116,6 +868,45 @@
                 });
         }
         
+        // Process competition results for the current user
+        function processUserCompetitionResults() {
+            filteredResults = [];
+            
+            competitionsData.forEach(competition => {
+                // Only process competitions that have results and teamPlacement
+                if (competition.results && competition.teamPlacement) {
+                    // Check if user participated in this competition
+                    const userParticipation = competition.teamPlacement.find(placement => 
+                        placement.participants && placement.participants.includes(currentUser.id)
+                    );
+                    
+                    if (userParticipation) {
+                        // Find the corresponding event result
+                        const eventResult = competition.results.eventResults.find(result => 
+                            result.eventName === userParticipation.event && 
+                            result.team === userParticipation.team
+                        );
+                        
+                        if (eventResult) {
+                            filteredResults.push({
+                                competition: competition.name,
+                                competitionType: competition.type,
+                                date: competition.date,
+                                event: eventResult.eventName,
+                                placement: eventResult.placement,
+                                outOf: eventResult.outOf,
+                                team: userParticipation.team,
+                                medal: eventResult.placement <= 3,
+                                medalType: eventResult.placement === 1 ? 'gold' : 
+                                          eventResult.placement === 2 ? 'silver' : 
+                                          eventResult.placement === 3 ? 'bronze' : null
+                            });
+                        }
+                    }
+                }
+                });
+        }
+        
         // Populate event filter with user's events
         function populateEventFilter() {
             if (userEvents && userEvents.length > 0) {
@@ -1123,10 +914,8 @@
                 const uniqueEvents = new Set(userEvents);
                 
                 // Add events from competition results
-                competitionResults.forEach(comp => {
-                    comp.eventResults.forEach(result => {
-                        uniqueEvents.add(result.eventName);
-                    });
+                filteredResults.forEach(result => {
+                    uniqueEvents.add(result.event);
                 });
                 
                 // Clear existing options except "All Events"
@@ -1151,44 +940,41 @@
             const selectedType = filterType.value;
             const showMedalsOnly = filterMedals.value === 'medals';
             
-            // Filter results
-            filteredResults = [];
+            // Start with all user results
+            let filteredUserResults = [...filteredResults];
             
-            competitionResults.forEach(comp => {
                 // Filter by year
                 if (selectedYear !== 'all') {
-                    const compYear = new Date(comp.date).getFullYear().toString();
-                    if (compYear !== selectedYear) return;
+                filteredUserResults = filteredUserResults.filter(result => {
+                    const resultYear = new Date(result.date).getFullYear().toString();
+                    return resultYear === selectedYear;
+                });
                 }
                 
                 // Filter by competition type
-                if (selectedType !== 'all' && comp.type !== selectedType) return;
+            if (selectedType !== 'all') {
+                filteredUserResults = filteredUserResults.filter(result => 
+                    result.competitionType === selectedType
+                );
+            }
                 
                 // Filter by event
-                comp.eventResults.forEach(result => {
-                    if (selectedEvent === 'all' || result.eventName === selectedEvent) {
+            if (selectedEvent !== 'all') {
+                filteredUserResults = filteredUserResults.filter(result => 
+                    result.event === selectedEvent
+                );
+            }
+            
                         // Filter by medals
-                        if (!showMedalsOnly || result.medal) {
-                            filteredResults.push({
-                                competition: comp.competitionName,
-                                competitionType: comp.type,
-                                date: comp.date,
-                                event: result.eventName,
-                                placement: result.placement,
-                                outOf: result.outOf,
-                                medal: result.medal,
-                                medalType: result.medalType
-                            });
-                        }
-                    }
-                });
-            });
+            if (showMedalsOnly) {
+                filteredUserResults = filteredUserResults.filter(result => result.medal);
+            }
             
             // Sort by date (newest first)
-            filteredResults.sort((a, b) => new Date(b.date) - new Date(a.date));
+            filteredUserResults.sort((a, b) => new Date(b.date) - new Date(a.date));
             
             // Render filtered results
-            renderResults();
+            renderResults(filteredUserResults);
         }
         
         // Count medals
@@ -1197,14 +983,12 @@
             let silver = 0;
             let bronze = 0;
             
-            competitionResults.forEach(comp => {
-                comp.eventResults.forEach(result => {
+            filteredResults.forEach(result => {
                     if (result.medal) {
                         if (result.medalType === 'gold') gold++;
                         else if (result.medalType === 'silver') silver++;
                         else if (result.medalType === 'bronze') bronze++;
                     }
-                });
             });
             
             goldCount.textContent = gold;
@@ -1213,8 +997,8 @@
         }
         
         // Render competition results
-        function renderResults() {
-            if (filteredResults.length === 0) {
+        function renderResults(resultsToRender = filteredResults) {
+            if (resultsToRender.length === 0) {
                 userResultsList.innerHTML = `
                     <div class="empty-results">
                         <i class="fas fa-trophy"></i>
@@ -1227,7 +1011,7 @@
             
             userResultsList.innerHTML = '';
             
-            filteredResults.forEach(result => {
+            resultsToRender.forEach(result => {
                 const resultItem = document.createElement('div');
                 resultItem.className = 'result-item';
                 
@@ -1258,7 +1042,7 @@
                     ${medalHTML}
                     <div class="result-info">
                         <div class="result-competition">${result.competition}</div>
-                        <div class="result-event">${result.event}</div>
+                        <div class="result-event">${result.event} <span class="team-badge">Team ${result.team}</span></div>
                         <div class="result-date">${formattedDate}</div>
                     </div>
                     <div class="result-placement">
@@ -1288,36 +1072,112 @@
             return 'th';
         }
         
+        // Load upcoming competitions from the database
+        function loadUpcomingCompetitions() {
+            const upcomingTimelineContainer = document.getElementById('upcomingTimelineContainer');
+            
+            // Filter competitions that are in the future
+            const now = new Date();
+            const upcomingCompetitions = competitionsData.filter(competition => {
+                const competitionDate = new Date(competition.date);
+                return competitionDate > now;
+            });
+            
+            if (upcomingCompetitions.length === 0) {
+                upcomingTimelineContainer.innerHTML = `
+                    <div class="empty-upcoming-competitions">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h3>No Upcoming Competitions</h3>
+                        <p>There are no upcoming competitions scheduled at this time.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Sort competitions by date
+            upcomingCompetitions.sort((a, b) => new Date(a.date) - new Date(b.date));
+            
+            // Group competitions by month
+            const competitionsByMonth = {};
+            upcomingCompetitions.forEach(competition => {
+                const date = new Date(competition.date);
+                const monthKey = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
+                
+                if (!competitionsByMonth[monthKey]) {
+                    competitionsByMonth[monthKey] = [];
+                }
+                competitionsByMonth[monthKey].push(competition);
+            });
+            
+            upcomingTimelineContainer.innerHTML = '';
+            
+            // Create timeline items for each month
+            Object.keys(competitionsByMonth).forEach(monthKey => {
+                const monthCompetitions = competitionsByMonth[monthKey];
+                
+                monthCompetitions.forEach((competition, index) => {
+                    const timelineItem = document.createElement('div');
+                    timelineItem.className = 'timeline-item';
+                    
+                    // Format dates
+                    const competitionDate = new Date(competition.date);
+                    const registrationOpens = new Date(competition.registrationOpens);
+                    const registrationDeadline = new Date(competition.registrationDeadline);
+                    const teamsRelease = new Date(competition.teamsRelease);
+                    
+                    // Determine competition type badge
+                    const typeBadge = competition.type === 'satellite' ? 'Satellite invitational' : 
+                                     competition.type === 'invitational' ? 'In-person competition' : 
+                                     competition.type === 'regional' ? 'Regional competition' : 
+                                     competition.type === 'state' ? 'State-level competition' : 
+                                     competition.type === 'national' ? 'National competition' : 'Competition';
+                    
+                    // Show month only for first competition in the month
+                    const showMonth = index === 0;
+                    
+                    timelineItem.innerHTML = `
+                        ${showMonth ? `<div class="timeline-date">${monthKey}</div>` : ''}
+                        <div class="timeline-content">
+                            <h3>${competition.name}</h3>
+                            <p><span class="badge">${typeBadge}</span></p>
+                            <div class="competition-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-calendar-alt"></i> Tournament: ${competitionDate.toLocaleDateString()}
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-clock"></i> Apply: ${registrationOpens.toLocaleDateString()} - ${registrationDeadline.toLocaleDateString()}
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-users"></i> Team Release: ${teamsRelease.toLocaleDateString()}
+                                </div>
+                            </div>
+                            <div class="action-buttons">
+                                <a href="{{ url_for('competition_apply') }}?id=${competition.id}" class="btn btn-primary apply-btn" 
+                                   data-start="${competition.registrationOpens}" data-end="${competition.registrationDeadline}">Apply Now</a>
+                                <a href="#" class="btn btn-info roster-btn" 
+                                   data-start="${competition.teamsRelease}" data-end="${competition.date}">See Roster</a>
+                            </div>
+                        </div>
+                    `;
+                    
+                    upcomingTimelineContainer.appendChild(timelineItem);
+                });
+            });
+            
+            // Update button visibility based on current date
+            updateTimelineButtons();
+        }
+        
         // Handle timeline buttons visibility based on date
         function updateTimelineButtons() {
-            // Use a test date instead of the actual current date
-            // Test date: August 20, 2025 (during MIT application period)
-            // and after Rickards team release date but before tournament
-            const now = new Date('2025-08-20T12:00:00');
-            console.log('Using test date for competition buttons:', now.toLocaleDateString());
-            
-            // Set competition IDs
-            const competitionIds = {
-                'MIT Invitational': 'mit2025',
-                'Rickards Invitational': 'rickards2025',
-                'Seal SO': 'seal2025',
-                'Regionals': 'regionals2026',
-                'States': 'states2026'
-            };
+            const now = new Date();
             
             // Update Apply buttons
+            const applyButtons = document.querySelectorAll('.apply-btn');
             applyButtons.forEach(button => {
                 const startDate = new Date(button.dataset.start);
                 const endDate = new Date(button.dataset.end);
                 endDate.setHours(23, 59, 59, 999); // End of day
-                
-                // Get competition name from the parent timeline item
-                const timelineItem = button.closest('.timeline-item');
-                const competitionName = timelineItem.querySelector('h3').textContent;
-                const competitionId = competitionIds[competitionName] || 'unknown';
-                
-                // Update the href with the competition ID
-                button.href = `{{ url_for('competition_apply') }}?id=${competitionId}`;
                 
                 if (now >= startDate && now <= endDate) {
                     button.style.display = 'inline-block';
@@ -1327,6 +1187,7 @@
             });
             
             // Update Roster buttons
+            const rosterButtons = document.querySelectorAll('.roster-btn');
             rosterButtons.forEach(button => {
                 const startDate = new Date(button.dataset.start);
                 const endDate = new Date(button.dataset.end);
@@ -1358,7 +1219,7 @@
                 
                 // Update timeline buttons if showing upcoming section
                 if (targetSection === 'upcoming-section') {
-                    updateTimelineButtons();
+                    // Buttons are already updated when the section is loaded
                 }
             });
         });
@@ -1369,19 +1230,164 @@
         filterType.addEventListener('change', applyFilters);
         filterMedals.addEventListener('change', applyFilters);
         
-        // Modal functionality
-        detailBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                // In a real implementation, load competition details
-                modalContent.innerHTML = `
-                    <h2>Competition Details</h2>
-                    <p>Details about the competition would be loaded here.</p>
-                `;
-                modal.style.display = 'block';
+        // Load past competitions where user participated
+        function loadPastCompetitions() {
+            const pastCompetitionsList = document.getElementById('pastCompetitionsList');
+            
+            // Filter competitions that have results and are in the past
+            const now = new Date();
+            const pastCompetitions = competitionsData.filter(competition => {
+                const competitionDate = new Date(competition.date);
+                return competitionDate < now && competition.results && competition.teamPlacement;
             });
-        });
+            
+            // Filter competitions where user participated
+            const userPastCompetitions = pastCompetitions.filter(competition => {
+                return competition.teamPlacement.some(placement => 
+                    placement.participants && placement.participants.includes(currentUser.id)
+                );
+            });
+            
+            if (userPastCompetitions.length === 0) {
+                pastCompetitionsList.innerHTML = `
+                    <div class="empty-past-competitions">
+                        <i class="fas fa-history"></i>
+                        <h3>No Past Competitions</h3>
+                        <p>You haven't participated in any competitions yet.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            pastCompetitionsList.innerHTML = '';
+            
+            userPastCompetitions.forEach(competition => {
+                const competitionCard = document.createElement('div');
+                competitionCard.className = 'competition-card';
+                
+                // Format date
+                const date = new Date(competition.date);
+                const month = date.toLocaleDateString('en-US', { month: 'short' }).toUpperCase();
+                const day = date.getDate();
+                const year = date.getFullYear();
+                
+                // Get user's team and events
+                const userPlacements = competition.teamPlacement.filter(placement => 
+                    placement.participants && placement.participants.includes(currentUser.id)
+                );
+                
+                // Get team rank
+                const teamRank = competition.results.teamRank;
+                const teamOutOf = competition.results.teamOutOf;
+                
+                competitionCard.innerHTML = `
+                    <div class="competition-date past-date">
+                        <span class="month">${month}</span>
+                        <span class="day">${day}</span>
+                        <span class="year">${year}</span>
+                    </div>
+                    <div class="competition-details">
+                        <h3>${competition.name}</h3>
+                        <p class="competition-location"><i class="fas fa-map-marker-alt"></i> ${competition.location}</p>
+                        <p class="competition-result">Team Rank: <strong>${teamRank}${getOrdinalSuffix(teamRank)}</strong> out of ${teamOutOf} teams</p>
+                        <p class="user-events">Your Events: ${userPlacements.map(p => `${p.event} (Team ${p.team})`).join(', ')}</p>
+                    </div>
+                    <div class="competition-actions">
+                        <button class="view-details-btn" data-competition-id="${competition.id}">View Details</button>
+                    </div>
+                `;
+                
+                pastCompetitionsList.appendChild(competitionCard);
+            });
+            
+            // Add event listeners to detail buttons
+            const detailBtns = document.querySelectorAll('.view-details-btn');
+            detailBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const competitionId = this.dataset.competitionId;
+                    showCompetitionDetails(competitionId);
+                });
+            });
+        }
         
-        // Close modal
+        // Show competition details modal
+        function showCompetitionDetails(competitionId) {
+            const competition = competitionsData.find(comp => comp.id === competitionId);
+            if (!competition) return;
+            
+            // Get user's participation
+            const userPlacements = competition.teamPlacement.filter(placement => 
+                placement.participants && placement.participants.includes(currentUser.id)
+            );
+            
+            // Get full roster for each team
+            const teamRosters = {};
+            competition.teamPlacement.forEach(placement => {
+                if (!teamRosters[placement.team]) {
+                    teamRosters[placement.team] = [];
+                }
+                teamRosters[placement.team].push({
+                    event: placement.event,
+                    participants: placement.participants || []
+                });
+            });
+            
+            // Generate roster HTML
+            let rosterHTML = '';
+            Object.keys(teamRosters).forEach(team => {
+                rosterHTML += `<h4>Team ${team}</h4><ul>`;
+                teamRosters[team].forEach(event => {
+                    rosterHTML += `<li><strong>${event.event}:</strong> ${event.participants.length} participants</li>`;
+                });
+                rosterHTML += '</ul>';
+            });
+            
+            modalContent.innerHTML = `
+                <h2>${competition.name}</h2>
+                <div class="competition-details-modal">
+                    <div class="detail-section">
+                        <h3>Competition Information</h3>
+                        <p><strong>Date:</strong> ${new Date(competition.date).toLocaleDateString()}</p>
+                        <p><strong>Location:</strong> ${competition.location}</p>
+                        <p><strong>Type:</strong> ${competition.type}</p>
+                        <p><strong>Team Rank:</strong> ${competition.results.teamRank}${getOrdinalSuffix(competition.results.teamRank)} out of ${competition.results.teamOutOf}</p>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h3>Your Participation</h3>
+                        <ul>
+                            ${userPlacements.map(placement => {
+                                const eventResult = competition.results.eventResults.find(result => 
+                                    result.eventName === placement.event && result.team === placement.team
+                                );
+                                const resultText = eventResult ? 
+                                    `${eventResult.placement}${getOrdinalSuffix(eventResult.placement)} place` : 
+                                    'No result available';
+                                return `<li><strong>${placement.event} (Team ${placement.team}):</strong> ${resultText}</li>`;
+                            }).join('')}
+                        </ul>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h3>Full Team Roster</h3>
+                        ${rosterHTML}
+                    </div>
+                    
+                    ${competition.duosmium ? `
+                        <div class="detail-section">
+                            <h3>Results</h3>
+                            <a href="${competition.duosmium}" target="_blank" class="btn btn-primary">
+                                <i class="fas fa-external-link-alt"></i> View on Duosmium
+                            </a>
+                        </div>
+                    ` : ''}
+                </div>
+            `;
+            
+            modal.style.display = 'block';
+        }
+                
+                // Close modal
         closeBtn.addEventListener('click', function() {
             modal.style.display = 'none';
         });
@@ -1393,303 +1399,12 @@
             }
         });
         
-        // Update timeline buttons when page loads
-        updateTimelineButtons();
+        // Timeline buttons are updated when upcoming competitions are loaded
         
         // Load user data on page load
         loadUserData();
         
-        // Duosmium import elements
-        const importDuosmiumBtn = document.getElementById('importDuosmiumBtn');
-        const duosmiumImportModal = document.getElementById('duosmiumImportModal');
-        const duosmiumCloseBtn = document.querySelector('.duosmium-close');
-        const parseDuosmiumBtn = document.getElementById('parseDuosmiumBtn');
-        const duosmiumUrl = document.getElementById('duosmiumUrl');
-        const duosmiumParsingStatus = document.getElementById('duosmiumParsingStatus');
-        
-        // Event selection elements
-        const eventSelectionModal = document.getElementById('eventSelectionModal');
-        const eventSelectionCloseBtn = document.querySelector('.event-selection-close');
-        const teamSelect = document.getElementById('teamSelect');
-        const eventsList = document.getElementById('eventsList');
-        const saveEventsBtn = document.getElementById('saveEventsBtn');
-        
-        // Store parsed Duosmium data
-        let parsedDuosmiumData = null;
-        
-        // Open Duosmium import modal
-        importDuosmiumBtn.addEventListener('click', function() {
-            duosmiumImportModal.style.display = 'block';
-            duosmiumUrl.value = '';
-            duosmiumParsingStatus.style.display = 'none';
-            duosmiumParsingStatus.className = 'duosmium-parsing-status';
-        });
-        
-        // Close Duosmium import modal
-        duosmiumCloseBtn.addEventListener('click', function() {
-            duosmiumImportModal.style.display = 'none';
-        });
-        
-        // Parse Duosmium results
-        parseDuosmiumBtn.addEventListener('click', function() {
-            const url = duosmiumUrl.value.trim();
-            
-            if (!url || !url.includes('duosmium.org/results')) {
-                duosmiumParsingStatus.innerHTML = 'Please enter a valid Duosmium URL';
-                duosmiumParsingStatus.className = 'duosmium-parsing-status parsing-error';
-                duosmiumParsingStatus.style.display = 'block';
-                return;
-            }
-            
-            // Show loading state
-            duosmiumParsingStatus.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Parsing results...';
-            duosmiumParsingStatus.className = 'duosmium-parsing-status parsing-loading';
-            duosmiumParsingStatus.style.display = 'block';
-            
-            // Call the API to fetch and parse Duosmium results
-            fetch(`/api/parse-duosmium?url=${encodeURIComponent(url)}`)
-                .then(response => {
-                    if (!response.ok) {
-                        return response.json().then(data => {
-                            throw new Error(data.error || 'Failed to parse Duosmium results');
-                        });
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    if (!data || !data.teams || data.teams.length === 0) {
-                        throw new Error('No Bronx Science teams found in these results');
-                    }
-                    
-                    // Store parsed data
-                    parsedDuosmiumData = data;
-                    
-                    // Show success message
-                    duosmiumParsingStatus.innerHTML = `
-                        <i class="fas fa-check-circle"></i> Successfully parsed results for ${data.teams.length} Bronx Science teams!
-                        <p>Click "Continue" to select which events you competed in.</p>
-                        <button id="continueToEventsBtn" class="btn btn-primary" style="margin-top: 10px;">Continue</button>
-                    `;
-                    duosmiumParsingStatus.className = 'duosmium-parsing-status parsing-success';
-                    
-                    // Add event listener to continue button
-                    document.getElementById('continueToEventsBtn').addEventListener('click', function() {
-                        duosmiumImportModal.style.display = 'none';
-                        showEventSelectionModal();
-                    });
-                })
-                .catch(error => {
-                    console.error('Error parsing Duosmium:', error);
-                    duosmiumParsingStatus.innerHTML = `<i class="fas fa-exclamation-circle"></i> Error: ${error.message}`;
-                    duosmiumParsingStatus.className = 'duosmium-parsing-status parsing-error';
-                    duosmiumParsingStatus.style.display = 'block';
-                });
-        });
-        
-        // Show event selection modal
-        function showEventSelectionModal() {
-            if (!parsedDuosmiumData) return;
-            
-            // Populate team select
-            teamSelect.innerHTML = '';
-            parsedDuosmiumData.teams.forEach(team => {
-                const option = document.createElement('option');
-                option.value = team.teamName;
-                option.textContent = `${team.teamName} (Rank: ${team.rank})`;
-                teamSelect.appendChild(option);
-            });
-            
-            // Populate events list for the first team
-            populateEventsList(parsedDuosmiumData.teams[0]);
-            
-            // Reset any previous loading messages
-            const existingMessage = document.querySelector('.duosmium-parsing-status');
-            if (existingMessage && existingMessage.parentNode === document.querySelector('.event-selection-body')) {
-                existingMessage.remove();
-            }
-            
-            // Reset save button state
-            saveEventsBtn.disabled = false;
-            saveEventsBtn.textContent = 'Save My Results';
-            
-            // Show modal
-            eventSelectionModal.style.display = 'block';
-        }
-        
-        // Populate events list
-        function populateEventsList(team) {
-            eventsList.innerHTML = '';
-            
-            team.events.forEach(event => {
-                const eventItem = document.createElement('div');
-                eventItem.className = 'event-item';
-                
-                // Show medal for top 3 placements
-                let medalIcon = '';
-                if (event.place === 1) {
-                    medalIcon = '<i class="fas fa-medal" style="color: gold; margin-right: 5px;"></i>';
-                } else if (event.place === 2) {
-                    medalIcon = '<i class="fas fa-medal" style="color: silver; margin-right: 5px;"></i>';
-                } else if (event.place === 3) {
-                    medalIcon = '<i class="fas fa-medal" style="color: #cd7f32; margin-right: 5px;"></i>';
-                }
-                
-                const suffix = getOrdinalSuffix(event.place);
-                
-                eventItem.innerHTML = `
-                    <input type="checkbox" class="event-checkbox" data-event="${event.eventName}" data-place="${event.place}">
-                    <div class="event-name">${medalIcon}${event.eventName}</div>
-                    <div class="event-place">${event.place}${suffix} place</div>
-                `;
-                
-                eventsList.appendChild(eventItem);
-            });
-        }
-        
-        // Team selection change
-        teamSelect.addEventListener('change', function() {
-            const selectedTeamName = this.value;
-            const selectedTeam = parsedDuosmiumData.teams.find(team => team.teamName === selectedTeamName);
-            
-            if (selectedTeam) {
-                populateEventsList(selectedTeam);
-            }
-        });
-        
-        // Close event selection modal
-        eventSelectionCloseBtn.addEventListener('click', function() {
-            eventSelectionModal.style.display = 'none';
-        });
-        
-        // Save selected events to user results
-        saveEventsBtn.addEventListener('click', function() {
-            const selectedTeamName = teamSelect.value;
-            const selectedTeam = parsedDuosmiumData.teams.find(team => team.teamName === selectedTeamName);
-            
-            if (!selectedTeam) return;
-            
-            // Get selected events
-            const selectedEvents = [];
-            const checkboxes = document.querySelectorAll('.event-checkbox:checked');
-            
-            if (checkboxes.length === 0) {
-                alert('Please select at least one event that you participated in.');
-                return;
-            }
-            
-            // Get total number of teams from the parsed data
-            const totalTeams = parsedDuosmiumData.totalTeams || 0;
-            
-            checkboxes.forEach(checkbox => {
-                const eventName = checkbox.dataset.event;
-                const place = parseInt(checkbox.dataset.place);
-                
-                selectedEvents.push({
-                    eventName: eventName,
-                    placement: place,
-                    outOf: totalTeams,
-                    medal: place <= 3,
-                    medalType: place === 1 ? 'gold' : place === 2 ? 'silver' : place === 3 ? 'bronze' : null
-                });
-            });
-            
-            // Create competition result object
-            const competitionResult = {
-                competitionId: generateId(),
-                competitionName: parsedDuosmiumData.competitionName,
-                date: parsedDuosmiumData.date,
-                // Determine competition type from the name
-                type: determineCompetitionType(parsedDuosmiumData.competitionName),
-                eventResults: selectedEvents,
-                teamRank: selectedTeam.rank,
-                teamOutOf: totalTeams
-            };
-            
-            // Add to user's competition results
-            addCompetitionResult(competitionResult);
-        });
-        
-        // Helper function to determine competition type from name
-        function determineCompetitionType(competitionName) {
-            const lowerName = competitionName.toLowerCase();
-            
-            if (lowerName.includes('national') || lowerName.includes('nationals')) {
-                return 'national';
-            } else if (lowerName.includes('state') || lowerName.includes('states')) {
-                return 'state';
-            } else if (lowerName.includes('regional') || lowerName.includes('regionals')) {
-                return 'regional';
-            } else {
-                return 'invitational';
-            }
-        }
-        
-        // Add competition result to user data
-        function addCompetitionResult(competitionResult) {
-            // Get the status container
-            const saveStatusContainer = document.getElementById('saveStatusContainer');
-            
-            // Clear any existing status messages
-            saveStatusContainer.innerHTML = '';
-            
-            // Show loading indicator
-            const loadingMessage = document.createElement('div');
-            loadingMessage.className = 'duosmium-parsing-status parsing-loading';
-            loadingMessage.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Saving your results to the database...';
-            loadingMessage.style.display = 'block';
-            saveStatusContainer.appendChild(loadingMessage);
-            
-            // Disable save button
-            saveEventsBtn.disabled = true;
-            saveEventsBtn.textContent = 'Saving...';
-            
-            // In a real app, update Firebase with the new competition result
-            fetch(`/api/Members/${currentUser.id}/addCompetitionResult`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(competitionResult)
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Failed to save competition results');
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log('Competition results saved:', data);
-                
-                // Add to local state
-                competitionResults.push(competitionResult);
-                
-                // Update UI
-                countMedals();
-                applyFilters();
-                
-                // Close modal
-                eventSelectionModal.style.display = 'none';
-                
-                // Show success message
-                alert('Competition results successfully added to your profile!');
-            })
-            .catch(error => {
-                console.error('Error saving competition results:', error);
-                
-                // Show error message
-                loadingMessage.className = 'duosmium-parsing-status parsing-error';
-                loadingMessage.innerHTML = `<i class="fas fa-exclamation-circle"></i> Error: ${error.message}`;
-                
-                // Re-enable save button
-                saveEventsBtn.disabled = false;
-                saveEventsBtn.textContent = 'Save My Results';
-            });
-        }
-        
-        // Helper function to generate an ID
-        function generateId() {
-            return 'id_' + Math.random().toString(36).substr(2, 9);
-        }
+        // Note: Duosmium import functionality has been removed as requested
     });
 </script>
 {% endblock %} 

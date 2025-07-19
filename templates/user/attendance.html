@@ -399,9 +399,9 @@
         <div class="attendance-header">
             <h1 class="text-3xl font-bold text-gray-800 flex items-center">
                 <i class="fas fa-clipboard-check text-blue-500 mr-3"></i>
-                Attendance Tracker
+                Meeting Attendance Tracker
             </h1>
-            <p class="text-gray-600 mt-2">Manage your attendance and keep track of your participation.</p>
+            <p class="text-gray-600 mt-2">Manage your meeting attendance and keep track of your participation.</p>
         </div>
         
         <!-- Check-in Card -->
@@ -438,20 +438,16 @@
                 <div class="card-header-icon">
                     <i class="fas fa-history"></i>
                 </div>
-                <h2 class="text-xl font-semibold text-gray-800">Attendance History</h2>
+                <h2 class="text-xl font-semibold text-gray-800">Meeting Attendance History</h2>
             </div>
             <div class="p-6">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 space-y-4 md:space-y-0">
-                    <p class="text-gray-600">View your attendance record for all events and track your participation.</p>
+                    <p class="text-gray-600">View your attendance record for all meetings and track your participation.</p>
                     <div class="filter-dropdown">
                         <label for="filterType" class="block text-xs font-medium text-gray-500 mb-2">Filter by Type:</label>
                         <select id="filterType" class="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-1 focus:ring-blue-500">
-                            <option value="all">All Events</option>
+                            <option value="all">All Meetings</option>
                             <option value="meeting">Meetings</option>
-                            <option value="practice">Practices</option>
-                            <option value="competition">Competitions</option>
-                            <option value="workshop">Workshops</option>
-                            <option value="other">Other</option>
                         </select>
                     </div>
                 </div>
@@ -461,7 +457,7 @@
                     <div class="stat-card total">
                         <div class="flex items-center justify-between">
                             <div>
-                                <p class="text-gray-500 text-sm font-medium">Total Events</p>
+                                <p class="text-gray-500 text-sm font-medium">Total Meetings</p>
                                 <p id="totalEvents" class="stat-value text-gray-700">-</p>
                             </div>
                             <div class="bg-gray-200 p-3 rounded-full">
@@ -472,7 +468,7 @@
                     <div class="stat-card attended">
                         <div class="flex items-center justify-between">
                             <div>
-                                <p class="text-gray-500 text-sm font-medium">Events Attended</p>
+                                <p class="text-gray-500 text-sm font-medium">Meetings Attended</p>
                                 <p id="eventsAttended" class="stat-value text-blue-600">-</p>
                             </div>
                             <div class="bg-blue-100 p-3 rounded-full">
@@ -499,7 +495,7 @@
                         <thead>
                             <tr>
                                 <th>Date</th>
-                                <th>Event</th>
+                                <th>Meeting</th>
                                 <th>Type</th>
                                 <th>Status</th>
                                 <th>Check-in Time</th>
@@ -595,13 +591,14 @@ document.addEventListener('DOMContentLoaded', function() {
             </tr>
         `;
         
-        // Fetch events and attendance data
+        // Fetch meetings data, members data, and events data
         Promise.all([
-            fetch('/api/AttendanceEvents').then(r => r.json()),
-            fetch('/api/Attendance').then(r => r.json())
+            fetch('/api/Meeting').then(r => r.json()),
+            fetch('/api/Members').then(r => r.json()),
+            fetch('/api/Events').then(r => r.json())
         ])
-        .then(([eventsList, attendanceList]) => {
-            updateUI(eventsList, attendanceList);
+        .then(([meetingsList, membersList, eventsList]) => {
+            updateUI(meetingsList, membersList, eventsList);
         })
         .catch(error => {
             console.error("Error loading data:", error);
@@ -619,8 +616,18 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Process data and update UI
-    function updateUI(eventsList, attendanceList) {
+    function updateUI(meetingsList, membersList, eventsList) {
         // Create simple arrays from the API response format
+        const meetings = [];
+        meetingsList.forEach(item => {
+            const id = Object.keys(item)[0];
+            meetings.push({
+                id: id,
+                ...item[id]
+            });
+        });
+        
+        // Process events data
         const events = [];
         eventsList.forEach(item => {
             const id = Object.keys(item)[0];
@@ -630,56 +637,59 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
         
-        // Get attendance records for current user
-        const userAttendance = [];
-        attendanceList.forEach(item => {
-            const id = Object.keys(item)[0];
-            const record = item[id];
-            if (record.userId === userId) {
-                userAttendance.push({
-                    id: id,
-                    ...record
-                });
-            }
+        // Get current user from members list
+        const currentUserMember = membersList.find(member => {
+            const memberId = Object.keys(member)[0];
+            const memberData = member[memberId];
+            return memberData.doeEmail === currentUser?.email || memberData.personalEmail === currentUser?.email;
         });
         
-        // Filter events if needed
+        if (!currentUserMember) {
+            console.error('Current user not found in members list');
+            return;
+        }
+        
+        const currentUserId = Object.keys(currentUserMember)[0];
+        
+        // Filter meetings to only show meetings for events the user is assigned to
+        const userEvents = events.filter(event => 
+            event.members && event.members.includes(currentUserId)
+        ).map(event => event.eventName);
+        
+        let filteredMeetings = meetings.filter(meeting => 
+            userEvents.includes(meeting.eventName)
+        );
+        
+        // Apply additional filter if needed
         const filter = filterTypeSelect.value;
-        let filteredEvents = events;
-        if (filter !== 'all') {
-            filteredEvents = events.filter(e => e.eventType === filter);
+        if (filter !== 'all' && filter !== 'meeting') {
+            filteredMeetings = [];
         }
         
         // Sort by date (most recent first)
-        filteredEvents.sort((a, b) => {
+        filteredMeetings.sort((a, b) => {
             const dateA = a.date?.seconds ? a.date.seconds : new Date(a.date).getTime()/1000;
             const dateB = b.date?.seconds ? b.date.seconds : new Date(b.date).getTime()/1000;
             return dateB - dateA;
         });
         
-        // Update stats
-        const totalEvents = events.length;
-        const eventsAttended = userAttendance.length;
-        const rate = totalEvents > 0 ? Math.round((eventsAttended / totalEvents) * 100) : 0;
+        // Update stats - only count meetings for events the user is assigned to
+        const totalMeetings = filteredMeetings.length;
+        const meetingsAttended = filteredMeetings.filter(m => m.attended && m.attended.includes(currentUserId)).length;
+        const rate = totalMeetings > 0 ? Math.round((meetingsAttended / totalMeetings) * 100) : 0;
         
-        totalEventsElement.textContent = totalEvents;
-        eventsAttendedElement.textContent = eventsAttended;
+        totalEventsElement.textContent = totalMeetings;
+        eventsAttendedElement.textContent = meetingsAttended;
         attendanceRateElement.textContent = rate + '%';
         
-        // Create attendance map for quick lookup
-        const attendanceMap = {};
-        userAttendance.forEach(record => {
-            attendanceMap[record.eventId] = record;
-        });
-        
         // Render table
-        if (filteredEvents.length === 0) {
+        if (filteredMeetings.length === 0) {
             attendanceTableBody.innerHTML = `
                 <tr>
                     <td colspan="5" class="text-center py-6">
                         <div class="flex flex-col items-center justify-center text-gray-500">
                             <i class="fas fa-calendar-times text-2xl mb-3"></i>
-                            <p>No events found</p>
+                            <p>No meetings found for your assigned events</p>
                         </div>
                     </td>
                 </tr>
@@ -689,14 +699,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Build table rows
         attendanceTableBody.innerHTML = '';
-        filteredEvents.forEach(event => {
-            const isAttended = !!attendanceMap[event.id];
-            const eventDate = formatDate(event.date);
-            
-            let checkInTime = '-';
-            if (isAttended) {
-                checkInTime = formatTime(attendanceMap[event.id].checkInTime);
-            }
+        filteredMeetings.forEach(meeting => {
+            const isAttended = meeting.attended && meeting.attended.includes(currentUserId);
+            const meetingDate = formatDate(meeting.date);
             
             const row = document.createElement('tr');
             row.className = "border-b hover:bg-gray-50";
@@ -704,13 +709,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 <td class="py-3 px-4">
                     <div class="flex items-center">
                         <i class="far fa-calendar-alt text-blue-500 mr-2"></i>
-                        <span>${eventDate}</span>
+                        <span>${meetingDate}</span>
                     </div>
                 </td>
-                <td class="py-3 px-4 font-medium text-gray-800">${event.name}</td>
+                <td class="py-3 px-4 font-medium text-gray-800">${meeting.eventName}</td>
                 <td class="py-3 px-4">
                     <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                        ${capitalizeFirstLetter(event.eventType)}
+                        Meeting
                     </span>
                 </td>
                 <td class="py-3 px-4">
@@ -722,7 +727,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <td class="py-3 px-4">
                     <div class="flex items-center">
                         ${isAttended ? '<i class="far fa-clock text-gray-500 mr-2"></i>' : ''}
-                        <span>${checkInTime}</span>
+                        <span>${isAttended ? 'Attended' : '-'}</span>
                     </div>
                 </td>
             `;
@@ -815,56 +820,84 @@ document.addEventListener('DOMContentLoaded', function() {
         // Get today's date for code verification
         const today = new Date();
         
-        // Find event with matching code for today
-        fetch('/api/AttendanceEvents')
-            .then(response => response.json())
-            .then(eventsList => {
-                // Find active event with matching code
-                let event = null;
-                let eventId = null;
+        // Find meeting with matching code for today
+        Promise.all([
+            fetch('/api/Meeting').then(r => r.json()),
+            fetch('/api/Events').then(r => r.json())
+        ])
+        .then(([meetingsList, eventsList]) => {
+                // Find meeting with matching code for today
+                let meeting = null;
+                let meetingId = null;
                 
-                for (const item of eventsList) {
+                for (const item of meetingsList) {
                     const id = Object.keys(item)[0];
                     const data = item[id];
                     
-                    if (!data.isActive) continue;
-                    
-                    // Generate today's code for this event
-                    const eventCode = generateEventCode(id, today);
+                    // Generate today's code for this meeting
+                    const meetingCode = generateEventCode(id, today);
                     
                     // Check if code matches
-                    if (code === eventCode) {
-                        event = data;
-                        eventId = id;
+                    if (code === meetingCode) {
+                        meeting = data;
+                        meetingId = id;
                         break;
                     }
                 }
                 
-                if (!event) {
+                if (!meeting) {
                     throw new Error('Invalid or expired check-in code');
                 }
                 
-                // Create attendance record
-                const checkInData = {
-                    eventId: eventId,
-                    userId: userId,
-                    checkInTime: new Date().toISOString(),
-                    checkInMethod: 'code'
+                // Process events data
+                const events = [];
+                eventsList.forEach(item => {
+                    const id = Object.keys(item)[0];
+                    events.push({
+                        id: id,
+                        ...item[id]
+                    });
+                });
+                
+                // Check if the user is assigned to this event
+                const userEvents = events.filter(event => 
+                    event.members && event.members.includes(userId)
+                ).map(event => event.eventName);
+                
+                if (!userEvents.includes(meeting.eventName)) {
+                    throw new Error('You are not assigned to this event');
+                }
+                
+                // Update meeting attendance
+                const updatedAttended = meeting.attended || [];
+                if (!updatedAttended.includes(userId)) {
+                    updatedAttended.push(userId);
+                }
+                
+                // Only include fields that have valid values
+                const updateData = {
+                    attended: updatedAttended
                 };
                 
-                return fetch('/api/Attendance', {
-                    method: 'POST',
+                // Only add other fields if they exist and are not undefined
+                if (meeting.date !== undefined) updateData.date = meeting.date;
+                if (meeting.eventName !== undefined) updateData.eventName = meeting.eventName;
+                if (meeting.block !== undefined) updateData.block = meeting.block;
+                if (meeting.room !== undefined) updateData.room = meeting.room;
+                
+                return fetch(`/api/Meeting/${meetingId}`, {
+                    method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(checkInData)
+                    body: JSON.stringify(updateData)
                 })
                 .then(response => {
                     if (!response.ok) throw new Error('Failed to record attendance');
-                    return { event, eventId };
+                    return { meeting, meetingId };
                 });
             })
             .then(data => {
                 // Success!
-                modalEventName.textContent = `You've been checked in to ${data.event.name}`;
+                modalEventName.textContent = `You've been checked in to ${data.meeting.eventName}`;
                 successModal.style.display = 'flex';
                 successModal.classList.remove('hidden');
                 

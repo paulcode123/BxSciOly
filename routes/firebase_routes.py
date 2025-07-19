@@ -8,6 +8,7 @@ import requests
 from bs4 import BeautifulSoup
 import re
 from urllib.parse import urlparse, parse_qs
+import logging
 
 # Try to import from our initialization module
 try:
@@ -25,6 +26,10 @@ except ImportError:
 bucket = storage.bucket('bxscioly-455318.appspot.com')
 
 firebase_routes = Blueprint('firebase_routes', __name__)
+
+# Configure logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
 
 @firebase_routes.route('/api/<collection>', methods=['GET'])
 def get_all(collection):
@@ -107,7 +112,7 @@ def delete(collection, document_id):
 
 @firebase_routes.route('/api/Members/find-by-email/<email>', methods=['GET'])
 def find_member_by_email(email):
-    """Find a member by email address"""
+    """Find a member by email address (legacy endpoint)"""
     try:
         # Query the Members collection for documents where email equals the provided email
         query = db.collection('Members').where('email', '==', email).limit(1).stream()
@@ -117,6 +122,25 @@ def find_member_by_email(email):
         
         if not results:
             return jsonify({"error": "No member found with this email"}), 404
+        
+        # Get the first matching document
+        doc = results[0]
+        return jsonify({doc.id: doc.to_dict()}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/Members/find-by-doe-email/<doe_email>', methods=['GET'])
+def find_member_by_doe_email(doe_email):
+    """Find a member by DOE email address"""
+    try:
+        # Query the Members collection for documents where doeEmail equals the provided email
+        query = db.collection('Members').where('doeEmail', '==', doe_email).limit(1).stream()
+        
+        # Convert the query result to a list
+        results = list(query)
+        
+        if not results:
+            return jsonify({"error": "No member found with this DOE email"}), 404
         
         # Get the first matching document
         doc = results[0]
@@ -264,130 +288,572 @@ def add_competition_result(user_id):
 
 @firebase_routes.route('/api/parse-duosmium', methods=['GET'])
 def parse_duosmium():
-    """Parse results from a Duosmium URL and extract Bronx Science team data"""
+    """Parse Duosmium results and store in database"""
     try:
+        # Get URL parameter
         url = request.args.get('url')
-        if not url or 'duosmium.org/results' not in url:
-            return jsonify({'error': 'Invalid Duosmium URL'}), 400
+        if not url:
+            return jsonify({"error": "No URL provided"}), 400
         
-        # Fetch the HTML content from the URL
-        response = requests.get(url, timeout=10)
-        if response.status_code != 200:
-            return jsonify({'error': f'Failed to fetch Duosmium page (status code {response.status_code})'}), 400
+        # Parse the URL to extract competition info
+        parsed_url = urlparse(url)
+        query_params = parse_qs(parsed_url.query)
         
-        # Parse the HTML content
+        # Extract competition name from URL path
+        path_parts = parsed_url.path.strip('/').split('/')
+        competition_name = path_parts[-1] if path_parts else "Unknown Competition"
+        
+        # Make request to Duosmium
+        response = requests.get(url)
+        response.raise_for_status()
+        
+        # Parse HTML content
         soup = BeautifulSoup(response.content, 'html.parser')
         
-        # Extract competition name, date, and location
-        competition_name = soup.h1.text.strip() if soup.h1 else 'Unknown Competition'
+        # Extract team results (this is a simplified example)
+        teams = []
+        team_elements = soup.find_all('tr', class_='team-row')  # Adjust selector based on actual HTML structure
         
-        # Extract date from the page content
-        date_text = soup.find('p').text.strip() if soup.find('p') else ''
-        date_match = re.search(r'([A-Z][a-z]+day,\s+)?([A-Z][a-z]+\s+\d{1,2},\s+\d{4})', date_text)
-        competition_date = date_match.group(2) if date_match else None
-        
-        # Convert date to standardized format
-        if competition_date:
-            try:
-                from datetime import datetime
-                date_obj = datetime.strptime(competition_date, '%B %d, %Y')
-                competition_date = date_obj.strftime('%Y-%m-%d')
-            except Exception:
-                competition_date = None
-        
-        # Extract location if available
-        location_match = re.search(r'@\s+(.+)$', date_text)
-        location = location_match.group(1).strip() if location_match else 'Unknown Location'
-        
-        # Extract total number of teams from the table
-        team_rows = soup.select('table tr')
-        total_teams = len(team_rows) - 1 if team_rows else 0  # Subtract header row
-        
-        # Extract Bronx Science teams and their results
-        bronx_teams = []
-        
-        # Find all table rows after the header
-        team_rows = team_rows[1:] if len(team_rows) > 1 else []
-        
-        for row in team_rows:
-            cells = row.find_all('td')
-            if not cells or len(cells) < 5:
-                continue
+        for i, team_elem in enumerate(team_elements[:10]):  # Limit to top 10 teams for demo
+            team_name = team_elem.find('td', class_='team-name')
+            team_rank = team_elem.find('td', class_='rank')
             
-            team_cell = cells[1]  # Team name cell
-            team_name = team_cell.text.strip()
-            
-            # Check if this is a Bronx Science team
-            if 'Bronx' in team_name and 'Science' in team_name:
-                # Extract team rank and total score
-                rank_text = cells[2].text.strip().split('✧')[0].strip()  # Remove any qualification marker
-                try:
-                    rank = int(rank_text)
-                except ValueError:
-                    rank = 0
-                
-                try:
-                    total_score = int(cells[3].text.strip())
-                except ValueError:
-                    total_score = 0
-                
-                # Extract event results
-                events = []
-                event_columns = cells[4:]  # All cells after the total score are events
-                
-                # Get event names from table header
-                header_row = soup.select('table tr')[0] if soup.select('table tr') else None
-                event_headers = header_row.find_all('th')[4:] if header_row else []
-                
-                for i, event_cell in enumerate(event_columns):
-                    if i >= len(event_headers):
-                        break
-                    
-                    event_name = event_headers[i].text.strip()
-                    # Remove any bullet points or special characters
-                    event_name = re.sub(r'^[•\s]+', '', event_name)
-                    
-                    # Skip team penalties column
-                    if event_name.lower() == 'team penalties':
-                        continue
-                    
-                    # Extract place from the cell
-                    place_text = event_cell.text.strip()
-                    # Remove any suffix like ◊ or *
-                    place_text = re.sub(r'[◊*]+$', '', place_text)
-                    
-                    try:
-                        place = int(place_text)
-                        # Only add events that have valid placements
-                        events.append({
-                            'eventName': event_name,
-                            'place': place
-                        })
-                    except ValueError:
-                        # Skip events without valid placements
-                        pass
-                
-                # Add team to the results
-                bronx_teams.append({
-                    'teamName': team_name,
-                    'rank': rank,
-                    'totalScore': total_score,
-                    'events': events
+            if team_name and team_rank:
+                teams.append({
+                    'teamName': team_name.get_text(strip=True),
+                    'rank': int(team_rank.get_text(strip=True)) if team_rank.get_text(strip=True).isdigit() else i + 1,
+                    'totalScore': 0,  # Would need to extract from HTML
+                    'events': []  # Would need to extract from HTML
                 })
         
-        # Create the result object
-        result = {
-            'competitionName': competition_name,
-            'date': competition_date,
-            'location': location,
+        # Create Duosmium document
+        duosmium_data = {
             'url': url,
-            'teams': bronx_teams,
-            'totalTeams': total_teams
+            'competitionName': competition_name,
+            'date': firestore.SERVER_TIMESTAMP,
+            'location': 'Unknown',  # Would need to extract from HTML
+            'teams': teams,
+            'parsedAt': firestore.SERVER_TIMESTAMP
         }
         
-        return jsonify(result)
+        # Save to database
+        doc_ref = db.collection('Duosmium').document()
+        doc_ref.set(duosmium_data)
+        
+        return jsonify({
+            "id": doc_ref.id,
+            "message": "Duosmium results parsed and stored successfully",
+            "teams_count": len(teams)
+        }), 201
+        
+    except requests.RequestException as e:
+        return jsonify({"error": f"Failed to fetch URL: {str(e)}"}), 500
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+# Admin Authentication Routes
+@firebase_routes.route('/api/admin/login', methods=['POST'])
+def admin_login():
+    """Admin login endpoint"""
+    try:
+        data = request.get_json()
+        if not data or 'email' not in data or 'password' not in data:
+            return jsonify({"error": "Email and password required"}), 400
+        
+        email = data['email']
+        password = data['password']
+        
+        # Find member by email
+        member_query = db.collection('Members').where('doeEmail', '==', email).limit(1).stream()
+        members = list(member_query)
+        
+        if not members:
+            return jsonify({"error": "Invalid credentials"}), 401
+        
+        member = members[0]
+        member_data = member.to_dict()
+        
+        # Check if member has admin status
+        admin_status = member_data.get('adminStatus', 'none')
+        if admin_status == 'none':
+            return jsonify({"error": "Access denied. Admin privileges required."}), 403
+        
+        # In production, you should hash and verify passwords properly
+        # For now, we'll do a simple check (replace with proper authentication)
+        if member_data.get('password') != password:
+            return jsonify({"error": "Invalid credentials"}), 401
+        
+        # Determine admin role and permissions based on adminStatus
+        admin_role = admin_status
+        permissions = []
+        
+        if admin_status == 'full':
+            permissions = ['all']
+        elif admin_status == 'EM':
+            permissions = ['events', 'members', 'attendance']
+        elif admin_status == 'SD/BD':
+            permissions = ['content', 'learning_modules', 'calendar']
+        
+        return jsonify({
+            "adminId": member.id,  # Use member ID as admin ID
+            "userId": member.id,
+            "role": admin_role,
+            "permissions": permissions,
+            "userInfo": {
+                "firstName": member_data['firstName'],
+                "lastName": member_data['lastName'],
+                "email": member_data['doeEmail']
+            }
+        }), 200
+        
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/admin/check-auth', methods=['GET'])
+def check_admin_auth():
+    """Check if user has admin privileges"""
+    try:
+        # Get admin ID from request headers or session
+        admin_id = request.headers.get('X-Admin-ID')
+        if not admin_id:
+            return jsonify({"error": "Admin ID required"}), 401
+        
+        # Check if member exists and has admin status
+        member_doc = db.collection('Members').document(admin_id).get()
+        if not member_doc.exists:
+            return jsonify({"error": "Invalid admin session"}), 401
+        
+        member_data = member_doc.to_dict()
+        admin_status = member_data.get('adminStatus', 'none')
+        
+        if admin_status == 'none':
+            return jsonify({"error": "Admin privileges not found"}), 401
+        
+        # Determine admin role and permissions based on adminStatus
+        admin_role = admin_status
+        permissions = []
+        
+        if admin_status == 'full':
+            permissions = ['all']
+        elif admin_status == 'EM':
+            permissions = ['events', 'members', 'attendance']
+        elif admin_status == 'SD/BD':
+            permissions = ['content', 'learning_modules', 'calendar']
+        
+        return jsonify({
+            "adminId": admin_id,
+            "role": admin_role,
+            "permissions": permissions
+        }), 200
+        
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+# Admin Management Routes
+@firebase_routes.route('/api/admin/attendance-events', methods=['GET'])
+def get_attendance_events():
+    """Get all attendance events for admin"""
+    try:
+        # Check admin auth
+        admin_id = request.headers.get('X-Admin-ID')
+        if not admin_id:
+            return jsonify({"error": "Admin authentication required"}), 401
+        
+        # Get attendance events
+        events_query = db.collection('AttendanceEvents').order_by('date', direction=firestore.Query.DESCENDING).stream()
+        events = []
+        
+        for event in events_query:
+            event_data = event.to_dict()
+            event_data['id'] = event.id
+            events.append(event_data)
+        
+        return jsonify(events), 200
+        
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/admin/attendance-events', methods=['POST'])
+def create_attendance_event():
+    """Create a new attendance event"""
+    try:
+        # Check admin auth
+        admin_id = request.headers.get('X-Admin-ID')
+        if not admin_id:
+            return jsonify({"error": "Admin authentication required"}), 401
+        
+        data = request.get_json()
+        if not data:
+            return jsonify({"error": "No data provided"}), 400
+        
+        # Generate unique check-in code
+        import random
+        import string
+        check_in_code = ''.join(random.choices(string.ascii_uppercase + string.digits, k=6))
+        
+        # Create attendance event
+        event_data = {
+            'name': data.get('name'),
+            'date': datetime.fromisoformat(data.get('date')),
+            'startTime': datetime.fromisoformat(data.get('startTime')),
+            'endTime': datetime.fromisoformat(data.get('endTime')),
+            'description': data.get('description', ''),
+            'location': data.get('location', ''),
+            'checkInCode': check_in_code,
+            'eventType': data.get('eventType', 'meeting'),
+            'eventFor': data.get('eventFor', ['all']),
+            'createdBy': admin_id,
+            'createdAt': firestore.SERVER_TIMESTAMP,
+            'isActive': data.get('isActive', True)
+        }
+        
+        doc_ref = db.collection('AttendanceEvents').document()
+        doc_ref.set(event_data)
+        
+        return jsonify({
+            "id": doc_ref.id,
+            "checkInCode": check_in_code,
+            "message": "Attendance event created successfully"
+        }), 201
+        
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/admin/members', methods=['GET'])
+def get_members():
+    """Get all members for admin management"""
+    try:
+        # Check admin auth
+        admin_id = request.headers.get('X-Admin-ID')
+        if not admin_id:
+            return jsonify({"error": "Admin authentication required"}), 401
+        
+        # Get members
+        members_query = db.collection('Members').order_by('lastName').stream()
+        members = []
+        
+        for member in members_query:
+            member_data = member.to_dict()
+            member_data['id'] = member.id
+            # Remove sensitive data
+            member_data.pop('password', None)
+            members.append(member_data)
+        
+        return jsonify(members), 200
+        
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/EventContent', methods=['GET'])
+def get_event_content():
+    """Get all event content (flat dicts, not {id: {...}})"""
+    try:
+        docs = db.collection('EventContent').stream()
+        items = []
+        for doc in docs:
+            data = doc.to_dict()
+            data['id'] = doc.id
+            items.append(data)
+        logger.info(f"Fetched {len(items)} events from EventContent.")
+        return jsonify(items), 200
+    except Exception as e:
+        logger.error(f"Error fetching EventContent: {str(e)}")
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/admin/learning-modules', methods=['GET'])
+def get_learning_modules():
+    """Get all learning modules for admin management"""
+    try:
+        # Check admin auth
+        admin_id = request.headers.get('X-Admin-ID')
+        if not admin_id:
+            return jsonify({"error": "Admin authentication required"}), 401
+        # Get learning modules (avoid composite index by not using both where and order_by)
+        modules_query = db.collection('LearningModules').stream()
+        modules = []
+        for module in modules_query:
+            module_data = module.to_dict()
+            module_data['id'] = module.id
+            modules.append(module_data)
+        # Sort by 'order' in Python
+        modules.sort(key=lambda x: x.get('order', 0))
+        return jsonify(modules), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/LearningModules', methods=['POST'])
+def create_learning_module():
+    """Create a new learning module"""
+    try:
+        data = request.get_json()
+        if not data:
+            return jsonify({"error": "No data provided"}), 400
+        
+        # Validate required fields
+        required_fields = ['eventName', 'title', 'order']
+        for field in required_fields:
+            if field not in data:
+                return jsonify({"error": f"Missing required field: {field}"}), 400
+        
+        # Create module document
+        module_data = {
+            'eventName': data['eventName'],
+            'title': data['title'],
+            'duration': data.get('duration', ''),
+            'unit': data.get('unit', 'Unit 1'),
+            'order': int(data['order']),
+            'points': data.get('points', 10),
+            'prerequisites': data.get('prerequisites', []),
+            'content': data.get('content', {
+                'overview': data.get('overview', ''),
+                'objectives': data.get('objectives', []),
+                'resources': data.get('resources', [])
+            }),
+            'validationType': data.get('validationType', 'none'),
+            'problems': data.get('problems', []),
+            'systemPrompt': data.get('systemPrompt', ''),
+            'createdAt': firestore.SERVER_TIMESTAMP
+        }
+        
+        doc_ref = db.collection('LearningModules').document()
+        doc_ref.set(module_data)
+        
+        return jsonify({
+            "id": doc_ref.id,
+            "message": "Learning module created successfully"
+        }), 201
+        
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/LearningModules/<module_id>', methods=['PUT'])
+def update_learning_module(module_id):
+    """Update a learning module"""
+    try:
+        data = request.get_json()
+        if not data:
+            return jsonify({"error": "No data provided"}), 400
+        
+        # Get existing module
+        module_ref = db.collection('LearningModules').document(module_id)
+        if not module_ref.get().exists:
+            return jsonify({"error": "Module not found"}), 404
+        
+        # Update module data
+        update_data = {
+            'eventName': data.get('eventName'),
+            'title': data.get('title'),
+            'description': data.get('description', ''),
+            'duration': data.get('duration', ''),
+            'unit': data.get('unit', 'Unit 1'),
+            'order': int(data.get('order', 1)),
+            'points': data.get('points', 10),
+            'prerequisites': data.get('prerequisites', []),
+            'content': data.get('content', {
+                'overview': data.get('overview', ''),
+                'objectives': data.get('objectives', []),
+                'resources': data.get('resources', [])
+            }),
+            'validationType': data.get('validationType', 'none'),
+            'problems': data.get('problems', []),
+            'systemPrompt': data.get('systemPrompt', ''),
+            'updatedAt': firestore.SERVER_TIMESTAMP
+        }
+        
+        # Remove None values
+        update_data = {k: v for k, v in update_data.items() if v is not None}
+        
+        module_ref.update(update_data)
+        
+        return jsonify({
+            "id": module_id,
+            "message": "Learning module updated successfully"
+        }), 200
+        
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/LearningModules/<module_id>', methods=['DELETE'])
+def delete_learning_module(module_id):
+    """Delete a learning module"""
+    try:
+        # Get existing module
+        module_ref = db.collection('LearningModules').document(module_id)
+        if not module_ref.get().exists:
+            return jsonify({"error": "Module not found"}), 404
+        
+        # Hard delete the module
+        module_ref.delete()
+        
+        return jsonify({
+            "id": module_id,
+            "message": "Learning module deleted successfully"
+        }), 200
+        
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/LearningModules/event/<event_name>', methods=['GET'])
+def get_learning_modules_by_event(event_name):
+    """Get learning modules for a specific event"""
+    try:
+        # Get learning modules for the event (using single where clause to avoid index requirement)
+        modules_query = db.collection('LearningModules').where('eventName', '==', event_name).stream()
+        modules = []
+        
+        for module in modules_query:
+            module_data = module.to_dict()
+            module_data['id'] = module.id
+            modules.append(module_data)
+        
+        # Sort by order in Python instead of Firestore
+        modules.sort(key=lambda x: x.get('order', 0))
+        
+        return jsonify(modules), 200
+        
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/LearningModules/<module_id>/complete', methods=['POST'])
+def mark_module_complete(module_id):
+    """Mark a learning module as completed for a user"""
+    try:
+        data = request.get_json()
+        user_id = data.get('userId')
+        
+        if not user_id:
+            return jsonify({"error": "User ID required"}), 400
+        
+        # Check if module exists
+        module_ref = db.collection('LearningModules').document(module_id)
+        if not module_ref.get().exists:
+            return jsonify({"error": "Module not found"}), 404
+        
+        # Create or update completion record
+        completion_data = {
+            'userId': user_id,
+            'moduleId': module_id,
+            'completedAt': firestore.SERVER_TIMESTAMP,
+            'progress': 100
+        }
+        
+        # Use composite key for completion tracking
+        completion_id = f"{user_id}_{module_id}"
+        db.collection('ModuleCompletions').document(completion_id).set(completion_data)
+        
+        return jsonify({
+            "message": "Module marked as complete",
+            "completionId": completion_id
+        }), 200
+        
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/LearningModules/user/<user_id>/progress', methods=['GET'])
+def get_user_module_progress(user_id):
+    """Get learning module progress for a user"""
+    try:
+        # Get user's module completions
+        completions_query = db.collection('ModuleCompletions').where('userId', '==', user_id).stream()
+        completions = []
+        
+        for completion in completions_query:
+            completion_data = completion.to_dict()
+            completion_data['id'] = completion.id
+            completions.append(completion_data)
+        
+        return jsonify(completions), 200
+        
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/admin/calendar-events', methods=['GET'])
+def get_calendar_events():
+    """Get all calendar events for admin management"""
+    try:
+        # Check admin auth
+        admin_id = request.headers.get('X-Admin-ID')
+        if not admin_id:
+            return jsonify({"error": "Admin authentication required"}), 401
+        
+        # Get calendar events (no order_by to avoid index requirement)
+        events_query = db.collection('CalendarEvents').where('isActive', '==', True).stream()
+        events = []
+        
+        for event in events_query:
+            event_data = event.to_dict()
+            event_data['id'] = event.id
+            events.append(event_data)
+        
+        # Sort events by date in Python (ascending)
+        def get_date_as_iso(event):
+            date_val = event.get('date', '')
+            if hasattr(date_val, 'isoformat'):
+                return date_val.isoformat()
+            return str(date_val)
+        events.sort(key=get_date_as_iso)
+        
+        return jsonify(events), 200
     
     except Exception as e:
-        import traceback
-        traceback.print_exc()
-        return jsonify({'error': str(e)}), 500 
+        print(e)
+        return jsonify({"error": str(e)}), 500 
+
+@firebase_routes.route('/api/admin/calendar-events/<event_id>', methods=['PATCH', 'PUT'])
+def update_calendar_event(event_id):
+    """Update a calendar event for admin management"""
+    try:
+        # Check admin auth
+        admin_id = request.headers.get('X-Admin-ID')
+        if not admin_id:
+            return jsonify({"error": "Admin authentication required"}), 401
+        data = request.get_json()
+        if not data:
+            return jsonify({"error": "No data provided"}), 400
+        event_ref = db.collection('CalendarEvents').document(event_id)
+        event_doc = event_ref.get()
+        if not event_doc.exists:
+            return jsonify({"error": "Event not found"}), 404
+        if request.method == 'PATCH':
+            event_ref.update(data)
+            message = "Event updated successfully"
+        else:
+            event_ref.set(data)
+            message = "Event replaced successfully"
+        return jsonify({"message": message}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500 
+
+# --- ADMIN-FRIENDLY API ENDPOINTS FOR ADMIN COMPETITIONS PAGE ---
+
+# Competitions
+@firebase_routes.route('/api/admin/competitions', methods=['GET'])
+def admin_get_competitions():
+    return get_all('Competitions')
+
+@firebase_routes.route('/api/admin/competitions', methods=['POST'])
+def admin_create_competition():
+    return create('Competitions')
+
+@firebase_routes.route('/api/admin/competitions/<competition_id>', methods=['PUT', 'PATCH'])
+def admin_update_competition(competition_id):
+    return update('Competitions', competition_id)
+
+@firebase_routes.route('/api/admin/competitions/<competition_id>', methods=['DELETE'])
+def admin_delete_competition(competition_id):
+    return delete('Competitions', competition_id)
+
+# Applications
+@firebase_routes.route('/api/admin/applications', methods=['GET'])
+def admin_get_applications():
+    return get_all('Applications')
+
+# Members
+@firebase_routes.route('/api/admin/members', methods=['GET'])
+def admin_get_members():
+    return get_all('Members')
+
+# Events
+@firebase_routes.route('/api/admin/events', methods=['GET'])
+def admin_get_events():
+    return get_all('Events') 

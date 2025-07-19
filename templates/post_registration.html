@@ -1,0 +1,479 @@
+{% extends "layout.html" %}
+
+{% block title %}Registration Success - Bronx Science Olympiad{% endblock %}
+
+{% block content %}
+<div class="hero success-hero">
+    <div class="hero-content">
+        <div class="success-icon">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <h1>Welcome to the Team!</h1>
+        <p>Your registration has been successfully submitted</p>
+    </div>
+</div>
+
+<section class="section">
+    <div class="container">
+        <div class="welcome-message">
+            <div class="welcome-content">
+                <h2><i class="fas fa-rocket"></i> Congratulations on Taking the First Step!</h2>
+                <p class="lead">You have just joined a team full of incredibly smart and talented people. If you demonstrate strong passion and dedication, you too will be able to achieve great things and be part of this amazing community.</p>
+                
+                <div class="commitment-section">
+                    <h3><i class="fas fa-fire"></i> Your Commitment Begins Now</h3>
+                    <p>You now have access to a comprehensive learning path full of resources for each event. <strong>The more effort you put in to learning this material over the summer, the more likely you are to be accepted into the team and achieve success next year.</strong></p>
+                    
+                    <div class="warning-box">
+                        <div class="warning-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                        <div class="warning-content">
+                            <h4>Important: This is a Highly Competitive Process</h4>
+                            <p>There is a lot of material to learn in each of these events, and the selection process is extremely competitive. Your dedication to studying these resources over the summer will be a crucial factor in your success.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="next-actions">
+                    <h3><i class="fas fa-map-marked-alt"></i> Your Next Steps</h3>
+                    <div class="actions-grid">
+                        <div class="action-card">
+                            <div class="action-icon">
+                                <i class="fas fa-sign-in-alt"></i>
+                            </div>
+                            <h4>1. Access Your Account</h4>
+                            <p>Log in with your email and password to access your personalized learning dashboard.</p>
+                            <a href="{{ url_for('login') }}" class="btn btn-primary">Login Now</a>
+                        </div>
+                        
+                        <div class="action-card">
+                            <div class="action-icon">
+                                <i class="fas fa-route"></i>
+                            </div>
+                            <h4>2. Start Your Learning Path</h4>
+                            <p>Begin studying your selected events immediately using our curated resources and practice materials.</p>
+                            <a href="{{ url_for('user_events_learning_path') }}" class="btn btn-secondary">View Learning Paths</a>
+                        </div>
+                        
+                        <div class="action-card">
+                            <div class="action-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <h4>3. Plan Your Summer</h4>
+                            <p>Create a study schedule and dedicate significant time each week to mastering your events.</p>
+                            <a href="{{ url_for('calendar') }}" class="btn btn-secondary">View Calendar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section excellence-section">
+    <div class="container">
+        <div class="section-title">
+            <h2>Join a Legacy of Excellence</h2>
+        </div>
+        <div class="section-content">
+            <div class="excellence-grid">
+                <div class="excellence-item">
+                    <div class="excellence-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Championship Tradition</h3>
+                    <p>Our team has a proven track record of success at regional and state competitions, with multiple championship titles.</p>
+                </div>
+                
+                <div class="excellence-item">
+                    <div class="excellence-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Academic Excellence</h3>
+                    <p>Team members consistently achieve top scores on standardized tests and gain admission to prestigious universities.</p>
+                </div>
+                
+                <div class="excellence-item">
+                    <div class="excellence-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Innovation & Research</h3>
+                    <p>Many alumni have gone on to conduct groundbreaking research and make significant contributions to science and technology.</p>
+                </div>
+                
+                <div class="excellence-item">
+                    <div class="excellence-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Lifelong Connections</h3>
+                    <p>Build lasting friendships with like-minded individuals who share your passion for scientific discovery and excellence.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section motivation-section">
+    <div class="container">
+        <div class="motivation-content">
+            <div class="quote-card">
+                <div class="quote-icon">
+                    <i class="fas fa-quote-left"></i>
+                </div>
+                <blockquote>
+                    "The difference between ordinary and extraordinary is that little extra. Your commitment to excellence over the summer will determine whether you simply participate or truly excel."
+                </blockquote>
+                <cite>- Bronx Science Olympiad Leadership</cite>
+            </div>
+            
+            <div class="motivation-stats">
+                <div class="stat">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Hours of Study Materials</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">23</div>
+                    <div class="stat-label">Different Events</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Dedication Required</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .success-hero {
+        height: 60vh;
+        background: linear-gradient(135deg, #2c3e50, #3498db);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+    }
+    
+    .success-icon {
+        font-size: 4rem;
+        color: #2ecc71;
+        margin-bottom: 20px;
+        animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+    }
+    
+    .success-hero h1 {
+        font-size: 3rem;
+        margin-bottom: 15px;
+        font-weight: 700;
+    }
+    
+    .success-hero p {
+        font-size: 1.3rem;
+        opacity: 0.9;
+    }
+    
+    .welcome-message {
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        margin-top: -50px;
+        position: relative;
+        z-index: 10;
+    }
+    
+    .welcome-content h2 {
+        color: var(--primary-color);
+        margin-bottom: 20px;
+        font-size: 2rem;
+        display: flex;
+        align-items: center;
+    }
+    
+    .welcome-content h2 i {
+        margin-right: 15px;
+        color: var(--accent-color);
+    }
+    
+    .lead {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        color: var(--text-color);
+        margin-bottom: 30px;
+        font-weight: 500;
+    }
+    
+    .commitment-section {
+        background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(155, 89, 182, 0.1));
+        padding: 30px;
+        border-radius: 15px;
+        margin: 30px 0;
+        border-left: 5px solid var(--accent-color);
+    }
+    
+    .commitment-section h3 {
+        color: var(--primary-color);
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .commitment-section h3 i {
+        margin-right: 10px;
+        color: var(--accent-color);
+    }
+    
+    .warning-box {
+        display: flex;
+        background: linear-gradient(135deg, rgba(231, 76, 60, 0.1), rgba(192, 57, 43, 0.1));
+        border-radius: 10px;
+        padding: 20px;
+        margin-top: 20px;
+        border-left: 4px solid #e74c3c;
+    }
+    
+    .warning-icon {
+        font-size: 1.5rem;
+        color: #e74c3c;
+        margin-right: 15px;
+        margin-top: 5px;
+    }
+    
+    .warning-content h4 {
+        color: #c0392b;
+        margin-bottom: 10px;
+        font-size: 1.1rem;
+    }
+    
+    .warning-content p {
+        color: var(--text-color);
+        line-height: 1.5;
+        margin: 0;
+    }
+    
+    .next-actions {
+        margin-top: 40px;
+    }
+    
+    .next-actions h3 {
+        color: var(--primary-color);
+        margin-bottom: 25px;
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+    }
+    
+    .next-actions h3 i {
+        margin-right: 10px;
+        color: var(--accent-color);
+    }
+    
+    .actions-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    
+    .action-card {
+        background: white;
+        border: 2px solid #e1e8ed;
+        border-radius: 15px;
+        padding: 25px;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+    
+    .action-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        border-color: var(--primary-color);
+    }
+    
+    .action-icon {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 15px;
+    }
+    
+    .action-card h4 {
+        color: var(--primary-color);
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+    }
+    
+    .action-card p {
+        color: var(--text-color);
+        line-height: 1.5;
+        margin-bottom: 20px;
+    }
+    
+    .btn {
+        display: inline-block;
+        padding: 12px 24px;
+        text-decoration: none;
+        border-radius: 25px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .btn-primary {
+        background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+        color: white;
+    }
+    
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    .btn-secondary {
+        background: #f8f9fa;
+        color: var(--primary-color);
+        border: 2px solid var(--primary-color);
+    }
+    
+    .btn-secondary:hover {
+        background: var(--primary-color);
+        color: white;
+    }
+    
+    .excellence-section {
+        background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    }
+    
+    .excellence-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+    }
+    
+    .excellence-item {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+    
+    .excellence-item:hover {
+        transform: translateY(-5px);
+    }
+    
+    .excellence-icon {
+        font-size: 3rem;
+        color: var(--accent-color);
+        margin-bottom: 20px;
+    }
+    
+    .excellence-item h3 {
+        color: var(--primary-color);
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+    }
+    
+    .excellence-item p {
+        color: var(--text-color);
+        line-height: 1.6;
+    }
+    
+    .motivation-section {
+        background: var(--primary-color);
+        color: white;
+    }
+    
+    .motivation-content {
+        text-align: center;
+    }
+    
+    .quote-card {
+        background: rgba(255,255,255,0.1);
+        border-radius: 20px;
+        padding: 40px;
+        margin-bottom: 40px;
+        backdrop-filter: blur(10px);
+    }
+    
+    .quote-icon {
+        font-size: 3rem;
+        color: var(--accent-color);
+        margin-bottom: 20px;
+    }
+    
+    .quote-card blockquote {
+        font-size: 1.5rem;
+        line-height: 1.6;
+        font-style: italic;
+        margin-bottom: 20px;
+        font-weight: 300;
+    }
+    
+    .quote-card cite {
+        font-size: 1.1rem;
+        opacity: 0.8;
+    }
+    
+    .motivation-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 30px;
+    }
+    
+    .stat {
+        text-align: center;
+    }
+    
+    .stat-number {
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--accent-color);
+        margin-bottom: 10px;
+    }
+    
+    .stat-label {
+        font-size: 1.1rem;
+        opacity: 0.9;
+    }
+    
+    @media (max-width: 768px) {
+        .success-hero h1 {
+            font-size: 2rem;
+        }
+        
+        .success-hero p {
+            font-size: 1.1rem;
+        }
+        
+        .welcome-message {
+            padding: 20px;
+            margin-top: -30px;
+        }
+        
+        .welcome-content h2 {
+            font-size: 1.5rem;
+        }
+        
+        .actions-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .quote-card {
+            padding: 20px;
+        }
+        
+        .quote-card blockquote {
+            font-size: 1.2rem;
+        }
+    }
+</style>
+{% endblock %} 

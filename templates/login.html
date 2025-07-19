@@ -21,8 +21,9 @@
                 
                 <form id="login-form" class="login-form">
                     <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" required>
+                        <label for="doeEmail">DOE Email Address</label>
+                        <input type="email" id="doeEmail" name="doeEmail" pattern=".*@nycstudents\.net$" title="Please enter your NYC DOE email address ending with @nycstudents.net" required>
+                        <div class="field-hint">Enter your NYC DOE email address ending with @nycstudents.net</div>
                     </div>
                     
                     <div class="form-group">
@@ -44,7 +45,7 @@
                 </form>
                 
                 <div class="login-footer">
-                    <p>Don't have an account? <a href="{{ url_for('apply') }}">Apply Now</a></p>
+                    <p>Don't have an account? <a href="{{ url_for('register') }}">Register Now</a></p>
                 </div>
             </div>
             
@@ -146,6 +147,13 @@
         border-color: var(--accent-color);
         box-shadow: 0 0 0 3px rgba(155, 89, 182, 0.2);
         outline: none;
+    }
+    
+    .field-hint {
+        font-size: 0.8rem;
+        color: #777;
+        margin-top: 5px;
+        font-style: italic;
     }
     
     .form-options {
@@ -284,7 +292,7 @@
         loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const email = document.getElementById('email').value;
+            const doeEmail = document.getElementById('doeEmail').value;
             const password = document.getElementById('password').value;
             const loginBtn = document.querySelector('.login-btn');
             
@@ -292,12 +300,19 @@
             loginError.style.display = 'none';
             loginError.textContent = '';
             
+            // Validate DOE email format
+            if (!doeEmail.endsWith('@nycstudents.net')) {
+                loginError.textContent = 'Please enter a valid NYC DOE email address ending with @nycstudents.net';
+                loginError.style.display = 'block';
+                return;
+            }
+            
             // Disable button and show loading state
             loginBtn.textContent = 'Logging in...';
             loginBtn.disabled = true;
             
-            // Use the dedicated email lookup endpoint
-            fetch(`/api/Members/find-by-email/${encodeURIComponent(email)}`)
+            // Use the dedicated email lookup endpoint with DOE email
+            fetch(`/api/Members/find-by-doe-email/${encodeURIComponent(doeEmail)}`)
                 .then(response => {
                     if (!response.ok) {
                         if (response.status === 404) {
@@ -323,7 +338,8 @@
                         id: memberId,
                         firstName: memberData.firstName,
                         lastName: memberData.lastName,
-                        email: memberData.email,
+                        doeEmail: memberData.doeEmail,
+                        personalEmail: memberData.personalEmail,
                         grade: memberData.grade,
                         events: memberData.events,
                         status: memberData.status

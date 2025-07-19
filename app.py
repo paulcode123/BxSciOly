@@ -26,9 +26,25 @@ def home():
 def about():
     return render_template('about.html')
 
-@app.route('/apply')
-def apply():
-    return render_template('apply.html')
+@app.route('/leadership')
+def leadership():
+    return render_template('leadership.html')
+
+@app.route('/our-team')
+def our_team():
+    return render_template('our_team.html')
+
+@app.route('/what-we-do')
+def what_we_do():
+    return render_template('what_we_do.html')
+
+@app.route('/register')
+def register():
+    return render_template('register.html')
+
+@app.route('/post-registration')
+def post_registration():
+    return render_template('post_registration.html')
 
 @app.route('/login')
 def login():
@@ -152,13 +168,52 @@ def user_attendance():
     return render_template('user/attendance.html')
 
 @app.route('/user/admin/attendance')
-def admin_attendance():
+def user_admin_attendance():
     return render_template('user/admin_attendance.html')
+
+@app.route('/admin/login')
+def admin_login():
+    return render_template('admin_login.html')
+
+@app.route('/admin/dashboard')
+def admin_dashboard():
+    return render_template('admin_dashboard.html')
+
+@app.route('/admin/attendance')
+def admin_attendance():
+    return render_template('admin_attendance.html')
+
+@app.route('/admin/events')
+def admin_events():
+    return render_template('admin_events.html')
+
+@app.route('/admin/content')
+def admin_content():
+    return render_template('admin_content.html')
+
+@app.route('/admin/calendar')
+def admin_calendar():
+    return render_template('admin_calendar.html')
+
+@app.route('/admin/members')
+def admin_members():
+    return render_template('admin_members.html')
+
+@app.route('/admin/analytics')
+def admin_analytics():
+    return render_template('admin_analytics.html')
+
+@app.route('/admin/competitions')
+def admin_competitions():
+    return render_template('admin_competitions.html')
 
 @app.route('/platform')
 def platform():
     return render_template('platform.html')
 
+@app.route('/sponsors')
+def sponsors():
+    return render_template('sponsors.html')
+
 if __name__ == '__main__':
-    app.run(debug=True, host='localhost', port=8000)
-    # hi world 
+    app.run(debug=True, host='localhost', port=8000) 
