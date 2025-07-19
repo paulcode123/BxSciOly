@@ -333,16 +333,10 @@
                     }
                     
                     // Login successful
-                    // Store user info in session storage
+                    // Store complete user info in session storage
                     const userInfo = {
                         id: memberId,
-                        firstName: memberData.firstName,
-                        lastName: memberData.lastName,
-                        doeEmail: memberData.doeEmail,
-                        personalEmail: memberData.personalEmail,
-                        grade: memberData.grade,
-                        events: memberData.events,
-                        status: memberData.status
+                        ...memberData  // Include all fields from the database
                     };
                     
                     sessionStorage.setItem('currentUser', JSON.stringify(userInfo));

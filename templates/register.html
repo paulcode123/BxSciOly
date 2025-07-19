@@ -1133,7 +1133,7 @@
             const confirmPassword = confirmPasswordField.value;
             
             // Check if password meets requirements
-            const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+            const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?])[A-Za-z\d!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]{8,}$/;
             
             // Check if passwords match
             if (password && confirmPassword && password !== confirmPassword) {

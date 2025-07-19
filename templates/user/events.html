@@ -1819,6 +1819,38 @@
         cursor: pointer;
     }
     
+    .btn-primary, .btn-secondary {
+        padding: 0.625rem 1.25rem;
+        border-radius: 25px;
+        border: none;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+        color: white;
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(79, 70, 229, 0.4);
+    }
+
+    .btn-secondary {
+        background: #f1f5f9;
+        color: #374151;
+        border: 1px solid #d1d5db;
+    }
+
+    .btn-secondary:hover {
+        background: #e2e8f0;
+    }
+    
     .file-hint {
         font-size: 0.8rem;
         color: #888;
@@ -1920,18 +1952,6 @@
         
         // Initialize the page
         loadUserEvents();
-        
-        // Check for event parameter in URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const eventParam = urlParams.get('event');
-        if (eventParam) {
-            // Wait for events to load, then show the specified event
-            setTimeout(() => {
-                if (userEvents.includes(eventParam)) {
-                    showEventDetail(eventParam);
-                }
-            }, 500);
-        }
         
         // Event listeners
         backToEvents.addEventListener('click', showEventsOverview);
@@ -2102,6 +2122,27 @@
                 console.error('Error loading event data:', error);
                 eventsGrid.innerHTML = '<div class="error-message">Failed to load event data. Please try refreshing the page.</div>';
             }
+            
+            // Check for event and tab parameters in URL after events are loaded
+            const urlParams = new URLSearchParams(window.location.search);
+            const eventParam = urlParams.get('event');
+            const tabParam = urlParams.get('tab');
+            
+            if (eventParam) {
+                console.log('URL parameters found:', { eventParam, tabParam });
+                console.log('User events:', userEvents.map(e => e.eventName));
+                
+                // Check if the event exists in user's events
+                const eventExists = userEvents.some(event => event.eventName === eventParam);
+                console.log('Event exists:', eventExists);
+                
+                if (eventExists) {
+                    console.log('Loading event detail with tab:', tabParam);
+                    showEventDetail(eventParam, tabParam);
+                } else {
+                    console.log('Event not found in user events');
+                }
+            }
         }
         
         // Get user's learning progress for an event
@@ -2200,7 +2241,7 @@
         }
         
         // Show event detail view
-        function showEventDetail(eventName) {
+        function showEventDetail(eventName, tabName = 'general') {
             currentEventData = {
                 name: eventName,
                 description: getEventDescription(eventName)
@@ -2212,14 +2253,21 @@
             eventsOverview.classList.add('hidden');
             eventDetail.classList.remove('hidden');
             
-            // Load the default tab (general)
-            switchTab('general');
+            // Update URL with event parameter
+            updateURLWithEvent(eventName);
+            
+            // Load the specified tab or default to general
+            const tabToLoad = isValidTab(tabName) ? tabName : 'general';
+            switchTab(tabToLoad);
         }
         
         // Show events overview
         function showEventsOverview() {
             eventDetail.classList.add('hidden');
             eventsOverview.classList.remove('hidden');
+            
+            // Clear URL parameters when going back to overview
+            clearURLParameters();
         }
         
         // Switch between tabs
@@ -2239,6 +2287,9 @@
                     content.classList.add('active');
                 }
             });
+            
+            // Update URL with tab parameter
+            updateURLWithTab(tabName);
             
             // Load data for the selected tab
             switch (tabName) {
@@ -2261,6 +2312,36 @@
                     loadEventLeaderboard();
                     break;
             }
+        }
+        
+        // URL management functions
+        function updateURLWithEvent(eventName) {
+            const url = new URL(window.location);
+            url.searchParams.set('event', eventName);
+            // Keep existing tab parameter if it exists
+            window.history.replaceState({}, '', url);
+        }
+        
+        function updateURLWithTab(tabName) {
+            if (currentEventData) {
+                const url = new URL(window.location);
+                url.searchParams.set('event', currentEventData.name);
+                url.searchParams.set('tab', tabName);
+                window.history.replaceState({}, '', url);
+            }
+        }
+        
+        function clearURLParameters() {
+            const url = new URL(window.location);
+            url.searchParams.delete('event');
+            url.searchParams.delete('tab');
+            window.history.replaceState({}, '', url);
+        }
+        
+        // Validate tab name
+        function isValidTab(tabName) {
+            const validTabs = ['general', 'roster', 'materials', 'modules', 'tests', 'leaderboard'];
+            return validTabs.includes(tabName);
         }
         
         // Load event general information
@@ -2370,6 +2451,23 @@
                     console.log('API Modules received:', apiModules); // Debug log
                     
                     if (apiModules.length > 0) {
+                        // Load user's module completions for this event
+                        const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+                        if (currentUser) {
+                            try {
+                                const completionsResponse = await fetch(`/api/ModuleCompletions/user/${currentUser.id}/event/${encodeURIComponent(currentEventData.name)}`);
+                                if (completionsResponse.ok) {
+                                    const completions = await completionsResponse.json();
+                                    // Update userProgress with real completion data
+                                    completions.forEach(completion => {
+                                        userProgress[completion.moduleId] = completion.completed;
+                                    });
+                                }
+                            } catch (error) {
+                                console.error('Error loading user completions:', error);
+                            }
+                        }
+                        
                         // Transform API modules to match the expected format
                         modules = apiModules.map(module => {
                             // Get content from the new schema structure
@@ -2405,16 +2503,6 @@
                         });
                         
                         console.log('Transformed modules with content:', modules); // Debug log
-                        
-                        // Initialize progress if not already set
-                        if (Object.keys(userProgress).length === 0 && modules.length > 0) {
-                            userProgress[modules[0].id] = true;
-                            modules[0].completed = true;
-                            if (modules.length > 1) {
-                                userProgress[modules[1].id] = true;
-                                modules[1].completed = true;
-                            }
-                        }
                 
                         // Calculate progress
                         const completedCount = modules.filter(m => m.completed).length;
@@ -2744,11 +2832,14 @@
                     
                     <div class="module-actions">
                         ${module.completed ? 
-                            `<button class="module-action-btn secondary" onclick="reviewModule('${module.id}')">
-                                <i class="fas fa-redo"></i> Review Module
+                            `<button class="module-action-btn secondary" onclick="unsubmitModule('${module.id}')">
+                                <i class="fas fa-undo"></i> Unsubmit
                             </button>` :
                             `<button class="module-action-btn primary" onclick="completeModule('${module.id}')">
-                                <i class="fas fa-check"></i> Mark as Complete
+                                <i class="fas fa-check"></i> ${module.rawData.validationType === 'none' ? 'Mark as Complete' : 
+                                   module.rawData.validationType === 'notesUpload' ? 'Upload Notes' :
+                                   module.rawData.validationType === 'problems' ? 'Answer Questions' :
+                                   module.rawData.validationType === 'AIconversation' ? 'Proceed to Conversation' : 'Mark as Complete'}
                             </button>
                             <button class="module-action-btn secondary" onclick="startModule('${module.id}')">
                                 <i class="fas fa-play"></i> Start Module
@@ -2832,11 +2923,14 @@
                     
                     <div class="module-actions">
                         ${module.completed ? 
-                            `<button class="module-action-btn secondary" onclick="reviewModule('${module.id}')">
-                                <i class="fas fa-redo"></i> Review Module
+                            `<button class="module-action-btn secondary" onclick="unsubmitModule('${module.id}')">
+                                <i class="fas fa-undo"></i> Unsubmit
                             </button>` :
                             `<button class="module-action-btn primary" onclick="completeModule('${module.id}')">
-                                <i class="fas fa-check"></i> Mark as Complete
+                                <i class="fas fa-check"></i> ${module.rawData.validationType === 'none' ? 'Mark as Complete' : 
+                                   module.rawData.validationType === 'notesUpload' ? 'Upload Notes' :
+                                   module.rawData.validationType === 'problems' ? 'Answer Questions' :
+                                   module.rawData.validationType === 'AIconversation' ? 'Proceed to Conversation' : 'Mark as Complete'}
                             </button>
                             <button class="module-action-btn secondary" onclick="startModule('${module.id}')">
                                 <i class="fas fa-play"></i> Start Module
@@ -2851,43 +2945,415 @@
         }
         
         // Module action functions
-        function completeModule(moduleId) {
-            // Find and complete the module
+        window.completeModule = async function(moduleId) {
+            const module = modules.find(m => m.id === moduleId);
+            if (!module) return;
+            
+            const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+            if (!currentUser) {
+                alert('Please log in to complete modules');
+                return;
+            }
+            
+            try {
+                // Handle different validation types
+                if (module.rawData.validationType === 'notesUpload') {
+                    await handleNotesUpload(moduleId);
+                } else if (module.rawData.validationType === 'problems') {
+                    await handleProblemsSubmission(moduleId);
+                } else if (module.rawData.validationType === 'AIconversation') {
+                    await handleAIConversation(moduleId);
+                } else {
+                    // No validation required
+                    await submitModuleCompletion(moduleId, {
+                        userId: currentUser.id,
+                        moduleId: moduleId,
+                        eventName: currentEventData.name,
+                        timeSpent: 0
+                    });
+                }
+            } catch (error) {
+                console.error('Error completing module:', error);
+                alert('Error completing module. Please try again.');
+            }
+        }
+        
+        async function submitModuleCompletion(moduleId, completionData) {
+            const response = await fetch('/api/ModuleCompletions', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(completionData)
+            });
+            
+            if (response.ok) {
+                const result = await response.json();
+                
+                // Update local state
             const module = modules.find(m => m.id === moduleId);
             if (module) {
                 module.completed = true;
-                userProgress[moduleId] = true; // Store in progress tracking
+                    userProgress[moduleId] = true;
+                }
                 
-                // Update progress display without refetching
-                const completedCount = modules.filter(m => m.completed).length;
-                const totalCount = modules.length;
-                const progressPercentage = totalCount > 0 ? (completedCount / totalCount) * 100 : 0;
-                
-                document.getElementById('modulesCompleted').textContent = completedCount;
-                document.getElementById('modulesProgressBar').style.width = progressPercentage + '%';
-                
-                // Re-render modules to update UI
-                renderModules();
+                // Update progress display
+                updateModuleProgress();
                 
                 // Close side panel
                 document.getElementById('moduleSidePanel').classList.remove('active');
                 
                 // Show success message
-                alert(`Great job completing "${module.title}"!`);
+                alert(`Great job completing "${module.title}"! You earned ${result.pointsEarned} points!`);
+                
+                // Refresh leaderboard
+                loadEventLeaderboard();
+            } else {
+                const error = await response.json();
+                throw new Error(error.error || 'Failed to complete module');
             }
         }
         
-        function startModule(moduleId) {
+        async function handleNotesUpload(moduleId) {
+            // Show helpful instructions first
+            const instructionModal = document.createElement('div');
+            instructionModal.className = 'modal';
+            instructionModal.style.display = 'block';
+            instructionModal.innerHTML = `
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Upload Notes or Photo</h3>
+                        <button class="close-btn" onclick="this.closest('.modal').remove()">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p><strong>Accepted file types:</strong></p>
+                        <ul>
+                            <li><i class="fas fa-file-pdf"></i> <strong>Documents:</strong> PDF, DOC, DOCX, TXT</li>
+                            <li><i class="fas fa-image"></i> <strong>Photos:</strong> PNG, JPG, JPEG (for handwritten notes)</li>
+                        </ul>
+                        <p><em>Tip: You can take a photo of your handwritten notes with your phone and upload it!</em></p>
+                        <div class="modal-actions">
+                            <button class="btn-secondary" onclick="this.closest('.modal').remove()">Cancel</button>
+                            <button class="btn-primary" onclick="selectNotesFile()">Select File</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(instructionModal);
+            
+            // Function to handle file selection
+            window.selectNotesFile = function() {
+                instructionModal.remove();
+                
+                // Create file input
+                const fileInput = document.createElement('input');
+                fileInput.type = 'file';
+                fileInput.accept = '.pdf,.doc,.docx,.txt,.png,.jpg,.jpeg';
+                fileInput.style.display = 'none';
+                
+                fileInput.onchange = async (e) => {
+                    const file = e.target.files[0];
+                    if (!file) return;
+                    
+                    // Show file type info
+                    const fileType = file.type;
+                    const isImage = fileType.startsWith('image/');
+                    const isDocument = fileType.startsWith('application/') || fileType === 'text/plain';
+                    
+                    if (!isImage && !isDocument) {
+                        alert('Please select a valid file type: PDF, DOC, DOCX, TXT, PNG, or JPG');
+                        return;
+                    }
+                    
+                    const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+                    
+                    try {
+                        // Show loading state
+                        const loadingModal = document.createElement('div');
+                        loadingModal.className = 'modal';
+                        loadingModal.style.display = 'block';
+                        const fileTypeText = isImage ? 'photo of your notes' : 'notes file';
+                        loadingModal.innerHTML = `
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3>Uploading ${isImage ? 'Photo' : 'Notes File'}</h3>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Please wait while your ${fileTypeText} is being uploaded...</p>
+                                    <div class="loading-spinner"></div>
+                                </div>
+                            </div>
+                        `;
+                        document.body.appendChild(loadingModal);
+                        
+                        // Create FormData for file upload
+                        const formData = new FormData();
+                        formData.append('file', file);
+                        formData.append('userId', currentUser.id);
+                        formData.append('moduleId', moduleId);
+                        
+                        // Upload file to Firebase Storage
+                        const uploadResponse = await fetch('/api/notes-upload', {
+                            method: 'POST',
+                            body: formData
+                        });
+                        
+                        if (!uploadResponse.ok) {
+                            const errorData = await uploadResponse.json();
+                            throw new Error(errorData.error || 'Upload failed');
+                        }
+                        
+                        const uploadResult = await uploadResponse.json();
+                        const notesFileUrl = uploadResult.url;
+                        
+                        // Remove loading modal
+                        loadingModal.remove();
+                        
+                        // Submit module completion with the actual file URL
+                        await submitModuleCompletion(moduleId, {
+                            userId: currentUser.id,
+                            moduleId: moduleId,
+                            eventName: currentEventData.name,
+                            timeSpent: 0,
+                            notesFile: true,
+                            notesFileUrl: notesFileUrl
+                        });
+                        
+                    } catch (error) {
+                        console.error('Error uploading notes file:', error);
+                        alert('Error uploading notes file: ' + error.message);
+                        // Remove loading modal if it exists
+                        const existingModal = document.querySelector('.modal');
+                        if (existingModal) existingModal.remove();
+                    }
+                };
+                
+                fileInput.click();
+            };
+        }
+        
+        async function handleProblemsSubmission(moduleId) {
+            const module = modules.find(m => m.id === moduleId);
+            if (!module || !module.rawData.problems) {
+                alert('No problems found for this module');
+                return;
+            }
+            
+            // Create modal for problem responses
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            modal.style.display = 'block';
+            
+            const problems = module.rawData.problems;
+            let problemResponses = [];
+            
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Complete Practice Problems</h3>
+                        <button class="close-btn" onclick="this.closest('.modal').remove()">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="problemsForm">
+                            ${problems.map((problem, index) => `
+                                <div class="form-group">
+                                    <label>Problem ${index + 1}:</label>
+                                    <p>${problem}</p>
+                                    <textarea name="response_${index}" rows="3" placeholder="Your answer..." required></textarea>
+                                </div>
+                            `).join('')}
+                            <div class="form-actions">
+                                <button type="button" class="btn-secondary" onclick="this.closest('.modal').remove()">Cancel</button>
+                                <button type="submit" class="btn-primary">Submit Answers</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            // Handle form submission
+            document.getElementById('problemsForm').onsubmit = async (e) => {
+                e.preventDefault();
+                
+                const formData = new FormData(e.target);
+                problemResponses = problems.map((_, index) => formData.get(`response_${index}`));
+                
+                const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+                await submitModuleCompletion(moduleId, {
+                    userId: currentUser.id,
+                    moduleId: moduleId,
+                    eventName: currentEventData.name,
+                    timeSpent: 0,
+                    problemResponses: problemResponses
+                });
+                
+                modal.remove();
+            };
+        }
+        
+        async function handleAIConversation(moduleId) {
+            const module = modules.find(m => m.id === moduleId);
+            if (!module) return;
+            
+            // Create modal for AI conversation
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            modal.style.display = 'block';
+            
+            let conversationHistory = [];
+            const systemPrompt = module.rawData.systemPrompt || 'You are a helpful tutor for Science Olympiad.';
+            
+            modal.innerHTML = `
+                <div class="modal-content" style="max-width: 800px; height: 600px;">
+                    <div class="modal-header">
+                        <h3>AI Tutor Conversation</h3>
+                        <button class="close-btn" onclick="this.closest('.modal').remove()">&times;</button>
+                    </div>
+                    <div class="modal-body" style="height: 500px; display: flex; flex-direction: column;">
+                        <div id="conversationArea" style="flex: 1; overflow-y: auto; border: 1px solid #ddd; padding: 15px; margin-bottom: 15px; background: #f9f9f9;">
+                            <p><strong>AI Tutor:</strong> Hello! I'm here to help you with this module. What would you like to discuss?</p>
+                        </div>
+                        <div style="display: flex; gap: 10px;">
+                            <input type="text" id="messageInput" placeholder="Type your message..." style="flex: 1; padding: 10px;">
+                            <button onclick="sendMessage()" class="btn-primary">Send</button>
+                            <button onclick="completeConversation()" class="btn-secondary">Complete</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            // Add conversation functions to window
+            window.sendMessage = async () => {
+                const messageInput = document.getElementById('messageInput');
+                const message = messageInput.value.trim();
+                if (!message) return;
+                
+                const conversationArea = document.getElementById('conversationArea');
+                conversationArea.innerHTML += `<p><strong>You:</strong> ${message}</p>`;
+                messageInput.value = '';
+                
+                try {
+                    const response = await fetch('/api/ai/conversation', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            message: message,
+                            systemPrompt: systemPrompt,
+                            conversationHistory: conversationHistory
+                        })
+                    });
+                    
+                    if (response.ok) {
+                        const result = await response.json();
+                        conversationHistory = result.conversation;
+                        conversationArea.innerHTML += `<p><strong>AI Tutor:</strong> ${result.response}</p>`;
+                        conversationArea.scrollTop = conversationArea.scrollHeight;
+                    } else {
+                        conversationArea.innerHTML += `<p><strong>AI Tutor:</strong> Sorry, I'm having trouble responding right now.</p>`;
+                    }
+                } catch (error) {
+                    conversationArea.innerHTML += `<p><strong>AI Tutor:</strong> Sorry, I'm having trouble responding right now.</p>`;
+                }
+            };
+            
+            window.completeConversation = async () => {
+                if (conversationHistory.length === 0) {
+                    alert('Please have at least one conversation exchange before completing.');
+                    return;
+                }
+                
+                const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+                await submitModuleCompletion(moduleId, {
+                    userId: currentUser.id,
+                    moduleId: moduleId,
+                    eventName: currentEventData.name,
+                    timeSpent: 0,
+                    aiConversation: conversationHistory
+                });
+                
+                modal.remove();
+            };
+            
+            // Allow Enter key to send message
+            document.getElementById('messageInput').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+        }
+        
+        function updateModuleProgress() {
+                const completedCount = modules.filter(m => m.completed).length;
+                const totalCount = modules.length;
+                const progressPercentage = totalCount > 0 ? (completedCount / totalCount) * 100 : 0;
+                
+                document.getElementById('modulesCompleted').textContent = completedCount;
+            document.getElementById('totalModules').textContent = totalCount;
+                document.getElementById('modulesProgressBar').style.width = progressPercentage + '%';
+                
+                // Re-render modules to update UI
+            renderDuolingoModules();
+        }
+        
+        window.startModule = function(moduleId) {
             const module = modules.find(m => m.id === moduleId);
             if (module) {
                 alert(`Starting "${module.title}"... This would open the actual module content.`);
             }
         }
         
-        function reviewModule(moduleId) {
+        window.unsubmitModule = async function(moduleId) {
             const module = modules.find(m => m.id === moduleId);
-            if (module) {
-                alert(`Reviewing "${module.title}"... This would reopen the module content.`);
+            if (!module) return;
+            
+            const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+            if (!currentUser) {
+                alert('Please log in to unsubmit modules');
+                return;
+            }
+            
+            if (confirm(`Are you sure you want to unsubmit "${module.title}"? This will delete your completion and you'll need to complete it again.`)) {
+                try {
+                    // Use the composite key format: {user_id}_{module_id}
+                    const completionId = `${currentUser.id}_${moduleId}`;
+                    
+                    // Delete the module completion using the generic DELETE endpoint
+                    const response = await fetch(`/api/ModuleCompletions/${completionId}`, {
+                        method: 'DELETE'
+                    });
+                    
+                    if (response.ok) {
+                        // Update local state
+                        module.completed = false;
+                        userProgress[moduleId] = false;
+                        
+                        // Update progress display
+                        updateModuleProgress();
+                        
+                        // Close side panel
+                        document.getElementById('moduleSidePanel').classList.remove('active');
+                        
+                        // Show success message
+                        alert(`Module "${module.title}" has been unsubmitted. You can complete it again.`);
+                        
+                        // Refresh leaderboard
+                        loadEventLeaderboard();
+                    } else {
+                        // Handle non-JSON responses (like 404 HTML pages)
+                        const contentType = response.headers.get('content-type');
+                        if (contentType && contentType.includes('application/json')) {
+                            const error = await response.json();
+                            throw new Error(error.error || 'Failed to unsubmit module');
+                        } else {
+                            throw new Error(`Server error: ${response.status} ${response.statusText}`);
+                        }
+                    }
+                } catch (error) {
+                    console.error('Error unsubmitting module:', error);
+                    alert('Error unsubmitting module. Please try again.');
+                }
             }
         }
         
@@ -3158,79 +3624,69 @@
         }
         
         // Load event leaderboard
-        function loadEventLeaderboard() {
+        async function loadEventLeaderboard() {
             const leaderboardList = document.getElementById('leaderboardList');
             const yourRank = document.getElementById('yourRank');
             const yourPoints = document.getElementById('yourPoints');
             
             leaderboardList.innerHTML = '<div class="loading-indicator"><i class="fas fa-spinner fa-spin"></i><p>Loading leaderboard...</p></div>';
             
-            // Generate mock leaderboard data
-            setTimeout(() => {
-                const mockLeaderboard = generateMockLeaderboard();
-                renderLeaderboard(mockLeaderboard);
+            try {
+                const response = await fetch(`/api/leaderboard/event/${encodeURIComponent(currentEventData.name)}`);
                 
-                // Find current user's rank and points
-                const currentUserEntry = mockLeaderboard.find(entry => entry.id === currentUser.id);
-                if (currentUserEntry) {
-                    yourRank.textContent = currentUserEntry.rank;
-                    yourPoints.textContent = currentUserEntry.points;
-                } else {
-                    yourRank.textContent = '-';
-                    yourPoints.textContent = '0';
-                }
-            }, 500);
+                if (response.ok) {
+                    const leaderboard = await response.json();
+                
+                    // Find current user in leaderboard
+                    const currentUserEntry = leaderboard.find(entry => entry.userId === currentUser.id);
+                    const userRank = currentUserEntry ? leaderboard.indexOf(currentUserEntry) + 1 : '-';
+                    const userPoints = currentUserEntry ? currentUserEntry.totalPoints : 0;
+                    
+                    yourRank.textContent = userRank;
+                    yourPoints.textContent = userPoints;
+                    
+                    if (leaderboard.length === 0) {
+                        leaderboardList.innerHTML = `
+                            <div class="empty-state">
+                                <i class="fas fa-trophy"></i>
+                                <p>No points earned yet</p>
+                                <p class="empty-state-hint">Complete modules to earn points and climb the leaderboard!</p>
+                            </div>
+                        `;
+                        return;
         }
         
-        // Generate mock leaderboard
-        function generateMockLeaderboard() {
-            // In a real implementation, this would fetch from the backend
-            const mockUsers = [
-                { id: currentUser.id, name: `${currentUser.firstName} ${currentUser.lastName}`, points: Math.floor(Math.random() * 200) + 50 },
-                { id: '1', name: 'Alice Johnson', points: Math.floor(Math.random() * 300) + 100 },
-                { id: '2', name: 'Bob Smith', points: Math.floor(Math.random() * 280) + 80 },
-                { id: '3', name: 'Carol Davis', points: Math.floor(Math.random() * 250) + 90 },
-                { id: '4', name: 'David Wilson', points: Math.floor(Math.random() * 220) + 70 },
-                { id: '5', name: 'Emma Brown', points: Math.floor(Math.random() * 240) + 85 },
-            ];
-            
-            // Sort by points descending
-            mockUsers.sort((a, b) => b.points - a.points);
-            
-            // Add ranks
-            mockUsers.forEach((user, index) => {
-                user.rank = index + 1;
-            });
-            
-            return mockUsers;
-        }
-        
-        // Render leaderboard
-        function renderLeaderboard(leaderboard) {
-            const leaderboardList = document.getElementById('leaderboardList');
-            leaderboardList.innerHTML = '';
-            
-            leaderboard.forEach(user => {
-                const leaderboardItem = document.createElement('div');
-                leaderboardItem.className = 'leaderboard-item';
+                    leaderboardList.innerHTML = leaderboard.map((entry, index) => {
+                        const rank = index + 1;
+                        const isCurrentUser = entry.userId === currentUser.id;
+                        const rankClass = rank === 1 ? 'first' : rank === 2 ? 'second' : rank === 3 ? 'third' : '';
                 
-                if (user.id === currentUser.id) {
-                    leaderboardItem.classList.add('current-user');
-                }
-                
-                const rankClass = user.rank === 1 ? 'first' : user.rank === 2 ? 'second' : user.rank === 3 ? 'third' : '';
-                
-                leaderboardItem.innerHTML = `
-                    <div class="rank ${rankClass}">${user.rank}</div>
+                        return `
+                            <div class="leaderboard-item ${isCurrentUser ? 'current-user' : ''}">
+                                <div class="rank ${rankClass}">${rank}</div>
                     <div class="user-info">
-                        <div class="user-name">${user.name}</div>
-                        <div class="user-points">${user.points} points earned</div>
+                                    <div class="user-name">${entry.firstName} ${entry.lastName}</div>
+                                    <div class="user-points">${entry.totalPoints} points earned</div>
                 </div>
-                    <div class="points">${user.points}</div>
+                                <div class="points">${entry.totalPoints}</div>
+                            </div>
+                        `;
+                    }).join('');
+                } else {
+                    throw new Error('Failed to load leaderboard');
+                }
+            } catch (error) {
+                console.error('Error loading leaderboard:', error);
+                leaderboardList.innerHTML = `
+                    <div class="error-message">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p>Failed to load leaderboard</p>
+                        <p class="empty-state-hint">Please try refreshing the page.</p>
+                    </div>
                 `;
-                
-                leaderboardList.appendChild(leaderboardItem);
-            });
+                yourRank.textContent = '-';
+                yourPoints.textContent = '0';
+            }
         }
         
         // Open learning path
