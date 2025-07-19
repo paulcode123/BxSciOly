@@ -24,7 +24,7 @@
                         <h3>Why Register Early?</h3>
                         <ul>
                             <li>Get immediate access to learning paths and resources for all events</li>
-                            <li>Start building your knowledge base before the competitive tryout process</li>
+                            <li>Start building foundational knowledge before the competitive tryout process</li>
                             <li>Demonstrate your commitment and dedication to the team</li>
                             <li>Maximize your chances of success in the highly competitive selection process</li>
                         </ul>
@@ -89,7 +89,7 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="bio">Tell us about yourself <span class="required">*</span></label>
+                            <label for="bio">Tell us about yourself! (Grade, interests, hobbies, etc.) <span class="required">*</span></label>
                             <textarea id="bio" name="bio" rows="4" maxlength="500" data-word-limit="100" required></textarea>
                             <div class="word-counter"><span id="bioCount">0</span>/100 words</div>
                         </div>
@@ -98,6 +98,7 @@
 
                 <div class="form-section">
                     <h3>Team Status</h3>
+                    <p class="section-description">Returning members include those that have previous Division B experience in middle schools. New members describe those that have not had any previous SciOly experience.</p>
                     <div class="form-group radio-group">
                         <div class="radio-option">
                             <input type="radio" id="newMember" name="memberStatus" value="new" checked>
@@ -149,23 +150,44 @@
 
                 <div class="form-section">
                     <h3>Time Commitment</h3>
-                    <p class="section-description">Please indicate how many hours per week you can commit to Science Olympiad during each season.</p>
+                    <p class="section-description">Please indicate how many hours per week (for a maximum of 4 hours per week) you can commit to Science Olympiad during each season.</p>
                     <div class="form-row">
                         <div class="form-group">
                             <label for="preseasonHrs">Preseason (July-September) <span class="required">*</span></label>
-                            <input type="number" id="preseasonHrs" name="preseasonHrs" min="0" max="40" step="0.5" required>
+                            <select id="preseasonHrs" name="preseasonHrs" required>
+                                <option value="" disabled selected>Select hours per week</option>
+                                <option value="0">0 hours</option>
+                                <option value="1">1 hour</option>
+                                <option value="2">2 hours</option>
+                                <option value="3">3 hours</option>
+                                <option value="4">4 hours</option>
+                            </select>
                             <div class="field-hint">Hours per week during preseason</div>
                         </div>
                         <div class="form-group">
                             <label for="regseasonHrs">Regular Season (October-December) <span class="required">*</span></label>
-                            <input type="number" id="regseasonHrs" name="regseasonHrs" min="0" max="40" step="0.5" required>
+                            <select id="regseasonHrs" name="regseasonHrs" required>
+                                <option value="" disabled selected>Select hours per week</option>
+                                <option value="0">0 hours</option>
+                                <option value="1">1 hour</option>
+                                <option value="2">2 hours</option>
+                                <option value="3">3 hours</option>
+                                <option value="4">4 hours</option>
+                            </select>
                             <div class="field-hint">Hours per week during regular season</div>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
                             <label for="postseasonHrs">Post-Season (January-March) <span class="required">*</span></label>
-                            <input type="number" id="postseasonHrs" name="postseasonHrs" min="0" max="40" step="0.5" required>
+                            <select id="postseasonHrs" name="postseasonHrs" required>
+                                <option value="" disabled selected>Select hours per week</option>
+                                <option value="0">0 hours</option>
+                                <option value="1">1 hour</option>
+                                <option value="2">2 hours</option>
+                                <option value="3">3 hours</option>
+                                <option value="4">4 hours</option>
+                            </select>
                             <div class="field-hint">Hours per week during post-season</div>
                         </div>
                     </div>
@@ -474,6 +496,8 @@
     .form-group input[type="text"],
     .form-group input[type="email"],
     .form-group input[type="password"],
+    .form-group input[type="tel"],
+    .form-group input[type="number"],
     .form-group select,
     .form-group textarea {
         width: 100%;
@@ -488,6 +512,8 @@
     .form-group input[type="text"]:focus,
     .form-group input[type="email"]:focus,
     .form-group input[type="password"]:focus,
+    .form-group input[type="tel"]:focus,
+    .form-group input[type="number"]:focus,
     .form-group select:focus,
     .form-group textarea:focus {
         border-color: var(--accent-color);
@@ -513,7 +539,7 @@
     }
     
     .radio-option input[type="radio"] {
-        margin-right: 10px;
+        margin-right: 5px;
         accent-color: var(--accent-color);
         width: 18px;
         height: 18px;
@@ -727,10 +753,11 @@
     }
     
     .section-description {
-        font-size: 1rem;
+        font-size: 0.9rem;
         color: #666;
         margin-bottom: 20px;
         line-height: 1.5;
+        font-style: italic;
     }
     
     .agreement-container {
@@ -923,9 +950,20 @@
             const wordCount = words.length;
             const maxWords = parseInt(this.getAttribute('data-word-limit'));
             
-            interestReasonCount.textContent = wordCount;
-            
+            // If word count exceeds limit, truncate the text
             if (wordCount > maxWords) {
+                const truncatedWords = words.slice(0, maxWords);
+                this.value = truncatedWords.join(' ');
+                // Move cursor to end of text
+                this.setSelectionRange(this.value.length, this.value.length);
+            }
+            
+            // Update counter with actual word count (after truncation)
+            const actualWords = this.value.trim().split(/\s+/).filter(word => word.length > 0);
+            const actualWordCount = actualWords.length;
+            interestReasonCount.textContent = actualWordCount;
+            
+            if (actualWordCount >= maxWords) {
                 interestReasonCount.style.color = '#e74c3c';
             } else {
                 interestReasonCount.style.color = '';
@@ -941,9 +979,20 @@
             const wordCount = words.length;
             const maxWords = parseInt(this.getAttribute('data-word-limit'));
             
-            bioCount.textContent = wordCount;
-            
+            // If word count exceeds limit, truncate the text
             if (wordCount > maxWords) {
+                const truncatedWords = words.slice(0, maxWords);
+                this.value = truncatedWords.join(' ');
+                // Move cursor to end of text
+                this.setSelectionRange(this.value.length, this.value.length);
+            }
+            
+            // Update counter with actual word count (after truncation)
+            const actualWords = this.value.trim().split(/\s+/).filter(word => word.length > 0);
+            const actualWordCount = actualWords.length;
+            bioCount.textContent = actualWordCount;
+            
+            if (actualWordCount >= maxWords) {
                 bioCount.style.color = '#e74c3c';
             } else {
                 bioCount.style.color = '';
