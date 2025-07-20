@@ -1179,6 +1179,38 @@
             return true;
         }
         
+        // Function to manage admin checkbox state based on email field
+        function updateAdminCheckboxState() {
+            const doeEmail = doeEmailField.value.trim();
+            const emailError = document.getElementById('emailError');
+            const hasEmailError = emailError && emailError.textContent === 'Email already in use. Try again.';
+            
+            // Disable admin checkbox if:
+            // 1. DOE email field is empty, OR
+            // 2. Email doesn't end with @nycstudents.net, OR
+            // 3. There's an email error (duplicate email)
+            if (!doeEmail || !doeEmail.endsWith('@nycstudents.net') || hasEmailError) {
+                adminCheckbox.disabled = true;
+                adminCheckbox.checked = false; // Uncheck if disabled
+                
+                // Add visual indication that checkbox is disabled
+                adminCheckbox.style.opacity = '0.5';
+                adminCheckbox.style.cursor = 'not-allowed';
+                
+                // Clear any admin access error when disabled
+                const errorDiv = document.getElementById('adminAccessError');
+                if (errorDiv) {
+                    errorDiv.style.display = 'none';
+                    errorDiv.innerHTML = '';
+                }
+            } else {
+                // Enable admin checkbox if email is valid and no errors
+                adminCheckbox.disabled = false;
+                adminCheckbox.style.opacity = '1';
+                adminCheckbox.style.cursor = 'pointer';
+            }
+        }
+        
         // Add event listener to admin checkbox
         adminCheckbox.addEventListener('change', function() {
             if (this.checked) {
@@ -1189,33 +1221,229 @@
                 errorDiv.style.display = 'none';
                 errorDiv.innerHTML = '';
             }
+            
+            // Update submit button state
+            updateSubmitButtonState();
         });
         
         // Add event listener to DOE email field to re-validate admin access when email changes
         doeEmailField.addEventListener('input', function() {
+            // Update admin checkbox state based on email field
+            updateAdminCheckboxState();
+            
             // Only re-validate if admin checkbox is currently checked
             if (adminCheckbox.checked) {
                 validateAdminAccess();
             }
+            
+            // Check for duplicate email
+            checkEmailAvailability();
+            
+            // Update submit button state
+            updateSubmitButtonState();
         });
+        
+        // Debounce function to limit API calls
+        let emailCheckTimeout;
+        
+        // Function to check if DOE email is already in use
+        function checkEmailAvailability() {
+            const doeEmail = doeEmailField.value.trim();
+            
+            // Clear previous error
+            const emailError = document.getElementById('emailError');
+            if (emailError) {
+                emailError.remove();
+            }
+            
+            // Clear previous timeout
+            if (emailCheckTimeout) {
+                clearTimeout(emailCheckTimeout);
+            }
+            
+            // Only check if email is valid and not empty
+            if (doeEmail && doeEmail.endsWith('@nycstudents.net')) {
+                // Add loading indicator
+                doeEmailField.style.borderColor = '#ffc107';
+                
+                // Debounce the API call
+                emailCheckTimeout = setTimeout(() => {
+                    fetch(`/api/Members/find-by-doe-email/${encodeURIComponent(doeEmail)}`)
+                        .then(response => {
+                            if (response.ok) {
+                                // Email already exists
+                                doeEmailField.style.borderColor = '#dc3545';
+                                                            const errorDiv = document.createElement('div');
+                            errorDiv.id = 'emailError';
+                            errorDiv.className = 'error-message';
+                            errorDiv.textContent = 'Email already in use. Try again.';
+                            errorDiv.style.color = '#dc3545';
+                            errorDiv.style.fontSize = '0.875rem';
+                            errorDiv.style.marginTop = '0.25rem';
+                            errorDiv.style.fontWeight = '500';
+                            
+                            // Insert the error message right after the field hint
+                            const fieldHint = doeEmailField.parentNode.querySelector('.field-hint');
+                            if (fieldHint) {
+                                fieldHint.parentNode.insertBefore(errorDiv, fieldHint.nextSibling);
+                            } else {
+                                doeEmailField.parentNode.appendChild(errorDiv);
+                            }
+                            
+                            // Update admin checkbox state since there's now an email error
+                            updateAdminCheckboxState();
+                            
+                            // Update submit button state since there's an error
+                            updateSubmitButtonState();
+                            } else if (response.status === 404) {
+                                // Email is available
+                                doeEmailField.style.borderColor = '#28a745';
+                                
+                                // Update admin checkbox state since email is now valid
+                                updateAdminCheckboxState();
+                                
+                                // Update submit button state since email error is resolved
+                                updateSubmitButtonState();
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error checking email availability:', error);
+                            doeEmailField.style.borderColor = '#6c757d';
+                        });
+                }, 500); // Wait 500ms after user stops typing
+            } else {
+                // Reset border color
+                doeEmailField.style.borderColor = '';
+            }
+        }
         
         // Contract checkbox functionality for submit button
         const contractCheckbox = document.getElementById('contractAccepted');
         const submitBtn = document.querySelector('.submit-btn');
         
         function updateSubmitButtonState() {
-            if (contractCheckbox.checked) {
-                submitBtn.disabled = false;
-            } else {
+            // Check for all possible errors
+            let hasErrors = false;
+            
+            // 1. Check contract acceptance
+            if (!contractCheckbox.checked) {
+                hasErrors = true;
+            }
+            
+            // 2. Check for email error
+            const emailError = document.getElementById('emailError');
+            if (emailError && emailError.textContent === 'Email already in use. Try again.') {
+                hasErrors = true;
+            }
+            
+            // 3. Check for admin access error
+            const adminError = document.getElementById('adminAccessError');
+            if (adminError && adminError.style.display !== 'none' && adminError.innerHTML !== '') {
+                hasErrors = true;
+            }
+            
+            // 4. Check password validation
+            const password = passwordField.value;
+            const confirmPassword = confirmPasswordField.value;
+            const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d\W_]{8,}$/;
+            
+            if (password && !passwordRegex.test(password)) {
+                hasErrors = true;
+            }
+            
+            if (password && confirmPassword && password !== confirmPassword) {
+                hasErrors = true;
+            }
+            
+            // 5. Check DOE email format
+            const doeEmail = document.getElementById('doeEmail').value;
+            if (doeEmail && !doeEmail.endsWith('@nycstudents.net')) {
+                hasErrors = true;
+            }
+            
+            // 6. Check phone number format
+            const phoneNumber = document.getElementById('phoneNumber').value;
+            const phonePattern = /^[0-9]{3}-[0-9]{3}-[0-9]{4}$/;
+            if (phoneNumber && !phonePattern.test(phoneNumber)) {
+                hasErrors = true;
+            }
+            
+            // 7. Check event selection
+            const checkedEvents = document.querySelectorAll('.event-check:checked').length;
+            if (checkedEvents < 2 || checkedEvents > 6) {
+                hasErrors = true;
+            }
+            
+            // 8. Check word count limits
+            const bioWords = document.getElementById('bio').value.trim().split(/\s+/).filter(word => word.length > 0);
+            const bioWordCount = bioWords.length;
+            const bioMaxWords = parseInt(document.getElementById('bio').getAttribute('data-word-limit'));
+            if (bioWordCount > bioMaxWords) {
+                hasErrors = true;
+            }
+            
+            // Check interest reason word count for new members
+            const newMemberRadio = document.querySelector('input[name="memberStatus"][value="new"]');
+            if (newMemberRadio && newMemberRadio.checked) {
+                const interestReasonField = document.getElementById('interestReason');
+                if (interestReasonField) {
+                    const words = interestReasonField.value.trim().split(/\s+/).filter(word => word.length > 0);
+                    const wordCount = words.length;
+                    const maxWords = parseInt(interestReasonField.getAttribute('data-word-limit'));
+                    if (wordCount > maxWords) {
+                        hasErrors = true;
+                    }
+                }
+            }
+            
+            // Update button state
+            if (hasErrors) {
                 submitBtn.disabled = true;
+                submitBtn.style.opacity = '0.5';
+                submitBtn.style.cursor = 'not-allowed';
+                submitBtn.style.backgroundColor = '#6c757d';
+            } else {
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = '1';
+                submitBtn.style.cursor = 'pointer';
+                submitBtn.style.backgroundColor = ''; // Reset to default
             }
         }
         
         // Initialize button state
         updateSubmitButtonState();
         
-        // Add event listener to contract checkbox
+        // Initialize admin checkbox state
+        updateAdminCheckboxState();
+        
+        // Add event listeners to all form fields for real-time submit button updates
         contractCheckbox.addEventListener('change', updateSubmitButtonState);
+        
+        // Add event listeners to remaining form fields
+        const formFields = [
+            'firstName', 'lastName', 'personalEmail', 'phoneNumber', 
+            'grade', 'bio', 'hearAboutUs', 'interestReason', 'yearsOnTeam', 
+            'pastExperience', 'returnReason', 'preseasonHrs', 'regseasonHrs', 
+            'postseasonHrs', 'importantNotification', 'teamNotification', 'eventNotification'
+        ];
+        
+        formFields.forEach(fieldId => {
+            const field = document.getElementById(fieldId);
+            if (field) {
+                field.addEventListener('input', updateSubmitButtonState);
+                field.addEventListener('change', updateSubmitButtonState);
+            }
+        });
+        
+        // Add event listeners to radio buttons
+        document.querySelectorAll('input[name="memberStatus"]').forEach(radio => {
+            radio.addEventListener('change', updateSubmitButtonState);
+        });
+        
+        // Add event listeners to event checkboxes
+        document.querySelectorAll('.event-check').forEach(checkbox => {
+            checkbox.addEventListener('change', updateSubmitButtonState);
+        });
         
         // Password validation
         const passwordField = document.getElementById('password');
@@ -1239,8 +1467,14 @@
             }
         }
         
-        passwordField.addEventListener('input', validatePassword);
-        confirmPasswordField.addEventListener('input', validatePassword);
+        passwordField.addEventListener('input', function() {
+            validatePassword();
+            updateSubmitButtonState();
+        });
+        confirmPasswordField.addEventListener('input', function() {
+            validatePassword();
+            updateSubmitButtonState();
+        });
         
         // Form validation
         const registerForm = document.getElementById('register-form');
@@ -1310,6 +1544,12 @@
             const doeEmail = document.getElementById('doeEmail').value;
             if (!doeEmail.endsWith('@nycstudents.net')) {
                 errors.push('DOE email address must end with @nycstudents.net');
+            }
+            
+            // Check for duplicate email before submission
+            const emailError = document.getElementById('emailError');
+            if (emailError && emailError.textContent === 'Email already in use. Try again.') {
+                errors.push('Email already in use. Try again.');
             }
             
             // Validate membership contract acceptance

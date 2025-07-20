@@ -654,4 +654,19 @@ footer:before {
     border-color: var(--accent-color);
     box-shadow: 0 0 0 3px rgba(155, 89, 182, 0.2);
     outline: none;
+}
+
+/* Email error message styling */
+#emailError {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    font-weight: 500;
+    display: block;
+    animation: fadeIn 0.3s ease-in;
+}
+
+#emailError:before {
+    content: "⚠️ ";
+    margin-right: 0.25rem;
 } 

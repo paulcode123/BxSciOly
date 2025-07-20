@@ -60,6 +60,15 @@ def create(collection):
         if not data:
             return jsonify({"error": "No data provided"}), 400
         
+        # Special handling for Members collection - check for duplicate DOE email
+        if collection == 'Members':
+            doe_email = data.get('doeEmail')
+            if doe_email:
+                # Check if a member with this DOE email already exists
+                existing_members = db.collection('Members').where('doeEmail', '==', doe_email).limit(1).stream()
+                if list(existing_members):
+                    return jsonify({"error": "Email already in use. Try again."}), 409
+        
         # Add document with auto-generated ID
         doc_ref = db.collection(collection).document()
         doc_ref.set(data)
