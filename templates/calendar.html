@@ -267,6 +267,13 @@
         color: #be185d;
     }
     
+
+    
+    .calendar-day {
+        position: relative;
+        overflow: visible;
+    }
+    
     .event-dot {
         width: 6px;
         height: 6px;
@@ -610,6 +617,8 @@
                 calendarDays.appendChild(dayElement);
             }
         }
+        
+
         
         function createDayElement(day, isOtherMonth) {
             const dayElement = document.createElement('div');
