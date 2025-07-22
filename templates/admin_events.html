@@ -2455,12 +2455,32 @@
             submissionsGrid.innerHTML = '<div class="loading-indicator"><i class="fas fa-spinner"></i><p>Loading submissions...</p></div>';
 
             try {
-                const response = await fetch(`/api/ModuleCompletions/event/${encodeURIComponent(currentEvent.eventName)}`, {
-                    headers: { 'X-Admin-ID': adminId }
-                });
+                // Fetch both submissions and modules data
+                const [submissionsResponse, modulesResponse] = await Promise.all([
+                    fetch(`/api/ModuleCompletions/event/${encodeURIComponent(currentEvent.eventName)}`, {
+                        headers: { 'X-Admin-ID': adminId }
+                    }),
+                    fetch(`/api/LearningModules/event/${encodeURIComponent(currentEvent.eventName)}`)
+                ]);
 
-                if (response.ok) {
-                    const submissions = await response.json();
+                if (submissionsResponse.ok && modulesResponse.ok) {
+                    const submissions = await submissionsResponse.json();
+                    let modules = await modulesResponse.json();
+                    
+                    console.log('Submissions data:', submissions);
+                    console.log('Modules data:', modules);
+                    
+                    // Handle Firebase wrapper format if present
+                    if (modules.length > 0 && typeof modules[0] === 'object' && Object.keys(modules[0]).length === 1) {
+                        console.log('Detected Firebase wrapper format, unwrapping...');
+                        modules = modules.map(moduleWrapper => {
+                            const moduleId = Object.keys(moduleWrapper)[0];
+                            const moduleData = moduleWrapper[moduleId];
+                            moduleData.id = moduleId;
+                            return moduleData;
+                        });
+                        console.log('Unwrapped modules:', modules);
+                    }
                     
                     totalSubmissions.textContent = submissions.length;
                     const pendingCount = submissions.filter(s => !s.completed).length;
@@ -2487,8 +2507,11 @@
                         const userName = user ? `${user.firstName} ${user.lastName}` : 'Unknown User';
                         const userEmail = user ? (user.doeEmail || user.personalEmail) : '';
 
-                        // Get module details
-                        const module = allModules.find(m => m.id === submission.moduleId);
+                        // Get module details from the fetched modules
+                        console.log('Looking for module with ID:', submission.moduleId);
+                        console.log('Available modules:', modules.map(m => ({ id: m.id, title: m.title })));
+                        const module = modules.find(m => m.id === submission.moduleId);
+                        console.log('Found module:', module);
                         const moduleTitle = module ? module.title : 'Unknown Module';
 
                         submissionCard.innerHTML = `
