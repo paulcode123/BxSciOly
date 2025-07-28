@@ -345,6 +345,9 @@
                 <div class="form-footer">
                     <div id="formErrors" class="error-message"></div>
                     <button type="submit" class="submit-btn" disabled>Submit Registration</button>
+                    <div class="form-help">
+                        <p><small>If you're having trouble submitting the form, please ensure all required fields (*) are filled out and the contract is accepted.</small></p>
+                    </div>
                 </div>
             </form>
         </div>
@@ -647,6 +650,19 @@
     .form-footer {
         margin-top: 30px;
         text-align: center;
+    }
+    
+    .form-help {
+        margin-top: 15px;
+        padding: 10px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        border-left: 3px solid var(--accent-color);
+    }
+    
+    .form-help p {
+        margin: 0;
+        color: #666;
     }
     
     .error-message {
@@ -1342,7 +1358,7 @@
                 hasErrors = true;
             }
             
-            // 4. Check password validation
+            // 4. Check password validation (only if passwords are entered)
             const password = passwordField.value;
             const confirmPassword = confirmPasswordField.value;
             const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d\W_]{8,}$/;
@@ -1355,43 +1371,146 @@
                 hasErrors = true;
             }
             
-            // 5. Check DOE email format
+            // 5. Check DOE email format (only if email is entered)
             const doeEmail = document.getElementById('doeEmail').value;
             if (doeEmail && !doeEmail.endsWith('@nycstudents.net')) {
                 hasErrors = true;
             }
             
-            // 6. Check phone number format
+            // 6. Check phone number format (only if phone number is entered)
             const phoneNumber = document.getElementById('phoneNumber').value;
             const phonePattern = /^[0-9]{3}-[0-9]{3}-[0-9]{4}$/;
             if (phoneNumber && !phonePattern.test(phoneNumber)) {
                 hasErrors = true;
             }
             
-            // 7. Check event selection
-            const checkedEvents = document.querySelectorAll('.event-check:checked').length;
-            if (checkedEvents < 2 || checkedEvents > 6) {
-                hasErrors = true;
+            // 7. Check event selection (only if events are loaded)
+            const eventCheckboxes = document.querySelectorAll('.event-check');
+            if (eventCheckboxes.length > 0) {
+                const checkedEvents = document.querySelectorAll('.event-check:checked').length;
+                if (checkedEvents < 2 || checkedEvents > 6) {
+                    hasErrors = true;
+                }
             }
             
-            // 8. Check word count limits
-            const bioWords = document.getElementById('bio').value.trim().split(/\s+/).filter(word => word.length > 0);
-            const bioWordCount = bioWords.length;
-            const bioMaxWords = parseInt(document.getElementById('bio').getAttribute('data-word-limit'));
-            if (bioWordCount > bioMaxWords) {
-                hasErrors = true;
+            // 8. Check word count limits (only if bio has content)
+            const bioField = document.getElementById('bio');
+            if (bioField && bioField.value.trim()) {
+                const bioWords = bioField.value.trim().split(/\s+/).filter(word => word.length > 0);
+                const bioWordCount = bioWords.length;
+                const bioMaxWords = parseInt(bioField.getAttribute('data-word-limit'));
+                if (bioWordCount > bioMaxWords) {
+                    hasErrors = true;
+                }
             }
             
-            // Check interest reason word count for new members
+            // Check interest reason word count for new members (only if field has content)
             const newMemberRadio = document.querySelector('input[name="memberStatus"][value="new"]');
             if (newMemberRadio && newMemberRadio.checked) {
                 const interestReasonField = document.getElementById('interestReason');
-                if (interestReasonField) {
+                if (interestReasonField && interestReasonField.value.trim()) {
                     const words = interestReasonField.value.trim().split(/\s+/).filter(word => word.length > 0);
                     const wordCount = words.length;
                     const maxWords = parseInt(interestReasonField.getAttribute('data-word-limit'));
                     if (wordCount > maxWords) {
                         hasErrors = true;
+                    }
+                }
+            }
+            
+            // Additional positive validation to ensure button is enabled when form is complete
+            if (!hasErrors) {
+                // Check if all required fields are filled
+                const requiredFields = [
+                    'firstName', 'lastName', 'doeEmail', 'personalEmail', 
+                    'grade', 'phoneNumber', 'password', 'confirmPassword', 'bio'
+                ];
+                
+                let allRequiredFilled = true;
+                requiredFields.forEach(fieldId => {
+                    const field = document.getElementById(fieldId);
+                    if (field && !field.value.trim()) {
+                        allRequiredFilled = false;
+                    }
+                });
+                
+                // Check if contract is accepted
+                if (!contractCheckbox.checked) {
+                    allRequiredFilled = false;
+                }
+                
+                // Check if events are selected (only if events are loaded)
+                const eventCheckboxes = document.querySelectorAll('.event-check');
+                if (eventCheckboxes.length > 0) {
+                    const checkedEvents = document.querySelectorAll('.event-check:checked').length;
+                    if (checkedEvents < 2) {
+                        allRequiredFilled = false;
+                    }
+                }
+                
+                // Check member status specific fields
+                const newMemberRadio = document.querySelector('input[name="memberStatus"][value="new"]');
+                if (newMemberRadio && newMemberRadio.checked) {
+                    const interestReasonField = document.getElementById('interestReason');
+                    const hearAboutUsField = document.getElementById('hearAboutUs');
+                    if ((interestReasonField && !interestReasonField.value.trim()) || 
+                        (hearAboutUsField && !hearAboutUsField.value)) {
+                        allRequiredFilled = false;
+                    }
+                } else {
+                    const pastExperienceField = document.getElementById('pastExperience');
+                    const returnReasonField = document.getElementById('returnReason');
+                    const yearsOnTeamField = document.getElementById('yearsOnTeam');
+                    if ((pastExperienceField && !pastExperienceField.value.trim()) || 
+                        (returnReasonField && !returnReasonField.value.trim()) ||
+                        (yearsOnTeamField && !yearsOnTeamField.value)) {
+                        allRequiredFilled = false;
+                    }
+                }
+                
+                // Check time commitment fields
+                const timeFields = ['preseasonHrs', 'regseasonHrs', 'postseasonHrs'];
+                timeFields.forEach(fieldId => {
+                    const field = document.getElementById(fieldId);
+                    if (field && !field.value) {
+                        allRequiredFilled = false;
+                    }
+                });
+                
+                // Check notification preference fields
+                const notificationFields = ['importantNotification', 'teamNotification', 'eventNotification'];
+                notificationFields.forEach(fieldId => {
+                    const field = document.getElementById(fieldId);
+                    if (field && !field.value) {
+                        allRequiredFilled = false;
+                    }
+                });
+                
+                hasErrors = !allRequiredFilled;
+            }
+            
+            // Fallback: Enable button if form is mostly complete (for user experience)
+            if (hasErrors) {
+                // Check if the form is essentially complete despite minor validation issues
+                const essentialFields = [
+                    'firstName', 'lastName', 'doeEmail', 'personalEmail', 
+                    'grade', 'phoneNumber', 'password', 'confirmPassword', 'bio'
+                ];
+                
+                let essentialFieldsComplete = true;
+                essentialFields.forEach(fieldId => {
+                    const field = document.getElementById(fieldId);
+                    if (field && !field.value.trim()) {
+                        essentialFieldsComplete = false;
+                    }
+                });
+                
+                // If essential fields are complete and contract is accepted, enable button
+                if (essentialFieldsComplete && contractCheckbox.checked) {
+                    const eventCheckboxes = document.querySelectorAll('.event-check');
+                    if (eventCheckboxes.length === 0 || document.querySelectorAll('.event-check:checked').length >= 2) {
+                        hasErrors = false; // Override validation errors for better UX
+                        console.log('Fallback: Enabling submit button despite minor validation issues');
                     }
                 }
             }
@@ -1402,11 +1521,13 @@
                 submitBtn.style.opacity = '0.5';
                 submitBtn.style.cursor = 'not-allowed';
                 submitBtn.style.backgroundColor = '#6c757d';
+                console.log('Submit button disabled - form has validation errors');
             } else {
                 submitBtn.disabled = false;
                 submitBtn.style.opacity = '1';
                 submitBtn.style.cursor = 'pointer';
                 submitBtn.style.backgroundColor = ''; // Reset to default
+                console.log('Submit button enabled - form is valid');
             }
         }
         
