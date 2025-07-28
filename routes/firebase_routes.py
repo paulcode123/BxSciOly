@@ -68,12 +68,45 @@ def create(collection):
                 existing_members = db.collection('Members').where('doeEmail', '==', doe_email).limit(1).stream()
                 if list(existing_members):
                     return jsonify({"error": "Email already in use. Try again."}), 409
-        
-        # Add document with auto-generated ID
-        doc_ref = db.collection(collection).document()
-        doc_ref.set(data)
-        
-        return jsonify({"id": doc_ref.id, "message": "Document created successfully"}), 201
+            
+            # Extract selected events before creating member
+            selected_events = data.get('events', [])
+            
+            # Remove events from member data since it's not part of the Members schema
+            member_data = {k: v for k, v in data.items() if k != 'events'}
+            
+            # Create the member first
+            doc_ref = db.collection(collection).document()
+            doc_ref.set(member_data)
+            member_id = doc_ref.id
+            
+            # Add member ID to each selected event's members array
+            if selected_events:
+                for event_name in selected_events:
+                    # Find the event by eventName
+                    events_query = db.collection('Events').where('eventName', '==', event_name).limit(1).stream()
+                    event_docs = list(events_query)
+                    
+                    if event_docs:
+                        event_doc = event_docs[0]
+                        event_ref = db.collection('Events').document(event_doc.id)
+                        
+                        # Get current members array and add the new member ID
+                        current_data = event_doc.to_dict()
+                        current_members = current_data.get('members', [])
+                        
+                        # Only add if not already in the array
+                        if member_id not in current_members:
+                            current_members.append(member_id)
+                            event_ref.update({'members': current_members})
+            
+            return jsonify({"id": member_id, "message": "Member created successfully and added to selected events"}), 201
+        else:
+            # Regular document creation for other collections
+            doc_ref = db.collection(collection).document()
+            doc_ref.set(data)
+            
+            return jsonify({"id": doc_ref.id, "message": "Document created successfully"}), 201
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 

@@ -1,199 +1,380 @@
 {% extends "layout.html" %}
 
-{% block title %}Physics & Design - Bronx Science Olympiad{% endblock %}
+{% block title %}Physics & Design - Transform Your Future - Bronx Science Olympiad{% endblock %}
 
 {% block content %}
-<div class="dept-hero" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/static/images/physics-bg.jpg');">
+<!-- Immersive Hero Section -->
+<div class="physics-hero" id="hero">
+    <div class="hero-background">
+        <div class="floating-elements">
+            <div class="floating-icon" data-icon="🔧"></div>
+            <div class="floating-icon" data-icon="⚡"></div>
+            <div class="floating-icon" data-icon="🔬"></div>
+            <div class="floating-icon" data-icon="🧰"></div>
+            <div class="floating-icon" data-icon="🎯"></div>
+        </div>
+    </div>
     <div class="hero-content">
-        <h1>Physics & Design</h1>
-        <p>Master mechanical and electrical engineering through theory and hands-on lab work</p>
-        <div class="hero-cta">
-            <a href="#events" class="btn"><i class="fas fa-cogs"></i> Explore Events</a>
+        <div class="hero-text">
+            <h1 class="hero-title">
+                <span class="gradient-text">Physics & Design</span>
+                <br><span class="subtitle">Where Innovation Meets Discovery</span>
+            </h1>
+            <p class="hero-description">
+                Step into a world where theoretical physics meets hands-on engineering. 
+                Design circuits that power the future. Build machines that solve real problems. 
+                Create CAD models that bring ideas to life.
+            </p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number" data-count="3">0</div>
+                    <div class="stat-label">Exciting Events</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="100">0</div>
+                    <div class="stat-label">% Hands-On Learning</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="∞">0</div>
+                    <div class="stat-label">Possibilities</div>
+                </div>
+            </div>
+            <div class="hero-cta">
+                <button class="btn-primary" onclick="startJourney()">
+                    <i class="fas fa-rocket"></i> Begin Your Journey
+                </button>
+                <button class="btn-secondary" onclick="scrollToDiscovery()">
+                    <i class="fas fa-play-circle"></i> Watch Discovery in Action
+                </button>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="interactive-circuit">
+                <div class="circuit-board">
+                    <div class="component resistor" data-tooltip="Resistors control current flow"></div>
+                    <div class="component capacitor" data-tooltip="Capacitors store electrical energy"></div>
+                    <div class="component led" data-tooltip="LEDs convert electricity to light"></div>
+                    <div class="wire wire-1"></div>
+                    <div class="wire wire-2"></div>
+                    <div class="wire wire-3"></div>
+                </div>
+                <p class="circuit-caption">Click components to learn!</p>
+            </div>
         </div>
     </div>
 </div>
 
-<section id="skills" class="section">
+<!-- Journey Discovery Section -->
+<section class="discovery-journey" id="discovery">
     <div class="container">
-        <div class="section-title">
-            <h2>Skills & Knowledge Required</h2>
+        <div class="journey-header">
+            <h2 class="section-title">Your Discovery Journey Awaits</h2>
+            <p class="section-subtitle">From curiosity to mastery, see how Physics & Design transforms students</p>
         </div>
-        <div class="section-content">
-            <div class="skills-grid">
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fas fa-cogs"></i></div>
-                    <h3>Mechanical Engineering</h3>
-                    <p>Understanding of machines, mechanisms, and mechanical systems design</p>
+        
+        <div class="journey-timeline">
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-icon">
+                    <i class="fas fa-lightbulb"></i>
                 </div>
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fas fa-bolt"></i></div>
-                    <h3>Electrical Engineering</h3>
-                    <p>Circuit analysis, electronic components, and electrical system design</p>
+                <div class="timeline-content">
+                    <h3>Spark of Curiosity</h3>
+                    <p>"I always wondered how things worked, but Physics & Design showed me I could actually build them myself."</p>
+                    <div class="student-testimonial">
+                        <img src="/static/images/default-profile.png" alt="Student" class="testimonial-avatar">
+                        <div class="testimonial-info">
+                            <span class="student-name">Sarah M.</span>
+                            <span class="student-year">Now studying Electrical Engineering at MIT</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fas fa-cube"></i></div>
-                    <h3>CAD & 3D Modeling</h3>
-                    <p>Computer-aided design, technical drawings, and 3D visualization</p>
+            </div>
+            
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="timeline-icon">
+                    <i class="fas fa-cogs"></i>
                 </div>
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fas fa-flask"></i></div>
-                    <h3>Lab Techniques</h3>
-                    <p>Hands-on experimentation, measurement, and practical problem-solving</p>
+                <div class="timeline-content">
+                    <h3>Hands-On Mastery</h3>
+                    <p>"Building my first working circuit in Circuit Lab was magical. Suddenly, physics wasn't just theory—it was power in my hands."</p>
+                    <div class="interactive-demo">
+                        <button class="demo-btn" onclick="toggleCircuitDemo()">
+                            <i class="fas fa-play"></i> Try Circuit Demo
+                        </button>
+                        <div class="demo-result" id="circuitDemo" style="display: none;">
+                            <div class="led-demo">💡 LED Activated!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
+                <div class="timeline-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <div class="timeline-content">
+                    <h3>Competition Excellence</h3>
+                    <p>"Our CAD model won regionals! But more importantly, I learned to think like an engineer—breaking down complex problems into solvable pieces."</p>
+                    <div class="achievement-showcase">
+                        <div class="medal">🥇</div>
+                        <div class="achievement-text">Regional Champions 2024</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="600">
+                <div class="timeline-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="timeline-content">
+                    <h3>Future Unlocked</h3>
+                    <p>"Science Olympiad didn't just teach me physics—it taught me how to learn, how to persist, and how to innovate. It shaped who I am."</p>
+                    <div class="career-paths">
+                        <div class="career-item">⚡ Electrical Engineer</div>
+                        <div class="career-item">🏗️ Mechanical Engineer</div>
+                        <div class="career-item">🖥️ CAD Specialist</div>
+                        <div class="career-item">🔬 Research Scientist</div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section id="events" class="section" style="background-color: #f5f7fa;">
+<!-- Interactive Events Showcase -->
+<section class="events-showcase" id="events">
     <div class="container">
-        <div class="section-title">
-            <h2>Physics & Design Events</h2>
+        <div class="section-header">
+            <h2 class="section-title">Master Three Worlds of Engineering</h2>
+            <p class="section-subtitle">Each event is a gateway to a different aspect of engineering mastery</p>
         </div>
-        <div class="section-content">
-            <div class="events-grid">
-                <div class="event-card">
-                    <div class="event-icon"><i class="fas fa-cube"></i></div>
+        
+        <div class="events-carousel">
+            <div class="event-spotlight active" data-event="cad">
+                <div class="event-visual">
+                    <div class="cad-mockup">
+                        <div class="cad-interface">
+                            <div class="toolbar">
+                                <div class="tool-icon" data-tool="select">📐</div>
+                                <div class="tool-icon" data-tool="extrude">🔧</div>
+                                <div class="tool-icon" data-tool="revolve">🌀</div>
+                            </div>
+                            <div class="viewport">
+                                <div class="3d-object" id="cadObject">
+                                    <div class="cube-face front"></div>
+                                    <div class="cube-face back"></div>
+                                    <div class="cube-face right"></div>
+                                    <div class="cube-face left"></div>
+                                    <div class="cube-face top"></div>
+                                    <div class="cube-face bottom"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="event-content">
                     <h3>Engineering CAD</h3>
-                    <p><strong>Description:</strong> Teams read engineering drawings and collaboratively create CAD parts and assemblies that match the drawings while incorporating provided components and answer questions about the drawing and generated model.</p>
-                    <div class="event-details">
-                        <div class="detail-item">
-                            <i class="fas fa-drafting-compass"></i>
-                            <span><strong>Focus:</strong> Technical drawing interpretation</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-computer"></i>
-                            <span><strong>Tool:</strong> CAD software modeling</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-users"></i>
-                            <span><strong>Team Size:</strong> 2 members</span>
+                    <div class="event-tagline">Transform Ideas into Reality</div>
+                    <p>Master the art of Computer-Aided Design. Read technical drawings, build 3D models, and bring engineering concepts to life through digital precision.</p>
+                    
+                    <div class="skill-highlights">
+                        <div class="skill-tag">📐 Technical Drawing</div>
+                        <div class="skill-tag">🖥️ 3D Modeling</div>
+                        <div class="skill-tag">🎯 Precision Engineering</div>
+                    </div>
+                    
+                    <div class="interactive-challenge">
+                        <h4>🎮 Try It Now: Rotate the 3D Model</h4>
+                        <div class="challenge-controls">
+                            <button onclick="rotateCadObject('x')">Rotate X</button>
+                            <button onclick="rotateCadObject('y')">Rotate Y</button>
+                            <button onclick="rotateCadObject('z')">Rotate Z</button>
                         </div>
                     </div>
-                    <div class="event-skills">
-                        <h4>Key Skills:</h4>
-                        <ul>
-                            <li>Technical drawing interpretation and analysis</li>
-                            <li>CAD software proficiency (SolidWorks, AutoCAD, etc.)</li>
-                            <li>3D visualization and spatial reasoning</li>
-                            <li>Assembly modeling and constraint application</li>
-                            <li>Engineering documentation standards</li>
-                        </ul>
-                    </div>
-                    <div class="event-manager">
-                        <i class="fas fa-user-tie"></i>
-                        <span><strong>Event Manager:</strong> TBD</span>
+                    
+                    <div class="real-world-connection">
+                        <h4>🌍 Real-World Impact</h4>
+                        <p>From designing spacecraft components to creating medical devices, CAD skills open doors to every engineering field.</p>
                     </div>
                 </div>
-
-                <div class="event-card">
-                    <div class="event-icon"><i class="fas fa-cogs"></i></div>
+            </div>
+            
+            <div class="event-spotlight" data-event="machines">
+                <div class="event-visual">
+                    <div class="machine-demo">
+                        <div class="lever-system">
+                            <div class="fulcrum">▲</div>
+                            <div class="lever-arm" id="leverArm">
+                                <div class="load" id="load1">📦</div>
+                                <div class="effort" id="effort1">↑</div>
+                            </div>
+                            <div class="measurement-display" id="leverMeasurement">
+                                Mechanical Advantage: <span id="maValue">2.5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="event-content">
                     <h3>Machines</h3>
-                    <p><strong>Description:</strong> Teams complete a written test on compound machine concepts and construct a lever-based measuring device prior to the tournament to determine the ratio between two masses.</p>
-                    <div class="event-details">
-                        <div class="detail-item">
-                            <i class="fas fa-book"></i>
-                            <span><strong>Component:</strong> Written test</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-balance-scale"></i>
-                            <span><strong>Build:</strong> Lever measuring device</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-users"></i>
-                            <span><strong>Team Size:</strong> 2 members</span>
-                        </div>
+                    <div class="event-tagline">Harness the Power of Physics</div>
+                    <p>Build lever-based measuring devices and master the principles of simple and compound machines. Learn how mechanical advantage multiplies human capability.</p>
+                    
+                    <div class="skill-highlights">
+                        <div class="skill-tag">⚖️ Mechanical Advantage</div>
+                        <div class="skill-tag">🔧 Machine Design</div>
+                        <div class="skill-tag">📏 Precision Measurement</div>
                     </div>
-                    <div class="event-skills">
-                        <h4>Key Skills:</h4>
-                        <ul>
-                            <li>Simple and compound machine principles</li>
-                            <li>Mechanical advantage calculations</li>
-                            <li>Lever systems and fulcrum physics</li>
-                            <li>Precision measurement techniques</li>
-                            <li>Machine efficiency and energy transfer</li>
-                        </ul>
+                    
+                    <div class="interactive-challenge">
+                        <h4>🎮 Interactive Lever Demo</h4>
+                        <div class="challenge-controls">
+                            <button onclick="adjustLever(-10)">Move Load Left</button>
+                            <button onclick="adjustLever(10)">Move Load Right</button>
+                            <button onclick="resetLever()">Reset</button>
+                        </div>
+                        <p class="demo-explanation">See how changing the load position affects mechanical advantage!</p>
                     </div>
-                    <div class="event-manager">
-                        <i class="fas fa-user-tie"></i>
-                        <span><strong>Event Manager:</strong> TBD</span>
+                    
+                    <div class="real-world-connection">
+                        <h4>🌍 Real-World Impact</h4>
+                        <p>Every crane, car jack, and robotics system uses these principles. Master machines, master the mechanical world.</p>
                     </div>
                 </div>
-
-                <div class="event-card">
-                    <div class="event-icon"><i class="fas fa-microchip"></i></div>
+            </div>
+            
+            <div class="event-spotlight" data-event="circuits">
+                <div class="event-visual">
+                    <div class="circuit-simulator">
+                        <div class="breadboard">
+                            <div class="component-slot" data-component="resistor" onclick="addComponent('resistor')">
+                                <div class="component-preview">🔧</div>
+                            </div>
+                            <div class="component-slot" data-component="led" onclick="addComponent('led')">
+                                <div class="component-preview">💡</div>
+                            </div>
+                            <div class="component-slot" data-component="battery" onclick="addComponent('battery')">
+                                <div class="component-preview">🔋</div>
+                            </div>
+                            <div class="circuit-path" id="circuitPath"></div>
+                        </div>
+                        <div class="multimeter">
+                            <div class="display" id="multimeterDisplay">0.00V</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="event-content">
                     <h3>Circuit Lab</h3>
-                    <p><strong>Description:</strong> The written test consists of questions spanning a list of topics and can include a variety of question types. The hands-on component can test a variety of circuit elements to complete tasks such as constructing a magnet or determining resistor values.</p>
-                    <div class="event-details">
-                        <div class="detail-item">
-                            <i class="fas fa-book"></i>
-                            <span><strong>Component:</strong> Written test</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-wrench"></i>
-                            <span><strong>Lab:</strong> Hands-on circuit work</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-users"></i>
-                            <span><strong>Team Size:</strong> 2 members</span>
-                        </div>
+                    <div class="event-tagline">Electrify Your Understanding</div>
+                    <p>Build circuits, analyze electrical behavior, and explore electromagnetic phenomena. From Ohm's law to complex AC circuits, master the language of electricity.</p>
+                    
+                    <div class="skill-highlights">
+                        <div class="skill-tag">⚡ Circuit Analysis</div>
+                        <div class="skill-tag">🔬 Lab Techniques</div>
+                        <div class="skill-tag">📊 Electrical Measurements</div>
                     </div>
-                    <div class="event-skills">
-                        <h4>Key Skills:</h4>
-                        <ul>
-                            <li>Circuit analysis and Ohm's law applications</li>
-                            <li>AC and DC circuit behavior</li>
-                            <li>Electronic component identification</li>
-                            <li>Breadboard construction and troubleshooting</li>
-                            <li>Multimeter usage and electrical measurements</li>
-                            <li>Electromagnetic principles and applications</li>
-                        </ul>
+                    
+                    <div class="interactive-challenge">
+                        <h4>🎮 Build Your First Circuit</h4>
+                        <div class="challenge-instructions">
+                            <p>Click components above to build a simple LED circuit!</p>
+                        </div>
+                        <div id="circuitFeedback" class="circuit-feedback"></div>
                     </div>
-                    <div class="event-manager">
-                        <i class="fas fa-user-tie"></i>
-                        <span><strong>Event Manager:</strong> TBD</span>
+                    
+                    <div class="real-world-connection">
+                        <h4>🌍 Real-World Impact</h4>
+                        <p>From smartphones to electric cars, everything runs on circuits. Master electrons, master technology.</p>
                     </div>
                 </div>
+            </div>
+        </div>
+        
+        <div class="event-navigation">
+            <button class="nav-dot active" onclick="showEvent('cad')" data-event="cad">
+                <i class="fas fa-cube"></i>
+                <span>CAD</span>
+            </button>
+            <button class="nav-dot" onclick="showEvent('machines')" data-event="machines">
+                <i class="fas fa-cogs"></i>
+                <span>Machines</span>
+            </button>
+            <button class="nav-dot" onclick="showEvent('circuits')" data-event="circuits">
+                <i class="fas fa-microchip"></i>
+                <span>Circuits</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Transformation Impact Section -->
+<section class="transformation-impact">
+    <div class="container">
+        <div class="impact-header">
+            <h2 class="section-title">Beyond High School: Your Engineering Future</h2>
+            <p class="section-subtitle">See how Physics & Design skills create lasting impact</p>
+        </div>
+        
+        <div class="impact-grid">
+            <div class="impact-card" data-aos="zoom-in">
+                <div class="impact-icon">🎓</div>
+                <h3>College Preparation</h3>
+                <div class="impact-stats">
+                    <div class="stat">
+                        <span class="stat-number">95%</span>
+                        <span class="stat-label">of members pursue STEM degrees</span>
+                    </div>
+                </div>
+                <p>Advanced problem-solving skills and hands-on experience give you a massive advantage in engineering programs.</p>
+            </div>
+            
+            <div class="impact-card" data-aos="zoom-in" data-aos-delay="200">
+                <div class="impact-icon">💼</div>
+                <h3>Career Advantages</h3>
+                <div class="impact-stats">
+                    <div class="stat">
+                        <span class="stat-number">3x</span>
+                        <span class="stat-label">more likely to get engineering internships</span>
+                    </div>
+                </div>
+                <p>Employers value Science Olympiad experience—you've already proven you can tackle complex challenges.</p>
+            </div>
+            
+            <div class="impact-card" data-aos="zoom-in" data-aos-delay="400">
+                <div class="impact-icon">🚀</div>
+                <h3>Innovation Mindset</h3>
+                <div class="impact-stats">
+                    <div class="stat">
+                        <span class="stat-number">∞</span>
+                        <span class="stat-label">creative problem-solving ability</span>
+                    </div>
+                </div>
+                <p>Learn to approach problems from multiple angles, think critically, and innovate solutions that matter.</p>
             </div>
         </div>
     </div>
 </section>
 
-<section class="section">
+<!-- Call to Action -->
+<section class="final-cta">
     <div class="container">
-        <div class="section-title">
-            <h2>Team Leadership</h2>
-        </div>
-        <div class="section-content">
-            <div class="leadership-grid">
-                <div class="leader-card">
-                    <div class="leader-icon"><i class="fas fa-user-graduate"></i></div>
-                    <h3>Subject Director</h3>
-                    <p><strong>1 Subject Director</strong> leads the Engineering subject, responsible for mastering event content and excellent communication skills.</p>
-                    <div class="leader-duties">
-                        <h4>Responsibilities:</h4>
-                        <ul>
-                            <li>Teaching mechanical and electrical engineering concepts</li>
-                            <li>Developing CAD and circuit lab expertise</li>
-                            <li>Leading hands-on engineering projects</li>
-                            <li>Coordinating technical practice sessions</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="leader-card">
-                    <div class="leader-icon"><i class="fas fa-clipboard-list"></i></div>
-                    <h3>Event Managers</h3>
-                    <p>Each event has exactly 1 Event Manager responsible for organizational and communicative tasks.</p>
-                    <div class="leader-duties">
-                        <h4>Responsibilities:</h4>
-                        <ul>
-                            <li>Getting to know members on a personal level</li>
-                            <li>Creating meeting activities and competitions</li>
-                            <li>Facilitating learning and practice</li>
-                            <li>Organizing technical resources and equipment</li>
-                        </ul>
-                    </div>
-                </div>
+        <div class="cta-content">
+            <h2>Ready to Transform Your Future?</h2>
+            <p>Join hundreds of students who've discovered their passion for engineering through Physics & Design.</p>
+            
+            <div class="cta-options">
+                <a href="/register" class="btn-cta primary">
+                    <i class="fas fa-user-plus"></i>
+                    Join Science Olympiad
+                </a>
+                <a href="/about" class="btn-cta secondary">
+                    <i class="fas fa-info-circle"></i>
+                    Learn More About Us
+                </a>
+            </div>
+            
+            <div class="encouragement">
+                <p><strong>No experience needed!</strong> We'll teach you everything from the ground up. 
+                Your curiosity is the only prerequisite.</p>
             </div>
         </div>
     </div>
@@ -202,158 +383,1242 @@
 
 {% block extra_css %}
 <style>
-    .skills-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 25px;
-        margin-top: 30px;
+    /* Global Animations and Variables */
+    :root {
+        --physics-primary: #1e3a8a;
+        --physics-secondary: #3b82f6;
+        --physics-accent: #06b6d4;
+        --physics-warning: #f59e0b;
+        --physics-success: #10b981;
+        --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
     }
     
-    .skill-item {
-        background: white;
-        padding: 30px;
-        border-radius: 15px;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    * {
+        box-sizing: border-box;
+    }
+    
+    /* Hero Section */
+    .physics-hero {
+        min-height: 100vh;
+        position: relative;
+        display: flex;
+        align-items: center;
+        background: var(--gradient-primary);
+        overflow: hidden;
+    }
+    
+    .hero-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+    
+    .floating-elements {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .floating-icon {
+        position: absolute;
+        font-size: 2rem;
+        opacity: 0.1;
+        animation: float 6s ease-in-out infinite;
+        color: white;
+    }
+    
+    .floating-icon:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+    .floating-icon:nth-child(2) { top: 50%; right: 15%; animation-delay: -2s; }
+    .floating-icon:nth-child(3) { bottom: 30%; left: 20%; animation-delay: -4s; }
+    .floating-icon:nth-child(4) { top: 30%; right: 30%; animation-delay: -1s; }
+    .floating-icon:nth-child(5) { bottom: 20%; right: 10%; animation-delay: -3s; }
+    
+    @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+    }
+    
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+    
+    .hero-text {
+        color: white;
+    }
+    
+    .hero-title {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+    }
+    
+    .gradient-text {
+        background: linear-gradient(45deg, #ffffff, #a7f3d0);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: shimmer 3s ease-in-out infinite;
+    }
+    
+    @keyframes shimmer {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+    }
+    
+    .subtitle {
+        font-size: 1.5rem;
+        font-weight: 300;
+        opacity: 0.9;
+    }
+    
+    .hero-description {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        margin: 2rem 0;
+        opacity: 0.9;
+    }
+    
+    .hero-stats {
+        display: flex;
+        gap: 2rem;
+        margin: 3rem 0;
+    }
+    
+    .stat-item {
         text-align: center;
-        transition: all 0.3s;
     }
     
-    .skill-item:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-    }
-    
-    .skill-icon {
+    .stat-number {
         font-size: 3rem;
-        color: var(--accent-color);
-        margin-bottom: 20px;
+        font-weight: bold;
+        display: block;
+        color: #a7f3d0;
     }
     
-    .events-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-        gap: 30px;
-        margin-top: 30px;
+    .stat-label {
+        font-size: 0.9rem;
+        opacity: 0.8;
+        text-transform: uppercase;
+        letter-spacing: 1px;
     }
     
-    .event-card {
+    .hero-cta {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+    
+    .btn-primary, .btn-secondary {
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+    }
+    
+    .btn-primary {
+        background: var(--gradient-secondary);
+        color: white;
+        box-shadow: 0 10px 25px rgba(245, 87, 108, 0.3);
+    }
+    
+    .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 35px rgba(245, 87, 108, 0.4);
+    }
+    
+    .btn-secondary {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(10px);
+    }
+    
+    .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-3px);
+    }
+    
+    /* Interactive Circuit */
+    .hero-visual {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .interactive-circuit {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        border-radius: 20px;
+        padding: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .circuit-board {
+        position: relative;
+        width: 300px;
+        height: 200px;
+        background: #2d5a27;
+        border-radius: 10px;
+        padding: 20px;
+    }
+    
+    .component {
+        position: absolute;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .component:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    }
+    
+    .resistor {
+        width: 40px;
+        height: 10px;
+        background: #8B4513;
+        top: 50px;
+        left: 50px;
+    }
+    
+    .capacitor {
+        width: 20px;
+        height: 30px;
+        background: #4169E1;
+        top: 40px;
+        right: 80px;
+    }
+    
+    .led {
+        width: 15px;
+        height: 15px;
+        background: #FF0000;
+        border-radius: 50%;
+        top: 100px;
+        right: 50px;
+        animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.5; }
+    }
+    
+    .wire {
+        position: absolute;
+        background: #FFD700;
+        height: 3px;
+    }
+    
+    .wire-1 {
+        width: 80px;
+        top: 55px;
+        left: 90px;
+    }
+    
+    .wire-2 {
+        width: 3px;
+        height: 50px;
+        top: 55px;
+        right: 87px;
+    }
+    
+    .wire-3 {
+        width: 40px;
+        top: 107px;
+        right: 65px;
+    }
+    
+    .circuit-caption {
+        text-align: center;
+        margin-top: 1rem;
+        color: white;
+        font-size: 0.9rem;
+        opacity: 0.8;
+    }
+    
+    /* Discovery Journey */
+    .discovery-journey {
+        padding: 6rem 0;
+        background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+    }
+    
+    .journey-header {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+    
+    .section-title {
+        font-size: 3rem;
+        color: var(--physics-primary);
+        margin-bottom: 1rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1.2rem;
+        color: #64748b;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .journey-timeline {
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .journey-timeline::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: var(--gradient-accent);
+        transform: translateX(-50%);
+    }
+    
+    .timeline-item {
+        display: flex;
+        margin-bottom: 4rem;
+        position: relative;
+    }
+    
+    .timeline-item:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+    
+    .timeline-icon {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 60px;
+        background: var(--gradient-secondary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        z-index: 2;
+    }
+    
+    .timeline-content {
+        width: 45%;
+        padding: 2rem;
         background: white;
-        padding: 30px;
         border-radius: 15px;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        transition: all 0.3s;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        margin-top: -1rem;
+    }
+    
+    .timeline-item:nth-child(even) .timeline-content {
+        margin-right: auto;
+    }
+    
+    .timeline-item:nth-child(odd) .timeline-content {
+        margin-left: auto;
+    }
+    
+    .timeline-content h3 {
+        color: var(--physics-primary);
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .student-testimonial {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 1.5rem;
+        padding: 1rem;
+        background: #f1f5f9;
+        border-radius: 10px;
+    }
+    
+    .testimonial-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+    
+    .student-name {
+        font-weight: 600;
+        color: var(--physics-primary);
+        display: block;
+    }
+    
+    .student-year {
+        font-size: 0.9rem;
+        color: #64748b;
+    }
+    
+    .interactive-demo {
+        margin-top: 1rem;
+    }
+    
+    .demo-btn {
+        background: var(--gradient-accent);
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .demo-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(79, 172, 254, 0.3);
+    }
+    
+    .demo-result {
+        margin-top: 1rem;
+        text-align: center;
+    }
+    
+    .led-demo {
+        font-size: 2rem;
+        animation: glow 1s ease-in-out infinite alternate;
+    }
+    
+    @keyframes glow {
+        from { text-shadow: 0 0 10px #ffd700; }
+        to { text-shadow: 0 0 20px #ffd700, 0 0 30px #ffd700; }
+    }
+    
+    .achievement-showcase {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+    
+    .medal {
+        font-size: 2rem;
+    }
+    
+    .achievement-text {
+        font-weight: 600;
+        color: var(--physics-warning);
+    }
+    
+    .career-paths {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1rem;
+    }
+    
+    .career-item {
+        background: var(--gradient-primary);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+    }
+    
+    /* Events Showcase */
+    .events-showcase {
+        padding: 6rem 0;
+        background: var(--gradient-primary);
+        color: white;
+    }
+    
+    .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+    
+    .section-header .section-title,
+    .section-header .section-subtitle {
+        color: white;
+    }
+    
+    .events-carousel {
         position: relative;
         overflow: hidden;
     }
     
-    .event-card:before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 5px;
-        height: 100%;
-        background: linear-gradient(180deg, #9C27B0, #673AB7);
+    .event-spotlight {
+        display: none;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+    
+    .event-spotlight.active {
+        display: grid;
+        animation: slideInFromRight 0.6s ease;
+    }
+    
+    @keyframes slideInFromRight {
+        from { opacity: 0; transform: translateX(50px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+    
+    .event-visual {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .event-content h3 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .event-tagline {
+        font-size: 1.2rem;
+        color: #a7f3d0;
+        margin-bottom: 1.5rem;
+        font-style: italic;
+    }
+    
+    .skill-highlights {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin: 1.5rem 0;
+    }
+    
+    .skill-tag {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        backdrop-filter: blur(10px);
+    }
+    
+    .interactive-challenge {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 1.5rem;
+        border-radius: 15px;
+        margin: 2rem 0;
+        backdrop-filter: blur(10px);
+    }
+    
+    .challenge-controls {
+        display: flex;
+        gap: 1rem;
+        margin: 1rem 0;
+    }
+    
+    .challenge-controls button {
+        background: var(--gradient-secondary);
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        cursor: pointer;
         transition: all 0.3s ease;
     }
     
-    .event-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    .challenge-controls button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     }
     
-    .event-card .event-icon {
-        font-size: 2.5rem;
-        color: var(--accent-color);
-        margin-bottom: 15px;
+    .real-world-connection {
+        background: rgba(16, 185, 129, 0.2);
+        padding: 1.5rem;
+        border-radius: 15px;
+        border-left: 4px solid var(--physics-success);
     }
     
-    .event-details {
-        margin: 20px 0;
-        padding: 15px;
-        background-color: #f8f9fa;
-        border-radius: 8px;
+    /* CAD Mockup */
+    .cad-mockup {
+        width: 400px;
+        height: 300px;
+        background: #2d3748;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
     }
     
-    .detail-item {
+    .cad-interface {
+        width: 100%;
+        height: 100%;
+        background: #4a5568;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+    
+    .toolbar {
+        display: flex;
+        gap: 10px;
+        padding: 10px;
+        background: #2d3748;
+    }
+    
+    .tool-icon {
+        width: 30px;
+        height: 30px;
+        background: #1a202c;
+        border-radius: 3px;
         display: flex;
         align-items: center;
-        margin-bottom: 10px;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
     }
     
-    .detail-item i {
-        margin-right: 10px;
-        color: var(--accent-color);
-        width: 20px;
+    .tool-icon:hover {
+        background: #2b6cb0;
+        transform: scale(1.1);
     }
     
-    .event-skills {
-        margin: 20px 0;
+    .viewport {
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: calc(100% - 60px);
     }
     
-    .event-skills h4 {
-        color: var(--primary-color);
-        margin-bottom: 10px;
+    .3d-object {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        transform-style: preserve-3d;
+        animation: rotate3d 4s linear infinite;
     }
     
-    .event-skills ul {
-        margin: 0;
-        padding-left: 20px;
+    @keyframes rotate3d {
+        0% { transform: rotateX(0deg) rotateY(0deg); }
+        100% { transform: rotateX(360deg) rotateY(360deg); }
     }
     
-    .event-skills li {
-        margin-bottom: 5px;
+    .cube-face {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background: var(--gradient-secondary);
+        border: 2px solid #fff;
+        opacity: 0.8;
     }
     
-    .event-manager {
+    .cube-face.front { transform: rotateY(0deg) translateZ(50px); }
+    .cube-face.back { transform: rotateY(180deg) translateZ(50px); }
+    .cube-face.right { transform: rotateY(90deg) translateZ(50px); }
+    .cube-face.left { transform: rotateY(-90deg) translateZ(50px); }
+    .cube-face.top { transform: rotateX(90deg) translateZ(50px); }
+    .cube-face.bottom { transform: rotateX(-90deg) translateZ(50px); }
+    
+    /* Machine Demo */
+    .machine-demo {
+        width: 400px;
+        height: 300px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(10px);
+    }
+    
+    .lever-system {
+        position: relative;
+        width: 300px;
+        height: 150px;
+    }
+    
+    .fulcrum {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 3rem;
+        color: #8B4513;
+    }
+    
+    .lever-arm {
+        position: absolute;
+        bottom: 50px;
+        left: 20px;
+        width: 260px;
+        height: 6px;
+        background: #8B4513;
+        border-radius: 3px;
+        transform-origin: 50% 50%;
+        transition: transform 0.3s ease;
+    }
+    
+    .load {
+        position: absolute;
+        top: -30px;
+        left: 20px;
+        font-size: 2rem;
+        transition: all 0.3s ease;
+    }
+    
+    .effort {
+        position: absolute;
+        top: -30px;
+        right: 20px;
+        font-size: 2rem;
+        color: #10b981;
+    }
+    
+    .measurement-display {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.8);
+        color: #00ff00;
+        padding: 10px;
+        border-radius: 5px;
+        font-family: monospace;
+        font-size: 0.9rem;
+    }
+    
+    /* Circuit Simulator */
+    .circuit-simulator {
+        width: 400px;
+        height: 300px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        padding: 20px;
+        backdrop-filter: blur(10px);
+    }
+    
+    .breadboard {
+        width: 100%;
+        height: 200px;
+        background: #f0f0f0;
+        border-radius: 10px;
+        padding: 20px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        align-items: center;
+        position: relative;
+    }
+    
+    .component-slot {
+        background: #ddd;
+        border-radius: 10px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 2px dashed #bbb;
+    }
+    
+    .component-slot:hover {
+        background: #c3f0ca;
+        border-color: #10b981;
+        transform: scale(1.05);
+    }
+    
+    .component-preview {
+        font-size: 1.5rem;
+        opacity: 0.6;
+    }
+    
+    .component-slot.filled {
+        background: #10b981;
+        border-color: #059669;
+        border-style: solid;
+    }
+    
+    .component-slot.filled .component-preview {
+        opacity: 1;
+        color: white;
+    }
+    
+    .multimeter {
         margin-top: 20px;
-        padding: 15px;
-        background-color: #e3f2fd;
-        border-radius: 8px;
+        background: #2d3748;
+        border-radius: 10px;
+        padding: 10px;
+        text-align: center;
+    }
+    
+    .display {
+        background: #000;
+        color: #00ff00;
+        padding: 10px;
+        border-radius: 5px;
+        font-family: monospace;
+        font-size: 1.2rem;
+    }
+    
+    /* Event Navigation */
+    .event-navigation {
         display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 4rem;
+    }
+    
+    .nav-dot {
+        display: flex;
+        flex-direction: column;
         align-items: center;
+        gap: 0.5rem;
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        border-radius: 15px;
+        padding: 1rem 1.5rem;
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
     }
     
-    .event-manager i {
-        margin-right: 10px;
-        color: var(--accent-color);
+    .nav-dot:hover,
+    .nav-dot.active {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
     }
     
-    .leadership-grid {
+    .nav-dot i {
+        font-size: 1.5rem;
+    }
+    
+    /* Transformation Impact */
+    .transformation-impact {
+        padding: 6rem 0;
+        background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+        color: white;
+    }
+    
+    .impact-header {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+    
+    .impact-header .section-title,
+    .impact-header .section-subtitle {
+        color: white;
+    }
+    
+    .impact-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-        margin-top: 30px;
+        gap: 3rem;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 2rem;
     }
     
-    .leader-card {
-        background: white;
-        padding: 30px;
-        border-radius: 15px;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        transition: all 0.3s;
+    .impact-card {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 3rem;
+        border-radius: 20px;
+        text-align: center;
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
     }
     
-    .leader-card:hover {
+    .impact-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    .impact-icon {
+        font-size: 4rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .impact-card h3 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        color: #a7f3d0;
+    }
+    
+    .impact-stats {
+        margin: 1.5rem 0;
+    }
+    
+    .stat-number {
+        font-size: 3rem;
+        font-weight: bold;
+        display: block;
+        color: var(--physics-accent);
+    }
+    
+    .stat-label {
+        font-size: 0.9rem;
+        opacity: 0.8;
+    }
+    
+    /* Final CTA */
+    .final-cta {
+        padding: 6rem 0;
+        background: var(--gradient-accent);
+        text-align: center;
+        color: white;
+    }
+    
+    .cta-content h2 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .cta-content p {
+        font-size: 1.3rem;
+        margin-bottom: 3rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .cta-options {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-bottom: 3rem;
+    }
+    
+    .btn-cta {
+        padding: 1.2rem 2.5rem;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+    }
+    
+    .btn-cta.primary {
+        background: var(--gradient-secondary);
+        color: white;
+        box-shadow: 0 15px 35px rgba(245, 87, 108, 0.3);
+    }
+    
+    .btn-cta.primary:hover {
         transform: translateY(-5px);
-        box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        box-shadow: 0 20px 45px rgba(245, 87, 108, 0.4);
     }
     
-    .leader-icon {
-        font-size: 2.5rem;
-        color: var(--accent-color);
-        margin-bottom: 15px;
+    .btn-cta.secondary {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(10px);
     }
     
-    .leader-duties h4 {
-        color: var(--primary-color);
-        margin-top: 20px;
-        margin-bottom: 10px;
+    .btn-cta.secondary:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-5px);
     }
     
-    .leader-duties ul {
-        margin: 0;
-        padding-left: 20px;
+    .encouragement {
+        max-width: 500px;
+        margin: 0 auto;
+        opacity: 0.9;
+        font-style: italic;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .hero-content {
+            grid-template-columns: 1fr;
+            text-align: center;
+            gap: 2rem;
+        }
+        
+        .hero-title {
+            font-size: 2.5rem;
+        }
+        
+        .event-spotlight {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        .timeline-item {
+            flex-direction: column !important;
+        }
+        
+        .timeline-content {
+            width: 100%;
+            margin: 2rem 0 0 0 !important;
+        }
+        
+        .timeline-icon {
+            position: relative;
+            left: 0;
+            transform: none;
+            margin: 0 auto 1rem;
+        }
+        
+        .journey-timeline::before {
+            display: none;
+        }
+        
+        .cta-options {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .hero-stats {
+            justify-content: center;
+        }
+        
+        .challenge-controls {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
     }
 </style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Animated counter for hero stats
+    function animateStats() {
+        const stats = document.querySelectorAll('.stat-number[data-count]');
+        stats.forEach(stat => {
+            const target = stat.getAttribute('data-count');
+            let current = 0;
+            const increment = target === '∞' ? 1 : target / 50;
+            
+            const updateCounter = () => {
+                if (target === '∞') {
+                    stat.textContent = '∞';
+                } else if (current < target) {
+                    current += increment;
+                    stat.textContent = Math.ceil(current);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    stat.textContent = target;
+                }
+            };
+            
+            updateCounter();
+        });
+    }
+    
+    // Interactive circuit component tooltips
+    function initializeCircuitTooltips() {
+        const components = document.querySelectorAll('[data-tooltip]');
+        components.forEach(component => {
+            component.addEventListener('click', function() {
+                const tooltip = this.getAttribute('data-tooltip');
+                showTooltip(this, tooltip);
+            });
+        });
+    }
+    
+    function showTooltip(element, text) {
+        // Remove existing tooltips
+        document.querySelectorAll('.custom-tooltip').forEach(t => t.remove());
+        
+        const tooltip = document.createElement('div');
+        tooltip.className = 'custom-tooltip';
+        tooltip.textContent = text;
+        tooltip.style.cssText = `
+            position: absolute;
+            background: rgba(0,0,0,0.9);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            z-index: 1000;
+            max-width: 200px;
+            animation: fadeIn 0.3s ease;
+        `;
+        
+        document.body.appendChild(tooltip);
+        
+        const rect = element.getBoundingClientRect();
+        tooltip.style.top = (rect.top - tooltip.offsetHeight - 10) + 'px';
+        tooltip.style.left = (rect.left + rect.width/2 - tooltip.offsetWidth/2) + 'px';
+        
+        setTimeout(() => tooltip.remove(), 3000);
+    }
+    
+    // CAD object rotation controls
+    let cadRotation = { x: 0, y: 0, z: 0 };
+    
+    function rotateCadObject(axis) {
+        cadRotation[axis] += 90;
+        const cadObject = document.getElementById('cadObject');
+        if (cadObject) {
+            cadObject.style.transform = `rotateX(${cadRotation.x}deg) rotateY(${cadRotation.y}deg) rotateZ(${cadRotation.z}deg)`;
+        }
+    }
+    
+    // Lever system simulation
+    let leverPosition = 0;
+    
+    function adjustLever(change) {
+        leverPosition += change;
+        leverPosition = Math.max(-50, Math.min(50, leverPosition));
+        
+        const leverArm = document.getElementById('leverArm');
+        const load = document.getElementById('load1');
+        const maValue = document.getElementById('maValue');
+        
+        if (leverArm && load && maValue) {
+            const rotation = leverPosition * 0.3;
+            leverArm.style.transform = `rotate(${rotation}deg)`;
+            
+            const ma = Math.abs(leverPosition) === 0 ? 2.5 : (100 / (50 + Math.abs(leverPosition))).toFixed(1);
+            maValue.textContent = ma;
+        }
+    }
+    
+    function resetLever() {
+        leverPosition = 0;
+        adjustLever(0);
+    }
+    
+    // Circuit builder simulation
+    let circuitComponents = [];
+    
+    function addComponent(type) {
+        if (!circuitComponents.includes(type)) {
+            circuitComponents.push(type);
+            
+            const slot = document.querySelector(`[data-component="${type}"]`);
+            if (slot) {
+                slot.classList.add('filled');
+                slot.querySelector('.component-preview').textContent = 
+                    type === 'resistor' ? '🔧' : type === 'led' ? '💡' : '🔋';
+            }
+            
+            updateCircuitFeedback();
+            updateMultimeter();
+        }
+    }
+    
+    function updateCircuitFeedback() {
+        const feedback = document.getElementById('circuitFeedback');
+        if (feedback) {
+            if (circuitComponents.length === 0) {
+                feedback.innerHTML = '<p>Click components to start building!</p>';
+            } else if (circuitComponents.length < 3) {
+                feedback.innerHTML = `<p>Good! You have ${circuitComponents.length} components. Add ${3 - circuitComponents.length} more!</p>`;
+            } else {
+                feedback.innerHTML = '<p>🎉 Circuit complete! Your LED should be glowing!</p>';
+                // Add glowing effect to LED
+                const led = document.querySelector('.led');
+                if (led) {
+                    led.style.boxShadow = '0 0 20px #ff0000';
+                }
+            }
+        }
+    }
+    
+    function updateMultimeter() {
+        const display = document.getElementById('multimeterDisplay');
+        if (display) {
+            const voltage = circuitComponents.includes('battery') ? 
+                (circuitComponents.length === 3 ? '3.30V' : '9.00V') : '0.00V';
+            display.textContent = voltage;
+        }
+    }
+    
+    // Event showcase navigation
+    function showEvent(eventType) {
+        // Hide all events
+        document.querySelectorAll('.event-spotlight').forEach(event => {
+            event.classList.remove('active');
+        });
+        
+        // Show selected event
+        const selectedEvent = document.querySelector(`[data-event="${eventType}"]`);
+        if (selectedEvent) {
+            selectedEvent.classList.add('active');
+        }
+        
+        // Update navigation
+        document.querySelectorAll('.nav-dot').forEach(dot => {
+            dot.classList.remove('active');
+        });
+        document.querySelector(`[data-event="${eventType}"].nav-dot`).classList.add('active');
+    }
+    
+    // Demo functions
+    function toggleCircuitDemo() {
+        const demo = document.getElementById('circuitDemo');
+        if (demo) {
+            demo.style.display = demo.style.display === 'none' ? 'block' : 'none';
+        }
+    }
+    
+    function startJourney() {
+        document.getElementById('discovery').scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+    
+    function scrollToDiscovery() {
+        document.getElementById('events').scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+    
+    // Initialize everything when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(animateStats, 1000);
+        initializeCircuitTooltips();
+        updateCircuitFeedback();
+        updateMultimeter();
+        
+        // AOS (Animate On Scroll) initialization
+        if (typeof AOS !== 'undefined') {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out-cubic'
+            });
+        }
+        
+        // Add CSS for tooltip fade-in animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            .custom-tooltip {
+                animation: fadeIn 0.3s ease !important;
+            }
+        `;
+        document.head.appendChild(style);
+    });
+</script>
 {% endblock %} 

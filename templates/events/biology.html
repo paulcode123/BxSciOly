@@ -1,201 +1,814 @@
 {% extends "layout.html" %}
 
-{% block title %}Biology - Bronx Science Olympiad{% endblock %}
+{% block title %}Biology - BioTech Discovery Lab - Bronx Science Olympiad{% endblock %}
 
 {% block content %}
-<div class="dept-hero" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/static/images/biology-bg.jpg');">
+<!-- BioTech Discovery Lab Hero -->
+<div class="biotech-hero" id="hero">
+    <div class="lab-environment">
+        <div class="dna-strands">
+            <div class="dna-helix helix-1">
+                <div class="base-pair" data-base="A-T"></div>
+                <div class="base-pair" data-base="G-C"></div>
+                <div class="base-pair" data-base="T-A"></div>
+                <div class="base-pair" data-base="C-G"></div>
+                <div class="base-pair" data-base="A-T"></div>
+            </div>
+            <div class="dna-helix helix-2">
+                <div class="base-pair" data-base="G-C"></div>
+                <div class="base-pair" data-base="A-T"></div>
+                <div class="base-pair" data-base="C-G"></div>
+                <div class="base-pair" data-base="T-A"></div>
+                <div class="base-pair" data-base="G-C"></div>
+            </div>
+        </div>
+        <div class="cellular-particles">
+            <div class="particle cell" data-type="red-blood-cell">🔴</div>
+            <div class="particle cell" data-type="white-blood-cell">⚪</div>
+            <div class="particle cell" data-type="neuron">🧠</div>
+            <div class="particle molecule" data-type="protein">🧬</div>
+            <div class="particle virus" data-type="virus">🦠</div>
+        </div>
+        <div class="research-data-flow">
+            <div class="data-stream stream-1"></div>
+            <div class="data-stream stream-2"></div>
+            <div class="data-stream stream-3"></div>
+        </div>
+    </div>
+    
     <div class="hero-content">
-        <h1>Biology</h1>
-        <p>Explore human biology from DNA to populations of people</p>
-        <div class="hero-cta">
-            <a href="#events" class="btn"><i class="fas fa-dna"></i> Explore Events</a>
+        <div class="lab-console">
+            <div class="console-header">
+                <div class="lab-status">
+                    <div class="status-light active"></div>
+                    <span class="status-text">RESEARCH ACTIVE</span>
+        </div>
+                <div class="lab-id">
+                    <span class="facility-code">BIOTECH LAB //</span>
+                    <span class="session-id">SESSION_2025</span>
+    </div>
+</div>
+
+            <h1 class="lab-title">
+                <span class="department">Biology</span>
+                <div class="lab-subtitle">Advanced Life Sciences Discovery Center</div>
+            </h1>
+            
+            <p class="research-mission">
+                Unlock the secrets of life at the molecular level. Explore human anatomy from neurons to 
+                DNA sequences. Investigate disease outbreaks that shape populations. Engineer genetic 
+                solutions that revolutionize medicine. Welcome to the frontier of biological discovery.
+            </p>
+            
+            <div class="research-metrics">
+                <div class="metric-display" data-research="dna">
+                    <div class="metric-icon">🧬</div>
+                    <div class="metric-value" data-count="3200000000">0</div>
+                    <div class="metric-label">Base Pairs in Human Genome</div>
+                </div>
+                <div class="metric-display" data-research="cells">
+                    <div class="metric-icon">🔬</div>
+                    <div class="metric-value" data-count="37000000000000">0</div>
+                    <div class="metric-label">Cells in Human Body</div>
+                </div>
+                <div class="metric-display" data-research="systems">
+                    <div class="metric-icon">⚡</div>
+                    <div class="metric-value" data-count="11">0</div>
+                    <div class="metric-label">Major Body Systems</div>
+                </div>
+            </div>
+            
+            <div class="lab-controls">
+                <button class="lab-btn primary" onclick="initiateResearch()">
+                    <i class="fas fa-microscope"></i> INITIATE RESEARCH
+                </button>
+                <button class="lab-btn secondary" onclick="accessDatabase()">
+                    <i class="fas fa-database"></i> ACCESS BIOBANK
+                </button>
+            </div>
+        </div>
+        
+        <div class="discovery-viewport">
+            <div class="viewport-header">
+                <h3>🔬 Live Cell Analysis</h3>
+                <div class="magnification">MAG: 1000x</div>
+            </div>
+            <div class="cell-viewer" id="cellViewer">
+                <div class="cell-display active" data-cell="neuron">
+                    <div class="cell-illustration">
+                        <div class="cell-body">
+                            <div class="nucleus"></div>
+                            <div class="organelle mitochondria"></div>
+                            <div class="organelle endoplasmic-reticulum"></div>
+                        </div>
+                        <div class="dendrites"></div>
+                        <div class="axon"></div>
+                        <div class="synapses">
+                            <div class="synapse active" onclick="fireSynapse(1)"></div>
+                            <div class="synapse" onclick="fireSynapse(2)"></div>
+                            <div class="synapse" onclick="fireSynapse(3)"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cell-display" data-cell="blood">
+                    <div class="blood-system">
+                        <div class="red-blood-cell"></div>
+                        <div class="white-blood-cell"></div>
+                        <div class="platelet"></div>
+                        <div class="plasma-flow"></div>
+                    </div>
+                </div>
+                <div class="cell-display" data-cell="dna">
+                    <div class="dna-sequence-viewer">
+                        <div class="sequence-line">
+                            <span class="base adenine">A</span>
+                            <span class="base thymine">T</span>
+                            <span class="base guanine">G</span>
+                            <span class="base cytosine">C</span>
+                            <span class="base adenine">A</span>
+                            <span class="base adenine">A</span>
+                            <span class="base thymine">T</span>
+                            <span class="base guanine">G</span>
+                        </div>
+                        <div class="complementary-line">
+                            <span class="base thymine">T</span>
+                            <span class="base adenine">A</span>
+                            <span class="base cytosine">C</span>
+                            <span class="base guanine">G</span>
+                            <span class="base thymine">T</span>
+                            <span class="base thymine">T</span>
+                            <span class="base adenine">A</span>
+                            <span class="base cytosine">C</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cell-controls">
+                <button class="cell-btn" onclick="switchCellView('neuron')">Neural Pathway</button>
+                <button class="cell-btn" onclick="switchCellView('blood')">Circulatory</button>
+                <button class="cell-btn" onclick="switchCellView('dna')">DNA Sequence</button>
+            </div>
         </div>
     </div>
 </div>
 
-<section id="skills" class="section">
-    <div class="container">
-        <div class="section-title">
-            <h2>Skills & Knowledge Required</h2>
+<!-- Research Station Network -->
+<section class="research-station-network" id="research">
+    <div class="lab-floor">
+        <div class="facility-header">
+            <div class="facility-status-bar">
+                <div class="status-indicator">
+                    <div class="status-dot online"></div>
+                    <span>LAB NETWORK ONLINE</span>
+                </div>
+                <div class="facility-time" id="labTime">12:34:56 GMT</div>
+                <div class="facility-temp">
+                    <i class="fas fa-thermometer-half"></i>
+                    <span>22.3°C OPTIMAL</span>
+                </div>
+            </div>
+            <h2 class="facility-title">BIOTECH RESEARCH STATION NETWORK</h2>
+            <p class="facility-description">Advanced Multi-Disciplinary Laboratory Complex</p>
         </div>
-        <div class="section-content">
-            <div class="skills-grid">
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fas fa-heartbeat"></i></div>
-                    <h3>Human Anatomy & Physiology</h3>
-                    <p>Understanding of human body systems, structure, and physiological processes</p>
+        
+        <div class="research-stations-grid">
+            <!-- Anatomy & Physiology Research Station -->
+            <div class="research-station anatomy-station" data-station="anatomy">
+                <div class="station-header">
+                    <div class="station-id">STATION A-01</div>
+                    <div class="station-status active">
+                        <div class="pulse-indicator"></div>
+                        <span>ACTIVE</span>
                 </div>
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fas fa-dna"></i></div>
-                    <h3>Genetics & Molecular Biology</h3>
-                    <p>Knowledge of inheritance, DNA, biotechnology, and molecular genetics principles</p>
                 </div>
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fas fa-user-md"></i></div>
-                    <h3>Epidemiology & Public Health</h3>
-                    <p>Disease investigation, population health, and epidemiological analysis methods</p>
+                <div class="station-display">
+                    <div class="station-screen">
+                        <div class="neural-network-viz">
+                            <div class="neuron-node central" onclick="activateNeuralPath(1)"></div>
+                            <div class="neuron-node" onclick="activateNeuralPath(2)"></div>
+                            <div class="neuron-node" onclick="activateNeuralPath(3)"></div>
+                            <div class="neural-connection conn-1"></div>
+                            <div class="neural-connection conn-2"></div>
+                            <div class="neural-connection conn-3"></div>
                 </div>
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
-                    <h3>Data Analysis & Interpretation</h3>
-                    <p>Statistical analysis of biological data and research interpretation skills</p>
+                        <div class="system-readout">
+                            <div class="readout-line">NEURAL ACTIVITY: <span class="value">NORMAL</span></div>
+                            <div class="readout-line">SYNAPTIC RATE: <span class="value">1.2k/sec</span></div>
+                            <div class="readout-line">HORMONE LEVELS: <span class="value">BALANCED</span></div>
+                </div>
+                    </div>
+                </div>
+                <div class="station-controls">
+                    <h3>🧠 Neural Systems Laboratory</h3>
+                    <p>Advanced human anatomy and physiology research station</p>
+                    <div class="control-panel">
+                        <button class="lab-control-btn" onclick="initializeSystem('nervous')">
+                            <i class="fas fa-brain"></i> NERVOUS SYSTEM
+                        </button>
+                        <button class="lab-control-btn" onclick="initializeSystem('sensory')">
+                            <i class="fas fa-eye"></i> SENSORY ANALYSIS
+                        </button>
+                        <button class="lab-control-btn" onclick="initializeSystem('endocrine')">
+                            <i class="fas fa-flask"></i> ENDOCRINE CASCADE
+                        </button>
+            </div>
+                    <div class="research-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill anatomy-progress" data-progress="73"></div>
+                        </div>
+                        <span class="progress-text">Research Progress: 73%</span>
+                    </div>
+                                </div>
+                            </div>
+                            
+            <!-- Epidemiology Research Station -->
+            <div class="research-station epidemiology-station" data-station="epidemiology">
+                <div class="station-header">
+                    <div class="station-id">STATION E-02</div>
+                    <div class="station-status active">
+                        <div class="pulse-indicator"></div>
+                        <span>ANALYZING</span>
+                                </div>
+                            </div>
+                <div class="station-display">
+                    <div class="station-screen">
+                        <div class="outbreak-monitor">
+                            <div class="outbreak-radar">
+                                <div class="radar-sweep"></div>
+                                <div class="outbreak-blip blip-1" onclick="investigateOutbreak(1)"></div>
+                                <div class="outbreak-blip blip-2" onclick="investigateOutbreak(2)"></div>
+                                <div class="outbreak-blip blip-3" onclick="investigateOutbreak(3)"></div>
+                                </div>
+                            </div>
+                        <div class="epidemio-readout">
+                            <div class="readout-line">ACTIVE CASES: <span class="value critical">247</span></div>
+                            <div class="readout-line">R₀ VALUE: <span class="value warning">2.3</span></div>
+                            <div class="readout-line">RISK LEVEL: <span class="value critical">HIGH</span></div>
+                        </div>
+                                </div>
+                                </div>
+                <div class="station-controls">
+                    <h3>🦠 Epidemiological Investigation Center</h3>
+                    <p>Disease outbreak tracking and population health analysis</p>
+                    <div class="control-panel">
+                        <button class="lab-control-btn" onclick="launchInvestigation('outbreak')">
+                            <i class="fas fa-search"></i> OUTBREAK TRACE
+                        </button>
+                        <button class="lab-control-btn" onclick="launchInvestigation('pattern')">
+                            <i class="fas fa-chart-line"></i> PATTERN ANALYSIS
+                        </button>
+                        <button class="lab-control-btn" onclick="launchInvestigation('intervention')">
+                            <i class="fas fa-shield-alt"></i> INTERVENTION MODEL
+                        </button>
+                                </div>
+                    <div class="research-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill epidemiology-progress" data-progress="89"></div>
+                            </div>
+                        <span class="progress-text">Investigation Status: 89%</span>
+                        </div>
+                    </div>
+                </div>
+                
+            <!-- Genetics Research Station -->
+            <div class="research-station genetics-station" data-station="genetics">
+                <div class="station-header">
+                    <div class="station-id">STATION G-03</div>
+                    <div class="station-status active">
+                        <div class="pulse-indicator"></div>
+                        <span>EDITING</span>
+                        </div>
+                                    </div>
+                <div class="station-display">
+                    <div class="station-screen">
+                        <div class="dna-helix-display">
+                            <div class="helix-strand strand-1">
+                                <div class="base-pair a-t" onclick="editBasePair(1)"></div>
+                                <div class="base-pair g-c" onclick="editBasePair(2)"></div>
+                                <div class="base-pair mutation-pair t-t" onclick="editBasePair(3)"></div>
+                                <div class="base-pair c-g" onclick="editBasePair(4)"></div>
+                                    </div>
+                            <div class="helix-strand strand-2">
+                                <div class="base-pair t-a"></div>
+                                <div class="base-pair c-g"></div>
+                                <div class="base-pair mutation-pair a-a"></div>
+                                <div class="base-pair g-c"></div>
+                                    </div>
+                                </div>
+                        <div class="genetics-readout">
+                            <div class="readout-line">CRISPR STATUS: <span class="value">READY</span></div>
+                            <div class="readout-line">MUTATIONS: <span class="value warning">1 DETECTED</span></div>
+                            <div class="readout-line">EDIT SUCCESS: <span class="value">94.7%</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="station-controls">
+                    <h3>🧬 Genetic Engineering Laboratory</h3>
+                    <p>CRISPR gene editing and molecular biotechnology</p>
+                    <div class="control-panel">
+                        <button class="lab-control-btn" onclick="initializeEditor('crispr')">
+                            <i class="fas fa-cut"></i> CRISPR EDIT
+                                    </button>
+                        <button class="lab-control-btn" onclick="initializeEditor('sequence')">
+                            <i class="fas fa-dna"></i> SEQUENCE ANALYSIS
+                                    </button>
+                        <button class="lab-control-btn" onclick="initializeEditor('inheritance')">
+                            <i class="fas fa-sitemap"></i> INHERITANCE MODEL
+                                    </button>
+                                </div>
+                    <div class="research-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill genetics-progress" data-progress="67"></div>
+                        </div>
+                        <span class="progress-text">Genetic Analysis: 67%</span>
+                    </div>
+                </div>
+                            </div>
+                        </div>
+                        
+        <!-- Central Lab Console -->
+        <div class="central-lab-console">
+            <div class="console-screen">
+                <div class="console-header">
+                    <h4>INTEGRATED RESEARCH COMMAND</h4>
+                    <div class="console-time" id="consoleTime">SESSION: 2h 34m</div>
+                                </div>
+                <div class="research-summary">
+                    <div class="summary-metric">
+                        <div class="metric-icon">🧠</div>
+                        <div class="metric-info">
+                            <div class="metric-value" id="anatomyMetric">1,247</div>
+                            <div class="metric-label">Neural Pathways Mapped</div>
+                                </div>
+                                </div>
+                    <div class="summary-metric">
+                        <div class="metric-icon">🦠</div>
+                        <div class="metric-info">
+                            <div class="metric-value" id="epidemiologyMetric">89</div>
+                            <div class="metric-label">Outbreaks Analyzed</div>
+                            </div>
+                        </div>
+                    <div class="summary-metric">
+                        <div class="metric-icon">🧬</div>
+                        <div class="metric-info">
+                            <div class="metric-value" id="geneticsMetric">3.2M</div>
+                            <div class="metric-label">Base Pairs Edited</div>
+                    </div>
+                </div>
+                        </div>
+                <div class="lab-actions">
+                    <button class="console-btn primary" onclick="synchronizeLabs()">
+                        <i class="fas fa-sync"></i> SYNCHRONIZE LABS
+                    </button>
+                    <button class="console-btn secondary" onclick="generateReport()">
+                        <i class="fas fa-file-alt"></i> GENERATE REPORT
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section id="events" class="section" style="background-color: #f5f7fa;">
-    <div class="container">
-        <div class="section-title">
-            <h2>Biology Events</h2>
+<!-- Lab Training Protocol -->
+<section class="lab-training-protocol" id="training">
+    <div class="training-facility">
+        <div class="protocol-header">
+            <div class="training-status-bar">
+                <div class="protocol-indicator">
+                    <div class="protocol-light training"></div>
+                    <span>TRAINING PROTOCOL ACTIVE</span>
+                                    </div>
+                <div class="certification-level">CLEARANCE LEVEL: BASIC → ADVANCED</div>
+                                </div>
+            <h2 class="protocol-title">BIOTECH RESEARCHER TRAINING PROTOCOL</h2>
+            <p class="protocol-description">Progressive skill development through immersive laboratory experience</p>
+                            </div>
+                            
+        <div class="training-sequence">
+            <!-- Level 1: Laboratory Safety & Fundamentals -->
+            <div class="training-module" data-level="1">
+                <div class="module-header">
+                    <div class="module-badge">LEVEL 01</div>
+                    <div class="module-status completed">
+                        <i class="fas fa-check-circle"></i>
+                        <span>COMPLETED</span>
+                                        </div>
+                                        </div>
+                <div class="module-interface">
+                    <div class="module-screen">
+                        <div class="safety-checklist">
+                            <div class="checklist-item complete">
+                                <i class="fas fa-check"></i>
+                                <span>Lab Safety Protocols</span>
+                                    </div>
+                            <div class="checklist-item complete">
+                                <i class="fas fa-check"></i>
+                                <span>Equipment Familiarization</span>
+                                    </div>
+                            <div class="checklist-item complete">
+                                <i class="fas fa-check"></i>
+                                <span>Basic Microscopy</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="module-controls">
+                        <h4>🔬 Laboratory Fundamentals</h4>
+                        <p>Master essential lab safety, equipment operation, and basic observation techniques</p>
+                        <div class="skill-progress">
+                            <div class="progress-indicator">
+                                <div class="progress-ring">
+                                    <div class="progress-circle complete"></div>
+                                </div>
+                                <span class="progress-text">100%</span>
+                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+            <!-- Level 2: System Analysis -->
+            <div class="training-module active" data-level="2">
+                <div class="module-header">
+                    <div class="module-badge">LEVEL 02</div>
+                    <div class="module-status active">
+                        <i class="fas fa-play-circle"></i>
+                        <span>IN PROGRESS</span>
+                                </div>
+                                </div>
+                <div class="module-interface">
+                    <div class="module-screen">
+                        <div class="system-analyzer">
+                            <div class="analysis-display">
+                                <div class="system-node active" onclick="analyzeSystem('neural')">
+                                    <div class="node-pulse"></div>
+                                    <span>NEURAL</span>
+                                </div>
+                                <div class="system-node" onclick="analyzeSystem('circulatory')">
+                                    <span>CIRCULATORY</span>
+                            </div>
+                                <div class="system-node" onclick="analyzeSystem('endocrine')">
+                                    <span>ENDOCRINE</span>
+                        </div>
+                    </div>
+                            <div class="analysis-readout">
+                                <div class="readout-text">ANALYZING: Neural System Interactions...</div>
+                                <div class="data-stream">
+                                    <div class="stream-line active"></div>
+                                    <div class="stream-line"></div>
+                                    <div class="stream-line"></div>
+                </div>
+            </div>
         </div>
-        <div class="section-content">
-            <div class="events-grid">
-                <div class="event-card">
-                    <div class="event-icon"><i class="fas fa-heartbeat"></i></div>
-                    <h3>Anatomy and Physiology</h3>
-                    <p><strong>Description:</strong> Participants will be assessed on their understanding of the anatomy and physiology for the human Nervous, Sensory, and Endocrine systems.</p>
-                    <div class="event-details">
-                        <div class="detail-item">
-                            <i class="fas fa-book"></i>
-                            <span><strong>Type:</strong> Study Event</span>
+    </div>
+                    <div class="module-controls">
+                        <h4>🧠 Human Systems Analysis</h4>
+                        <p>Investigate complex interactions between body systems and physiological processes</p>
+                        <div class="skill-progress">
+                            <div class="progress-indicator">
+                                <div class="progress-ring">
+                                    <div class="progress-circle partial" data-progress="67"></div>
+                                </div>
+                                <span class="progress-text">67%</span>
+                            </div>
                         </div>
-                        <div class="detail-item">
-                            <i class="fas fa-brain"></i>
-                            <span><strong>Focus:</strong> Nervous, Sensory, Endocrine</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-users"></i>
-                            <span><strong>Team Size:</strong> 2 members</span>
-                        </div>
-                    </div>
-                    <div class="event-skills">
-                        <h4>Key Skills:</h4>
-                        <ul>
-                            <li>Nervous system structure and function</li>
-                            <li>Sensory organ anatomy and physiology</li>
-                            <li>Endocrine system and hormone regulation</li>
-                            <li>Neurological pathways and reflexes</li>
-                            <li>Homeostasis and feedback mechanisms</li>
-                            <li>Clinical applications and disorders</li>
-                        </ul>
-                    </div>
-                    <div class="event-manager">
-                        <i class="fas fa-user-tie"></i>
-                        <span><strong>Event Manager:</strong> TBD</span>
+                        <button class="training-btn" onclick="continueTraining(2)">
+                            <i class="fas fa-microscope"></i> CONTINUE ANALYSIS
+                        </button>
                     </div>
                 </div>
-
-                <div class="event-card">
-                    <div class="event-icon"><i class="fas fa-user-md"></i></div>
-                    <h3>Disease Detectives</h3>
-                    <p><strong>Description:</strong> Participants will use their investigative skills in the scientific study of disease, injury, health, and disability in populations or groups of people.</p>
-                    <div class="event-details">
-                        <div class="detail-item">
-                            <i class="fas fa-search"></i>
-                            <span><strong>Type:</strong> Investigation Event</span>
+        </div>
+        
+            <!-- Level 3: Disease Investigation -->
+            <div class="training-module" data-level="3">
+                <div class="module-header">
+                    <div class="module-badge">LEVEL 03</div>
+                    <div class="module-status locked">
+                        <i class="fas fa-lock"></i>
+                        <span>LOCKED</span>
                         </div>
-                        <div class="detail-item">
-                            <i class="fas fa-chart-line"></i>
-                            <span><strong>Focus:</strong> Epidemiological analysis</span>
                         </div>
-                        <div class="detail-item">
-                            <i class="fas fa-users"></i>
-                            <span><strong>Team Size:</strong> 2 members</span>
+                <div class="module-interface locked">
+                    <div class="module-screen">
+                        <div class="outbreak-simulation-preview">
+                            <div class="simulation-overlay">
+                                <i class="fas fa-lock"></i>
+                                <p>Complete Level 2 to unlock</p>
+                            </div>
+                            <div class="preview-content">
+                                <div class="epidemic-curve"></div>
+                                <div class="case-markers">
+                                    <div class="case-marker"></div>
+                                    <div class="case-marker"></div>
+                                    <div class="case-marker"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="event-skills">
-                        <h4>Key Skills:</h4>
-                        <ul>
-                            <li>Epidemiological investigation methods</li>
-                            <li>Disease outbreak analysis and tracking</li>
-                            <li>Statistical analysis of health data</li>
-                            <li>Population health assessment</li>
-                            <li>Risk factor identification and analysis</li>
-                            <li>Public health intervention strategies</li>
-                        </ul>
+                    <div class="module-controls">
+                        <h4>🦠 Epidemiological Investigation</h4>
+                        <p>Advanced outbreak tracking, statistical analysis, and intervention modeling</p>
+                        <div class="unlock-requirements">
+                            <div class="requirement">
+                                <i class="fas fa-times-circle"></i>
+                                <span>Complete neural pathway mapping</span>
+                            </div>
+                            <div class="requirement">
+                                <i class="fas fa-times-circle"></i>
+                                <span>Analyze endocrine feedback systems</span>
+                            </div>
+                        </div>
+                        </div>
                     </div>
-                    <div class="event-manager">
-                        <i class="fas fa-user-tie"></i>
-                        <span><strong>Event Manager:</strong> TBD</span>
+                    </div>
+            
+            <!-- Level 4: Genetic Engineering -->
+            <div class="training-module" data-level="4">
+                <div class="module-header">
+                    <div class="module-badge">LEVEL 04</div>
+                    <div class="module-status locked">
+                        <i class="fas fa-lock"></i>
+                        <span>LOCKED</span>
                     </div>
                 </div>
-
-                <div class="event-card">
-                    <div class="event-icon"><i class="fas fa-dna"></i></div>
-                    <h3>Designer Genes</h3>
-                    <p><strong>Description:</strong> Participants will solve problems and analyze data or diagrams using their knowledge of the basic principles of genetics, molecular genetics and biotechnology.</p>
-                    <div class="event-details">
-                        <div class="detail-item">
-                            <i class="fas fa-flask"></i>
-                            <span><strong>Type:</strong> Problem-solving Event</span>
+                <div class="module-interface locked">
+                    <div class="module-screen">
+                        <div class="genetic-preview">
+                            <div class="preview-overlay">
+                                <i class="fas fa-lock"></i>
+                                <p>Advanced Certification Required</p>
                         </div>
-                        <div class="detail-item">
-                            <i class="fas fa-dna"></i>
-                            <span><strong>Focus:</strong> Genetics & biotechnology</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-users"></i>
-                            <span><strong>Team Size:</strong> 2 members</span>
+                            <div class="dna-preview">
+                                <div class="dna-strand"></div>
+                                <div class="crispr-tool"></div>
+                            </div>
                         </div>
                     </div>
-                    <div class="event-skills">
-                        <h4>Key Skills:</h4>
-                        <ul>
-                            <li>Mendelian genetics and inheritance patterns</li>
-                            <li>Molecular genetics and DNA structure</li>
-                            <li>Biotechnology techniques and applications</li>
-                            <li>Genetic engineering and CRISPR technology</li>
-                            <li>Protein synthesis and gene expression</li>
-                            <li>Genetic disorders and therapeutic approaches</li>
-                        </ul>
+                    <div class="module-controls">
+                        <h4>🧬 Molecular Biotechnology</h4>
+                        <p>CRISPR gene editing, protein engineering, and therapeutic development</p>
+                        <div class="unlock-requirements">
+                            <div class="requirement">
+                                <i class="fas fa-times-circle"></i>
+                                <span>Master outbreak investigation protocols</span>
+                            </div>
+                            <div class="requirement">
+                                <i class="fas fa-times-circle"></i>
+                                <span>Demonstrate statistical analysis proficiency</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="event-manager">
-                        <i class="fas fa-user-tie"></i>
-                        <span><strong>Event Manager:</strong> TBD</span>
+                        </div>
+                        </div>
                     </div>
+            
+        <!-- Training Progress Dashboard -->
+        <div class="training-dashboard">
+            <div class="dashboard-header">
+                <h4>RESEARCHER DEVELOPMENT PROGRESS</h4>
+                <div class="overall-progress">
+                    <div class="progress-circle-large">
+                        <div class="progress-ring-large">
+                            <div class="progress-fill-large" data-progress="42"></div>
+                    </div>
+                        <div class="progress-center">
+                            <span class="progress-number">42%</span>
+                            <span class="progress-label">COMPLETE</span>
+                    </div>
+                </div>
+                    </div>
+                    </div>
+            <div class="skill-metrics">
+                <div class="metric-card">
+                    <div class="metric-icon">📊</div>
+                    <div class="metric-data">
+                        <div class="metric-value">89</div>
+                        <div class="metric-label">Analysis Score</div>
+                </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">🔬</div>
+                    <div class="metric-data">
+                        <div class="metric-value">156</div>
+                        <div class="metric-label">Lab Hours</div>
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">🧬</div>
+                    <div class="metric-data">
+                        <div class="metric-value">23</div>
+                        <div class="metric-label">Research Projects</div>
+                    </div>
+                </div>
+            </div>
+            <div class="certification-track">
+                <h5>CERTIFICATION PATHWAY</h5>
+                <div class="cert-progression">
+                    <div class="cert-level achieved">BASIC RESEARCHER</div>
+                    <div class="cert-arrow">→</div>
+                    <div class="cert-level current">SYSTEMS ANALYST</div>
+                    <div class="cert-arrow">→</div>
+                    <div class="cert-level">DISEASE INVESTIGATOR</div>
+                    <div class="cert-arrow">→</div>
+                    <div class="cert-level">GENETIC ENGINEER</div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="section">
-    <div class="container">
-        <div class="section-title">
-            <h2>Team Leadership</h2>
+<!-- Research Team Access Terminal -->
+<section class="research-access-terminal">
+    <div class="terminal-facility">
+        <div class="access-header">
+            <div class="terminal-status-bar">
+                <div class="access-indicator">
+                    <div class="access-light standby"></div>
+                    <span>RECRUITMENT TERMINAL STANDBY</span>
+                </div>
+                <div class="security-level">SECURITY CLEARANCE: PUBLIC ACCESS</div>
+                <div class="terminal-id">TERMINAL_ID: RT-2025-001</div>
+            </div>
+            <h2 class="terminal-title">RESEARCH TEAM ACCESS TERMINAL</h2>
+            <p class="terminal-description">Advanced Biotech Laboratory // New Researcher Registration</p>
         </div>
-        <div class="section-content">
-            <div class="leadership-grid">
-                <div class="leader-card">
-                    <div class="leader-icon"><i class="fas fa-user-graduate"></i></div>
-                    <h3>Subject Directors</h3>
-                    <p><strong>2 Subject Directors</strong> lead the Biology subject, responsible for mastering biological concepts and teaching methodologies.</p>
-                    <div class="leader-duties">
-                        <h4>Responsibilities:</h4>
-                        <ul>
-                            <li>Teaching human biology and genetics concepts</li>
-                            <li>Developing expertise in anatomy and epidemiology</li>
-                            <li>Leading laboratory and practical sessions</li>
-                            <li>Coordinating study materials and resources</li>
-                        </ul>
+        
+        <div class="terminal-interface">
+            <!-- Biometric Scanner Simulation -->
+            <div class="biometric-scanner">
+                <div class="scanner-display">
+                    <div class="scanner-animation" id="bioScanner">
+                        <div class="scan-line"></div>
+                        <div class="scan-grid"></div>
+                        </div>
+                    <div class="scanner-status">
+                        <span class="status-text" id="scanStatus">PLACE PALM ON SCANNER</span>
+                        <div class="status-bars">
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                        </div>
+                        </div>
+                    </div>
+                <div class="scanner-pad" onclick="initiateScan()">
+                    <div class="handprint-outline">
+                        <i class="fas fa-hand-paper"></i>
+                    </div>
+                    <div class="scan-instructions">BIOMETRIC AUTHENTICATION</div>
                     </div>
                 </div>
-                <div class="leader-card">
-                    <div class="leader-icon"><i class="fas fa-clipboard-list"></i></div>
-                    <h3>Event Managers</h3>
-                    <p>Each event has exactly 1 Event Manager responsible for organizational and communicative tasks.</p>
-                    <div class="leader-duties">
-                        <h4>Responsibilities:</h4>
-                        <ul>
-                            <li>Getting to know members on a personal level</li>
-                            <li>Creating meeting activities and competitions</li>
-                            <li>Facilitating learning and practice</li>
-                            <li>Organizing laboratory materials and specimens</li>
-                        </ul>
+        
+            <!-- Research Capabilities Matrix -->
+            <div class="capabilities-matrix">
+                <div class="matrix-header">
+                    <h4>REQUIRED RESEARCH CAPABILITIES</h4>
+                    <div class="compatibility-score" id="compatScore">0%</div>
+            </div>
+                <div class="capability-grid">
+                    <div class="capability-node" data-skill="curiosity" onclick="assessSkill('curiosity')">
+                        <div class="node-icon">🤔</div>
+                        <div class="node-label">Scientific Curiosity</div>
+                        <div class="assessment-result" id="curiosity-result">PENDING</div>
+        </div>
+                    <div class="capability-node" data-skill="analytical" onclick="assessSkill('analytical')">
+                        <div class="node-icon">📊</div>
+                        <div class="node-label">Data Analysis</div>
+                        <div class="assessment-result" id="analytical-result">PENDING</div>
+    </div>
+                    <div class="capability-node" data-skill="precision" onclick="assessSkill('precision')">
+                        <div class="node-icon">🔬</div>
+                        <div class="node-label">Lab Precision</div>
+                        <div class="assessment-result" id="precision-result">PENDING</div>
+                    </div>
+                    <div class="capability-node" data-skill="innovation" onclick="assessSkill('innovation')">
+                        <div class="node-icon">🧬</div>
+                        <div class="node-label">Innovation</div>
+                        <div class="assessment-result" id="innovation-result">PENDING</div>
                     </div>
                 </div>
+        </div>
+            
+            <!-- Lab Access Privileges -->
+            <div class="access-privileges">
+                <div class="privileges-header">
+                    <h4>LABORATORY ACCESS PRIVILEGES</h4>
+                    <div class="clearance-indicator">
+                        <div class="clearance-badge basic">BASIC ACCESS</div>
+                    </div>
+                </div>
+                <div class="privileges-list">
+                    <div class="privilege-item granted">
+                        <div class="privilege-icon">✓</div>
+                        <div class="privilege-details">
+                            <div class="privilege-name">Neural Systems Laboratory</div>
+                            <div class="privilege-desc">Advanced anatomy & physiology research</div>
+                    </div>
+                        <div class="privilege-status">GRANTED</div>
+                </div>
+                    <div class="privilege-item granted">
+                        <div class="privilege-icon">✓</div>
+                        <div class="privilege-details">
+                            <div class="privilege-name">Epidemiology Investigation Center</div>
+                            <div class="privilege-desc">Disease tracking & population analysis</div>
+                        </div>
+                        <div class="privilege-status">GRANTED</div>
+                    </div>
+                    <div class="privilege-item granted">
+                        <div class="privilege-icon">✓</div>
+                        <div class="privilege-details">
+                            <div class="privilege-name">Genetic Engineering Laboratory</div>
+                            <div class="privilege-desc">CRISPR editing & molecular biotechnology</div>
+                        </div>
+                        <div class="privilege-status">GRANTED</div>
+                    </div>
+                    <div class="privilege-item pending">
+                        <div class="privilege-icon">⏳</div>
+                        <div class="privilege-details">
+                            <div class="privilege-name">Advanced Research Archives</div>
+                            <div class="privilege-desc">Requires completion of Level 2 certification</div>
+                        </div>
+                        <div class="privilege-status">PENDING</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Terminal Actions -->
+            <div class="terminal-actions">
+                <div class="primary-actions">
+                    <button class="terminal-btn primary" onclick="initiateRegistration()" id="registerBtn" disabled>
+                        <div class="btn-icon">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <div class="btn-content">
+                            <span class="btn-title">INITIATE REGISTRATION</span>
+                            <span class="btn-subtitle">Join Research Team</span>
+                        </div>
+                    </button>
+                    <button class="terminal-btn secondary" onclick="accessInformation()">
+                        <div class="btn-icon">
+                    <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div class="btn-content">
+                            <span class="btn-title">ACCESS INFORMATION</span>
+                            <span class="btn-subtitle">Lab Specifications</span>
+                        </div>
+                    </button>
+                </div>
+                <div class="emergency-protocols">
+                    <button class="protocol-btn" onclick="viewProtocols()">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>SAFETY PROTOCOLS</span>
+                    </button>
+                    <button class="protocol-btn" onclick="contactSupport()">
+                        <i class="fas fa-headset"></i>
+                        <span>TECHNICAL SUPPORT</span>
+                    </button>
+                </div>
+            </div>
+            </div>
+            
+        <!-- Research Equipment Overview -->
+        <div class="equipment-showcase">
+            <div class="showcase-header">
+                <h4>AVAILABLE RESEARCH EQUIPMENT</h4>
+                <div class="equipment-status">ALL SYSTEMS OPERATIONAL</div>
+            </div>
+            <div class="equipment-carousel">
+                <div class="equipment-item active" data-equipment="microscope">
+                    <div class="equipment-visual">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <div class="equipment-info">
+                        <h5>Advanced Microscopy Suite</h5>
+                        <p>High-resolution cellular analysis and live imaging systems</p>
+                    </div>
+                </div>
+                <div class="equipment-item" data-equipment="sequencer">
+                    <div class="equipment-visual">
+                        <i class="fas fa-dna"></i>
+                    </div>
+                    <div class="equipment-info">
+                        <h5>DNA Sequencing Array</h5>
+                        <p>Next-generation genomic analysis and CRISPR editing tools</p>
+                    </div>
+                </div>
+                <div class="equipment-item" data-equipment="analyzer">
+                    <div class="equipment-visual">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="equipment-info">
+                        <h5>Data Analysis Workstation</h5>
+                        <p>Epidemiological modeling and statistical analysis software</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-controls">
+                <button class="carousel-btn" onclick="previousEquipment()">‹</button>
+                <div class="carousel-indicators">
+                    <div class="indicator active"></div>
+                    <div class="indicator"></div>
+                    <div class="indicator"></div>
+                </div>
+                <button class="carousel-btn" onclick="nextEquipment()">›</button>
             </div>
         </div>
     </div>
@@ -204,158 +817,2911 @@
 
 {% block extra_css %}
 <style>
-    .skills-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 25px;
-        margin-top: 30px;
+    /* Global Variables */
+    :root {
+        --biotech-primary: #059669;
+        --biotech-secondary: #10B981;
+        --biotech-accent: #34D399;
+        --biotech-blue: #0EA5E9;
+        --biotech-purple: #8B5CF6;
+        --biotech-dark: #064E3B;
+        --biotech-light: #ECFDF5;
+        --medical-red: #EF4444;
+        --dna-orange: #F59E0B;
+        --gradient-bio: linear-gradient(135deg, #059669 0%, #10B981 100%);
+        --gradient-medical: linear-gradient(135deg, #0EA5E9 0%, #8B5CF6 100%);
+        --gradient-dna: linear-gradient(135deg, #F59E0B 0%, #EF4444 100%);
     }
     
-    .skill-item {
-        background: white;
-        padding: 30px;
-        border-radius: 15px;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    * {
+        box-sizing: border-box;
+    }
+    
+    /* BioTech Hero Section */
+    .biotech-hero {
+        min-height: 100vh;
+        background: linear-gradient(135deg, #064E3B 0%, #0F172A 50%, #1E293B 100%);
+        position: relative;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        color: white;
+    }
+    
+    .lab-environment {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+    
+    .dna-strands {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .dna-helix {
+        position: absolute;
+        width: 150px;
+        height: 400px;
+        animation: dna-rotation 20s linear infinite;
+    }
+    
+    .helix-1 {
+        top: 10%;
+        right: 15%;
+        animation-direction: normal;
+    }
+    
+    .helix-2 {
+        bottom: 10%;
+        left: 10%;
+        animation-direction: reverse;
+        animation-delay: -10s;
+    }
+    
+    @keyframes dna-rotation {
+        0% { transform: rotateY(0deg); }
+        100% { transform: rotateY(360deg); }
+    }
+    
+    .base-pair {
+        position: absolute;
+        width: 100%;
+        height: 20px;
+        background: linear-gradient(90deg, var(--biotech-accent), transparent 50%, var(--biotech-accent));
+        margin: 15px 0;
+        border-radius: 10px;
+        opacity: 0.6;
+        animation: base-glow 4s ease-in-out infinite alternate;
+    }
+    
+    .base-pair:nth-child(1) { top: 0; animation-delay: 0s; }
+    .base-pair:nth-child(2) { top: 35px; animation-delay: 0.8s; }
+    .base-pair:nth-child(3) { top: 70px; animation-delay: 1.6s; }
+    .base-pair:nth-child(4) { top: 105px; animation-delay: 2.4s; }
+    .base-pair:nth-child(5) { top: 140px; animation-delay: 3.2s; }
+    
+    @keyframes base-glow {
+        0% { opacity: 0.4; }
+        100% { opacity: 0.8; }
+    }
+    
+    .cellular-particles {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .particle {
+        position: absolute;
+        font-size: 1.5rem;
+        opacity: 0.7;
+        animation: float-particle 12s ease-in-out infinite;
+    }
+    
+    .particle.cell:nth-child(1) { top: 20%; left: 20%; animation-delay: 0s; }
+    .particle.cell:nth-child(2) { top: 40%; right: 30%; animation-delay: -3s; }
+    .particle.cell:nth-child(3) { bottom: 35%; left: 25%; animation-delay: -6s; }
+    .particle.molecule { top: 60%; right: 20%; animation-delay: -2s; }
+    .particle.virus { bottom: 20%; right: 40%; animation-delay: -4s; }
+    
+    @keyframes float-particle {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        25% { transform: translateY(-15px) rotate(90deg); }
+        50% { transform: translateY(-5px) rotate(180deg); }
+        75% { transform: translateY(-20px) rotate(270deg); }
+    }
+    
+    .research-data-flow {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .data-stream {
+        position: absolute;
+        background: linear-gradient(45deg, transparent, rgba(52, 211, 153, 0.4), transparent);
+        animation: data-flow 8s ease-in-out infinite;
+    }
+    
+    .stream-1 {
+        width: 250px;
+        height: 2px;
+        top: 25%;
+        left: -125px;
+        transform: rotate(15deg);
+    }
+    
+    .stream-2 {
+        width: 200px;
+        height: 2px;
+        top: 70%;
+        right: -100px;
+        transform: rotate(-30deg);
+        animation-delay: -2.7s;
+    }
+    
+    .stream-3 {
+        width: 180px;
+        height: 2px;
+        bottom: 30%;
+        left: -90px;
+        transform: rotate(45deg);
+        animation-delay: -5.3s;
+    }
+    
+    @keyframes data-flow {
+        0%, 100% { opacity: 0.2; transform: translateX(0px) rotate(15deg); }
+        50% { opacity: 0.8; transform: translateX(150px) rotate(18deg); }
+    }
+    
+    .hero-content {
+        position: relative;
+        z-index: 3;
+        display: grid;
+        grid-template-columns: 1fr 400px;
+        gap: 4rem;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        width: 100%;
+        align-items: center;
+    }
+    
+    .lab-console {
+        max-width: 700px;
+    }
+    
+    .console-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        padding: 1rem;
+        background: rgba(5, 150, 105, 0.2);
+        border-radius: 10px;
+        border: 1px solid rgba(52, 211, 153, 0.3);
+    }
+    
+    .lab-status {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .status-light {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--biotech-accent);
+        animation: pulse-light 2s ease-in-out infinite;
+    }
+    
+    @keyframes pulse-light {
+        0%, 100% { opacity: 1; box-shadow: 0 0 5px var(--biotech-accent); }
+        50% { opacity: 0.5; box-shadow: 0 0 15px var(--biotech-accent); }
+    }
+    
+    .status-text {
+        color: var(--biotech-accent);
+        font-weight: 600;
+        font-size: 0.9rem;
+    }
+    
+    .lab-id {
+        font-family: monospace;
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.7);
+    }
+    
+    .facility-code {
+        color: var(--biotech-blue);
+    }
+    
+    .session-id {
+        color: var(--dna-orange);
+    }
+    
+    .lab-title {
+        margin-bottom: 1.5rem;
+    }
+    
+    .department {
+        font-size: 4rem;
+        font-weight: 800;
+        display: block;
+        background: linear-gradient(45deg, #FFFFFF, #34D399);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    
+    .lab-subtitle {
+        font-size: 1.3rem;
+        color: rgba(255, 255, 255, 0.8);
+        font-weight: 300;
+        margin-top: 0.5rem;
+    }
+    
+    .research-mission {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin: 2rem 0;
+        opacity: 0.9;
+    }
+    
+    .research-metrics {
+        display: flex;
+        gap: 1.5rem;
+        margin: 3rem 0;
+        flex-wrap: wrap;
+    }
+    
+    .metric-display {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 1.5rem;
+        border-radius: 12px;
         text-align: center;
-        transition: all 0.3s;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+        flex: 1;
+        min-width: 150px;
     }
     
-    .skill-item:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    .metric-display:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: translateY(-5px);
     }
     
-    .skill-icon {
-        font-size: 3rem;
-        color: var(--accent-color);
-        margin-bottom: 20px;
+    .metric-icon {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
     }
     
-    .events-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-        gap: 30px;
-        margin-top: 30px;
+    .metric-value {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--biotech-accent);
+        display: block;
+        margin-bottom: 0.5rem;
     }
     
-    .event-card {
-        background: white;
-        padding: 30px;
+    .metric-label {
+        font-size: 0.8rem;
+        opacity: 0.8;
+        line-height: 1.2;
+    }
+    
+    .lab-controls {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+    
+    .lab-btn {
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 25px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+    }
+    
+    .lab-btn.primary {
+        background: var(--gradient-bio);
+        color: white;
+        box-shadow: 0 10px 25px rgba(5, 150, 105, 0.3);
+    }
+    
+    .lab-btn.primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 35px rgba(5, 150, 105, 0.4);
+    }
+    
+    .lab-btn.secondary {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(10px);
+    }
+    
+    .lab-btn.secondary:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-3px);
+    }
+    
+    /* Discovery Viewport */
+    .discovery-viewport {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 1.5rem;
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .viewport-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .viewport-header h3 {
+        font-size: 1.2rem;
+        color: var(--biotech-accent);
+    }
+    
+    .magnification {
+        font-family: monospace;
+        color: var(--biotech-blue);
+        font-size: 0.9rem;
+    }
+    
+    .cell-viewer {
+        position: relative;
+        height: 250px;
+        background: #000;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 1rem;
+    }
+    
+    .cell-display {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
+    
+    .cell-display.active {
+        opacity: 1;
+    }
+    
+    .cell-illustration {
+        position: relative;
+        width: 200px;
+        height: 200px;
+    }
+    
+    .cell-body {
+        width: 80px;
+        height: 80px;
+        background: rgba(52, 211, 153, 0.3);
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: 2px solid var(--biotech-accent);
+    }
+    
+    .nucleus {
+        width: 30px;
+        height: 30px;
+        background: var(--biotech-purple);
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: nucleus-pulse 3s ease-in-out infinite;
+    }
+    
+    @keyframes nucleus-pulse {
+        0%, 100% { transform: translate(-50%, -50%) scale(1); }
+        50% { transform: translate(-50%, -50%) scale(1.1); }
+    }
+    
+    .organelle {
+        position: absolute;
+        border-radius: 50%;
+    }
+    
+    .mitochondria {
+        width: 15px;
+        height: 10px;
+        background: var(--medical-red);
+        top: 20%;
+        right: 20%;
+        border-radius: 40%;
+        animation: organelle-float 4s ease-in-out infinite;
+    }
+    
+    .endoplasmic-reticulum {
+        width: 12px;
+        height: 8px;
+        background: var(--dna-orange);
+        bottom: 25%;
+        left: 15%;
+        border-radius: 30%;
+        animation: organelle-float 4s ease-in-out infinite reverse;
+    }
+    
+    @keyframes organelle-float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-5px); }
+    }
+    
+    .dendrites, .axon {
+        position: absolute;
+        background: var(--biotech-accent);
+        opacity: 0.8;
+    }
+    
+    .dendrites {
+        width: 60px;
+        height: 3px;
+        top: 30%;
+        left: -30px;
+        border-radius: 2px;
+    }
+    
+    .axon {
+        width: 80px;
+        height: 4px;
+        top: 50%;
+        right: -40px;
+        border-radius: 2px;
+    }
+    
+    .synapses {
+        position: absolute;
+        right: -60px;
+        top: 45%;
+    }
+    
+    .synapse {
+        width: 8px;
+        height: 8px;
+        background: var(--biotech-blue);
+        border-radius: 50%;
+        margin: 3px 0;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .synapse:hover {
+        background: var(--dna-orange);
+        transform: scale(1.3);
+        box-shadow: 0 0 10px var(--dna-orange);
+    }
+    
+    .synapse.active {
+        animation: synapse-fire 1s ease-in-out;
+    }
+    
+    @keyframes synapse-fire {
+        0% { background: var(--biotech-blue); transform: scale(1); }
+        50% { background: var(--dna-orange); transform: scale(1.5); box-shadow: 0 0 15px var(--dna-orange); }
+        100% { background: var(--biotech-blue); transform: scale(1); }
+    }
+    
+    .dna-sequence-viewer {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    
+    .sequence-line {
+        display: flex;
+        gap: 5px;
+    }
+    
+    .base {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        font-weight: bold;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .base.adenine { background: #EF4444; color: white; }
+    .base.thymine { background: #3B82F6; color: white; }
+    .base.guanine { background: #10B981; color: white; }
+    .base.cytosine { background: #F59E0B; color: white; }
+    
+    .base:hover {
+        transform: scale(1.2);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+    
+    .cell-controls {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    
+    .cell-btn {
+        padding: 0.5rem 1rem;
+        background: var(--gradient-bio);
+        color: white;
+        border: none;
         border-radius: 15px;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        transition: all 0.3s;
+        cursor: pointer;
+        font-size: 0.8rem;
+        transition: all 0.3s ease;
+    }
+    
+    .cell-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(5, 150, 105, 0.3);
+    }
+    
+    /* Research Station Network */
+    .research-station-network {
+        padding: 6rem 0;
+        background: linear-gradient(180deg, #0F172A 0%, #1E293B 50%, #334155 100%);
+        color: white;
         position: relative;
         overflow: hidden;
     }
     
-    .event-card:before {
-        content: '';
+    .lab-floor {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        position: relative;
+        z-index: 2;
+    }
+    
+    .facility-header {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+    
+    .facility-status-bar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+    }
+    
+    .status-indicator, .facility-time, .facility-temp {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: monospace;
+        font-size: 0.9rem;
+        color: var(--biotech-accent);
+    }
+    
+    .status-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+    }
+    
+    .status-dot.online {
+        background: var(--biotech-accent);
+        animation: pulse-light 2s ease-in-out infinite;
+    }
+    
+    .facility-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        background: linear-gradient(45deg, #FFFFFF, #34D399);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    
+    .facility-description {
+        font-size: 1.2rem;
+        opacity: 0.8;
+    }
+    
+    .research-stations-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 3rem;
+        margin-bottom: 4rem;
+    }
+    
+    .research-station {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        padding: 2rem;
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+        position: relative;
+    }
+    
+    .research-station:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    .station-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .station-id {
+        font-family: monospace;
+        color: var(--biotech-blue);
+        font-weight: 600;
+    }
+    
+    .station-status {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+    
+    .pulse-indicator {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--biotech-accent);
+        animation: pulse-light 2s ease-in-out infinite;
+    }
+    
+    .station-display {
+        margin-bottom: 2rem;
+    }
+    
+    .station-screen {
+        background: #000;
+        border-radius: 10px;
+        padding: 1.5rem;
+        min-height: 200px;
+        border: 2px solid var(--biotech-accent);
+    }
+    
+    /* Neural Network Visualization */
+    .neural-network-viz {
+        position: relative;
+        height: 150px;
+    }
+    
+    .neuron-node {
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 5px;
-        height: 100%;
-        background: linear-gradient(180deg, #E91E63, #F06292);
+        width: 20px;
+        height: 20px;
+        background: var(--biotech-accent);
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        animation: neuron-pulse 3s ease-in-out infinite;
+    }
+    
+    .neuron-node.central { top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--biotech-blue); }
+    .neuron-node:nth-child(2) { top: 20%; left: 30%; animation-delay: 0.5s; }
+    .neuron-node:nth-child(3) { bottom: 30%; right: 20%; animation-delay: 1s; }
+    
+    @keyframes neuron-pulse {
+        0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7); }
+        50% { transform: scale(1.2); box-shadow: 0 0 0 10px rgba(52, 211, 153, 0); }
+    }
+    
+    .neural-connection {
+        position: absolute;
+        background: linear-gradient(45deg, transparent, var(--biotech-accent), transparent);
+        height: 2px;
+        animation: neural-signal 2s ease-in-out infinite;
+    }
+    
+    .conn-1 { top: 40%; left: 30%; width: 100px; transform: rotate(15deg); }
+    .conn-2 { top: 60%; left: 45%; width: 80px; transform: rotate(-20deg); }
+    .conn-3 { top: 50%; left: 55%; width: 60px; transform: rotate(30deg); }
+    
+    @keyframes neural-signal {
+        0%, 100% { opacity: 0.3; }
+        50% { opacity: 1; }
+    }
+    
+    /* Outbreak Monitor */
+    .outbreak-monitor {
+        position: relative;
+        height: 150px;
+    }
+    
+    .outbreak-radar {
+        width: 150px;
+        height: 150px;
+        border: 2px solid var(--medical-red);
+        border-radius: 50%;
+        position: relative;
+        margin: 0 auto;
+    }
+    
+    .radar-sweep {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 75px;
+        height: 2px;
+        background: linear-gradient(90deg, var(--medical-red), transparent);
+        transform-origin: left center;
+        animation: radar-sweep 3s linear infinite;
+    }
+    
+    @keyframes radar-sweep {
+        0% { transform: translate(-50%, -50%) rotate(0deg); }
+        100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+    
+    .outbreak-blip {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        background: var(--medical-red);
+        border-radius: 50%;
+        cursor: pointer;
+        animation: blip-pulse 2s ease-in-out infinite;
+    }
+    
+    .blip-1 { top: 30%; left: 40%; animation-delay: 0s; }
+    .blip-2 { top: 60%; right: 35%; animation-delay: 0.7s; }
+    .blip-3 { bottom: 25%; left: 60%; animation-delay: 1.4s; }
+    
+    @keyframes blip-pulse {
+        0%, 100% { opacity: 0.5; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.5); }
+    }
+    
+    /* DNA Helix Display */
+    .dna-helix-display {
+        position: relative;
+        height: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .helix-strand {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .base-pair {
+        width: 40px;
+        height: 8px;
+        border-radius: 4px;
+        cursor: pointer;
         transition: all 0.3s ease;
     }
     
-    .event-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    .base-pair.a-t { background: #EF4444; }
+    .base-pair.g-c { background: #10B981; }
+    .base-pair.c-g { background: #F59E0B; }
+    .base-pair.t-a { background: #3B82F6; }
+    .base-pair.mutation-pair { 
+        background: var(--medical-red);
+        animation: mutation-warning 2s ease-in-out infinite;
     }
     
-    .event-card .event-icon {
-        font-size: 2.5rem;
-        color: var(--accent-color);
-        margin-bottom: 15px;
+    .base-pair:hover {
+        transform: scale(1.2);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     }
     
-    .event-details {
-        margin: 20px 0;
-        padding: 15px;
-        background-color: #f8f9fa;
-        border-radius: 8px;
+    .system-readout, .epidemio-readout, .genetics-readout {
+        margin-top: 1rem;
+        font-family: monospace;
+        font-size: 0.8rem;
     }
     
-    .detail-item {
+    .readout-line {
         display: flex;
-        align-items: center;
-        margin-bottom: 10px;
+        justify-content: space-between;
+        margin-bottom: 0.5rem;
+        opacity: 0.8;
     }
     
-    .detail-item i {
-        margin-right: 10px;
-        color: var(--accent-color);
-        width: 20px;
+    .readout-line .value {
+        color: var(--biotech-accent);
+        font-weight: 600;
     }
     
-    .event-skills {
-        margin: 20px 0;
+    .readout-line .value.warning {
+        color: var(--dna-orange);
     }
     
-    .event-skills h4 {
-        color: var(--primary-color);
-        margin-bottom: 10px;
+    .readout-line .value.critical {
+        color: var(--medical-red);
     }
     
-    .event-skills ul {
-        margin: 0;
-        padding-left: 20px;
+    .station-controls h3 {
+        color: white;
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
     }
     
-    .event-skills li {
-        margin-bottom: 5px;
+    .station-controls p {
+        opacity: 0.8;
+        margin-bottom: 1.5rem;
+        line-height: 1.5;
     }
     
-    .event-manager {
-        margin-top: 20px;
-        padding: 15px;
-        background-color: #e3f2fd;
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-    }
-    
-    .event-manager i {
-        margin-right: 10px;
-        color: var(--accent-color);
-    }
-    
-    .leadership-grid {
+    .control-panel {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-        margin-top: 30px;
+        gap: 0.8rem;
+        margin-bottom: 1.5rem;
     }
     
-    .leader-card {
-        background: white;
-        padding: 30px;
+    .lab-control-btn {
+        padding: 1rem;
+        background: rgba(52, 211, 153, 0.2);
+        border: 1px solid var(--biotech-accent);
+        color: white;
+        border-radius: 10px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        transition: all 0.3s ease;
+    }
+    
+    .lab-control-btn:hover {
+        background: rgba(52, 211, 153, 0.3);
+        transform: translateX(5px);
+    }
+    
+    .research-progress {
+        text-align: center;
+    }
+    
+    .progress-bar {
+        width: 100%;
+        height: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+        overflow: hidden;
+        margin-bottom: 0.5rem;
+    }
+    
+    .progress-fill {
+        height: 100%;
+        border-radius: 4px;
+        transition: width 0.3s ease;
+    }
+    
+    .anatomy-progress { background: var(--gradient-bio); width: 73%; }
+    .epidemiology-progress { background: var(--gradient-medical); width: 89%; }
+    .genetics-progress { background: var(--gradient-dna); width: 67%; }
+    
+    .progress-text {
+        font-size: 0.9rem;
+        opacity: 0.8;
+    }
+    
+    /* Central Lab Console */
+    .central-lab-console {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        padding: 2rem;
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .console-screen {
+        background: #000;
         border-radius: 15px;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        transition: all 0.3s;
+        padding: 2rem;
+        border: 2px solid var(--biotech-accent);
     }
     
-    .leader-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    .console-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid rgba(52, 211, 153, 0.3);
     }
     
-    .leader-icon {
-        font-size: 2.5rem;
-        color: var(--accent-color);
-        margin-bottom: 15px;
-    }
-    
-    .leader-duties h4 {
-        color: var(--primary-color);
-        margin-top: 20px;
-        margin-bottom: 10px;
-    }
-    
-    .leader-duties ul {
+    .console-header h4 {
+        color: var(--biotech-accent);
+        font-size: 1.2rem;
         margin: 0;
-        padding-left: 20px;
+    }
+    
+    .console-time {
+        font-family: monospace;
+        color: var(--biotech-blue);
+        font-size: 0.9rem;
+    }
+    
+    .research-summary {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .summary-metric {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+        background: rgba(52, 211, 153, 0.1);
+        border-radius: 10px;
+        border: 1px solid rgba(52, 211, 153, 0.3);
+    }
+    
+    .summary-metric .metric-icon {
+        font-size: 2rem;
+    }
+    
+    .metric-value {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--biotech-accent);
+    }
+    
+    .metric-label {
+        font-size: 0.9rem;
+        opacity: 0.8;
+    }
+    
+    .lab-actions {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+    }
+    
+    .console-btn {
+        padding: 1rem 2rem;
+        border-radius: 25px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        border: none;
+    }
+    
+    .console-btn.primary {
+        background: var(--gradient-bio);
+        color: white;
+    }
+    
+    .console-btn.secondary {
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .console-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* Lab Training Protocol */
+    .lab-training-protocol {
+        padding: 6rem 0;
+        background: linear-gradient(180deg, #1E293B 0%, #334155 50%, #475569 100%);
+        color: white;
+        position: relative;
+    }
+    
+    .training-facility {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+    
+    .protocol-header {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+    
+    .training-status-bar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+    }
+    
+    .protocol-indicator {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: monospace;
+        font-size: 0.9rem;
+        color: var(--dna-orange);
+    }
+    
+    .protocol-light {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+    }
+    
+    .protocol-light.training {
+        background: var(--dna-orange);
+        animation: pulse-light 2s ease-in-out infinite;
+    }
+    
+    .certification-level {
+        font-family: monospace;
+        color: var(--biotech-blue);
+        font-size: 0.9rem;
+    }
+    
+    .protocol-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        background: linear-gradient(45deg, #FFFFFF, #F59E0B);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    
+    .protocol-description {
+        font-size: 1.2rem;
+        opacity: 0.8;
+    }
+    
+    .training-sequence {
+        display: grid;
+        gap: 2rem;
+        margin-bottom: 4rem;
+    }
+    
+    .training-module {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        padding: 2rem;
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+    }
+    
+    .training-module.active {
+        border-color: var(--dna-orange);
+        background: rgba(245, 158, 11, 0.1);
+    }
+    
+    .training-module.locked .module-interface {
+        opacity: 0.6;
+        pointer-events: none;
+    }
+    
+    .module-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .module-badge {
+        background: var(--gradient-bio);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 15px;
+        font-family: monospace;
+        font-weight: 600;
+        font-size: 0.9rem;
+    }
+    
+    .training-module.active .module-badge {
+        background: var(--gradient-dna);
+    }
+    
+    .module-status {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+    
+    .module-status.completed { color: var(--biotech-accent); }
+    .module-status.active { color: var(--dna-orange); }
+    .module-status.locked { color: #6B7280; }
+    
+    .module-interface {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        align-items: start;
+    }
+    
+    .module-screen {
+        background: #000;
+        border-radius: 15px;
+        padding: 2rem;
+        border: 2px solid var(--biotech-accent);
+        min-height: 200px;
+    }
+    
+    .training-module.active .module-screen {
+        border-color: var(--dna-orange);
+    }
+    
+    .safety-checklist {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .checklist-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+        background: rgba(52, 211, 153, 0.1);
+        border-radius: 10px;
+        border: 1px solid rgba(52, 211, 153, 0.3);
+    }
+    
+    .checklist-item.complete {
+        background: rgba(52, 211, 153, 0.2);
+        border-color: var(--biotech-accent);
+    }
+    
+    .checklist-item i {
+        color: var(--biotech-accent);
+        font-size: 1.2rem;
+    }
+    
+    .system-analyzer {
+        position: relative;
+        height: 100%;
+    }
+    
+    .analysis-display {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 2rem;
+    }
+    
+    .system-node {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: rgba(245, 158, 11, 0.2);
+        border: 2px solid var(--dna-orange);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        font-size: 0.7rem;
+        text-align: center;
+    }
+    
+    .system-node.active {
+        background: var(--dna-orange);
+        color: white;
+    }
+    
+    .system-node.active .node-pulse {
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+        border-radius: 50%;
+        border: 2px solid var(--dna-orange);
+        animation: node-pulse 2s ease-in-out infinite;
+    }
+    
+    @keyframes node-pulse {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.5; transform: scale(1.2); }
+    }
+    
+    .analysis-readout {
+        text-align: center;
+        font-family: monospace;
+        font-size: 0.9rem;
+    }
+    
+    .readout-text {
+        color: var(--dna-orange);
+        margin-bottom: 1rem;
+    }
+    
+    .data-stream {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+    }
+    
+    .stream-line {
+        width: 3px;
+        height: 30px;
+        background: rgba(245, 158, 11, 0.3);
+        border-radius: 2px;
+        animation: stream-flow 1s ease-in-out infinite;
+    }
+    
+    .stream-line.active {
+        background: var(--dna-orange);
+    }
+    
+    .stream-line:nth-child(2) { animation-delay: 0.2s; }
+    .stream-line:nth-child(3) { animation-delay: 0.4s; }
+    
+    @keyframes stream-flow {
+        0%, 100% { transform: scaleY(0.5); opacity: 0.5; }
+        50% { transform: scaleY(1); opacity: 1; }
+    }
+    
+    .outbreak-simulation-preview, .genetic-preview {
+        position: relative;
+        height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .simulation-overlay, .preview-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.8);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        z-index: 2;
+    }
+    
+    .simulation-overlay i, .preview-overlay i {
+        font-size: 2rem;
+        color: #6B7280;
+        margin-bottom: 1rem;
+    }
+    
+    .simulation-overlay p, .preview-overlay p {
+        color: #6B7280;
+        font-size: 0.9rem;
+    }
+    
+    .module-controls h4 {
+        color: white;
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+    }
+    
+    .module-controls p {
+        opacity: 0.8;
+        margin-bottom: 1.5rem;
+        line-height: 1.5;
+    }
+    
+    .skill-progress {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .progress-indicator {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .progress-ring {
+        width: 60px;
+        height: 60px;
+        position: relative;
+    }
+    
+    .progress-circle {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: 4px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .progress-circle.complete {
+        border-color: var(--biotech-accent);
+        background: radial-gradient(circle, rgba(52, 211, 153, 0.3), transparent);
+    }
+    
+    .progress-circle.partial {
+        border-color: var(--dna-orange);
+        background: linear-gradient(90deg, var(--dna-orange) 67%, rgba(255, 255, 255, 0.1) 67%);
+    }
+    
+    .progress-text {
+        font-family: monospace;
+        font-weight: 600;
+        font-size: 0.9rem;
+    }
+    
+    .training-btn {
+        background: var(--gradient-dna);
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 25px;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        transition: all 0.3s ease;
+        width: 100%;
+    }
+    
+    .training-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+    }
+    
+    .unlock-requirements {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .requirement {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        padding: 0.8rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        font-size: 0.9rem;
+        opacity: 0.7;
+    }
+    
+    .requirement i {
+        color: #6B7280;
+    }
+    
+    /* Training Dashboard */
+    .training-dashboard {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        padding: 3rem;
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: center;
+    }
+    
+    .dashboard-header {
+        margin-bottom: 3rem;
+    }
+    
+    .dashboard-header h4 {
+        color: white;
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .overall-progress {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .progress-circle-large {
+        position: relative;
+        width: 120px;
+        height: 120px;
+    }
+    
+    .progress-ring-large {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: 8px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+    }
+    
+    .progress-fill-large {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: 8px solid var(--dna-orange);
+        transform: rotate(-90deg);
+        background: conic-gradient(var(--dna-orange) 42%, transparent 42%);
+    }
+    
+    .progress-center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+    
+    .progress-number {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--dna-orange);
+        display: block;
+    }
+    
+    .progress-label {
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.7);
+        font-weight: 600;
+    }
+    
+    .skill-metrics {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+    }
+    
+    .metric-card {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 2rem;
+        border-radius: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: center;
+    }
+    
+    .metric-card .metric-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .metric-card .metric-value {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--biotech-accent);
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+    
+    .metric-card .metric-label {
+        font-size: 0.9rem;
+        opacity: 0.8;
+    }
+    
+    .certification-track h5 {
+        color: white;
+        margin-bottom: 1.5rem;
+        font-size: 1.1rem;
+    }
+    
+    .cert-progression {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+    
+    .cert-level {
+        padding: 0.8rem 1.5rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-align: center;
+        min-width: 120px;
+    }
+    
+    .cert-level.achieved {
+        background: var(--gradient-bio);
+        color: white;
+    }
+    
+    .cert-level.current {
+        background: var(--gradient-dna);
+        color: white;
+        animation: cert-pulse 2s ease-in-out infinite;
+    }
+    
+    .cert-level:not(.achieved):not(.current) {
+        background: rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    @keyframes cert-pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+    }
+    
+    .cert-arrow {
+        color: var(--biotech-accent);
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+    
+    /* Research Team Access Terminal */
+    .research-access-terminal {
+        padding: 6rem 0;
+        background: linear-gradient(180deg, #0F172A 0%, #1E293B 100%);
+        color: white;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .terminal-facility {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+    
+    .access-header {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+    
+    .terminal-status-bar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+    }
+    
+    .access-indicator {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: monospace;
+        font-size: 0.8rem;
+        color: var(--biotech-blue);
+    }
+    
+    .security-level, .terminal-id {
+        font-family: monospace;
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.7);
+    }
+    
+    .access-light {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+    }
+    
+    .access-light.standby {
+        background: var(--biotech-blue);
+        animation: pulse-light 3s ease-in-out infinite;
+    }
+    
+    .terminal-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        background: linear-gradient(45deg, #FFFFFF, #0EA5E9);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    
+    .terminal-description {
+        font-size: 1.2rem;
+        opacity: 0.8;
+        color: var(--biotech-blue);
+    }
+    
+    .terminal-interface {
+        display: grid;
+        gap: 3rem;
+        margin-bottom: 4rem;
+    }
+    
+    /* Biometric Scanner */
+    .biometric-scanner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        padding: 3rem;
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .scanner-display {
+        background: #000;
+        border-radius: 15px;
+        padding: 2rem;
+        border: 2px solid var(--biotech-blue);
+    }
+    
+    .scanner-animation {
+        position: relative;
+        height: 150px;
+        background: radial-gradient(circle, rgba(14, 165, 233, 0.1), transparent);
+        border-radius: 10px;
+        margin-bottom: 1rem;
+        overflow: hidden;
+    }
+    
+    .scan-line {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--biotech-blue), transparent);
+        animation: scan-sweep 3s ease-in-out infinite;
+    }
+    
+    @keyframes scan-sweep {
+        0%, 20% { top: 0; opacity: 1; }
+        80%, 100% { top: calc(100% - 2px); opacity: 0.3; }
+    }
+    
+    .scan-grid {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: 
+            linear-gradient(rgba(14, 165, 233, 0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(14, 165, 233, 0.1) 1px, transparent 1px);
+        background-size: 20px 20px;
+        opacity: 0.5;
+    }
+    
+    .scanner-status {
+        text-align: center;
+        font-family: monospace;
+        font-size: 0.9rem;
+    }
+    
+    .status-text {
+        color: var(--biotech-blue);
+        display: block;
+        margin-bottom: 1rem;
+    }
+    
+    .status-bars {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+    }
+    
+    .status-bars .bar {
+        width: 4px;
+        height: 20px;
+        background: rgba(14, 165, 233, 0.3);
+        border-radius: 2px;
+        animation: bar-pulse 1s ease-in-out infinite;
+    }
+    
+    .status-bars .bar:nth-child(2) { animation-delay: 0.2s; }
+    .status-bars .bar:nth-child(3) { animation-delay: 0.4s; }
+    
+    @keyframes bar-pulse {
+        0%, 100% { background: rgba(14, 165, 233, 0.3); transform: scaleY(1); }
+        50% { background: var(--biotech-blue); transform: scaleY(1.5); }
+    }
+    
+    .scanner-pad {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: rgba(14, 165, 233, 0.1);
+        border: 2px solid var(--biotech-blue);
+        border-radius: 20px;
+        padding: 3rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+    
+    .scanner-pad:hover {
+        background: rgba(14, 165, 233, 0.2);
+        transform: translateY(-5px);
+    }
+    
+    .handprint-outline {
+        font-size: 4rem;
+        color: var(--biotech-blue);
+        margin-bottom: 1rem;
+        opacity: 0.7;
+        animation: handprint-glow 3s ease-in-out infinite;
+    }
+    
+    @keyframes handprint-glow {
+        0%, 100% { opacity: 0.7; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.05); }
+    }
+    
+    .scan-instructions {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--biotech-blue);
+        text-align: center;
+    }
+    
+    /* Capabilities Matrix */
+    .capabilities-matrix {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        padding: 3rem;
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .matrix-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .matrix-header h4 {
+        color: white;
+        font-size: 1.3rem;
+    }
+    
+    .compatibility-score {
+        font-family: monospace;
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--biotech-accent);
+    }
+    
+    .capability-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+    }
+    
+    .capability-node {
+        background: rgba(255, 255, 255, 0.05);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        padding: 2rem;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .capability-node:hover {
+        background: rgba(52, 211, 153, 0.1);
+        border-color: var(--biotech-accent);
+        transform: translateY(-5px);
+    }
+    
+    .capability-node .node-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .node-label {
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: white;
+    }
+    
+    .assessment-result {
+        font-family: monospace;
+        font-size: 0.8rem;
+        padding: 0.5rem 1rem;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.1);
+        color: #6B7280;
+    }
+    
+    .assessment-result.positive {
+        background: rgba(52, 211, 153, 0.2);
+        color: var(--biotech-accent);
+    }
+    
+    /* Access Privileges */
+    .access-privileges {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        padding: 3rem;
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .privileges-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .privileges-header h4 {
+        color: white;
+        font-size: 1.3rem;
+    }
+    
+    .clearance-badge {
+        background: var(--gradient-bio);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+    
+    .privileges-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .privilege-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1.5rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+    }
+    
+    .privilege-item.granted {
+        border-color: var(--biotech-accent);
+        background: rgba(52, 211, 153, 0.1);
+    }
+    
+    .privilege-item.pending {
+        border-color: var(--dna-orange);
+        background: rgba(245, 158, 11, 0.1);
+    }
+    
+    .privilege-icon {
+        font-size: 1.5rem;
+        min-width: 30px;
+        text-align: center;
+    }
+    
+    .privilege-item.granted .privilege-icon {
+        color: var(--biotech-accent);
+    }
+    
+    .privilege-item.pending .privilege-icon {
+        color: var(--dna-orange);
+    }
+    
+    .privilege-details {
+        flex: 1;
+    }
+    
+    .privilege-name {
+        font-weight: 600;
+        color: white;
+        margin-bottom: 0.3rem;
+    }
+    
+    .privilege-desc {
+        font-size: 0.9rem;
+        opacity: 0.8;
+    }
+    
+    .privilege-status {
+        font-family: monospace;
+        font-size: 0.8rem;
+        font-weight: 600;
+        padding: 0.3rem 0.8rem;
+        border-radius: 10px;
+    }
+    
+    .privilege-item.granted .privilege-status {
+        background: var(--biotech-accent);
+        color: white;
+    }
+    
+    .privilege-item.pending .privilege-status {
+        background: var(--dna-orange);
+        color: white;
+    }
+    
+    /* Terminal Actions */
+    .terminal-actions {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        padding: 3rem;
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .primary-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .terminal-btn {
+        background: rgba(255, 255, 255, 0.05);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        border-radius: 15px;
+        padding: 2rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        text-decoration: none;
+        color: white;
+    }
+    
+    .terminal-btn:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    .terminal-btn.primary {
+        border-color: var(--biotech-accent);
+    }
+    
+    .terminal-btn.primary:hover {
+        background: rgba(52, 211, 153, 0.1);
+        border-color: var(--biotech-accent);
+    }
+    
+    .terminal-btn.primary:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    .terminal-btn.secondary {
+        border-color: var(--biotech-blue);
+    }
+    
+    .terminal-btn.secondary:hover {
+        background: rgba(14, 165, 233, 0.1);
+        border-color: var(--biotech-blue);
+    }
+    
+    .btn-icon {
+        font-size: 2rem;
+        color: var(--biotech-accent);
+    }
+    
+    .terminal-btn.secondary .btn-icon {
+        color: var(--biotech-blue);
+    }
+    
+    .btn-content {
+        flex: 1;
+    }
+    
+    .btn-title {
+        display: block;
+        font-weight: 600;
+        font-size: 1.1rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .btn-subtitle {
+        font-size: 0.9rem;
+        opacity: 0.7;
+    }
+    
+    .emergency-protocols {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+    
+    .protocol-btn {
+        background: rgba(239, 68, 68, 0.1);
+        border: 1px solid var(--medical-red);
+        color: var(--medical-red);
+        padding: 0.8rem 1.5rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.3s ease;
+    }
+    
+    .protocol-btn:hover {
+        background: rgba(239, 68, 68, 0.2);
+        transform: translateY(-2px);
+    }
+    
+    /* Equipment Showcase */
+    .equipment-showcase {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        padding: 3rem;
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .showcase-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 3rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .showcase-header h4 {
+        color: white;
+        font-size: 1.3rem;
+    }
+    
+    .equipment-status {
+        color: var(--biotech-accent);
+        font-family: monospace;
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+    
+    .equipment-carousel {
+        position: relative;
+        min-height: 200px;
+        overflow: hidden;
+        border-radius: 15px;
+        background: rgba(255, 255, 255, 0.05);
+        margin-bottom: 2rem;
+    }
+    
+    .equipment-item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 3rem;
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+        opacity: 0;
+        transform: translateX(100%);
+        transition: all 0.5s ease;
+    }
+    
+    .equipment-item.active {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+    .equipment-visual {
+        font-size: 4rem;
+        color: var(--biotech-accent);
+        min-width: 80px;
+        text-align: center;
+    }
+    
+    .equipment-info h5 {
+        color: white;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .equipment-info p {
+        opacity: 0.8;
+        line-height: 1.6;
+    }
+    
+    .carousel-controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+    }
+    
+    .carousel-btn {
+        background: rgba(52, 211, 153, 0.2);
+        border: 2px solid var(--biotech-accent);
+        color: var(--biotech-accent);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .carousel-btn:hover {
+        background: var(--biotech-accent);
+        color: white;
+        transform: scale(1.1);
+    }
+    
+    .carousel-indicators {
+        display: flex;
+        gap: 0.5rem;
+    }
+    
+    .indicator {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .indicator.active {
+        background: var(--biotech-accent);
+        transform: scale(1.2);
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .hero-content {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        .department {
+            font-size: 2.5rem;
+        }
+        
+        .research-metrics {
+            flex-direction: column;
+        }
+        
+        .lab-controls {
+            flex-direction: column;
+        }
+        
+        .research-tabs {
+            flex-wrap: wrap;
+        }
+        
+        .research-tab {
+            flex: 1 1 50%;
+        }
+        
+        .journey-flow {
+            flex-direction: column;
+        }
+        
+        .journey-arrow {
+            transform: rotate(90deg);
+        }
+        
+        .recruitment-actions {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .simulation-interface {
+            grid-template-columns: 1fr;
+        }
+        
+        .genetic-workstation {
+            grid-template-columns: 1fr;
+        }
     }
 </style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Animated research metrics
+    function animateMetrics() {
+        const metrics = [
+            { id: 'dna', target: 3200000000, suffix: '', format: 'scientific' },
+            { id: 'cells', target: 37000000000000, suffix: '', format: 'scientific' },
+            { id: 'systems', target: 11, suffix: '', format: 'normal' }
+        ];
+        
+        metrics.forEach(metric => {
+            const elements = document.querySelectorAll(`[data-research="${metric.id}"] .metric-value`);
+            elements.forEach(element => {
+                let current = 0;
+                const increment = metric.target / 100;
+                
+                const updateValue = () => {
+                    if (current < metric.target) {
+                        current += increment;
+                        let displayValue;
+                        
+                        if (metric.format === 'scientific' && current > 1000000) {
+                            if (current > 1000000000000) {
+                                displayValue = (current / 1000000000000).toFixed(1) + 'T';
+                            } else if (current > 1000000000) {
+                                displayValue = (current / 1000000000).toFixed(1) + 'B';
+                            } else {
+                                displayValue = (current / 1000000).toFixed(1) + 'M';
+                            }
+                        } else {
+                            displayValue = Math.ceil(current);
+                        }
+                        
+                        element.textContent = displayValue + metric.suffix;
+                        requestAnimationFrame(updateValue);
+                    } else {
+                        let finalValue;
+                        if (metric.format === 'scientific') {
+                            if (metric.target > 1000000000000) {
+                                finalValue = (metric.target / 1000000000000).toFixed(1) + 'T';
+                            } else if (metric.target > 1000000000) {
+                                finalValue = (metric.target / 1000000000).toFixed(1) + 'B';
+                            } else {
+                                finalValue = (metric.target / 1000000).toFixed(1) + 'M';
+                            }
+                        } else {
+                            finalValue = metric.target;
+                        }
+                        element.textContent = finalValue + metric.suffix;
+                    }
+                };
+                
+                updateValue();
+            });
+        });
+    }
+    
+    // Cell viewer controls
+    function switchCellView(cellType) {
+        // Hide all cell displays
+        document.querySelectorAll('.cell-display').forEach(display => {
+            display.classList.remove('active');
+        });
+        
+        // Show selected cell display
+        const targetDisplay = document.querySelector(`.cell-display[data-cell="${cellType}"]`);
+        if (targetDisplay) {
+            targetDisplay.classList.add('active');
+        }
+        
+        // Update button states
+        document.querySelectorAll('.cell-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        event.target.classList.add('active');
+    }
+    
+    // Research specialization switching
+    function switchResearch(field) {
+        // Update tabs
+        document.querySelectorAll('.research-tab').forEach(tab => {
+            tab.classList.remove('active');
+        });
+        document.querySelector(`[data-field="${field}"]`).classList.add('active');
+        
+        // Update panels
+        document.querySelectorAll('.research-panel').forEach(panel => {
+            panel.classList.remove('active');
+        });
+        document.getElementById(`${field}-panel`).classList.add('active');
+    }
+    
+    // Synapse firing animation
+    function fireSynapse(synapseNum) {
+        const synapse = event.target;
+        synapse.classList.add('active');
+        
+        setTimeout(() => {
+            synapse.classList.remove('active');
+        }, 1000);
+    }
+    
+    // System exploration
+    function exploreSystem(systemType) {
+        const systemCard = event.target.closest('.system-card');
+        
+        // Add exploration effect
+        systemCard.style.background = 'linear-gradient(135deg, #34D399 0%, #10B981 100%)';
+        systemCard.style.color = 'white';
+        systemCard.style.transform = 'translateY(-15px) scale(1.02)';
+        
+        // Show exploration feedback
+        const prompt = systemCard.querySelector('.exploration-prompt');
+        const originalText = prompt.innerHTML;
+        prompt.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Exploring...';
+        
+        setTimeout(() => {
+            prompt.innerHTML = '<i class="fas fa-check"></i> System Analyzed!';
+        }, 1500);
+        
+        setTimeout(() => {
+            systemCard.style.background = '';
+            systemCard.style.color = '';
+            systemCard.style.transform = '';
+            prompt.innerHTML = originalText;
+        }, 3000);
+    }
+    
+         // Outbreak investigation functions
+     function investigateCluster(clusterNum) {
+         const cluster = event.target.closest('.case-cluster');
+         const marker = cluster.querySelector('.cluster-marker');
+         
+         // Add investigation effect
+         marker.style.background = '#F59E0B';
+         marker.style.animation = 'none';
+         marker.style.transform = 'scale(1.3)';
+         
+         // Show investigation results
+         setTimeout(() => {
+             alert(`Cluster ${clusterNum} Investigation:\n- Patient Zero identified\n- Transmission vector: Contaminated water supply\n- Recommended action: Immediate quarantine and water testing`);
+         }, 500);
+         
+         setTimeout(() => {
+             marker.style.background = '';
+             marker.style.animation = '';
+             marker.style.transform = '';
+         }, 3000);
+     }
+    
+    function analyzeData() {
+        const button = event.target;
+        const originalText = button.innerHTML;
+        
+        button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Analyzing...';
+        button.disabled = true;
+        
+        setTimeout(() => {
+            button.innerHTML = '<i class="fas fa-chart-line"></i> Analysis Complete!';
+            alert('Data Analysis Results:\n- R₀ = 2.3 (High transmission rate)\n- Peak infection: Day 14\n- Attack rate: 23% of population\n- Recommended: Immediate intervention');
+        }, 2000);
+        
+        setTimeout(() => {
+            button.innerHTML = originalText;
+            button.disabled = false;
+        }, 4000);
+    }
+    
+    function trackTransmission() {
+        alert('Transmission Tracking:\n- Index case: Patient at University Campus\n- Secondary cases: 8 contacts identified\n- Tertiary spread: Downtown cluster linked\n- Vector: Shared cafeteria facility');
+    }
+    
+    function calculateRisk() {
+        alert('Risk Assessment:\n- High Risk: Ages 65+, immunocompromised\n- Medium Risk: School-age children\n- Low Risk: Healthy adults 18-64\n- Overall Population Risk: MODERATE');
+    }
+    
+    // Genetic engineering functions
+    function editGene(segmentNum) {
+        const segment = event.target;
+        const statusElement = document.getElementById('editStatus');
+        
+        if (segment.classList.contains('mutation')) {
+            // Fix mutation
+            segment.classList.remove('mutation');
+            segment.classList.add('normal');
+            segment.textContent = 'ATCGATCG';
+            statusElement.textContent = 'Mutation corrected! Gene sequence restored.';
+            statusElement.style.color = 'var(--biotech-secondary)';
+        } else {
+            // Introduce controlled edit
+            segment.style.background = 'var(--dna-orange)';
+            statusElement.textContent = 'Gene segment modified. CRISPR edit applied.';
+            statusElement.style.color = 'var(--dna-orange)';
+            
+            setTimeout(() => {
+                segment.style.background = '';
+                statusElement.textContent = 'Click segments to edit genetic sequence';
+                statusElement.style.color = '';
+            }, 3000);
+        }
+    }
+    
+    // Lab control functions
+    function initiateResearch() {
+        document.getElementById('research').scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+        
+        // Add lab activation effect
+        const btn = event.target;
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ACTIVATING SYSTEMS...';
+        btn.style.background = 'var(--biotech-secondary)';
+        
+        setTimeout(() => {
+            btn.innerHTML = '<i class="fas fa-microscope"></i> SYSTEMS ACTIVE';
+        }, 2000);
+        
+        setTimeout(() => {
+            btn.innerHTML = originalText;
+            btn.style.background = '';
+        }, 4000);
+    }
+    
+    function accessDatabase() {
+        document.getElementById('research').scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+    
+    // Research Station Network Functions
+    function activateNeuralPath(nodeNum) {
+        const connections = document.querySelectorAll('.neural-connection');
+        connections.forEach((conn, index) => {
+            if (index + 1 === nodeNum) {
+                conn.style.background = 'linear-gradient(45deg, transparent, #EF4444, transparent)';
+                conn.style.animation = 'neural-signal 0.8s ease-in-out';
+            }
+        });
+        
+        setTimeout(() => {
+            connections.forEach(conn => {
+                conn.style.background = '';
+                conn.style.animation = '';
+            });
+        }, 2000);
+    }
+    
+    function initializeSystem(systemType) {
+        const systemMap = {
+            'nervous': 'Neural pathways activated. Synaptic transmission analysis initiated.',
+            'sensory': 'Sensory receptor mapping in progress. Visual cortex response detected.',
+            'endocrine': 'Hormone cascade analysis started. Feedback loop monitoring active.'
+        };
+        
+        const btn = event.target;
+        const originalText = btn.innerHTML;
+        
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> INITIALIZING...';
+        btn.disabled = true;
+        
+        setTimeout(() => {
+            alert(`System Analysis:\n${systemMap[systemType]}\n\nRecommended next steps:\n• Continue pathway tracing\n• Analyze interaction networks\n• Document findings`);
+            btn.innerHTML = '<i class="fas fa-check"></i> ANALYSIS COMPLETE';
+        }, 2000);
+        
+        setTimeout(() => {
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+        }, 4000);
+    }
+    
+    function investigateOutbreak(blipNum) {
+        const outbreakData = {
+            1: { location: 'Urban Center', cases: 24, vector: 'Airborne transmission', risk: 'HIGH' },
+            2: { location: 'Suburban District', cases: 15, vector: 'Contact transmission', risk: 'MEDIUM' },
+            3: { location: 'Industrial Zone', cases: 31, vector: 'Contaminated water', risk: 'CRITICAL' }
+        };
+        
+        const data = outbreakData[blipNum];
+        alert(`Outbreak Investigation Report:\n\nLocation: ${data.location}\nActive Cases: ${data.cases}\nTransmission Vector: ${data.vector}\nRisk Level: ${data.risk}\n\nAction Required: Implement containment protocols`);
+    }
+    
+    function launchInvestigation(type) {
+        const investigations = {
+            'outbreak': 'Epidemiological field investigation deployed. Contact tracing initiated.',
+            'pattern': 'Statistical analysis running. Disease pattern recognition in progress.',
+            'intervention': 'Public health intervention model calculating optimal response strategies.'
+        };
+        
+        const btn = event.target;
+        const originalText = btn.innerHTML;
+        
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> PROCESSING...';
+        
+        setTimeout(() => {
+            alert(`Investigation Results:\n${investigations[type]}\n\nData collection: 87% complete\nConfidence level: 94.2%\nRecommended action: Continue monitoring`);
+            btn.innerHTML = originalText;
+        }, 3000);
+    }
+    
+    function editBasePair(pairNum) {
+        const basePair = event.target;
+        const isMutation = basePair.classList.contains('mutation-pair');
+        
+        if (isMutation) {
+            basePair.classList.remove('mutation-pair');
+            basePair.classList.add('t-a');
+            alert('CRISPR Edit Successful!\nMutation corrected: T-T → T-A\nSequence integrity restored.');
+        } else {
+            alert(`Base pair analysis:\nPosition: ${pairNum}\nSequence: Normal\nHydrogen bonds: Stable\nNo editing required.`);
+        }
+    }
+    
+    function initializeEditor(editorType) {
+        const editors = {
+            'crispr': 'CRISPR-Cas9 system activated. Target sequence locked. Ready for precise editing.',
+            'sequence': 'DNA sequencing array online. Reading genetic code at 1000bp/second.',
+            'inheritance': 'Mendelian analysis tool loaded. Punnett square calculations ready.'
+        };
+        
+        const btn = event.target;
+        const originalText = btn.innerHTML;
+        
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> LOADING...';
+        
+        setTimeout(() => {
+            alert(`Genetic Editor Status:\n${editors[editorType]}\n\nAll systems operational\nPrecision level: 99.7%\nReady for genetic modification`);
+            btn.innerHTML = originalText;
+        }, 2500);
+    }
+    
+    function synchronizeLabs() {
+        const btn = event.target;
+        const originalText = btn.innerHTML;
+        
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> SYNCHRONIZING...';
+        
+        // Update metrics
+        setTimeout(() => {
+            document.getElementById('anatomyMetric').textContent = '1,394';
+            document.getElementById('epidemiologyMetric').textContent = '103';
+            document.getElementById('geneticsMetric').textContent = '4.1M';
+        }, 1500);
+        
+        setTimeout(() => {
+            btn.innerHTML = '<i class="fas fa-check"></i> SYNCHRONIZED';
+            alert('Lab Network Status:\nAll stations synchronized\nData integrity: 100%\nResearch progress updated\nBackup protocols active');
+        }, 2000);
+        
+        setTimeout(() => {
+            btn.innerHTML = originalText;
+        }, 4000);
+    }
+    
+    function generateReport() {
+        alert('Research Report Generated:\n\n📊 Neural Pathways Mapped: 1,394\n🦠 Disease Outbreaks Analyzed: 103\n🧬 Genetic Modifications: 4.1M\n\nOverall Progress: 76.3%\nNext Phase: Advanced Research Protocols\nEstimated Completion: 14 days');
+    }
+    
+    // Training Protocol Functions
+    function analyzeSystem(systemType) {
+        const node = event.target;
+        const readout = document.querySelector('.readout-text');
+        
+        // Remove active from all nodes
+        document.querySelectorAll('.system-node').forEach(n => n.classList.remove('active'));
+        
+        // Activate clicked node
+        node.classList.add('active');
+        node.innerHTML = `<div class="node-pulse"></div><span>${systemType.toUpperCase()}</span>`;
+        
+        const analyses = {
+            'neural': 'Analyzing neural network topology. Synaptic connections: 1,247 active.',
+            'circulatory': 'Cardiovascular system assessment. Heart rate: 72 bpm, BP: 120/80.',
+            'endocrine': 'Hormone level analysis. Insulin: normal, Cortisol: elevated.'
+        };
+        
+        readout.textContent = analyses[systemType] || 'System analysis in progress...';
+        
+        // Update data stream
+        document.querySelectorAll('.stream-line').forEach((line, index) => {
+            setTimeout(() => {
+                line.classList.add('active');
+            }, index * 200);
+        });
+    }
+    
+    function continueTraining(level) {
+        const btn = event.target;
+        const module = btn.closest('.training-module');
+        const progressText = module.querySelector('.progress-text');
+        
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ANALYZING...';
+        btn.disabled = true;
+        
+        setTimeout(() => {
+            const newProgress = Math.min(100, parseInt(progressText.textContent) + 15);
+            progressText.textContent = `${newProgress}%`;
+            
+            const progressCircle = module.querySelector('.progress-circle');
+            if (newProgress >= 100) {
+                progressCircle.classList.remove('partial');
+                progressCircle.classList.add('complete');
+                btn.innerHTML = '<i class="fas fa-check"></i> LEVEL COMPLETE';
+                
+                // Unlock next level
+                const nextModule = document.querySelector(`[data-level="${level + 1}"]`);
+                if (nextModule) {
+                    nextModule.classList.remove('locked');
+                    nextModule.classList.add('active');
+                }
+            } else {
+                btn.innerHTML = '<i class="fas fa-microscope"></i> CONTINUE ANALYSIS';
+                btn.disabled = false;
+            }
+        }, 3000);
+    }
+    
+    // Access Terminal Functions
+    function initiateScan() {
+        const scanStatus = document.getElementById('scanStatus');
+        const scanner = document.getElementById('bioScanner');
+        const handprint = document.querySelector('.handprint-outline');
+        
+        scanStatus.textContent = 'SCANNING IN PROGRESS...';
+        handprint.style.color = '#34D399';
+        
+        setTimeout(() => {
+            scanStatus.textContent = 'BIOMETRIC MATCH CONFIRMED';
+            scanStatus.style.color = '#34D399';
+            
+            // Start capability assessment
+            setTimeout(() => {
+                assessAllSkills();
+            }, 1000);
+        }, 3000);
+    }
+    
+    function assessSkill(skill) {
+        const resultElement = document.getElementById(`${skill}-result`);
+        const node = event.target.closest('.capability-node');
+        
+        node.style.borderColor = '#F59E0B';
+        resultElement.textContent = 'ASSESSING...';
+        
+        setTimeout(() => {
+            const score = Math.floor(Math.random() * 30) + 70; // 70-100 score
+            resultElement.textContent = `${score}% MATCH`;
+            resultElement.classList.add('positive');
+            node.style.borderColor = '#34D399';
+            
+            updateCompatibilityScore();
+        }, 2000);
+    }
+    
+    function assessAllSkills() {
+        const skills = ['curiosity', 'analytical', 'precision', 'innovation'];
+        skills.forEach((skill, index) => {
+            setTimeout(() => {
+                const node = document.querySelector(`[data-skill="${skill}"]`);
+                if (node) {
+                    node.click();
+                }
+            }, index * 1500);
+        });
+    }
+    
+    function updateCompatibilityScore() {
+        const results = document.querySelectorAll('.assessment-result.positive');
+        if (results.length === 4) {
+            const avgScore = Array.from(results).reduce((sum, result) => {
+                return sum + parseInt(result.textContent);
+            }, 0) / 4;
+            
+            document.getElementById('compatScore').textContent = `${Math.round(avgScore)}%`;
+            
+            // Enable registration button
+            const registerBtn = document.getElementById('registerBtn');
+            registerBtn.disabled = false;
+            registerBtn.style.opacity = '1';
+        }
+    }
+    
+    function initiateRegistration() {
+        const btn = event.target.closest('.terminal-btn');
+        const originalText = btn.innerHTML;
+        
+        btn.innerHTML = '<div class="btn-icon"><i class="fas fa-spinner fa-spin"></i></div><div class="btn-content"><span class="btn-title">PROCESSING APPLICATION</span><span class="btn-subtitle">Verifying credentials...</span></div>';
+        
+        setTimeout(() => {
+            window.location.href = '/register';
+        }, 2000);
+    }
+    
+    function accessInformation() {
+        alert('BioTech Discovery Lab Specifications:\n\n🔬 Advanced Microscopy Suite\n• Resolution: 0.1nm\n• Live imaging capability\n• AI-assisted analysis\n\n🧬 Genetic Analysis Array\n• CRISPR-Cas9 editing system\n• Next-gen sequencing\n• 99.7% precision rate\n\n📊 Epidemiological Modeling\n• Real-time outbreak tracking\n• Statistical analysis tools\n• Population health modeling');
+    }
+    
+    function viewProtocols() {
+        alert('Safety Protocol Summary:\n\n⚠️ Biosafety Level 2 procedures\n🧤 Personal protective equipment required\n🚨 Emergency containment systems active\n📞 24/7 safety hotline: EXT-911\n\nAll researchers must complete safety certification before lab access.');
+    }
+    
+    function contactSupport() {
+        alert('Technical Support:\n\n📧 Email: biotech-support@lab.edu\n📞 Phone: (555) 123-4567\n💬 Live Chat: Available 24/7\n🎫 Ticket System: support.biotech-lab.edu\n\nResponse Time: <2 hours for critical issues');
+    }
+    
+    // Equipment Carousel
+    let currentEquipmentIndex = 0;
+    const equipmentItems = ['microscope', 'sequencer', 'analyzer'];
+    
+    function nextEquipment() {
+        currentEquipmentIndex = (currentEquipmentIndex + 1) % equipmentItems.length;
+        updateEquipmentDisplay();
+    }
+    
+    function previousEquipment() {
+        currentEquipmentIndex = (currentEquipmentIndex - 1 + equipmentItems.length) % equipmentItems.length;
+        updateEquipmentDisplay();
+    }
+    
+    function updateEquipmentDisplay() {
+        document.querySelectorAll('.equipment-item').forEach(item => {
+            item.classList.remove('active');
+        });
+        
+        document.querySelectorAll('.indicator').forEach(indicator => {
+            indicator.classList.remove('active');
+        });
+        
+        const activeItem = document.querySelector(`[data-equipment="${equipmentItems[currentEquipmentIndex]}"]`);
+        const activeIndicator = document.querySelectorAll('.indicator')[currentEquipmentIndex];
+        
+        if (activeItem) activeItem.classList.add('active');
+        if (activeIndicator) activeIndicator.classList.add('active');
+    }
+    
+    // Update lab time displays
+    function updateLabTime() {
+        const now = new Date();
+        const timeString = now.toTimeString().split(' ')[0] + ' GMT';
+        
+        const timeElements = document.querySelectorAll('#labTime, #consoleTime');
+        timeElements.forEach(element => {
+            if (element.id === 'labTime') {
+                element.textContent = timeString;
+            } else {
+                const sessionMinutes = Math.floor((now.getTime() / 1000 / 60) % 300); // Mock session time
+                const hours = Math.floor(sessionMinutes / 60);
+                const minutes = sessionMinutes % 60;
+                element.textContent = `SESSION: ${hours}h ${minutes}m`;
+            }
+        });
+    }
+    
+         // Initialize when page loads
+     document.addEventListener('DOMContentLoaded', function() {
+         // Animate metrics after a delay
+         setTimeout(animateMetrics, 1500);
+         
+         // Initialize cell viewer
+         const firstCellBtn = document.querySelector('.cell-btn');
+         if (firstCellBtn) {
+             firstCellBtn.classList.add('active');
+         }
+         
+         // Update lab times
+         updateLabTime();
+         setInterval(updateLabTime, 30000); // Update every 30 seconds
+         
+         // Initialize equipment carousel
+         updateEquipmentDisplay();
+         
+         // Auto-rotate equipment carousel
+         setInterval(nextEquipment, 8000);
+         
+         // Add particle interaction effects
+         document.querySelectorAll('.particle').forEach(particle => {
+             particle.addEventListener('click', function() {
+                 this.style.animation = 'none';
+                 this.style.transform = 'scale(1.3)';
+                 this.style.filter = 'brightness(1.5)';
+                 
+                 setTimeout(() => {
+                     this.style.animation = '';
+                     this.style.transform = '';
+                     this.style.filter = '';
+                 }, 1000);
+             });
+         });
+         
+         // DNA base interaction
+         document.querySelectorAll('.base').forEach(base => {
+             base.addEventListener('click', function() {
+                 // Show complementary base info
+                 const complement = {
+                     'A': 'T', 'T': 'A', 'G': 'C', 'C': 'G'
+                 };
+                 const baseType = this.textContent;
+                 const complementBase = complement[baseType];
+                 
+                 // Highlight complementary pairing
+                 this.style.animation = 'none';
+                 this.style.transform = 'scale(1.4)';
+                 this.style.boxShadow = '0 0 15px rgba(255, 255, 255, 0.8)';
+                 
+                 setTimeout(() => {
+                     alert(`${baseType} pairs with ${complementBase}\nThis is a ${baseType === 'A' || baseType === 'T' ? 'weak (2 bonds)' : 'strong (3 bonds)'} hydrogen bond connection.`);
+                 }, 300);
+                 
+                 setTimeout(() => {
+                     this.style.animation = '';
+                     this.style.transform = '';
+                     this.style.boxShadow = '';
+                 }, 2000);
+             });
+         });
+         
+         // Add CSS for dynamic effects
+         const dynamicStyles = document.createElement('style');
+         dynamicStyles.textContent = `
+             .cell-btn.active {
+                 background: #34D399 !important;
+                 color: white;
+                 transform: translateY(-2px);
+                 box-shadow: 0 5px 15px rgba(52, 211, 153, 0.3);
+             }
+             
+             .particle:hover {
+                 opacity: 1 !important;
+                 transform: scale(1.2) !important;
+                 cursor: pointer;
+             }
+             
+             .base:hover {
+                 transform: scale(1.2) !important;
+                 box-shadow: 0 0 10px rgba(255, 255, 255, 0.5) !important;
+             }
+             
+             .neuron-node:hover {
+                 transform: scale(1.3) !important;
+                 cursor: pointer;
+             }
+             
+             .outbreak-blip:hover {
+                 transform: scale(1.5) !important;
+                 background: #F59E0B !important;
+             }
+         `;
+         document.head.appendChild(dynamicStyles);
+     });
+</script>
 {% endblock %} 

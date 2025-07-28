@@ -345,9 +345,6 @@
                 <div class="form-footer">
                     <div id="formErrors" class="error-message"></div>
                     <button type="submit" class="submit-btn" disabled>Submit Registration</button>
-                    <div class="form-help">
-                        <p><small>If you're having trouble submitting the form, please ensure all required fields (*) are filled out and the contract is accepted.</small></p>
-                    </div>
                 </div>
             </form>
         </div>
@@ -652,19 +649,6 @@
         text-align: center;
     }
     
-    .form-help {
-        margin-top: 15px;
-        padding: 10px;
-        background-color: #f8f9fa;
-        border-radius: 8px;
-        border-left: 3px solid var(--accent-color);
-    }
-    
-    .form-help p {
-        margin: 0;
-        color: #666;
-    }
-    
     .error-message {
         color: #e74c3c;
         margin-bottom: 20px;
@@ -672,6 +656,25 @@
         border-radius: 8px;
         background-color: rgba(231, 76, 60, 0.1);
         display: none;
+    }
+    
+    .error-list {
+        margin: 0;
+    }
+    
+    .error-list ul {
+        margin: 10px 0 0 0;
+        padding-left: 20px;
+    }
+    
+    .error-list li {
+        margin-bottom: 5px;
+        line-height: 1.4;
+    }
+    
+    .error-list strong {
+        color: #c0392b;
+        font-size: 1.1rem;
     }
     
     .submit-btn {
@@ -906,6 +909,12 @@
 {% block extra_js %}
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        // Initialize form field variables at the top (moved here to fix ReferenceError)
+        const contractCheckbox = document.getElementById('contractAccepted');
+        const submitBtn = document.querySelector('.submit-btn');
+        const passwordField = document.getElementById('password');
+        const confirmPasswordField = document.getElementById('confirmPassword');
+        
         // Load events from API
         loadEventsFromAPI();
         
@@ -1155,6 +1164,9 @@
                             cb.disabled = false;
                         });
                     }
+                    
+                    // Update submit button state when events change
+                    updateSubmitButtonState();
                 });
             });
         }
@@ -1289,31 +1301,44 @@
                             if (response.ok) {
                                 // Email already exists
                                 doeEmailField.style.borderColor = '#dc3545';
-                                                            const errorDiv = document.createElement('div');
-                            errorDiv.id = 'emailError';
-                            errorDiv.className = 'error-message';
-                            errorDiv.textContent = 'Email already in use. Try again.';
-                            errorDiv.style.color = '#dc3545';
-                            errorDiv.style.fontSize = '0.875rem';
-                            errorDiv.style.marginTop = '0.25rem';
-                            errorDiv.style.fontWeight = '500';
-                            
-                            // Insert the error message right after the field hint
-                            const fieldHint = doeEmailField.parentNode.querySelector('.field-hint');
-                            if (fieldHint) {
-                                fieldHint.parentNode.insertBefore(errorDiv, fieldHint.nextSibling);
-                            } else {
-                                doeEmailField.parentNode.appendChild(errorDiv);
-                            }
-                            
-                            // Update admin checkbox state since there's now an email error
-                            updateAdminCheckboxState();
-                            
-                            // Update submit button state since there's an error
-                            updateSubmitButtonState();
+                                
+                                // Remove any existing error message first
+                                const existingError = document.getElementById('emailError');
+                                if (existingError) {
+                                    existingError.remove();
+                                }
+                                
+                                const errorDiv = document.createElement('div');
+                                errorDiv.id = 'emailError';
+                                errorDiv.className = 'error-message';
+                                errorDiv.textContent = 'Email already in use. Try again.';
+                                errorDiv.style.color = '#dc3545';
+                                errorDiv.style.fontSize = '0.875rem';
+                                errorDiv.style.marginTop = '0.25rem';
+                                errorDiv.style.fontWeight = '500';
+                                
+                                // Insert the error message right after the field hint
+                                const fieldHint = doeEmailField.parentNode.querySelector('.field-hint');
+                                if (fieldHint) {
+                                    fieldHint.parentNode.insertBefore(errorDiv, fieldHint.nextSibling);
+                                } else {
+                                    doeEmailField.parentNode.appendChild(errorDiv);
+                                }
+                                
+                                // Update admin checkbox state since there's now an email error
+                                updateAdminCheckboxState();
+                                
+                                // Update submit button state since there's an error
+                                updateSubmitButtonState();
                             } else if (response.status === 404) {
                                 // Email is available
                                 doeEmailField.style.borderColor = '#28a745';
+                                
+                                // Remove any existing email error message
+                                const existingError = document.getElementById('emailError');
+                                if (existingError) {
+                                    existingError.remove();
+                                }
                                 
                                 // Update admin checkbox state since email is now valid
                                 updateAdminCheckboxState();
@@ -1333,186 +1358,162 @@
             }
         }
         
-        // Contract checkbox functionality for submit button
-        const contractCheckbox = document.getElementById('contractAccepted');
-        const submitBtn = document.querySelector('.submit-btn');
+        // Form field variables are now declared at the top of the function
         
         function updateSubmitButtonState() {
             // Check for all possible errors
             let hasErrors = false;
+            let errorReasons = [];
+            
+            // Get the formErrors div
+            const formErrors = document.getElementById('formErrors');
             
             // 1. Check contract acceptance
             if (!contractCheckbox.checked) {
                 hasErrors = true;
+                errorReasons.push('Contract not accepted');
             }
             
             // 2. Check for email error
             const emailError = document.getElementById('emailError');
             if (emailError && emailError.textContent === 'Email already in use. Try again.') {
                 hasErrors = true;
+                errorReasons.push('Email already in use');
             }
             
             // 3. Check for admin access error
             const adminError = document.getElementById('adminAccessError');
             if (adminError && adminError.style.display !== 'none' && adminError.innerHTML !== '') {
                 hasErrors = true;
+                errorReasons.push('Admin access error');
             }
             
-            // 4. Check password validation (only if passwords are entered)
+            // 4. Check required fields
+            const requiredFields = [
+                { id: 'firstName', name: 'First Name' },
+                { id: 'lastName', name: 'Last Name' },
+                { id: 'doeEmail', name: 'DOE Email' },
+                { id: 'personalEmail', name: 'Personal Email' },
+                { id: 'grade', name: 'Grade' },
+                { id: 'phoneNumber', name: 'Phone Number' },
+                { id: 'password', name: 'Password' },
+                { id: 'confirmPassword', name: 'Confirm Password' },
+                { id: 'bio', name: 'Bio' },
+                { id: 'hearAboutUs', name: 'How did you hear about us' },
+                { id: 'importantNotification', name: 'Important Notifications' },
+                { id: 'teamNotification', name: 'Team Notifications' },
+                { id: 'eventNotification', name: 'Event Notifications' }
+            ];
+            
+            requiredFields.forEach(field => {
+                const element = document.getElementById(field.id);
+                if (element && !element.value.trim()) {
+                    hasErrors = true;
+                    errorReasons.push(`${field.name} is required`);
+                }
+            });
+            
+            // Check conditional required fields based on member status
+            const newMemberRadio = document.querySelector('input[name="memberStatus"][value="new"]');
+            const returningMemberRadio = document.querySelector('input[name="memberStatus"][value="returning"]');
+            
+            if (newMemberRadio && newMemberRadio.checked) {
+                const interestReasonField = document.getElementById('interestReason');
+                if (interestReasonField && !interestReasonField.value.trim()) {
+                    hasErrors = true;
+                    errorReasons.push('Interest reason is required for new members');
+                }
+            }
+            
+            if (returningMemberRadio && returningMemberRadio.checked) {
+                const conditionalFields = [
+                    { id: 'yearsOnTeam', name: 'Years on team' },
+                    { id: 'pastExperience', name: 'Past experience' },
+                    { id: 'returnReason', name: 'Return reason' },
+                    { id: 'preseasonHrs', name: 'Preseason hours' },
+                    { id: 'regseasonHrs', name: 'Regular season hours' },
+                    { id: 'postseasonHrs', name: 'Post-season hours' }
+                ];
+                
+                conditionalFields.forEach(field => {
+                    const element = document.getElementById(field.id);
+                    if (element && !element.value.trim()) {
+                        hasErrors = true;
+                        errorReasons.push(`${field.name} is required for returning members`);
+                    }
+                });
+            }
+            
+            // 5. Check password validation
             const password = passwordField.value;
             const confirmPassword = confirmPasswordField.value;
             const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d\W_]{8,}$/;
             
             if (password && !passwordRegex.test(password)) {
                 hasErrors = true;
+                errorReasons.push('Password does not meet requirements');
             }
             
             if (password && confirmPassword && password !== confirmPassword) {
                 hasErrors = true;
+                errorReasons.push('Passwords do not match');
             }
             
-            // 5. Check DOE email format (only if email is entered)
+            // 6. Check DOE email format
             const doeEmail = document.getElementById('doeEmail').value;
             if (doeEmail && !doeEmail.endsWith('@nycstudents.net')) {
                 hasErrors = true;
+                errorReasons.push('DOE email must end with @nycstudents.net');
             }
             
-            // 6. Check phone number format (only if phone number is entered)
+            // 7. Check phone number format
             const phoneNumber = document.getElementById('phoneNumber').value;
             const phonePattern = /^[0-9]{3}-[0-9]{3}-[0-9]{4}$/;
             if (phoneNumber && !phonePattern.test(phoneNumber)) {
                 hasErrors = true;
+                errorReasons.push('Phone number must be in XXX-XXX-XXXX format');
             }
             
-            // 7. Check event selection (only if events are loaded)
-            const eventCheckboxes = document.querySelectorAll('.event-check');
-            if (eventCheckboxes.length > 0) {
-                const checkedEvents = document.querySelectorAll('.event-check:checked').length;
-                if (checkedEvents < 2 || checkedEvents > 6) {
-                    hasErrors = true;
-                }
+            // 8. Check event selection
+            const checkedEvents = document.querySelectorAll('.event-check:checked').length;
+            if (checkedEvents < 2 || checkedEvents > 6) {
+                hasErrors = true;
+                errorReasons.push(`Must select 2-6 events (currently selected: ${checkedEvents})`);
             }
             
-            // 8. Check word count limits (only if bio has content)
-            const bioField = document.getElementById('bio');
-            if (bioField && bioField.value.trim()) {
-                const bioWords = bioField.value.trim().split(/\s+/).filter(word => word.length > 0);
-                const bioWordCount = bioWords.length;
-                const bioMaxWords = parseInt(bioField.getAttribute('data-word-limit'));
-                if (bioWordCount > bioMaxWords) {
-                    hasErrors = true;
-                }
+            // 9. Check word count limits
+            const bioWords = document.getElementById('bio').value.trim().split(/\s+/).filter(word => word.length > 0);
+            const bioWordCount = bioWords.length;
+            const bioMaxWords = parseInt(document.getElementById('bio').getAttribute('data-word-limit'));
+            if (bioWordCount > bioMaxWords) {
+                hasErrors = true;
+                errorReasons.push(`Bio exceeds word limit (${bioWordCount}/${bioMaxWords})`);
             }
             
-            // Check interest reason word count for new members (only if field has content)
-            const newMemberRadio = document.querySelector('input[name="memberStatus"][value="new"]');
+            // Check interest reason word count for new members
             if (newMemberRadio && newMemberRadio.checked) {
                 const interestReasonField = document.getElementById('interestReason');
-                if (interestReasonField && interestReasonField.value.trim()) {
+                if (interestReasonField) {
                     const words = interestReasonField.value.trim().split(/\s+/).filter(word => word.length > 0);
                     const wordCount = words.length;
                     const maxWords = parseInt(interestReasonField.getAttribute('data-word-limit'));
                     if (wordCount > maxWords) {
                         hasErrors = true;
+                        errorReasons.push(`Interest reason exceeds word limit (${wordCount}/${maxWords})`);
                     }
                 }
             }
             
-            // Additional positive validation to ensure button is enabled when form is complete
-            if (!hasErrors) {
-                // Check if all required fields are filled
-                const requiredFields = [
-                    'firstName', 'lastName', 'doeEmail', 'personalEmail', 
-                    'grade', 'phoneNumber', 'password', 'confirmPassword', 'bio'
-                ];
-                
-                let allRequiredFilled = true;
-                requiredFields.forEach(fieldId => {
-                    const field = document.getElementById(fieldId);
-                    if (field && !field.value.trim()) {
-                        allRequiredFilled = false;
-                    }
-                });
-                
-                // Check if contract is accepted
-                if (!contractCheckbox.checked) {
-                    allRequiredFilled = false;
-                }
-                
-                // Check if events are selected (only if events are loaded)
-                const eventCheckboxes = document.querySelectorAll('.event-check');
-                if (eventCheckboxes.length > 0) {
-                    const checkedEvents = document.querySelectorAll('.event-check:checked').length;
-                    if (checkedEvents < 2) {
-                        allRequiredFilled = false;
-                    }
-                }
-                
-                // Check member status specific fields
-                const newMemberRadio = document.querySelector('input[name="memberStatus"][value="new"]');
-                if (newMemberRadio && newMemberRadio.checked) {
-                    const interestReasonField = document.getElementById('interestReason');
-                    const hearAboutUsField = document.getElementById('hearAboutUs');
-                    if ((interestReasonField && !interestReasonField.value.trim()) || 
-                        (hearAboutUsField && !hearAboutUsField.value)) {
-                        allRequiredFilled = false;
-                    }
-                } else {
-                    const pastExperienceField = document.getElementById('pastExperience');
-                    const returnReasonField = document.getElementById('returnReason');
-                    const yearsOnTeamField = document.getElementById('yearsOnTeam');
-                    if ((pastExperienceField && !pastExperienceField.value.trim()) || 
-                        (returnReasonField && !returnReasonField.value.trim()) ||
-                        (yearsOnTeamField && !yearsOnTeamField.value)) {
-                        allRequiredFilled = false;
-                    }
-                }
-                
-                // Check time commitment fields
-                const timeFields = ['preseasonHrs', 'regseasonHrs', 'postseasonHrs'];
-                timeFields.forEach(fieldId => {
-                    const field = document.getElementById(fieldId);
-                    if (field && !field.value) {
-                        allRequiredFilled = false;
-                    }
-                });
-                
-                // Check notification preference fields
-                const notificationFields = ['importantNotification', 'teamNotification', 'eventNotification'];
-                notificationFields.forEach(fieldId => {
-                    const field = document.getElementById(fieldId);
-                    if (field && !field.value) {
-                        allRequiredFilled = false;
-                    }
-                });
-                
-                hasErrors = !allRequiredFilled;
-            }
-            
-            // Fallback: Enable button if form is mostly complete (for user experience)
+            // Display errors in the formErrors div
             if (hasErrors) {
-                // Check if the form is essentially complete despite minor validation issues
-                const essentialFields = [
-                    'firstName', 'lastName', 'doeEmail', 'personalEmail', 
-                    'grade', 'phoneNumber', 'password', 'confirmPassword', 'bio'
-                ];
-                
-                let essentialFieldsComplete = true;
-                essentialFields.forEach(fieldId => {
-                    const field = document.getElementById(fieldId);
-                    if (field && !field.value.trim()) {
-                        essentialFieldsComplete = false;
-                    }
-                });
-                
-                // If essential fields are complete and contract is accepted, enable button
-                if (essentialFieldsComplete && contractCheckbox.checked) {
-                    const eventCheckboxes = document.querySelectorAll('.event-check');
-                    if (eventCheckboxes.length === 0 || document.querySelectorAll('.event-check:checked').length >= 2) {
-                        hasErrors = false; // Override validation errors for better UX
-                        console.log('Fallback: Enabling submit button despite minor validation issues');
-                    }
-                }
+                console.log('Submit button disabled due to:', errorReasons);
+                formErrors.innerHTML = '<div class="error-list"><strong>Please fix the following issues:</strong><ul>' + 
+                    errorReasons.map(reason => `<li>${reason}</li>`).join('') + '</ul></div>';
+                formErrors.style.display = 'block';
+            } else {
+                console.log('Submit button enabled - all validations passed');
+                formErrors.innerHTML = '';
+                formErrors.style.display = 'none';
             }
             
             // Update button state
@@ -1521,13 +1522,11 @@
                 submitBtn.style.opacity = '0.5';
                 submitBtn.style.cursor = 'not-allowed';
                 submitBtn.style.backgroundColor = '#6c757d';
-                console.log('Submit button disabled - form has validation errors');
             } else {
                 submitBtn.disabled = false;
                 submitBtn.style.opacity = '1';
                 submitBtn.style.cursor = 'pointer';
                 submitBtn.style.backgroundColor = ''; // Reset to default
-                console.log('Submit button enabled - form is valid');
             }
         }
         
@@ -1561,15 +1560,10 @@
             radio.addEventListener('change', updateSubmitButtonState);
         });
         
-        // Add event listeners to event checkboxes
-        document.querySelectorAll('.event-check').forEach(checkbox => {
-            checkbox.addEventListener('change', updateSubmitButtonState);
-        });
+        // Event checkboxes will have their listeners attached in initializeEventCheckboxes()
+        // after they are dynamically created when events are loaded from the API
         
         // Password validation
-        const passwordField = document.getElementById('password');
-        const confirmPasswordField = document.getElementById('confirmPassword');
-        
         function validatePassword() {
             const password = passwordField.value;
             const confirmPassword = confirmPasswordField.value;

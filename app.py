@@ -101,9 +101,9 @@ def classification_compilation():
 def events_biology():
     return render_template('events/biology.html')
 
-@app.route('/events/experimentation-analysis')
-def experimentation_analysis():
-    return render_template('events/experimentation_analysis.html')
+@app.route('/events/chemistry-inquiry')
+def chemistry_inquiry():
+    return render_template('events/chemistry_inquiry.html')
 
 @app.route('/firebase-demo')
 def firebase_demo():
