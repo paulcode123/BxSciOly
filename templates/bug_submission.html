@@ -1,0 +1,167 @@
+{% extends "layout.html" %}
+
+{% block title %}Bug Submission - Bronx Science Science Olympiad{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div class="container">
+        <h1><i class="fas fa-bug"></i> Bug Submission</h1>
+        <p>Help us improve the website by reporting any issues you encounter</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="bug-content">
+        <div class="bug-card">
+            <div class="bug-icon">
+                <i class="fas fa-bug"></i>
+            </div>
+            <div class="bug-text">
+                <h2>Did you encounter any bugs while visiting this website?</h2>
+                <p>Please let our leadership team know by submitting this <a href="https://tinyurl.com/bxsciolybug" target="_blank" class="google-form-link">Google Form</a>.</p>
+            </div>
+        </div>
+        
+        <div class="bug-info">
+            <h3>What to include in your bug report:</h3>
+            <ul>
+                <li><strong>Description:</strong> What were you trying to do when the bug occurred?</li>
+                <li><strong>Steps to reproduce:</strong> What steps led to the bug?</li>
+                <li><strong>Screenshots:</strong> If possible, include screenshots of the issue.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<style>
+.page-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.page-header h1 i {
+    margin-right: 15px;
+    color: #ff6b6b;
+}
+
+.page-header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.bug-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.bug-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    padding: 40px;
+    text-align: center;
+    margin-bottom: 40px;
+    border-left: 5px solid #ff6b6b;
+}
+
+.bug-icon {
+    font-size: 4rem;
+    color: #ff6b6b;
+    margin-bottom: 20px;
+}
+
+.bug-text h2 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.bug-text p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 0;
+}
+
+.google-form-link {
+    color: #4285f4;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.google-form-link:hover {
+    color: #1a73e8;
+    text-decoration: underline;
+}
+
+.bug-info {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 30px;
+    border-left: 4px solid var(--accent-color);
+}
+
+.bug-info h3 {
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+}
+
+.bug-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.bug-info li {
+    margin-bottom: 15px;
+    padding-left: 25px;
+    position: relative;
+    line-height: 1.5;
+}
+
+.bug-info li:before {
+    content: "🐛";
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.bug-info strong {
+    color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .page-header h1 {
+        font-size: 2rem;
+    }
+    
+    .bug-content {
+        padding: 0 15px;
+    }
+    
+    .bug-card {
+        padding: 30px 20px;
+    }
+    
+    .bug-text h2 {
+        font-size: 1.5rem;
+    }
+    
+    .bug-text p {
+        font-size: 1.1rem;
+    }
+}
+</style>
+{% endblock %} 

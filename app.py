@@ -54,9 +54,15 @@ def login():
 def calendar():
     return render_template('calendar.html')
 
-@app.route('/leadership-applications')
-def leadership_applications():
-    return render_template('leadership_applications.html')
+
+
+@app.route('/faq')
+def faq():
+    return render_template('faq.html')
+
+@app.route('/bug-submission')
+def bug_submission():
+    return render_template('bug_submission.html')
 
 @app.route('/strategic-plan')
 def strategic_plan():
