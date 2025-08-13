@@ -1,0 +1,138 @@
+{% extends 'layout.html' %}
+
+{% block title %}Admin - Learning Conversations{% endblock %}
+
+{% block content %}
+<div class="container" style="max-width: 1200px; padding-top: 2rem; padding-bottom: 3rem;">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 1rem;">
+        <h1 style="margin:0;">Learning Conversations Review</h1>
+        <div style="display:flex; gap:8px; align-items:center;">
+            <select id="filterEvent"></select>
+            <select id="filterStatus">
+                <option value="">All Statuses</option>
+                <option value="pending">Pending</option>
+                <option value="approved">Approved</option>
+                <option value="rejected">Rejected</option>
+                <option value="needs-revision">Needs Revision</option>
+            </select>
+            <button id="refreshBtn" class="btn-primary"><i class="fas fa-sync"></i> Refresh</button>
+        </div>
+    </div>
+
+    <div id="list"></div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .btn-primary { background:#2b6cb0; color:white; border:none; padding:8px 12px; border-radius:8px; font-weight:600; cursor:pointer; }
+    .conv-item { background:white; border-radius:12px; box-shadow: 0 8px 24px rgba(0,0,0,0.06); margin: 12px 0; padding: 14px; }
+    .conv-header { display:flex; justify-content:space-between; align-items:center; gap:12px; }
+    .conv-meta { display:flex; gap: 10px; flex-wrap: wrap; color:#4a5568; font-size:0.9rem; }
+    .status-pill { padding: 3px 10px; border-radius: 999px; font-weight:600; font-size: 0.8rem; }
+    .status-pending { background:#fffaf0; color:#b7791f; }
+    .status-approved { background:#f0fff4; color:#2f855a; }
+    .status-rejected { background:#fff5f5; color:#c53030; }
+    .status-needs-revision { background:#ebf8ff; color:#2b6cb0; }
+    .admin-actions { display:flex; gap:8px; align-items:center; margin-top: 10px; }
+    .admin-actions input[type=number] { width: 100px; }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    const adminId = sessionStorage.getItem('adminId') || sessionStorage.getItem('admin_token') || '';
+
+    async function loadEvents() {
+        const res = await fetch('/api/admin/events');
+        const items = await res.json();
+        const events = [];
+        items.forEach(entry => { const id = Object.keys(entry)[0]; const data = entry[id]; data.id = id; events.push(data); });
+        return events;
+    }
+
+    async function loadConversations() {
+        const eventName = document.getElementById('filterEvent').value;
+        const status = document.getElementById('filterStatus').value;
+        const qs = new URLSearchParams();
+        if (eventName) qs.set('eventName', eventName);
+        if (status) qs.set('status', status);
+        const res = await fetch(`/api/admin/learning-conversations?${qs.toString()}`, { headers: { 'X-Admin-ID': adminId } });
+        return await res.json();
+    }
+
+    function statusClass(status) {
+        return {
+            'pending': 'status-pending',
+            'approved': 'status-approved',
+            'rejected': 'status-rejected',
+            'needs-revision': 'status-needs-revision'
+        }[status] || 'status-pending';
+    }
+
+    function renderList(items) {
+        const list = document.getElementById('list');
+        list.innerHTML = '';
+        if (!items.length) { list.innerHTML = '<p>No conversations found.</p>'; return; }
+        items.forEach(c => list.appendChild(renderItem(c)));
+    }
+
+    function renderItem(c) {
+        const div = document.createElement('div');
+        div.className = 'conv-item';
+        div.innerHTML = `
+            <div class="conv-header">
+                <div>
+                    <h3 style="margin:0 0 4px 0;">${c.title || 'Conversation'}</h3>
+                    <div class="conv-meta">
+                        <span><i class="fas fa-user"></i> ${c.userId}</span>
+                        <span><i class="fas fa-flask"></i> ${c.eventName}</span>
+                        <span class="status-pill ${statusClass(c.status)}">${c.status}</span>
+                        ${c.pointsGiven ? `<span><i class='fas fa-star'></i> ${c.pointsGiven} pts</span>` : ''}
+                        <a class="btn-primary" style="background:#718096; padding:4px 10px;" target="_blank" href="${c.shareUrl}"><i class="fas fa-external-link-alt"></i> Share</a>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 10px; white-space: pre-wrap; background:#f7fafc; padding:10px; border-radius:8px; max-height: 260px; overflow:auto;">${escapeHtml(c.transcript || '')}</div>
+            <div class="admin-actions">
+                <label>Points: <input type="number" min="0" step="1" value="${c.pointsGiven || 0}" id="pts_${c.id}"></label>
+                <label style="flex:1;">Comments: <input type="text" id="cmt_${c.id}" value="${c.adminComments || ''}" style="width:100%;"></label>
+                <select id="status_${c.id}">
+                    <option value="pending" ${c.status==='pending'?'selected':''}>Pending</option>
+                    <option value="approved" ${c.status==='approved'?'selected':''}>Approved</option>
+                    <option value="rejected" ${c.status==='rejected'?'selected':''}>Rejected</option>
+                    <option value="needs-revision" ${c.status==='needs-revision'?'selected':''}>Needs Revision</option>
+                </select>
+                <button class="btn-primary" onclick="saveReview('${c.id}')"><i class="fas fa-save"></i> Save</button>
+            </div>
+        `;
+        return div;
+    }
+
+    function escapeHtml(str) { return (str || '').replace(/[&<>\"]/g, s => ({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[s])); }
+
+    async function saveReview(id) {
+        const payload = {
+            pointsGiven: parseInt(document.getElementById(`pts_${id}`).value || '0', 10),
+            adminComments: document.getElementById(`cmt_${id}`).value,
+            status: document.getElementById(`status_${id}`).value,
+            reviewerId: adminId
+        };
+        const res = await fetch(`/api/LearningConversations/${id}`, {
+            method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload)
+        });
+        if (!res.ok) { const err = await res.json(); alert('Save failed: ' + (err.error || res.status)); return; }
+        alert('Saved.');
+    }
+
+    document.addEventListener('DOMContentLoaded', async () => {
+        const events = await loadEvents();
+        const filterEvent = document.getElementById('filterEvent');
+        filterEvent.innerHTML = `<option value="">All Events</option>` + events.map(e => `<option value="${e.eventName}">${e.eventName}</option>`).join('');
+        document.getElementById('refreshBtn').addEventListener('click', async () => { renderList(await loadConversations()); });
+        renderList(await loadConversations());
+    });
+</script>
+{% endblock %}
+
+

@@ -1388,7 +1388,7 @@
                 errorReasons.push('Admin access error');
             }
             
-            // 4. Check required fields
+            // 4. Check required fields (common to all members)
             const requiredFields = [
                 { id: 'firstName', name: 'First Name' },
                 { id: 'lastName', name: 'Last Name' },
@@ -1399,7 +1399,6 @@
                 { id: 'password', name: 'Password' },
                 { id: 'confirmPassword', name: 'Confirm Password' },
                 { id: 'bio', name: 'Bio' },
-                { id: 'hearAboutUs', name: 'How did you hear about us' },
                 { id: 'importantNotification', name: 'Important Notifications' },
                 { id: 'teamNotification', name: 'Team Notifications' },
                 { id: 'eventNotification', name: 'Event Notifications' }
@@ -1418,15 +1417,24 @@
             const returningMemberRadio = document.querySelector('input[name="memberStatus"][value="returning"]');
             
             if (newMemberRadio && newMemberRadio.checked) {
-                const interestReasonField = document.getElementById('interestReason');
-                if (interestReasonField && !interestReasonField.value.trim()) {
-                    hasErrors = true;
-                    errorReasons.push('Interest reason is required for new members');
-                }
+                // New member specific required fields
+                const newMemberFields = [
+                    { id: 'hearAboutUs', name: 'How did you hear about us' },
+                    { id: 'interestReason', name: 'Interest reason' }
+                ];
+                
+                newMemberFields.forEach(field => {
+                    const element = document.getElementById(field.id);
+                    if (element && !element.value.trim()) {
+                        hasErrors = true;
+                        errorReasons.push(`${field.name} is required for new members`);
+                    }
+                });
             }
             
             if (returningMemberRadio && returningMemberRadio.checked) {
-                const conditionalFields = [
+                // Returning member specific required fields
+                const returningMemberFields = [
                     { id: 'yearsOnTeam', name: 'Years on team' },
                     { id: 'pastExperience', name: 'Past experience' },
                     { id: 'returnReason', name: 'Return reason' },
@@ -1435,7 +1443,7 @@
                     { id: 'postseasonHrs', name: 'Post-season hours' }
                 ];
                 
-                conditionalFields.forEach(field => {
+                returningMemberFields.forEach(field => {
                     const element = document.getElementById(field.id);
                     if (element && !element.value.trim()) {
                         hasErrors = true;

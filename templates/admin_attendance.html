@@ -64,58 +64,70 @@
 
     <!-- Main Content Area -->
     <div class="content-container">
-        <!-- Event Selection Panel -->
+        <!-- Event and Meeting Selection Panel -->
         <div class="panel">
             <div class="panel-header">
-                <h2>Event Selection</h2>
+                <h2>Event & Meeting Selection</h2>
                 <div class="panel-actions">
-                    <button class="btn-outline" onclick="refreshEvents()">
+                    <button class="btn-outline" onclick="refreshData()">
                         <i class="fas fa-sync-alt"></i> Refresh
                     </button>
                 </div>
             </div>
             <div class="panel-body">
-                <div class="form-group">
-                    <label>Select Event:</label>
-                    <select id="attendanceEventSelect" onchange="loadEventAttendance()">
-                        <option value="">Choose an event...</option>
-                    </select>
-                </div>
-                <div id="eventDetails" class="event-details" style="display: none;">
-                    <div class="event-info">
-                        <h4 id="eventName"></h4>
-                        <p id="eventDescription"></p>
-                        <div class="event-meta">
-                            <span id="eventDate"></span> • 
-                            <span id="eventLocation"></span> • 
-                            <span id="eventCode"></span>
-                        </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Select Event:</label>
+                        <select id="eventSelect" onchange="loadEventMeetings()">
+                            <option value="">Choose an event...</option>
+                        </select>
                     </div>
-                    <div class="event-actions">
-                        <button class="btn-success" onclick="generateAttendanceCode()">
-                            <i class="fas fa-qrcode"></i> Generate Code
-                        </button>
-                        <button class="btn-info" onclick="exportAttendance()">
-                            <i class="fas fa-download"></i> Export
-                        </button>
+                    <div class="form-group">
+                        <label>Select Meeting (Optional):</label>
+                        <select id="meetingSelect" onchange="loadMeetingDetails()">
+                            <option value="">View all meetings for this event</option>
+                        </select>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Attendance Management Panel -->
-        <div class="panel">
+        <!-- Attendance Chart Panel -->
+        <div class="panel" id="attendanceChartPanel" style="display: none;">
             <div class="panel-header">
-                <h2>Member Attendance</h2>
+                <h2>Attendance Chart</h2>
                 <div class="panel-actions">
                     <div class="search-container">
                         <input type="text" id="memberSearch" placeholder="Search members..." onkeyup="filterMembers()">
                         <i class="fas fa-search"></i>
                     </div>
+                    <button class="btn-info" onclick="exportAttendanceChart()">
+                        <i class="fas fa-download"></i> Export
+                    </button>
                 </div>
             </div>
             <div class="panel-body">
-                <div id="attendanceTable" class="table-container">
+                <div id="attendanceChart" class="attendance-chart-container">
+                    <!-- Attendance chart will be populated here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Meeting Details Panel (shown when specific meeting is selected) -->
+        <div class="panel" id="meetingDetailsPanel" style="display: none;">
+            <div class="panel-header">
+                <h2>Meeting Details</h2>
+                <div class="panel-actions">
+                    <button class="btn-success" onclick="generateAttendanceCode()">
+                        <i class="fas fa-qrcode"></i> Generate Code
+                    </button>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div id="meetingDetails" class="meeting-details">
+                    <!-- Meeting details will be populated here -->
+                </div>
+                <div id="meetingAttendanceTable" class="table-container">
                     <table class="modern-table">
                         <thead>
                             <tr>
@@ -127,15 +139,8 @@
                                 <th>Actions</th>
                             </tr>
                         </thead>
-                        <tbody id="attendanceTableBody">
-                            <tr>
-                                <td colspan="6" class="empty-state">
-                                    <div class="empty-content">
-                                        <i class="fas fa-calendar-alt"></i>
-                                        <p>Select an event to view attendance</p>
-                                    </div>
-                                </td>
-                            </tr>
+                        <tbody id="meetingAttendanceTableBody">
+                            <!-- Meeting attendance table will be populated here -->
                         </tbody>
                     </table>
                 </div>
@@ -148,32 +153,18 @@
 <div id="createEventModal" class="modal">
     <div class="modal-content">
         <div class="modal-header">
-            <h3>Create New Attendance Event</h3>
+            <h3>Create New Meeting</h3>
             <button class="close-btn" onclick="closeModal('createEventModal')">
                 <i class="fas fa-times"></i>
             </button>
         </div>
         <div class="modal-body">
             <form id="createEventForm">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Event Name:</label>
-                        <input type="text" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Event Type:</label>
-                        <select name="eventType" required>
-                            <option value="meeting">Meeting</option>
-                            <option value="practice">Practice</option>
-                            <option value="competition">Competition</option>
-                            <option value="workshop">Workshop</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                </div>
                 <div class="form-group">
-                    <label>Description:</label>
-                    <textarea name="description" rows="3"></textarea>
+                    <label>Event Name:</label>
+                    <select name="eventName" required>
+                        <option value="">Select an event...</option>
+                    </select>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
@@ -181,21 +172,21 @@
                         <input type="date" name="date" required>
                     </div>
                     <div class="form-group">
-                        <label>Start Time:</label>
-                        <input type="time" name="startTime" required>
-                    </div>
-                    <div class="form-group">
-                        <label>End Time:</label>
-                        <input type="time" name="endTime">
+                        <label>Block:</label>
+                        <select name="block" required>
+                            <option value="">Select block...</option>
+                            <option value="1">Block 1</option>
+                            <option value="2">Block 2</option>
+                        </select>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label>Location:</label>
-                    <input type="text" name="location">
+                    <label>Room:</label>
+                    <input type="text" name="room" required>
                 </div>
                 <div class="form-actions">
                     <button type="button" class="btn-secondary" onclick="closeModal('createEventModal')">Cancel</button>
-                    <button type="submit" class="btn-primary">Create Event</button>
+                    <button type="submit" class="btn-primary">Create Meeting</button>
                 </div>
             </form>
         </div>
@@ -644,6 +635,111 @@
         margin-top: 2rem;
     }
 
+    /* Attendance Chart Styles */
+    .attendance-chart-container {
+        overflow-x: auto;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .attendance-chart {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 600px;
+    }
+
+    .attendance-chart th {
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        padding: 0.75rem;
+        text-align: center;
+        font-weight: 600;
+        color: #374151;
+        border: 1px solid #e2e8f0;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+
+    .attendance-chart th:first-child {
+        position: sticky;
+        left: 0;
+        z-index: 20;
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        min-width: 200px;
+    }
+
+    .attendance-chart td {
+        padding: 0.5rem;
+        border: 1px solid #e2e8f0;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .attendance-chart td:first-child {
+        position: sticky;
+        left: 0;
+        background: white;
+        z-index: 15;
+        text-align: left;
+        font-weight: 500;
+        min-width: 200px;
+    }
+
+    .attendance-chart tr:hover td:first-child {
+        background: #f8fafc;
+    }
+
+    .attendance-cell {
+        cursor: pointer;
+        transition: all 0.2s ease;
+        border-radius: 4px;
+        min-width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+    }
+
+    .attendance-cell:hover {
+        transform: scale(1.1);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .attendance-present {
+        background: #dcfce7;
+        color: #166534;
+    }
+
+    .attendance-absent {
+        background: #fee2e2;
+        color: #991b1b;
+    }
+
+    .attendance-unknown {
+        background: #f3f4f6;
+        color: #6b7280;
+    }
+
+    .meeting-details {
+        background: #f8fafc;
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-bottom: 1.5rem;
+    }
+
+    .meeting-details h4 {
+        margin: 0 0 1rem 0;
+        color: #1e293b;
+        font-size: 1.25rem;
+    }
+
+    .meeting-details p {
+        margin: 0.5rem 0;
+        color: #64748b;
+    }
+
     @media (max-width: 768px) {
         .admin-nav {
             flex-direction: column;
@@ -687,8 +783,9 @@
     let currentMemberId = null;
     let allMembers = [];
     let allEvents = [];
-    let attendanceData = [];
+    let eventMeetings = []; // Meetings for the selected event
     let eventMembers = []; // Members assigned to the current event
+    let attendanceChartData = {}; // Store attendance data for the chart
 
     // Load initial data
     document.addEventListener('DOMContentLoaded', function() {
@@ -748,37 +845,26 @@
 
     async function loadEvents() {
         try {
-            const response = await fetch('/api/Meeting');
-            const meetingsData = await response.json();
+            const response = await fetch('/api/Events');
+            const eventsData = await response.json();
             
             // Flatten the data
-            const meetings = meetingsData.map(obj => {
+            allEvents = eventsData.map(obj => {
                 const id = Object.keys(obj)[0];
                 return { id, ...obj[id] };
             });
             
-            const select = document.getElementById('attendanceEventSelect');
-            select.innerHTML = '<option value="">Choose a meeting...</option>';
+            const select = document.getElementById('eventSelect');
+            select.innerHTML = '<option value="">Choose an event...</option>';
             
-            meetings.forEach(meeting => {
+            allEvents.forEach(event => {
                 const option = document.createElement('option');
-                option.value = meeting.id;
-                
-                // Handle different date formats safely
-                let date;
-                if (meeting.date && typeof meeting.date === 'object' && meeting.date.seconds) {
-                    date = new Date(meeting.date.seconds * 1000);
-                } else if (meeting.date) {
-                    date = new Date(meeting.date);
-                } else {
-                    date = new Date();
-                }
-                
-                option.textContent = `${meeting.eventName} - ${date.toLocaleDateString()}`;
+                option.value = event.id;
+                option.textContent = event.eventName;
                 select.appendChild(option);
             });
         } catch (error) {
-            console.error('Error loading meetings:', error);
+            console.error('Error loading events:', error);
         }
     }
 
@@ -797,116 +883,143 @@
         }
     }
 
-    async function loadAllEvents() {
-        try {
-            const response = await fetch('/api/Events');
-            const eventsData = await response.json();
-            
-            // Flatten the data
-            allEvents = eventsData.map(obj => {
-                const id = Object.keys(obj)[0];
-                return { id, ...obj[id] };
-            });
-        } catch (error) {
-            console.error('Error loading events:', error);
-        }
-    }
-
-    async function loadEventAttendance() {
-        const meetingId = document.getElementById('attendanceEventSelect').value;
-        if (!meetingId) {
-            hideEventDetails();
+    async function loadEventMeetings() {
+        const eventId = document.getElementById('eventSelect').value;
+        if (!eventId) {
+            document.getElementById('meetingSelect').innerHTML = '<option value="">View all meetings for this event</option>';
+            document.getElementById('meetingDetailsPanel').style.display = 'none';
+            document.getElementById('attendanceChartPanel').style.display = 'none';
             return;
         }
 
-        currentEventId = meetingId;
+        currentEventId = eventId;
         
         try {
-            // Get meeting details
-            const meetingResponse = await fetch(`/api/Meeting/${meetingId}`);
-            const meetingData = await meetingResponse.json();
+            // Get all meetings for this event
+            const response = await fetch('/api/Meeting');
+            const meetingsData = await response.json();
             
-            // Extract the actual meeting data from the response format {meetingId: meetingData}
+            // Flatten the data and filter by event
+            const allMeetings = meetingsData.map(obj => {
+                const id = Object.keys(obj)[0];
+                return { id, ...obj[id] };
+            });
+            
+            // Find the event to get its name
+            const event = allEvents.find(e => e.id === eventId);
+            if (!event) {
+                throw new Error('Event not found');
+            }
+            
+            // Filter meetings for this event
+            eventMeetings = allMeetings.filter(meeting => meeting.eventName === event.eventName);
+            
+            // Get members for this event
+            if (event.members) {
+                eventMembers = allMembers.filter(member => event.members.includes(member.id));
+            } else {
+                eventMembers = [];
+            }
+            
+            // Populate meeting dropdown
+            const select = document.getElementById('meetingSelect');
+            select.innerHTML = '<option value="">View all meetings for this event</option>';
+            
+            eventMeetings.forEach(meeting => {
+                const option = document.createElement('option');
+                option.value = meeting.id;
+                
+                // Handle different date formats safely
+                let date;
+                if (meeting.date && typeof meeting.date === 'object' && meeting.date.seconds) {
+                    date = new Date(meeting.date.seconds * 1000);
+                } else if (meeting.date) {
+                    date = new Date(meeting.date);
+                } else {
+                    date = new Date();
+                }
+                
+                option.textContent = `${date.toLocaleDateString()} - ${meeting.room || 'Room TBD'}`;
+                select.appendChild(option);
+            });
+            
+            // Show attendance chart
+            await loadAttendanceChart();
+            document.getElementById('attendanceChartPanel').style.display = 'block';
+            document.getElementById('meetingDetailsPanel').style.display = 'none';
+        } catch (error) {
+            console.error('Error loading meetings for event:', error);
+        }
+    }
+
+    async function loadMeetingDetails() {
+        const meetingId = document.getElementById('meetingSelect').value;
+        if (!meetingId) {
+            // Show attendance chart when no specific meeting is selected
+            document.getElementById('meetingDetailsPanel').style.display = 'none';
+            document.getElementById('attendanceChartPanel').style.display = 'block';
+            return;
+        }
+
+        currentEventId = document.getElementById('eventSelect').value; // Ensure eventId is set
+        currentMemberId = null; // Reset for manual check-in
+
+        try {
+            const response = await fetch(`/api/Meeting/${meetingId}`);
+            const meetingData = await response.json();
+            
             const meeting = meetingData[meetingId];
             if (!meeting) {
                 throw new Error('Meeting not found');
             }
             
-            console.log('Loaded meeting data:', meeting);
-            
             // Add the ID to the meeting object since it's not included in the response
             meeting.id = meetingId;
             
             // Get attendance data from meeting
-            attendanceData = meeting.attended || [];
+            const attendanceData = meeting.attended || [];
             
             // Find the corresponding event to get the members assigned to this event
-            const event = allEvents.find(e => e.eventName === meeting.eventName);
+            const event = allEvents.find(e => e.id === currentEventId);
             if (event && event.members) {
                 eventMembers = allMembers.filter(member => event.members.includes(member.id));
-                console.log(`Found ${eventMembers.length} members assigned to ${meeting.eventName}`);
+                console.log(`Found ${eventMembers.length} members assigned to ${event.eventName}`);
             } else {
                 eventMembers = []; // No members assigned to this event
-                console.log(`No members assigned to ${meeting.eventName}`);
+                console.log(`No members assigned to ${event.eventName}`);
             }
             
-            showEventDetails(meeting);
-            populateAttendanceTable();
+            showMeetingDetails(meeting);
+            populateMeetingAttendanceTable(attendanceData);
+            document.getElementById('meetingDetailsPanel').style.display = 'block';
+            document.getElementById('attendanceChartPanel').style.display = 'none';
         } catch (error) {
-            console.error('Error loading meeting attendance:', error);
+            console.error('Error loading meeting details:', error);
         }
     }
 
-    function showEventDetails(meeting) {
-        document.getElementById('eventName').textContent = meeting.eventName || 'Unknown Meeting';
-        document.getElementById('eventDescription').textContent = `Meeting for ${meeting.eventName || 'Unknown Event'} (${eventMembers.length} members assigned)`;
-        
+    function showMeetingDetails(meeting) {
         // Handle different date formats safely
         let date;
         if (meeting.date && typeof meeting.date === 'object' && meeting.date.seconds) {
-            // Firebase timestamp format
             date = new Date(meeting.date.seconds * 1000);
         } else if (meeting.date) {
-            // Regular date string or Date object
             date = new Date(meeting.date);
         } else {
-            // Fallback to current date
             date = new Date();
         }
         
-        document.getElementById('eventDate').textContent = date.toLocaleDateString();
-        document.getElementById('eventLocation').textContent = `Room ${meeting.room || 'TBD'}`;
-        
-        // Generate code only if we have a valid meeting ID
-        if (meeting.id) {
-            document.getElementById('eventCode').textContent = `Code: ${generateEventCode(meeting.id, date)}`;
-        } else {
-            document.getElementById('eventCode').textContent = 'Code: Not available';
-        }
-        
-        document.getElementById('eventDetails').style.display = 'block';
-    }
-
-    function hideEventDetails() {
-        document.getElementById('eventDetails').style.display = 'none';
-        currentEventId = null;
-        
-        // Clear attendance table
-        const tbody = document.getElementById('attendanceTableBody');
-        tbody.innerHTML = `
-            <tr>
-                <td colspan="6" class="empty-state">
-                    <div class="empty-content">
-                        <i class="fas fa-calendar-alt"></i>
-                        <p>Select an event to view attendance</p>
-                    </div>
-                </td>
-            </tr>
+        document.getElementById('meetingDetails').innerHTML = `
+            <h4>Meeting: ${meeting.eventName || 'Unknown Meeting'}</h4>
+            <p><strong>Date:</strong> ${date.toLocaleDateString()}</p>
+            <p><strong>Location:</strong> Room ${meeting.room || 'TBD'}</p>
+            <p><strong>Block:</strong> ${meeting.block || 'N/A'}</p>
+            <p><strong>Attendance Code:</strong> ${generateEventCode(meeting.id, date)}</p>
         `;
     }
 
-    function populateAttendanceTable() {
-        const tbody = document.getElementById('attendanceTableBody');
+    function populateMeetingAttendanceTable(attendanceData) {
+        const tbody = document.getElementById('meetingAttendanceTableBody');
         tbody.innerHTML = '';
         
         if (eventMembers.length === 0) {
@@ -961,7 +1074,7 @@
 
     function filterMembers() {
         const searchTerm = document.getElementById('memberSearch').value.toLowerCase();
-        const rows = document.querySelectorAll('#attendanceTableBody tr');
+        const rows = document.querySelectorAll('#meetingAttendanceTableBody tr');
         
         rows.forEach(row => {
             const text = row.textContent.toLowerCase();
@@ -976,15 +1089,21 @@
     }
 
     async function confirmManualCheckin() {
-        if (!currentMemberId || !currentEventId) return;
+        if (!currentMemberId) return;
+        
+        const meetingId = document.getElementById('meetingSelect').value;
+        if (!meetingId) {
+            alert('No meeting selected');
+            return;
+        }
         
         try {
             // Get current meeting
-            const meetingResponse = await fetch(`/api/Meeting/${currentEventId}`);
+            const meetingResponse = await fetch(`/api/Meeting/${meetingId}`);
             const meetingData = await meetingResponse.json();
             
             // Extract the actual meeting data from the response format {meetingId: meetingData}
-            const meeting = meetingData[currentEventId];
+            const meeting = meetingData[meetingId];
             if (!meeting) {
                 throw new Error('Meeting not found');
             }
@@ -1008,7 +1127,7 @@
             
             console.log('Updating meeting with data:', updateData);
             
-            const response = await fetch(`/api/Meeting/${currentEventId}`, {
+            const response = await fetch(`/api/Meeting/${meetingId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -1019,7 +1138,14 @@
             if (response.ok) {
                 console.log('Successfully updated meeting');
                 closeModal('manualCheckinModal');
-                loadEventAttendance(); // Refresh the table
+                
+                // Update the meeting in our local data
+                const updatedMeeting = eventMeetings.find(m => m.id === meetingId);
+                if (updatedMeeting) {
+                    updatedMeeting.attended = updatedAttended;
+                }
+                
+                loadMeetingDetails(); // Refresh the table
             } else {
                 const errorText = await response.text();
                 console.error('Error response:', errorText);
@@ -1034,13 +1160,19 @@
     async function removeAttendance(memberId) {
         if (!confirm('Are you sure you want to remove this attendance record?')) return;
         
+        const meetingId = document.getElementById('meetingSelect').value;
+        if (!meetingId) {
+            alert('No meeting selected');
+            return;
+        }
+        
         try {
             // Get current meeting
-            const meetingResponse = await fetch(`/api/Meeting/${currentEventId}`);
+            const meetingResponse = await fetch(`/api/Meeting/${meetingId}`);
             const meetingData = await meetingResponse.json();
             
             // Extract the actual meeting data from the response format {meetingId: meetingData}
-            const meeting = meetingData[currentEventId];
+            const meeting = meetingData[meetingId];
             if (!meeting) {
                 throw new Error('Meeting not found');
             }
@@ -1059,7 +1191,7 @@
             if (meeting.block !== undefined) updateData.block = meeting.block;
             if (meeting.room !== undefined) updateData.room = meeting.room;
             
-            const response = await fetch(`/api/Meeting/${currentEventId}`, {
+            const response = await fetch(`/api/Meeting/${meetingId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -1068,7 +1200,13 @@
             });
             
             if (response.ok) {
-                loadEventAttendance(); // Refresh the table
+                // Update the meeting in our local data
+                const updatedMeeting = eventMeetings.find(m => m.id === meetingId);
+                if (updatedMeeting) {
+                    updatedMeeting.attended = updatedAttended;
+                }
+                
+                loadMeetingDetails(); // Refresh the table
             } else {
                 alert('Error removing attendance');
             }
@@ -1079,21 +1217,47 @@
     }
 
     function createAttendanceEvent() {
+        // Populate event dropdown before showing modal
+        populateEventDropdown();
         document.getElementById('createEventModal').style.display = 'block';
     }
 
+    function populateEventDropdown() {
+        const eventSelect = document.querySelector('#createEventModal select[name="eventName"]');
+        if (!eventSelect) return;
+        
+        // Clear existing options except the first one
+        eventSelect.innerHTML = '<option value="">Select an event...</option>';
+        
+        // Add options from allEvents
+        if (allEvents && allEvents.length > 0) {
+            allEvents.forEach(event => {
+                const option = document.createElement('option');
+                option.value = event.eventName;
+                option.textContent = event.eventName;
+                eventSelect.appendChild(option);
+            });
+        }
+    }
+
     function generateAttendanceCode() {
-        if (!currentEventId) return;
+        const meetingId = document.getElementById('meetingSelect').value;
+        if (!meetingId) {
+            alert('Please select a meeting first');
+            return;
+        }
         
         // Get current meeting to generate code for today
-        fetch(`/api/Meeting/${currentEventId}`)
+        fetch(`/api/Meeting/${meetingId}`)
             .then(response => response.json())
-            .then(meeting => {
+            .then(meetingData => {
+                const meeting = meetingData[meetingId];
+                if (!meeting) {
+                    throw new Error('Meeting not found');
+                }
+                
                 const today = new Date();
-                // Add the ID to the meeting object
-                meeting.id = currentEventId;
-                const code = generateEventCode(meeting.id, today);
-                document.getElementById('eventCode').textContent = `Code: ${code}`;
+                const code = generateEventCode(meetingId, today);
                 alert(`Today's attendance code: ${code}`);
             })
             .catch(error => {
@@ -1141,35 +1305,239 @@
     }
 
     function exportAttendance() {
-        if (!currentEventId) return;
+        const meetingId = document.getElementById('meetingSelect').value;
+        if (!meetingId) {
+            alert('Please select a meeting first');
+            return;
+        }
         
-        // Create CSV content
-        const csvContent = [
-            ['Name', 'Email', 'Grade', 'Status', 'Check-in Time'],
-            ...allMembers.map(member => {
-                const attended = attendanceData.includes(member.id);
-                return [
-                    `${member.firstName} ${member.lastName}`,
-                    member.doeEmail,
-                    member.grade,
-                    attended ? 'Present' : 'Absent',
-                    attended ? 'Attended' : ''
-                ];
+        // Get current meeting data
+        fetch(`/api/Meeting/${meetingId}`)
+            .then(response => response.json())
+            .then(meetingData => {
+                const meeting = meetingData[meetingId];
+                if (!meeting) {
+                    throw new Error('Meeting not found');
+                }
+                
+                const attendanceData = meeting.attended || [];
+                
+                // Create CSV content
+                const csvContent = [
+                    ['Name', 'Email', 'Grade', 'Status', 'Check-in Time'],
+                    ...eventMembers.map(member => {
+                        const attended = attendanceData.includes(member.id);
+                        return [
+                            `${member.firstName} ${member.lastName}`,
+                            member.doeEmail,
+                            member.grade,
+                            attended ? 'Present' : 'Absent',
+                            attended ? 'Attended' : ''
+                        ];
+                    })
+                ].map(row => row.join(',')).join('\n');
+                
+                // Download CSV
+                const blob = new Blob([csvContent], { type: 'text/csv' });
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `attendance-${new Date().toISOString().split('T')[0]}.csv`;
+                a.click();
+                window.URL.revokeObjectURL(url);
             })
-        ].map(row => row.join(',')).join('\n');
+            .catch(error => {
+                console.error('Error exporting attendance:', error);
+                alert('Error exporting attendance');
+            });
+    }
+
+    function refreshData() {
+        loadEvents();
+        loadMembers();
+        loadStats();
+    }
+
+    async function loadAttendanceChart() {
+        if (!currentEventId || eventMeetings.length === 0 || eventMembers.length === 0) {
+            document.getElementById('attendanceChart').innerHTML = `
+                <div class="empty-state">
+                    <div class="empty-content">
+                        <i class="fas fa-chart-bar"></i>
+                        <p>No meetings or members found for this event</p>
+                    </div>
+                </div>
+            `;
+            return;
+        }
+
+        try {
+            // Build attendance chart HTML
+            const chartContainer = document.getElementById('attendanceChart');
+            let chartHTML = '<table class="attendance-chart"><thead><tr><th>Member</th>';
+            
+            // Add meeting headers
+            eventMeetings.forEach(meeting => {
+                let date;
+                if (meeting.date && typeof meeting.date === 'object' && meeting.date.seconds) {
+                    date = new Date(meeting.date.seconds * 1000);
+                } else if (meeting.date) {
+                    date = new Date(meeting.date);
+                } else {
+                    date = new Date();
+                }
+                chartHTML += `<th>${date.toLocaleDateString()}</th>`;
+            });
+            
+            chartHTML += '</tr></thead><tbody>';
+            
+            // Add member rows
+            eventMembers.forEach(member => {
+                chartHTML += `<tr><td>${member.firstName} ${member.lastName}</td>`;
+                
+                // Add attendance cells for each meeting
+                eventMeetings.forEach(meeting => {
+                    const isPresent = meeting.attended && meeting.attended.includes(member.id);
+                    const cellClass = isPresent ? 'attendance-present' : 'attendance-absent';
+                    const icon = isPresent ? '✓' : '✗';
+                    
+                    chartHTML += `
+                        <td>
+                            <div class="attendance-cell ${cellClass}" 
+                                 onclick="toggleAttendance('${member.id}', '${meeting.id}', ${isPresent})"
+                                 title="Click to toggle attendance">
+                                ${icon}
+                            </div>
+                        </td>
+                    `;
+                });
+                
+                chartHTML += '</tr>';
+            });
+            
+            chartHTML += '</tbody></table>';
+            chartContainer.innerHTML = chartHTML;
+            
+        } catch (error) {
+            console.error('Error loading attendance chart:', error);
+        }
+    }
+
+    async function toggleAttendance(memberId, meetingId, currentStatus) {
+        const action = currentStatus ? 'mark as absent' : 'mark as present';
+        const member = eventMembers.find(m => m.id === memberId);
+        const meeting = eventMeetings.find(m => m.id === meetingId);
+        
+        if (!confirm(`Are you sure you want to ${action} for ${member.firstName} ${member.lastName}?`)) {
+            return;
+        }
+
+        try {
+            // Get current meeting data
+            const meetingResponse = await fetch(`/api/Meeting/${meetingId}`);
+            const meetingData = await meetingResponse.json();
+            const meetingToUpdate = meetingData[meetingId];
+            
+            if (!meetingToUpdate) {
+                throw new Error('Meeting not found');
+            }
+
+            // Update attendance
+            let updatedAttended = meetingToUpdate.attended || [];
+            if (currentStatus) {
+                // Remove from attendance
+                updatedAttended = updatedAttended.filter(id => id !== memberId);
+            } else {
+                // Add to attendance
+                if (!updatedAttended.includes(memberId)) {
+                    updatedAttended.push(memberId);
+                }
+            }
+
+            // Update meeting
+            const updateData = {
+                attended: updatedAttended
+            };
+            
+            // Only add other fields if they exist and are not undefined
+            if (meetingToUpdate.date !== undefined) updateData.date = meetingToUpdate.date;
+            if (meetingToUpdate.eventName !== undefined) updateData.eventName = meetingToUpdate.eventName;
+            if (meetingToUpdate.block !== undefined) updateData.block = meetingToUpdate.block;
+            if (meetingToUpdate.room !== undefined) updateData.room = meetingToUpdate.room;
+
+            const response = await fetch(`/api/Meeting/${meetingId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(updateData)
+            });
+
+            if (response.ok) {
+                // Update the meeting in our local data
+                const updatedMeeting = eventMeetings.find(m => m.id === meetingId);
+                if (updatedMeeting) {
+                    updatedMeeting.attended = updatedAttended;
+                }
+                
+                // Refresh the chart
+                await loadAttendanceChart();
+            } else {
+                alert('Error updating attendance');
+            }
+        } catch (error) {
+            console.error('Error toggling attendance:', error);
+            alert('Error updating attendance');
+        }
+    }
+
+    function exportAttendanceChart() {
+        if (!currentEventId || eventMeetings.length === 0 || eventMembers.length === 0) {
+            alert('No data to export');
+            return;
+        }
+
+        // Create CSV content
+        const headers = ['Name', 'Email', 'Grade'];
+        eventMeetings.forEach(meeting => {
+            let date;
+            if (meeting.date && typeof meeting.date === 'object' && meeting.date.seconds) {
+                date = new Date(meeting.date.seconds * 1000);
+            } else if (meeting.date) {
+                date = new Date(meeting.date);
+            } else {
+                date = new Date();
+            }
+            headers.push(date.toLocaleDateString());
+        });
+
+        const csvRows = [headers];
+
+        eventMembers.forEach(member => {
+            const row = [
+                `${member.firstName} ${member.lastName}`,
+                member.doeEmail,
+                member.grade
+            ];
+
+            eventMeetings.forEach(meeting => {
+                const isPresent = meeting.attended && meeting.attended.includes(member.id);
+                row.push(isPresent ? 'Present' : 'Absent');
+            });
+
+            csvRows.push(row);
+        });
+
+        const csvContent = csvRows.map(row => row.join(',')).join('\n');
         
         // Download CSV
         const blob = new Blob([csvContent], { type: 'text/csv' });
         const url = window.URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = `attendance-${new Date().toISOString().split('T')[0]}.csv`;
+        a.download = `attendance-chart-${new Date().toISOString().split('T')[0]}.csv`;
         a.click();
         window.URL.revokeObjectURL(url);
-    }
-
-    function refreshEvents() {
-        loadEvents();
     }
 
     function closeModal(modalId) {
@@ -1189,36 +1557,34 @@
         e.preventDefault();
         
         const formData = new FormData(this);
-        const eventData = {
-            name: formData.get('name'),
-            description: formData.get('description'),
-            eventType: formData.get('eventType'),
-            date: formData.get('date'),
-            startTime: formData.get('startTime'),
-            endTime: formData.get('endTime'),
-            location: formData.get('location'),
-            isActive: true
+        const meetingData = {
+            eventName: formData.get('eventName'),
+            date: new Date(formData.get('date')).toISOString(),
+            block: parseInt(formData.get('block')),
+            room: formData.get('room'),
+            attended: []
         };
         
         try {
-            const response = await fetch('/api/admin/attendance-events', {
+            const response = await fetch('/api/Meeting', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(eventData)
+                body: JSON.stringify(meetingData)
             });
             
             if (response.ok) {
                 closeModal('createEventModal');
                 loadEvents();
                 this.reset();
+                alert('Meeting created successfully!');
             } else {
-                alert('Error creating event');
+                alert('Error creating meeting');
             }
         } catch (error) {
-            console.error('Error creating event:', error);
-            alert('Error creating event');
+            console.error('Error creating meeting:', error);
+            alert('Error creating meeting');
         }
     });
 

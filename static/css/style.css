@@ -272,6 +272,7 @@ nav ul li a.active {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     position: relative;
     z-index: 1;
+    pointer-events: auto;
 }
 
 .tab-link {
@@ -428,6 +429,7 @@ nav ul li a.active {
     height: 100%;
     background: var(--gradient-bg);
     transition: all 0.3s ease;
+    pointer-events: none;
 }
 
 .card:hover:before {

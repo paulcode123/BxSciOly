@@ -1048,6 +1048,145 @@ def get_event_leaderboard(event_name):
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+# ---------------- Learning Conversations ----------------
+
+@firebase_routes.route('/api/LearningConversations', methods=['POST'])
+def create_learning_conversation():
+    """Create a new learning conversation submission"""
+    try:
+        data = request.get_json()
+        if not data:
+            return jsonify({"error": "No data provided"}), 400
+
+        required_fields = ['userId', 'eventName', 'moduleIds', 'shareUrl', 'transcript']
+        for field in required_fields:
+            if field not in data:
+                return jsonify({"error": f"Missing required field: {field}"}), 400
+
+        conversation_data = {
+            'userId': data['userId'],
+            'eventName': data['eventName'],
+            'moduleIds': data.get('moduleIds', []),
+            'title': data.get('title', ''),
+            'shareUrl': data['shareUrl'],
+            'transcript': data['transcript'],
+            'tokenCount': data.get('tokenCount', 0),
+            'totalPoints': data.get('totalPoints', 0),
+            'pointsGiven': 0,
+            'status': 'pending',
+            'adminComments': '',
+            'reviewerId': None,
+            'createdAt': firestore.SERVER_TIMESTAMP,
+            'reviewedAt': None
+        }
+
+        doc_ref = db.collection('LearningConversations').document()
+        doc_ref.set(conversation_data)
+
+        return jsonify({
+            'id': doc_ref.id,
+            'message': 'Conversation submitted successfully'
+        }), 201
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/LearningConversations/user/<user_id>', methods=['GET'])
+def get_user_learning_conversations(user_id):
+    """Get conversations for a specific user; optional eventName filter via query param"""
+    try:
+        event_name = request.args.get('eventName')
+        query = db.collection('LearningConversations').where('userId', '==', user_id)
+        if event_name:
+            query = query.where('eventName', '==', event_name)
+        docs = query.stream()
+        items = []
+        for doc in docs:
+            data = doc.to_dict()
+            data['id'] = doc.id
+            items.append(data)
+        # Sort newest first by createdAt if present
+        def get_ts(d):
+            ts = d.get('createdAt')
+            try:
+                return ts.timestamp() if hasattr(ts, 'timestamp') else 0
+            except Exception:
+                return 0
+        items.sort(key=get_ts, reverse=True)
+        return jsonify(items), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/LearningConversations/user/<user_id>/event/<event_name>', methods=['GET'])
+def get_user_learning_conversations_for_event(user_id, event_name):
+    """Get conversations for a user filtered by event"""
+    try:
+        docs = db.collection('LearningConversations')\
+            .where('userId', '==', user_id)\
+            .where('eventName', '==', event_name).stream()
+        items = []
+        for doc in docs:
+            data = doc.to_dict()
+            data['id'] = doc.id
+            items.append(data)
+        return jsonify(items), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/LearningConversations/<conversation_id>', methods=['PATCH', 'PUT'])
+def update_learning_conversation(conversation_id):
+    """Update a learning conversation (user can edit before review; admin can review)"""
+    try:
+        data = request.get_json()
+        if not data:
+            return jsonify({"error": "No data provided"}), 400
+
+        conv_ref = db.collection('LearningConversations').document(conversation_id)
+        conv_doc = conv_ref.get()
+        if not conv_doc.exists:
+            return jsonify({"error": "Conversation not found"}), 404
+
+        if request.method == 'PATCH':
+            # If admin review fields present, set reviewedAt and reviewerId when status or pointsGiven change
+            updates = dict(data)
+            if any(k in updates for k in ['status', 'pointsGiven', 'adminComments', 'reviewerId']):
+                updates['reviewedAt'] = firestore.SERVER_TIMESTAMP
+            conv_ref.update(updates)
+            message = 'Conversation updated successfully'
+        else:
+            conv_ref.set(data)
+            message = 'Conversation replaced successfully'
+        return jsonify({"message": message}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/admin/learning-conversations', methods=['GET'])
+def admin_get_learning_conversations():
+    """Admin: list learning conversations with optional filters. Requires X-Admin-ID header."""
+    try:
+        admin_id = request.headers.get('X-Admin-ID')
+        if not admin_id:
+            return jsonify({"error": "Admin authentication required"}), 401
+
+        # Optional filters
+        event_name = request.args.get('eventName')
+        status = request.args.get('status')
+
+        query = db.collection('LearningConversations')
+        if event_name:
+            query = query.where('eventName', '==', event_name)
+        if status:
+            query = query.where('status', '==', status)
+
+        docs = query.stream()
+        items = []
+        for doc in docs:
+            data = doc.to_dict()
+            data['id'] = doc.id
+            items.append(data)
+        return jsonify(items), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 @firebase_routes.route('/api/ai/conversation', methods=['POST'])
 def ai_conversation():
     """Handle AI conversation for module validation"""

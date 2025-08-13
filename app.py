@@ -153,6 +153,10 @@ def user_competitions():
 def user_settings():
     return render_template('user/settings.html')
 
+@app.route('/user/conversations')
+def user_conversations():
+    return render_template('user/conversations.html')
+
 @app.route('/user/competition/apply')
 def competition_apply():
     return render_template('user/competition_apply.html')
@@ -208,6 +212,10 @@ def admin_members():
 @app.route('/admin/analytics')
 def admin_analytics():
     return render_template('admin_analytics.html')
+
+@app.route('/admin/learning-conversations')
+def admin_learning_conversations():
+    return render_template('admin_learning_conversations.html')
 
 @app.route('/admin/competitions')
 def admin_competitions():

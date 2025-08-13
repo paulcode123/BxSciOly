@@ -37,9 +37,6 @@
                     <h2 id="eventTitle">Event Name</h2>
                     <p id="eventDescription">Event description and information</p>
                             </div>
-                <button id="openLearningPath" class="learning-path-btn">
-                    <i class="fas fa-graduation-cap"></i> Continue Learning
-                </button>
                         </div>
             
             <!-- Event Tabs -->
@@ -864,16 +861,19 @@
     }
     
     .duo-module-card.locked {
-        opacity: 0.6;
-        cursor: not-allowed;
+        opacity: 0.8;
+        cursor: pointer;
         background: #f8f9fa;
-        filter: grayscale(1);
+        filter: grayscale(0.3);
+        border: 2px dashed #d1d5db;
     }
     
     .duo-module-card.locked:hover {
-        transform: none;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        border-color: transparent;
+        transform: translateY(-4px) scale(1.02);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        border-color: #9ca3af;
+        opacity: 0.9;
+        filter: grayscale(0.1);
     }
     
     .duo-module-icon {
@@ -917,14 +917,16 @@
     
     .lock-icon {
         position: absolute;
-        top: -15px;
-        right: -15px;
-        font-size: 1.2rem;
+        top: -10px;
+        right: -10px;
+        font-size: 1rem;
         z-index: 10;
-        background: white;
+        background: rgba(255, 255, 255, 0.9);
         border-radius: 50%;
-        padding: 3px;
+        padding: 4px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        color: #6b7280;
+        border: 1px solid #d1d5db;
     }
     
     .duo-module-title {
@@ -1325,6 +1327,52 @@
         background: linear-gradient(135deg, #fef3c7, #fde68a);
         border: 2px solid #f59e0b;
         color: #92400e;
+    }
+    
+    /* Module Locked Notice Styles */
+    .module-locked-notice {
+        text-align: center;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        background: linear-gradient(135deg, #fef2f2, #fee2e2);
+        border: 2px solid #fecaca;
+        color: #991b1b;
+    }
+    
+    .module-locked-notice i {
+        font-size: 2rem;
+        margin-bottom: 10px;
+        color: #dc2626;
+    }
+    
+    .module-locked-notice p {
+        margin-bottom: 15px;
+        font-weight: 500;
+    }
+    
+    .prerequisites-list {
+        text-align: left;
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        border: 1px solid #fecaca;
+    }
+    
+    .prerequisites-list strong {
+        color: #991b1b;
+        display: block;
+        margin-bottom: 8px;
+    }
+    
+    .prerequisites-list ul {
+        margin: 0;
+        padding-left: 20px;
+    }
+    
+    .prerequisites-list li {
+        margin-bottom: 5px;
+        color: #374151;
     }
     
     /* Roster Styles */
@@ -2434,6 +2482,7 @@
         // Global modules variable
         let modules = [];
         let userProgress = {}; // Store user progress separately
+        let userConversations = []; // Learning conversations for current event
         
         // Load event modules
         async function loadEventModules() {
@@ -2514,6 +2563,22 @@
                         totalModules.textContent = totalCount;
                         modulesProgressBar.style.width = progressPercentage + '%';
                 
+                        // Load user's learning conversations for this event (for linking in sidebar)
+                        try {
+                            const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+                            if (currentUser) {
+                                const userId = currentUser.id || currentUser.uid || currentUser.userId;
+                                const convRes = await fetch(`/api/LearningConversations/user/${encodeURIComponent(userId)}/event/${encodeURIComponent(currentEventData.name)}`);
+                                if (convRes.ok) {
+                                    userConversations = await convRes.json();
+                                } else {
+                                    userConversations = [];
+                                }
+                            }
+                        } catch (e) {
+                            userConversations = [];
+                        }
+
                         // Render modules in Duolingo style
                         renderDuolingoModules();
                     } else {
@@ -2620,16 +2685,12 @@
                 <div class="duo-connector"></div>
             `;
             
-            // Add click handler
+            // Add click handler - allow viewing all modules, but only allow submission for unlocked ones
             const moduleCard = moduleItem.querySelector('.duo-module-card');
-            if (!isLocked) {
-                moduleCard.addEventListener('click', () => {
-                    showModuleSidePanel(module);
-                });
-                moduleCard.style.cursor = 'pointer';
-            } else {
-                moduleCard.style.cursor = 'not-allowed';
-            }
+            moduleCard.addEventListener('click', () => {
+                showModuleSidePanel(module, isLocked);
+            });
+            moduleCard.style.cursor = 'pointer';
             
             return moduleItem;
         }
@@ -2684,10 +2745,8 @@
         }
         
         function checkModuleLocked(module, index) {
-            if (index === 0) return false; // First module is never locked
-            
             // Safety check
-            if (!module || !modules || modules.length === 0) return true;
+            if (!module || !modules || modules.length === 0) return false;
             
             // Check if prerequisites are met
             if (module.prerequisites && module.prerequisites.length > 0) {
@@ -2753,19 +2812,20 @@
         }
         
         // Show module side panel
-        function showModuleSidePanel(module) {
+        function showModuleSidePanel(module, isLocked = false) {
             const sidePanel = document.getElementById('moduleSidePanel');
             const sidePanelTitle = document.getElementById('sidePanelTitle');
             const sidePanelContent = document.getElementById('sidePanelContent');
             
             // Debug log
-            console.log('Showing module side panel for:', module);
+            console.log('Showing module side panel for:', module, 'Locked:', isLocked);
             
             // Set title
             sidePanelTitle.textContent = module.title;
             
             // Generate content based on module type and content
             let contentHTML = '';
+            const relatedHtml = generateRelatedConversationsHtml(module.id);
             
             if (module.content) {
                 // Module has detailed content
@@ -2809,6 +2869,8 @@
                         ` : '<p>No resources available for this module.</p>'}
                     </div>
                     
+                    ${relatedHtml}
+
                     ${module.rawData && module.rawData.problems && module.rawData.problems.length > 0 ? `
                         <div class="module-content-section">
                             <h5><i class="fas fa-question-circle"></i> Practice Problems</h5>
@@ -2835,14 +2897,27 @@
                             `<button class="module-action-btn secondary" onclick="unsubmitModule('${module.id}')">
                                 <i class="fas fa-undo"></i> Unsubmit
                             </button>` :
+                            isLocked ? 
+                            `<div class="module-locked-notice">
+                                <i class="fas fa-lock"></i>
+                                <p>This module is locked. Complete the prerequisites to unlock it.</p>
+                                ${module.prerequisites && module.prerequisites.length > 0 ? `
+                                    <div class="prerequisites-list">
+                                        <strong>Prerequisites:</strong>
+                                        <ul>
+                                            ${module.prerequisites.map(prereqId => {
+                                                const prereqModule = modules.find(m => m.id === prereqId);
+                                                return `<li>${prereqModule ? prereqModule.title : 'Unknown Module'} ${prereqModule && prereqModule.completed ? '✅' : '❌'}</li>`;
+                                            }).join('')}
+                                        </ul>
+                                    </div>
+                                ` : ''}
+                            </div>` :
                             `<button class="module-action-btn primary" onclick="completeModule('${module.id}')">
                                 <i class="fas fa-check"></i> ${module.rawData.validationType === 'none' ? 'Mark as Complete' : 
                                    module.rawData.validationType === 'notesUpload' ? 'Upload Notes' :
                                    module.rawData.validationType === 'problems' ? 'Answer Questions' :
                                    module.rawData.validationType === 'AIconversation' ? 'Proceed to Conversation' : 'Mark as Complete'}
-                            </button>
-                            <button class="module-action-btn secondary" onclick="startModule('${module.id}')">
-                                <i class="fas fa-play"></i> Start Module
                             </button>`
                         }
                     </div>
@@ -2921,19 +2996,34 @@
                         </div>
                     ` : ''}
                     
+                    ${generateRelatedConversationsHtml(module.id)}
+
                     <div class="module-actions">
                         ${module.completed ? 
                             `<button class="module-action-btn secondary" onclick="unsubmitModule('${module.id}')">
                                 <i class="fas fa-undo"></i> Unsubmit
                             </button>` :
+                            isLocked ? 
+                            `<div class="module-locked-notice">
+                                <i class="fas fa-lock"></i>
+                                <p>This module is locked. Complete the prerequisites to unlock it.</p>
+                                ${module.prerequisites && module.prerequisites.length > 0 ? `
+                                    <div class="prerequisites-list">
+                                        <strong>Prerequisites:</strong>
+                                        <ul>
+                                            ${module.prerequisites.map(prereqId => {
+                                                const prereqModule = modules.find(m => m.id === prereqId);
+                                                return `<li>${prereqModule ? prereqModule.title : 'Unknown Module'} ${prereqModule && prereqModule.completed ? '✅' : '❌'}</li>`;
+                                            }).join('')}
+                                        </ul>
+                                    </div>
+                                ` : ''}
+                            </div>` :
                             `<button class="module-action-btn primary" onclick="completeModule('${module.id}')">
                                 <i class="fas fa-check"></i> ${module.rawData.validationType === 'none' ? 'Mark as Complete' : 
                                    module.rawData.validationType === 'notesUpload' ? 'Upload Notes' :
                                    module.rawData.validationType === 'problems' ? 'Answer Questions' :
                                    module.rawData.validationType === 'AIconversation' ? 'Proceed to Conversation' : 'Mark as Complete'}
-                            </button>
-                            <button class="module-action-btn secondary" onclick="startModule('${module.id}')">
-                                <i class="fas fa-play"></i> Start Module
                             </button>`
                         }
                     </div>
@@ -2942,6 +3032,36 @@
             
             sidePanelContent.innerHTML = contentHTML;
             sidePanel.classList.add('active');
+        }
+
+        function generateRelatedConversationsHtml(moduleId) {
+            try {
+                if (!userConversations || userConversations.length === 0) {
+                    return '';
+                }
+                const related = userConversations.filter(c => Array.isArray(c.moduleIds) && c.moduleIds.includes(moduleId));
+                if (related.length === 0) return '';
+                const items = related.map(c => `
+                    <li>
+                        <a href="${c.shareUrl}" target="_blank" class="module-link" style="display:inline-flex; align-items:center; gap:8px;">
+                            <i class="fas fa-robot"></i>
+                            <span>${c.title || 'Learning Conversation'}</span>
+                            <span class="status-pill ${c.status === 'approved' ? 'status-approved' : c.status === 'rejected' ? 'status-rejected' : c.status === 'needs-revision' ? 'status-needs-revision' : 'status-pending'}" style="margin-left:8px;">${c.status}</span>
+                        </a>
+                    </li>
+                `).join('');
+                return `
+                    <div class="module-content-section">
+                        <h5><i class="fas fa-robot"></i> Your Related Conversations</h5>
+                        <ul>${items}</ul>
+                        <div style="margin-top:8px;">
+                            <a class="btn-primary" style="padding:6px 10px;" href="/user/conversations"><i class="fas fa-plus"></i> Add a Conversation</a>
+                        </div>
+                    </div>
+                `;
+            } catch (e) {
+                return '';
+            }
         }
         
         // Module action functions
@@ -2952,6 +3072,15 @@
             const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
             if (!currentUser) {
                 alert('Please log in to complete modules');
+                return;
+            }
+            
+            // Check if module is locked
+            const moduleIndex = modules.findIndex(m => m.id === moduleId);
+            const isLocked = checkModuleLocked(module, moduleIndex);
+            
+            if (isLocked) {
+                alert('This module is locked. Please complete the prerequisites first.');
                 return;
             }
             
@@ -3297,12 +3426,7 @@
             renderDuolingoModules();
         }
         
-        window.startModule = function(moduleId) {
-            const module = modules.find(m => m.id === moduleId);
-            if (module) {
-                alert(`Starting "${module.title}"... This would open the actual module content.`);
-            }
-        }
+
         
         window.unsubmitModule = async function(moduleId) {
             const module = modules.find(m => m.id === moduleId);

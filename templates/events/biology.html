@@ -3,6 +3,22 @@
 {% block title %}Biology - BioTech Discovery Lab - Bronx Science Olympiad{% endblock %}
 
 {% block content %}
+<!-- Modal Popup System -->
+<div id="infoModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+            <h3 id="modalTitle">Biology Event Information</h3>
+        </div>
+        <div class="modal-body" id="modalBody">
+            <!-- Content will be dynamically populated -->
+        </div>
+        <div class="modal-footer">
+            <button class="modal-btn primary" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+</div>
+
 <!-- BioTech Discovery Lab Hero -->
 <div class="biotech-hero" id="hero">
     <div class="lab-environment">
@@ -3068,11 +3084,425 @@
             grid-template-columns: 1fr;
         }
     }
+    
+    /* Modal Popup System */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 10000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(5px);
+        animation: modalFadeIn 0.3s ease-out;
+    }
+    
+    @keyframes modalFadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    
+    .modal-content {
+        background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+        margin: 5% auto;
+        padding: 0;
+        border-radius: 20px;
+        width: 90%;
+        max-width: 600px;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        border: 2px solid var(--biotech-accent);
+        animation: modalSlideIn 0.4s ease-out;
+        overflow: hidden;
+    }
+    
+    @keyframes modalSlideIn {
+        from { transform: translateY(-50px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+    
+    .modal-header {
+        background: var(--gradient-bio);
+        padding: 1.5rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .modal-header h3 {
+        color: white;
+        margin: 0;
+        font-size: 1.3rem;
+        font-weight: 600;
+    }
+    
+    .close {
+        color: white;
+        font-size: 2rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+    }
+    
+    .close:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: scale(1.1);
+    }
+    
+    .modal-body {
+        padding: 2rem;
+        color: white;
+        max-height: 60vh;
+        overflow-y: auto;
+    }
+    
+    .modal-body::-webkit-scrollbar {
+        width: 8px;
+    }
+    
+    .modal-body::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+    }
+    
+    .modal-body::-webkit-scrollbar-thumb {
+        background: var(--biotech-accent);
+        border-radius: 4px;
+    }
+    
+    .modal-footer {
+        padding: 1.5rem 2rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        justify-content: flex-end;
+    }
+    
+    .modal-btn {
+        padding: 0.8rem 2rem;
+        border: none;
+        border-radius: 25px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+    }
+    
+    .modal-btn.primary {
+        background: var(--gradient-bio);
+        color: white;
+    }
+    
+    .modal-btn.primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(5, 150, 105, 0.3);
+    }
+    
+    .info-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 15px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .info-card h4 {
+        color: var(--biotech-accent);
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .info-card p {
+        line-height: 1.6;
+        opacity: 0.9;
+        margin-bottom: 1rem;
+    }
+    
+    .info-highlight {
+        background: rgba(52, 211, 153, 0.1);
+        border-left: 4px solid var(--biotech-accent);
+        padding: 1rem;
+        border-radius: 0 8px 8px 0;
+        margin: 1rem 0;
+    }
+    
+    .contact-info {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+    
+    .contact-item {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 1rem;
+        border-radius: 10px;
+        text-align: center;
+    }
+    
+    .contact-item .name {
+        font-weight: 600;
+        color: var(--biotech-accent);
+        margin-bottom: 0.3rem;
+    }
+    
+    .contact-item .position {
+        font-size: 0.8rem;
+        opacity: 0.8;
+        margin-bottom: 0.5rem;
+    }
+    
+    .contact-item .email {
+        font-size: 0.8rem;
+        color: var(--biotech-blue);
+        word-break: break-all;
+    }
+    
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+        margin: 1rem 0;
+    }
+    
+    .stat-item {
+        background: rgba(52, 211, 153, 0.1);
+        padding: 1rem;
+        border-radius: 10px;
+        text-align: center;
+        border: 1px solid rgba(52, 211, 153, 0.3);
+    }
+    
+    .stat-value {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--biotech-accent);
+        display: block;
+    }
+    
+    .stat-label {
+        font-size: 0.8rem;
+        opacity: 0.8;
+        margin-top: 0.3rem;
+    }
 </style>
 {% endblock %}
 
 {% block extra_js %}
 <script>
+    // Modal System Functions
+    function showModal(title, content) {
+        document.getElementById('modalTitle').textContent = title;
+        document.getElementById('modalBody').innerHTML = content;
+        document.getElementById('infoModal').style.display = 'block';
+    }
+    
+    function showWelcomeModal() {
+        const content = `
+            <div class="info-card">
+                <h4>🌟 Welcome to the BioTech Discovery Lab!</h4>
+                <div class="info-highlight" style="background: rgba(52, 211, 153, 0.1); border-left-color: #34D399;">
+                    <strong>We're so excited that you're interested in joining our Biology team!</strong><br><br>
+                    You're about to embark on an incredible journey into the frontiers of life sciences. Whether you're fascinated by the complexity of the human brain, passionate about solving disease outbreaks, or eager to explore the secrets hidden in our DNA, you've come to the right place.
+                </div>
+                <div class="info-highlight" style="background: rgba(14, 165, 233, 0.1); border-left-color: #0EA5E9;">
+                    <strong>What makes our Biology program special:</strong><br>
+                    • Real-world research experience with cutting-edge equipment<br>
+                    • Direct mentorship from experienced Biology Directors<br>
+                    • Connections to prestigious institutions and internships<br>
+                    • A supportive community of passionate scientists-in-training
+                </div>
+                <div class="info-highlight" style="background: rgba(245, 158, 11, 0.1); border-left-color: #F59E0B;">
+                    <strong>Your journey starts here:</strong><br>
+                    Explore our three exciting Biology events, each offering unique opportunities to develop skills that will shape your future in science and medicine. Click around to discover where your passion meets possibility!
+                </div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="name">Noelle Delosreyes</div>
+                        <div class="position">Biology Director</div>
+                        <div class="email">delosreyn@bxscience.edu</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="name">Ileene Ng</div>
+                        <div class="position">Biology Director</div>
+                        <div class="email">ngi@bxscience.edu</div>
+                    </div>
+                </div>
+            </div>
+        `;
+        showModal('Welcome to Biology! 🧬', content);
+    }
+    
+    function closeModal() {
+        document.getElementById('infoModal').style.display = 'none';
+    }
+    
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+        const modal = document.getElementById('infoModal');
+        if (event.target === modal) {
+            closeModal();
+        }
+    }
+    
+    // Close modal with X button
+    document.querySelector('.close').onclick = function() {
+        closeModal();
+    }
+    
+    // Biology Event Information from CSV
+    const biologyEvents = {
+        anatomy: {
+            title: "🧠 Anatomy & Physiology",
+            description: "This season will focus on the Nervous, Sense Organ, and Endocrine systems and their respective anatomical structures, physiologies, and processes. You will also be tested on relevant diseases along with their symptoms and treatments. Get ready to see lots of brain scans, histologies, and neurons this season! Highly recommended for aspiring students in pre-medical or health-related professions!",
+            director: "Wing Yee Chan",
+            email: "chanw@bxscience.edu",
+            grade: "11",
+            skills: [
+                "Neuroanatomy and brain mapping",
+                "Histological analysis and microscopy",
+                "Endocrine system physiology",
+                "Medical imaging interpretation (MRI, CT scans)",
+                "Disease pathology and diagnosis",
+                "Clinical reasoning and case analysis"
+            ],
+            tools: [
+                "Advanced microscopes and histology slides",
+                "3D brain models and anatomical software",
+                "Medical imaging databases",
+                "Physiological monitoring equipment",
+                "Digital pathology platforms",
+                "Clinical case study materials"
+            ],
+            careers: [
+                "Neurologist or Neurosurgeon",
+                "Endocrinologist",
+                "Pathologist",
+                "Radiologist",
+                "Medical Researcher",
+                "Biomedical Engineer",
+                "Clinical Laboratory Scientist"
+            ],
+            opportunities: [
+                "Summer internships at NYU Langone Medical Center",
+                "Research positions at Memorial Sloan Kettering",
+                "Shadowing programs at Mount Sinai Hospital",
+                "Columbia University Medical School summer programs",
+                "NIH summer research opportunities",
+                "Local hospital volunteer programs"
+            ]
+        },
+        disease: {
+            title: "🦠 Disease Detectives",
+            description: "In Disease Detectives, you'll learn about the principles of epidemiology, diseases, and how outbreaks spread. Like real life epidemiologists, you will analyze and solve case studies using calculations and data to determine the best course of action. If you like statistics or conducting investigations, then this event is for you!",
+            director: "Eugene Lim",
+            email: "lime@bxscience.edu",
+            grade: "12",
+            skills: [
+                "Epidemiological investigation methods",
+                "Statistical analysis and biostatistics",
+                "Outbreak investigation and contact tracing",
+                "Public health data interpretation",
+                "Risk assessment and modeling",
+                "Evidence-based decision making"
+            ],
+            tools: [
+                "Statistical software (R, SAS, SPSS)",
+                "Geographic Information Systems (GIS)",
+                "Epidemiological databases",
+                "Contact tracing software",
+                "Public health surveillance systems",
+                "Data visualization tools"
+            ],
+            careers: [
+                "Epidemiologist",
+                "Public Health Official",
+                "Biostatistician",
+                "Infectious Disease Specialist",
+                "Health Policy Analyst",
+                "Global Health Researcher",
+                "CDC or WHO Scientist"
+            ],
+            opportunities: [
+                "CDC summer internship programs",
+                "NYC Department of Health internships",
+                "WHO student research opportunities",
+                "Columbia Mailman School of Public Health programs",
+                "Johns Hopkins Bloomberg School summer courses",
+                "Local health department volunteer positions"
+            ]
+        },
+        genes: {
+            title: "🧬 Designer Genes",
+            description: "Given the misleading name, you will not be literally creating your own genetic information, but will rather understand and learn core concepts centered on molecular cell biology. Specifically, you can expect topics based on inheritance, gene expression, biotechnology, and genomic evolution. Individuals seeking to pursue biomedicine, health sciences, or genetics research are greatly encouraged to join.",
+            director: "Kenny Tan",
+            email: "tank4@bxscience.edu",
+            grade: "12",
+            skills: [
+                "Molecular biology techniques",
+                "CRISPR-Cas9 gene editing",
+                "DNA sequencing and analysis",
+                "Genetic inheritance patterns",
+                "Protein expression and regulation",
+                "Bioinformatics and genomics"
+            ],
+            tools: [
+                "PCR machines and DNA sequencers",
+                "CRISPR editing kits and reagents",
+                "Bioinformatics software (BLAST, Geneious)",
+                "Gel electrophoresis equipment",
+                "Microscopes and cell culture facilities",
+                "Genetic databases and analysis tools"
+            ],
+            careers: [
+                "Geneticist or Genetic Counselor",
+                "Biotechnology Researcher",
+                "Pharmaceutical Scientist",
+                "Bioinformatics Specialist",
+                "Molecular Biologist",
+                "Clinical Geneticist",
+                "Biotech Startup Founder"
+            ],
+            opportunities: [
+                "Cold Spring Harbor Laboratory summer programs",
+                "Regeneron Pharmaceuticals internships",
+                "23andMe research opportunities",
+                "Broad Institute summer research",
+                "NIH National Human Genome Research Institute",
+                "Local biotech company internships"
+            ]
+        }
+    };
+    
+    const biologyDirectors = [
+        {
+            name: "Noelle Delosreyes",
+            position: "Biology Director",
+            email: "delosreyn@bxscience.edu",
+            grade: "11",
+            background: "Specializes in molecular biology and has conducted research on gene expression in cancer cells. Previously interned at Memorial Sloan Kettering Cancer Center."
+        },
+        {
+            name: "Ileene Ng",
+            position: "Biology Director", 
+            email: "ngi@bxscience.edu",
+            grade: "11",
+            background: "Focuses on neuroscience and has worked with brain mapping technologies. Participated in Columbia University's neuroscience summer program."
+        }
+    ];
+
     // Animated research metrics
     function animateMetrics() {
         const metrics = [
@@ -3199,27 +3629,70 @@
         }, 3000);
     }
     
-         // Outbreak investigation functions
-     function investigateCluster(clusterNum) {
-         const cluster = event.target.closest('.case-cluster');
-         const marker = cluster.querySelector('.cluster-marker');
-         
-         // Add investigation effect
-         marker.style.background = '#F59E0B';
-         marker.style.animation = 'none';
-         marker.style.transform = 'scale(1.3)';
-         
-         // Show investigation results
-         setTimeout(() => {
-             alert(`Cluster ${clusterNum} Investigation:\n- Patient Zero identified\n- Transmission vector: Contaminated water supply\n- Recommended action: Immediate quarantine and water testing`);
-         }, 500);
-         
-         setTimeout(() => {
-             marker.style.background = '';
-             marker.style.animation = '';
-             marker.style.transform = '';
-         }, 3000);
-     }
+    // Outbreak investigation functions
+    function investigateCluster(clusterNum) {
+        const cluster = event.target.closest('.case-cluster');
+        const marker = cluster.querySelector('.cluster-marker');
+        
+        // Add investigation effect
+        marker.style.background = '#F59E0B';
+        marker.style.animation = 'none';
+        marker.style.transform = 'scale(1.3)';
+        
+        // Show investigation results
+        setTimeout(() => {
+            const content = `
+                <div class="info-card">
+                    <h4>🔍 Cluster ${clusterNum} Investigation Results</h4>
+                    <div class="info-highlight" style="background: rgba(52, 211, 153, 0.1); border-left-color: #34D399;">
+                        <strong>Excellent detective work!</strong> You've successfully identified the outbreak source and transmission pattern. This is exactly the kind of real-world problem-solving you'll master in Disease Detectives.
+                    </div>
+                    <div class="info-highlight">
+                        <strong>Patient Zero:</strong> Identified<br>
+                        <strong>Transmission Vector:</strong> Contaminated water supply<br>
+                        <strong>Recommended Action:</strong> Immediate quarantine and water testing
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-value">24</span>
+                            <span class="stat-label">Cases</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">HIGH</span>
+                            <span class="stat-label">Risk Level</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">Water</span>
+                            <span class="stat-label">Vector</span>
+                        </div>
+                    </div>
+                    <div class="info-highlight" style="background: rgba(14, 165, 233, 0.1); border-left-color: #0EA5E9;">
+                        <strong>Skills You'll Learn:</strong><br>
+                        • Epidemiological investigation methods<br>
+                        • Statistical analysis and biostatistics<br>
+                        • Outbreak investigation and contact tracing<br>
+                        • Public health data interpretation
+                    </div>
+                    <div class="info-highlight" style="background: rgba(245, 158, 11, 0.1); border-left-color: #F59E0B;">
+                        <strong>Career Paths:</strong><br>
+                        • Epidemiologist • Public Health Official • Biostatistician<br>
+                        • Infectious Disease Specialist • CDC or WHO Scientist
+                    </div>
+                    <div class="info-highlight" style="background: rgba(52, 211, 153, 0.1); border-left-color: #34D399;">
+                        <strong>Ready to join the investigation?</strong><br>
+                        Contact our Disease Detectives director Eugene Lim (lime@bxscience.edu) to start your journey in public health and epidemiology!
+                    </div>
+                </div>
+            `;
+            showModal(`Cluster ${clusterNum} Investigation`, content);
+        }, 500);
+        
+        setTimeout(() => {
+            marker.style.background = '';
+            marker.style.animation = '';
+            marker.style.transform = '';
+        }, 3000);
+    }
     
     function analyzeData() {
         const button = event.target;
@@ -3230,7 +3703,53 @@
         
         setTimeout(() => {
             button.innerHTML = '<i class="fas fa-chart-line"></i> Analysis Complete!';
-            alert('Data Analysis Results:\n- R₀ = 2.3 (High transmission rate)\n- Peak infection: Day 14\n- Attack rate: 23% of population\n- Recommended: Immediate intervention');
+            const content = `
+                <div class="info-card">
+                    <h4>📊 Data Analysis Results</h4>
+                    <div class="info-highlight" style="background: rgba(52, 211, 153, 0.1); border-left-color: #34D399;">
+                        <strong>Outstanding analytical thinking!</strong> You've just performed the same type of analysis that epidemiologists use to track real disease outbreaks. Your attention to detail and statistical reasoning are exactly what we look for in Disease Detectives.
+                    </div>
+                    <div class="info-highlight">
+                        <strong>R₀ Value:</strong> 2.3 (High transmission rate)<br>
+                        <strong>Peak Infection:</strong> Day 14<br>
+                        <strong>Attack Rate:</strong> 23% of population<br>
+                        <strong>Recommendation:</strong> Immediate intervention required
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-value">2.3</span>
+                            <span class="stat-label">R₀ Value</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">14</span>
+                            <span class="stat-label">Peak Day</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">23%</span>
+                            <span class="stat-label">Attack Rate</span>
+                        </div>
+                    </div>
+                    <div class="info-highlight" style="background: rgba(14, 165, 233, 0.1); border-left-color: #0EA5E9;">
+                        <strong>Tools You'll Master:</strong><br>
+                        • Statistical software (R, SAS, SPSS)<br>
+                        • Geographic Information Systems (GIS)<br>
+                        • Epidemiological databases<br>
+                        • Data visualization tools
+                    </div>
+                    <div class="info-highlight" style="background: rgba(245, 158, 11, 0.1); border-left-color: #F59E0B;">
+                        <strong>Internship Opportunities:</strong><br>
+                        • CDC summer internship programs<br>
+                        • NYC Department of Health internships<br>
+                        • Columbia Mailman School of Public Health<br>
+                        • Johns Hopkins Bloomberg School
+                    </div>
+                    <div class="info-highlight" style="background: rgba(52, 211, 153, 0.1); border-left-color: #34D399;">
+                        <strong>Your next step:</strong><br>
+                        Ready to tackle real public health challenges? Join Disease Detectives and learn from Eugene Lim, who will guide you through the fascinating world of epidemiology and disease investigation!
+                    </div>
+                </div>
+            `;
+            showModal('Data Analysis Complete', content);
         }, 2000);
         
         setTimeout(() => {
@@ -3240,11 +3759,95 @@
     }
     
     function trackTransmission() {
-        alert('Transmission Tracking:\n- Index case: Patient at University Campus\n- Secondary cases: 8 contacts identified\n- Tertiary spread: Downtown cluster linked\n- Vector: Shared cafeteria facility');
+        const content = `
+            <div class="info-card">
+                <h4>🔄 Transmission Tracking Report</h4>
+                <div class="info-highlight" style="background: rgba(52, 211, 153, 0.1); border-left-color: #34D399;">
+                    <strong>Incredible detective work!</strong> You've successfully traced the transmission chain, just like real epidemiologists do during disease outbreaks. Your systematic approach and attention to detail show you have what it takes to excel in Disease Detectives.
+                </div>
+                <div class="info-highlight">
+                    <strong>Index Case:</strong> Patient at University Campus<br>
+                    <strong>Secondary Cases:</strong> 8 contacts identified<br>
+                    <strong>Tertiary Spread:</strong> Downtown cluster linked<br>
+                    <strong>Vector:</strong> Shared cafeteria facility
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-value">1</span>
+                        <span class="stat-label">Index Case</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">8</span>
+                        <span class="stat-label">Secondary</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">3</span>
+                        <span class="stat-label">Clusters</span>
+                    </div>
+                </div>
+                <div class="info-highlight" style="background: rgba(14, 165, 233, 0.1); border-left-color: #0EA5E9;">
+                    <strong>Real-World Applications:</strong><br>
+                    • COVID-19 contact tracing methods<br>
+                    • Public health surveillance systems<br>
+                    • Risk assessment and modeling<br>
+                    • Evidence-based decision making
+                </div>
+                <div class="info-highlight" style="background: rgba(245, 158, 11, 0.1); border-left-color: #F59E0B;">
+                    <strong>Research Opportunities:</strong><br>
+                    • WHO student research programs<br>
+                    • Local health department positions<br>
+                    • University public health labs<br>
+                    • Global health research projects
+                </div>
+                <div class="info-highlight" style="background: rgba(52, 211, 153, 0.1); border-left-color: #34D399;">
+                    <strong>Join the investigation team!</strong><br>
+                    Ready to solve real disease mysteries? Contact Eugene Lim at lime@bxscience.edu to start your journey in Disease Detectives and become part of our public health investigation team!
+                </div>
+            </div>
+        `;
+        showModal('Transmission Tracking', content);
     }
     
     function calculateRisk() {
-        alert('Risk Assessment:\n- High Risk: Ages 65+, immunocompromised\n- Medium Risk: School-age children\n- Low Risk: Healthy adults 18-64\n- Overall Population Risk: MODERATE');
+        const content = `
+            <div class="info-card">
+                <h4>⚠️ Risk Assessment Analysis</h4>
+                <div class="info-highlight">
+                    <strong>High Risk:</strong> Ages 65+, immunocompromised<br>
+                    <strong>Medium Risk:</strong> School-age children<br>
+                    <strong>Low Risk:</strong> Healthy adults 18-64<br>
+                    <strong>Overall Population Risk:</strong> MODERATE
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-value">HIGH</span>
+                        <span class="stat-label">Elderly Risk</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">MED</span>
+                        <span class="stat-label">Children</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">LOW</span>
+                        <span class="stat-label">Adults</span>
+                    </div>
+                </div>
+                <div class="info-highlight" style="background: rgba(14, 165, 233, 0.1); border-left-color: #0EA5E9;">
+                    <strong>Skills for Your Future:</strong><br>
+                    • Population health analysis<br>
+                    • Statistical modeling and prediction<br>
+                    • Public health policy development<br>
+                    • Healthcare system optimization
+                </div>
+                <div class="info-highlight" style="background: rgba(245, 158, 11, 0.1); border-left-color: #F59E0B;">
+                    <strong>Career Impact:</strong><br>
+                    • Health Policy Analyst • Global Health Researcher<br>
+                    • Healthcare Consultant • Public Health Director<br>
+                    • Medical School preparation • Research Scientist
+                </div>
+            </div>
+        `;
+        showModal('Risk Assessment', content);
     }
     
     // Genetic engineering functions
@@ -3275,6 +3878,9 @@
     
     // Lab control functions
     function initiateResearch() {
+        // Show welcome modal first
+        showWelcomeModal();
+        
         document.getElementById('research').scrollIntoView({
             behavior: 'smooth',
             block: 'start'
@@ -3297,6 +3903,9 @@
     }
     
     function accessDatabase() {
+        // Show welcome modal first
+        showWelcomeModal();
+        
         document.getElementById('research').scrollIntoView({
             behavior: 'smooth',
             block: 'start'
@@ -3335,7 +3944,48 @@
         btn.disabled = true;
         
         setTimeout(() => {
-            alert(`System Analysis:\n${systemMap[systemType]}\n\nRecommended next steps:\n• Continue pathway tracing\n• Analyze interaction networks\n• Document findings`);
+            const content = `
+                <div class="info-card">
+                    <h4>🧠 System Analysis Results</h4>
+                    <div class="info-highlight" style="background: rgba(52, 211, 153, 0.1); border-left-color: #34D399;">
+                        <strong>Remarkable system analysis!</strong> You've just performed the same type of analysis that medical professionals use to understand human physiology. Your curiosity about how the body works and your attention to detail make you a perfect fit for Anatomy & Physiology.
+                    </div>
+                    <div class="info-highlight">
+                        ${systemMap[systemType]}
+                    </div>
+                    <p><strong>Recommended next steps:</strong></p>
+                    <ul style="margin-left: 20px; opacity: 0.9;">
+                        <li>Continue pathway tracing</li>
+                        <li>Analyze interaction networks</li>
+                        <li>Document findings</li>
+                    </ul>
+                    <div class="info-highlight" style="background: rgba(14, 165, 233, 0.1); border-left-color: #0EA5E9;">
+                        <strong>Skills You'll Master:</strong><br>
+                        • Neuroanatomy and brain mapping<br>
+                        • Histological analysis and microscopy<br>
+                        • Medical imaging interpretation (MRI, CT scans)<br>
+                        • Clinical reasoning and case analysis
+                    </div>
+                    <div class="info-highlight" style="background: rgba(245, 158, 11, 0.1); border-left-color: #F59E0B;">
+                        <strong>Medical Career Paths:</strong><br>
+                        • Neurologist or Neurosurgeon • Endocrinologist<br>
+                        • Pathologist • Radiologist • Medical Researcher<br>
+                        • Biomedical Engineer • Clinical Laboratory Scientist
+                    </div>
+                    <div class="info-highlight" style="background: rgba(52, 211, 153, 0.1); border-left-color: #34D399;">
+                        <strong>Research Opportunities:</strong><br>
+                        • Summer internships at NYU Langone Medical Center<br>
+                        • Research positions at Memorial Sloan Kettering<br>
+                        • Shadowing programs at Mount Sinai Hospital<br>
+                        • Columbia University Medical School summer programs
+                    </div>
+                    <div class="info-highlight" style="background: rgba(52, 211, 153, 0.1); border-left-color: #34D399;">
+                        <strong>Ready to explore the human body?</strong><br>
+                        Contact our Anatomy & Physiology director Wing Yee Chan (chanw@bxscience.edu) to start your journey into the fascinating world of human anatomy and medical science!
+                    </div>
+                </div>
+            `;
+            showModal('System Analysis Complete', content);
             btn.innerHTML = '<i class="fas fa-check"></i> ANALYSIS COMPLETE';
         }, 2000);
         
@@ -3353,7 +4003,53 @@
         };
         
         const data = outbreakData[blipNum];
-        alert(`Outbreak Investigation Report:\n\nLocation: ${data.location}\nActive Cases: ${data.cases}\nTransmission Vector: ${data.vector}\nRisk Level: ${data.risk}\n\nAction Required: Implement containment protocols`);
+        const content = `
+            <div class="info-card">
+                <h4>🦠 Outbreak Investigation Report</h4>
+                <div class="info-highlight">
+                    <strong>Location:</strong> ${data.location}<br>
+                    <strong>Active Cases:</strong> ${data.cases}<br>
+                    <strong>Transmission Vector:</strong> ${data.vector}<br>
+                    <strong>Risk Level:</strong> ${data.risk}
+                </div>
+                <p><strong>Action Required:</strong> Implement containment protocols</p>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-value">${data.cases}</span>
+                        <span class="stat-label">Cases</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">${data.risk}</span>
+                        <span class="stat-label">Risk</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">${data.vector.split(' ')[0]}</span>
+                        <span class="stat-label">Vector</span>
+                    </div>
+                </div>
+                <div class="info-highlight" style="background: rgba(14, 165, 233, 0.1); border-left-color: #0EA5E9;">
+                    <strong>Epidemiological Skills:</strong><br>
+                    • Outbreak investigation and contact tracing<br>
+                    • Public health data interpretation<br>
+                    • Risk assessment and modeling<br>
+                    • Evidence-based decision making
+                </div>
+                <div class="info-highlight" style="background: rgba(245, 158, 11, 0.1); border-left-color: #F59E0B;">
+                    <strong>Public Health Careers:</strong><br>
+                    • Epidemiologist • Public Health Official<br>
+                    • Biostatistician • Infectious Disease Specialist<br>
+                    • Health Policy Analyst • Global Health Researcher
+                </div>
+                <div class="info-highlight" style="background: rgba(52, 211, 153, 0.1); border-left-color: #34D399;">
+                    <strong>Internship Programs:</strong><br>
+                    • CDC summer internship programs<br>
+                    • NYC Department of Health internships<br>
+                    • WHO student research opportunities<br>
+                    • Columbia Mailman School of Public Health
+                </div>
+            </div>
+        `;
+        showModal('Outbreak Investigation', content);
     }
     
     function launchInvestigation(type) {
@@ -3369,7 +4065,44 @@
         btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> PROCESSING...';
         
         setTimeout(() => {
-            alert(`Investigation Results:\n${investigations[type]}\n\nData collection: 87% complete\nConfidence level: 94.2%\nRecommended action: Continue monitoring`);
+            const content = `
+                <div class="info-card">
+                    <h4>🔍 Investigation Results</h4>
+                    <div class="info-highlight">
+                        ${investigations[type]}
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-value">87%</span>
+                            <span class="stat-label">Data Complete</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">94.2%</span>
+                            <span class="stat-label">Confidence</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">Monitor</span>
+                            <span class="stat-label">Action</span>
+                        </div>
+                    </div>
+                    <p><strong>Recommended action:</strong> Continue monitoring</p>
+                    <div class="info-highlight" style="background: rgba(14, 165, 233, 0.1); border-left-color: #0EA5E9;">
+                        <strong>Professional Tools:</strong><br>
+                        • Statistical software (R, SAS, SPSS)<br>
+                        • Geographic Information Systems (GIS)<br>
+                        • Epidemiological databases<br>
+                        • Contact tracing software
+                    </div>
+                    <div class="info-highlight" style="background: rgba(245, 158, 11, 0.1); border-left-color: #F59E0B;">
+                        <strong>Real-World Impact:</strong><br>
+                        • COVID-19 pandemic response methods<br>
+                        • Public health surveillance systems<br>
+                        • Healthcare policy development<br>
+                        • Global health initiatives
+                    </div>
+                </div>
+            `;
+            showModal('Investigation Complete', content);
             btn.innerHTML = originalText;
         }, 3000);
     }
@@ -3381,9 +4114,107 @@
         if (isMutation) {
             basePair.classList.remove('mutation-pair');
             basePair.classList.add('t-a');
-            alert('CRISPR Edit Successful!\nMutation corrected: T-T → T-A\nSequence integrity restored.');
+            const content = `
+                <div class="info-card">
+                    <h4>✅ CRISPR Edit Successful!</h4>
+                    <div class="info-highlight" style="background: rgba(52, 211, 153, 0.1); border-left-color: #34D399;">
+                        <strong>Incredible precision!</strong> You've successfully performed a CRISPR gene edit, the same revolutionary technology that's transforming medicine and biotechnology. Your steady hand and attention to detail show you have the skills needed for Designer Genes.
+                    </div>
+                    <div class="info-highlight">
+                        <strong>Mutation corrected:</strong> T-T → T-A<br>
+                        <strong>Sequence integrity:</strong> Restored<br>
+                        <strong>Edit precision:</strong> 99.7%
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-value">T-T</span>
+                            <span class="stat-label">Before</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">T-A</span>
+                            <span class="stat-label">After</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">99.7%</span>
+                            <span class="stat-label">Precision</span>
+                        </div>
+                    </div>
+                    <div class="info-highlight" style="background: rgba(14, 165, 233, 0.1); border-left-color: #0EA5E9;">
+                        <strong>Molecular Biology Skills:</strong><br>
+                        • CRISPR-Cas9 gene editing techniques<br>
+                        • DNA sequencing and analysis<br>
+                        • Genetic inheritance patterns<br>
+                        • Protein expression and regulation
+                    </div>
+                    <div class="info-highlight" style="background: rgba(245, 158, 11, 0.1); border-left-color: #F59E0B;">
+                        <strong>Biotech Career Paths:</strong><br>
+                        • Geneticist or Genetic Counselor<br>
+                        • Biotechnology Researcher • Pharmaceutical Scientist<br>
+                        • Bioinformatics Specialist • Molecular Biologist<br>
+                        • Biotech Startup Founder
+                    </div>
+                    <div class="info-highlight" style="background: rgba(52, 211, 153, 0.1); border-left-color: #34D399;">
+                        <strong>Research Opportunities:</strong><br>
+                        • Cold Spring Harbor Laboratory summer programs<br>
+                        • Regeneron Pharmaceuticals internships<br>
+                        • 23andMe research opportunities<br>
+                        • Broad Institute summer research
+                    </div>
+                    <div class="info-highlight" style="background: rgba(52, 211, 153, 0.1); border-left-color: #34D399;">
+                        <strong>Ready to edit the future?</strong><br>
+                        Contact our Designer Genes director Kenny Tan (tank4@bxscience.edu) to start your journey in molecular biology and genetic engineering!
+                    </div>
+                </div>
+            `;
+            showModal('CRISPR Edit Complete', content);
         } else {
-            alert(`Base pair analysis:\nPosition: ${pairNum}\nSequence: Normal\nHydrogen bonds: Stable\nNo editing required.`);
+            const content = `
+                <div class="info-card">
+                    <h4>🔬 Base Pair Analysis</h4>
+                    <div class="info-highlight" style="background: rgba(52, 211, 153, 0.1); border-left-color: #34D399;">
+                        <strong>Excellent genetic analysis!</strong> You've demonstrated the same careful observation and analytical thinking that geneticists use every day. Your understanding of DNA structure and molecular interactions is exactly what we look for in Designer Genes.
+                    </div>
+                    <div class="info-highlight">
+                        <strong>Position:</strong> ${pairNum}<br>
+                        <strong>Sequence:</strong> Normal<br>
+                        <strong>Hydrogen bonds:</strong> Stable<br>
+                        <strong>Status:</strong> No editing required
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-value">${pairNum}</span>
+                            <span class="stat-label">Position</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">Normal</span>
+                            <span class="stat-label">Sequence</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">Stable</span>
+                            <span class="stat-label">Bonds</span>
+                        </div>
+                    </div>
+                    <div class="info-highlight" style="background: rgba(14, 165, 233, 0.1); border-left-color: #0EA5E9;">
+                        <strong>Laboratory Techniques:</strong><br>
+                        • PCR machines and DNA sequencers<br>
+                        • Gel electrophoresis equipment<br>
+                        • Microscopes and cell culture facilities<br>
+                        • Genetic databases and analysis tools
+                    </div>
+                    <div class="info-highlight" style="background: rgba(245, 158, 11, 0.1); border-left-color: #F59E0B;">
+                        <strong>Future Applications:</strong><br>
+                        • Personalized medicine and gene therapy<br>
+                        • Agricultural biotechnology<br>
+                        • Forensic DNA analysis<br>
+                        • Drug discovery and development
+                    </div>
+                    <div class="info-highlight" style="background: rgba(52, 211, 153, 0.1); border-left-color: #34D399;">
+                        <strong>Join the genetic revolution!</strong><br>
+                        Ready to explore the building blocks of life? Contact Kenny Tan at tank4@bxscience.edu to start your journey in Designer Genes and become part of the future of biotechnology!
+                    </div>
+                </div>
+            `;
+            showModal('Base Pair Analysis', content);
         }
     }
     
@@ -3400,7 +4231,53 @@
         btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> LOADING...';
         
         setTimeout(() => {
-            alert(`Genetic Editor Status:\n${editors[editorType]}\n\nAll systems operational\nPrecision level: 99.7%\nReady for genetic modification`);
+            const content = `
+                <div class="info-card">
+                    <h4>🧬 Genetic Editor Status</h4>
+                    <div class="info-highlight" style="background: rgba(52, 211, 153, 0.1); border-left-color: #34D399;">
+                        <strong>Welcome to the cutting edge of biotechnology!</strong> You're now working with the same advanced genetic tools that are revolutionizing medicine and agriculture. Your interest in molecular biology and genetic engineering makes you a perfect candidate for Designer Genes.
+                    </div>
+                    <div class="info-highlight">
+                        ${editors[editorType]}
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-value">100%</span>
+                            <span class="stat-label">Systems</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">99.7%</span>
+                            <span class="stat-label">Precision</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">Ready</span>
+                            <span class="stat-label">Status</span>
+                        </div>
+                    </div>
+                    <p><strong>All systems operational</strong><br>
+                    <strong>Precision level:</strong> 99.7%<br>
+                    <strong>Status:</strong> Ready for genetic modification</p>
+                    <div class="info-highlight" style="background: rgba(14, 165, 233, 0.1); border-left-color: #0EA5E9;">
+                        <strong>Advanced Techniques:</strong><br>
+                        • CRISPR editing kits and reagents<br>
+                        • Bioinformatics software (BLAST, Geneious)<br>
+                        • Next-generation sequencing<br>
+                        • Protein expression analysis
+                    </div>
+                    <div class="info-highlight" style="background: rgba(245, 158, 11, 0.1); border-left-color: #F59E0B;">
+                        <strong>Industry Connections:</strong><br>
+                        • NIH National Human Genome Research Institute<br>
+                        • Local biotech company internships<br>
+                        • University research partnerships<br>
+                        • Pharmaceutical industry opportunities
+                    </div>
+                    <div class="info-highlight" style="background: rgba(52, 211, 153, 0.1); border-left-color: #34D399;">
+                        <strong>Your genetic journey awaits!</strong><br>
+                        Ready to unlock the secrets of DNA? Contact Kenny Tan at tank4@bxscience.edu to join Designer Genes and become part of the biotechnology revolution!
+                    </div>
+                </div>
+            `;
+            showModal('Genetic Editor Ready', content);
             btn.innerHTML = originalText;
         }, 2500);
     }
@@ -3420,7 +4297,46 @@
         
         setTimeout(() => {
             btn.innerHTML = '<i class="fas fa-check"></i> SYNCHRONIZED';
-            alert('Lab Network Status:\nAll stations synchronized\nData integrity: 100%\nResearch progress updated\nBackup protocols active');
+            const content = `
+                <div class="info-card">
+                    <h4>🔄 Lab Network Status</h4>
+                    <div class="info-highlight">
+                        <strong>Status:</strong> All stations synchronized<br>
+                        <strong>Data integrity:</strong> 100%<br>
+                        <strong>Research progress:</strong> Updated<br>
+                        <strong>Backup protocols:</strong> Active
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-value">100%</span>
+                            <span class="stat-label">Integrity</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">All</span>
+                            <span class="stat-label">Stations</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">Active</span>
+                            <span class="stat-label">Backup</span>
+                        </div>
+                    </div>
+                    <div class="info-highlight" style="background: rgba(14, 165, 233, 0.1); border-left-color: #0EA5E9;">
+                        <strong>Interdisciplinary Skills:</strong><br>
+                        • Cross-platform data integration<br>
+                        • Laboratory information management systems<br>
+                        • Quality control and validation protocols<br>
+                        • Collaborative research methodologies
+                    </div>
+                    <div class="info-highlight" style="background: rgba(245, 158, 11, 0.1); border-left-color: #F59E0B;">
+                        <strong>Research Leadership:</strong><br>
+                        • Laboratory management and coordination<br>
+                        • Multi-disciplinary team collaboration<br>
+                        • Research project planning and execution<br>
+                        • Scientific communication and presentation
+                    </div>
+                </div>
+            `;
+            showModal('Lab Synchronization Complete', content);
         }, 2000);
         
         setTimeout(() => {
@@ -3429,7 +4345,48 @@
     }
     
     function generateReport() {
-        alert('Research Report Generated:\n\n📊 Neural Pathways Mapped: 1,394\n🦠 Disease Outbreaks Analyzed: 103\n🧬 Genetic Modifications: 4.1M\n\nOverall Progress: 76.3%\nNext Phase: Advanced Research Protocols\nEstimated Completion: 14 days');
+        const content = `
+            <div class="info-card">
+                <h4>📊 Research Report Generated</h4>
+                <div class="info-highlight">
+                    <strong>Neural Pathways Mapped:</strong> 1,394<br>
+                    <strong>Disease Outbreaks Analyzed:</strong> 103<br>
+                    <strong>Genetic Modifications:</strong> 4.1M<br>
+                    <strong>Overall Progress:</strong> 76.3%
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-value">1,394</span>
+                        <span class="stat-label">Pathways</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">103</span>
+                        <span class="stat-label">Outbreaks</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">4.1M</span>
+                        <span class="stat-label">Modifications</span>
+                    </div>
+                </div>
+                <p><strong>Next Phase:</strong> Advanced Research Protocols<br>
+                <strong>Estimated Completion:</strong> 14 days</p>
+                <div class="info-highlight" style="background: rgba(14, 165, 233, 0.1); border-left-color: #0EA5E9;">
+                    <strong>Scientific Communication Skills:</strong><br>
+                    • Research paper writing and publication<br>
+                    • Data visualization and presentation<br>
+                    • Conference presentation techniques<br>
+                    • Grant writing and funding proposals
+                </div>
+                <div class="info-highlight" style="background: rgba(245, 158, 11, 0.1); border-left-color: #F59E0B;">
+                    <strong>Academic & Industry Impact:</strong><br>
+                    • Publication in peer-reviewed journals<br>
+                    • Patent applications and intellectual property<br>
+                    • Industry partnerships and collaborations<br>
+                    • Academic conference presentations
+                </div>
+            </div>
+        `;
+        showModal('Research Report', content);
     }
     
     // Training Protocol Functions
@@ -3568,15 +4525,132 @@
     }
     
     function accessInformation() {
-        alert('BioTech Discovery Lab Specifications:\n\n🔬 Advanced Microscopy Suite\n• Resolution: 0.1nm\n• Live imaging capability\n• AI-assisted analysis\n\n🧬 Genetic Analysis Array\n• CRISPR-Cas9 editing system\n• Next-gen sequencing\n• 99.7% precision rate\n\n📊 Epidemiological Modeling\n• Real-time outbreak tracking\n• Statistical analysis tools\n• Population health modeling');
+        const content = `
+            <div class="info-card">
+                <h4>🔬 BioTech Discovery Lab Specifications</h4>
+                <div class="info-highlight">
+                    <strong>Advanced Microscopy Suite</strong><br>
+                    • Resolution: 0.1nm<br>
+                    • Live imaging capability<br>
+                    • AI-assisted analysis
+                </div>
+                <div class="info-highlight">
+                    <strong>Genetic Analysis Array</strong><br>
+                    • CRISPR-Cas9 editing system<br>
+                    • Next-gen sequencing<br>
+                    • 99.7% precision rate
+                </div>
+                <div class="info-highlight">
+                    <strong>Epidemiological Modeling</strong><br>
+                    • Real-time outbreak tracking<br>
+                    • Statistical analysis tools<br>
+                    • Population health modeling
+                </div>
+                <div class="info-highlight" style="background: rgba(14, 165, 233, 0.1); border-left-color: #0EA5E9;">
+                    <strong>Professional Equipment Access:</strong><br>
+                    • Industry-standard laboratory equipment<br>
+                    • Cutting-edge research technologies<br>
+                    • Professional software licenses<br>
+                    • Real-time data analysis platforms
+                </div>
+                <div class="info-highlight" style="background: rgba(245, 158, 11, 0.1); border-left-color: #F59E0B;">
+                    <strong>Career Preparation:</strong><br>
+                    • Hands-on experience with professional tools<br>
+                    • Industry-standard protocols and procedures<br>
+                    • Real-world research methodologies<br>
+                    • Professional networking opportunities
+                </div>
+            </div>
+        `;
+        showModal('Lab Specifications', content);
     }
     
     function viewProtocols() {
-        alert('Safety Protocol Summary:\n\n⚠️ Biosafety Level 2 procedures\n🧤 Personal protective equipment required\n🚨 Emergency containment systems active\n📞 24/7 safety hotline: EXT-911\n\nAll researchers must complete safety certification before lab access.');
+        const content = `
+            <div class="info-card">
+                <h4>⚠️ Safety Protocol Summary</h4>
+                <div class="info-highlight">
+                    <strong>Biosafety Level 2 procedures</strong><br>
+                    <strong>Personal protective equipment required</strong><br>
+                    <strong>Emergency containment systems active</strong><br>
+                    <strong>24/7 safety hotline:</strong> EXT-911
+                </div>
+                <p><strong>All researchers must complete safety certification before lab access.</strong></p>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-value">BSL-2</span>
+                        <span class="stat-label">Level</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">24/7</span>
+                        <span class="stat-label">Hotline</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">Required</span>
+                        <span class="stat-label">PPE</span>
+                    </div>
+                </div>
+                <div class="info-highlight" style="background: rgba(14, 165, 233, 0.1); border-left-color: #0EA5E9;">
+                    <strong>Professional Safety Training:</strong><br>
+                    • OSHA laboratory safety certification<br>
+                    • Biosafety level protocols and procedures<br>
+                    • Emergency response and first aid training<br>
+                    • Hazardous material handling certification
+                </div>
+                <div class="info-highlight" style="background: rgba(245, 158, 11, 0.1); border-left-color: #F59E0B;">
+                    <strong>Industry Standards:</strong><br>
+                    • Compliance with federal safety regulations<br>
+                    • Professional laboratory safety practices<br>
+                    • Industry-standard safety protocols<br>
+                    • Career-ready safety certifications
+                </div>
+            </div>
+        `;
+        showModal('Safety Protocols', content);
     }
     
     function contactSupport() {
-        alert('Technical Support:\n\n📧 Email: biotech-support@lab.edu\n📞 Phone: (555) 123-4567\n💬 Live Chat: Available 24/7\n🎫 Ticket System: support.biotech-lab.edu\n\nResponse Time: <2 hours for critical issues');
+        const content = `
+            <div class="info-card">
+                <h4>📞 Technical Support</h4>
+                <div class="info-highlight">
+                    <strong>Email:</strong> biotech-support@lab.edu<br>
+                    <strong>Phone:</strong> (555) 123-4567<br>
+                    <strong>Live Chat:</strong> Available 24/7<br>
+                    <strong>Ticket System:</strong> support.biotech-lab.edu
+                </div>
+                <p><strong>Response Time:</strong> &lt;2 hours for critical issues</p>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-value">24/7</span>
+                        <span class="stat-label">Chat</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">&lt;2h</span>
+                        <span class="stat-label">Response</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">Online</span>
+                        <span class="stat-label">Tickets</span>
+                    </div>
+                </div>
+                <div class="info-highlight" style="background: rgba(14, 165, 233, 0.1); border-left-color: #0EA5E9;">
+                    <strong>Professional Support Network:</strong><br>
+                    • Expert technical assistance and guidance<br>
+                    • Industry professional mentorship<br>
+                    • Research methodology consultation<br>
+                    • Career development and networking
+                </div>
+                <div class="info-highlight" style="background: rgba(245, 158, 11, 0.1); border-left-color: #F59E0B;">
+                    <strong>Learning Resources:</strong><br>
+                    • Access to professional training materials<br>
+                    • Industry best practices and protocols<br>
+                    • Research methodology tutorials<br>
+                    • Career development workshops
+                </div>
+            </div>
+        `;
+        showModal('Technical Support', content);
     }
     
     // Equipment Carousel
@@ -3627,101 +4701,152 @@
         });
     }
     
-         // Initialize when page loads
-     document.addEventListener('DOMContentLoaded', function() {
-         // Animate metrics after a delay
-         setTimeout(animateMetrics, 1500);
-         
-         // Initialize cell viewer
-         const firstCellBtn = document.querySelector('.cell-btn');
-         if (firstCellBtn) {
-             firstCellBtn.classList.add('active');
-         }
-         
-         // Update lab times
-         updateLabTime();
-         setInterval(updateLabTime, 30000); // Update every 30 seconds
-         
-         // Initialize equipment carousel
-         updateEquipmentDisplay();
-         
-         // Auto-rotate equipment carousel
-         setInterval(nextEquipment, 8000);
-         
-         // Add particle interaction effects
-         document.querySelectorAll('.particle').forEach(particle => {
-             particle.addEventListener('click', function() {
-                 this.style.animation = 'none';
-                 this.style.transform = 'scale(1.3)';
-                 this.style.filter = 'brightness(1.5)';
-                 
-                 setTimeout(() => {
-                     this.style.animation = '';
-                     this.style.transform = '';
-                     this.style.filter = '';
-                 }, 1000);
-             });
-         });
-         
-         // DNA base interaction
-         document.querySelectorAll('.base').forEach(base => {
-             base.addEventListener('click', function() {
-                 // Show complementary base info
-                 const complement = {
-                     'A': 'T', 'T': 'A', 'G': 'C', 'C': 'G'
-                 };
-                 const baseType = this.textContent;
-                 const complementBase = complement[baseType];
-                 
-                 // Highlight complementary pairing
-                 this.style.animation = 'none';
-                 this.style.transform = 'scale(1.4)';
-                 this.style.boxShadow = '0 0 15px rgba(255, 255, 255, 0.8)';
-                 
-                 setTimeout(() => {
-                     alert(`${baseType} pairs with ${complementBase}\nThis is a ${baseType === 'A' || baseType === 'T' ? 'weak (2 bonds)' : 'strong (3 bonds)'} hydrogen bond connection.`);
-                 }, 300);
-                 
-                 setTimeout(() => {
-                     this.style.animation = '';
-                     this.style.transform = '';
-                     this.style.boxShadow = '';
-                 }, 2000);
-             });
-         });
-         
-         // Add CSS for dynamic effects
-         const dynamicStyles = document.createElement('style');
-         dynamicStyles.textContent = `
-             .cell-btn.active {
-                 background: #34D399 !important;
-                 color: white;
-                 transform: translateY(-2px);
-                 box-shadow: 0 5px 15px rgba(52, 211, 153, 0.3);
-             }
-             
-             .particle:hover {
-                 opacity: 1 !important;
-                 transform: scale(1.2) !important;
-                 cursor: pointer;
-             }
-             
-             .base:hover {
-                 transform: scale(1.2) !important;
-                 box-shadow: 0 0 10px rgba(255, 255, 255, 0.5) !important;
-             }
-             
-             .neuron-node:hover {
-                 transform: scale(1.3) !important;
-                 cursor: pointer;
-             }
-             
-             .outbreak-blip:hover {
-                 transform: scale(1.5) !important;
-                 background: #F59E0B !important;
-             }
-         `;
-         document.head.appendChild(dynamicStyles);
-     });
+    // Initialize when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        // Animate metrics after a delay
+        setTimeout(animateMetrics, 1500);
+        
+        // Initialize cell viewer
+        const firstCellBtn = document.querySelector('.cell-btn');
+        if (firstCellBtn) {
+            firstCellBtn.classList.add('active');
+        }
+        
+        // Update lab times
+        updateLabTime();
+        setInterval(updateLabTime, 30000); // Update every 30 seconds
+        
+        // Initialize equipment carousel
+        updateEquipmentDisplay();
+        
+        // Auto-rotate equipment carousel
+        setInterval(nextEquipment, 8000);
+        
+        // Add particle interaction effects
+        document.querySelectorAll('.particle').forEach(particle => {
+            particle.addEventListener('click', function() {
+                this.style.animation = 'none';
+                this.style.transform = 'scale(1.3)';
+                this.style.filter = 'brightness(1.5)';
+                
+                setTimeout(() => {
+                    this.style.animation = '';
+                    this.style.transform = '';
+                    this.style.filter = '';
+                }, 1000);
+            });
+        });
+        
+        // DNA base interaction
+        document.querySelectorAll('.base').forEach(base => {
+            base.addEventListener('click', function() {
+                // Show complementary base info
+                const complement = {
+                    'A': 'T', 'T': 'A', 'G': 'C', 'C': 'G'
+                };
+                const baseType = this.textContent;
+                const complementBase = complement[baseType];
+                
+                // Highlight complementary pairing
+                this.style.animation = 'none';
+                this.style.transform = 'scale(1.4)';
+                this.style.boxShadow = '0 0 15px rgba(255, 255, 255, 0.8)';
+                
+                setTimeout(() => {
+                    const content = `
+                        <div class="info-card">
+                            <h4>🧬 DNA Base Pairing</h4>
+                            <div class="info-highlight" style="background: rgba(52, 211, 153, 0.1); border-left-color: #34D399;">
+                                <strong>Fascinating discovery!</strong> You've just observed one of nature's most elegant molecular interactions. Your curiosity about how DNA works and your attention to molecular detail show you have the mindset of a true molecular biologist.
+                            </div>
+                            <div class="info-highlight">
+                                <strong>${baseType} pairs with ${complementBase}</strong><br>
+                                This is a ${baseType === 'A' || baseType === 'T' ? 'weak (2 bonds)' : 'strong (3 bonds)'} hydrogen bond connection.
+                            </div>
+                            <div class="stats-grid">
+                                <div class="stat-item">
+                                    <span class="stat-value">${baseType}</span>
+                                    <span class="stat-label">Base</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-value">${complementBase}</span>
+                                    <span class="stat-label">Complement</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-value">${baseType === 'A' || baseType === 'T' ? '2' : '3'}</span>
+                                    <span class="stat-label">Bonds</span>
+                                </div>
+                            </div>
+                            <div class="info-highlight" style="background: rgba(14, 165, 233, 0.1); border-left-color: #0EA5E9;">
+                                <strong>Molecular Biology Fundamentals:</strong><br>
+                                • DNA structure and base pairing rules<br>
+                                • Hydrogen bonding and molecular interactions<br>
+                                • Genetic code and protein synthesis<br>
+                                • DNA replication and repair mechanisms
+                            </div>
+                            <div class="info-highlight" style="background: rgba(245, 158, 11, 0.1); border-left-color: #F59E0B;">
+                                <strong>Biotechnology Applications:</strong><br>
+                                • PCR and DNA amplification techniques<br>
+                                • Genetic engineering and gene editing<br>
+                                • DNA sequencing and analysis<br>
+                                • Personalized medicine and gene therapy
+                            </div>
+                            <div class="info-highlight" style="background: rgba(52, 211, 153, 0.1); border-left-color: #34D399;">
+                                <strong>Research Opportunities:</strong><br>
+                                • Cold Spring Harbor Laboratory programs<br>
+                                • Regeneron Pharmaceuticals internships<br>
+                                • 23andMe research opportunities<br>
+                                • Broad Institute summer research
+                            </div>
+                            <div class="info-highlight" style="background: rgba(52, 211, 153, 0.1); border-left-color: #34D399;">
+                                <strong>Ready to decode life's secrets?</strong><br>
+                                Your fascination with DNA is exactly what we're looking for! Contact Kenny Tan at tank4@bxscience.edu to join Designer Genes and explore the molecular world of genetics and biotechnology!
+                            </div>
+                        </div>
+                    `;
+                    showModal('DNA Base Pairing', content);
+                }, 300);
+                
+                setTimeout(() => {
+                    this.style.animation = '';
+                    this.style.transform = '';
+                    this.style.boxShadow = '';
+                }, 2000);
+            });
+        });
+        
+        // Add CSS for dynamic effects
+        const dynamicStyles = document.createElement('style');
+        dynamicStyles.textContent = `
+            .cell-btn.active {
+                background: #34D399 !important;
+                color: white;
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(52, 211, 153, 0.3);
+            }
+            
+            .particle:hover {
+                opacity: 1 !important;
+                transform: scale(1.2) !important;
+                cursor: pointer;
+            }
+            
+            .base:hover {
+                transform: scale(1.2) !important;
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.5) !important;
+            }
+            
+            .neuron-node:hover {
+                transform: scale(1.3) !important;
+                cursor: pointer;
+            }
+            
+            .outbreak-blip:hover {
+                transform: scale(1.5) !important;
+                background: #F59E0B !important;
+            }
+        `;
+        document.head.appendChild(dynamicStyles);
+    });
 </script>
 {% endblock %} 
