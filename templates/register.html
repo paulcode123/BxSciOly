@@ -34,6 +34,23 @@
 
             <form id="register-form" class="register-form">
                 <div class="form-section">
+                    <h3>Registration Mode</h3>
+                    <div class="quick-registration-toggle">
+                        <div class="toggle-container">
+                            <input type="checkbox" id="quickRegistration" name="quickRegistration" class="toggle-input">
+                            <label for="quickRegistration" class="toggle-label">
+                                <span class="toggle-slider"></span>
+                                <span class="toggle-text">Quick Registration Mode</span>
+                            </label>
+                        </div>
+                        <div class="toggle-description">
+                            <p><strong>Quick Registration:</strong> Complete basic registration in under 2 minutes. You can provide additional information later through your account settings.</p>
+                            <p><strong>Full Registration:</strong> Complete all questions now for a comprehensive application.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
                     <h3>Personal Information</h3>
                     <div class="form-row">
                         <div class="form-group">
@@ -87,7 +104,7 @@
                             <input type="password" id="confirmPassword" name="confirmPassword" required>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="form-row writing-question">
                         <div class="form-group">
                             <label for="bio">Tell us about yourself! (Grade, interests, hobbies, etc.) <span class="required">*</span></label>
                             <textarea id="bio" name="bio" rows="4" maxlength="500" data-word-limit="100" required></textarea>
@@ -124,7 +141,7 @@
                                 <option value="on discord">On Discord</option>
                             </select>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group writing-question">
                             <label for="interestReason">Why are you interested in Science Olympiad? <span class="required">*</span></label>
                             <textarea id="interestReason" name="interestReason" rows="4" maxlength="500" data-word-limit="100" required></textarea>
                             <div class="word-counter"><span id="interestReasonCount">0</span>/100 words</div>
@@ -145,11 +162,11 @@
                             </select>
                             <div class="field-hint">Enter the number of years you've been on the Science Olympiad team, including your Division B experience, if applicable</div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group writing-question">
                             <label for="pastExperience">List your past Science Olympiad results, medal history, and membership <span class="required">*</span></label>
                             <textarea id="pastExperience" name="pastExperience" rows="4" required></textarea>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group writing-question">
                             <label for="returnReason">Why do you want to participate again this year? <span class="required">*</span></label>
                             <textarea id="returnReason" name="returnReason" rows="4" required></textarea>
                         </div>
@@ -363,6 +380,7 @@
                     <div class="step-content">
                         <h3>Instant Access to Learning Resources</h3>
                         <p>Immediately after registration, you'll gain access to comprehensive learning paths for each event. Start studying right away to get ahead of the competition and demonstrate your commitment.</p>
+                        <p><em>Quick Registration Users:</em> You can complete your profile with additional information through your account settings at any time.</p>
                     </div>
                 </div>
                 
@@ -903,6 +921,93 @@
         margin: 0;
         font-size: 1.1rem;
     }
+    
+    /* Quick Registration Toggle Styles */
+    .quick-registration-toggle {
+        background: linear-gradient(135deg, rgba(155, 89, 182, 0.05), rgba(41, 128, 185, 0.05));
+        border-radius: 15px;
+        padding: 25px;
+        margin-bottom: 20px;
+        border: 2px solid rgba(155, 89, 182, 0.2);
+    }
+    
+    .toggle-container {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    
+    .toggle-input {
+        display: none;
+    }
+    
+    .toggle-label {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        font-weight: 600;
+        color: var(--primary-color);
+        font-size: 1.1rem;
+    }
+    
+    .toggle-slider {
+        position: relative;
+        width: 60px;
+        height: 30px;
+        background-color: #ccc;
+        border-radius: 30px;
+        margin-right: 15px;
+        transition: all 0.3s;
+    }
+    
+    .toggle-slider:before {
+        content: '';
+        position: absolute;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background-color: white;
+        top: 2px;
+        left: 2px;
+        transition: all 0.3s;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    
+    .toggle-input:checked + .toggle-label .toggle-slider {
+        background-color: var(--accent-color);
+    }
+    
+    .toggle-input:checked + .toggle-label .toggle-slider:before {
+        transform: translateX(30px);
+    }
+    
+    .toggle-description {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        color: #666;
+    }
+    
+    .toggle-description p {
+        margin: 8px 0;
+    }
+    
+    .toggle-description strong {
+        color: var(--primary-color);
+    }
+    
+    /* Hide writing questions when quick registration is enabled */
+    .writing-question {
+        transition: all 0.3s ease;
+    }
+    
+    .writing-question.hidden {
+        display: none;
+    }
+    
+    .writing-question.fade-out {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
 </style>
 {% endblock %}
 
@@ -914,9 +1019,68 @@
         const submitBtn = document.querySelector('.submit-btn');
         const passwordField = document.getElementById('password');
         const confirmPasswordField = document.getElementById('confirmPassword');
+        const quickRegistrationToggle = document.getElementById('quickRegistration');
         
         // Load events from API
         loadEventsFromAPI();
+        
+        // Quick Registration Toggle Functionality
+        quickRegistrationToggle.addEventListener('change', function() {
+            const writingQuestions = document.querySelectorAll('.writing-question');
+            
+            if (this.checked) {
+                // Quick registration mode - hide writing questions and remove required attribute
+                writingQuestions.forEach(question => {
+                    // Remove required attribute from all input/textarea elements in this question
+                    const inputs = question.querySelectorAll('input, textarea, select');
+                    inputs.forEach(input => {
+                        input.removeAttribute('required');
+                    });
+                    
+                    question.classList.add('fade-out');
+                    setTimeout(() => {
+                        question.classList.add('hidden');
+                    }, 300);
+                });
+            } else {
+                // Full registration mode - show writing questions and restore required attribute
+                writingQuestions.forEach(question => {
+                    question.classList.remove('hidden');
+                    setTimeout(() => {
+                        question.classList.remove('fade-out');
+                    }, 10);
+                    
+                    // Restore required attribute based on member status and field type
+                    const bioField = question.querySelector('#bio');
+                    const interestReasonField = question.querySelector('#interestReason');
+                    const pastExperienceField = question.querySelector('#pastExperience');
+                    const returnReasonField = question.querySelector('#returnReason');
+                    
+                    // Bio is always required in full registration mode
+                    if (bioField) {
+                        bioField.setAttribute('required', '');
+                    }
+                    
+                    // Interest reason is required for new members
+                    if (interestReasonField && newMemberRadio.checked) {
+                        interestReasonField.setAttribute('required', '');
+                    }
+                    
+                    // Past experience and return reason are required for returning members
+                    if (returningMemberRadio.checked) {
+                        if (pastExperienceField) {
+                            pastExperienceField.setAttribute('required', '');
+                        }
+                        if (returnReasonField) {
+                            returnReasonField.setAttribute('required', '');
+                        }
+                    }
+                });
+            }
+            
+            // Update submit button state when toggle changes
+            updateSubmitButtonState();
+        });
         
         // Toggle between new and returning member sections
         const newMemberRadio = document.getElementById('newMember');
@@ -957,8 +1121,12 @@
                 returningMemberSection.style.display = 'none';
                 
                 // Enable validation for fields in the visible section
-                interestReasonField.setAttribute('required', '');
                 hearAboutUsField.setAttribute('required', '');
+                
+                // Only set required for writing questions if not in quick registration mode
+                if (!quickRegistrationToggle.checked) {
+                    interestReasonField.setAttribute('required', '');
+                }
                 
                 // Disable validation for fields in the hidden section
                 pastExperienceField.removeAttribute('required');
@@ -977,9 +1145,13 @@
                 hearAboutUsField.removeAttribute('required');
                 
                 // Enable validation for fields in the visible section
-                pastExperienceField.setAttribute('required', '');
-                returnReasonField.setAttribute('required', '');
                 yearsOnTeamField.setAttribute('required', '');
+                
+                // Only set required for writing questions if not in quick registration mode
+                if (!quickRegistrationToggle.checked) {
+                    pastExperienceField.setAttribute('required', '');
+                    returnReasonField.setAttribute('required', '');
+                }
             }
         });
         
@@ -1368,6 +1540,9 @@
             // Get the formErrors div
             const formErrors = document.getElementById('formErrors');
             
+            // Check if quick registration is enabled (moved to top)
+            const isQuickRegistration = quickRegistrationToggle.checked;
+            
             // 1. Check contract acceptance
             if (!contractCheckbox.checked) {
                 hasErrors = true;
@@ -1398,11 +1573,15 @@
                 { id: 'phoneNumber', name: 'Phone Number' },
                 { id: 'password', name: 'Password' },
                 { id: 'confirmPassword', name: 'Confirm Password' },
-                { id: 'bio', name: 'Bio' },
                 { id: 'importantNotification', name: 'Important Notifications' },
                 { id: 'teamNotification', name: 'Team Notifications' },
                 { id: 'eventNotification', name: 'Event Notifications' }
             ];
+            
+            // Only require bio if not in quick registration mode
+            if (!isQuickRegistration) {
+                requiredFields.push({ id: 'bio', name: 'Bio' });
+            }
             
             requiredFields.forEach(field => {
                 const element = document.getElementById(field.id);
@@ -1419,9 +1598,13 @@
             if (newMemberRadio && newMemberRadio.checked) {
                 // New member specific required fields
                 const newMemberFields = [
-                    { id: 'hearAboutUs', name: 'How did you hear about us' },
-                    { id: 'interestReason', name: 'Interest reason' }
+                    { id: 'hearAboutUs', name: 'How did you hear about us' }
                 ];
+                
+                // Only require writing questions if not in quick registration mode
+                if (!isQuickRegistration) {
+                    newMemberFields.push({ id: 'interestReason', name: 'Interest reason' });
+                }
                 
                 newMemberFields.forEach(field => {
                     const element = document.getElementById(field.id);
@@ -1436,12 +1619,18 @@
                 // Returning member specific required fields
                 const returningMemberFields = [
                     { id: 'yearsOnTeam', name: 'Years on team' },
-                    { id: 'pastExperience', name: 'Past experience' },
-                    { id: 'returnReason', name: 'Return reason' },
                     { id: 'preseasonHrs', name: 'Preseason hours' },
                     { id: 'regseasonHrs', name: 'Regular season hours' },
                     { id: 'postseasonHrs', name: 'Post-season hours' }
                 ];
+                
+                // Only require writing questions if not in quick registration mode
+                if (!isQuickRegistration) {
+                    returningMemberFields.push(
+                        { id: 'pastExperience', name: 'Past experience' },
+                        { id: 'returnReason', name: 'Return reason' }
+                    );
+                }
                 
                 returningMemberFields.forEach(field => {
                     const element = document.getElementById(field.id);
@@ -1489,25 +1678,27 @@
                 errorReasons.push(`Must select 2-6 events (currently selected: ${checkedEvents})`);
             }
             
-            // 9. Check word count limits
-            const bioWords = document.getElementById('bio').value.trim().split(/\s+/).filter(word => word.length > 0);
-            const bioWordCount = bioWords.length;
-            const bioMaxWords = parseInt(document.getElementById('bio').getAttribute('data-word-limit'));
-            if (bioWordCount > bioMaxWords) {
-                hasErrors = true;
-                errorReasons.push(`Bio exceeds word limit (${bioWordCount}/${bioMaxWords})`);
-            }
-            
-            // Check interest reason word count for new members
-            if (newMemberRadio && newMemberRadio.checked) {
-                const interestReasonField = document.getElementById('interestReason');
-                if (interestReasonField) {
-                    const words = interestReasonField.value.trim().split(/\s+/).filter(word => word.length > 0);
-                    const wordCount = words.length;
-                    const maxWords = parseInt(interestReasonField.getAttribute('data-word-limit'));
-                    if (wordCount > maxWords) {
-                        hasErrors = true;
-                        errorReasons.push(`Interest reason exceeds word limit (${wordCount}/${maxWords})`);
+            // 9. Check word count limits (only if not in quick registration mode)
+            if (!isQuickRegistration) {
+                const bioWords = document.getElementById('bio').value.trim().split(/\s+/).filter(word => word.length > 0);
+                const bioWordCount = bioWords.length;
+                const bioMaxWords = parseInt(document.getElementById('bio').getAttribute('data-word-limit'));
+                if (bioWordCount > bioMaxWords) {
+                    hasErrors = true;
+                    errorReasons.push(`Bio exceeds word limit (${bioWordCount}/${bioMaxWords})`);
+                }
+                
+                // Check interest reason word count for new members
+                if (newMemberRadio && newMemberRadio.checked) {
+                    const interestReasonField = document.getElementById('interestReason');
+                    if (interestReasonField) {
+                        const words = interestReasonField.value.trim().split(/\s+/).filter(word => word.length > 0);
+                        const wordCount = words.length;
+                        const maxWords = parseInt(interestReasonField.getAttribute('data-word-limit'));
+                        if (wordCount > maxWords) {
+                            hasErrors = true;
+                            errorReasons.push(`Interest reason exceeds word limit (${wordCount}/${maxWords})`);
+                        }
                     }
                 }
             }
@@ -1546,6 +1737,7 @@
         
         // Add event listeners to all form fields for real-time submit button updates
         contractCheckbox.addEventListener('change', updateSubmitButtonState);
+        quickRegistrationToggle.addEventListener('change', updateSubmitButtonState);
         
         // Add event listeners to remaining form fields
         const formFields = [
@@ -1636,8 +1828,8 @@
                 errors.push('Please select no more than 6 events to try out for.');
             }
             
-            // Validate word count for interest reason (new members)
-            if (newMemberRadio.checked) {
+            // Validate word count for interest reason (new members) - only if not in quick registration mode
+            if (newMemberRadio.checked && !quickRegistrationToggle.checked) {
                 const words = interestReasonField.value.trim().split(/\s+/).filter(word => word.length > 0);
                 const wordCount = words.length;
                 const maxWords = parseInt(interestReasonField.getAttribute('data-word-limit'));
@@ -1647,13 +1839,15 @@
                 }
             }
             
-            // Validate word count for bio field
-            const bioWords = bioField.value.trim().split(/\s+/).filter(word => word.length > 0);
-            const bioWordCount = bioWords.length;
-            const bioMaxWords = parseInt(bioField.getAttribute('data-word-limit'));
-            
-            if (bioWordCount > bioMaxWords) {
-                errors.push(`Your bio exceeds the ${bioMaxWords} word limit. Please shorten it.`);
+            // Validate word count for bio field - only if not in quick registration mode
+            if (!quickRegistrationToggle.checked) {
+                const bioWords = bioField.value.trim().split(/\s+/).filter(word => word.length > 0);
+                const bioWordCount = bioWords.length;
+                const bioMaxWords = parseInt(bioField.getAttribute('data-word-limit'));
+                
+                if (bioWordCount > bioMaxWords) {
+                    errors.push(`Your bio exceeds the ${bioMaxWords} word limit. Please shorten it.`);
+                }
             }
             
             // Validate phone number format
@@ -1711,7 +1905,7 @@
                     grade: document.getElementById('grade').value,
                     password: document.getElementById('password').value, // Note: In production, handle password securely
                     memberStatus: document.querySelector('input[name="memberStatus"]:checked').value,
-                    bio: document.getElementById('bio').value,
+                    bio: quickRegistrationToggle.checked ? '' : document.getElementById('bio').value,
                     events: selectedEvents,
                     preseasonHrs: parseFloat(document.getElementById('preseasonHrs').value),
                     regseasonHrs: parseFloat(document.getElementById('regseasonHrs').value),
@@ -1723,16 +1917,17 @@
                     contractAcceptedAt: new Date().toISOString(),
                     createdAt: new Date().toISOString(),
                     status: 'pending', // Initial registration status
-                    adminStatus: document.getElementById('claimAdminRole').checked ? 'full' : 'none'
+                    adminStatus: document.getElementById('claimAdminRole').checked ? 'full' : 'none',
+                    quickRegistration: quickRegistrationToggle.checked // Track if this was a quick registration
                 };
                 
                 // Add specific fields based on member type
                 if (memberData.memberStatus === 'new') {
-                    memberData.interestReason = document.getElementById('interestReason').value;
+                    memberData.interestReason = quickRegistrationToggle.checked ? '' : document.getElementById('interestReason').value;
                     memberData.howDidYouHearAboutUs = document.getElementById('hearAboutUs').value;
                 } else {
-                    memberData.pastExperience = document.getElementById('pastExperience').value;
-                    memberData.returnReason = document.getElementById('returnReason').value;
+                    memberData.pastExperience = quickRegistrationToggle.checked ? '' : document.getElementById('pastExperience').value;
+                    memberData.returnReason = quickRegistrationToggle.checked ? '' : document.getElementById('returnReason').value;
                     memberData.yearsInTeam = parseInt(document.getElementById('yearsOnTeam').value);
                 }
                 

@@ -551,6 +551,22 @@ footer:before {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
+/* Bug report link specific styling */
+.social-link.bug-report {
+    width: auto;
+    min-width: 120px;
+    height: 40px;
+    border-radius: 20px;
+    padding: 0 15px;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.social-link.bug-report i {
+    font-size: 16px;
+}
+
 /* Scroll to top button */
 .scroll-top {
     position: fixed;

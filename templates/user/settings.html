@@ -30,6 +30,16 @@
                     <h2>Profile Information</h2>
                     <p class="section-description">Update your personal information and how others see you.</p>
                     
+                    <div id="quickRegistrationNotice" class="quick-registration-notice" style="display: none;">
+                        <div class="notice-content">
+                            <i class="fas fa-info-circle"></i>
+                            <div>
+                                <h4>Complete Your Profile</h4>
+                                <p>You used quick registration during signup. Please take a moment to complete your profile with additional information to help us get to know you better.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div class="profile-photo-container">
                         <div class="profile-photo">
                             <img id="profileImage" src="/static/images/default-profile.png" alt="Profile Photo">
@@ -42,36 +52,148 @@
                     </div>
                     
                     <form id="profileForm" class="settings-form">
-                        <div class="form-group">
-                            <label for="firstName">First Name</label>
-                            <input type="text" id="firstName" name="firstName" required>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="lastName">Last Name</label>
-                            <input type="text" id="lastName" name="lastName" required>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="doeEmail">DOE Email Address</label>
+                                <input type="email" id="doeEmail" name="doeEmail" pattern=".*@nycstudents\.net$" title="Please enter a valid NYC DOE email address ending with @nycstudents.net" required>
+                                <div class="field-hint">Must be your NYC DOE email address ending with @nycstudents.net</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="personalEmail">Personal Email Address</label>
+                                <input type="email" id="personalEmail" name="personalEmail" required>
+                                <div class="field-hint">This can be your BxScience email or personal email for team communications</div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="grade">Grade</label>
+                                <select id="grade" name="grade" required>
+                                    <option value="9">9th Grade</option>
+                                    <option value="10">10th Grade</option>
+                                    <option value="11">11th Grade</option>
+                                    <option value="12">12th Grade</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="phoneNumber">Phone Number</label>
+                                <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890" required>
+                                <div class="field-hint">Format: 123-456-7890</div>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="displayName">Display Name (optional)</label>
                             <input type="text" id="displayName" name="displayName" placeholder="How you want to be known">
                         </div>
                         <div class="form-group">
-                            <label for="grade">Grade</label>
-                            <select id="grade" name="grade" required>
-                                <option value="9">9th Grade</option>
-                                <option value="10">10th Grade</option>
-                                <option value="11">11th Grade</option>
-                                <option value="12">12th Grade</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="phoneNumber">Phone Number</label>
-                            <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890" required>
-                            <div class="field-hint">Format: 123-456-7890</div>
-                        </div>
-                        <div class="form-group">
                             <label for="bio">About Me</label>
-                            <textarea id="bio" name="bio" rows="4" placeholder="Share a little about yourself..."></textarea>
+                            <textarea id="bio" name="bio" rows="4" placeholder="Share a little about yourself..." maxlength="500" data-word-limit="100"></textarea>
+                            <div class="word-counter"><span id="bioCount">0</span>/100 words</div>
                         </div>
+                        
+                        <div class="settings-card">
+                            <h3>Team Status & Experience</h3>
+                            <div class="form-group">
+                                <label for="memberStatus">Member Status</label>
+                                <select id="memberStatus" name="memberStatus" required>
+                                    <option value="new">New Member</option>
+                                    <option value="returning">Returning Member</option>
+                                </select>
+                                <div class="field-hint">New members have no previous SciOly experience. Returning members have Division B or previous team experience.</div>
+                            </div>
+                            
+                            <div id="newMemberFields" class="conditional-fields">
+                                <div class="form-group">
+                                    <label for="hearAboutUs">How did you hear about us?</label>
+                                    <select id="hearAboutUs" name="hearAboutUs">
+                                        <option value="">Select an option</option>
+                                        <option value="from a friend">From a friend</option>
+                                        <option value="from a family member">From a family member</option>
+                                        <option value="on insta">On Instagram</option>
+                                        <option value="on tiktok">On TikTok</option>
+                                        <option value="looked into it">Looked into it</option>
+                                        <option value="from WTV/poster">From WTV/poster</option>
+                                        <option value="on discord">On Discord</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="interestReason">Why are you interested in Science Olympiad?</label>
+                                    <textarea id="interestReason" name="interestReason" rows="4" placeholder="Tell us why you want to join..." maxlength="500" data-word-limit="100"></textarea>
+                                    <div class="word-counter"><span id="interestReasonCount">0</span>/100 words</div>
+                                </div>
+                            </div>
+                            
+                            <div id="returningMemberFields" class="conditional-fields" style="display: none;">
+                                <div class="form-group">
+                                    <label for="yearsInTeam">Years on Team</label>
+                                    <select id="yearsInTeam" name="yearsInTeam">
+                                        <option value="">Select number of years</option>
+                                        <option value="1">1 year</option>
+                                        <option value="2">2 years</option>
+                                        <option value="3">3 years</option>
+                                        <option value="4">4 years</option>
+                                        <option value="5">5 years</option>
+                                        <option value="6">6 years</option>
+                                    </select>
+                                    <div class="field-hint">Include your Division B experience, if applicable</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="pastExperience">Past Science Olympiad Results & Experience</label>
+                                    <textarea id="pastExperience" name="pastExperience" rows="4" placeholder="List your past results, medals, and team experience..."></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="returnReason">Why do you want to participate again this year?</label>
+                                    <textarea id="returnReason" name="returnReason" rows="4" placeholder="Tell us why you want to continue..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-card">
+                            <h3>Time Commitment</h3>
+                            <p class="section-description">Indicate how many hours per week you can commit during each season.</p>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="preseasonHrs">Preseason (July-September)</label>
+                                    <select id="preseasonHrs" name="preseasonHrs" required>
+                                        <option value="0">0 hours</option>
+                                        <option value="1">1 hour</option>
+                                        <option value="2">2 hours</option>
+                                        <option value="3">3 hours</option>
+                                        <option value="4">4 hours</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="regseasonHrs">Regular Season (October-December)</label>
+                                    <select id="regseasonHrs" name="regseasonHrs" required>
+                                        <option value="0">0 hours</option>
+                                        <option value="1">1 hour</option>
+                                        <option value="2">2 hours</option>
+                                        <option value="3">3 hours</option>
+                                        <option value="4">4 hours</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="postseasonHrs">Post-Season (January-March)</label>
+                                <select id="postseasonHrs" name="postseasonHrs" required>
+                                    <option value="0">0 hours</option>
+                                    <option value="1">1 hour</option>
+                                    <option value="2">2 hours</option>
+                                    <option value="3">3 hours</option>
+                                    <option value="4">4 hours</option>
+                                </select>
+                            </div>
+                        </div>
+                        
                         <div class="form-actions">
                             <button type="submit" class="save-btn">Save Profile</button>
                         </div>
@@ -81,34 +203,7 @@
                 <!-- Account Section -->
                 <div id="account-section" class="settings-section">
                     <h2>Account Settings</h2>
-                    <p class="section-description">Manage your email and password.</p>
-                    
-                    <div class="settings-card">
-                        <h3>Email Addresses</h3>
-                        <form id="emailForm" class="settings-form">
-                            <div class="form-group">
-                                <label for="currentDoeEmail">Current DOE Email</label>
-                                <input type="email" id="currentDoeEmail" disabled>
-                                <div class="field-hint">Your NYC DOE email address cannot be changed</div>
-                            </div>
-                            <div class="form-group">
-                                <label for="currentPersonalEmail">Current Personal Email</label>
-                                <input type="email" id="currentPersonalEmail" disabled>
-                            </div>
-                            <div class="form-group">
-                                <label for="newPersonalEmail">New Personal Email</label>
-                                <input type="email" id="newPersonalEmail" name="personalEmail" required>
-                                <div class="field-hint">This can be your BxScience email or personal email for team communications</div>
-                            </div>
-                            <div class="form-group">
-                                <label for="emailPassword">Current Password</label>
-                                <input type="password" id="emailPassword" name="password" required>
-                            </div>
-                            <div class="form-actions">
-                                <button type="submit" class="save-btn">Update Personal Email</button>
-                            </div>
-                        </form>
-                    </div>
+                    <p class="section-description">Manage your password and account security.</p>
                     
                     <div class="settings-card">
                         <h3>Change Password</h3>
@@ -424,6 +519,63 @@
         font-style: italic;
     }
     
+    .form-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .form-row .form-group {
+        flex: 1;
+        min-width: 250px;
+        margin-bottom: 0;
+    }
+    
+    .word-counter {
+        text-align: right;
+        font-size: 0.9rem;
+        color: #777;
+        margin-top: 5px;
+    }
+    
+    .conditional-fields {
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid #eee;
+    }
+    
+    .quick-registration-notice {
+        background: linear-gradient(135deg, rgba(155, 89, 182, 0.1), rgba(41, 128, 185, 0.1));
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 25px;
+        border-left: 4px solid var(--accent-color);
+    }
+    
+    .notice-content {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .notice-content i {
+        font-size: 1.5rem;
+        color: var(--accent-color);
+        margin-top: 2px;
+    }
+    
+    .notice-content h4 {
+        margin: 0 0 8px 0;
+        color: var(--primary-color);
+    }
+    
+    .notice-content p {
+        margin: 0;
+        color: #666;
+        line-height: 1.5;
+    }
+    
     /* Toggle Switch */
     .toggle-group {
         display: flex;
@@ -652,7 +804,6 @@
         const navItems = document.querySelectorAll('.settings-nav li');
         const sections = document.querySelectorAll('.settings-section');
         const profileForm = document.getElementById('profileForm');
-        const emailForm = document.getElementById('emailForm');
         const passwordForm = document.getElementById('passwordForm');
         const notificationsForm = document.getElementById('notificationsForm');
         const profilePhotoContainer = document.querySelector('.profile-photo');
@@ -663,6 +814,11 @@
         const strengthMeter = document.querySelector('.strength-meter');
         const strengthText = document.querySelector('.strength-text');
         const matchMessage = document.querySelector('.match-message');
+        
+        // Member status conditional fields
+        const memberStatusSelect = document.getElementById('memberStatus');
+        const newMemberFields = document.getElementById('newMemberFields');
+        const returningMemberFields = document.getElementById('returningMemberFields');
         
         // Initialize user data
         let userData = null;
@@ -697,17 +853,32 @@
         
         // Populate form fields with user data
         function populateUserData() {
-            // Profile form
+            // Profile form - basic info
             document.getElementById('firstName').value = userData.firstName || '';
             document.getElementById('lastName').value = userData.lastName || '';
             document.getElementById('displayName').value = userData.displayName || '';
+            document.getElementById('doeEmail').value = userData.doeEmail || '';
+            document.getElementById('personalEmail').value = userData.personalEmail || '';
             document.getElementById('grade').value = userData.grade || '9';
             document.getElementById('phoneNumber').value = userData.phoneNumber || '';
             document.getElementById('bio').value = userData.bio || '';
             
-            // Email addresses
-            document.getElementById('currentDoeEmail').value = userData.doeEmail || '';
-            document.getElementById('currentPersonalEmail').value = userData.personalEmail || '';
+            // Team status and experience
+            document.getElementById('memberStatus').value = userData.memberStatus || 'new';
+            
+            // New member fields
+            document.getElementById('hearAboutUs').value = userData.howDidYouHearAboutUs || '';
+            document.getElementById('interestReason').value = userData.interestReason || '';
+            
+            // Returning member fields
+            document.getElementById('yearsInTeam').value = userData.yearsInTeam || '';
+            document.getElementById('pastExperience').value = userData.pastExperience || '';
+            document.getElementById('returnReason').value = userData.returnReason || '';
+            
+            // Time commitment
+            document.getElementById('preseasonHrs').value = userData.preseasonHrs || '0';
+            document.getElementById('regseasonHrs').value = userData.regseasonHrs || '0';
+            document.getElementById('postseasonHrs').value = userData.postseasonHrs || '0';
             
             // Notification preferences
             document.getElementById('importantNotification').value = userData.importantNotification || 'email';
@@ -721,6 +892,18 @@
             }
             else {
                 console.log("No profile pic found", userData, userData.profilePicURL)
+            }
+            
+            // Update word counters
+            updateWordCounters();
+            
+            // Show/hide conditional fields based on member status
+            toggleMemberStatusFields();
+            
+            // Show quick registration notice if user used quick registration
+            const quickRegistrationNotice = document.getElementById('quickRegistrationNotice');
+            if (userData.quickRegistration && quickRegistrationNotice) {
+                quickRegistrationNotice.style.display = 'block';
             }
         }
         
@@ -1217,13 +1400,31 @@
                 return;
             }
             
+            // Validate DOE email format
+            const doeEmail = document.getElementById('doeEmail').value;
+            if (!doeEmail.endsWith('@nycstudents.net')) {
+                showMessage('error-message', 'DOE email address must end with @nycstudents.net', document.getElementById('profile-section'));
+                return;
+            }
+            
             const profileData = {
                 firstName: document.getElementById('firstName').value,
                 lastName: document.getElementById('lastName').value,
                 displayName: document.getElementById('displayName').value,
+                doeEmail: doeEmail,
+                personalEmail: document.getElementById('personalEmail').value,
                 grade: document.getElementById('grade').value,
                 phoneNumber: phoneNumber,
-                bio: document.getElementById('bio').value
+                bio: document.getElementById('bio').value,
+                memberStatus: document.getElementById('memberStatus').value,
+                hearAboutUs: document.getElementById('hearAboutUs').value,
+                interestReason: document.getElementById('interestReason').value,
+                yearsInTeam: parseInt(document.getElementById('yearsInTeam').value) || null,
+                pastExperience: document.getElementById('pastExperience').value,
+                returnReason: document.getElementById('returnReason').value,
+                preseasonHrs: parseFloat(document.getElementById('preseasonHrs').value),
+                regseasonHrs: parseFloat(document.getElementById('regseasonHrs').value),
+                postseasonHrs: parseFloat(document.getElementById('postseasonHrs').value)
             };
             
             updateUserData(profileData, function() {
@@ -1231,22 +1432,7 @@
             });
         });
         
-        // Email form submission
-        emailForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const newPersonalEmail = document.getElementById('newPersonalEmail').value;
-            const password = document.getElementById('emailPassword').value;
-            
-            // In a real implementation, this would verify the password and update email securely
-            // For this demo, we'll just update the personal email
-            updateUserData({ personalEmail: newPersonalEmail }, function() {
-                document.getElementById('currentPersonalEmail').value = newPersonalEmail;
-                document.getElementById('newPersonalEmail').value = '';
-                document.getElementById('emailPassword').value = '';
-                showMessage('success-message', 'Personal email updated successfully', document.getElementById('account-section'));
-            });
-        });
+
         
         // Password form submission
         passwordForm.addEventListener('submit', function(e) {
@@ -1295,6 +1481,75 @@
             updateUserData(notificationData, function() {
                 showMessage('success-message', 'Notification preferences updated successfully', document.getElementById('notifications-section'));
             });
+        });
+        
+        // Update word counters
+        function updateWordCounters() {
+            const bioField = document.getElementById('bio');
+            const bioCount = document.getElementById('bioCount');
+            const interestReasonField = document.getElementById('interestReason');
+            const interestReasonCount = document.getElementById('interestReasonCount');
+            
+            if (bioField && bioCount) {
+                const words = bioField.value.trim().split(/\s+/).filter(word => word.length > 0);
+                bioCount.textContent = words.length;
+            }
+            
+            if (interestReasonField && interestReasonCount) {
+                const words = interestReasonField.value.trim().split(/\s+/).filter(word => word.length > 0);
+                interestReasonCount.textContent = words.length;
+            }
+        }
+        
+        // Toggle member status conditional fields
+        function toggleMemberStatusFields() {
+            const memberStatus = memberStatusSelect.value;
+            
+            if (memberStatus === 'new') {
+                newMemberFields.style.display = 'block';
+                returningMemberFields.style.display = 'none';
+            } else {
+                newMemberFields.style.display = 'none';
+                returningMemberFields.style.display = 'block';
+            }
+        }
+        
+        // Member status change handler
+        memberStatusSelect.addEventListener('change', toggleMemberStatusFields);
+        
+        // Word counter event listeners
+        document.getElementById('bio').addEventListener('input', function() {
+            const words = this.value.trim().split(/\s+/).filter(word => word.length > 0);
+            const wordCount = words.length;
+            const maxWords = parseInt(this.getAttribute('data-word-limit'));
+            
+            // If word count exceeds limit, truncate the text
+            if (wordCount > maxWords) {
+                const truncatedWords = words.slice(0, maxWords);
+                this.value = truncatedWords.join(' ');
+                this.setSelectionRange(this.value.length, this.value.length);
+            }
+            
+            // Update counter with actual word count (after truncation)
+            const actualWords = this.value.trim().split(/\s+/).filter(word => word.length > 0);
+            document.getElementById('bioCount').textContent = actualWords.length;
+        });
+        
+        document.getElementById('interestReason').addEventListener('input', function() {
+            const words = this.value.trim().split(/\s+/).filter(word => word.length > 0);
+            const wordCount = words.length;
+            const maxWords = parseInt(this.getAttribute('data-word-limit'));
+            
+            // If word count exceeds limit, truncate the text
+            if (wordCount > maxWords) {
+                const truncatedWords = words.slice(0, maxWords);
+                this.value = truncatedWords.join(' ');
+                this.setSelectionRange(this.value.length, this.value.length);
+            }
+            
+            // Update counter with actual word count (after truncation)
+            const actualWords = this.value.trim().split(/\s+/).filter(word => word.length > 0);
+            document.getElementById('interestReasonCount').textContent = actualWords.length;
         });
         
         // Load user data on page load
