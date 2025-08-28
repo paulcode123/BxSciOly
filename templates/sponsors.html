@@ -82,6 +82,78 @@
         line-height: 1.8;
     }
 
+    .sponsorship-form-section {
+        padding: 80px 0;
+        background: white;
+        text-align: center;
+    }
+
+    .form-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        border: 2px solid var(--accent-color);
+    }
+
+    .form-container h2 {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 25px;
+        position: relative;
+    }
+
+    .form-container h2::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: var(--accent-color);
+        border-radius: 2px;
+    }
+
+    .form-link {
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    .form-link:hover {
+        color: var(--accent-color);
+        text-decoration: none;
+    }
+
+    .form-link::after {
+        content: ' ↗';
+        font-size: 0.8em;
+        opacity: 0.7;
+    }
+
+    .form-description {
+        font-size: 1.2rem;
+        color: #555;
+        line-height: 1.7;
+        margin: 0;
+    }
+
+    .form-description a {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s ease;
+    }
+
+    .form-description a:hover {
+        color: var(--primary-color);
+        text-decoration: underline;
+    }
+
     .tiers-section {
         padding: 100px 0;
         background: white;
@@ -330,6 +402,23 @@
             font-size: 1.1rem;
         }
         
+        .sponsorship-form-section {
+            padding: 60px 0;
+        }
+        
+        .form-container {
+            padding: 30px 20px;
+            margin: 0 15px;
+        }
+        
+        .form-container h2 {
+            font-size: 2rem;
+        }
+        
+        .form-description {
+            font-size: 1.1rem;
+        }
+        
         .tiers-section {
             padding: 60px 0;
         }
@@ -389,6 +478,20 @@
             equipment, materials, competition fees, and educational opportunities. Every contribution helps us 
             continue our tradition of excellence and innovation in STEM education.
         </p>
+    </div>
+</section>
+
+<!-- Sponsorship Submission Form Section -->
+<section class="sponsorship-form-section">
+    <div class="container">
+        <div class="form-container">
+            <h2><a href="https://forms.gle/4t4diyWJ9ksujmQa7" target="_blank" class="form-link">Sponsorship Submission Form</a></h2>
+            <p class="form-description">
+                Interested in donating? Visit this form below and contact us at 
+                <a href="mailto:bxsciolycaptain@bxscience.edu">bxsciolycaptain@bxscience.edu</a> 
+                for any inquiries or further comments.
+            </p>
+        </div>
     </div>
 </section>
 
