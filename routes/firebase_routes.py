@@ -9,6 +9,10 @@ from bs4 import BeautifulSoup
 import re
 from urllib.parse import urlparse, parse_qs
 import logging
+import secrets
+from datetime import timedelta
+import smtplib
+from email.message import EmailMessage
 
 # Try to import from our initialization module
 try:
@@ -30,6 +34,167 @@ firebase_routes = Blueprint('firebase_routes', __name__)
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
+
+# ---------------- Password Reset ----------------
+@firebase_routes.route('/api/auth/request-password-reset', methods=['POST'])
+def request_password_reset():
+    """Initiate a password reset by DOE email.
+    Creates a one-time token stored in Firestore with 1-hour expiry.
+    """
+    try:
+        data = request.get_json() or {}
+        email = data.get('doeEmail') or data.get('email')
+        if not email:
+            return jsonify({"error": "doeEmail is required"}), 400
+
+        # Find member by DOE email
+        query = db.collection('Members').where('doeEmail', '==', email).limit(1).stream()
+        results = list(query)
+        if not results:
+            # Do not reveal account existence
+            return jsonify({"message": "If an account exists, a reset email was sent."}), 200
+
+        member = results[0]
+        user_id = member.id
+
+        # Generate secure token
+        token = secrets.token_urlsafe(32)
+        expires_at = firestore.SERVER_TIMESTAMP  # placeholder; also store explicit ttl_seconds
+
+        # Store token doc
+        reset_ref = db.collection('PasswordResets').document(token)
+        reset_ref.set({
+            'userId': user_id,
+            'doeEmail': email,
+            'createdAt': firestore.SERVER_TIMESTAMP,
+            'expiresInSeconds': 3600,
+            'used': False
+        })
+
+        # Build reset link
+        base_url = request.host_url.rstrip('/')
+        reset_link = f"{base_url}/reset-password?token={token}"
+
+        # Attempt to send email
+        try:
+            _send_password_reset_email(to_email=email, reset_link=reset_link)
+            logger.info(f"Password reset email sent to {email}")
+        except Exception as send_err:
+            logger.error(f"Failed to send password reset email: {send_err}")
+            # Still respond generically to avoid information leakage
+
+        return jsonify({
+            "message": "If an account exists, a reset email was sent.",
+            "token": token  # Exposed for development convenience
+        }), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+@firebase_routes.route('/api/auth/reset-password', methods=['POST'])
+def reset_password():
+    """Complete password reset with token and new password."""
+    try:
+        data = request.get_json() or {}
+        token = data.get('token')
+        new_password = data.get('newPassword')
+        if not token or not new_password:
+            return jsonify({"error": "token and newPassword are required"}), 400
+
+        # Fetch token doc
+        token_doc = db.collection('PasswordResets').document(token).get()
+        if not token_doc.exists:
+            return jsonify({"error": "Invalid or expired token"}), 400
+        token_data = token_doc.to_dict()
+
+        if token_data.get('used'):
+            return jsonify({"error": "Token already used"}), 400
+
+        # Basic expiry check: if createdAt older than expiresInSeconds
+        created_at = token_data.get('createdAt')
+        ttl = int(token_data.get('expiresInSeconds', 3600))
+        try:
+            # Firestore timestamp has .timestamp() when running in server
+            if created_at and hasattr(created_at, 'timestamp'):
+                import time
+                if time.time() - created_at.timestamp() > ttl:
+                    return jsonify({"error": "Token expired"}), 400
+        except Exception:
+            # If we cannot compute, allow but still mark used
+            pass
+
+        user_id = token_data.get('userId')
+        if not user_id:
+            return jsonify({"error": "Invalid token data"}), 400
+
+        # Update password on Member document
+        user_ref = db.collection('Members').document(user_id)
+        if not user_ref.get().exists:
+            return jsonify({"error": "User not found"}), 404
+        user_ref.update({'password': new_password, 'updatedAt': firestore.SERVER_TIMESTAMP})
+
+        # Invalidate token
+        db.collection('PasswordResets').document(token).update({'used': True, 'usedAt': firestore.SERVER_TIMESTAMP})
+
+        return jsonify({"message": "Password has been reset successfully"}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+def _send_password_reset_email(to_email: str, reset_link: str) -> None:
+    """Send a password reset email via SMTP using credentials in api_keys.json.
+
+    Expected keys in api_keys.json:
+      - SMTP_HOST (e.g., 'smtp.gmail.com')
+      - SMTP_PORT (e.g., 587)
+      - SMTP_USER
+      - SMTP_PASSWORD
+      - SMTP_FROM (optional; defaults to SMTP_USER)
+      - SMTP_USE_TLS (optional; defaults True)
+    """
+    # Load SMTP configuration
+    with open('api_keys.json', 'r') as f:
+        cfg = json.load(f)
+
+    host = cfg.get('SMTP_HOST')
+    port = int(cfg.get('SMTP_PORT', 587))
+    user = cfg.get('SMTP_USER')
+    password = cfg.get('SMTP_PASSWORD')
+    from_addr = cfg.get('SMTP_FROM') or user
+    use_tls = cfg.get('SMTP_USE_TLS', True)
+
+    if not all([host, port, user, password, from_addr]):
+        raise RuntimeError('SMTP configuration missing in api_keys.json')
+
+    subject = 'Reset your Bronx Science Olympiad password'
+    text_body = (
+        'You requested a password reset.\n\n'
+        f'Click the link to reset your password: {reset_link}\n\n'
+        'This link expires in 1 hour. If you did not request this, ignore this email.'
+    )
+    html_body = (
+        '<div style="font-family:Arial,Helvetica,sans-serif; font-size:14px; color:#222">'
+        '<p>You requested a password reset.</p>'
+        f'<p><a href="{reset_link}" target="_blank" '
+        'style="display:inline-block;padding:10px 16px;background:#2c3e50;color:#fff;text-decoration:none;border-radius:6px">'
+        'Reset Password</a></p>'
+        f'<p>If the button does not work, copy and paste this link into your browser:<br>{reset_link}</p>'
+        '<p>This link expires in 1 hour. If you did not request this, you can safely ignore this email.</p>'
+        '</div>'
+    )
+
+    msg = EmailMessage()
+    msg['Subject'] = subject
+    msg['From'] = from_addr
+    msg['To'] = to_email
+    msg.set_content(text_body)
+    msg.add_alternative(html_body, subtype='html')
+
+    with smtplib.SMTP(host, port, timeout=15) as server:
+        if use_tls:
+            server.starttls()
+        server.login(user, password)
+        server.send_message(msg)
 
 @firebase_routes.route('/api/<collection>', methods=['GET'])
 def get_all(collection):

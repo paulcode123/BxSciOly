@@ -58,8 +58,8 @@
 - numTeams: number
 - teamPlacement: [{
   team: string (enum: "A", "B", "C"),
-  event: string (reference to Events)
-  participants: string[] (array of member ids)
+  event: string (name of event)
+  participants: string[] (array of: member ids OR full name, if member is not in the database)
 }] (optional, post-competition)
 - results: {
     teamRank: number,

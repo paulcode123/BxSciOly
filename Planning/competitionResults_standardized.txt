@@ -1,0 +1,656 @@
+================================================================================
+BRONX SCIENCE OLYMPIAD - COMPETITION RESULTS
+================================================================================
+
+Event Orders by Season:
+-----------------------
+2023-24 Events (18 events):
+Air Trajectory, Anatomy and Physiology, Astronomy, Chemistry Lab, Codebusters, 
+Detector Building, Disease Detectives, Dynamic Planet, Ecology, Experimental Design, 
+Fermi Questions, Forensics, Forestry, Fossils, Geologic Mapping, Microbe Mission, 
+Optics, Wind Power, Write It Do It
+
+2024-25 Events (23 events):  
+Air Trajectory, Anatomy and Physiology, Astronomy, Bungee Drop, Chemistry Lab, 
+Codebusters, Disease Detectives, Dynamic Planet, Ecology, Electric Vehicle, 
+Entomology, Experimental Design, Forensics, Fossils, Geologic Mapping, Helicopter, 
+Materials Science, Microbe Mission, Optics, Robot Tour, Tower, Wind Power, Write It Do It
+
+================================================================================
+
+RICKARDS SATELLITE INVITATIONAL 2024-25
+Date: November 2, 2024
+Type: Satellite Invitational
+Duosmium: https://www.duosmium.org/results/2024-11-02_rickards_invitational_c/
+
+Team A Results:
+Air Trajectory: 56
+Anatomy and Physiology: 99
+Astronomy: 4
+Bungee Drop: 20
+Chemistry Lab: 95
+Codebusters: 46
+Disease Detectives: 93
+Dynamic Planet: 29
+Ecology: 140
+Electric Vehicle: 13
+Entomology: 4
+Experimental Design: 23
+Forensics: 22
+Fossils: 60
+Geologic Mapping: 141
+Helicopter: 40
+Materials Science: 21
+Microbe Mission: 233
+Overall: 46th out of 287 teams
+
+================================================================================
+
+YALE INVITATIONAL 2023-24
+Date: February 10, 2024
+Type: Invitational
+Duosmium: https://www.duosmium.org/results/2024-02-10_yale_invitational_c/
+
+Team A Results:
+Anatomy and Physiology: 24
+Astronomy: 8
+Chemistry Lab: 8
+Codebusters: 1
+Detector Building: 2
+Disease Detectives: 14
+Dynamic Planet: 11
+Ecology: 3
+Experimental Design: 16
+Fermi Questions: 5
+Forensics: 13
+Forestry: 3
+Fossils: 2
+Geologic Mapping: 8
+Microbe Mission: 4
+Optics: 5
+Wind Power: 18
+Write It Do It: 19
+Air Trajectory: 14
+Flight: 29
+Robot Tour: 15
+Scrambler: 1
+Tower: 29
+Overall: 6th out of 56 teams
+
+================================================================================
+
+NEW YORK STATE CHAMPIONSHIP 2023-24
+Date: March 15, 2024
+Type: Official State Championship
+Duosmium: https://www.duosmium.org/results/2024-03-15_NY_states_c/
+
+Team A Results:
+Anatomy and Physiology: 6
+Astronomy: 11
+Chemistry Lab: 11
+Codebusters: 2
+Detector Building: 8
+Disease Detectives: 42
+Dynamic Planet: 24
+Ecology: 44
+Experimental Design: 14
+Fermi Questions: 29
+Forensics: 17
+Forestry: 10
+Fossils: 9
+Geologic Mapping: 32
+Microbe Mission: 14
+Optics: 28
+Wind Power: 42
+Write It Do It: 16
+Air Trajectory: 54
+Flight: 37
+Robot Tour: 14
+Scrambler: 18
+Overall: 12th out of 59 teams
+
+================================================================================
+
+SEALS OLYMPIAD 2024-25
+Date: December 7, 2024
+Type: Satellite Invitational
+Duosmium: https://www.duosmium.org/results/2024-12-07_sealsoinvitational_c/
+
+Team A Results:
+Air Trajectory: 43
+Anatomy and Physiology: 5
+Astronomy: 3
+Bungee Drop: 11
+Chemistry Lab: 14
+Codebusters: 7
+Disease Detectives: 17*
+Dynamic Planet: 6
+Ecology: 4
+Electric Vehicle: 43
+Entomology: 17
+Experimental Design: 19
+Forensics: 10
+Fossils: 13
+Geologic Mapping: 11
+Helicopter: 10
+Materials Science: 8
+Microbe Mission: 13
+Optics: 8
+Robot Tour: 43
+Tower: 9
+Wind Power: 5
+Write It Do It: 42
+Overall: 9th out of 42 teams
+
+Team B Results:
+Air Trajectory: 5*
+Anatomy and Physiology: 21
+Astronomy: 9
+Bungee Drop: 43
+Chemistry Lab: 11
+Codebusters: 17
+Disease Detectives: 5
+Dynamic Planet: 23
+Ecology: 13
+Electric Vehicle: 43
+Entomology: 21
+Experimental Design: 8
+Forensics: 7
+Fossils: 16
+Geologic Mapping: 20
+Helicopter: 43
+Materials Science: 30*
+Microbe Mission: 43
+Optics: 7
+Robot Tour: 43
+Tower: 43
+Wind Power: 3
+Write It Do It: 10
+Overall: 15th out of 42 teams
+
+================================================================================
+
+LEXINGTON SATELLITE INVITATIONAL 2024-25
+Date: April 10, 2025
+Type: Satellite Invitational
+Duosmium: https://www.duosmium.org/results/2025-04-10_lexington_invitational_c/
+
+Team A Results:
+Air Trajectory: 2
+Anatomy and Physiology: 3
+Astronomy: 14
+Bungee Drop: 24
+Chemistry Lab: 11
+Codebusters: 9
+Disease Detectives: 10
+Dynamic Planet: 6
+Ecology: 5
+Electric Vehicle: 24
+Entomology: 11
+Experimental Design: 3
+Forensics: 6
+Fossils: 25
+Geologic Mapping: 7
+Helicopter: 25
+Materials Science: 14
+Microbe Mission: 3
+Optics: 6
+Robot Tour: 24
+Tower: 4
+Wind Power: 2
+Write It Do It: 11
+Overall: 6th out of 23 teams
+
+Team B Results:
+Air Trajectory: 24
+Anatomy and Physiology: 9
+Astronomy: 8
+Bungee Drop: 24
+Chemistry Lab: 9
+Codebusters: 10
+Disease Detectives: 8
+Dynamic Planet: 15
+Ecology: 11
+Electric Vehicle: 24
+Entomology: 13
+Experimental Design: 12
+Forensics: 10
+Fossils: 25
+Geologic Mapping: 8
+Helicopter: 24
+Materials Science: 25
+Microbe Mission: 15
+Optics: 3
+Robot Tour: 24
+Tower: 3
+Wind Power: 5
+Write It Do It: 13
+Overall: 10th out of 23 teams
+
+================================================================================
+
+NYC NORTH REGIONAL 2024-25
+Date: January 25, 2025
+Type: Official Regional Championship
+Duosmium: https://www.duosmium.org/results/2025-01-25_NY_nyc_north_regional_c/
+
+Team A Results:
+Air Trajectory: 2
+Anatomy and Physiology: 2
+Astronomy: 4
+Bungee Drop: 1
+Chemistry Lab: 1
+Codebusters: 3
+Disease Detectives: 2
+Dynamic Planet: 1
+Ecology: 9◊
+Electric Vehicle: 8
+Entomology: 7
+Experimental Design: 1
+Forensics: 3
+Fossils: 1
+Geologic Mapping: 2
+Helicopter: 2
+Materials Science: 5
+Microbe Mission: 22◊
+Optics: 5
+Robot Tour: 2
+Tower: 7
+Wind Power: 12
+Overall: 1st out of 34 teams
+
+Team B Results:
+Air Trajectory: 4◊
+Anatomy and Physiology: 9
+Astronomy: 3
+Bungee Drop: 4
+Chemistry Lab: 2
+Codebusters: 1
+Disease Detectives: 1
+Dynamic Planet: 4
+Ecology: 4
+Electric Vehicle: 34◊
+Entomology: 11
+Experimental Design: 6
+Forensics: 4
+Fossils: 5
+Geologic Mapping: 6
+Helicopter: 5
+Materials Science: 1
+Microbe Mission: 1
+Optics: 2
+Robot Tour: 4
+Tower: 11◊
+Wind Power: 4
+Overall: 2nd out of 34 teams
+
+Team C Results:
+Air Trajectory: 5
+Anatomy and Physiology: 4
+Astronomy: 15
+Bungee Drop: 2
+Chemistry Lab: 5
+Codebusters: 6
+Disease Detectives: 14
+Dynamic Planet: 2
+Ecology: 15◊
+Electric Vehicle: 35◊
+Entomology: 6
+Experimental Design: 2
+Forensics: 5
+Fossils: 6
+Geologic Mapping: 1
+Helicopter: 6
+Materials Science: 4
+Microbe Mission: 11
+Optics: 15◊
+Robot Tour: 11
+Tower: 10
+Wind Power: 5
+Overall: 4th out of 34 teams
+
+================================================================================
+
+NYC NORTH REGIONAL 2023-24
+Date: January 27, 2024
+Type: Official Regional Championship
+Duosmium: https://www.duosmium.org/results/2024-01-27_NY_nyc_north_regional_c/
+
+Team A Results:
+Anatomy and Physiology: 9◊
+Astronomy: 3
+Chemistry Lab: 5
+Codebusters: 1
+Detector Building: 1
+Disease Detectives: 2
+Dynamic Planet: 2
+Ecology: 7
+Experimental Design: 7
+Fermi Questions: 8
+Forensics: 1
+Forestry: 1
+Fossils: 1
+Geologic Mapping: 4
+Microbe Mission: 2
+Optics: 3
+Wind Power: 11◊
+Write It Do It: 1
+Air Trajectory: 4
+Flight: 8
+Robot Tour: 4
+Scrambler: 8
+Overall: 1st out of 30 teams
+
+Team B Results:
+Anatomy and Physiology: 6◊
+Astronomy: 1
+Chemistry Lab: 11
+Codebusters: 4
+Detector Building: 3
+Disease Detectives: 8
+Dynamic Planet: 14◊
+Ecology: 2
+Experimental Design: 13
+Fermi Questions: 10
+Forensics: 2
+Forestry: 11
+Fossils: 2
+Geologic Mapping: 5
+Microbe Mission: 5
+Optics: 14◊
+Wind Power: 10
+Write It Do It: 5
+Air Trajectory: 7*
+Flight: 7
+Robot Tour: 1
+Scrambler: 6
+Overall: 5th out of 30 teams
+
+Team C Results:
+Anatomy and Physiology: 18◊
+Astronomy: 5
+Chemistry Lab: 13
+Codebusters: 2
+Detector Building: 20◊
+Disease Detectives: 1
+Dynamic Planet: 5
+Ecology: 17
+Experimental Design: 6
+Fermi Questions: 6
+Forensics: 3
+Forestry: 4
+Fossils: 11
+Geologic Mapping: 6
+Microbe Mission: 4
+Optics: 2
+Wind Power: 18◊
+Write It Do It: 9
+Air Trajectory: 7*
+Flight: 6
+Robot Tour: 5
+Scrambler: 2
+Overall: 6th out of 30 teams
+
+================================================================================
+
+NEW YORK STATE CHAMPIONSHIP 2024-25
+Date: March 21, 2025
+Type: Official State Championship
+Duosmium: https://www.duosmium.org/results/2025-03-21_NY_states_c/
+
+Team A Results:
+Air Trajectory: 51
+Anatomy and Physiology: 15
+Astronomy: (DQ)
+Bungee Drop: 43
+Chemistry Lab: 23
+Codebusters: 27
+Disease Detectives: 17
+Dynamic Planet: 42
+Ecology: 15
+Electric Vehicle: 37
+Entomology: 5
+Experimental Design: 25
+Forensics: 45
+Fossils: 22
+Geologic Mapping: 20
+Helicopter: 52
+Materials Science: 14
+Microbe Mission: 9
+Optics: 19
+Robot Tour: 36
+Tower: 22
+Wind Power: 9
+Write It Do It: 43
+Overall: 19th out of 60 teams
+
+================================================================================
+
+BIRDSO SATELLITE INVITATIONAL 2023-24
+Date: February 10, 2024
+Type: Satellite Invitational
+Duosmium: https://www.duosmium.org/results/2024-02-10_birdso_satellite_invitational_c/
+
+Team A Results:
+Anatomy and Physiology: 167
+Astronomy: 38
+Chemistry Lab: 106
+Codebusters: 4
+Detector Building: 23
+Disease Detectives: 11
+Dynamic Planet: 81
+Ecology: 101
+Experimental Design: 94
+Fermi Questions: 87
+Forensics: 74
+Forestry: 167
+Fossils: 55
+Geologic Mapping: 76
+Microbe Mission: 89
+Optics: 62
+Wind Power: 64
+Write It Do It: 39
+Air Trajectory: 167
+Flight: 167
+Robot Tour: 167
+Scrambler: 35
+Tower: 77
+Overall: 71st out of 139 teams
+
+Team B Results:
+Anatomy and Physiology: 167
+Astronomy: 24
+Chemistry Lab: 42
+Codebusters: 39
+Detector Building: 47
+Disease Detectives: 55
+Dynamic Planet: 80
+Ecology: 73
+Experimental Design: 107
+Fermi Questions: 52
+Forensics: 50
+Forestry: 167
+Fossils: 57
+Geologic Mapping: 74
+Microbe Mission: 103
+Optics: 58
+Wind Power: 88
+Write It Do It: 109
+Air Trajectory: 167
+Flight: 167
+Robot Tour: 167
+Scrambler: 49
+Tower: 76
+Overall: 77th out of 139 teams
+
+Team C Results:
+Anatomy and Physiology: 167
+Astronomy: 75
+Chemistry Lab: 122
+Codebusters: 66
+Detector Building: 76
+Disease Detectives: 64
+Dynamic Planet: 59
+Ecology: 33
+Experimental Design: 103
+Fermi Questions: 81
+Forensics: 32
+Forestry: 167
+Fossils: 29
+Geologic Mapping: 114
+Microbe Mission: 69
+Optics: 79
+Wind Power: 92
+Write It Do It: 69
+Air Trajectory: 167
+Flight: 167
+Robot Tour: 167
+Scrambler: 30
+Tower: 103
+Overall: 81st out of 139 teams
+
+================================================================================
+
+BOYCEVILLE SATELLITE INVITATIONAL 2023-24
+Date: November 27, 2023
+Type: Satellite Invitational
+Duosmium: https://www.duosmium.org/results/2023-11-27_boyceville_satellite_invitational_c/
+
+Team A Results:
+Anatomy and Physiology: 237
+Astronomy: 70
+Chemistry Lab: 131
+Codebusters: 35
+Detector Building: 30
+Disease Detectives: 24
+Dynamic Planet: 56
+Ecology: 172
+Experimental Design: 52
+Fermi Questions: 76
+Forensics: 87
+Forestry: 149
+Fossils: 237◊
+Geologic Mapping: 68
+Microbe Mission: 20
+Optics: 66
+Wind Power: 25
+Write It Do It: 72
+Air Trajectory: 28
+Flight: 76
+Robot Tour: 237◊
+Scrambler: 141
+Tower: 19
+Detector Building: 237◊
+Fermi Questions: 237◊
+Wind Power: 237◊
+Microbe Mission: 103
+Optics: 138
+Overall: 53rd out of 236 teams
+
+Team B Results:
+Anatomy and Physiology: 237
+Astronomy: 89
+Chemistry Lab: 121
+Codebusters: 12
+Detector Building: 237
+Disease Detectives: 152
+Dynamic Planet: 62
+Ecology: 49
+Experimental Design: 139
+Fermi Questions: 34
+Forensics: 70
+Forestry: 38
+Fossils: 237
+Geologic Mapping: 92
+Microbe Mission: 82
+Optics: 116
+Wind Power: 29
+Write It Do It: 151
+Air Trajectory: 237◊
+Flight: 125
+Robot Tour: 237◊
+Scrambler: 153
+Tower: 23
+Detector Building: 237◊
+Fermi Questions: 237◊
+Wind Power: 237◊
+Microbe Mission: 136
+Optics: 159
+Overall: 95th out of 236 teams
+
+Team C Results:
+Anatomy and Physiology: 237
+Astronomy: 136
+Chemistry Lab: 120
+Codebusters: 137
+Detector Building: 20
+Disease Detectives: 48
+Dynamic Planet: 127
+Ecology: 65
+Experimental Design: 136
+Fermi Questions: 72
+Forensics: 123
+Forestry: 131
+Fossils: 237
+Geologic Mapping: 53
+Microbe Mission: 92
+Optics: 133
+Wind Power: 24
+Write It Do It: 164
+Air Trajectory: 16
+Flight: 64
+Robot Tour: 237◊
+Scrambler: 237◊
+Tower: 16
+Detector Building: 237◊
+Fermi Questions: 237◊
+Wind Power: 237◊
+Microbe Mission: 91
+Optics: 132
+Overall: 79th out of 236 teams
+
+================================================================================
+
+RICKARDS SATELLITE INVITATIONAL 2023-24
+Date: November 4, 2023
+Type: Satellite Invitational
+Duosmium: https://www.duosmium.org/results/2023-11-04_rickards_invitational_c/
+
+Team A Results:
+Anatomy and Physiology: 56
+Astronomy: 99
+Chemistry Lab: 4
+Codebusters: 20
+Detector Building: 95
+Disease Detectives: 46
+Dynamic Planet: 93
+Ecology: 29
+Experimental Design: 140
+Fermi Questions: 13
+Forensics: 4
+Forestry: 23
+Fossils: 22
+Geologic Mapping: 60
+Microbe Mission: 141
+Optics: 40
+Wind Power: 21
+Write It Do It: 233
+Overall: 46th out of 231 teams
+
+================================================================================
+
+Notes:
+- * indicates penalty applied
+- ◊ indicates disqualification or no-show
+- DQ indicates disqualification
+- Numbers in parentheses indicate estimated placement when exact ranking unavailable
+- Event orders may vary slightly between competitions due to scheduling constraints
+
+================================================================================
+
+
+
+
+
+
+

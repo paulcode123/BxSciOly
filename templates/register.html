@@ -257,17 +257,7 @@
                     </div>
                 </div>
 
-                <div class="form-section">
-                    <h3>Admin Access </h3>
-                    <div class="form-group">
-                        <div class="checkbox-option">
-                            <input type="checkbox" id="claimAdminRole" name="claimAdminRole">
-                            <label for="claimAdminRole">Claim admin role (full access)</label>
-                        </div>
-                        <div class="field-hint">Check this box to get full admin access to the platform. This is temporary for development purposes.</div>
-                        <div id="adminAccessError" class="error-message" style="display: none;"></div>
-                    </div>
-                </div>
+
 
                 <div class="form-section">
                     <h3>Event Selection</h3>
@@ -1343,99 +1333,10 @@
             });
         }
         
-        // Load approved emails for admin validation
-        let approvedEmails = [];
-        
-        // Fetch approved emails from the text file
-        fetch('/templates/approved_emails.txt')
-            .then(response => response.text())
-            .then(data => {
-                approvedEmails = data.split('\n').filter(email => email.trim() !== '').map(email => email.toLowerCase().trim());
-            })
-            .catch(error => {
-                console.error('Error loading approved emails:', error);
-            });
-        
-        // Admin access validation
-        const adminCheckbox = document.getElementById('claimAdminRole');
+        // Add event listener to DOE email field for email validation
         const doeEmailField = document.getElementById('doeEmail');
         
-        function validateAdminAccess() {
-            if (adminCheckbox.checked) {
-                const userEmail = doeEmailField.value.toLowerCase().trim();
-                if (!approvedEmails.includes(userEmail)) {
-                    // Show error message in the admin section
-                    const errorDiv = document.getElementById('adminAccessError');
-                    errorDiv.style.display = 'block';
-                    errorDiv.innerHTML = '<div>You don\'t qualify for admin access. See <a href="/leadership" style="color: #007bff; text-decoration: underline;">primary leadership</a> for further inquiries.</div>';
-                    return false;
-                } else {
-                    // Email is valid - hide error message
-                    const errorDiv = document.getElementById('adminAccessError');
-                    errorDiv.style.display = 'none';
-                    errorDiv.innerHTML = '';
-                }
-            }
-            return true;
-        }
-        
-        // Function to manage admin checkbox state based on email field
-        function updateAdminCheckboxState() {
-            const doeEmail = doeEmailField.value.trim();
-            const emailError = document.getElementById('emailError');
-            const hasEmailError = emailError && emailError.textContent === 'Email already in use. Try again.';
-            
-            // Disable admin checkbox if:
-            // 1. DOE email field is empty, OR
-            // 2. Email doesn't end with @nycstudents.net, OR
-            // 3. There's an email error (duplicate email)
-            if (!doeEmail || !doeEmail.endsWith('@nycstudents.net') || hasEmailError) {
-                adminCheckbox.disabled = true;
-                adminCheckbox.checked = false; // Uncheck if disabled
-                
-                // Add visual indication that checkbox is disabled
-                adminCheckbox.style.opacity = '0.5';
-                adminCheckbox.style.cursor = 'not-allowed';
-                
-                // Clear any admin access error when disabled
-                const errorDiv = document.getElementById('adminAccessError');
-                if (errorDiv) {
-                    errorDiv.style.display = 'none';
-                    errorDiv.innerHTML = '';
-                }
-            } else {
-                // Enable admin checkbox if email is valid and no errors
-                adminCheckbox.disabled = false;
-                adminCheckbox.style.opacity = '1';
-                adminCheckbox.style.cursor = 'pointer';
-            }
-        }
-        
-        // Add event listener to admin checkbox
-        adminCheckbox.addEventListener('change', function() {
-            if (this.checked) {
-                validateAdminAccess();
-            } else {
-                // Clear error message if admin checkbox is unchecked
-                const errorDiv = document.getElementById('adminAccessError');
-                errorDiv.style.display = 'none';
-                errorDiv.innerHTML = '';
-            }
-            
-            // Update submit button state
-            updateSubmitButtonState();
-        });
-        
-        // Add event listener to DOE email field to re-validate admin access when email changes
         doeEmailField.addEventListener('input', function() {
-            // Update admin checkbox state based on email field
-            updateAdminCheckboxState();
-            
-            // Only re-validate if admin checkbox is currently checked
-            if (adminCheckbox.checked) {
-                validateAdminAccess();
-            }
-            
             // Check for duplicate email
             checkEmailAvailability();
             
@@ -1497,9 +1398,6 @@
                                     doeEmailField.parentNode.appendChild(errorDiv);
                                 }
                                 
-                                // Update admin checkbox state since there's now an email error
-                                updateAdminCheckboxState();
-                                
                                 // Update submit button state since there's an error
                                 updateSubmitButtonState();
                             } else if (response.status === 404) {
@@ -1511,9 +1409,6 @@
                                 if (existingError) {
                                     existingError.remove();
                                 }
-                                
-                                // Update admin checkbox state since email is now valid
-                                updateAdminCheckboxState();
                                 
                                 // Update submit button state since email error is resolved
                                 updateSubmitButtonState();
@@ -1556,12 +1451,7 @@
                 errorReasons.push('Email already in use');
             }
             
-            // 3. Check for admin access error
-            const adminError = document.getElementById('adminAccessError');
-            if (adminError && adminError.style.display !== 'none' && adminError.innerHTML !== '') {
-                hasErrors = true;
-                errorReasons.push('Admin access error');
-            }
+
             
             // 4. Check required fields (common to all members)
             const requiredFields = [
@@ -1732,8 +1622,7 @@
         // Initialize button state
         updateSubmitButtonState();
         
-        // Initialize admin checkbox state
-        updateAdminCheckboxState();
+
         
         // Add event listeners to all form fields for real-time submit button updates
         contractCheckbox.addEventListener('change', updateSubmitButtonState);
@@ -1802,10 +1691,7 @@
             formErrors.innerHTML = '';
             formErrors.style.display = 'none';
             
-            // Validate admin access first
-            if (adminCheckbox.checked && !validateAdminAccess()) {
-                return; // Stop form submission if admin validation fails
-            }
+
             
             // Validate password requirements
             const password = passwordField.value;
@@ -1917,7 +1803,7 @@
                     contractAcceptedAt: new Date().toISOString(),
                     createdAt: new Date().toISOString(),
                     status: 'pending', // Initial registration status
-                    adminStatus: document.getElementById('claimAdminRole').checked ? 'full' : 'none',
+                    adminStatus: 'none',
                     quickRegistration: quickRegistrationToggle.checked // Track if this was a quick registration
                 };
                 

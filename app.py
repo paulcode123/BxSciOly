@@ -50,6 +50,10 @@ def post_registration():
 def login():
     return render_template('login.html')
 
+@app.route('/reset-password')
+def reset_password_page():
+    return render_template('reset_password.html')
+
 @app.route('/calendar')
 def calendar():
     return render_template('calendar.html')
