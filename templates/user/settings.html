@@ -1,12 +1,12 @@
 {% extends "layout.html" %}
 
-{% block title %}Account Settings - Bronx Science Olympiad{% endblock %}
+{% block title %}Profile & Events - Bronx Science Olympiad{% endblock %}
 
 {% block content %}
 <div class="hero" style="height: 30vh; background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/static/images/earth.jpg');">
     <div class="hero-content">
-        <h1>Account Settings</h1>
-        <p>Manage your profile and preferences</p>
+        <h1>Profile &amp; Events</h1>
+        <p>Manage your profile, events, and preferences</p>
     </div>
 </div>
 
@@ -16,17 +16,17 @@
             <!-- Settings Navigation -->
             <div class="settings-nav">
                 <ul>
-                    <li class="active" data-target="profile-section"><i class="fas fa-user"></i> Profile</li>
+                    <li class="active" data-target="events-section"><i class="fas fa-calendar"></i> My Events</li>
+                    <li data-target="profile-section"><i class="fas fa-user"></i> Profile</li>
                     <li data-target="account-section"><i class="fas fa-lock"></i> Account</li>
                     <li data-target="notifications-section"><i class="fas fa-bell"></i> Notifications</li>
-                    <li data-target="events-section"><i class="fas fa-calendar"></i> My Events</li>
                 </ul>
             </div>
             
             <!-- Settings Content -->
             <div class="settings-content">
                 <!-- Profile Section -->
-                <div id="profile-section" class="settings-section active">
+                <div id="profile-section" class="settings-section">
                     <h2>Profile Information</h2>
                     <p class="section-description">Update your personal information and how others see you.</p>
                     
@@ -49,6 +49,12 @@
                             </div>
                         </div>
                         <input type="file" id="profilePhotoInput" accept="image/*" style="display: none;">
+                    </div>
+                    
+                    <!-- Member ID Display -->
+                    <div class="member-id-discrete">
+                        <span class="member-id-label">Member ID:</span>
+                        <span id="memberIdText" class="member-id-value">Loading...</span>
                     </div>
                     
                     <form id="profileForm" class="settings-form">
@@ -278,9 +284,18 @@
                 </div>
                 
                 <!-- Events Section -->
-                <div id="events-section" class="settings-section">
+                <div id="events-section" class="settings-section active">
                     <h2>My Events</h2>
                     <p class="section-description">Manage the events you're participating in.</p>
+                    <div class="events-showcase">
+                        <h3>Your Events</h3>
+                        <div id="myEventsGrid" class="my-events-grid">
+                            <div class="loading-events">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                <p>Loading your events...</p>
+                            </div>
+                        </div>
+                    </div>
                     
                     <div class="events-list" id="userEventsList">
                         <div class="loading-events">
@@ -480,6 +495,27 @@
     .profile-photo-overlay i {
         font-size: 1.5rem;
         margin-bottom: 5px;
+    }
+    
+    /* Member ID Display - Discrete */
+    .member-id-discrete {
+        margin-bottom: 20px;
+        padding: 8px 0;
+        border-bottom: 1px solid #f0f0f0;
+        font-size: 0.9rem;
+        color: #666;
+    }
+    
+    .member-id-label {
+        font-weight: 500;
+        margin-right: 8px;
+    }
+    
+    .member-id-value {
+        font-family: 'Courier New', monospace;
+        font-size: 0.85rem;
+        color: #888;
+        word-break: break-all;
     }
     
     /* Password Strength */
@@ -729,6 +765,35 @@
         color: var(--accent-color);
     }
     
+    /* My Events Showcase */
+    .events-showcase {
+        margin-bottom: 30px;
+    }
+    .my-events-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 16px;
+    }
+    .event-card {
+        display: block;
+        background: white;
+        border-radius: 12px;
+        padding: 18px;
+        text-decoration: none;
+        color: inherit;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+        border: 1px solid #eee;
+        transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .event-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+    }
+    .event-card h4 { margin: 8px 0 10px 0; }
+    .event-icon { text-align: center; margin-bottom: 8px; }
+    .event-icon i { font-size: 2.2rem; color: var(--accent-color); }
+    .event-link { display: inline-flex; align-items: center; gap: 6px; color: var(--accent-color); font-weight: 600; font-size: .95rem; }
+    
     .error-message {
         display: flex;
         flex-direction: column;
@@ -823,6 +888,21 @@
         // Initialize user data
         let userData = null;
         
+        // Convert Firebase ID to deterministic 5-digit number (same as export script)
+        function convertIdTo5Digit(firebaseId) {
+            // Use a simple but consistent hash function
+            // This won't match the Python SHA-256 exactly, but will be consistent
+            let hash = 0;
+            for (let i = 0; i < firebaseId.length; i++) {
+                const char = firebaseId.charCodeAt(i);
+                hash = ((hash << 5) - hash) + char;
+                hash = hash & hash; // Convert to 32-bit integer
+            }
+            // Ensure positive number and get 5-digit range
+            const fiveDigit = Math.abs(hash) % 100000;
+            return fiveDigit.toString().padStart(5, '0');
+        }
+        
         // Load user data
         function loadUserData() {
             fetch(`/api/Members/${currentUser.id}`)
@@ -853,6 +933,11 @@
         
         // Populate form fields with user data
         function populateUserData() {
+            // Display member ID in bxscioly_xxxxx format
+            const fiveDigitNumber = convertIdTo5Digit(currentUser.id);
+            const bxsciolyId = `bxscioly_${fiveDigitNumber}`;
+            document.getElementById('memberIdText').textContent = bxsciolyId;
+            
             // Profile form - basic info
             document.getElementById('firstName').value = userData.firstName || '';
             document.getElementById('lastName').value = userData.lastName || '';
@@ -910,6 +995,7 @@
         // Load user events
         function loadUserEvents() {
             const userEventsList = document.getElementById('userEventsList');
+            const myEventsGrid = document.getElementById('myEventsGrid');
             
             // Show loading state
             userEventsList.innerHTML = `
@@ -918,6 +1004,14 @@
                     <p>Loading your events...</p>
                 </div>
             `;
+            if (myEventsGrid) {
+                myEventsGrid.innerHTML = `
+                    <div class="loading-events">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Loading your events...</p>
+                    </div>
+                `;
+            }
             
             // Fetch all events from API
             fetch('/api/Events')
@@ -940,6 +1034,7 @@
                     );
                     
                     userEventsList.innerHTML = '';
+                    if (myEventsGrid) myEventsGrid.innerHTML = '';
                     
                     if (userEvents.length === 0) {
                         userEventsList.innerHTML = `
@@ -949,9 +1044,34 @@
                                 <p>You haven't joined any events yet. Add events below to get started.</p>
                             </div>
                         `;
+                        if (myEventsGrid) {
+                            myEventsGrid.innerHTML = `
+                                <div class="empty-state" style="grid-column: 1 / -1; text-align: center; padding: 20px;">
+                                    <i class="fas fa-calendar-times" style="font-size: 3rem; color: #ddd; margin-bottom: 15px;"></i>
+                                    <h3>No Events Yet</h3>
+                                    <p>Join events below and they will appear here.</p>
+                                </div>
+                            `;
+                        }
                         return;
                     }
                     
+                    // Render showcase grid cards with icons and deep links
+                    userEvents.forEach(event => {
+                        if (myEventsGrid) {
+                            const card = document.createElement('a');
+                            card.className = 'event-card';
+                            card.href = `/event/${slugify(event.eventName)}`;
+                            const icon = getEventIcon(event.eventName);
+                            card.innerHTML = `
+                                <div class="event-icon"><i class="${icon}"></i></div>
+                                <h4>${event.eventName}</h4>
+                                <span class="event-link">Open event <i class="fas fa-arrow-right"></i></span>
+                            `;
+                            myEventsGrid.appendChild(card);
+                        }
+                    });
+
                     userEvents.forEach(event => {
                         const eventItem = document.createElement('div');
                         eventItem.className = 'event-item';
@@ -988,6 +1108,40 @@
                         </div>
                     `;
                 });
+        }
+
+        // Create a URL slug from event name
+        function slugify(text) {
+            return (text || '')
+                .toString()
+                .toLowerCase()
+                .trim()
+                .replace(/&/g, 'and')
+                .replace(/[^a-z0-9\s-]/g, '')
+                .replace(/\s+/g, '-')
+                .replace(/-+/g, '-');
+        }
+
+        // Basic event icon map to keep things fun
+        function getEventIcon(eventName) {
+            const map = {
+                'Anatomy and Physiology': 'fas fa-heartbeat',
+                'Astronomy': 'fas fa-star',
+                'Chemistry Lab': 'fas fa-vial',
+                'Disease Detectives': 'fas fa-virus',
+                'Dynamic Planet': 'fas fa-water',
+                'Experimental Design': 'fas fa-flask',
+                'Forensics': 'fas fa-fingerprint',
+                'Fossils': 'fas fa-bone',
+                'Geologic Mapping': 'fas fa-mountain',
+                'Write It Do It': 'fas fa-pen-ruler',
+                'Bridge': 'fas fa-bridge',
+                'Flight': 'fas fa-plane',
+                'Robot Tour': 'fas fa-robot',
+                'Trajectory': 'fas fa-bullseye',
+                'Tower': 'fas fa-city'
+            };
+            return map[eventName] || 'fas fa-flask';
         }
         
         // Load available events

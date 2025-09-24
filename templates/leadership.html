@@ -419,7 +419,7 @@
                     <!-- Physics Directors -->
                     <div class="board-member">
                         <div class="member-photo">
-                            <img src="/static/images/board/aaron-krasinski.png" alt="Aaron Krasinski">
+                            <img src="/static/images/board/aaron-krasinski2.png" alt="Aaron Krasinski">
                             <div class="member-overlay">
                                 <div class="member-social">
                                     <i class="fas fa-envelope"></i>
@@ -613,9 +613,6 @@
         opacity: 1;
     }
     
-    .member-photo:hover img {
-        /* No hover transformations - keep same as default */
-    }
     
     .member-social {
         color: white;
@@ -678,22 +675,26 @@
         object-position: center 30%;
     }
     
-    .board-member:has(img[alt="Aaron Krasinski"]) .member-photo img {
-        transform: scale(3.2) !important;
-        object-position: 70% 30% !important;
+    /* Special formatting for Aaron Krasinski - 50x50 top center focus */
+    .board-member:has(img[alt="Aaron Krasinski"]) .member-photo {
+        position: relative !important;
+        overflow: hidden !important;
     }
     
-    /* Remove all hover transformations - photos stay static */
-    .board-member:has(img[alt="Jin Zhao"]) .member-photo:hover img,
-    .board-member:has(img[alt="Aidan Wong"]) .member-photo:hover img,
-    .board-member:has(img[alt="Queenie Tang"]) .member-photo:hover img,
-    .board-member:has(img[alt="Rajdeep Banik"]) .member-photo:hover img,
-    .board-member:has(img[alt="Sabir Sobur"]) .member-photo:hover img,
-    .board-member:has(img[alt="Edison Lee"]) .member-photo:hover img,
-    .board-member:has(img[alt="Ileene Ng"]) .member-photo:hover img,
-    .board-member:has(img[alt="Aaron Krasinski"]) .member-photo:hover img {
-        /* No hover transformations - maintain default state */
+    .board-member:has(img[alt="Aaron Krasinski"]) .member-photo img {
+        width: 120px !important;
+        height: 120px !important;
+        object-fit: cover !important;
+        object-position: center top !important;
+        transform: none !important;
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        margin-left: -60px !important;
+        margin-top: -60px !important;
+        border-radius: 50% !important;
     }
+    
     
     @media (max-width: 768px) {
         .board-section {

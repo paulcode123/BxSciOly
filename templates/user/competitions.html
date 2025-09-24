@@ -520,6 +520,56 @@
         border-color: var(--accent-color);
     }
     
+    /* Past competitions stats header */
+    .past-stats {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(120px, 1fr));
+        gap: 12px;
+        padding: 16px;
+        margin-bottom: 16px;
+        background: #f7f7f9;
+        border-radius: 10px;
+    }
+    .past-stats .metric {
+        background: white;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        padding: 10px 12px;
+        text-align: center;
+    }
+    .metric-label { color: #6c757d; font-size: 0.85rem; }
+    .metric-value { font-size: 1.4rem; font-weight: 700; }
+    .past-stats .medals { display: flex; align-items: center; justify-content: center; gap: 8px; background: transparent; border: none; }
+    
+    /* Pills and medals */
+    .pill { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; font-weight: 600; font-size: 0.9rem; border: 1px solid transparent; }
+    .pill.gold { background: #fff3cd; color: #856404; border-color: #ffeeba; }
+    .pill.silver { background: #e2e3e5; color: #383d41; border-color: #d6d8db; }
+    .pill.bronze { background: #f5e0d3; color: #7a4a21; border-color: #efcfbb; }
+    .pill.top10 { background: #e6f4ea; color: #1e7e34; border-color: #cdebd6; }
+    .pill i { margin-right: 2px; }
+    
+    /* Modal tabs */
+    .tabs { display: flex; gap: 8px; margin-top: 10px; }
+    .tab-btn { padding: 8px 12px; background: #f1f3f5; border: 1px solid #e9ecef; border-radius: 6px; cursor: pointer; }
+    .tab-btn.active { background: var(--accent-color); color: #fff; border-color: var(--accent-color); }
+    .tab-content { display: none; margin-top: 16px; }
+    .tab-content.active { display: block; }
+    
+    /* Placements table */
+    .table-wrap { overflow-x: auto; }
+    .placements-table { width: 100%; border-collapse: collapse; background: white; }
+    .placements-table th, .placements-table td { padding: 10px 12px; border-bottom: 1px solid #eee; text-align: left; }
+    .placements-table thead th { background: #f8f9fa; font-weight: 600; }
+    
+    /* Rosters */
+    .team-roster { margin-bottom: 14px; }
+    .team-roster h4 { margin: 0 0 6px; }
+    .roster-event { margin: 4px 0; color: #555; }
+    
+    /* Stats row in modal */
+    .stats-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    
     /* Modal */
     .modal {
         display: none;
@@ -818,93 +868,125 @@
         let competitionsData = [];
         let userEvents = [];
         let filteredResults = [];
+        let membersMap = {};
+        let userFullName = '';
         
         // Load user data and competitions
         function loadUserData() {
             Promise.all([
                 fetch(`/api/Members/${currentUser.id}`),
-                fetch('/api/Competitions')
+                fetch('/api/Competitions'),
+                fetch('/api/Members')
             ])
             .then(responses => Promise.all(responses.map(r => r.json())))
-            .then(([userResponse, competitionsResponse]) => {
-                    // Extract member data
+            .then(([userResponse, competitionsResponse, membersResponse]) => {
+                // Extract member data
                 userData = Object.values(userResponse)[0];
                 
-                // Extract competitions data
-                competitionsData = Object.values(competitionsResponse).map(comp => 
-                    typeof comp === 'object' && comp !== null ? Object.values(comp)[0] : comp
-                );
+                // Normalize competitions into array of { ...data, id }
+                const competitionsArray = Array.isArray(competitionsResponse) ? competitionsResponse : Object.values(competitionsResponse || {});
+                competitionsData = competitionsArray.map(item => {
+                    if (item && typeof item === 'object') {
+                        const entries = Object.entries(item);
+                        if (entries.length === 1) {
+                            const [id, data] = entries[0];
+                            return { ...(data || {}), id };
+                        }
+                    }
+                    return item;
+                }).filter(Boolean);
+                
+                // Build members map id -> "First Last"
+                membersMap = {};
+                const membersArray = Array.isArray(membersResponse) ? membersResponse : Object.values(membersResponse || {});
+                membersArray.forEach(entry => {
+                    const entries = Object.entries(entry || {});
+                    if (entries.length === 1) {
+                        const [id, data] = entries[0];
+                        if (data) {
+                            const first = data.firstName || '';
+                            const last = data.lastName || '';
+                            const full = `${first} ${last}`.trim() || (data.doeEmail || id);
+                            membersMap[id] = full;
+                        }
+                    }
+                });
                     
-                    // Get user events
-                    userEvents = userData.events || [];
+                // Get user info
+                userEvents = userData.events || [];
+                userFullName = `${(userData.firstName || '').trim()} ${(userData.lastName || '').trim()}`.trim().toLowerCase().replace(/\s+/g, ' ');
                 
                 // Process competition results for the user
                 processUserCompetitionResults();
                     
-                    // Populate event filter
-                    populateEventFilter();
+                // Populate event filter
+                populateEventFilter();
                     
-                    // Apply initial filters and render results
-                    applyFilters();
+                // Apply initial filters and render results
+                applyFilters();
                     
-                    // Count medals
-                    countMedals();
+                // Count medals
+                countMedals();
                 
-                // Load past competitions
+                // Load past competitions (now shows all, not just user's)
                 loadPastCompetitions();
                 
                 // Load upcoming competitions
                 loadUpcomingCompetitions();
-                })
-                .catch(error => {
+            })
+            .catch(error => {
                 console.error('Error loading data:', error);
-                    userResultsList.innerHTML = `
-                        <div class="error-message" style="text-align: center; padding: 20px; color: #721c24;">
-                            <i class="fas fa-exclamation-circle" style="font-size: 2rem; margin-bottom: 10px;"></i>
-                            <h3>Error Loading Results</h3>
-                            <p>${error.message}</p>
-                        </div>
-                    `;
-                });
+                userResultsList.innerHTML = `
+                    <div class="error-message" style="text-align: center; padding: 20px; color: #721c24;">
+                        <i class="fas fa-exclamation-circle" style="font-size: 2rem; margin-bottom: 10px;"></i>
+                        <h3>Error Loading Results</h3>
+                        <p>${error.message}</p>
+                    </div>
+                `;
+            });
         }
         
         // Process competition results for the current user
         function processUserCompetitionResults() {
             filteredResults = [];
             
+            const norm = s => (s || '').toString().trim().toLowerCase().replace(/\s+/g, ' ');
+            
             competitionsData.forEach(competition => {
-                // Only process competitions that have results and teamPlacement
-                if (competition.results && competition.teamPlacement) {
-                    // Check if user participated in this competition
-                    const userParticipation = competition.teamPlacement.find(placement => 
-                        placement.participants && placement.participants.includes(currentUser.id)
-                    );
-                    
-                    if (userParticipation) {
-                        // Find the corresponding event result
-                        const eventResult = competition.results.eventResults.find(result => 
-                            result.eventName === userParticipation.event && 
-                            result.team === userParticipation.team
-                        );
-                        
-                        if (eventResult) {
-                            filteredResults.push({
-                                competition: competition.name,
-                                competitionType: competition.type,
-                                date: competition.date,
-                                event: eventResult.eventName,
-                                placement: eventResult.placement,
-                                outOf: eventResult.outOf,
-                                team: userParticipation.team,
-                                medal: eventResult.placement <= 3,
-                                medalType: eventResult.placement === 1 ? 'gold' : 
-                                          eventResult.placement === 2 ? 'silver' : 
-                                          eventResult.placement === 3 ? 'bronze' : null
-                            });
-                        }
-                    }
-                }
+                if (!competition.teamPlacement) return;
+                const resultsArray = (competition.results && Array.isArray(competition.results.eventResults)) ? competition.results.eventResults : [];
+                
+                // Collect all participations for the current user (by id OR full name)
+                const userParticipations = competition.teamPlacement.filter(placement => {
+                    const participants = placement.participants || [];
+                    if (participants.includes(currentUser.id)) return true;
+                    const lowerNames = participants.map(p => norm(membersMap[p] || p));
+                    return userFullName && lowerNames.includes(userFullName);
                 });
+                if (userParticipations.length === 0) return;
+                
+                userParticipations.forEach(p => {
+                    const targetEvent = norm(p.event);
+                    const team = p.team;
+                    const eventResult = resultsArray.find(r => norm(r.eventName) === targetEvent && r.team === team);
+                    const placement = eventResult ? eventResult.placement : null;
+                    const outOf = eventResult ? eventResult.outOf : null;
+                    const medalType = placement === 1 ? 'gold' : placement === 2 ? 'silver' : placement === 3 ? 'bronze' : null;
+                    const medal = typeof placement === 'number' && placement <= 3;
+                    
+                    filteredResults.push({
+                        competition: competition.name,
+                        competitionType: competition.type,
+                        date: competition.date,
+                        event: p.event,
+                        placement: placement,
+                        outOf: outOf,
+                        team: team,
+                        medal: medal,
+                        medalType: medalType
+                    });
+                });
+            });
         }
         
         // Populate event filter with user's events
@@ -1016,15 +1098,15 @@
                 resultItem.className = 'result-item';
                 
                 // Format date
-                const date = new Date(result.date);
-                const formattedDate = date.toLocaleDateString('en-US', {
+                const date = parseDate(result.date);
+                const formattedDate = date ? date.toLocaleDateString('en-US', {
                     year: 'numeric',
                     month: 'short',
                     day: 'numeric'
-                });
+                }) : '—';
                 
                 // Get ordinal suffix
-                const ordinal = getOrdinalSuffix(result.placement);
+                const ordinal = (typeof result.placement === 'number') ? getOrdinalSuffix(result.placement) : '';
                 
                 // Determine medal class
                 let medalHTML = '';
@@ -1046,8 +1128,8 @@
                         <div class="result-date">${formattedDate}</div>
                     </div>
                     <div class="result-placement">
-                        <div class="result-placement-number">${result.placement}<span class="result-placement-suffix">${ordinal}</span></div>
-                        <div class="result-outof">out of ${result.outOf}</div>
+                        <div class="result-placement-number">${(result.placement ?? '—')}${ordinal ? `<span class="result-placement-suffix">${ordinal}</span>` : ''}</div>
+                        <div class="result-outof">${(typeof result.outOf === 'number') ? `out of ${result.outOf}` : ''}</div>
                     </div>
                 `;
                 
@@ -1072,6 +1154,31 @@
             return 'th';
         }
         
+        // Robust date parser for Firestore/varied formats
+        function parseDate(value) {
+            if (!value) return null;
+            if (value instanceof Date) return isNaN(value) ? null : value;
+            if (typeof value === 'string' || typeof value === 'number') {
+                const d = new Date(value);
+                return isNaN(d) ? null : d;
+            }
+            if (typeof value === 'object') {
+                // Firestore Timestamp-like objects
+                if (typeof value._seconds === 'number') {
+                    return new Date(value._seconds * 1000);
+                }
+                if (typeof value.seconds === 'number') {
+                    return new Date(value.seconds * 1000);
+                }
+                // {"$date": ...}
+                if (value.$date) {
+                    const d = new Date(value.$date);
+                    return isNaN(d) ? null : d;
+                }
+            }
+            return null;
+        }
+        
         // Load upcoming competitions from the database
         function loadUpcomingCompetitions() {
             const upcomingTimelineContainer = document.getElementById('upcomingTimelineContainer');
@@ -1079,8 +1186,8 @@
             // Filter competitions that are in the future
             const now = new Date();
             const upcomingCompetitions = competitionsData.filter(competition => {
-                const competitionDate = new Date(competition.date);
-                return competitionDate > now;
+                const competitionDate = parseDate(competition.date);
+                return competitionDate && competitionDate > now;
             });
             
             if (upcomingCompetitions.length === 0) {
@@ -1095,13 +1202,13 @@
             }
             
             // Sort competitions by date
-            upcomingCompetitions.sort((a, b) => new Date(a.date) - new Date(b.date));
+            upcomingCompetitions.sort((a, b) => (parseDate(a.date) || 0) - (parseDate(b.date) || 0));
             
             // Group competitions by month
             const competitionsByMonth = {};
             upcomingCompetitions.forEach(competition => {
-                const date = new Date(competition.date);
-                const monthKey = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
+                const competitionDate = parseDate(competition.date);
+                const monthKey = competitionDate ? competitionDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long' }) : 'Unknown';
                 
                 if (!competitionsByMonth[monthKey]) {
                     competitionsByMonth[monthKey] = [];
@@ -1120,10 +1227,10 @@
                     timelineItem.className = 'timeline-item';
                     
                     // Format dates
-                    const competitionDate = new Date(competition.date);
-                    const registrationOpens = new Date(competition.registrationOpens);
-                    const registrationDeadline = new Date(competition.registrationDeadline);
-                    const teamsRelease = new Date(competition.teamsRelease);
+                    const competitionDate = parseDate(competition.date);
+                    const registrationOpens = parseDate(competition.registrationOpens);
+                    const registrationDeadline = parseDate(competition.registrationDeadline);
+                    const teamsRelease = parseDate(competition.teamsRelease);
                     
                     // Determine competition type badge
                     const typeBadge = competition.type === 'satellite' ? 'Satellite invitational' : 
@@ -1142,13 +1249,13 @@
                             <p><span class="badge">${typeBadge}</span></p>
                             <div class="competition-details">
                                 <div class="detail-item">
-                                    <i class="fas fa-calendar-alt"></i> Tournament: ${competitionDate.toLocaleDateString()}
+                                    <i class="fas fa-calendar-alt"></i> Tournament: ${competitionDate ? competitionDate.toLocaleDateString() : 'TBD'}
                                 </div>
                                 <div class="detail-item">
-                                    <i class="fas fa-clock"></i> Apply: ${registrationOpens.toLocaleDateString()} - ${registrationDeadline.toLocaleDateString()}
+                                    <i class="fas fa-clock"></i> Apply: ${registrationOpens ? registrationOpens.toLocaleDateString() : 'TBD'} - ${registrationDeadline ? registrationDeadline.toLocaleDateString() : 'TBD'}
                                 </div>
                                 <div class="detail-item">
-                                    <i class="fas fa-users"></i> Team Release: ${teamsRelease.toLocaleDateString()}
+                                    <i class="fas fa-users"></i> Team Release: ${teamsRelease ? teamsRelease.toLocaleDateString() : 'TBD'}
                                 </div>
                             </div>
                             <div class="action-buttons">
@@ -1234,51 +1341,91 @@
         function loadPastCompetitions() {
             const pastCompetitionsList = document.getElementById('pastCompetitionsList');
             
-            // Filter competitions that have results and are in the past
+            // All competitions that are in the past
             const now = new Date();
             const pastCompetitions = competitionsData.filter(competition => {
-                const competitionDate = new Date(competition.date);
-                return competitionDate < now && competition.results && competition.teamPlacement;
+                const competitionDate = parseDate(competition.date);
+                return competitionDate && competitionDate < now;
             });
             
-            // Filter competitions where user participated
-            const userPastCompetitions = pastCompetitions.filter(competition => {
-                return competition.teamPlacement.some(placement => 
-                    placement.participants && placement.participants.includes(currentUser.id)
-                );
-            });
-            
-            if (userPastCompetitions.length === 0) {
+            if (pastCompetitions.length === 0) {
                 pastCompetitionsList.innerHTML = `
                     <div class="empty-past-competitions">
                         <i class="fas fa-history"></i>
                         <h3>No Past Competitions</h3>
-                        <p>You haven't participated in any competitions yet.</p>
+                        <p>We don't have any past competitions recorded yet.</p>
                     </div>
                 `;
                 return;
             }
             
+            // Sort newest first
+            pastCompetitions.sort((a, b) => (parseDate(b.date) || 0) - (parseDate(a.date) || 0));
+            
+            // Compute summary stats
+            let totalCompetitions = pastCompetitions.length;
+            let teamRanks = pastCompetitions.map(c => (c.results && typeof c.results.teamRank === 'number') ? c.results.teamRank : null).filter(x => x !== null);
+            let bestTeamRank = teamRanks.length ? Math.min(...teamRanks) : null;
+            let avgTeamRank = teamRanks.length ? (teamRanks.reduce((s, n) => s + n, 0) / teamRanks.length).toFixed(1) : null;
+            let medalCounts = { gold: 0, silver: 0, bronze: 0 };
+            pastCompetitions.forEach(c => {
+                (c.results && Array.isArray(c.results.eventResults) ? c.results.eventResults : []).forEach(r => {
+                    if (r.placement === 1) medalCounts.gold++;
+                    else if (r.placement === 2) medalCounts.silver++;
+                    else if (r.placement === 3) medalCounts.bronze++;
+                });
+            });
+            
             pastCompetitionsList.innerHTML = '';
             
-            userPastCompetitions.forEach(competition => {
+            // Stats header
+            const statsHeader = document.createElement('div');
+            statsHeader.className = 'past-stats';
+            statsHeader.innerHTML = `
+                <div class="metric">
+                    <div class="metric-label">Competitions</div>
+                    <div class="metric-value">${totalCompetitions}</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">Team Best Rank</div>
+                    <div class="metric-value">${bestTeamRank !== null ? `${bestTeamRank}${getOrdinalSuffix(bestTeamRank)}` : '—'}</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">Avg Team Rank</div>
+                    <div class="metric-value">${avgTeamRank !== null ? avgTeamRank : '—'}</div>
+                </div>
+                <div class="metric medals">
+                    <span class="pill gold"><i class="fas fa-medal"></i> ${medalCounts.gold}</span>
+                    <span class="pill silver"><i class="fas fa-medal"></i> ${medalCounts.silver}</span>
+                    <span class="pill bronze"><i class="fas fa-medal"></i> ${medalCounts.bronze}</span>
+                </div>
+            `;
+            pastCompetitionsList.appendChild(statsHeader);
+            
+            // Cards
+            pastCompetitions.forEach(competition => {
                 const competitionCard = document.createElement('div');
                 competitionCard.className = 'competition-card';
                 
                 // Format date
-                const date = new Date(competition.date);
-                const month = date.toLocaleDateString('en-US', { month: 'short' }).toUpperCase();
-                const day = date.getDate();
-                const year = date.getFullYear();
+                const date = parseDate(competition.date);
+                const month = date ? date.toLocaleDateString('en-US', { month: 'short' }).toUpperCase() : 'TBD';
+                const day = date ? date.getDate() : '';
+                const year = date ? date.getFullYear() : '';
                 
-                // Get user's team and events
-                const userPlacements = competition.teamPlacement.filter(placement => 
-                    placement.participants && placement.participants.includes(currentUser.id)
-                );
+                // Teams present
+                const teamsSet = new Set((competition.teamPlacement || []).map(p => p.team).filter(Boolean));
+                const teamsText = Array.from(teamsSet).length ? `Teams: ${Array.from(teamsSet).join(', ')}` : '';
                 
-                // Get team rank
-                const teamRank = competition.results.teamRank;
-                const teamOutOf = competition.results.teamOutOf;
+                // Team rank if available
+                const hasTeamResult = competition.results && typeof competition.results.teamRank === 'number';
+                const teamRank = hasTeamResult ? competition.results.teamRank : null;
+                const teamOutOf = hasTeamResult ? competition.results.teamOutOf : null;
+                const resultLine = hasTeamResult ? `Team Rank: <strong>${teamRank}${getOrdinalSuffix(teamRank)}</strong>${teamOutOf ? ` out of ${teamOutOf} teams` : ''}` : 'Results pending';
+                
+                // Type badge
+                const type = (competition.type || '').toLowerCase();
+                const typeBadge = type ? `<span class="badge">${type.charAt(0).toUpperCase() + type.slice(1)}</span>` : '';
                 
                 competitionCard.innerHTML = `
                     <div class="competition-date past-date">
@@ -1287,10 +1434,10 @@
                         <span class="year">${year}</span>
                     </div>
                     <div class="competition-details">
-                        <h3>${competition.name}</h3>
-                        <p class="competition-location"><i class="fas fa-map-marker-alt"></i> ${competition.location}</p>
-                        <p class="competition-result">Team Rank: <strong>${teamRank}${getOrdinalSuffix(teamRank)}</strong> out of ${teamOutOf} teams</p>
-                        <p class="user-events">Your Events: ${userPlacements.map(p => `${p.event} (Team ${p.team})`).join(', ')}</p>
+                        <h3>${competition.name} ${typeBadge}</h3>
+                        <p class="competition-location"><i class="fas fa-map-marker-alt"></i> ${competition.location || '—'}</p>
+                        <p class="competition-result">${resultLine}</p>
+                        ${teamsText ? `<p class="competition-info">${teamsText}</p>` : ''}
                     </div>
                     <div class="competition-actions">
                         <button class="view-details-btn" data-competition-id="${competition.id}">View Details</button>
@@ -1315,74 +1462,108 @@
             const competition = competitionsData.find(comp => comp.id === competitionId);
             if (!competition) return;
             
-            // Get user's participation
-            const userPlacements = competition.teamPlacement.filter(placement => 
-                placement.participants && placement.participants.includes(currentUser.id)
-            );
+            const resultsList = (competition.results && Array.isArray(competition.results.eventResults)) ? competition.results.eventResults : [];
             
-            // Get full roster for each team
-            const teamRosters = {};
-            competition.teamPlacement.forEach(placement => {
-                if (!teamRosters[placement.team]) {
-                    teamRosters[placement.team] = [];
-                }
-                teamRosters[placement.team].push({
-                    event: placement.event,
-                    participants: placement.participants || []
+            // Build placements table
+            const placementsSorted = [...resultsList].sort((a, b) => (a.placement || 9999) - (b.placement || 9999));
+            const placementsRows = placementsSorted.map(r => {
+                const medalClass = r.placement === 1 ? 'gold' : r.placement === 2 ? 'silver' : r.placement === 3 ? 'bronze' : (r.placement && r.placement <= 10 ? 'top10' : '');
+                const pill = r.placement && r.placement <= 10 ? `<span class="pill ${medalClass}">${r.placement}${getOrdinalSuffix(r.placement)}</span>` : '';
+                return `
+                    <tr>
+                        <td>${r.eventName || '—'}</td>
+                        <td>Team ${r.team || '—'}</td>
+                        <td>${pill}</td>
+                        <td>${typeof r.outOf === 'number' ? r.outOf : '—'}</td>
+                    </tr>
+                `;
+            }).join('');
+            
+            // Build rosters with participant names
+            const rosterByTeam = {};
+            (competition.teamPlacement || []).forEach(p => {
+                const teamKey = p.team || '—';
+                if (!rosterByTeam[teamKey]) rosterByTeam[teamKey] = {};
+                if (!rosterByTeam[teamKey][p.event]) rosterByTeam[teamKey][p.event] = [];
+                (p.participants || []).forEach(pid => {
+                    const name = membersMap[pid] || pid;
+                    rosterByTeam[teamKey][p.event].push(name);
                 });
             });
-            
-            // Generate roster HTML
             let rosterHTML = '';
-            Object.keys(teamRosters).forEach(team => {
-                rosterHTML += `<h4>Team ${team}</h4><ul>`;
-                teamRosters[team].forEach(event => {
-                    rosterHTML += `<li><strong>${event.event}:</strong> ${event.participants.length} participants</li>`;
+            Object.keys(rosterByTeam).sort().forEach(team => {
+                rosterHTML += `<div class="team-roster"><h4>Team ${team}</h4>`;
+                const events = rosterByTeam[team];
+                Object.keys(events).sort().forEach(evt => {
+                    const names = events[evt];
+                    rosterHTML += `<div class="roster-event"><strong>${evt}:</strong> ${names.length ? names.join(', ') : '—'}</div>`;
                 });
-                rosterHTML += '</ul>';
+                rosterHTML += `</div>`;
             });
+            if (!rosterHTML) rosterHTML = '<p>No roster data available.</p>';
+            
+            // Quick stats
+            const gold = resultsList.filter(r => r.placement === 1).length;
+            const silver = resultsList.filter(r => r.placement === 2).length;
+            const bronze = resultsList.filter(r => r.placement === 3).length;
+            const top10 = resultsList.filter(r => r.placement && r.placement <= 10).length;
             
             modalContent.innerHTML = `
                 <h2>${competition.name}</h2>
-                <div class="competition-details-modal">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="overview">Overview</button>
+                    <button class="tab-btn" data-tab="placements">Placements</button>
+                    <button class="tab-btn" data-tab="rosters">Rosters</button>
+                    <button class="tab-btn" data-tab="statistics">Statistics</button>
+                </div>
+                <div class="tab-content active" id="tab-overview">
                     <div class="detail-section">
                         <h3>Competition Information</h3>
                         <p><strong>Date:</strong> ${new Date(competition.date).toLocaleDateString()}</p>
-                        <p><strong>Location:</strong> ${competition.location}</p>
-                        <p><strong>Type:</strong> ${competition.type}</p>
-                        <p><strong>Team Rank:</strong> ${competition.results.teamRank}${getOrdinalSuffix(competition.results.teamRank)} out of ${competition.results.teamOutOf}</p>
+                        <p><strong>Location:</strong> ${competition.location || '—'}</p>
+                        <p><strong>Type:</strong> ${(competition.type || '—').toString()}</p>
+                        ${competition.results && typeof competition.results.teamRank === 'number' ? `<p><strong>Team Rank:</strong> ${competition.results.teamRank}${getOrdinalSuffix(competition.results.teamRank)}${competition.results.teamOutOf ? ` out of ${competition.results.teamOutOf}` : ''}</p>` : ''}
+                        ${competition.duosmium ? `<p><a href="${competition.duosmium}" target="_blank" class="btn btn-primary"><i class="fas fa-external-link-alt"></i> View on Duosmium</a></p>` : ''}
                     </div>
-                    
-                    <div class="detail-section">
-                        <h3>Your Participation</h3>
-                        <ul>
-                            ${userPlacements.map(placement => {
-                                const eventResult = competition.results.eventResults.find(result => 
-                                    result.eventName === placement.event && result.team === placement.team
-                                );
-                                const resultText = eventResult ? 
-                                    `${eventResult.placement}${getOrdinalSuffix(eventResult.placement)} place` : 
-                                    'No result available';
-                                return `<li><strong>${placement.event} (Team ${placement.team}):</strong> ${resultText}</li>`;
-                            }).join('')}
-                        </ul>
+                </div>
+                <div class="tab-content" id="tab-placements">
+                    ${placementsRows ? `
+                    <div class="table-wrap">
+                        <table class="placements-table">
+                            <thead>
+                                <tr><th>Event</th><th>Team</th><th>Placement</th><th>Out Of</th></tr>
+                            </thead>
+                            <tbody>${placementsRows}</tbody>
+                        </table>
                     </div>
-                    
-                    <div class="detail-section">
-                        <h3>Full Team Roster</h3>
-                        ${rosterHTML}
+                    ` : '<p>No placement data available.</p>'}
+                </div>
+                <div class="tab-content" id="tab-rosters">
+                    ${rosterHTML}
+                </div>
+                <div class="tab-content" id="tab-statistics">
+                    <div class="stats-row">
+                        <span class="pill gold"><i class="fas fa-medal"></i> ${gold}</span>
+                        <span class="pill silver"><i class="fas fa-medal"></i> ${silver}</span>
+                        <span class="pill bronze"><i class="fas fa-medal"></i> ${bronze}</span>
+                        <span class="pill top10">Top 10: ${top10}</span>
                     </div>
-                    
-                    ${competition.duosmium ? `
-                        <div class="detail-section">
-                            <h3>Results</h3>
-                            <a href="${competition.duosmium}" target="_blank" class="btn btn-primary">
-                                <i class="fas fa-external-link-alt"></i> View on Duosmium
-                            </a>
-                        </div>
-                    ` : ''}
                 </div>
             `;
+            
+            // Tab switching
+            const tabButtons = modalContent.querySelectorAll('.tab-btn');
+            const tabContents = modalContent.querySelectorAll('.tab-content');
+            tabButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    tabButtons.forEach(b => b.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    btn.classList.add('active');
+                    const tab = btn.dataset.tab;
+                    const el = modalContent.querySelector(`#tab-${tab}`);
+                    if (el) el.classList.add('active');
+                });
+            });
             
             modal.style.display = 'block';
         }

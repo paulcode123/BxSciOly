@@ -1,0 +1,1385 @@
+{% extends 'layout.html' %}
+
+{% block title %}Learning - Bronx Science Olympiad{% endblock %}
+
+{% block content %}
+<div class="hero" style="height: 30vh; background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/static/images/learning-modules-bg.jpg'), url('/static/images/biology-bg.jpg'); background-size: cover; background-position: center;">
+    <div class="hero-content">
+        <h1><i class="fas fa-graduation-cap"></i> Learning</h1>
+        <p>Your portfolio and learning resources across all events</p>
+    </div>
+</div>
+
+<section class="section">
+    <div class="container">
+        <div class="learning-tabs">
+            <button class="learning-tab active" data-tab="portfolio">Portfolio</button>
+            <button class="learning-tab" data-tab="resources">Resources</button>
+        </div>
+
+        <!-- Portfolio Tab -->
+        <div id="portfolio-tab" class="learning-tab-content active">
+            <div class="lean-intro">
+                <h2>Your Learning Portfolio</h2>
+                <p>This is what gets submitted to logistics when you apply for competitions. Don't worry, your Event Managers will help you make it as strong as possible!</p>
+            </div>
+
+            <!-- Medals -->
+            <section class="portfolio-section">
+                <div class="section-header">
+                    <h3><i class="fas fa-medal"></i> Medals</h3>
+                </div>
+                <div id="medalsList" class="medals-list">
+                    <div class="loading-indicator"><i class="fas fa-spinner fa-spin"></i><p>Loading medals...</p></div>
+                </div>
+            </section>
+
+            <!-- Diagnostics -->
+            <section class="portfolio-section">
+                <div class="section-header">
+                    <h3><i class="fas fa-clipboard-check"></i> Diagnostics</h3>
+                </div>
+                <div id="diagnosticsList" class="diagnostics-list">
+                    <div class="empty-state">
+                        <i class="fas fa-file-alt"></i>
+                        <p>No diagnostics recorded yet.</p>
+                    </div>
+                </div>
+                <div class="section-actions">
+                    <button id="scheduleDiagnosticBtn" class="btn-primary"><i class="fas fa-calendar-plus"></i> Schedule a Diagnostic</button>
+                </div>
+            </section>
+
+            <!-- Learning Experiences -->
+            <section class="portfolio-section">
+                <div class="section-header">
+                    <h3><i class="fas fa-book-open"></i> Learning Experiences</h3>
+                </div>
+
+                <div class="experience-form form-card">
+                    <div class="form-header">
+                        <div class="header-icon"><i class="fas fa-plus"></i></div>
+                        <div class="header-text">
+                            <h4>Add a Learning Artifact</h4>
+                            <p>Showcase conversations, files, or links that reflect your learning.</p>
+                        </div>
+                    </div>
+                    <div class="form-body two-col">
+                        <div class="col">
+                            <div class="form-row">
+                                <label for="artifactEvent">Event</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-flask"></i>
+                                    <select id="artifactEvent"></select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <label for="artifactTitle">Title <span class="muted">(optional)</span></label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-heading"></i>
+                                    <input id="artifactTitle" type="text" maxlength="100" placeholder="e.g., CAD of bridge truss, Entomology research notes">
+                                </div>
+                                <div class="char-count" id="titleCount">0 / 100</div>
+                            </div>
+
+                            <div class="form-row">
+                                <label>Type</label>
+                                <div class="pill-toggle" id="typeToggle">
+                                    <button type="button" class="pill-option active" data-value="conversation"><i class="fas fa-robot"></i> Conversation</button>
+                                    <button type="button" class="pill-option" data-value="file"><i class="fas fa-file-upload"></i> File</button>
+                                    <button type="button" class="pill-option" data-value="link"><i class="fas fa-link"></i> Link</button>
+                                </div>
+                                <div class="visually-hidden">
+                                    <label><input type="radio" name="artifactType" value="conversation" checked> Conversation</label>
+                                    <label><input type="radio" name="artifactType" value="file"> File</label>
+                                    <label><input type="radio" name="artifactType" value="link"> Link</label>
+                                </div>
+                            </div>
+
+                            <div id="artifactConversationFields" class="fieldset">
+                                <div class="tip"><i class="fas fa-info-circle"></i> Paste your ChatGPT share link and transcript. You can tag related modules too.</div>
+                                <div class="form-row">
+                                    <label for="artifactShare">ChatGPT Share Link</label>
+                                    <div class="input-with-icon">
+                                        <i class="fas fa-external-link-alt"></i>
+                                        <input id="artifactShare" type="url" placeholder="https://chatgpt.com/share/...">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <label for="artifactTranscript">Full Transcript</label>
+                                    <textarea id="artifactTranscript" rows="8" class="codeish" placeholder="Paste the transcript..."></textarea>
+                                </div>
+                                <div class="form-row">
+                                    <label>Related Modules <span class="muted">(optional)</span></label>
+                                    <div id="artifactModules" class="chips-grid"></div>
+                                </div>
+                            </div>
+
+                            <div id="artifactFileFields" class="fieldset" style="display:none;">
+                                <div class="dropzone" id="artifactDropzone">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <p>Drag & drop your file here, or <span class="linklike">browse</span></p>
+                                    <p class="muted">Accepted: PDF, DOC/DOCX, TXT, PNG/JPG, CAD exports (.stl, .obj, .step, .iges), .zip</p>
+                                </div>
+                                <input id="artifactFile" type="file" class="visually-hidden" accept=".pdf,.doc,.docx,.txt,.png,.jpg,.jpeg,.stl,.obj,.step,.iges,.zip">
+                            </div>
+
+                            <div id="artifactLinkFields" class="fieldset" style="display:none;">
+                                <div class="form-row">
+                                    <label for="artifactUrl">External URL</label>
+                                    <div class="input-with-icon">
+                                        <i class="fas fa-link"></i>
+                                        <input id="artifactUrl" type="url" placeholder="https://...">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col side-panel">
+                            <div class="panel">
+                                <div class="panel-title"><i class="fas fa-lightbulb"></i> Good Artifacts</div>
+                                <ul class="panel-list">
+                                    <li>Authentic work that demonstrates progress</li>
+                                    <li>Clear, specific titles and descriptions</li>
+                                    <li>For conversations, highlight key takeaways</li>
+                                </ul>
+                            </div>
+                            <div class="panel muted-panel">
+                                <div class="panel-title"><i class="fas fa-shield-alt"></i> Review Notes</div>
+                                <p>AI conversations are reviewed by Event Managers. Files and links are saved immediately.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-footer">
+                        <button id="addArtifactBtn" class="btn-primary"><i class="fas fa-plus"></i> Add Artifact</button>
+                        <button type="button" id="resetArtifactBtn" class="btn-secondary"><i class="fas fa-undo"></i> Reset</button>
+                    </div>
+                </div>
+
+                <div id="experiencesList" class="experiences-list">
+                    <div class="loading-indicator"><i class="fas fa-spinner fa-spin"></i><p>Loading experiences...</p></div>
+                </div>
+            </section>
+
+            <!-- Questions & Reflections -->
+            <section class="portfolio-section">
+                <div class="section-header">
+                    <h3><i class="fas fa-question-circle"></i> Questions & Reflections</h3>
+                </div>
+
+                <div class="form-card">
+                    <div class="form-header">
+                        <div class="header-icon"><i class="fas fa-pen"></i></div>
+                        <div class="header-text">
+                            <h4>Add an Entry</h4>
+                            <p>Select a type and fill in the fields.</p>
+                        </div>
+                    </div>
+                    <div class="form-body">
+                        <div class="form-grid">
+                            <div class="form-row">
+                                <label for="entryType">Entry Type</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-list"></i>
+                                    <select id="entryType">
+                                        <option value="weekly">Weekly Update</option>
+                                        <option value="diagnostic">Diagnostic Reflection</option>
+                                        <option value="competition">Competition Reflection</option>
+                                        <option value="app_q1">Application Q1: Why compete in this event?</option>
+                                        <option value="app_q2">Application Q2: Preparation plan for next month?</option>
+                                        <option value="app_q3">Application Q3: Describe a weakness and how to address it</option>
+                                        <option value="app_q4">Application Q4: How will you support event partners?</option>
+                                        <option value="app_q5">Application Q5: What does success look like this season?</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="entryFields" class="form-grid"></div>
+                        <div style="margin-top:10px;">
+                            <button id="saveEntryBtn" class="btn-primary"><i class="fas fa-save"></i> Save Entry</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-card" style="margin-top:16px;">
+                    <div class="form-header">
+                        <div class="header-icon"><i class="fas fa-list-ul"></i></div>
+                        <div class="header-text">
+                            <h4>Your Entries</h4>
+                            <p>Combined view of weekly updates and reflections.</p>
+                        </div>
+                    </div>
+                    <div class="form-body">
+                        <div id="qrList" class="experiences-list"></div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+
+        <!-- Resources Tab -->
+        <div id="resources-tab" class="learning-tab-content">
+            <div class="resources-controls card">
+                <div class="controls-row">
+                    <div class="event-selector">
+                        <label for="resourceEvent"><i class="fas fa-filter"></i> Select Event</label>
+                        <div class="select-wrapper">
+                            <select id="resourceEvent" class="styled-select">
+                                <option value="">Choose an event to explore...</option>
+                            </select>
+                            <i class="fas fa-chevron-down select-arrow"></i>
+                        </div>
+                    </div>
+                    <div class="event-actions">
+                        <a id="resourceEventDetail" class="btn-secondary" href="#" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> 
+                            <span>Event Detail</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reuse modules UI container -->
+            <div class="modules-container">
+                <div class="modules-header">
+                    <h3>Learning Path</h3>
+                    <div class="modules-progress">
+                        <div class="progress-info"><span id="modulesCompleted">0</span> / <span id="totalModules">0</span> completed</div>
+                        <div class="progress-bar-container"><div id="modulesProgressBar" class="progress-bar-fill"></div></div>
+                    </div>
+                </div>
+                <div class="learning-path">
+                    <div id="modulesPath" class="modules-path"></div>
+                </div>
+            </div>
+            
+            <!-- Module Side Panel -->
+            <div id="moduleSidePanel" class="module-side-panel">
+                <div class="side-panel-header">
+                    <h4 id="sidePanelTitle">Module Title</h4>
+                    <button id="closeSidePanel" class="close-side-panel">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div id="sidePanelContent" class="side-panel-content">
+                    <!-- Module content will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .learning-tabs { display:flex; gap:10px; background:#fff; padding:8px; border-radius:10px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); margin-top: -40px; margin-bottom: 20px; }
+    .learning-tab { flex:1; padding:12px 16px; border:none; background:#f7f7f7; border-radius:8px; cursor:pointer; font-weight:600; }
+    .learning-tab.active { background: var(--accent-color); color:#fff; }
+    .learning-tab-content { display:none; background:#fff; border-radius:12px; padding:24px; box-shadow: 0 5px 20px rgba(0,0,0,0.06); }
+    .learning-tab-content.active { display:block; }
+    .lean-intro { margin-bottom: 16px; }
+    .portfolio-section { margin-top: 20px; }
+    .section-header { display:flex; align-items:center; justify-content: space-between; padding-bottom: 8px; border-bottom: 1px solid #eee; margin-bottom: 12px; }
+    .medals-list .result-item { display:flex; align-items:center; padding: 12px; border:1px solid #eee; border-radius:8px; margin-bottom:10px; }
+    .diagnostics-list .diag-item { display:flex; align-items:center; justify-content:space-between; padding: 12px; border:1px solid #eee; border-radius:8px; margin-bottom:10px; }
+    .experiences-list .experience-card { background:#fff; border:1px solid #eee; border-radius:10px; padding:14px; margin-bottom:10px; }
+    .resources-controls.card { background:#fff; border-radius:10px; padding:14px; box-shadow: 0 5px 20px rgba(0,0,0,0.06); margin-bottom: 16px; }
+    .controls-row { display:flex; align-items:end; gap:2rem; }
+    .event-selector { flex: 1; }
+    .event-actions { flex: 0 0 auto; }
+    .event-selector label { display:flex; align-items:center; gap:0.5rem; margin-bottom:0.75rem; font-weight:600; color:var(--text-dark); font-size:0.95rem; }
+    .event-selector label i { color:var(--primary); }
+    .select-wrapper { position:relative; display:inline-block; width:100%; }
+    .styled-select { width:100%; padding:1rem 3rem 1rem 1rem; border:2px solid var(--border-light); border-radius:12px; background:white; font-size:1rem; font-weight:500; color:var(--text-dark); appearance:none; cursor:pointer; transition:all 0.3s ease; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
+    .styled-select:focus { outline:none; border-color:var(--primary); box-shadow:0 0 0 3px rgba(59,130,246,0.1); }
+    .styled-select:hover { border-color:var(--primary-light); }
+    .select-arrow { position:absolute; right:1rem; top:50%; transform:translateY(-50%); color:var(--text-muted); pointer-events:none; transition:transform 0.3s ease; }
+    .styled-select:focus + .select-arrow { transform:translateY(-50%) rotate(180deg); }
+    .event-actions .btn-secondary { display:flex; align-items:center; gap:0.5rem; padding:1rem 1.5rem; border-radius:12px; font-weight:600; transition:all 0.3s ease; }
+    .event-actions .btn-secondary:hover { transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,0.15); }
+    .form-grid { display:grid; gap:12px; }
+    .form-row { display:flex; flex-direction:column; gap:6px; }
+    .radio-row { display:flex; gap:16px; flex-wrap:wrap; }
+    .checkbox-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px; }
+    .checkbox-item { display:flex; align-items:center; gap:8px; border:1px solid #edf2f7; border-radius:8px; padding:8px 10px; }
+    .btn-primary, .btn-secondary { padding: 0.625rem 1.25rem; border-radius: 25px; border:none; cursor:pointer; font-weight: 500; transition: all 0.3s ease; display:inline-flex; align-items:center; gap:0.5rem; }
+    .btn-primary { background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); color:#fff; }
+    .btn-secondary { background: #f1f5f9; color:#374151; border: 1px solid #d1d5db; }
+    .loading-indicator { text-align:center; color:#777; padding:20px; }
+    .empty-state { text-align:center; color:#666; padding:20px; }
+
+    /* Reuse modules styles subset from events.html */
+    .modules-container { max-width: 1000px; margin: 0 auto; }
+    .modules-header { text-align: center; margin-bottom: 24px; padding: 24px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 16px; color: white; box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3); }
+    .modules-progress { max-width: 420px; margin: 0 auto; }
+    .progress-bar-container { background: rgba(255,255,255,0.2); border-radius: 25px; height: 12px; overflow: hidden; position: relative; }
+    .progress-bar-fill { background: linear-gradient(90deg, #4ade80, #22c55e); height: 100%; border-radius: 25px; transition: width 0.5s ease; width: 0%; }
+    .learning-path { position: relative; padding: 20px 0; background: linear-gradient(135deg, #e8f5e8 0%, #f0f8ff 100%); border-radius: 20px; }
+    .modules-path { position: relative; max-width: 520px; margin: 0 auto; padding: 20px; }
+    .duo-section-header { background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); border-radius: 20px; padding: 20px; margin-bottom: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); border: 2px solid #e2e8f0; display:flex; align-items:center; justify-content:space-between; }
+    .duo-section-container { display:flex; flex-direction:column; gap:24px; margin-bottom:40px; position:relative; padding: 0 12px; }
+    .duo-section-container::before { content:''; position:absolute; left:50%; top:0; bottom:0; width:3px; background: linear-gradient(180deg, #58cc02, #7dd321, #58cc02); transform: translateX(-50%); z-index:1; border-radius:2px; }
+    .duo-module-item { display:flex; justify-content:center; align-items:center; position:relative; z-index:2; }
+    .duo-module-card { background:#fff; border-radius:20px; padding:15px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: all 0.4s cubic-bezier(0.4,0,0.2,1); cursor:pointer; position:relative; text-align:center; width:150px; height:150px; display:flex; flex-direction:column; align-items:center; justify-content:center; border:4px solid transparent; overflow:visible; margin: 20px 10px; }
+    .duo-module-card:hover { transform: translateY(-8px) scale(1.05); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+    .duo-module-card.completed { border-color:#58cc02; background: linear-gradient(135deg, #f0fdf4, #dcfce7); }
+    .duo-module-card.locked { opacity:0.85; cursor:pointer; background:#f8f9fa; filter: grayscale(0.25); border: 2px dashed #d1d5db; }
+    .duo-module-icon { display:flex; align-items:center; justify-content:center; margin-bottom: 8px; }
+    .icon-circle { width:60px; height:60px; flex: 0 0 60px; aspect-ratio: 1 / 1; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; padding:0; color:#fff; background: var(--module-color); box-shadow: 0 4px 15px rgba(0,0,0,0.2); line-height: 1; }
+    .icon-circle i { background: transparent !important; line-height: 1; font-size: 1.6rem; }
+    .duo-module-title { font-size:0.9rem; font-weight:600; color: var(--primary-color); margin-top:6px; }
+    .duo-module-xp { font-size:0.8rem; color:#58cc02; font-weight:600; }
+
+    /* Module Side Panel Styles */
+    .module-side-panel {
+        position: fixed;
+        top: 0;
+        right: -400px;
+        width: 400px;
+        height: 100vh;
+        background: white;
+        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+        z-index: 1000;
+        transition: right 0.3s ease;
+        overflow-y: auto;
+    }
+    
+    .module-side-panel.active {
+        right: 0;
+    }
+    
+    .side-panel-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 25px 30px 20px;
+        border-bottom: 1px solid #e9ecef;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+    }
+    
+    .side-panel-header h4 {
+        margin: 0;
+        font-size: 1.3rem;
+        font-weight: 600;
+    }
+    
+    .close-side-panel {
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        color: white;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+    }
+    
+    .close-side-panel:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: scale(1.1);
+    }
+    
+    .side-panel-content {
+        padding: 30px;
+        line-height: 1.6;
+    }
+    
+    .module-content-section {
+        margin-bottom: 30px;
+    }
+    
+    .module-content-section h5 {
+        color: var(--primary-color);
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .module-content-section p {
+        color: #555;
+        margin-bottom: 15px;
+    }
+    
+    .module-content-section ul {
+        margin-left: 20px;
+        color: #555;
+    }
+    
+    .module-content-section li {
+        margin-bottom: 8px;
+    }
+    
+    .module-links {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .module-link {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 15px;
+        background: #f8f9fa;
+        border-radius: 10px;
+        text-decoration: none;
+        color: inherit;
+        transition: all 0.2s;
+        border: 1px solid #e9ecef;
+    }
+    
+    .module-link:hover {
+        background: #e9ecef;
+        transform: translateX(5px);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .module-link-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.1rem;
+        flex-shrink: 0;
+    }
+    
+    .module-link-icon.video {
+        background: linear-gradient(135deg, #ef4444, #dc2626);
+    }
+    
+    .module-link-icon.reading {
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    }
+    
+    .module-link-icon.research {
+        background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    }
+    
+    .module-link-icon.ai {
+        background: linear-gradient(135deg, #06b6d4, #0891b2);
+    }
+    
+    .module-link-content {
+        flex: 1;
+    }
+    
+    .module-link-title {
+        font-weight: 600;
+        color: var(--primary-color);
+        margin-bottom: 4px;
+    }
+    
+    .module-link-description {
+        font-size: 0.9rem;
+        color: #666;
+    }
+    
+    .problems-list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .problem-item {
+        display: flex;
+        gap: 12px;
+        padding: 15px;
+        background: #f8f9fa;
+        border-radius: 10px;
+        border: 1px solid #e9ecef;
+    }
+    
+    .problem-number {
+        font-weight: 600;
+        color: var(--accent-color);
+        min-width: 25px;
+    }
+    
+    .problem-text {
+        flex: 1;
+        color: #555;
+        line-height: 1.5;
+    }
+    
+    .module-actions {
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid #e9ecef;
+    }
+    
+    .module-action-btn {
+        width: 100%;
+        padding: 15px;
+        border: none;
+        border-radius: 10px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+        margin-bottom: 10px;
+    }
+    
+    .module-action-btn.primary {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+    }
+    
+    .module-action-btn.primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+    }
+    
+    .module-action-btn.secondary {
+        background: #f8f9fa;
+        color: #666;
+        border: 1px solid #e9ecef;
+    }
+    
+    .module-action-btn.secondary:hover {
+        background: #e9ecef;
+    }
+    
+    .module-completion-status {
+        text-align: center;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+    
+    .module-completion-status.completed {
+        background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+        border: 2px solid #22c55e;
+        color: #166534;
+    }
+    
+    .module-completion-status.in-progress {
+        background: linear-gradient(135deg, #fef3c7, #fde68a);
+        border: 2px solid #f59e0b;
+        color: #92400e;
+    }
+    
+    /* Module Locked Notice Styles */
+    .module-locked-notice {
+        text-align: center;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        background: linear-gradient(135deg, #fef2f2, #fee2e2);
+        border: 2px solid #fecaca;
+        color: #991b1b;
+    }
+    
+    .module-locked-notice i {
+        font-size: 2rem;
+        margin-bottom: 10px;
+        color: #dc2626;
+    }
+    
+    .module-locked-notice p {
+        margin-bottom: 15px;
+        font-weight: 500;
+    }
+    
+    .prerequisites-list {
+        text-align: left;
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        border: 1px solid #fecaca;
+    }
+    
+    .prerequisites-list strong {
+        color: #991b1b;
+        display: block;
+        margin-bottom: 8px;
+    }
+    
+    .prerequisites-list ul {
+        margin: 0;
+        padding-left: 20px;
+    }
+    
+    .prerequisites-list li {
+        margin-bottom: 5px;
+        color: #374151;
+    }
+
+    @media (max-width: 768px) { 
+        .controls-row { flex-direction: column; align-items: stretch; gap:1rem; }
+        .event-selector, .event-actions { flex: none; }
+        .event-actions .btn-secondary { justify-content: center; }
+        .module-side-panel { width: 100%; right: -100%; }
+    }
+
+    /* Fancy form styles */
+    .form-card { background: #ffffff; border-radius: 16px; box-shadow: 0 12px 34px rgba(0,0,0,0.08); overflow: hidden; border: 1px solid #eef2f7; }
+    .form-header { display:flex; gap:14px; align-items:center; padding: 18px 20px; background: linear-gradient(135deg, #eef2ff 0%, #f5f3ff 100%); border-bottom: 1px solid #e5e7eb; }
+    .form-header .header-icon { width: 42px; height: 42px; border-radius: 10px; background: linear-gradient(135deg, #4f46e5, #7c3aed); display:flex; align-items:center; justify-content:center; color:#fff; box-shadow: 0 8px 18px rgba(79,70,229,0.35); }
+    .form-header h4 { margin:0; font-size: 1.15rem; color: #1f2937; }
+    .form-header p { margin:0; color:#6b7280; font-size: 0.95rem; }
+    .form-body { padding: 18px 20px; }
+    .two-col { display:grid; grid-template-columns: 2fr 1fr; gap: 20px; }
+    .col .fieldset { background:#fafafa; border:1px solid #edf2f7; border-radius: 12px; padding:14px; margin-top: 10px; }
+    .muted { color:#6b7280; font-weight: 400; }
+    .input-with-icon { display:flex; align-items:center; border:1px solid #e5e7eb; border-radius: 10px; background:#fff; overflow:hidden; }
+    .input-with-icon i { padding: 0 10px; color:#6b7280; }
+    .input-with-icon input, .input-with-icon select { border:none; outline:none; width:100%; padding: 10px 12px; font-size:0.95rem; background:transparent; }
+    .char-count { color:#9ca3af; font-size: 0.8rem; text-align:right; margin-top: 4px; }
+    .pill-toggle { display:flex; gap:8px; flex-wrap:wrap; }
+    .pill-option { border:1px solid #e5e7eb; background:#fff; border-radius:999px; padding:8px 12px; cursor:pointer; font-weight:600; color:#374151; }
+    .pill-option.active { background: linear-gradient(135deg,#4f46e5,#7c3aed); color:#fff; border-color:transparent; box-shadow: 0 8px 18px rgba(79,70,229,0.35); }
+    .chips-grid { display:flex; flex-wrap:wrap; gap:8px; }
+    .chips-grid .checkbox-item { border-radius: 999px; border:1px dashed #d1d5db; padding:6px 10px; background:#fff; }
+    .dropzone { border: 2px dashed #c7d2fe; border-radius: 12px; padding: 24px; text-align:center; background: #f8fafc; color:#475569; transition: all 0.2s ease; }
+    .dropzone:hover { background:#eef2ff; border-color:#a5b4fc; }
+    .dropzone i { font-size: 1.6rem; color:#6366f1; }
+    .dropzone .linklike { color:#4f46e5; text-decoration: underline; cursor:pointer; }
+    .panel { border:1px solid #e5e7eb; border-radius: 12px; padding: 12px; background:#fff; }
+    .muted-panel { background: #f9fafb; }
+    .panel-title { font-weight:700; margin-bottom: 6px; color:#111827; }
+    .panel-list { margin: 0; padding-left: 18px; color:#4b5563; }
+    .codeish { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace; background:#f8fafc; border:1px solid #e5e7eb; border-radius:10px; padding:10px; }
+    .visually-hidden { position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
+    .form-footer { padding: 16px 20px; border-top:1px solid #e5e7eb; display:flex; gap:10px; justify-content:flex-end; background:#fafafa; }
+    .tip { display:flex; gap:8px; align-items:center; padding: 8px 10px; background:#ecfeff; border:1px solid #a5f3fc; color:#0e7490; border-radius:8px; margin-bottom:10px; }
+    .experiences-list .mini { padding:10px; border:1px solid #eee; border-radius:10px; margin-bottom:8px; background:#fff; }
+    .q-label { font-weight:600; color:#374151; margin-bottom:6px; }
+    .q-row { display:flex; flex-direction:column; gap:6px; border:1px solid #edf2f7; border-radius:10px; padding:10px; background:#fafafa; margin-bottom:10px; }
+    @media (max-width: 900px) { .two-col { grid-template-columns: 1fr; } }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+        if (!currentUser) { window.location.href = '{{ url_for("login") }}'; return; }
+
+        // Tabs
+        const tabButtons = document.querySelectorAll('.learning-tab');
+        const tabContents = document.querySelectorAll('.learning-tab-content');
+        tabButtons.forEach(btn => btn.addEventListener('click', () => {
+            tabButtons.forEach(b => b.classList.remove('active'));
+            tabContents.forEach(c => c.classList.remove('active'));
+            btn.classList.add('active');
+            document.getElementById(btn.dataset.tab + '-tab').classList.add('active');
+        }));
+
+        // State
+        let userEvents = [];
+        let modules = [];
+        let userProgress = {};
+        let userConversations = [];
+        let allTests = [];
+
+        // Init
+        loadUserEvents().then(() => {
+            initPortfolio();
+            initResources();
+        });
+        
+        // Module side panel event listeners
+        document.getElementById('closeSidePanel').addEventListener('click', closeModuleSidePanel);
+        
+        // Close module side panel when clicking outside
+        document.addEventListener('click', handleOutsideClick);
+
+        // Portfolio
+        function initPortfolio() {
+            loadMedals();
+            loadExperiences();
+            initArtifactForm();
+            const schedBtn = document.getElementById('scheduleDiagnosticBtn');
+            if (schedBtn) schedBtn.addEventListener('click', () => { window.location.href = '/calendar'; });
+            initQuestionsReflections();
+        }
+
+        async function loadMedals() {
+            const medalsList = document.getElementById('medalsList');
+            try {
+                // Pull competitions and filter by user participation as in competitions.html
+                const compsRes = await fetch('/api/Competitions');
+                const compsRaw = await compsRes.json();
+                const competitions = compsRaw.map(item => { const id = Object.keys(item)[0]; return { id, ...item[id] }; });
+                const userId = currentUser.id || currentUser.uid || currentUser.userId;
+                const results = [];
+                competitions.forEach(competition => {
+                    if (!competition.results || !competition.teamPlacement) return;
+                    const placement = (competition.teamPlacement || []).find(p => Array.isArray(p.participants) && p.participants.includes(userId));
+                    if (!placement) return;
+                    const eventResult = (competition.results.eventResults || []).find(r => r.eventName === placement.event && r.team === placement.team);
+                    if (!eventResult) return;
+                    results.push({
+                        competition: competition.name,
+                        date: competition.date,
+                        event: eventResult.eventName,
+                        placement: eventResult.placement,
+                        outOf: eventResult.outOf,
+                        team: placement.team,
+                        medal: eventResult.placement <= 3,
+                        medalType: eventResult.placement === 1 ? 'gold' : eventResult.placement === 2 ? 'silver' : eventResult.placement === 3 ? 'bronze' : null
+                    });
+                });
+                results.sort((a,b) => new Date(b.date) - new Date(a.date));
+                if (results.length === 0) { medalsList.innerHTML = '<div class="empty-state"><i class="fas fa-medal"></i><p>No medals yet</p></div>'; return; }
+                medalsList.innerHTML = '';
+                results.forEach(r => {
+                    const div = document.createElement('div');
+                    div.className = 'result-item';
+                    const medalIcon = r.medal ? `<i class="fas fa-medal" style="color:${r.medalType==='gold'?'#ffd700':r.medalType==='silver'?'#c0c0c0':'#cd7f32'}"></i>` : '';
+                    const date = new Date(r.date).toLocaleDateString('en-US', { year:'numeric', month:'short', day:'numeric' });
+                    div.innerHTML = `
+                        <div style="width:60px; text-align:center;">${medalIcon}</div>
+                        <div style="flex:1;">
+                            <div style="font-weight:600;">${r.competition}</div>
+                            <div style="color:var(--accent-color); font-weight:500;">${r.event} <span class="team-badge">Team ${r.team}</span></div>
+                            <div style="color:#777;">${date}</div>
+                        </div>
+                        <div style="text-align:right; min-width:90px;">
+                            <div style="font-weight:700; font-size:1.2rem;">${r.placement}<span style="font-size:0.8rem; color:#777;">${ordinal(r.placement)}</span></div>
+                            <div style="color:#777;">out of ${r.outOf}</div>
+                        </div>`;
+                    medalsList.appendChild(div);
+                });
+            } catch (e) {
+                medalsList.innerHTML = '<div class="empty-state">Failed to load medals</div>';
+            }
+        }
+
+        function ordinal(n){ const j=n%10,k=n%100; if(j==1&&k!=11)return 'st'; if(j==2&&k!=12)return 'nd'; if(j==3&&k!=13)return 'rd'; return 'th'; }
+
+        function initArtifactForm() {
+            const typeRadios = document.querySelectorAll('input[name="artifactType"]');
+            const convo = document.getElementById('artifactConversationFields');
+            const fileF = document.getElementById('artifactFileFields');
+            const linkF = document.getElementById('artifactLinkFields');
+            const toggle = document.getElementById('typeToggle');
+            const titleInput = document.getElementById('artifactTitle');
+            const titleCount = document.getElementById('titleCount');
+            const dropzone = document.getElementById('artifactDropzone');
+            const fileInput = document.getElementById('artifactFile');
+
+            typeRadios.forEach(r => r.addEventListener('change', () => {
+                const val = document.querySelector('input[name="artifactType"]:checked').value;
+                convo.style.display = val==='conversation' ? '' : 'none';
+                fileF.style.display = val==='file' ? '' : 'none';
+                linkF.style.display = val==='link' ? '' : 'none';
+            }));
+
+            if (toggle) {
+                toggle.addEventListener('click', (e) => {
+                    const btn = e.target.closest('.pill-option');
+                    if (!btn) return;
+                    toggle.querySelectorAll('.pill-option').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    const value = btn.dataset.value;
+                    document.querySelectorAll('input[name="artifactType"]').forEach(r => r.checked = (r.value === value));
+                    const event = new Event('change');
+                    document.querySelector(`input[name="artifactType"][value="${value}"]`).dispatchEvent(event);
+                });
+            }
+
+            if (titleInput && titleCount) {
+                titleInput.addEventListener('input', () => {
+                    titleCount.textContent = `${titleInput.value.length} / 100`;
+                });
+                titleCount.textContent = `${titleInput.value.length} / 100`;
+            }
+
+            if (dropzone && fileInput) {
+                dropzone.addEventListener('click', () => fileInput.click());
+                dropzone.addEventListener('dragover', (e) => { e.preventDefault(); dropzone.classList.add('drag'); });
+                dropzone.addEventListener('dragleave', () => dropzone.classList.remove('drag'));
+                dropzone.addEventListener('drop', (e) => {
+                    e.preventDefault(); dropzone.classList.remove('drag');
+                    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+                        fileInput.files = e.dataTransfer.files;
+                    }
+                });
+            }
+
+            const eventSelect = document.getElementById('artifactEvent');
+            eventSelect.innerHTML = `<option value="">Select an event...</option>` + userEvents.map(e => `<option value="${e.eventName}">${e.eventName}</option>`).join('');
+            eventSelect.addEventListener('change', async (e) => {
+                const mods = e.target.value ? await loadModulesByEvent(e.target.value) : [];
+                renderModuleCheckboxes('artifactModules', mods);
+            });
+
+            document.getElementById('addArtifactBtn').addEventListener('click', submitArtifact);
+            const resetBtn = document.getElementById('resetArtifactBtn');
+            if (resetBtn) resetBtn.addEventListener('click', () => {
+                document.getElementById('artifactTitle').value = '';
+                document.getElementById('artifactShare').value = '';
+                document.getElementById('artifactTranscript').value = '';
+                document.getElementById('artifactUrl').value = '';
+                if (titleCount) titleCount.textContent = '0 / 100';
+                if (fileInput) fileInput.value = '';
+                document.querySelectorAll('#artifactModules input[type=checkbox]').forEach(cb => cb.checked = false);
+            });
+        }
+
+        async function submitArtifact() {
+            const type = document.querySelector('input[name="artifactType"]:checked').value;
+            const eventName = document.getElementById('artifactEvent').value;
+            const title = document.getElementById('artifactTitle').value.trim();
+            if (!eventName) { alert('Please select an event'); return; }
+            if (type === 'conversation') {
+                const shareUrl = document.getElementById('artifactShare').value.trim();
+                const transcript = document.getElementById('artifactTranscript').value.trim();
+                const moduleIds = Array.from(document.querySelectorAll('#artifactModules input[type=checkbox]:checked')).map(cb => cb.value);
+                if (!shareUrl || !transcript) { alert('Share link and transcript required'); return; }
+                const payload = { userId: currentUser.id, kind:'artifact', artifactType:'conversation', eventName, moduleIds, shareUrl, transcript, title };
+                const res = await fetch('/api/Portfolio', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+                if (!res.ok) { const err = await res.json().catch(()=>({})); alert('Failed to submit: ' + (err.error || res.status)); return; }
+                alert('Conversation submitted!');
+                loadExperiences();
+            } else if (type === 'file') {
+                const fileInput = document.getElementById('artifactFile');
+                if (!fileInput.files || !fileInput.files[0]) { alert('Choose a file'); return; }
+                const file = fileInput.files[0];
+                const formData = new FormData();
+                formData.append('file', file);
+                formData.append('userId', currentUser.id);
+                formData.append('eventName', eventName);
+                formData.append('title', title);
+                const res = await fetch('/api/portfolio/upload', { method: 'POST', body: formData });
+                if (!res.ok) { const err = await res.json().catch(()=>({})); alert('Upload failed: ' + (err.error || res.status)); return; }
+                alert('File uploaded to portfolio!');
+                loadExperiences();
+            } else if (type === 'link') {
+                const url = document.getElementById('artifactUrl').value.trim();
+                if (!url) { alert('Enter a URL'); return; }
+                const res = await fetch('/api/Portfolio', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ userId: currentUser.id, kind:'artifact', artifactType:'link', eventName, title, url }) });
+                if (!res.ok) { const err = await res.json().catch(()=>({})); alert('Save failed: ' + (err.error || res.status)); return; }
+                alert('Link saved to portfolio!');
+                loadExperiences();
+            }
+        }
+
+        async function loadExperiences() {
+            const list = document.getElementById('experiencesList');
+            try {
+                const userId = currentUser.id || currentUser.uid || currentUser.userId;
+                const res = await fetch(`/api/Portfolio/user/${encodeURIComponent(userId)}?kind=artifact`);
+                const items = res.ok ? await res.json() : [];
+                if (items.length === 0) { list.innerHTML = '<div class="empty-state"><i class="fas fa-book-open"></i><p>No learning experiences yet.</p></div>'; return; }
+                // Sort newest first not guaranteed (createdAt is server timestamp); just render as-is
+                list.innerHTML = '';
+                items.forEach(it => {
+                    const card = document.createElement('div');
+                    card.className = 'experience-card';
+                    card.innerHTML = `
+                        <div style="display:flex; justify-content:space-between; align-items:center; gap:10px;">
+                            <div>
+                                <div style="font-weight:600;">${it.title || (it.artifactType==='conversation'?'Conversation':'Artifact')}</div>
+                                <div style="color:#666; font-size:0.9rem;"><i class="fas fa-flask"></i> ${it.eventName}</div>
+                            </div>
+                            ${it.url || it.shareUrl ? `<a class="btn-secondary" href="${it.url || it.shareUrl}" target="_blank"><i class="fas fa-external-link-alt"></i> Open</a>` : ''}
+                        </div>`;
+                    list.appendChild(card);
+                });
+            } catch(e) {
+                list.innerHTML = '<div class="empty-state">Failed to load experiences</div>';
+            }
+        }
+
+        function initQuestionsReflections() {
+            // Dynamic entry form
+            const eventOptions = `<option value=\"\">Select an event...</option>` + userEvents.map(e => `<option value="${e.eventName}">${e.eventName}</option>`).join('');
+            const entryTypeSel = document.getElementById('entryType');
+            const entryFields = document.getElementById('entryFields');
+            function renderEntryFields(type) {
+                if (type === 'weekly') {
+                    entryFields.innerHTML = `
+                        <div class=\"form-row\">
+                            <label>Today's Date</label>
+                            <div class=\"input-with-icon\"><i class=\"fas fa-calendar\"></i><input id=\"weeklyToday\" type=\"text\" disabled></div>
+                        </div>
+                        <div class=\"form-row\">
+                            <label for=\"weeklyEvent\">Event <span class=\"muted\">(optional)</span></label>
+                            <div class=\"input-with-icon\"><i class=\"fas fa-flask\"></i><select id=\"weeklyEvent\">${eventOptions}</select></div>
+                        </div>
+                        <div class=\"form-row\">
+                            <label for=\"weeklyContent\">Update</label>
+                            <textarea id=\"weeklyContent\" rows=\"4\" placeholder=\"What did you work on? What is your plan for next week?\"></textarea>
+                        </div>`;
+                    // Fill today's date
+                    try { const d=new Date(); const yyyy=d.getFullYear(); const mm=String(d.getMonth()+1).padStart(2,'0'); const dd=String(d.getDate()).padStart(2,'0'); const el=document.getElementById('weeklyToday'); if(el) el.value=`${yyyy}-${mm}-${dd}`; } catch(e) {}
+                } else if (type === 'diagnostic') {
+                    entryFields.innerHTML = `
+                        <div class=\"form-row\">
+                            <label for=\"diagEvent\">Event</label>
+                            <div class=\"input-with-icon\"><i class=\"fas fa-flask\"></i><select id=\"diagEvent\">${eventOptions}</select></div>
+                        </div>
+                        <div class=\"form-row\">
+                            <label for=\"diagDate\">Diagnostic Date</label>
+                            <div class=\"input-with-icon\"><i class=\"fas fa-calendar\"></i><input id=\"diagDate\" type=\"date\"></div>
+                        </div>
+                        <div class=\"form-row\">
+                            <label for=\"diagReflection\">Reflection</label>
+                            <textarea id=\"diagReflection\" rows=\"4\" placeholder=\"What did you learn? What are your next steps?\"></textarea>
+                        </div>`;
+                } else if (type === 'competition') {
+                    entryFields.innerHTML = `
+                        <div class=\"form-row\">
+                            <label for=\"compName\">Competition</label>
+                            <div class=\"input-with-icon\"><i class=\"fas fa-flag\"></i><input id=\"compName\" type=\"text\" placeholder=\"e.g., LISO Invitational\"></div>
+                        </div>
+                        <div class=\"form-row\">
+                            <label for=\"compEvent\">Event <span class=\"muted\">(optional)</span></label>
+                            <div class=\"input-with-icon\"><i class=\"fas fa-flask\"></i><select id=\"compEvent\">${eventOptions}</select></div>
+                        </div>
+                        <div class=\"form-row\">
+                            <label for=\"compWentWell\">What went well?</label>
+                            <textarea id=\"compWentWell\" rows=\"3\"></textarea>
+                        </div>
+                        <div class=\"form-row\">
+                            <label for=\"compImprove\">What to improve?</label>
+                            <textarea id=\"compImprove\" rows=\"3\"></textarea>
+                        </div>
+                        <div class=\"form-row\">
+                            <label for=\"compReflection\">Overall reflection</label>
+                            <textarea id=\"compReflection\" rows=\"4\"></textarea>
+                        </div>`;
+                } else if (type.startsWith('app_q')) {
+                    const qNum = type.replace('app_q', '');
+                    const questions = {
+                        '1': { text: 'Why do you want to compete in this event?', id: 'q1' },
+                        '2': { text: 'What is your preparation plan for the next month?', id: 'q2' },
+                        '3': { text: 'Describe a weakness and how you will address it.', id: 'q3' },
+                        '4': { text: 'How will you support your event partners?', id: 'q4' },
+                        '5': { text: 'What does success look like for you this season?', id: 'q5' }
+                    };
+                    const q = questions[qNum];
+                    if (q) {
+                        entryFields.innerHTML = `
+                            <div class=\"form-row\">
+                                <label>Question</label>
+                                <input type=\"text\" id=\"appQuestionText\" value=\"${q.text}\" readonly style=\"background:#f5f5f5;\">
+                            </div>
+                            <div class=\"form-row\">
+                                <label>Your Answer</label>
+                                <textarea id=\"appQuestionAnswer\" rows=\"4\" placeholder=\"Your answer...\"></textarea>
+                            </div>`;
+                        loadAppQuestionAnswer(q.id);
+                    }
+                } else {
+                    entryFields.innerHTML = '';
+                }
+            }
+            if (entryTypeSel) {
+                renderEntryFields(entryTypeSel.value);
+                entryTypeSel.addEventListener('change', () => renderEntryFields(entryTypeSel.value));
+            }
+
+            const saveEntryBtn = document.getElementById('saveEntryBtn');
+            if (saveEntryBtn) saveEntryBtn.addEventListener('click', async () => {
+                const type = (entryTypeSel && entryTypeSel.value) || 'weekly';
+                try {
+                    if (type === 'weekly') {
+                        const payload = {
+                            userId: currentUser.id,
+                            kind: 'weekly',
+                            dateISO: (()=>{ const d=new Date(); const yyyy=d.getFullYear(); const mm=String(d.getMonth()+1).padStart(2,'0'); const dd=String(d.getDate()).padStart(2,'0'); return `${yyyy}-${mm}-${dd}`; })(),
+                            eventName: document.getElementById('weeklyEvent').value || '',
+                            content: (document.getElementById('weeklyContent').value || '').trim()
+                        };
+                        if (!payload.content) { alert('Please enter your weekly update.'); return; }
+                        const res = await fetch('/api/Portfolio', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+                        if (!res.ok) throw await res.json().catch(()=>({ error: 'Failed' }));
+                    } else if (type === 'diagnostic') {
+                        const payload = {
+                            userId: currentUser.id,
+                            kind: 'diagnostic',
+                            eventName: document.getElementById('diagEvent').value || '',
+                            diagnosticDateISO: document.getElementById('diagDate').value || '',
+                            reflection: (document.getElementById('diagReflection').value || '').trim()
+                        };
+                        if (!payload.reflection) { alert('Please enter your diagnostic reflection.'); return; }
+                        const res = await fetch('/api/Portfolio', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+                        if (!res.ok) throw await res.json().catch(()=>({ error: 'Failed' }));
+                    } else if (type === 'competition') {
+                        const payload = {
+                            userId: currentUser.id,
+                            kind: 'competition',
+                            competitionName: (document.getElementById('compName').value || '').trim(),
+                            eventName: document.getElementById('compEvent').value || '',
+                            whatWentWell: (document.getElementById('compWentWell').value || '').trim(),
+                            whatToImprove: (document.getElementById('compImprove').value || '').trim(),
+                            reflection: (document.getElementById('compReflection').value || '').trim()
+                        };
+                        if (!payload.competitionName || !payload.reflection) { alert('Enter competition name and overall reflection.'); return; }
+                        const res = await fetch('/api/Portfolio', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+                        if (!res.ok) throw await res.json().catch(()=>({ error: 'Failed' }));
+                    } else if (type.startsWith('app_q')) {
+                        const qNum = type.replace('app_q', '');
+                        const qId = `q${qNum}`;
+                        const answer = (document.getElementById('appQuestionAnswer').value || '').trim();
+                        if (!answer) { alert('Please enter your answer.'); return; }
+                        const questionTexts = {
+                            '1': 'Why do you want to compete in this event?',
+                            '2': 'What is your preparation plan for the next month?',
+                            '3': 'Describe a weakness and how you will address it.',
+                            '4': 'How will you support your event partners?',
+                            '5': 'What does success look like for you this season?'
+                        };
+                        const payload = {
+                            userId: currentUser.id,
+                            kind: 'app_question',
+                            questionId: qId,
+                            questionText: questionTexts[qNum],
+                            answer: answer
+                        };
+                        const res = await fetch('/api/Portfolio', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+                        if (!res.ok) throw await res.json().catch(()=>({ error: 'Failed' }));
+                    }
+                    alert('Saved!');
+                    loadQRList();
+                } catch(err) {
+                    alert('Failed to save entry');
+                }
+            });
+
+
+            async function loadAppQuestionAnswer(qId) {
+                try {
+                    const res = await fetch(`/api/application-responses/user/${encodeURIComponent(currentUser.id)}`);
+                    const data = res.ok ? await res.json() : { questions: [] };
+                    const questions = data.questions || [];
+                    const question = questions.find(q => q.id === qId);
+                    const answerEl = document.getElementById('appQuestionAnswer');
+                    if (answerEl && question) {
+                        answerEl.value = question.answer || '';
+                    }
+                } catch (e) {
+                    // Ignore errors, just leave answer field empty
+                }
+            }
+
+            // Initial loads
+            loadQRList();
+        }
+
+        async function loadQRList() {
+            const list = document.getElementById('qrList');
+            if (!list) return;
+            list.innerHTML = '<div class="loading-indicator">Loading...</div>';
+            try {
+                const res = await fetch(`/api/Portfolio/user/${encodeURIComponent(currentUser.id)}?kind=weekly,diagnostic,competition,app_question`);
+                const items = res.ok ? await res.json() : [];
+                if (!items.length) { list.innerHTML = '<div class="empty-state">No entries yet.</div>'; return; }
+                list.innerHTML = '';
+                items.forEach(it => {
+                    if (it.kind === 'weekly') {
+                        const week = it.dateISO ? new Date(it.dateISO).toLocaleDateString('en-US', { month:'short', day:'numeric' }) : '';
+                        list.innerHTML += `<div class="mini"><div style="font-weight:600;">Weekly • ${it.eventName||'General'} ${week?`• ${week}`:''}</div><div style="white-space:pre-wrap; color:#374151;">${it.content||''}</div></div>`;
+                    } else if (it.kind === 'diagnostic') {
+                        const dateStr = it.diagnosticDateISO ? new Date(it.diagnosticDateISO).toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' }) : '';
+                        list.innerHTML += `<div class="mini"><div style="font-weight:600;">Diagnostic • ${it.eventName||'General'} ${dateStr?`• ${dateStr}`:''}</div><div style="white-space:pre-wrap; color:#374151;">${it.reflection||''}</div></div>`;
+                    } else if (it.kind === 'competition') {
+                        list.innerHTML += `<div class="mini"><div style="font-weight:600;">Competition • ${it.competitionName} ${it.eventName?`• ${it.eventName}`:''}</div>${it.whatWentWell?`<div><strong>Went well:</strong> <span style=\"white-space:pre-wrap; color:#374151;\">${it.whatWentWell}</span></div>`:''}${it.whatToImprove?`<div><strong>Improve:</strong> <span style=\"white-space:pre-wrap; color:#374151;\">${it.whatToImprove}</span></div>`:''}<div style="white-space:pre-wrap; color:#374151;">${it.reflection||''}</div></div>`;
+                    } else if (it.kind === 'app_question') {
+                        list.innerHTML += `<div class="mini"><div style="font-weight:600;">Application • ${it.questionText || it.questionId}</div><div style="white-space:pre-wrap; color:#374151;">${it.answer||''}</div></div>`;
+                    }
+                });
+            } catch (e) { list.innerHTML = '<div class="empty-state">Failed to load entries.</div>'; }
+        }
+
+        // Resources
+        function initResources() {
+            const resourceEvent = document.getElementById('resourceEvent');
+            resourceEvent.innerHTML = `<option value="">Choose an event to explore...</option>` + userEvents.map(e => `<option value="${e.eventName}">${e.eventName}</option>`).join('');
+            resourceEvent.addEventListener('change', async (e) => {
+                const eventName = e.target.value;
+                if (!eventName) { clearModulesUI(); return; }
+                document.getElementById('resourceEventDetail').href = `/event/${slugify(eventName)}`;
+                await loadModulesForEvent(eventName);
+            });
+        }
+
+        async function loadModulesForEvent(eventName) {
+            // Load user completions and conversations like events.html
+            userConversations = [];
+            try {
+                const userId = currentUser.id || currentUser.uid || currentUser.userId;
+                const convRes = await fetch(`/api/LearningConversations/user/${encodeURIComponent(userId)}/event/${encodeURIComponent(eventName)}`);
+                if (convRes.ok) userConversations = await convRes.json();
+            } catch(e) { userConversations = []; }
+
+            // Modules
+            try {
+                const res = await fetch(`/api/LearningModules/event/${encodeURIComponent(eventName)}`);
+                if (!res.ok) { showNoModulesMessage(); return; }
+                const apiModules = await res.json();
+                // user completions
+                userProgress = {};
+                try {
+                    const compRes = await fetch(`/api/ModuleCompletions/user/${currentUser.id}/event/${encodeURIComponent(eventName)}`);
+                    if (compRes.ok) {
+                        const comps = await compRes.json();
+                        comps.forEach(c => { userProgress[c.moduleId] = c.completed; });
+                    }
+                } catch(e) {}
+
+                modules = apiModules.map(module => {
+                    const content = module.content || {};
+                    const objectives = content.objectives || [];
+                    const resources = content.resources || [];
+                    const links = resources.map(r => ({ type: r.type || 'external', title: r.title, description: r.description, url: r.url, icon: getResourceIcon(r.type || 'external') }));
+                    return {
+                        id: module.id,
+                        title: module.title,
+                        duration: module.duration || 'N/A',
+                        completed: userProgress[module.id] || false,
+                        unit: module.unit || 'Unit 1',
+                        points: module.points || 10,
+                        prerequisites: module.prerequisites || [],
+                        validationType: module.validationType || 'none',
+                        content: { overview: content.overview || module.title, objectives, links },
+                        rawData: module
+                    };
+                });
+                renderDuolingoModules();
+                updateModuleProgress();
+            } catch(e) { showNoModulesMessage(); }
+        }
+
+        function clearModulesUI(){ document.getElementById('modulesPath').innerHTML = '<div class="empty-state">Select an event to see modules.</div>'; document.getElementById('modulesCompleted').textContent='0'; document.getElementById('totalModules').textContent='0'; document.getElementById('modulesProgressBar').style.width='0%'; }
+
+        // Minimal re-implementations of helpers from events.html
+        async function loadUserEvents() {
+            const res = await fetch('/api/Events');
+            const items = await res.json();
+            const allEvents = items.map(it => { const id = Object.keys(it)[0]; return { id, ...it[id] }; });
+            const uid = currentUser.id || currentUser.uid || currentUser.userId;
+            userEvents = allEvents.filter(e => Array.isArray(e.members) && e.members.includes(uid));
+        }
+
+        async function loadModulesByEvent(eventName) { const res = await fetch(`/api/LearningModules/event/${encodeURIComponent(eventName)}`); return await res.json(); }
+
+        function renderModuleCheckboxes(containerId, modules) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            modules.forEach(m => {
+                const div = document.createElement('div');
+                div.className = 'checkbox-item';
+                div.innerHTML = `<input type="checkbox" value="${m.id}" id="mod_${m.id}"> <label for="mod_${m.id}">${m.title}</label>`;
+                container.appendChild(div);
+            });
+        }
+
+        function renderDuolingoModules() {
+            const modulesPath = document.getElementById('modulesPath');
+            modulesPath.innerHTML = '';
+            if (!modules || modules.length === 0) { showNoModulesMessage(); return; }
+            const units = {};
+            modules.forEach((m, i) => { const u = m.unit || 'Unit 1'; if (!units[u]) units[u] = []; units[u].push({ ...m, originalIndex: i }); });
+            Object.keys(units).forEach(unitName => {
+                const unitModules = units[unitName];
+                const unitHeader = document.createElement('div');
+                unitHeader.className = 'duo-section-header';
+                unitHeader.innerHTML = `
+                    <div class="section-info"><h3>${unitName}</h3><p>${unitModules.length} lessons</p></div>
+                    <div class="section-progress"><div class="section-progress-bar"><div class="section-progress-fill" style="width:${calculateSectionProgress(unitModules)}%"></div></div><span class="section-progress-text">${Math.round(calculateSectionProgress(unitModules))}% complete</span></div>`;
+                modulesPath.appendChild(unitHeader);
+                const unitContainer = document.createElement('div');
+                unitContainer.className = 'duo-section-container';
+                unitModules.forEach((module, moduleIndex) => unitContainer.appendChild(createDuolingoModule(module, moduleIndex, checkModuleLocked(module, module.originalIndex))));
+                modulesPath.appendChild(unitContainer);
+            });
+        }
+
+        function createDuolingoModule(module, moduleIndex, isLocked) {
+            const moduleItem = document.createElement('div');
+            moduleItem.className = 'duo-module-item';
+            const colors = ['#58cc02','#00cd9c','#ce82ff','#ff9600','#1cb0f6','#ff4b4b','#ffc800','#78c83d','#00b4d8','#a855f7'];
+            const color = colors[moduleIndex % colors.length];
+            const statusClass = module.completed ? 'completed' : isLocked ? 'locked' : 'available';
+            moduleItem.innerHTML = `
+                <div class="duo-module-card ${statusClass}" data-module-id="${module.id}" style="--module-color:${color}">
+                    <div class="icon-circle"><i class="${getModuleIcon(module.validationType)}"></i></div>
+                    <div class="duo-module-title">${module.title}</div>
+                    <div class="duo-module-xp">+${module.points} XP</div>
+                </div>`;
+            moduleItem.querySelector('.duo-module-card').addEventListener('click', () => showModuleSidePanel(module, isLocked));
+            return moduleItem;
+        }
+
+        function calculateSectionProgress(sectionModules){ const c = sectionModules.filter(m=>m.completed).length; return sectionModules.length>0 ? (c/sectionModules.length)*100 : 0; }
+        function getModuleIcon(v){ const icons = { 'none':'fas fa-book', 'notesUpload':'fas fa-edit', 'problems':'fas fa-calculator', 'AIconversation':'fas fa-robot' }; return icons[v] || 'fas fa-book'; }
+        function getResourceIcon(t){ const icons = { reading:'fas fa-book', video:'fas fa-play', research:'fas fa-search', ai:'fas fa-robot', external:'fas fa-external-link-alt' }; return icons[t] || 'fas fa-link'; }
+        function checkModuleLocked(module, index){ if (module.prerequisites && module.prerequisites.length>0) { return !module.prerequisites.every(id => { const p = modules.find(m=>m.id===id); return p && p.completed; }); } if (index>0 && modules[index-1]) { return !modules[index-1].completed; } return false; }
+        function showNoModulesMessage(){ document.getElementById('modulesPath').innerHTML = '<div class="empty-state"><i class="fas fa-graduation-cap"></i><p>No modules for this event yet.</p></div>'; document.getElementById('modulesCompleted').textContent='0'; document.getElementById('totalModules').textContent='0'; document.getElementById('modulesProgressBar').style.width='0%'; }
+        function updateModuleProgress(){ const c = modules.filter(m=>m.completed).length; const t = modules.length; const pct = t>0 ? (c/t)*100 : 0; document.getElementById('modulesCompleted').textContent=c; document.getElementById('totalModules').textContent=t; document.getElementById('modulesProgressBar').style.width=pct+'%'; }
+
+        function showModuleSidePanel(module, isLocked) {
+            // For minimal scope in this page, just route user to /user/events?event=...&tab=modules
+            const url = `/user/events?event=${encodeURIComponent(module.rawData.eventName || findEventNameForModule(module.id))}&tab=modules`;
+            window.location.href = url;
+        }
+        function findEventNameForModule(moduleId){ const m = modules.find(x=>x.id===moduleId); return (m && m.rawData && m.rawData.eventName) ? m.rawData.eventName : (document.getElementById('resourceEvent').value || ''); }
+
+        function slugify(str){ return (str||'').toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9\-]/g,''); }
+        
+        // Module side panel functions
+        function closeModuleSidePanel() {
+            document.getElementById('moduleSidePanel').classList.remove('active');
+        }
+        
+        // Close panel when clicking outside
+        function handleOutsideClick(e) {
+            const sidePanel = document.getElementById('moduleSidePanel');
+            if (sidePanel && sidePanel.classList.contains('active')) {
+                if (!sidePanel.contains(e.target) && !e.target.closest('.duo-module-card')) {
+                    sidePanel.classList.remove('active');
+                }
+            }
+        }
+        
+        function generateRelatedConversationsHtml(moduleId) {
+            try {
+                if (!userConversations || userConversations.length === 0) {
+                    return '';
+                }
+                const related = userConversations.filter(c => Array.isArray(c.moduleIds) && c.moduleIds.includes(moduleId));
+                if (related.length === 0) return '';
+                const items = related.map(c => `
+                    <li>
+                        <a href="${c.shareUrl}" target="_blank" class="module-link" style="display:inline-flex; align-items:center; gap:8px;">
+                            <i class="fas fa-robot"></i>
+                            <span>${c.title || 'Learning Conversation'}</span>
+                            <span class="status-pill ${c.status === 'approved' ? 'status-approved' : c.status === 'rejected' ? 'status-rejected' : c.status === 'needs-revision' ? 'status-needs-revision' : 'status-pending'}" style="margin-left:8px;">${c.status}</span>
+                        </a>
+                    </li>
+                `).join('');
+                return `
+                    <div class="module-content-section">
+                        <h5><i class="fas fa-robot"></i> Your Related Conversations</h5>
+                        <ul>${items}</ul>
+                        <div style="margin-top:8px;">
+                            <a class="btn-primary" style="padding:6px 10px;" href="/user/learning"><i class="fas fa-plus"></i> Add a Conversation</a>
+                        </div>
+                    </div>
+                `;
+            } catch (e) {
+                return '';
+            }
+        }
+        
+        // Module action functions (simplified versions)
+        window.completeModule = async function(moduleId) {
+            const module = modules.find(m => m.id === moduleId);
+            if (!module) return;
+            
+            const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+            if (!currentUser) {
+                alert('Please log in to complete modules');
+                return;
+            }
+            
+            // Check if module is locked
+            const moduleIndex = modules.findIndex(m => m.id === moduleId);
+            const isLocked = checkModuleLocked(module, moduleIndex);
+            
+            if (isLocked) {
+                alert('This module is locked. Please complete the prerequisites first.');
+                return;
+            }
+            
+            try {
+                // For now, just mark as complete (simplified)
+                await submitModuleCompletion(moduleId, {
+                    userId: currentUser.id,
+                    moduleId: moduleId,
+                    eventName: findEventNameForModule(moduleId),
+                    timeSpent: 0
+                });
+            } catch (error) {
+                console.error('Error completing module:', error);
+                alert('Error completing module. Please try again.');
+            }
+        }
+        
+        window.unsubmitModule = async function(moduleId) {
+            const module = modules.find(m => m.id === moduleId);
+            if (!module) return;
+            
+            const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+            if (!currentUser) {
+                alert('Please log in to unsubmit modules');
+                return;
+            }
+            
+            if (confirm(`Are you sure you want to unsubmit "${module.title}"? This will delete your completion and you'll need to complete it again.`)) {
+                try {
+                    const completionId = `${currentUser.id}_${moduleId}`;
+                    const response = await fetch(`/api/ModuleCompletions/${completionId}`, {
+                        method: 'DELETE'
+                    });
+                    
+                    if (response.ok) {
+                        module.completed = false;
+                        userProgress[moduleId] = false;
+                        updateModuleProgress();
+                        document.getElementById('moduleSidePanel').classList.remove('active');
+                        alert(`Module "${module.title}" has been unsubmitted. You can complete it again.`);
+                    } else {
+                        throw new Error('Failed to unsubmit module');
+                    }
+                } catch (error) {
+                    console.error('Error unsubmitting module:', error);
+                    alert('Error unsubmitting module. Please try again.');
+                }
+            }
+        }
+        
+        async function submitModuleCompletion(moduleId, completionData) {
+            const response = await fetch('/api/ModuleCompletions', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(completionData)
+            });
+            
+            if (response.ok) {
+                const result = await response.json();
+                const module = modules.find(m => m.id === moduleId);
+                if (module) {
+                    module.completed = true;
+                    userProgress[moduleId] = true;
+                }
+                updateModuleProgress();
+                document.getElementById('moduleSidePanel').classList.remove('active');
+                alert(`Great job completing "${module.title}"! You earned ${result.pointsEarned || 10} points!`);
+            } else {
+                const error = await response.json();
+                throw new Error(error.error || 'Failed to complete module');
+            }
+        }
+        
+        function updateModuleProgress() {
+            const completedCount = modules.filter(m => m.completed).length;
+            const totalCount = modules.length;
+            const progressPercentage = totalCount > 0 ? (completedCount / totalCount) * 100 : 0;
+            
+            document.getElementById('modulesCompleted').textContent = completedCount;
+            document.getElementById('totalModules').textContent = totalCount;
+            document.getElementById('modulesProgressBar').style.width = progressPercentage + '%';
+            
+            // Re-render modules to update UI
+            renderDuolingoModules();
+        }
+    });
+</script>
+{% endblock %}
+
+

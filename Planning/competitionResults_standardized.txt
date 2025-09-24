@@ -2,19 +2,6 @@
 BRONX SCIENCE OLYMPIAD - COMPETITION RESULTS
 ================================================================================
 
-Event Orders by Season:
------------------------
-2023-24 Events (18 events):
-Air Trajectory, Anatomy and Physiology, Astronomy, Chemistry Lab, Codebusters, 
-Detector Building, Disease Detectives, Dynamic Planet, Ecology, Experimental Design, 
-Fermi Questions, Forensics, Forestry, Fossils, Geologic Mapping, Microbe Mission, 
-Optics, Wind Power, Write It Do It
-
-2024-25 Events (23 events):  
-Air Trajectory, Anatomy and Physiology, Astronomy, Bungee Drop, Chemistry Lab, 
-Codebusters, Disease Detectives, Dynamic Planet, Ecology, Electric Vehicle, 
-Entomology, Experimental Design, Forensics, Fossils, Geologic Mapping, Helicopter, 
-Materials Science, Microbe Mission, Optics, Robot Tour, Tower, Wind Power, Write It Do It
 
 ================================================================================
 
@@ -24,25 +11,24 @@ Type: Satellite Invitational
 Duosmium: https://www.duosmium.org/results/2024-11-02_rickards_invitational_c/
 
 Team A Results:
-Air Trajectory: 56
-Anatomy and Physiology: 99
-Astronomy: 4
-Bungee Drop: 20
-Chemistry Lab: 95
-Codebusters: 46
-Disease Detectives: 93
-Dynamic Planet: 29
-Ecology: 140
-Electric Vehicle: 13
-Entomology: 4
-Experimental Design: 23
-Forensics: 22
-Fossils: 60
-Geologic Mapping: 141
-Helicopter: 40
-Materials Science: 21
-Microbe Mission: 233
-Overall: 46th out of 287 teams
+Anatomy and Physiology: 271
+Astronomy: 120
+Chemistry Lab: 145*
+Codebusters: 181*
+Disease Detectives: 51
+Dynamic Planet: 10
+Ecology: 46
+Entomology: 85
+Experimental Design: 83
+Forensics: 45
+Fossils: 140
+Geologic Mapping: 72
+Materials Science: 71*
+Microbe Mission: 123
+Optics: 148
+Wind Power: 105
+Write It Do It: 165
+Overall: 82th out of 287 teams
 
 ================================================================================
 
@@ -52,29 +38,29 @@ Type: Invitational
 Duosmium: https://www.duosmium.org/results/2024-02-10_yale_invitational_c/
 
 Team A Results:
-Anatomy and Physiology: 24
+Air Trajectory: 24
+Anatomy and Physiology: 8
 Astronomy: 8
-Chemistry Lab: 8
-Codebusters: 1
-Detector Building: 2
-Disease Detectives: 14
-Dynamic Planet: 11
-Ecology: 3
-Experimental Design: 16
-Fermi Questions: 5
-Forensics: 13
-Forestry: 3
-Fossils: 2
-Geologic Mapping: 8
-Microbe Mission: 4
-Optics: 5
-Wind Power: 18
-Write It Do It: 19
-Air Trajectory: 14
-Flight: 29
-Robot Tour: 15
-Scrambler: 1
-Tower: 29
+Chemistry Lab: 1
+Codebusters: 2
+Detector Building: 14
+Disease Detectives: 11
+Dynamic Planet: 3
+Ecology: 16
+Experimental Design: 5
+Fermi Questions: 13
+Flight: 3
+Forensics: 2
+Forestry: 8
+Fossils: 4
+Geologic Mapping: 5
+Microbe Mission: 18
+Optics: 19
+Robot Tour: 14
+Scrambler: 29
+Tower: 15
+Wind Power: 1
+Write It Do It: 29
 Overall: 6th out of 56 teams
 
 ================================================================================
@@ -85,28 +71,28 @@ Type: Official State Championship
 Duosmium: https://www.duosmium.org/results/2024-03-15_NY_states_c/
 
 Team A Results:
-Anatomy and Physiology: 6
+Air Trajectory: 6
+Anatomy and Physiology: 11
 Astronomy: 11
-Chemistry Lab: 11
-Codebusters: 2
-Detector Building: 8
+Chemistry Lab: 2
+Codebusters: 8
 Disease Detectives: 42
 Dynamic Planet: 24
 Ecology: 44
 Experimental Design: 14
 Fermi Questions: 29
-Forensics: 17
-Forestry: 10
-Fossils: 9
-Geologic Mapping: 32
-Microbe Mission: 14
-Optics: 28
-Wind Power: 42
-Write It Do It: 16
-Air Trajectory: 54
-Flight: 37
-Robot Tour: 14
-Scrambler: 18
+Flight: 17
+Forensics: 10
+Forestry: 9
+Fossils: 32
+Geologic Mapping: 14
+Microbe Mission: 28
+Optics: 42
+Robot Tour: 16
+Scrambler: 54
+Tower: 37
+Wind Power: 14
+Write It Do It: 18
 Overall: 12th out of 59 teams
 
 ================================================================================
@@ -249,14 +235,15 @@ Entomology: 7
 Experimental Design: 1
 Forensics: 3
 Fossils: 1
-Geologic Mapping: 2
+Geologic Mapping: 1
 Helicopter: 2
-Materials Science: 5
-Microbe Mission: 22◊
-Optics: 5
-Robot Tour: 2
-Tower: 7
-Wind Power: 12
+Materials Science: 2
+Microbe Mission: 5
+Optics: 22◊
+Robot Tour: 5
+Tower: 2
+Wind Power: 7
+Write It Do It: 12
 Overall: 1st out of 34 teams
 
 Team B Results:
@@ -274,14 +261,15 @@ Entomology: 11
 Experimental Design: 6
 Forensics: 4
 Fossils: 5
-Geologic Mapping: 6
-Helicopter: 5
-Materials Science: 1
+Geologic Mapping: 5
+Helicopter: 6
+Materials Science: 5
 Microbe Mission: 1
-Optics: 2
-Robot Tour: 4
-Tower: 11◊
-Wind Power: 4
+Optics: 1
+Robot Tour: 2
+Tower: 4
+Wind Power: 11◊
+Write It Do It: 4
 Overall: 2nd out of 34 teams
 
 Team C Results:
@@ -294,18 +282,18 @@ Codebusters: 6
 Disease Detectives: 14
 Dynamic Planet: 2
 Ecology: 15◊
-Electric Vehicle: 35◊
-Entomology: 6
-Experimental Design: 2
-Forensics: 5
-Fossils: 6
-Geologic Mapping: 1
-Helicopter: 6
-Materials Science: 4
-Microbe Mission: 11
-Optics: 15◊
-Robot Tour: 11
-Tower: 10
+Electric Vehicle: 6
+Entomology: 2
+Experimental Design: 5
+Forensics: 6
+Fossils: 1
+Geologic Mapping: 6
+Helicopter: 4
+Materials Science: 11
+Microbe Mission: 15◊
+Optics: 11
+Robot Tour: 10
+Tower: 5
 Wind Power: 5
 Overall: 4th out of 34 teams
 
@@ -317,78 +305,78 @@ Type: Official Regional Championship
 Duosmium: https://www.duosmium.org/results/2024-01-27_NY_nyc_north_regional_c/
 
 Team A Results:
-Anatomy and Physiology: 9◊
-Astronomy: 3
-Chemistry Lab: 5
+Air Trajectory: 9◊
+Anatomy and Physiology: 3
+Astronomy: 5
+Chemistry Lab: 1
 Codebusters: 1
-Detector Building: 1
 Disease Detectives: 2
 Dynamic Planet: 2
 Ecology: 7
 Experimental Design: 7
-Fermi Questions: 8
+Fermi Questions: 7
+Flight: 8
 Forensics: 1
 Forestry: 1
 Fossils: 1
 Geologic Mapping: 4
 Microbe Mission: 2
 Optics: 3
-Wind Power: 11◊
-Write It Do It: 1
-Air Trajectory: 4
-Flight: 8
-Robot Tour: 4
-Scrambler: 8
+Robot Tour: 11◊
+Scrambler: 1
+Tower: 4
+Wind Power: 8
+Write It Do It: 4
 Overall: 1st out of 30 teams
 
 Team B Results:
-Anatomy and Physiology: 6◊
-Astronomy: 1
-Chemistry Lab: 11
-Codebusters: 4
-Detector Building: 3
+Air Trajectory: 6◊
+Anatomy and Physiology: 1
+Astronomy: 11
+Chemistry Lab: 4
+Codebusters: 3
 Disease Detectives: 8
 Dynamic Planet: 14◊
 Ecology: 2
 Experimental Design: 13
 Fermi Questions: 10
-Forensics: 2
-Forestry: 11
-Fossils: 2
+Flight: 2
+Forensics: 11
+Forestry: 2
+Fossils: 5
 Geologic Mapping: 5
-Microbe Mission: 5
-Optics: 14◊
-Wind Power: 10
-Write It Do It: 5
-Air Trajectory: 7*
-Flight: 7
-Robot Tour: 1
-Scrambler: 6
+Microbe Mission: 14◊
+Optics: 10
+Robot Tour: 5
+Scrambler: 7*
+Tower: 7
+Wind Power: 1
+Write It Do It: 6
 Overall: 5th out of 30 teams
 
 Team C Results:
-Anatomy and Physiology: 18◊
-Astronomy: 5
-Chemistry Lab: 13
-Codebusters: 2
-Detector Building: 20◊
+Air Trajectory: 18◊
+Anatomy and Physiology: 5
+Astronomy: 13
+Chemistry Lab: 2
+Codebusters: 20◊
 Disease Detectives: 1
 Dynamic Planet: 5
 Ecology: 17
 Experimental Design: 6
 Fermi Questions: 6
-Forensics: 3
-Forestry: 4
-Fossils: 11
-Geologic Mapping: 6
-Microbe Mission: 4
-Optics: 2
-Wind Power: 18◊
-Write It Do It: 9
-Air Trajectory: 7*
-Flight: 6
-Robot Tour: 5
-Scrambler: 2
+Flight: 3
+Forensics: 4
+Forestry: 11
+Fossils: 6
+Geologic Mapping: 4
+Microbe Mission: 2
+Optics: 18◊
+Robot Tour: 9
+Scrambler: 7*
+Tower: 6
+Wind Power: 5
+Write It Do It: 2
 Overall: 6th out of 30 teams
 
 ================================================================================
@@ -401,7 +389,7 @@ Duosmium: https://www.duosmium.org/results/2025-03-21_NY_states_c/
 Team A Results:
 Air Trajectory: 51
 Anatomy and Physiology: 15
-Astronomy: (DQ)
+Astronomy: ??
 Bungee Drop: 43
 Chemistry Lab: 23
 Codebusters: 27
@@ -432,81 +420,81 @@ Type: Satellite Invitational
 Duosmium: https://www.duosmium.org/results/2024-02-10_birdso_satellite_invitational_c/
 
 Team A Results:
-Anatomy and Physiology: 167
-Astronomy: 38
-Chemistry Lab: 106
-Codebusters: 4
-Detector Building: 23
-Disease Detectives: 11
-Dynamic Planet: 81
-Ecology: 101
-Experimental Design: 94
-Fermi Questions: 87
-Forensics: 74
-Forestry: 167
-Fossils: 55
-Geologic Mapping: 76
-Microbe Mission: 89
-Optics: 62
-Wind Power: 64
-Write It Do It: 39
 Air Trajectory: 167
+Anatomy and Physiology: 38
+Astronomy: 106
+Chemistry Lab: 4
+Codebusters: 23
+Detector Building: 11
+Disease Detectives: 81
+Dynamic Planet: 101
+Ecology: 94
+Experimental Design: 87
+Fermi Questions: 74
 Flight: 167
+Forensics: 55
+Forestry: 76
+Fossils: 89
+Geologic Mapping: 62
+Microbe Mission: 64
+Optics: 39
 Robot Tour: 167
-Scrambler: 35
-Tower: 77
+Scrambler: 167
+Tower: 35
+Wind Power: 77
+Write It Do It: 39
 Overall: 71st out of 139 teams
 
 Team B Results:
-Anatomy and Physiology: 167
-Astronomy: 24
-Chemistry Lab: 42
-Codebusters: 39
-Detector Building: 47
-Disease Detectives: 55
-Dynamic Planet: 80
-Ecology: 73
-Experimental Design: 107
-Fermi Questions: 52
-Forensics: 50
-Forestry: 167
-Fossils: 57
-Geologic Mapping: 74
-Microbe Mission: 103
-Optics: 58
-Wind Power: 88
-Write It Do It: 109
 Air Trajectory: 167
+Anatomy and Physiology: 24
+Astronomy: 42
+Chemistry Lab: 39
+Codebusters: 47
+Detector Building: 55
+Disease Detectives: 80
+Dynamic Planet: 73
+Ecology: 107
+Experimental Design: 52
+Fermi Questions: 50
 Flight: 167
+Forensics: 57
+Forestry: 74
+Fossils: 103
+Geologic Mapping: 58
+Microbe Mission: 88
+Optics: 109
 Robot Tour: 167
-Scrambler: 49
-Tower: 76
+Scrambler: 167
+Tower: 49
+Wind Power: 76
+Write It Do It: 109
 Overall: 77th out of 139 teams
 
 Team C Results:
-Anatomy and Physiology: 167
-Astronomy: 75
-Chemistry Lab: 122
-Codebusters: 66
-Detector Building: 76
-Disease Detectives: 64
-Dynamic Planet: 59
-Ecology: 33
-Experimental Design: 103
-Fermi Questions: 81
-Forensics: 32
-Forestry: 167
-Fossils: 29
-Geologic Mapping: 114
-Microbe Mission: 69
-Optics: 79
-Wind Power: 92
-Write It Do It: 69
 Air Trajectory: 167
+Anatomy and Physiology: 75
+Astronomy: 122
+Chemistry Lab: 66
+Codebusters: 76
+Detector Building: 64
+Disease Detectives: 59
+Dynamic Planet: 33
+Ecology: 103
+Experimental Design: 81
+Fermi Questions: 32
 Flight: 167
+Forensics: 29
+Forestry: 114
+Fossils: 69
+Geologic Mapping: 79
+Microbe Mission: 92
+Optics: 69
 Robot Tour: 167
-Scrambler: 30
-Tower: 103
+Scrambler: 167
+Tower: 30
+Wind Power: 103
+Write It Do It: 69
 Overall: 81st out of 139 teams
 
 ================================================================================
@@ -517,96 +505,96 @@ Type: Satellite Invitational
 Duosmium: https://www.duosmium.org/results/2023-11-27_boyceville_satellite_invitational_c/
 
 Team A Results:
-Anatomy and Physiology: 237
-Astronomy: 70
-Chemistry Lab: 131
-Codebusters: 35
-Detector Building: 30
-Disease Detectives: 24
-Dynamic Planet: 56
-Ecology: 172
-Experimental Design: 52
-Fermi Questions: 76
-Forensics: 87
-Forestry: 149
-Fossils: 237◊
-Geologic Mapping: 68
-Microbe Mission: 20
-Optics: 66
-Wind Power: 25
-Write It Do It: 72
-Air Trajectory: 28
-Flight: 76
+Air Trajectory: 237
+Anatomy and Physiology: 70
+Astronomy: 131
+Chemistry Lab: 35
+Code Analysis: 30
+Codebusters: 24
+Detector Building: 56
+Disease Detectives: 172
+Dynamic Planet: 52
+Ecology: 76
+Experimental Design: 87
+Fermi Questions: 149
+Flight: 237◊
+Forensics: 68
+Forestry: 20
+Fossils: 66
+Geocaching: 25
+Geologic Mapping: 72
+Horticulture: 28
+Microbe Mission: 76
+Mystery Architecture: 237◊
+Optics: 141
+Precision Medicine: 19
 Robot Tour: 237◊
-Scrambler: 141
-Tower: 19
-Detector Building: 237◊
-Fermi Questions: 237◊
-Wind Power: 237◊
-Microbe Mission: 103
-Optics: 138
+Scrambler: 237◊
+Towers: 237◊
+Wind Power: 103
+Write It Do It: 138
 Overall: 53rd out of 236 teams
 
 Team B Results:
-Anatomy and Physiology: 237
-Astronomy: 89
-Chemistry Lab: 121
-Codebusters: 12
-Detector Building: 237
-Disease Detectives: 152
-Dynamic Planet: 62
-Ecology: 49
-Experimental Design: 139
-Fermi Questions: 34
-Forensics: 70
-Forestry: 38
-Fossils: 237
-Geologic Mapping: 92
-Microbe Mission: 82
-Optics: 116
-Wind Power: 29
-Write It Do It: 151
-Air Trajectory: 237◊
-Flight: 125
+Air Trajectory: 237
+Anatomy and Physiology: 89
+Astronomy: 121
+Chemistry Lab: 12
+Code Analysis: 237
+Codebusters: 152
+Detector Building: 62
+Disease Detectives: 49
+Dynamic Planet: 139
+Ecology: 34
+Experimental Design: 70
+Fermi Questions: 38
+Flight: 237
+Forensics: 92
+Forestry: 82
+Fossils: 116
+Geocaching: 29
+Geologic Mapping: 151
+Horticulture: 237◊
+Microbe Mission: 125
+Mystery Architecture: 237◊
+Optics: 153
+Precision Medicine: 23
 Robot Tour: 237◊
-Scrambler: 153
-Tower: 23
-Detector Building: 237◊
-Fermi Questions: 237◊
-Wind Power: 237◊
-Microbe Mission: 136
-Optics: 159
+Scrambler: 237◊
+Towers: 237◊
+Wind Power: 136
+Write It Do It: 159
 Overall: 95th out of 236 teams
 
 Team C Results:
-Anatomy and Physiology: 237
-Astronomy: 136
-Chemistry Lab: 120
-Codebusters: 137
-Detector Building: 20
-Disease Detectives: 48
-Dynamic Planet: 127
-Ecology: 65
-Experimental Design: 136
-Fermi Questions: 72
-Forensics: 123
-Forestry: 131
-Fossils: 237
-Geologic Mapping: 53
-Microbe Mission: 92
-Optics: 133
-Wind Power: 24
-Write It Do It: 164
-Air Trajectory: 16
-Flight: 64
+Air Trajectory: 237
+Anatomy and Physiology: 136
+Astronomy: 120
+Chemistry Lab: 137
+Code Analysis: 20
+Codebusters: 48
+Detector Building: 127
+Disease Detectives: 65
+Dynamic Planet: 136
+Ecology: 72
+Experimental Design: 123
+Fermi Questions: 131
+Flight: 237
+Forensics: 53
+Forestry: 92
+Fossils: 133
+Geocaching: 24
+Geologic Mapping: 164
+Horticulture: 16
+Microbe Mission: 64
+Mystery Architecture: 237◊
+Optics: 237◊
+Precision Medicine: 16
 Robot Tour: 237◊
 Scrambler: 237◊
-Tower: 16
-Detector Building: 237◊
-Fermi Questions: 237◊
-Wind Power: 237◊
-Microbe Mission: 91
-Optics: 132
+Towers: 237◊
+Wind Power: 91
+Write It Do It: 132
 Overall: 79th out of 236 teams
 
 ================================================================================

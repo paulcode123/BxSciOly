@@ -124,102 +124,115 @@ PAST_COMPETITIONS = [
 ]
 
 def parse_competition_results():
-    """Parse the competition results from the standardized file"""
+    """Parse the competition results from the standardized file, keyed by event name per team.
+
+    Returns structure:
+    {
+      "COMP NAME": {
+        "duosmium": str|None,
+        "teams": {
+          "A": {"events": {eventName: placement, ...}, "overall": {"rank": int, "outOf": int}},
+          "B": { ... },
+          "A_overall": {"rank": int, "outOf": int}  # backward-compat (set as well)
+        }
+      }, ...
+    }
+    """
     results = {}
-    
     with open('Planning/competitionResults_standardized.txt', 'r', encoding='utf-8') as f:
         content = f.read()
-    
-    # Split by competition sections
+
     sections = content.split('================================================================================')
-    
     for section in sections:
         section = section.strip()
         if not section or 'BRONX SCIENCE OLYMPIAD' in section or 'Event Orders by Season' in section or 'Notes:' in section:
             continue
-            
+
         lines = section.split('\n')
         current_competition = None
         current_team = None
-        event_results = []
+        event_results = {}
         duosmium_link = None
-        
-        for line in lines:
-            line = line.strip()
+
+        def ensure_comp():
+            nonlocal current_competition
+            if current_competition not in results:
+                results[current_competition] = {"duosmium": duosmium_link, "teams": {}}
+
+        def save_team():
+            nonlocal current_competition, current_team, event_results
+            if current_competition and current_team is not None and event_results:
+                ensure_comp()
+                team_entry = results[current_competition]["teams"].get(current_team, {})
+                team_entry["events"] = event_results
+                results[current_competition]["teams"][current_team] = team_entry
+
+        for raw in lines:
+            line = raw.strip()
             if not line:
                 continue
-                
-            # Check if this is a competition header (all caps with year)
+
             if re.match(r'^[A-Z\s]+20[0-9]{2}-[0-9]{2}$', line):
-                # Save previous competition if exists
-                if current_competition and current_team and event_results:
-                    if current_competition not in results:
-                        results[current_competition] = {"duosmium": duosmium_link, "teams": {}}
-                    results[current_competition]["teams"][current_team] = event_results
-                
+                # Save previous team
+                save_team()
                 # Start new competition
                 current_competition = line
                 current_team = None
-                event_results = []
+                event_results = {}
                 duosmium_link = None
-                
-            # Check if this is a duosmium link
-            elif 'duosmium.org' in line:
+                continue
+
+            if 'duosmium.org' in line:
                 duosmium_link = line
-                
-            # Check if this is a team header
-            elif line.startswith('Team ') and line.endswith(' Results:'):
-                # Save previous team if exists
-                if current_competition and current_team and event_results:
-                    if current_competition not in results:
-                        results[current_competition] = {"duosmium": duosmium_link, "teams": {}}
-                    results[current_competition]["teams"][current_team] = event_results
-                
-                # Start new team
-                current_team = line.split()[1]  # Get team letter
-                event_results = []
-                
-            # Check if this is an overall result
-            elif line.startswith('Overall:'):
+                continue
+
+            if line.startswith('Team ') and line.endswith(' Results:'):
+                # Save previous team
+                save_team()
+                current_team = line.split()[1]
+                event_results = {}
+                continue
+
+            if line.startswith('Overall:'):
                 if current_competition and current_team:
                     overall_match = re.search(r'(\d+)(?:st|nd|rd|th)?\s*out of\s*(\d+)', line)
+                    rank, out_of = None, None
                     if overall_match:
-                        if current_competition not in results:
-                            results[current_competition] = {"duosmium": duosmium_link, "teams": {}}
-                        results[current_competition]["teams"][f"{current_team}_overall"] = {
-                            "rank": int(overall_match.group(1)),
-                            "outOf": int(overall_match.group(2))
-                        }
-                    # Handle cases where there's no "out of" number
-                    elif re.search(r'(\d+)(?:st|nd|rd|th)?$', line):
+                        rank = int(overall_match.group(1))
+                        out_of = int(overall_match.group(2))
+                    else:
                         rank_match = re.search(r'(\d+)(?:st|nd|rd|th)?$', line)
-                        if current_competition not in results:
-                            results[current_competition] = {"duosmium": duosmium_link, "teams": {}}
-                        results[current_competition]["teams"][f"{current_team}_overall"] = {
-                            "rank": int(rank_match.group(1)),
-                            "outOf": 0
-                        }
-                        
-            # Check if this is an event result line (Event: number)
-            elif ':' in line and re.search(r':\s*\d+[\*◊]?$', line):
+                        if rank_match:
+                            rank = int(rank_match.group(1))
+                            out_of = 0
+                    if rank is not None:
+                        ensure_comp()
+                        # store inside team entry
+                        team_entry = results[current_competition]["teams"].get(current_team, {})
+                        team_entry["overall"] = {"rank": rank, "outOf": out_of}
+                        results[current_competition]["teams"][current_team] = team_entry
+                        # backward-compat key
+                        results[current_competition]["teams"][f"{current_team}_overall"] = {"rank": rank, "outOf": out_of}
+                continue
+
+            # Event line: "Event Name: number"
+            if ':' in line and re.search(r':\s*\d+[\*◊]?$', line):
                 if current_team:
-                    parts = line.split(':')
-                    if len(parts) == 2:
-                        placement_part = parts[1].strip()
-                        # Handle special cases like (DQ)
-                        if '(DQ)' in placement_part:
-                            event_results.append(999)  # Use 999 for DQ
-                        else:
-                            clean_placement = re.sub(r'[^\d]', '', placement_part)
-                            if clean_placement:
-                                event_results.append(int(clean_placement))
-        
-        # Save the last team in this section
-        if current_competition and current_team and event_results:
-            if current_competition not in results:
-                results[current_competition] = {"duosmium": duosmium_link, "teams": {}}
-            results[current_competition]["teams"][current_team] = event_results
-    
+                    parts = line.split(':', 1)
+                    event_name = parts[0].strip()
+                    placement_part = parts[1].strip()
+                    if '(DQ)' in placement_part:
+                        placement = 999
+                    else:
+                        clean_placement = re.sub(r'[^\d]', '', placement_part)
+                        if not clean_placement:
+                            continue
+                        placement = int(clean_placement)
+                    event_results[event_name] = placement
+
+        # Save last team in section
+        save_team()
+
     return results
 
 def parse_competition_rosters():
@@ -336,15 +349,21 @@ def create_competition_document(competition_data, results_data, rosters_data):
         # Get roster data for this team
         team_roster = comp_rosters.get(team_letter, [])
         
-        # Get results for this team - access through teams subdict
-        team_result_numbers = []
-        team_overall = {}
-        
-        if "teams" in comp_results:
-            if team_letter in comp_results["teams"]:
-                team_result_numbers = comp_results["teams"][team_letter]
-            if f"{team_letter}_overall" in comp_results["teams"]:
-                team_overall = comp_results["teams"][f"{team_letter}_overall"]
+    # Get results for this team - access through teams subdict (supports new and old shapes)
+    team_result_numbers = []  # old shape list
+    team_event_map = {}       # new shape dict of event -> placement
+    team_overall = {}
+    
+    if "teams" in comp_results:
+        if team_letter in comp_results["teams"]:
+            team_entry = comp_results["teams"][team_letter]
+            if isinstance(team_entry, dict):
+                team_event_map = team_entry.get("events", {}) or {}
+                team_overall = team_entry.get("overall", {}) or {}
+            else:
+                team_result_numbers = team_entry or []
+        if not team_overall and f"{team_letter}_overall" in comp_results["teams"]:
+            team_overall = comp_results["teams"][f"{team_letter}_overall"]
         
         # Create team placement entries
         for event_data in team_roster:
@@ -354,21 +373,34 @@ def create_competition_document(competition_data, results_data, rosters_data):
                 "participants": event_data["participants"]
             })
         
-        # Create event results
-        for i, placement in enumerate(team_result_numbers):
-            if i < len(events):
-                all_event_results.append({
-                    "eventName": events[i],
-                    "team": team_letter,
-                    "placement": placement,
-                    "outOf": competition_data["outOf"]
-                })
+        # Create event results: prefer name-based mapping; fallback to index mapping
+        if team_event_map:
+            for event_name in events:
+                if event_name in team_event_map:
+                    all_event_results.append({
+                        "eventName": event_name,
+                        "team": team_letter,
+                        "placement": team_event_map[event_name],
+                        "outOf": competition_data["outOf"]
+                    })
+        else:
+            for i, placement in enumerate(team_result_numbers):
+                if i < len(events):
+                    all_event_results.append({
+                        "eventName": events[i],
+                        "team": team_letter,
+                        "placement": placement,
+                        "outOf": competition_data["outOf"]
+                    })
     
     # Create results object - use the first team's overall results as the main results
     first_team = competition_data["teams"][0]
     first_team_overall = {}
-    if "teams" in comp_results and f"{first_team}_overall" in comp_results["teams"]:
-        first_team_overall = comp_results["teams"][f"{first_team}_overall"]
+    if "teams" in comp_results:
+        if f"{first_team}_overall" in comp_results["teams"]:
+            first_team_overall = comp_results["teams"][f"{first_team}_overall"]
+        elif isinstance(comp_results["teams"].get(first_team), dict):
+            first_team_overall = comp_results["teams"][first_team].get("overall", {}) or {}
     
     results_obj = {
         "teamRank": first_team_overall.get("rank", 0),

@@ -1,11 +1,31 @@
-from flask import Flask, render_template, url_for, send_from_directory
-from datetime import datetime
+from flask import Flask, render_template, url_for, send_from_directory, request, jsonify, make_response
+from datetime import datetime, timedelta
+import os
+import secrets
+from itsdangerous import URLSafeTimedSerializer, BadSignature, SignatureExpired
+import csv
 from routes.firebase_routes import firebase_routes
+try:
+    # Prefer shared initialization
+    from db_init import db as firebase_db
+except Exception:
+    # Fallback to the db client initialized in firebase routes
+    from routes.firebase_routes import db as firebase_db
+from firebase_admin import firestore
 from routes.test_parsing_routes import test_parsing_routes
 
 app = Flask(__name__)
 app.register_blueprint(firebase_routes)
 app.register_blueprint(test_parsing_routes)
+
+# Secret key configuration for signing tokens/cookies
+app.config['SECRET_KEY'] = os.environ.get('FLASK_SECRET_KEY') or os.environ.get('SECRET_KEY') or 'dev-secret-change-me'
+
+def _get_serializer(salt: str) -> URLSafeTimedSerializer:
+    return URLSafeTimedSerializer(app.config['SECRET_KEY'], salt=salt)
+
+INTEREST_TOKEN_SALT = 'interest-meeting-token'
+INTEREST_VERIFY_SALT = 'interest-meeting-verified'
 
 @app.context_processor
 def inject_now():
@@ -157,9 +177,16 @@ def user_competitions():
 def user_settings():
     return render_template('user/settings.html')
 
+# Public event detail pages (not in nav)
+@app.route('/event/<event_slug>')
+def event_detail(event_slug):
+    # Render a general-purpose event detail template; client JS will fetch content
+    return render_template('event_detail.html', event_slug=event_slug)
+
 @app.route('/user/conversations')
 def user_conversations():
-    return render_template('user/conversations.html')
+    # Backward-compatible route now points to the new Learning page
+    return render_template('user/learning.html')
 
 @app.route('/user/competition/apply')
 def competition_apply():
@@ -184,6 +211,10 @@ def user_attendance():
 @app.route('/user/admin/attendance')
 def user_admin_attendance():
     return render_template('user/admin_attendance.html')
+
+@app.route('/user/learning')
+def user_learning():
+    return render_template('user/learning.html')
 
 @app.route('/admin/login')
 def admin_login():
@@ -236,6 +267,113 @@ def sponsors():
 @app.route('/templates/approved_emails.txt')
 def serve_approved_emails():
     return send_from_directory('templates', 'approved_emails.txt')
+
+# ----------------------- Interest Meeting Attendance -----------------------
+
+@app.route('/admin/interestCode')
+def admin_interest_code():
+    return render_template('admin_interest_code.html')
+
+
+@app.route('/api/interest/token')
+def api_interest_token():
+    # Admin guard similar to other admin APIs: require an admin header token/id
+    admin_id = request.headers.get('X-Admin-ID')
+    if not admin_id:
+        return jsonify({'error': 'unauthorized'}), 401
+    # Generate a short-lived signed token; valid for 20 seconds upon verification
+    payload = {
+        'nonce': secrets.token_urlsafe(8),
+        'issued_at': datetime.utcnow().isoformat()
+    }
+    token = _get_serializer(INTEREST_TOKEN_SALT).dumps(payload)
+    full_url = url_for('interest_meeting', token=token, _external=True)
+    return jsonify({'token': token, 'url': full_url})
+
+
+@app.route('/interestMeeting')
+def interest_meeting():
+    # Renders the attendee page; client JS will verify token and then clean URL
+    return render_template('interest_meeting.html')
+
+
+@app.route('/api/interest/verify', methods=['POST'])
+def api_interest_verify():
+    data = request.get_json(silent=True) or {}
+    token = data.get('token')
+    if not token:
+        return jsonify({'ok': False, 'error': 'missing_token'}), 400
+    try:
+        _get_serializer(INTEREST_TOKEN_SALT).loads(token, max_age=20)
+    except SignatureExpired:
+        return jsonify({'ok': False, 'error': 'expired'}), 400
+    except BadSignature:
+        return jsonify({'ok': False, 'error': 'invalid'}), 400
+
+    # Issue a short-lived verification cookie (e.g., 5 minutes) so users can submit after form entry
+    verified_value = _get_serializer(INTEREST_VERIFY_SALT).dumps({'v': True})
+    resp = make_response(jsonify({'ok': True}))
+    # 5 minutes validity
+    resp.set_cookie('interest_verified', verified_value, max_age=300, httponly=True, samesite='Lax')
+    return resp
+
+
+@app.route('/api/interest/submit', methods=['POST'])
+def api_interest_submit():
+    # Prevent duplicates via cookie
+    if request.cookies.get('interest_submitted') == '1':
+        return jsonify({'ok': False, 'error': 'already_submitted'}), 409
+
+    # Require a recent verification cookie
+    verified_cookie = request.cookies.get('interest_verified')
+    if not verified_cookie:
+        return jsonify({'ok': False, 'error': 'not_verified'}), 403
+    try:
+        _get_serializer(INTEREST_VERIFY_SALT).loads(verified_cookie, max_age=300)
+    except Exception:
+        return jsonify({'ok': False, 'error': 'verify_expired'}), 403
+
+    data = request.get_json(silent=True) or {}
+    name = (data.get('name') or '').strip()
+    grade = (data.get('grade') or '').strip()
+    email = (data.get('email') or '').strip()
+
+    if not name or not grade or not email:
+        return jsonify({'ok': False, 'error': 'missing_fields'}), 400
+
+    # Append to CSV file
+    record_time = datetime.utcnow().isoformat()
+    user_agent = request.headers.get('User-Agent', '')
+    ip = request.headers.get('X-Forwarded-For', request.remote_addr)
+    csv_path = 'interest_meeting_attendance.csv'
+    try:
+        need_header = not os.path.exists(csv_path) or os.path.getsize(csv_path) == 0
+        with open(csv_path, 'a', encoding='utf-8', newline='') as f:
+            writer = csv.writer(f)
+            if need_header:
+                writer.writerow(['timestamp', 'name', 'grade', 'email', 'ip', 'user_agent'])
+            writer.writerow([record_time, name, grade, email, ip, user_agent])
+    except Exception as e:
+        return jsonify({'ok': False, 'error': 'write_failed'}), 500
+
+    # Firestore write to interestAttendance collection
+    try:
+        firebase_db.collection('interestAttendance').add({
+            'name': name,
+            'grade': grade,
+            'email': email,
+            'ip': ip,
+            'userAgent': user_agent,
+            'createdAt': firestore.SERVER_TIMESTAMP
+        })
+    except Exception:
+        # Do not fail the whole submission if Firestore write fails; CSV already recorded
+        pass
+
+    resp = make_response(jsonify({'ok': True}))
+    # Prevent duplicates for this device/browser
+    resp.set_cookie('interest_submitted', '1', max_age=60*60*24*180, httponly=True, samesite='Lax')
+    return resp
 
 if __name__ == '__main__':
     app.run(debug=True, host='localhost', port=8000) 

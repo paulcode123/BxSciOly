@@ -1,0 +1,287 @@
+{% extends "layout.html" %}
+
+{% block title %}Event - Bronx Science Olympiad{% endblock %}
+
+{% block content %}
+<div class="hero" style="height: 30vh; background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('/static/images/events-bg.jpg');">
+    <div class="hero-content">
+        <div class="event-hero-icon" id="eventHeroIcon"></div>
+        <h1 id="eventTitle">Event</h1>
+        <p id="eventSubtitle">Explore details, roster, binders, and tests</p>
+        <div class="event-hero-badges">
+            <span class="subject-badge" id="subjectBadge" style="display:none;"></span>
+            <span class="meta-badge" id="membersBadge" style="display:none;"></span>
+        </div>
+    </div>
+</div>
+
+<section class="section">
+    <div class="container">
+        <div class="event-tabs">
+            <button class="event-tab active" data-tab="general"><i class="fas fa-info-circle"></i> General</button>
+            <button class="event-tab auth-only" data-tab="roster"><i class="fas fa-users"></i> Roster</button>
+            <button class="event-tab auth-only" data-tab="binders"><i class="fas fa-book"></i> Binders</button>
+            <button class="event-tab" data-tab="tests"><i class="fas fa-file-pdf"></i> Tests</button>
+        </div>
+
+        <div class="tab-panels">
+            <div id="tab-general" class="tab-panel active">
+                <div id="generalContent" class="general-content"></div>
+            </div>
+            <div id="tab-roster" class="tab-panel">
+                <div id="rosterGrid" class="roster-grid"></div>
+            </div>
+            <div id="tab-binders" class="tab-panel">
+                <div class="materials-sections">
+                    <h3>Team Shared Binders</h3>
+                    <div id="publicBinders" class="binders-grid"></div>
+                </div>
+            </div>
+            <div id="tab-tests" class="tab-panel">
+                <div id="testsGrid" class="tests-grid"></div>
+            </div>
+        </div>
+    </div>
+    
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    /* Hero */
+    .hero { position: relative; background-position: center; background-size: cover; }
+    .hero::after { content:''; position:absolute; inset:0; background: radial-gradient(ellipse at 30% 10%, rgba(255,255,255,.1), transparent 40%), radial-gradient(ellipse at 70% 0%, rgba(255,255,255,.08), transparent 35%); pointer-events:none; }
+    .hero .hero-content { position: relative; }
+    .event-hero-icon { font-size: 3rem; margin-bottom: 8px; color: #fff; filter: drop-shadow(0 6px 18px rgba(0,0,0,.35)); }
+    .event-hero-icon i { font-size: 3rem; }
+    .event-hero-badges { margin-top: 8px; display: flex; gap: 10px; flex-wrap: wrap; }
+    .subject-badge, .meta-badge { display:inline-flex; align-items:center; gap:8px; padding:6px 12px; border-radius: 999px; font-weight:600; font-size:.85rem; backdrop-filter: blur(6px); border:1px solid rgba(255,255,255,.25); }
+    .subject-badge { background: linear-gradient(135deg, rgba(99,102,241,.25), rgba(236,72,153,.25)); color:#fff; }
+    .meta-badge { background: linear-gradient(135deg, rgba(16,185,129,.25), rgba(59,130,246,.25)); color:#fff; }
+
+    /* Tabs */
+    .event-tabs { display:flex; gap:10px; margin-bottom:20px; flex-wrap: wrap; }
+    .event-tab { border:none; background:linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,255,255,.85)); padding:10px 14px; border-radius:12px; cursor:pointer; box-shadow:0 6px 18px rgba(0,0,0,.08); transition: transform .15s ease, box-shadow .15s ease, background .2s; border:1px solid rgba(0,0,0,.06); }
+    .event-tab:hover { transform: translateY(-2px); box-shadow:0 12px 28px rgba(0,0,0,.12); }
+    .event-tab.active { background: linear-gradient(135deg, var(--primary-color), var(--accent-color)); color:#fff; box-shadow:0 12px 30px rgba(0,0,0,.18); }
+
+    .tab-panel { display:none; animation: fadeIn .25s ease; }
+    .tab-panel.active { display:block; }
+    .binders-grid, .tests-grid, .roster-grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap:16px; }
+    .binder-card, .test-card, .member-card { position:relative; background: rgba(255,255,255,0.6); border-radius:14px; padding:16px; box-shadow: 0 10px 24px rgba(0,0,0,.08); border: 1px solid rgba(255,255,255,.6); backdrop-filter: blur(8px); transition: transform .18s ease, box-shadow .18s ease; overflow:hidden; }
+    .binder-card::before, .test-card::before, .member-card::before { content:''; position:absolute; inset:-1px; border-radius:14px; background: linear-gradient(135deg, rgba(155,89,182,.25), rgba(52,152,219,.25)); opacity:.0; transition: opacity .2s; pointer-events:none; }
+    .binder-card:hover::before, .test-card:hover::before, .member-card:hover::before { opacity:.35; }
+    .binder-card:hover, .test-card:hover, .member-card:hover { transform: translateY(-3px); box-shadow:0 16px 36px rgba(0,0,0,.12); }
+
+    .empty { text-align:center; color:#666; padding:24px; background: rgba(255,255,255,.65); border-radius:12px; border:1px solid rgba(0,0,0,.06); }
+    @keyframes fadeIn { from { opacity:0; transform: translateY(6px);} to { opacity:1; transform: translateY(0);} }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', async function() {
+  const eventSlug = '{{ event_slug }}';
+  const currentUser = JSON.parse(sessionStorage.getItem('currentUser') || 'null');
+
+  // Hide auth-only tabs when not logged in
+  document.querySelectorAll('.auth-only').forEach(btn => {
+    if (!currentUser) btn.style.display = 'none';
+  });
+
+  // Tabs behavior
+  document.querySelectorAll('.event-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.event-tab').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  function slugify(text) {
+    return (text||'').toString().toLowerCase().trim().replace(/&/g,'and').replace(/[^a-z0-9\s-]/g,'').replace(/\s+/g,'-').replace(/-+/g,'-');
+  }
+
+  // Load Events to find the matching event
+  let eventData = null;
+  try {
+    const res = await fetch('/api/Events');
+    const data = await res.json();
+    const events = data.map(d => { const id = Object.keys(d)[0]; return { id, ...d[id] }; });
+    eventData = events.find(ev => slugify(ev.eventName) === eventSlug);
+  } catch (e) {
+    console.error(e);
+  }
+
+  if (!eventData) {
+    document.getElementById('eventTitle').textContent = 'Event Not Found';
+    document.getElementById('generalContent').innerHTML = '<div class="empty">This event does not exist.</div>';
+    return;
+  }
+
+  document.getElementById('eventTitle').textContent = eventData.eventName;
+  // Subject and members badges
+  const subjectText = prettifySubject(eventData.subject || '');
+  const subjectBadge = document.getElementById('subjectBadge');
+  if (subjectText) { subjectBadge.textContent = subjectText; subjectBadge.style.display = 'inline-flex'; }
+  const membersBadge = document.getElementById('membersBadge');
+  if (Array.isArray(eventData.members) && eventData.members.length) {
+    membersBadge.innerHTML = `<i class="fas fa-users"></i> ${eventData.members.length} members`;
+    membersBadge.style.display = 'inline-flex';
+  }
+
+  // Dynamic hero background and icon
+  try {
+    const hero = document.querySelector('.hero');
+    const bgMap = {
+      'biology': 'biology-bg.jpg',
+      'chemistry': 'chemistry-bg.jpg',
+      'physics': 'physics-bg.jpg',
+      'earth-science': 'earth-science-bg.jpg',
+      'construction-build': 'build-events-bg.jpg',
+      'precision-build': 'precision-bg.jpg',
+      'classification-compilation': 'events-bg.jpg'
+    };
+    const chosen = bgMap[(eventData.subject || '').toLowerCase()] || 'events-bg.jpg';
+    hero.style.background = `linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)), url('/static/images/${chosen}')`;
+    hero.style.backgroundSize = 'cover';
+    hero.style.backgroundPosition = 'center';
+
+    const icon = getEventIcon(eventData.eventName, eventData.subject);
+    const iconHolder = document.getElementById('eventHeroIcon');
+    iconHolder.innerHTML = icon ? `<i class="${icon}"></i>` : '';
+  } catch(_) {}
+
+  // General content from Events.generalInfo (matches user events page)
+  try {
+    const container = document.getElementById('generalContent');
+    const gi = eventData.generalInfo || {};
+    const parts = [];
+    if (gi.welcome) parts.push(`<div class="binder-card"><h4>Welcome</h4><p>${gi.welcome}</p></div>`);
+    const aboutBlocks = [];
+    if (eventData.subject) aboutBlocks.push(`<p><strong>Subject:</strong> ${eventData.subject}</p>`);
+    if (eventData.meetingDay) aboutBlocks.push(`<p><strong>Meeting Day:</strong> ${eventData.meetingDay}</p>`);
+    if (eventData.meetingBlock) aboutBlocks.push(`<p><strong>Meeting Block:</strong> ${eventData.meetingBlock}</p>`);
+    if (eventData.meetingRoom) aboutBlocks.push(`<p><strong>Meeting Room:</strong> ${eventData.meetingRoom}</p>`);
+    if (eventData.description) aboutBlocks.push(`<p><strong>Description:</strong> ${eventData.description}</p>`);
+    if (gi.about) aboutBlocks.push(`<p><strong>About:</strong> ${gi.about}</p>`);
+    if (gi.contentOverview) aboutBlocks.push(`<p><strong>Content Overview:</strong> ${gi.contentOverview}</p>`);
+    if (gi.tips) aboutBlocks.push(`<p><strong>Tips:</strong> ${gi.tips}</p>`);
+    if (aboutBlocks.length) {
+      parts.push(`<div class="binder-card"><h4>About ${eventData.eventName}</h4>${aboutBlocks.join('')}</div>`);
+    }
+    const resources = Array.isArray(gi.resources) ? gi.resources : [];
+    if (resources.length) {
+      parts.push(`
+        <div class="binder-card">
+          <h4>Resources</h4>
+          <ul>
+            ${resources.map(r => `<li><a href="${r.url}" target="_blank" rel="noopener">${r.title || 'Resource'}</a>${r.description ? ` - ${r.description}` : ''}</li>`).join('')}
+          </ul>
+        </div>
+      `);
+    }
+    container.innerHTML = parts.length ? parts.join('') : '<div class="empty">No general info yet.</div>';
+  } catch(e) {
+    document.getElementById('generalContent').innerHTML = '<div class="empty">Failed to load info.</div>';
+  }
+
+  // Roster (only if logged in)
+  if (currentUser) {
+    try {
+      const res = await fetch('/api/Members');
+      const membersRaw = await res.json();
+      const members = membersRaw.map(d => { const id = Object.keys(d)[0]; return { id, ...d[id] }; });
+      const memberIds = (eventData.members || []);
+      const team = members.filter(m => memberIds.includes(m.id));
+      const grid = document.getElementById('rosterGrid');
+      if (!team.length) grid.innerHTML = '<div class="empty">No roster yet.</div>';
+      else grid.innerHTML = team.map(m => `<div class="member-card"><strong>${m.firstName || ''} ${m.lastName || ''}</strong><div>${m.grade ? 'Grade ' + m.grade : ''}</div></div>`).join('');
+    } catch(e) {
+      document.getElementById('rosterGrid').innerHTML = '<div class="empty">Failed to load roster.</div>';
+    }
+  }
+
+  // Binders (team shared only, visible when logged in)
+  if (currentUser) {
+    try {
+      const res = await fetch('/api/Binders');
+      const bindersRaw = await res.json();
+      const binders = bindersRaw.map(d => { const id = Object.keys(d)[0]; return { id, ...d[id] }; });
+      const teamBinders = binders.filter(b => b.eventName === eventData.eventName && b.visibility === 'team');
+      const grid = document.getElementById('publicBinders');
+      if (!teamBinders.length) grid.innerHTML = '<div class="empty">No shared binders yet.</div>';
+      else grid.innerHTML = teamBinders.map(b => `<div class="binder-card"><h4>${b.title || 'Binder'}</h4><a class="btn" href="/user/binder/${b.id}">Open</a></div>`).join('');
+    } catch(e) {
+      document.getElementById('publicBinders').innerHTML = '<div class="empty">Failed to load binders.</div>';
+    }
+  }
+
+  // Tests (publicly visible list) — mirror fields from user events page
+  try {
+    const res = await fetch('/api/Tests');
+    const testsRaw = await res.json();
+    const tests = testsRaw.map(d => { const id = Object.keys(d)[0]; return { id, ...d[id] }; });
+    const eventTests = tests.filter(t => t.eventName === eventData.eventName);
+    const grid = document.getElementById('testsGrid');
+    if (!eventTests.length) {
+      grid.innerHTML = '<div class="empty">No tests yet.</div>';
+    } else {
+      grid.innerHTML = eventTests.map(t => {
+        const type = (t.competitionType || '').toString();
+        const typeCap = type ? type.charAt(0).toUpperCase() + type.slice(1) : '';
+        const title = t.testName || `${t.year || ''} Test`;
+        const action = t.fileUrl ? `<a class="btn" href="${t.fileUrl}" target="_blank" rel="noopener">View</a>` : `<a class="btn" href="/user/events/test?id=${t.id}">Open</a>`;
+        return `<div class="test-card"><h4>${title}</h4><div>${t.year ? `Year: ${t.year}` : ''} ${typeCap ? `• ${typeCap}` : ''}</div>${action}</div>`;
+      }).join('');
+    }
+  } catch(e) {
+    document.getElementById('testsGrid').innerHTML = '<div class="empty">Failed to load tests.</div>';
+  }
+});
+
+// Helpers for nicer subject and icon
+function prettifySubject(s) {
+  const map = {
+    'biology': 'Biology',
+    'chemistry': 'Chemistry & Inquiry',
+    'physics': 'Physics & Design',
+    'earth-science': 'Earth Science',
+    'construction-build': 'Construction Build',
+    'precision-build': 'Precision Build',
+    'classification-compilation': 'Classification & Compilation'
+  };
+  return map[(s||'').toLowerCase()] || (s ? s.replace(/-/g,' ').replace(/\b\w/g, c => c.toUpperCase()) : '');
+}
+
+function getEventIcon(name, subject) {
+  const byName = {
+    'Anatomy and Physiology': 'fas fa-heartbeat',
+    'Astronomy': 'fas fa-star',
+    'Forensics': 'fas fa-fingerprint',
+    'Experimental Design': 'fas fa-flask',
+    'Dynamic Planet': 'fas fa-earth-americas',
+    'Fossils': 'fas fa-bone',
+    'Geologic Mapping': 'fas fa-mountain',
+    'Bridge': 'fas fa-bridge',
+    'Trajectory': 'fas fa-bullseye',
+    'Robot Tour': 'fas fa-robot',
+    'Flight': 'fas fa-plane'
+  };
+  if (byName[name]) return byName[name];
+  const bySubject = {
+    'biology': 'fas fa-leaf',
+    'chemistry': 'fas fa-vial',
+    'physics': 'fas fa-bolt',
+    'earth-science': 'fas fa-globe-americas',
+    'construction-build': 'fas fa-hammer',
+    'precision-build': 'fas fa-bullseye',
+    'classification-compilation': 'fas fa-search'
+  };
+  return bySubject[(subject||'').toLowerCase()] || 'fas fa-trophy';
+}
+</script>
+{% endblock %}
+
+

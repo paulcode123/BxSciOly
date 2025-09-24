@@ -168,12 +168,11 @@
                     <li id="userDropdown" class="dropdown" style="display: none;">
                         <a href="#"><i class="fas fa-user-circle"></i> <span id="userName">User</span></a>
                         <div class="dropdown-content">
-                            <a href="{{ url_for('user_events') }}"><i class="fas fa-graduation-cap"></i> Events</a>
-                            <a href="{{ url_for('user_conversations') }}"><i class="fas fa-robot"></i> Learning Sessions</a>
+                            <a href="{{ url_for('user_settings') }}"><i class="fas fa-id-card"></i> Profile &amp; Events</a>
+                            <a href="{{ url_for('user_conversations') }}"><i class="fas fa-graduation-cap"></i> Learning</a>
+                            <a href="{{ url_for('user_attendance') }}"><i class="fas fa-calendar-check"></i> Meetings</a>
                             <a href="{{ url_for('user_competitions') }}"><i class="fas fa-trophy"></i> Competitions</a>
-                            <a href="{{ url_for('user_attendance') }}"><i class="fas fa-clipboard-check"></i> Attendance</a>
                             <a href="{{ url_for('admin_login') }}" id="adminConsoleBtn" style="display: none;"><i class="fas fa-user-shield"></i> Admin Console</a>
-                            <a href="{{ url_for('user_settings') }}"><i class="fas fa-cog"></i> Settings</a>
                             <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
                         </div>
                     </li>

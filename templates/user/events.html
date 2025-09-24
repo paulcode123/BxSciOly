@@ -884,17 +884,20 @@
     .icon-circle {
         width: 60px;
         height: 60px;
+        flex: 0 0 60px;
+        aspect-ratio: 1 / 1;
         border-radius: 50%;
-        display: flex;
+        display: inline-flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         color: white;
         background: var(--module-color);
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         transition: all 0.3s ease;
         position: relative;
         z-index: 1;
+        line-height: 1;
     }
     
     .duo-module-card:hover .icon-circle {

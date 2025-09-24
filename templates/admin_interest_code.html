@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+
+{% block title %}Interest Meeting QR - Admin{% endblock %}
+
+{% block content %}
+<section class="section" style="padding:60px 0;">
+    <div class="container" style="text-align:center;">
+        <h2>Interest Meeting - Rotating QR</h2>
+        <p>Scan this code with your phone and enter your name, grade, and email.</p>
+        <div id="qr" style="display:inline-block; padding:16px; background:#fff; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.1);"></div>
+        <div style="margin-top:16px; color:#888;">
+            <span id="countdown">5</span>s to next refresh
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+<script>
+    const qrContainer = document.getElementById('qr');
+    const countdownEl = document.getElementById('countdown');
+    // We no longer display the URL to the screen
+
+    async function fetchTokenUrl() {
+        const adminId = sessionStorage.getItem('adminId');
+        if (!adminId) {
+            window.location.href = '/admin/login';
+            throw new Error('no_admin');
+        }
+        const res = await fetch('/api/interest/token', {
+            cache: 'no-store',
+            headers: { 'X-Admin-ID': adminId }
+        });
+        if (!res.ok) {
+            const text = await res.text().catch(() => '');
+            throw new Error('token_api_failed ' + res.status + ' ' + text);
+        }
+        const json = await res.json();
+        // Always point QR to production domain
+        if (json && json.token) {
+            return 'https://bxscioly.org/interestMeeting?token=' + encodeURIComponent(json.token);
+        }
+        if (json && json.url) {
+            // Fallback to production prefix if server provided absolute URL
+            try {
+                const u = new URL(json.url);
+                return 'https://bxscioly.org' + u.pathname + (u.search || '');
+            } catch (e) {
+                return 'https://bxscioly.org/interestMeeting?token=' + encodeURIComponent(json.url);
+            }
+        }
+        throw new Error('bad_response');
+    }
+
+    async function renderQR() {
+        try {
+            const url = await fetchTokenUrl();
+            qrContainer.innerHTML = '';
+            if (window.QRCode && QRCode.toCanvas) {
+                const canvas = document.createElement('canvas');
+                qrContainer.appendChild(canvas);
+                await QRCode.toCanvas(canvas, url, { width: 320, margin: 2 });
+            } else {
+                const img = document.createElement('img');
+                img.width = 320;
+                img.height = 320;
+                img.alt = 'QR';
+                img.src = 'https://api.qrserver.com/v1/create-qr-code/?size=320x320&data=' + encodeURIComponent(url);
+                qrContainer.appendChild(img);
+            }
+        } catch (e) {
+            console.error(e);
+            // Keep the UI minimal; no URL display
+        }
+    }
+
+    let remaining = 5;
+    function tick() {
+        remaining -= 1;
+        if (remaining <= 0) {
+            remaining = 5;
+            renderQR();
+        }
+        countdownEl.textContent = String(remaining);
+    }
+
+    // Redirect to login if missing admin id
+    if (!sessionStorage.getItem('adminId')) {
+        window.location.href = '/admin/login';
+    } else {
+        renderQR();
+    }
+    setInterval(tick, 1000);
+</script>
+{% endblock %}
+
+

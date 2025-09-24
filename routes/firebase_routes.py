@@ -1130,7 +1130,92 @@ def update_module_completion(completion_id):
             message = "Module completion replaced successfully"
         
         return jsonify({"message": message}), 200
-        
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+# ---------------- Learning Artifacts (Portfolio) ----------------
+
+@firebase_routes.route('/api/learning-artifacts', methods=['POST'])
+def create_learning_artifact():
+    """Create a new learning artifact (link or metadata-only).
+    Expects JSON with: userId, eventName, type ('link'|'file'|'note'), title?, url?
+    """
+    try:
+        data = request.get_json()
+        if not data:
+            return jsonify({"error": "No data provided"}), 400
+        user_id = data.get('userId')
+        event_name = data.get('eventName')
+        artifact_type = data.get('type')
+        if not all([user_id, event_name, artifact_type]):
+            return jsonify({"error": "userId, eventName, and type are required"}), 400
+        doc = {
+            'userId': user_id,
+            'eventName': event_name,
+            'type': artifact_type,
+            'title': data.get('title', ''),
+            'url': data.get('url', ''),
+            'createdAt': firestore.SERVER_TIMESTAMP
+        }
+        ref = db.collection('LearningArtifacts').document()
+        ref.set(doc)
+        return jsonify({'id': ref.id, 'message': 'Artifact saved'}), 201
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/learning-artifacts/upload', methods=['POST'])
+def upload_learning_artifact_file():
+    """Upload a learning artifact file to Storage and create an artifact doc.
+    Multipart form fields: file, userId, eventName, title?
+    """
+    try:
+        if 'file' not in request.files:
+            return jsonify({"error": "No file provided"}), 400
+        file = request.files['file']
+        user_id = request.form.get('userId')
+        event_name = request.form.get('eventName')
+        title = request.form.get('title', '')
+        if not user_id or not event_name:
+            return jsonify({"error": "userId and eventName are required"}), 400
+        if file.filename == '':
+            return jsonify({"error": "No file selected"}), 400
+
+        # Store under learning_artifacts/{userId}/{timestamp}/filename
+        timestamp = datetime.now().strftime('%Y%m%d%H%M%S')
+        safe_name = file.filename.replace('..','_')
+        blob_path = f"learning_artifacts/{user_id}/{timestamp}/{safe_name}"
+        blob = bucket.blob(blob_path)
+        blob.upload_from_file(file, content_type=file.content_type)
+        blob.make_public()
+        url = blob.public_url
+
+        artifact_doc = {
+            'userId': user_id,
+            'eventName': event_name,
+            'type': 'file',
+            'title': title,
+            'url': url,
+            'storagePath': blob_path,
+            'contentType': file.content_type,
+            'createdAt': firestore.SERVER_TIMESTAMP
+        }
+        ref = db.collection('LearningArtifacts').document()
+        ref.set(artifact_doc)
+        return jsonify({'id': ref.id, 'url': url, 'message': 'File uploaded'}), 201
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/learning-artifacts/user/<user_id>', methods=['GET'])
+def list_learning_artifacts_for_user(user_id):
+    """List all learning artifacts for a user."""
+    try:
+        docs = db.collection('LearningArtifacts').where('userId', '==', user_id).stream()
+        items = []
+        for doc in docs:
+            d = doc.to_dict()
+            d['id'] = doc.id
+            items.append(d)
+        return jsonify(items), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
@@ -1442,6 +1527,420 @@ def get_calendar_events():
     except Exception as e:
         print(e)
         return jsonify({"error": str(e)}), 500 
+
+# ---------------- Unified Portfolio ----------------
+
+@firebase_routes.route('/api/Portfolio', methods=['POST'])
+def create_portfolio_item():
+    """Create a unified Portfolio item.
+    Expects JSON with at least: { userId, kind }
+    kind in ['artifact', 'weekly', 'diagnostic', 'competition', 'app_question']
+    """
+    try:
+        data = request.get_json() or {}
+        user_id = data.get('userId')
+        kind = data.get('kind')
+        if not user_id or not kind:
+            return jsonify({"error": "userId and kind are required"}), 400
+
+        base = {
+            'userId': user_id,
+            'kind': kind,
+            'eventName': data.get('eventName', ''),
+            'createdAt': firestore.SERVER_TIMESTAMP,
+            'updatedAt': firestore.SERVER_TIMESTAMP
+        }
+
+        # Build kind-specific fields
+        if kind == 'artifact':
+            artifact_type = data.get('artifactType')  # 'file' | 'link' | 'conversation'
+            if artifact_type not in ['file', 'link', 'conversation']:
+                return jsonify({"error": "artifactType must be file, link, or conversation"}), 400
+            doc = {
+                **base,
+                'artifactType': artifact_type,
+                'title': data.get('title', ''),
+                'url': data.get('url', ''),
+                'storagePath': data.get('storagePath', ''),
+                'contentType': data.get('contentType', ''),
+                'moduleIds': data.get('moduleIds', []),
+                'shareUrl': data.get('shareUrl', ''),
+                'transcript': data.get('transcript', '')
+            }
+        elif kind == 'weekly':
+            content = (data.get('content') or '').strip()
+            if not content:
+                return jsonify({"error": "content is required for weekly"}), 400
+            doc = {
+                **base,
+                'dateISO': data.get('dateISO', ''),
+                'content': content
+            }
+        elif kind == 'diagnostic':
+            reflection = (data.get('reflection') or '').strip()
+            if not reflection:
+                return jsonify({"error": "reflection is required for diagnostic"}), 400
+            doc = {
+                **base,
+                'diagnosticDateISO': data.get('diagnosticDateISO', ''),
+                'reflection': reflection
+            }
+        elif kind == 'competition':
+            competition_name = (data.get('competitionName') or '').strip()
+            reflection = (data.get('reflection') or '').strip()
+            if not competition_name or not reflection:
+                return jsonify({"error": "competitionName and reflection are required for competition"}), 400
+            doc = {
+                **base,
+                'competitionName': competition_name,
+                'whatWentWell': data.get('whatWentWell', ''),
+                'whatToImprove': data.get('whatToImprove', ''),
+                'reflection': reflection
+            }
+        elif kind == 'app_question':
+            question_id = data.get('questionId')
+            answer = (data.get('answer') or '').strip()
+            question_text = data.get('questionText')
+            if not question_id or not answer:
+                return jsonify({"error": "questionId and answer are required for app_question"}), 400
+            doc = {
+                **base,
+                'questionId': question_id,
+                'questionText': question_text or '',
+                'answer': answer
+            }
+        else:
+            return jsonify({"error": "Unsupported kind"}), 400
+
+        ref = db.collection('Portfolio').document()
+        ref.set(doc)
+        return jsonify({'id': ref.id, 'message': 'Portfolio item saved'}), 201
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/portfolio/upload', methods=['POST'])
+def upload_portfolio_file():
+    """Upload a file for a Portfolio artifact and create the Portfolio document.
+    Multipart fields: file, userId, eventName?, title?
+    """
+    try:
+        if 'file' not in request.files:
+            return jsonify({"error": "No file provided"}), 400
+        file = request.files['file']
+        user_id = request.form.get('userId')
+        event_name = request.form.get('eventName', '')
+        title = request.form.get('title', '')
+        if not user_id:
+            return jsonify({"error": "userId is required"}), 400
+        if file.filename == '':
+            return jsonify({"error": "No file selected"}), 400
+
+        timestamp = datetime.now().strftime('%Y%m%d%H%M%S')
+        safe_name = file.filename.replace('..','_')
+        blob_path = f"portfolio/{user_id}/{timestamp}/{safe_name}"
+        blob = bucket.blob(blob_path)
+        blob.upload_from_file(file, content_type=file.content_type)
+        blob.make_public()
+        url = blob.public_url
+
+        doc = {
+            'userId': user_id,
+            'kind': 'artifact',
+            'artifactType': 'file',
+            'title': title,
+            'url': url,
+            'storagePath': blob_path,
+            'contentType': file.content_type,
+            'eventName': event_name,
+            'createdAt': firestore.SERVER_TIMESTAMP,
+            'updatedAt': firestore.SERVER_TIMESTAMP
+        }
+        ref = db.collection('Portfolio').document()
+        ref.set(doc)
+        return jsonify({'id': ref.id, 'url': url, 'message': 'File uploaded'}), 201
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/Portfolio/user/<user_id>', methods=['GET'])
+def list_portfolio_items(user_id):
+    """List Portfolio items for a user. Optional filter via kind query param.
+    Multiple kinds can be comma-separated.
+    """
+    try:
+        kind = request.args.get('kind')
+        query = db.collection('Portfolio').where('userId', '==', user_id)
+        # Can't filter by multiple kinds without an index; do client-side filter if provided
+        docs = query.stream()
+        items = []
+        filter_kinds = None
+        if kind:
+            filter_kinds = set([k.strip() for k in kind.split(',') if k.strip()])
+        for doc in docs:
+            d = doc.to_dict()
+            if filter_kinds and d.get('kind') not in filter_kinds:
+                continue
+            d['id'] = doc.id
+            items.append(d)
+        # Sort by createdAt desc best-effort
+        def get_ts(d):
+            ts = d.get('createdAt')
+            try:
+                return ts.timestamp() if hasattr(ts, 'timestamp') else 0
+            except Exception:
+                return 0
+        items.sort(key=get_ts, reverse=True)
+        return jsonify(items), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/Portfolio/<item_id>', methods=['PATCH', 'PUT'])
+def update_portfolio_item(item_id):
+    try:
+        data = request.get_json() or {}
+        ref = db.collection('Portfolio').document(item_id)
+        if not ref.get().exists:
+            return jsonify({"error": "Portfolio item not found"}), 404
+        updates = dict(data)
+        updates['updatedAt'] = firestore.SERVER_TIMESTAMP
+        if request.method == 'PATCH':
+            ref.update(updates)
+        else:
+            ref.set(updates)
+        return jsonify({"message": "Portfolio item saved"}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+# ---------------- Questions & Reflections ----------------
+
+@firebase_routes.route('/api/weekly-updates', methods=['POST'])
+def create_weekly_update():
+    """Create a weekly update entry.
+    Expects JSON: { userId, weekStartISO, eventName?, content }
+    """
+    try:
+        data = request.get_json() or {}
+        user_id = data.get('userId')
+        content = data.get('content', '').strip()
+        if not user_id or not content:
+            return jsonify({"error": "userId and content are required"}), 400
+        doc = {
+            'userId': user_id,
+            'weekStartISO': data.get('weekStartISO', ''),
+            'eventName': data.get('eventName', ''),
+            'content': content,
+            'createdAt': firestore.SERVER_TIMESTAMP,
+            'updatedAt': firestore.SERVER_TIMESTAMP
+        }
+        ref = db.collection('WeeklyUpdates').document()
+        ref.set(doc)
+        return jsonify({'id': ref.id, 'message': 'Weekly update saved'}), 201
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/weekly-updates/user/<user_id>', methods=['GET'])
+def list_weekly_updates_for_user(user_id):
+    """List weekly updates for the given user (newest first if timestamp available)."""
+    try:
+        docs = db.collection('WeeklyUpdates').where('userId', '==', user_id).stream()
+        items = []
+        for doc in docs:
+            d = doc.to_dict()
+            d['id'] = doc.id
+            items.append(d)
+        # Sort by createdAt desc if present
+        def get_ts(d):
+            ts = d.get('createdAt')
+            try:
+                return ts.timestamp() if hasattr(ts, 'timestamp') else 0
+            except Exception:
+                return 0
+        items.sort(key=get_ts, reverse=True)
+        return jsonify(items), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/weekly-updates/<doc_id>', methods=['PATCH', 'PUT'])
+def update_weekly_update(doc_id):
+    try:
+        data = request.get_json() or {}
+        ref = db.collection('WeeklyUpdates').document(doc_id)
+        if not ref.get().exists:
+            return jsonify({"error": "Weekly update not found"}), 404
+        updates = dict(data)
+        updates['updatedAt'] = firestore.SERVER_TIMESTAMP
+        if request.method == 'PATCH':
+            ref.update(updates)
+        else:
+            ref.set(updates)
+        return jsonify({"message": "Weekly update saved"}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/diagnostic-reflections', methods=['POST'])
+def create_diagnostic_reflection():
+    """Create a diagnostic reflection.
+    Expects JSON: { userId, eventName?, diagnosticDateISO?, reflection }
+    """
+    try:
+        data = request.get_json() or {}
+        user_id = data.get('userId')
+        reflection = data.get('reflection', '').strip()
+        if not user_id or not reflection:
+            return jsonify({"error": "userId and reflection are required"}), 400
+        doc = {
+            'userId': user_id,
+            'eventName': data.get('eventName', ''),
+            'diagnosticDateISO': data.get('diagnosticDateISO', ''),
+            'reflection': reflection,
+            'createdAt': firestore.SERVER_TIMESTAMP,
+            'updatedAt': firestore.SERVER_TIMESTAMP
+        }
+        ref = db.collection('DiagnosticReflections').document()
+        ref.set(doc)
+        return jsonify({'id': ref.id, 'message': 'Diagnostic reflection saved'}), 201
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/diagnostic-reflections/user/<user_id>', methods=['GET'])
+def list_diagnostic_reflections_for_user(user_id):
+    try:
+        docs = db.collection('DiagnosticReflections').where('userId', '==', user_id).stream()
+        items = []
+        for doc in docs:
+            d = doc.to_dict()
+            d['id'] = doc.id
+            items.append(d)
+        def get_ts(d):
+            ts = d.get('createdAt')
+            try:
+                return ts.timestamp() if hasattr(ts, 'timestamp') else 0
+            except Exception:
+                return 0
+        items.sort(key=get_ts, reverse=True)
+        return jsonify(items), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/diagnostic-reflections/<doc_id>', methods=['PATCH', 'PUT'])
+def update_diagnostic_reflection(doc_id):
+    try:
+        data = request.get_json() or {}
+        ref = db.collection('DiagnosticReflections').document(doc_id)
+        if not ref.get().exists:
+            return jsonify({"error": "Diagnostic reflection not found"}), 404
+        updates = dict(data)
+        updates['updatedAt'] = firestore.SERVER_TIMESTAMP
+        if request.method == 'PATCH':
+            ref.update(updates)
+        else:
+            ref.set(updates)
+        return jsonify({"message": "Diagnostic reflection saved"}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/competition-reflections', methods=['POST'])
+def create_competition_reflection():
+    """Create a competition reflection.
+    Expects JSON: { userId, competitionName, eventName?, reflection, whatWentWell?, whatToImprove? }
+    """
+    try:
+        data = request.get_json() or {}
+        user_id = data.get('userId')
+        competition_name = data.get('competitionName', '').strip()
+        reflection = data.get('reflection', '').strip()
+        if not user_id or not competition_name or not reflection:
+            return jsonify({"error": "userId, competitionName, and reflection are required"}), 400
+        doc = {
+            'userId': user_id,
+            'competitionName': competition_name,
+            'eventName': data.get('eventName', ''),
+            'reflection': reflection,
+            'whatWentWell': data.get('whatWentWell', ''),
+            'whatToImprove': data.get('whatToImprove', ''),
+            'createdAt': firestore.SERVER_TIMESTAMP,
+            'updatedAt': firestore.SERVER_TIMESTAMP
+        }
+        ref = db.collection('CompetitionReflections').document()
+        ref.set(doc)
+        return jsonify({'id': ref.id, 'message': 'Competition reflection saved'}), 201
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/competition-reflections/user/<user_id>', methods=['GET'])
+def list_competition_reflections_for_user(user_id):
+    try:
+        docs = db.collection('CompetitionReflections').where('userId', '==', user_id).stream()
+        items = []
+        for doc in docs:
+            d = doc.to_dict()
+            d['id'] = doc.id
+            items.append(d)
+        def get_ts(d):
+            ts = d.get('createdAt')
+            try:
+                return ts.timestamp() if hasattr(ts, 'timestamp') else 0
+            except Exception:
+                return 0
+        items.sort(key=get_ts, reverse=True)
+        return jsonify(items), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/competition-reflections/<doc_id>', methods=['PATCH', 'PUT'])
+def update_competition_reflection(doc_id):
+    try:
+        data = request.get_json() or {}
+        ref = db.collection('CompetitionReflections').document(doc_id)
+        if not ref.get().exists:
+            return jsonify({"error": "Competition reflection not found"}), 404
+        updates = dict(data)
+        updates['updatedAt'] = firestore.SERVER_TIMESTAMP
+        if request.method == 'PATCH':
+            ref.update(updates)
+        else:
+            ref.set(updates)
+        return jsonify({"message": "Competition reflection saved"}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/application-responses/user/<user_id>', methods=['GET'])
+def get_application_responses(user_id):
+    """Get the application questions and responses for a user.
+    Document ID is the userId for convenience.
+    """
+    try:
+        ref = db.collection('ApplicationResponses').document(user_id)
+        doc = ref.get()
+        if not doc.exists:
+            return jsonify({ 'userId': user_id, 'questions': [] }), 200
+        data = doc.to_dict() or {}
+        data['userId'] = user_id
+        return jsonify(data), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/application-responses/user/<user_id>', methods=['PUT', 'PATCH'])
+def upsert_application_responses(user_id):
+    """Create or update the application questions/answers for a user.
+    Expects JSON: { questions: [{ id, text, answer }] }
+    """
+    try:
+        data = request.get_json() or {}
+        questions = data.get('questions', [])
+        if not isinstance(questions, list):
+            return jsonify({"error": "questions must be an array"}), 400
+        ref = db.collection('ApplicationResponses').document(user_id)
+        payload = {
+            'questions': questions,
+            'updatedAt': firestore.SERVER_TIMESTAMP
+        }
+        if request.method == 'PATCH':
+            ref.set(payload, merge=True)
+        else:
+            ref.set(payload)
+        return jsonify({"message": "Application responses saved"}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 @firebase_routes.route('/api/admin/calendar-events/<event_id>', methods=['PATCH', 'PUT'])
 def update_calendar_event(event_id):
