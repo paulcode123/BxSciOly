@@ -96,6 +96,10 @@ def strategic_plan():
 def house_cup():
     return render_template('house_cup.html')
 
+@app.route('/HouseCupTheme')
+def house_cup_theme():
+    return render_template('house_cup_theme.html')
+
 @app.route('/summer-learning-project')
 def summer_learning_project():
     return render_template('summer_learning_project.html')
@@ -208,6 +212,10 @@ def parsed_test_view(parsed_test_id):
 def user_attendance():
     return render_template('user/attendance.html')
 
+@app.route('/user/meetings')
+def user_meetings():
+    return render_template('user/meetings.html')
+
 @app.route('/user/admin/attendance')
 def user_admin_attendance():
     return render_template('user/admin_attendance.html')
@@ -215,6 +223,166 @@ def user_admin_attendance():
 @app.route('/user/learning')
 def user_learning():
     return render_template('user/learning.html')
+
+@app.route('/user/application')
+def user_application():
+    return render_template('user/application.html')
+
+@app.route('/DiagResults')
+def diag_results():
+    return render_template('user/diag_results.html')
+
+@app.route('/api/roster-status/<user_id>')
+def api_roster_status(user_id):
+    """Check if a user is on the team roster"""
+    try:
+        # Read team_placement_solution.csv to check if user is on roster
+        with open('Planning/team_placement_solution.csv', 'r', encoding='utf-8') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                if row['firebaseID'] == user_id:
+                    return jsonify({'onRoster': True}), 200
+        
+        return jsonify({'onRoster': False}), 200
+    except Exception as e:
+        print(f"Error checking roster status: {e}")
+        return jsonify({'error': 'Internal server error', 'onRoster': False}), 500
+
+@app.route('/api/diag-results/<user_id>')
+def api_diag_results(user_id):
+    """Fetch diagnostic results for a specific user by Firebase UID"""
+    try:
+        # First, get the bxsciolyID from the member mapping CSV
+        bxscioly_id = None
+        with open('Planning/SCIOLY MEMBER IDS - member_names_ids_20250929_074942.csv', 'r', encoding='utf-8') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                if row['id'] == user_id:
+                    # Extract just the number part (e.g., "bxscioly_99673" -> "99673")
+                    bxscioly_full = row['bxscioly_number']
+                    if bxscioly_full and bxscioly_full.startswith('bxscioly_'):
+                        bxscioly_id = bxscioly_full.replace('bxscioly_', '')
+                    break
+        
+        if not bxscioly_id:
+            return jsonify({'error': 'User not found in member mapping'}), 404
+        
+        # Read consolidated_scores.csv using the extracted bxsciolyID
+        consolidated_data = {}
+        with open('Planning/consolidated_scores.csv', 'r', encoding='utf-8') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                if row['bxsciolyID'] == bxscioly_id:
+                    consolidated_data = row
+                    break
+        
+        if not consolidated_data:
+            return jsonify({'error': 'No diagnostic results found for this user'}), 404
+        
+        # Parse events taken
+        events_taken = []
+        for i in range(1, 9):
+            event_key = f'Event{i}'
+            score_key = f'Score{i}'
+            if event_key in consolidated_data and consolidated_data[event_key]:
+                event_name = consolidated_data[event_key]
+                score = consolidated_data[score_key]
+                events_taken.append({
+                    'name': event_name,
+                    'score': float(score) if score else 0
+                })
+        
+        # Check if user made the team
+        made_team = False
+        team_data = {}
+        with open('Planning/team_placement_solution.csv', 'r', encoding='utf-8') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                if row['bxsciolyID'] == bxscioly_id:
+                    made_team = True
+                    team_data = row
+                    break
+        
+        # Get event-specific rankings and percentiles
+        event_details = {}
+        with open('Planning/team_placement_by_event.csv', 'r', encoding='utf-8') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                if row['bxsciolyID'] == bxscioly_id:
+                    event_name = row['event']
+                    event_details[event_name] = {
+                        'rank': int(row['eventRank']),
+                        'percentile': float(row['eventPercentile']),
+                        'position': int(row['position']) if made_team else None
+                    }
+        
+        # Calculate rankings and percentiles for ALL events from consolidated_scores.csv
+        # This gives feedback even for events the user wasn't assigned to
+        event_scores = {}  # {event_name: [(score, bxsciolyID), ...]}
+        with open('Planning/consolidated_scores.csv', 'r', encoding='utf-8') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                for i in range(1, 9):
+                    event_key = f'Event{i}'
+                    score_key = f'Score{i}'
+                    if event_key in row and row[event_key] and score_key in row and row[score_key]:
+                        event_name = row[event_key]
+                        score = float(row[score_key])
+                        if event_name not in event_scores:
+                            event_scores[event_name] = []
+                        event_scores[event_name].append((score, row['bxsciolyID']))
+        
+        # Calculate total participants per event and rank/percentile for this user
+        event_totals = {}
+        for event_name, scores in event_scores.items():
+            event_totals[event_name] = len(scores)
+            
+            # If this user took this event, calculate their rank and percentile
+            user_score = None
+            for score, bid in scores:
+                if bid == bxscioly_id:
+                    user_score = score
+                    break
+            
+            # If this user took this event but it's not in event_details yet, calculate from scores
+            if user_score is not None and event_name not in event_details:
+                # Sort scores in descending order (higher is better)
+                sorted_scores = sorted(scores, key=lambda x: x[0], reverse=True)
+                rank = next(i for i, (s, bid) in enumerate(sorted_scores) if bid == bxscioly_id) + 1
+                percentile = ((len(sorted_scores) - rank + 1) / len(sorted_scores)) * 100
+                
+                event_details[event_name] = {
+                    'rank': rank,
+                    'percentile': percentile,
+                    'position': None  # Not assigned to this event
+                }
+        
+        result = {
+            'firstName': consolidated_data['firstName'],
+            'lastName': consolidated_data['lastName'],
+            'avgPercentile': float(consolidated_data['avgPercentile']) if consolidated_data['avgPercentile'] else 0,
+            'eventsTaken': events_taken,
+            'madeTeam': made_team,
+            'eventDetails': event_details,
+            'eventTotals': event_totals
+        }
+        
+        if made_team:
+            # Parse assigned events
+            assigned_events = []
+            for i in range(1, 4):
+                event_key = f'event{i}'
+                if event_key in team_data and team_data[event_key]:
+                    assigned_events.append(team_data[event_key])
+            
+            result['assignedEvents'] = assigned_events
+            result['house'] = team_data['house']
+        
+        return jsonify(result)
+    
+    except Exception as e:
+        print(f"Error fetching diag results: {e}")
+        return jsonify({'error': 'Internal server error'}), 500
 
 @app.route('/admin/login')
 def admin_login():

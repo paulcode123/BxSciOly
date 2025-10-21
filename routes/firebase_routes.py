@@ -355,6 +355,19 @@ def find_member_by_doe_email(doe_email):
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+@firebase_routes.route('/api/user/<user_id>', methods=['GET'])
+def get_user_data(user_id):
+    """Get user data by Firebase Auth UID (which is also the Firestore document ID)"""
+    try:
+        doc = db.collection('Members').document(user_id).get()
+        if doc.exists:
+            user_data = doc.to_dict()
+            user_data['id'] = doc.id
+            return jsonify(user_data), 200
+        return jsonify({"error": "User not found"}), 404
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 @firebase_routes.route('/api/binder-content/<binder_id>/<section_title>', methods=['GET'])
 def get_binder_content(binder_id, section_title):
     """
@@ -1999,4 +2012,170 @@ def admin_get_members():
 # Events
 @firebase_routes.route('/api/admin/events', methods=['GET'])
 def admin_get_events():
-    return get_all('Events') 
+    return get_all('Events')
+
+# ---------------- House Cup Theme Voting ----------------
+
+@firebase_routes.route('/api/housecup/suggestion', methods=['POST'])
+def submit_house_cup_suggestion():
+    """Submit a House Cup theme suggestion"""
+    try:
+        data = request.get_json()
+        if not data:
+            return jsonify({"error": "No data provided"}), 400
+        
+        user_id = data.get('userId')
+        user_name = data.get('userName')
+        theme = data.get('theme')
+        house_names = data.get('houseNames')
+        
+        # Validation
+        if not all([user_id, user_name, theme, house_names]):
+            return jsonify({"error": "Missing required fields"}), 400
+        
+        if len(theme) > 25:
+            return jsonify({"error": "Theme must be 25 characters or less"}), 400
+        
+        if len(house_names) != 4:
+            return jsonify({"error": "Must provide exactly 4 house names"}), 400
+        
+        for name in house_names:
+            if len(name) > 20:
+                return jsonify({"error": "House names must be 20 characters or less"}), 400
+        
+        # Check if user already submitted
+        existing = db.collection('HouseCupThemes').where('userId', '==', user_id).limit(1).stream()
+        if list(existing):
+            return jsonify({"error": "You have already submitted a suggestion"}), 400
+        
+        # Create suggestion
+        suggestion_data = {
+            'userId': user_id,
+            'userName': user_name,
+            'theme': theme,
+            'houseNames': house_names,
+            'createdAt': firestore.SERVER_TIMESTAMP,
+            'votes': {
+                'first': 0,
+                'second': 0,
+                'third': 0
+            }
+        }
+        
+        doc_ref = db.collection('HouseCupThemes').add(suggestion_data)
+        suggestion_data['id'] = doc_ref[1].id
+        
+        return jsonify(suggestion_data), 200
+        
+    except Exception as e:
+        logger.error(f"Error submitting suggestion: {str(e)}")
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/housecup/suggestion/<user_id>', methods=['GET'])
+def get_user_suggestion(user_id):
+    """Get a user's theme suggestion"""
+    try:
+        suggestions = db.collection('HouseCupThemes').where('userId', '==', user_id).limit(1).stream()
+        suggestion_list = list(suggestions)
+        
+        if not suggestion_list:
+            return jsonify({"suggestion": None}), 200
+        
+        suggestion = suggestion_list[0]
+        suggestion_data = suggestion.to_dict()
+        suggestion_data['id'] = suggestion.id
+        
+        return jsonify({"suggestion": suggestion_data}), 200
+        
+    except Exception as e:
+        logger.error(f"Error getting user suggestion: {str(e)}")
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/housecup/suggestions', methods=['GET'])
+def get_all_suggestions():
+    """Get all House Cup theme suggestions"""
+    try:
+        suggestions_ref = db.collection('HouseCupThemes').order_by('createdAt').stream()
+        
+        suggestions = []
+        for doc in suggestions_ref:
+            suggestion_data = doc.to_dict()
+            suggestion_data['id'] = doc.id
+            suggestions.append(suggestion_data)
+        
+        return jsonify({"suggestions": suggestions}), 200
+        
+    except Exception as e:
+        logger.error(f"Error getting suggestions: {str(e)}")
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/housecup/vote', methods=['POST'])
+def submit_house_cup_vote():
+    """Submit or update House Cup votes"""
+    try:
+        data = request.get_json()
+        if not data:
+            return jsonify({"error": "No data provided"}), 400
+        
+        user_id = data.get('userId')
+        votes = data.get('votes')  # {first: suggestionId, second: suggestionId, third: suggestionId}
+        
+        if not user_id:
+            return jsonify({"error": "User ID required"}), 400
+        
+        # Get or create vote document
+        vote_ref = db.collection('HouseCupVotes').document(user_id)
+        existing_vote = vote_ref.get()
+        
+        # Get old votes to decrement counts
+        old_votes = {}
+        if existing_vote.exists:
+            old_votes = existing_vote.to_dict().get('votes', {})
+        
+        # Update vote counts
+        # First, decrement old votes
+        for place, suggestion_id in old_votes.items():
+            if suggestion_id:
+                suggestion_ref = db.collection('HouseCupThemes').document(suggestion_id)
+                suggestion_ref.update({
+                    f'votes.{place}': firestore.Increment(-1)
+                })
+        
+        # Then, increment new votes
+        for place, suggestion_id in votes.items():
+            if suggestion_id:
+                suggestion_ref = db.collection('HouseCupThemes').document(suggestion_id)
+                suggestion_ref.update({
+                    f'votes.{place}': firestore.Increment(1)
+                })
+        
+        # Save user's votes
+        vote_data = {
+            'userId': user_id,
+            'votes': votes,
+            'updatedAt': firestore.SERVER_TIMESTAMP
+        }
+        
+        vote_ref.set(vote_data)
+        
+        return jsonify({"success": True}), 200
+        
+    except Exception as e:
+        logger.error(f"Error submitting vote: {str(e)}")
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/housecup/votes/<user_id>', methods=['GET'])
+def get_user_votes(user_id):
+    """Get a user's votes"""
+    try:
+        vote_doc = db.collection('HouseCupVotes').document(user_id).get()
+        
+        if not vote_doc.exists:
+            return jsonify({"votes": {"first": None, "second": None, "third": None}}), 200
+        
+        vote_data = vote_doc.to_dict()
+        return jsonify({"votes": vote_data.get('votes', {})}), 200
+        
+    except Exception as e:
+        logger.error(f"Error getting user votes: {str(e)}")
+        return jsonify({"error": str(e)}), 500 

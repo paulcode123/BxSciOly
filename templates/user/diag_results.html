@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnostic Results - Bronx Science Olympiad</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+
+        .diag-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-bottom: 60px;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 60px 20px;
+            margin-bottom: 40px;
+        }
+
+        .hero-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+            }
+            to {
+                text-shadow: 0 0 40px rgba(118, 75, 162, 0.8);
+            }
+        }
+
+        .welcome-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .welcome-card h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #a78bfa;
+        }
+
+        .disclaimer {
+            background: rgba(234, 179, 8, 0.1);
+            border-left: 4px solid #eab308;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .event-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 25px 0;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .event-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .event-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #c4b5fd;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: #d4d4d8;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .percentile-bar {
+            width: 100%;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .percentile-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 15px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .final-reveal {
+            text-align: center;
+            padding: 60px 20px;
+            margin: 60px 0;
+        }
+
+        .final-reveal h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .result-accepted {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(16, 185, 129, 0.4);
+            animation: celebrate 0.6s ease-out;
+        }
+
+        .result-not-accepted {
+            background: rgba(239, 68, 68, 0.2);
+            border: 2px solid #ef4444;
+            padding: 40px;
+            border-radius: 20px;
+        }
+
+        @keyframes celebrate {
+            0% {
+                transform: scale(0.8) rotate(-5deg);
+            }
+            50% {
+                transform: scale(1.1) rotate(5deg);
+            }
+            100% {
+                transform: scale(1) rotate(0deg);
+            }
+        }
+
+        .assigned-events {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .assigned-event-badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .house-reveal {
+            margin-top: 40px;
+            padding: 40px;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .house-fire {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff4757 100%);
+            box-shadow: 0 20px 60px rgba(255, 75, 87, 0.4);
+        }
+
+        .house-water {
+            background: linear-gradient(135deg, #4a90e2 0%, #357ABD 100%);
+            box-shadow: 0 20px 60px rgba(74, 144, 226, 0.4);
+        }
+
+        .house-earth {
+            background: linear-gradient(135deg, #78b159 0%, #5a8a3d 100%);
+            box-shadow: 0 20px 60px rgba(120, 177, 89, 0.4);
+        }
+
+        .house-wind {
+            background: linear-gradient(135deg, #e0e0e0 0%, #b8b8b8 100%);
+            box-shadow: 0 20px 60px rgba(224, 224, 224, 0.4);
+        }
+
+        .house-name {
+            font-size: 3rem;
+            font-weight: 700;
+            margin: 20px 0;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .loading-spinner {
+            text-align: center;
+            padding: 60px;
+        }
+
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-left-color: #667eea;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .continue-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            border-radius: 30px;
+            cursor: pointer;
+            margin: 30px auto;
+            display: block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .continue-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(102, 126, 234, 0.6);
+        }
+
+        .continue-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .chart-container {
+            height: 200px;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin: 20px 0;
+            color: #a78bfa;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #c4b5fd;
+        }
+    </style>
+</head>
+<body>
+    <div class="diag-container">
+        <a href="/user/events" class="back-link">← Back to Dashboard</a>
+
+        <div class="hero-section section visible">
+            <h1>🔬 Diagnostic Results 2025-26</h1>
+        </div>
+
+        <div id="loading" class="loading-spinner">
+            <div class="spinner"></div>
+            <p style="margin-top: 20px;">Loading your results...</p>
+        </div>
+
+        <div id="content" style="display: none;">
+            <!-- Welcome Section -->
+            <div class="section" id="welcome-section">
+                <div class="welcome-card">
+                    <h2>Welcome, <span id="user-name"></span>!</h2>
+                    <p style="font-size: 1.1rem; line-height: 1.8;">
+                        Thank you for taking the time to complete your diagnostic tests. 
+                        You took <strong><span id="num-tests"></span> diagnostic(s)</strong>.
+                    </p>
+                    <button class="continue-btn" onclick="showEventResults()">View My Results</button>
+                </div>
+            </div>
+
+            <!-- Event Results Section -->
+            <div class="section" id="events-section" style="display: none;">
+                <div class="welcome-card">
+                    <h2>📊 Your Performance by Event</h2>
+                    <p style="margin-bottom: 30px;">Here's how you performed in each diagnostic:</p>
+                </div>
+                <div id="events-container"></div>
+                <button class="continue-btn" onclick="showFinalReveal()">See Final Decision</button>
+            </div>
+
+            <!-- Final Reveal Section -->
+            <div class="section" id="final-section" style="display: none;">
+                <div class="final-reveal">
+                    <h2>The Moment of Truth...</h2>
+                    <p style="font-size: 1.2rem; margin-bottom: 30px;">
+                        With 283 diagnostic takers competing for just 95 spots on the team, 
+                        we had to be incredibly selective.
+                    </p>
+                    <div id="result-container"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        let userData = null;
+        let currentEventIndex = 0;
+
+        document.addEventListener('DOMContentLoaded', async function() {
+            // Check if user is logged in via sessionStorage
+            const currentUserStr = sessionStorage.getItem('currentUser');
+            
+            if (!currentUserStr) {
+                // Redirect to login with return URL
+                const returnUrl = encodeURIComponent(window.location.pathname);
+                window.location.href = `/login?redirect=${returnUrl}`;
+                return;
+            }
+
+            const currentUser = JSON.parse(currentUserStr);
+
+            // Fetch diagnostic results using the Firebase user ID
+            try {
+                const resultsResponse = await fetch(`/api/diag-results/${currentUser.id}`);
+                
+                if (!resultsResponse.ok) {
+                    document.getElementById('loading').innerHTML = 
+                        '<h2>No Results Found</h2><p>We could not find diagnostic results for your account.</p>';
+                    return;
+                }
+
+                userData = await resultsResponse.json();
+                
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+                
+                initializePage();
+            } catch (error) {
+                console.error('Error loading results:', error);
+                document.getElementById('loading').innerHTML = 
+                    '<h2>Error</h2><p>There was an error loading your results. Please try again later.</p>';
+            }
+        });
+
+        function initializePage() {
+            // Set user name
+            document.getElementById('user-name').textContent = 
+                `${userData.firstName} ${userData.lastName}`;
+            document.getElementById('num-tests').textContent = userData.eventsTaken.length;
+
+            // Show welcome section with animation
+            setTimeout(() => {
+                document.getElementById('welcome-section').classList.add('visible');
+            }, 300);
+        }
+
+        window.showEventResults = function() {
+            document.getElementById('welcome-section').style.display = 'none';
+            document.getElementById('events-section').style.display = 'block';
+            
+            setTimeout(() => {
+                document.getElementById('events-section').classList.add('visible');
+                showNextEvent();
+            }, 100);
+        };
+
+        function showNextEvent() {
+            if (currentEventIndex >= userData.eventsTaken.length) {
+                return;
+            }
+
+            const event = userData.eventsTaken[currentEventIndex];
+            const eventDetails = userData.eventDetails[event.name];
+            const eventTotal = userData.eventTotals[event.name] || 0;
+
+            const eventCard = document.createElement('div');
+            eventCard.className = 'event-card';
+            eventCard.style.opacity = '0';
+            
+            const percentile = eventDetails ? eventDetails.percentile.toFixed(1) : 'N/A';
+            const rank = eventDetails ? eventDetails.rank : 'N/A';
+
+            eventCard.innerHTML = `
+                <div class="event-name">${event.name}</div>
+                <div class="stat-grid">
+                    <div class="stat-item">
+                        <div class="stat-label">Your Score</div>
+                        <div class="stat-value">${event.score}</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Placement</div>
+                        <div class="stat-value">${rank} / ${eventTotal}</div>
+                    </div>
+                </div>
+                <div class="percentile-bar">
+                    <div class="percentile-fill" data-percentile="${percentile}">
+                        ${percentile}th percentile
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('events-container').appendChild(eventCard);
+
+            // Animate in
+            setTimeout(() => {
+                eventCard.style.opacity = '1';
+                eventCard.style.transform = 'translateY(0)';
+                
+                // Animate percentile bar
+                const fillBar = eventCard.querySelector('.percentile-fill');
+                setTimeout(() => {
+                    fillBar.style.width = percentile + '%';
+                }, 200);
+
+                // Show next event after delay
+                currentEventIndex++;
+                if (currentEventIndex < userData.eventsTaken.length) {
+                    setTimeout(showNextEvent, 1500);
+                }
+            }, 100);
+        }
+
+        window.showFinalReveal = function() {
+            document.getElementById('events-section').style.display = 'none';
+            document.getElementById('final-section').style.display = 'block';
+            
+            setTimeout(() => {
+                document.getElementById('final-section').classList.add('visible');
+                revealResult();
+            }, 100);
+        };
+
+        function revealResult() {
+            const container = document.getElementById('result-container');
+            
+            setTimeout(() => {
+                if (userData.madeTeam) {
+                    showAcceptedResult(container);
+                } else {
+                    showNotAcceptedResult(container);
+                }
+            }, 2000);
+        }
+
+        function showAcceptedResult(container) {
+            const houseNames = {
+                'A': 'Fire',
+                'B': 'Water',
+                'C': 'Earth',
+                'D': 'Wind'
+            };
+
+            const houseColors = {
+                'A': 'house-fire',
+                'B': 'house-water',
+                'C': 'house-earth',
+                'D': 'house-wind'
+            };
+
+            const houseName = houseNames[userData.house] || 'Unknown';
+            const houseClass = houseColors[userData.house] || '';
+
+            container.innerHTML = `
+                <div class="result-accepted">
+                    <h2 style="font-size: 3rem; margin-bottom: 20px;">🎉 Congratulations! 🎉</h2>
+                    <p style="font-size: 1.4rem; margin-bottom: 30px;">
+                        You have been selected to join the 2025-26 Bronx Science Olympiad Team!
+                    </p>
+                    <h3 style="font-size: 1.8rem; margin-bottom: 20px;">Your Event Assignments:</h3>
+                    <div class="assigned-events">
+                        ${userData.assignedEvents.map(event => 
+                            `<div class="assigned-event-badge">${event}</div>`
+                        ).join('')}
+                    </div>
+                </div>
+                <div class="house-reveal ${houseClass}" style="margin-top: 40px; opacity: 0;" id="house-card">
+                    <h3 style="font-size: 2rem; margin-bottom: 15px;">Your House Assignment</h3>
+                    <div class="house-name">${houseName} House</div>
+                    <p style="font-size: 1.2rem; margin-top: 20px;">
+                        Welcome to ${houseName} House! We're excited to begin meetings next week.
+                    </p>
+                </div>
+            `;
+
+            // Animate house reveal
+            setTimeout(() => {
+                const houseCard = document.getElementById('house-card');
+                houseCard.style.transition = 'opacity 1s ease, transform 1s ease';
+                houseCard.style.opacity = '1';
+                houseCard.style.transform = 'scale(1)';
+            }, 1500);
+        }
+
+        function showNotAcceptedResult(container) {
+            container.innerHTML = `
+                <div class="result-not-accepted">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Thank You for Your Interest</h2>
+                    <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 20px;">
+                        While decisions are final, we truly appreciate your dedication and effort 
+                        in taking the diagnostic tests. Competition was incredibly fierce this year 
+                        with 283 talented students vying for just 95 positions.
+                    </p>
+                    <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 20px;">
+                        We hope you will continue your pursuit of science outside of Science Olympiad. 
+                        Your passion and curiosity are valuable, and we encourage you to try again next year!
+                    </p>
+                    <p style="font-size: 1.1rem; font-style: italic; margin-top: 30px;">
+                        Best wishes in all your future scientific endeavors.
+                    </p>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
+

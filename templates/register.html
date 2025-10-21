@@ -17,39 +17,22 @@
         </div>
         <div class="section-content">
             <div class="register-intro">
-                <p>Register to join the team as early as possible to begin your learning journey for next year! Early registration helps you get a head start on the incredible amount of material you'll need to master.</p>
+                <p>Create your account to access the Science Olympiad platform. After registration, you can complete your full application through your account dashboard.</p>
                 <div class="info-box">
                     <div class="info-icon"><i class="fas fa-info-circle"></i></div>
                     <div class="info-content">
-                        <h3>Why Register Early?</h3>
+                        <h3>Quick & Easy Registration</h3>
                         <ul>
-                            <li>Get immediate access to learning paths and resources for all events</li>
-                            <li>Start building foundational knowledge before the competitive tryout process</li>
-                            <li>Demonstrate your commitment and dedication to the team</li>
-                            <li>Maximize your chances of success in the highly competitive selection process</li>
+                            <li>Complete registration in under 2 minutes</li>
+                            <li>Access your personalized dashboard immediately</li>
+                            <li>Complete your full application at your own pace</li>
+                            <li>Start exploring events and resources right away</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
             <form id="register-form" class="register-form">
-                <div class="form-section">
-                    <h3>Registration Mode</h3>
-                    <div class="quick-registration-toggle">
-                        <div class="toggle-container">
-                            <input type="checkbox" id="quickRegistration" name="quickRegistration" class="toggle-input">
-                            <label for="quickRegistration" class="toggle-label">
-                                <span class="toggle-slider"></span>
-                                <span class="toggle-text">Quick Registration Mode</span>
-                            </label>
-                        </div>
-                        <div class="toggle-description">
-                            <p><strong>Quick Registration:</strong> Complete basic registration in under 2 minutes. You can provide additional information later through your account settings.</p>
-                            <p><strong>Full Registration:</strong> Complete all questions now for a comprehensive application.</p>
-                        </div>
-                    </div>
-                </div>
-
                 <div class="form-section">
                     <h3>Personal Information</h3>
                     <div class="form-row">
@@ -104,249 +87,6 @@
                             <input type="password" id="confirmPassword" name="confirmPassword" required>
                         </div>
                     </div>
-                    <div class="form-row writing-question">
-                        <div class="form-group">
-                            <label for="bio">Tell us about yourself! (Grade, interests, hobbies, etc.) <span class="required">*</span></label>
-                            <textarea id="bio" name="bio" rows="4" maxlength="500" data-word-limit="100" required></textarea>
-                            <div class="word-counter"><span id="bioCount">0</span>/100 words</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-section">
-                    <h3>Team Status</h3>
-                    <p class="section-description">Returning members include those that have previous Division B experience in middle schools. New members describe those that have not had any previous SciOly experience.</p>
-                    <div class="form-group radio-group">
-                        <div class="radio-option">
-                            <input type="radio" id="newMember" name="memberStatus" value="new" checked>
-                            <label for="newMember">New Member</label>
-                        </div>
-                        <div class="radio-option">
-                            <input type="radio" id="returningMember" name="memberStatus" value="returning">
-                            <label for="returningMember">Returning Member</label>
-                        </div>
-                    </div>
-
-                    <div id="newMemberSection" class="conditional-section">
-                        <div class="form-group">
-                            <label for="hearAboutUs">How did you hear about us? <span class="required">*</span></label>
-                            <select id="hearAboutUs" name="hearAboutUs" required>
-                                <option value="" disabled selected>Select an option</option>
-                                <option value="from a friend">From a friend</option>
-                                <option value="from a family member">From a family member</option>
-                                <option value="on insta">On Instagram</option>
-                                <option value="on tiktok">On TikTok</option>
-                                <option value="looked into it">Looked into it</option>
-                                <option value="from WTV/poster">From WTV/poster</option>
-                                <option value="on discord">On Discord</option>
-                            </select>
-                        </div>
-                        <div class="form-group writing-question">
-                            <label for="interestReason">Why are you interested in Science Olympiad? <span class="required">*</span></label>
-                            <textarea id="interestReason" name="interestReason" rows="4" maxlength="500" data-word-limit="100" required></textarea>
-                            <div class="word-counter"><span id="interestReasonCount">0</span>/100 words</div>
-                        </div>
-                    </div>
-
-                    <div id="returningMemberSection" class="conditional-section" style="display: none;">
-                        <div class="form-group">
-                            <label for="yearsOnTeam">How many years have you been on the team? <span class="required">*</span></label>
-                            <select id="yearsOnTeam" name="yearsOnTeam" required>
-                                <option value="" disabled selected>Select number of years</option>
-                                <option value="1">1 year</option>
-                                <option value="2">2 years</option>
-                                <option value="3">3 years</option>
-                                <option value="4">4 years</option>
-                                <option value="5">5 years</option>
-                                <option value="6">6 years</option>
-                            </select>
-                            <div class="field-hint">Enter the number of years you've been on the Science Olympiad team, including your Division B experience, if applicable</div>
-                        </div>
-                        <div class="form-group writing-question">
-                            <label for="pastExperience">List your past Science Olympiad results, medal history, and membership <span class="required">*</span></label>
-                            <textarea id="pastExperience" name="pastExperience" rows="4" required></textarea>
-                        </div>
-                        <div class="form-group writing-question">
-                            <label for="returnReason">Why do you want to participate again this year? <span class="required">*</span></label>
-                            <textarea id="returnReason" name="returnReason" rows="4" required></textarea>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-section">
-                    <h3>Time Commitment</h3>
-                    <p class="section-description">Please indicate how many hours per week (for a maximum of 4 hours per week) you can commit to Science Olympiad during each season.</p>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="preseasonHrs">Preseason (July-September) <span class="required">*</span></label>
-                            <select id="preseasonHrs" name="preseasonHrs" required>
-                                <option value="" disabled selected>Select hours per week</option>
-                                <option value="0">0 hours</option>
-                                <option value="1">1 hour</option>
-                                <option value="2">2 hours</option>
-                                <option value="3">3 hours</option>
-                                <option value="4">4 hours</option>
-                            </select>
-                            <div class="field-hint">Hours per week during preseason</div>
-                        </div>
-                        <div class="form-group">
-                            <label for="regseasonHrs">Regular Season (October-December) <span class="required">*</span></label>
-                            <select id="regseasonHrs" name="regseasonHrs" required>
-                                <option value="" disabled selected>Select hours per week</option>
-                                <option value="0">0 hours</option>
-                                <option value="1">1 hour</option>
-                                <option value="2">2 hours</option>
-                                <option value="3">3 hours</option>
-                                <option value="4">4 hours</option>
-                            </select>
-                            <div class="field-hint">Hours per week during regular season</div>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="postseasonHrs">Post-Season (January-March) <span class="required">*</span></label>
-                            <select id="postseasonHrs" name="postseasonHrs" required>
-                                <option value="" disabled selected>Select hours per week</option>
-                                <option value="0">0 hours</option>
-                                <option value="1">1 hour</option>
-                                <option value="2">2 hours</option>
-                                <option value="3">3 hours</option>
-                                <option value="4">4 hours</option>
-                            </select>
-                            <div class="field-hint">Hours per week during post-season</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-section">
-                    <h3>Notification Preferences</h3>
-                    <p class="section-description">Choose how you'd like to receive different types of notifications.</p>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="importantNotification">Important Notifications <span class="required">*</span></label>
-                            <select id="importantNotification" name="importantNotification" required>
-                                <option value="email" selected>Email</option>
-                                <option value="text">Text</option>
-                                <option value="both">Both Email & Text</option>
-                                <option value="none">None</option>
-                            </select>
-                            <div class="field-hint">Critical team updates, deadlines, and announcements</div>
-                        </div>
-                        <div class="form-group">
-                            <label for="teamNotification">Team Notifications <span class="required">*</span></label>
-                            <select id="teamNotification" name="teamNotification" required>
-                                <option value="email" selected>Email</option>
-                                <option value="text">Text</option>
-                                <option value="both">Both Email & Text</option>
-                                <option value="none">None</option>
-                            </select>
-                            <div class="field-hint">General team updates and communications</div>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="eventNotification">Event Notifications <span class="required">*</span></label>
-                            <select id="eventNotification" name="eventNotification" required>
-                                <option value="email" selected>Email</option>
-                                <option value="text">Text</option>
-                                <option value="both">Both Email & Text</option>
-                                <option value="none">None</option>
-                            </select>
-                            <div class="field-hint">Meeting reminders, event updates, and competition notifications</div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="form-section">
-                    <h3>Event Selection</h3>
-                    <p class="selection-info">Select between 2-6 events you're interested in trying out for.</p>
-                    <p class="selection-note">Note: You can change your event preferences at any time through your account settings after joining the team.</p>
-                    <p class="selection-counter">Events selected: <span id="eventsCounter">0</span>/6</p>
-                    
-                    <div class="events-container" id="eventsContainer">
-                        <div class="loading-events">
-                            <i class="fas fa-spinner fa-spin"></i>
-                            <p>Loading available events...</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-section">
-                    <h3>Science Olympiad Membership Contract</h3>
-                    <div class="contract-container">
-                        <div class="contract-text">
-                            <p>By submitting this registration, I agree to the following terms and conditions of membership in the Bronx Science Science Olympiad team:</p>
-                            
-                            <h4><i class="fas fa-graduation-cap"></i> Academic Honesty and Integrity</h4>
-                            <ul>
-                                <li>I will not use artificial intelligence (AI) tools, chatbots, or automated assistance in completing learning modules, practice tests, or any educational materials provided by the team.</li>
-                                <li>I will not plagiarize, cheat, or engage in any form of academic dishonesty during practices, invitationals, competitions, or related activities.</li>
-                                <li>I understand that violations of academic honesty may result in removal from the team and forfeiture of competition opportunities.</li>
-                            </ul>
-
-                            <h4><i class="fas fa-shield-alt"></i> Code of Conduct and Anti-Bullying Policy</h4>
-                            <ul>
-                                <li>I will treat all team members, coaches, volunteers, and competitors with respect and dignity at all times.</li>
-                                <li>I will not engage in bullying, harassment, discrimination, or intimidation of any kind, whether verbal, physical, or digital.</li>
-                                <li>I will maintain appropriate language and behavior during all team activities, competitions, and related events.</li>
-                                <li>I will report any instances of bullying, harassment, or inappropriate behavior to team leadership immediately.</li>
-                                <li>I understand that violations may result in disciplinary action including warnings, suspension, or permanent removal from the team.</li>
-                            </ul>
-
-                            <h4><i class="fas fa-hard-hat"></i> Safety and Laboratory Precautions</h4>
-                            <ul>
-                                <li>I will follow all safety protocols and guidelines during laboratory work, build sessions, and competitions.</li>
-                                <li>I will wear appropriate personal protective equipment (PPE) as required and directed by coaches.</li>
-                                <li>I will handle all materials, tools, and equipment responsibly and report any safety concerns immediately.</li>
-                                <li>I will not engage in unsafe practices or horseplay during any team activities.</li>
-                                <li>I understand that failure to follow safety protocols may result in immediate removal from the activity and potential team consequences.</li>
-                            </ul>
-
-                            <h4><i class="fas fa-calendar-check"></i> Commitment and Participation</h4>
-                            <ul>
-                                <li>I understand that Science Olympiad requires significant time commitment and dedication throughout the school year.</li>
-                                <li>I will attend all required practices, meetings, and competitions unless excused by team leadership.</li>
-                                <li>I will communicate absences or conflicts in advance whenever possible.</li>
-                            </ul>
-
-                            <h4><i class="fas fa-users"></i> Team Representation and Sportsmanship</h4>
-                            <ul>
-                                <li>I will represent Bronx Science with pride, integrity, and good sportsmanship at all competitions and team events.</li>
-                                <li>I will accept both victories and defeats gracefully and congratulate competitors regardless of outcomes.</li>
-                                <li>I will follow all competition rules and guidelines as set forth by Science Olympiad national and regional organizations.</li>
-                                <li>I understand that poor sportsmanship or inappropriate behavior may result in disqualification from competitions.</li>
-                            </ul>
-
-                            <h4><i class="fas fa-gavel"></i> Disciplinary Actions and Consequences</h4>
-                            <ul>
-                                <li>I understand that the team leadership reserves the right to impose disciplinary actions for violations of this contract.</li>
-                                <li>Consequences may include but are not limited to: verbal warnings, written warnings, suspension from practices or competitions, removal from specific events, or permanent dismissal from the team.</li>
-                                <li>I understand that serious violations may also result in school disciplinary action as per Bronx Science policies.</li>
-                                <li>I have the right to appeal disciplinary decisions through the established team grievance process.</li>
-                            </ul>
-
-                            <h4><i class="fas fa-info-circle"></i> Additional Terms</h4>
-                            <ul>
-                                <li>I understand that team membership is contingent upon maintaining good academic standing at Bronx Science.</li>
-                                <li>I give permission for photographs and videos taken during team activities to be used for promotional purposes.</li>
-                                <li>I understand that this contract remains in effect for the duration of my membership on the team.</li>
-                                <li>I acknowledge that team policies and procedures may be updated throughout the year, and I agree to comply with any reasonable changes.</li>
-                            </ul>
-
-                            <div class="contract-footer">
-                                <p><strong>By checking the box below and submitting this registration, I acknowledge that I have read, understood, and agree to abide by all terms of this Science Olympiad Membership Contract.</strong></p>
-                            </div>
-                        </div>
-                        
-                        <div class="contract-checkbox">
-                            <input type="checkbox" id="contractAccepted" name="contractAccepted" required>
-                            <label for="contractAccepted">
-                                <strong>I have read and agree to the Science Olympiad Membership Contract <span class="required">*</span></strong>
-                            </label>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="form-footer">
@@ -366,35 +106,34 @@
         <div class="section-content">
             <div class="next-steps">
                 <div class="step">
-                    <div class="step-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="step-icon"><i class="fas fa-user-circle"></i></div>
                     <div class="step-content">
-                        <h3>Instant Access to Learning Resources</h3>
-                        <p>Immediately after registration, you'll gain access to comprehensive learning paths for each event. Start studying right away to get ahead of the competition and demonstrate your commitment.</p>
-                        <p><em>Quick Registration Users:</em> You can complete your profile with additional information through your account settings at any time.</p>
+                        <h3>Access Your Dashboard</h3>
+                        <p>Immediately after registration, you'll be able to log in and access your personalized dashboard where you can complete your full application.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-icon"><i class="fas fa-file-alt"></i></div>
+                    <div class="step-content">
+                        <h3>Complete Your Application</h3>
+                        <p>Navigate to the Application tab in your dashboard to complete the full team application, including event selection, time commitments, and the membership contract.</p>
                     </div>
                 </div>
                 
                 <div class="step">
                     <div class="step-icon"><i class="fas fa-book-reader"></i></div>
                     <div class="step-content">
-                        <h3>Begin Your Learning Journey</h3>
-                        <p>Dive deep into your selected events using our curated resources, practice tests, and study materials. The more effort you put in now, the better prepared you'll be for tryouts and team success.</p>
-                    </div>
-                </div>
-                
-                <div class="step">
-                    <div class="step-icon"><i class="fas fa-calendar-alt"></i></div>
-                    <div class="step-content">
-                        <h3>Competitive Tryout Process</h3>
-                        <p>Tryouts will be held in October. This is a highly competitive process where dedication and preparation make all the difference. Use the summer to maximize your chances of success.</p>
+                        <h3>Explore Resources</h3>
+                        <p>Once your application is complete, gain access to comprehensive learning paths, practice tests, and study materials for all Science Olympiad events.</p>
                     </div>
                 </div>
                 
                 <div class="step">
                     <div class="step-icon"><i class="fas fa-trophy"></i></div>
                     <div class="step-content">
-                        <h3>Join an Elite Community</h3>
-                        <p>Team selections will be announced shortly after tryouts. If selected, you'll join a community of incredibly smart and talented individuals who are passionate about scientific excellence.</p>
+                        <h3>Prepare for Tryouts</h3>
+                        <p>Use the platform resources to prepare for tryouts. The more effort you put in, the better prepared you'll be to join our competitive team.</p>
                     </div>
                 </div>
             </div>
@@ -1004,338 +743,13 @@
 {% block extra_js %}
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Initialize form field variables at the top (moved here to fix ReferenceError)
-        const contractCheckbox = document.getElementById('contractAccepted');
+        // Initialize form field variables
         const submitBtn = document.querySelector('.submit-btn');
         const passwordField = document.getElementById('password');
         const confirmPasswordField = document.getElementById('confirmPassword');
-        const quickRegistrationToggle = document.getElementById('quickRegistration');
-        
-        // Load events from API
-        loadEventsFromAPI();
-        
-        // Quick Registration Toggle Functionality
-        quickRegistrationToggle.addEventListener('change', function() {
-            const writingQuestions = document.querySelectorAll('.writing-question');
-            
-            if (this.checked) {
-                // Quick registration mode - hide writing questions and remove required attribute
-                writingQuestions.forEach(question => {
-                    // Remove required attribute from all input/textarea elements in this question
-                    const inputs = question.querySelectorAll('input, textarea, select');
-                    inputs.forEach(input => {
-                        input.removeAttribute('required');
-                    });
-                    
-                    question.classList.add('fade-out');
-                    setTimeout(() => {
-                        question.classList.add('hidden');
-                    }, 300);
-                });
-            } else {
-                // Full registration mode - show writing questions and restore required attribute
-                writingQuestions.forEach(question => {
-                    question.classList.remove('hidden');
-                    setTimeout(() => {
-                        question.classList.remove('fade-out');
-                    }, 10);
-                    
-                    // Restore required attribute based on member status and field type
-                    const bioField = question.querySelector('#bio');
-                    const interestReasonField = question.querySelector('#interestReason');
-                    const pastExperienceField = question.querySelector('#pastExperience');
-                    const returnReasonField = question.querySelector('#returnReason');
-                    
-                    // Bio is always required in full registration mode
-                    if (bioField) {
-                        bioField.setAttribute('required', '');
-                    }
-                    
-                    // Interest reason is required for new members
-                    if (interestReasonField && newMemberRadio.checked) {
-                        interestReasonField.setAttribute('required', '');
-                    }
-                    
-                    // Past experience and return reason are required for returning members
-                    if (returningMemberRadio.checked) {
-                        if (pastExperienceField) {
-                            pastExperienceField.setAttribute('required', '');
-                        }
-                        if (returnReasonField) {
-                            returnReasonField.setAttribute('required', '');
-                        }
-                    }
-                });
-            }
-            
-            // Update submit button state when toggle changes
-            updateSubmitButtonState();
-        });
-        
-        // Toggle between new and returning member sections
-        const newMemberRadio = document.getElementById('newMember');
-        const returningMemberRadio = document.getElementById('returningMember');
-        const newMemberSection = document.getElementById('newMemberSection');
-        const returningMemberSection = document.getElementById('returningMemberSection');
-        
-        // Initialize required fields based on the default selection
-        const interestReasonField = document.getElementById('interestReason');
-        const pastExperienceField = document.getElementById('pastExperience');
-        const returnReasonField = document.getElementById('returnReason');
-        const hearAboutUsField = document.getElementById('hearAboutUs');
-        const yearsOnTeamField = document.getElementById('yearsOnTeam');
-        
-        // Set initial state based on which radio button is checked
-        if (newMemberRadio.checked) {
-            newMemberSection.style.display = 'block';
-            returningMemberSection.style.display = 'none';
-            interestReasonField.setAttribute('required', '');
-            hearAboutUsField.setAttribute('required', '');
-            pastExperienceField.removeAttribute('required');
-            returnReasonField.removeAttribute('required');
-            yearsOnTeamField.removeAttribute('required');
-        } else {
-            newMemberSection.style.display = 'none';
-            returningMemberSection.style.display = 'block';
-            interestReasonField.removeAttribute('required');
-            hearAboutUsField.removeAttribute('required');
-            pastExperienceField.setAttribute('required', '');
-            returnReasonField.setAttribute('required', '');
-            yearsOnTeamField.setAttribute('required', '');
-        }
-        
-        // Add event listeners for radio buttons
-        newMemberRadio.addEventListener('change', function() {
-            if (this.checked) {
-                newMemberSection.style.display = 'block';
-                returningMemberSection.style.display = 'none';
-                
-                // Enable validation for fields in the visible section
-                hearAboutUsField.setAttribute('required', '');
-                
-                // Only set required for writing questions if not in quick registration mode
-                if (!quickRegistrationToggle.checked) {
-                    interestReasonField.setAttribute('required', '');
-                }
-                
-                // Disable validation for fields in the hidden section
-                pastExperienceField.removeAttribute('required');
-                returnReasonField.removeAttribute('required');
-                yearsOnTeamField.removeAttribute('required');
-            }
-        });
-        
-        returningMemberRadio.addEventListener('change', function() {
-            if (this.checked) {
-                newMemberSection.style.display = 'none';
-                returningMemberSection.style.display = 'block';
-                
-                // Disable validation for fields in the hidden section
-                interestReasonField.removeAttribute('required');
-                hearAboutUsField.removeAttribute('required');
-                
-                // Enable validation for fields in the visible section
-                yearsOnTeamField.setAttribute('required', '');
-                
-                // Only set required for writing questions if not in quick registration mode
-                if (!quickRegistrationToggle.checked) {
-                    pastExperienceField.setAttribute('required', '');
-                    returnReasonField.setAttribute('required', '');
-                }
-            }
-        });
-        
-        // Word counter for "Why interested" field
-        const interestReasonCount = document.getElementById('interestReasonCount');
-        
-        interestReasonField.addEventListener('input', function() {
-            const words = this.value.trim().split(/\s+/).filter(word => word.length > 0);
-            const wordCount = words.length;
-            const maxWords = parseInt(this.getAttribute('data-word-limit'));
-            
-            // If word count exceeds limit, truncate the text
-            if (wordCount > maxWords) {
-                const truncatedWords = words.slice(0, maxWords);
-                this.value = truncatedWords.join(' ');
-                // Move cursor to end of text
-                this.setSelectionRange(this.value.length, this.value.length);
-            }
-            
-            // Update counter with actual word count (after truncation)
-            const actualWords = this.value.trim().split(/\s+/).filter(word => word.length > 0);
-            const actualWordCount = actualWords.length;
-            interestReasonCount.textContent = actualWordCount;
-            
-            if (actualWordCount >= maxWords) {
-                interestReasonCount.style.color = '#e74c3c';
-            } else {
-                interestReasonCount.style.color = '';
-            }
-        });
-        
-        // Word counter for bio field
-        const bioField = document.getElementById('bio');
-        const bioCount = document.getElementById('bioCount');
-        
-        bioField.addEventListener('input', function() {
-            const words = this.value.trim().split(/\s+/).filter(word => word.length > 0);
-            const wordCount = words.length;
-            const maxWords = parseInt(this.getAttribute('data-word-limit'));
-            
-            // If word count exceeds limit, truncate the text
-            if (wordCount > maxWords) {
-                const truncatedWords = words.slice(0, maxWords);
-                this.value = truncatedWords.join(' ');
-                // Move cursor to end of text
-                this.setSelectionRange(this.value.length, this.value.length);
-            }
-            
-            // Update counter with actual word count (after truncation)
-            const actualWords = this.value.trim().split(/\s+/).filter(word => word.length > 0);
-            const actualWordCount = actualWords.length;
-            bioCount.textContent = actualWordCount;
-            
-            if (actualWordCount >= maxWords) {
-                bioCount.style.color = '#e74c3c';
-            } else {
-                bioCount.style.color = '';
-            }
-        });
-        
-        // Load events from API
-        function loadEventsFromAPI() {
-            fetch('/api/Events')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Failed to load events');
-                    }
-                    return response.json();
-                })
-                .then(eventsData => {
-                    // Process events data and group by subject
-                    const events = eventsData.map(item => {
-                        const id = Object.keys(item)[0];
-                        return { id, ...item[id] };
-                    });
-                    
-                    // Group events by subject
-                    const eventsBySubject = {};
-                    events.forEach(event => {
-                        let subject = event.subject || 'classification-compilation';
-                        
-                        // Combine construction-build and precision-build into build-events
-                        if (subject === 'construction-build' || subject === 'precision-build') {
-                            subject = 'build-events';
-                        }
-                        
-                        if (!eventsBySubject[subject]) {
-                            eventsBySubject[subject] = [];
-                        }
-                        eventsBySubject[subject].push(event);
-                    });
-                    
-                    // Render events by subject
-                    renderEventsBySubject(eventsBySubject);
-                })
-                .catch(error => {
-                    console.error('Error loading events:', error);
-                    document.getElementById('eventsContainer').innerHTML = `
-                        <div class="error-message">
-                            <i class="fas fa-exclamation-circle"></i>
-                            <p>Failed to load events. Please refresh the page and try again.</p>
-                        </div>
-                    `;
-                });
-        }
-        
-        // Render events grouped by subject
-        function renderEventsBySubject(eventsBySubject) {
-            const container = document.getElementById('eventsContainer');
-            container.innerHTML = '';
-            
-            // Subject display names and icons
-            const subjectInfo = {
-                'build-events': { name: 'Build Events', icon: 'fas fa-hammer', description: '<em>Events requiring foundations in physics — specifically applying them to engineering, electronics, and programming.</em>' },
-                'physics': { name: 'Physics and Design Events', icon: 'fas fa-cogs', description: 'These events require a strong foundation in physics, specifically mechanics and electricity, and are often hybrid events between test and build portions.' },
-                'earth-science': { name: 'Earth Science Events', icon: 'fas fa-globe-americas', description: 'These events describe the Earth as a system and how the dynamics and processes within its unique environments affect the Earth as a whole.' },
-                'classification-compilation': { name: 'Classification & Compilation Events', icon: 'fas fa-search', description: 'This category describes events that require heavy research and compilation of information. All events in this category are binder events between Biology and Earth Science.' },
-                'biology': { name: 'Biology Events', icon: 'fas fa-dna', description: 'These events require a strong foundation in biology, specifically applied to genetics, epidemiology, and neuroscience.' },
-                'chemistry': { name: 'Chemistry & Inquiry Events', icon: 'fas fa-flask', description: 'Events that require foundations in chemistry and scientific inquiry applied to experimentation and chemical interactions.' }
-            };
-            
-            // Render each subject group
-            Object.keys(eventsBySubject).forEach(subject => {
-                const events = eventsBySubject[subject];
-                const info = subjectInfo[subject] || subjectInfo['classification-compilation'];
-                
-                const subjectSection = document.createElement('div');
-                subjectSection.innerHTML = `
-                    <h4><i class="${info.icon}"></i> ${info.name}</h4>
-                    <p class="subject-description">${info.description}</p>
-                    <div class="events-grid" id="events-grid-${subject}">
-                    </div>
-                `;
-                
-                container.appendChild(subjectSection);
-                
-                // Add events to this subject's grid
-                const grid = document.getElementById(`events-grid-${subject}`);
-                events.forEach(event => {
-                    const eventCheckbox = document.createElement('div');
-                    eventCheckbox.className = 'event-checkbox';
-                    eventCheckbox.innerHTML = `
-                        <input type="checkbox" id="${event.id}" name="events[]" value="${event.eventName}" class="event-check">
-                        <label for="${event.id}">${event.eventName}</label>
-                    `;
-                    grid.appendChild(eventCheckbox);
-                });
-            });
-            
-            // Re-initialize event checkboxes after rendering
-            initializeEventCheckboxes();
-        }
-        
-        // Initialize event checkboxes functionality
-        function initializeEventCheckboxes() {
-            const eventCheckboxes = document.querySelectorAll('.event-check');
-            const eventsCounter = document.getElementById('eventsCounter');
-            
-            eventCheckboxes.forEach(checkbox => {
-                checkbox.addEventListener('change', function() {
-                    const checkedEvents = document.querySelectorAll('.event-check:checked').length;
-                    eventsCounter.textContent = checkedEvents;
-                    
-                    // Apply visual feedback for the counter
-                    if (checkedEvents < 2) {
-                        eventsCounter.style.color = '#e74c3c'; // Red for too few
-                    } else if (checkedEvents > 6) {
-                        eventsCounter.style.color = '#e74c3c'; // Red for too many
-                    } else {
-                        eventsCounter.style.color = '#27ae60'; // Green for just right
-                    }
-                    
-                    // Disable checkboxes if more than 6 are selected
-                    if (checkedEvents >= 6) {
-                        eventCheckboxes.forEach(cb => {
-                            if (!cb.checked) {
-                                cb.disabled = true;
-                            }
-                        });
-                    } else {
-                        eventCheckboxes.forEach(cb => {
-                            cb.disabled = false;
-                        });
-                    }
-                    
-                    // Update submit button state when events change
-                    updateSubmitButtonState();
-                });
-            });
-        }
-        
-        // Add event listener to DOE email field for email validation
         const doeEmailField = document.getElementById('doeEmail');
         
+        // Add event listener to DOE email field for email validation
         doeEmailField.addEventListener('input', function() {
             // Check for duplicate email
             checkEmailAvailability();
@@ -1425,8 +839,6 @@
             }
         }
         
-        // Form field variables are now declared at the top of the function
-        
         function updateSubmitButtonState() {
             // Check for all possible errors
             let hasErrors = false;
@@ -1435,25 +847,14 @@
             // Get the formErrors div
             const formErrors = document.getElementById('formErrors');
             
-            // Check if quick registration is enabled (moved to top)
-            const isQuickRegistration = quickRegistrationToggle.checked;
-            
-            // 1. Check contract acceptance
-            if (!contractCheckbox.checked) {
-                hasErrors = true;
-                errorReasons.push('Contract not accepted');
-            }
-            
-            // 2. Check for email error
+            // 1. Check for email error
             const emailError = document.getElementById('emailError');
             if (emailError && emailError.textContent === 'Email already in use. Try again.') {
                 hasErrors = true;
                 errorReasons.push('Email already in use');
             }
             
-
-            
-            // 4. Check required fields (common to all members)
+            // 2. Check required fields
             const requiredFields = [
                 { id: 'firstName', name: 'First Name' },
                 { id: 'lastName', name: 'Last Name' },
@@ -1462,16 +863,8 @@
                 { id: 'grade', name: 'Grade' },
                 { id: 'phoneNumber', name: 'Phone Number' },
                 { id: 'password', name: 'Password' },
-                { id: 'confirmPassword', name: 'Confirm Password' },
-                { id: 'importantNotification', name: 'Important Notifications' },
-                { id: 'teamNotification', name: 'Team Notifications' },
-                { id: 'eventNotification', name: 'Event Notifications' }
+                { id: 'confirmPassword', name: 'Confirm Password' }
             ];
-            
-            // Only require bio if not in quick registration mode
-            if (!isQuickRegistration) {
-                requiredFields.push({ id: 'bio', name: 'Bio' });
-            }
             
             requiredFields.forEach(field => {
                 const element = document.getElementById(field.id);
@@ -1481,57 +874,7 @@
                 }
             });
             
-            // Check conditional required fields based on member status
-            const newMemberRadio = document.querySelector('input[name="memberStatus"][value="new"]');
-            const returningMemberRadio = document.querySelector('input[name="memberStatus"][value="returning"]');
-            
-            if (newMemberRadio && newMemberRadio.checked) {
-                // New member specific required fields
-                const newMemberFields = [
-                    { id: 'hearAboutUs', name: 'How did you hear about us' }
-                ];
-                
-                // Only require writing questions if not in quick registration mode
-                if (!isQuickRegistration) {
-                    newMemberFields.push({ id: 'interestReason', name: 'Interest reason' });
-                }
-                
-                newMemberFields.forEach(field => {
-                    const element = document.getElementById(field.id);
-                    if (element && !element.value.trim()) {
-                        hasErrors = true;
-                        errorReasons.push(`${field.name} is required for new members`);
-                    }
-                });
-            }
-            
-            if (returningMemberRadio && returningMemberRadio.checked) {
-                // Returning member specific required fields
-                const returningMemberFields = [
-                    { id: 'yearsOnTeam', name: 'Years on team' },
-                    { id: 'preseasonHrs', name: 'Preseason hours' },
-                    { id: 'regseasonHrs', name: 'Regular season hours' },
-                    { id: 'postseasonHrs', name: 'Post-season hours' }
-                ];
-                
-                // Only require writing questions if not in quick registration mode
-                if (!isQuickRegistration) {
-                    returningMemberFields.push(
-                        { id: 'pastExperience', name: 'Past experience' },
-                        { id: 'returnReason', name: 'Return reason' }
-                    );
-                }
-                
-                returningMemberFields.forEach(field => {
-                    const element = document.getElementById(field.id);
-                    if (element && !element.value.trim()) {
-                        hasErrors = true;
-                        errorReasons.push(`${field.name} is required for returning members`);
-                    }
-                });
-            }
-            
-            // 5. Check password validation
+            // 3. Check password validation
             const password = passwordField.value;
             const confirmPassword = confirmPasswordField.value;
             const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d\W_]{8,}$/;
@@ -1546,14 +889,14 @@
                 errorReasons.push('Passwords do not match');
             }
             
-            // 6. Check DOE email format
+            // 4. Check DOE email format
             const doeEmail = document.getElementById('doeEmail').value;
             if (doeEmail && !doeEmail.endsWith('@nycstudents.net')) {
                 hasErrors = true;
                 errorReasons.push('DOE email must end with @nycstudents.net');
             }
             
-            // 7. Check phone number format
+            // 5. Check phone number format
             const phoneNumber = document.getElementById('phoneNumber').value;
             const phonePattern = /^[0-9]{3}-[0-9]{3}-[0-9]{4}$/;
             if (phoneNumber && !phonePattern.test(phoneNumber)) {
@@ -1561,46 +904,12 @@
                 errorReasons.push('Phone number must be in XXX-XXX-XXXX format');
             }
             
-            // 8. Check event selection
-            const checkedEvents = document.querySelectorAll('.event-check:checked').length;
-            if (checkedEvents < 2 || checkedEvents > 6) {
-                hasErrors = true;
-                errorReasons.push(`Must select 2-6 events (currently selected: ${checkedEvents})`);
-            }
-            
-            // 9. Check word count limits (only if not in quick registration mode)
-            if (!isQuickRegistration) {
-                const bioWords = document.getElementById('bio').value.trim().split(/\s+/).filter(word => word.length > 0);
-                const bioWordCount = bioWords.length;
-                const bioMaxWords = parseInt(document.getElementById('bio').getAttribute('data-word-limit'));
-                if (bioWordCount > bioMaxWords) {
-                    hasErrors = true;
-                    errorReasons.push(`Bio exceeds word limit (${bioWordCount}/${bioMaxWords})`);
-                }
-                
-                // Check interest reason word count for new members
-                if (newMemberRadio && newMemberRadio.checked) {
-                    const interestReasonField = document.getElementById('interestReason');
-                    if (interestReasonField) {
-                        const words = interestReasonField.value.trim().split(/\s+/).filter(word => word.length > 0);
-                        const wordCount = words.length;
-                        const maxWords = parseInt(interestReasonField.getAttribute('data-word-limit'));
-                        if (wordCount > maxWords) {
-                            hasErrors = true;
-                            errorReasons.push(`Interest reason exceeds word limit (${wordCount}/${maxWords})`);
-                        }
-                    }
-                }
-            }
-            
             // Display errors in the formErrors div
             if (hasErrors) {
-                console.log('Submit button disabled due to:', errorReasons);
                 formErrors.innerHTML = '<div class="error-list"><strong>Please fix the following issues:</strong><ul>' + 
                     errorReasons.map(reason => `<li>${reason}</li>`).join('') + '</ul></div>';
                 formErrors.style.display = 'block';
             } else {
-                console.log('Submit button enabled - all validations passed');
                 formErrors.innerHTML = '';
                 formErrors.style.display = 'none';
             }
@@ -1622,18 +931,9 @@
         // Initialize button state
         updateSubmitButtonState();
         
-
-        
         // Add event listeners to all form fields for real-time submit button updates
-        contractCheckbox.addEventListener('change', updateSubmitButtonState);
-        quickRegistrationToggle.addEventListener('change', updateSubmitButtonState);
-        
-        // Add event listeners to remaining form fields
         const formFields = [
-            'firstName', 'lastName', 'personalEmail', 'phoneNumber', 
-            'grade', 'bio', 'hearAboutUs', 'interestReason', 'yearsOnTeam', 
-            'pastExperience', 'returnReason', 'preseasonHrs', 'regseasonHrs', 
-            'postseasonHrs', 'importantNotification', 'teamNotification', 'eventNotification'
+            'firstName', 'lastName', 'personalEmail', 'phoneNumber', 'grade'
         ];
         
         formFields.forEach(fieldId => {
@@ -1643,14 +943,6 @@
                 field.addEventListener('change', updateSubmitButtonState);
             }
         });
-        
-        // Add event listeners to radio buttons
-        document.querySelectorAll('input[name="memberStatus"]').forEach(radio => {
-            radio.addEventListener('change', updateSubmitButtonState);
-        });
-        
-        // Event checkboxes will have their listeners attached in initializeEventCheckboxes()
-        // after they are dynamically created when events are loaded from the API
         
         // Password validation
         function validatePassword() {
@@ -1691,8 +983,6 @@
             formErrors.innerHTML = '';
             formErrors.style.display = 'none';
             
-
-            
             // Validate password requirements
             const password = passwordField.value;
             const confirmPassword = confirmPasswordField.value;
@@ -1704,36 +994,6 @@
             
             if (password !== confirmPassword) {
                 errors.push('Passwords do not match.');
-            }
-            
-            // Validate event selection (2-6 events required)
-            const checkedEvents = document.querySelectorAll('.event-check:checked').length;
-            if (checkedEvents < 2) {
-                errors.push('Please select at least 2 events to try out for.');
-            } else if (checkedEvents > 6) {
-                errors.push('Please select no more than 6 events to try out for.');
-            }
-            
-            // Validate word count for interest reason (new members) - only if not in quick registration mode
-            if (newMemberRadio.checked && !quickRegistrationToggle.checked) {
-                const words = interestReasonField.value.trim().split(/\s+/).filter(word => word.length > 0);
-                const wordCount = words.length;
-                const maxWords = parseInt(interestReasonField.getAttribute('data-word-limit'));
-                
-                if (wordCount > maxWords) {
-                    errors.push(`Your interest statement exceeds the ${maxWords} word limit. Please shorten it.`);
-                }
-            }
-            
-            // Validate word count for bio field - only if not in quick registration mode
-            if (!quickRegistrationToggle.checked) {
-                const bioWords = bioField.value.trim().split(/\s+/).filter(word => word.length > 0);
-                const bioWordCount = bioWords.length;
-                const bioMaxWords = parseInt(bioField.getAttribute('data-word-limit'));
-                
-                if (bioWordCount > bioMaxWords) {
-                    errors.push(`Your bio exceeds the ${bioMaxWords} word limit. Please shorten it.`);
-                }
             }
             
             // Validate phone number format
@@ -1755,12 +1015,6 @@
                 errors.push('Email already in use. Try again.');
             }
             
-            // Validate membership contract acceptance
-            const contractAccepted = document.getElementById('contractAccepted').checked;
-            if (!contractAccepted) {
-                errors.push('You must read and agree to the Science Olympiad Membership Contract to proceed.');
-            }
-            
             // Display errors if any
             if (errors.length > 0) {
                 formErrors.style.display = 'block';
@@ -1771,17 +1025,10 @@
                 });
             } else {
                 // Form is valid, submit to Firebase
-                const submitBtn = document.querySelector('.submit-btn');
                 submitBtn.textContent = 'Submitting...';
                 submitBtn.disabled = true;
                 
-                // Get selected events
-                const selectedEvents = [];
-                document.querySelectorAll('.event-check:checked').forEach(checkbox => {
-                    selectedEvents.push(checkbox.value); // This will be the eventName from the Events collection
-                });
-                
-                // Build the member data object
+                // Build the member data object with basic info only
                 const memberData = {
                     firstName: document.getElementById('firstName').value,
                     lastName: document.getElementById('lastName').value,
@@ -1789,33 +1036,12 @@
                     personalEmail: document.getElementById('personalEmail').value,
                     phoneNumber: document.getElementById('phoneNumber').value,
                     grade: document.getElementById('grade').value,
-                    password: document.getElementById('password').value, // Note: In production, handle password securely
-                    memberStatus: document.querySelector('input[name="memberStatus"]:checked').value,
-                    bio: quickRegistrationToggle.checked ? '' : document.getElementById('bio').value,
-                    events: selectedEvents,
-                    preseasonHrs: parseFloat(document.getElementById('preseasonHrs').value),
-                    regseasonHrs: parseFloat(document.getElementById('regseasonHrs').value),
-                    postseasonHrs: parseFloat(document.getElementById('postseasonHrs').value),
-                    importantNotification: document.getElementById('importantNotification').value,
-                    teamNotification: document.getElementById('teamNotification').value,
-                    eventNotification: document.getElementById('eventNotification').value,
-                    contractAccepted: document.getElementById('contractAccepted').checked,
-                    contractAcceptedAt: new Date().toISOString(),
+                    password: document.getElementById('password').value,
                     createdAt: new Date().toISOString(),
-                    status: 'pending', // Initial registration status
+                    status: 'registered', // Basic registration complete, application pending
                     adminStatus: 'none',
-                    quickRegistration: quickRegistrationToggle.checked // Track if this was a quick registration
+                    applicationStatus: 'incomplete' // Track application completion
                 };
-                
-                // Add specific fields based on member type
-                if (memberData.memberStatus === 'new') {
-                    memberData.interestReason = quickRegistrationToggle.checked ? '' : document.getElementById('interestReason').value;
-                    memberData.howDidYouHearAboutUs = document.getElementById('hearAboutUs').value;
-                } else {
-                    memberData.pastExperience = quickRegistrationToggle.checked ? '' : document.getElementById('pastExperience').value;
-                    memberData.returnReason = quickRegistrationToggle.checked ? '' : document.getElementById('returnReason').value;
-                    memberData.yearsInTeam = parseInt(document.getElementById('yearsOnTeam').value);
-                }
                 
                 // Post to Firebase Members collection
                 fetch('/api/Members', {
@@ -1834,9 +1060,9 @@
                     return response.json();
                 })
                 .then(data => {
-                    // Success - redirect to post-registration page
-                    localStorage.setItem('registrationId', data.id);
-                    window.location.href = '/post-registration';
+                    // Success - redirect to login page
+                    alert('Registration successful! Please log in to complete your application.');
+                    window.location.href = '/login';
                 })
                 .catch(error => {
                     console.error('Error submitting registration:', error);

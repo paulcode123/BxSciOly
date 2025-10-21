@@ -1,0 +1,798 @@
+{% extends 'layout.html' %}
+
+{% block title %}Meetings - Bronx Science Olympiad{% endblock %}
+
+{% block extra_css %}
+<style>
+    .meetings-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+    }
+    
+    .section-title {
+        font-size: 1.75rem;
+        font-weight: 700;
+        margin: 2rem 0 1.5rem 0;
+        color: #1f2937;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+    
+    .section-title i {
+        color: #3b82f6;
+    }
+    
+    /* Schedule Section */
+    .schedule-container {
+        background: white;
+        border-radius: 0.75rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        padding: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .schedule-day {
+        margin-bottom: 1.5rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid #e5e7eb;
+    }
+    
+    .schedule-day:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+    
+    .day-header {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #1f2937;
+        margin-bottom: 1rem;
+    }
+    
+    .block-row {
+        display: grid;
+        grid-template-columns: 150px 1fr;
+        gap: 1.5rem;
+        margin-bottom: 0.75rem;
+        align-items: start;
+    }
+    
+    .block-time {
+        font-weight: 600;
+        color: #6b7280;
+        font-size: 0.9rem;
+    }
+    
+    .block-events {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+    
+    .event-tag {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        background-color: #e5e7eb;
+        color: #374151;
+        font-size: 0.9rem;
+        transition: all 0.2s;
+    }
+    
+    .event-tag.user-event {
+        background-color: #dbeafe;
+        color: #1e40af;
+        border: 2px solid #3b82f6;
+        font-weight: 600;
+    }
+    
+    .event-tag.user-event::before {
+        content: '★ ';
+        margin-right: 0.25rem;
+    }
+    
+    /* Meeting Code Section */
+    .meeting-code-section {
+        background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+        border-radius: 0.75rem;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        border: 1px solid rgba(59, 130, 246, 0.2);
+    }
+    
+    .code-form {
+        display: flex;
+        gap: 0.75rem;
+        align-items: flex-end;
+        max-width: 500px;
+    }
+    
+    .code-input-group {
+        flex: 1;
+    }
+    
+    .code-input-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: #1f2937;
+        font-size: 0.9rem;
+    }
+    
+    .code-input {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #d1d5db;
+        border-radius: 0.5rem;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-family: 'Courier New', monospace;
+    }
+    
+    .code-input:focus {
+        outline: none;
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+    
+    .btn-submit-code {
+        padding: 0.75rem 1.5rem;
+        background-color: #3b82f6;
+        color: white;
+        border: none;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    
+    .btn-submit-code:hover {
+        background-color: #2563eb;
+        transform: translateY(-1px);
+    }
+    
+    .btn-submit-code:active {
+        transform: translateY(0);
+    }
+    
+    .code-message {
+        margin-top: 0.75rem;
+        padding: 0.75rem 1rem;
+        border-radius: 0.5rem;
+        display: none;
+    }
+    
+    .code-message.success {
+        background-color: #d1fae5;
+        color: #065f46;
+        display: block;
+    }
+    
+    .code-message.error {
+        background-color: #fee2e2;
+        color: #991b1b;
+        display: block;
+    }
+    
+    /* Attendance Chart Section */
+    .chart-container {
+        background: white;
+        border-radius: 0.75rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        padding: 2rem;
+        overflow-x: auto;
+    }
+    
+    .attendance-table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 600px;
+    }
+    
+    .attendance-table th {
+        background-color: #f3f4f6;
+        padding: 0.75rem;
+        text-align: left;
+        font-weight: 600;
+        color: #374151;
+        border-bottom: 2px solid #e5e7eb;
+        font-size: 0.9rem;
+    }
+    
+    .attendance-table td {
+        padding: 0.75rem;
+        border-bottom: 1px solid #e5e7eb;
+    }
+    
+    .attendance-table tbody tr:hover {
+        background-color: #f9fafb;
+    }
+    
+    .event-column {
+        min-width: 180px;
+        font-weight: 600;
+        color: #1f2937;
+    }
+    
+    .meeting-column {
+        text-align: center;
+        min-width: 100px;
+    }
+    
+    .status-icon {
+        font-size: 1.5rem;
+        display: inline-block;
+    }
+    
+    .status-icon.attended {
+        color: #10b981;
+    }
+    
+    .status-icon.missed {
+        color: #ef4444;
+    }
+    
+    .status-icon.future {
+        color: #d1d5db;
+    }
+    
+    .meeting-date {
+        font-size: 0.85rem;
+        color: #6b7280;
+        margin-top: 0.25rem;
+    }
+    
+    .empty-state {
+        text-align: center;
+        padding: 2rem;
+        color: #6b7280;
+    }
+    
+    .empty-state i {
+        font-size: 2.5rem;
+        color: #d1d5db;
+        margin-bottom: 0.75rem;
+        display: block;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="meetings-container">
+    <!-- Schedule Section -->
+    <div class="section-title">
+        <i class="fas fa-calendar"></i>
+        Event Schedule
+    </div>
+    
+    <div class="schedule-container" id="scheduleContainer">
+        <div style="text-align: center; color: #6b7280;">
+            <i class="fas fa-spinner fa-spin"></i> Loading schedule...
+        </div>
+    </div>
+    
+    <!-- Meeting Code Section -->
+    <div class="section-title">
+        <i class="fas fa-key"></i>
+        Check In to Meeting
+    </div>
+    
+    <div class="meeting-code-section">
+        <form id="codeForm" class="code-form">
+            <div class="code-input-group">
+                <label for="meetingCode">Meeting Code</label>
+                <input 
+                    type="text" 
+                    id="meetingCode" 
+                    class="code-input" 
+                    placeholder="Enter code"
+                    maxlength="5"
+                    required
+                >
+            </div>
+            <button type="submit" class="btn-submit-code">Submit</button>
+        </form>
+        <div class="code-message" id="codeMessage"></div>
+    </div>
+    
+    <!-- Attendance Stats Section -->
+    <div class="section-title">
+        <i class="fas fa-chart-line"></i>
+        Your Attendance Statistics
+    </div>
+    
+    <div class="chart-container" id="statsContainer">
+        <div id="statsContent">
+            <div class="empty-state">
+                <i class="fas fa-spinner fa-spin"></i>
+                <p>Loading your statistics...</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Attendance Chart Section -->
+    <div class="section-title">
+        <i class="fas fa-chart-table"></i>
+        Your Meeting Attendance
+    </div>
+    
+    <div class="chart-container">
+        <div id="chartContent">
+            <div class="empty-state">
+                <i class="fas fa-spinner fa-spin"></i>
+                <p>Loading your attendance records...</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Get current user from sessionStorage (matches login.html and layout.html pattern)
+    let currentUser = null;
+    try {
+        const userData = sessionStorage.getItem('currentUser');
+        currentUser = userData ? JSON.parse(userData) : null;
+    } catch (e) {
+        console.error('Error parsing user data:', e);
+    }
+    
+    if (!currentUser) {
+        // Redirect to login with redirect parameter to come back to this page
+        window.location.href = '/login?redirect=' + encodeURIComponent(window.location.pathname);
+    }
+    
+    // Store data globally
+    let allMeetings = [];
+    let userEvents = [];
+    let currentUserId = null;
+    
+    // Initialize page
+    async function initPage() {
+        try {
+            await loadUserData();
+            await loadSchedule();
+            await loadAttendanceData();
+            setupCodeFormListener();
+        } catch (error) {
+            console.error('Error initializing page:', error);
+        }
+    }
+    
+    // Load user data
+    async function loadUserData() {
+        try {
+            const [membersResponse, eventsResponse] = await Promise.all([
+                fetch('/api/Members'),
+                fetch('/api/Events')
+            ]);
+            
+            const membersData = await membersResponse.json();
+            const eventsData = await eventsResponse.json();
+            
+            // Find current user in members (user ID should already be in currentUser)
+            currentUserId = currentUser.id;
+            
+            // Get user's events
+            const eventArray = Array.isArray(eventsData) ? eventsData : Object.values(eventsData || {});
+            userEvents = eventArray.map(item => {
+                const id = Object.keys(item)[0];
+                return { id, ...item[id] };
+            }).filter(event => 
+                event.members && event.members.includes(currentUserId)
+            );
+            
+            console.log('User events:', userEvents);
+        } catch (error) {
+            console.error('Error loading user data:', error);
+            throw error;
+        }
+    }
+    
+    // Load and display schedule
+    async function loadSchedule() {
+        try {
+            const response = await fetch('/static/schedule.txt');
+            const scheduleText = await response.text();
+            
+            // Parse schedule
+            const scheduleHtml = parseSchedule(scheduleText);
+            document.getElementById('scheduleContainer').innerHTML = scheduleHtml;
+        } catch (error) {
+            console.error('Error loading schedule:', error);
+            document.getElementById('scheduleContainer').innerHTML = 
+                '<p style="color: #ef4444;">Error loading schedule</p>';
+        }
+    }
+    
+    // Parse schedule text
+    function parseSchedule(text) {
+        const lines = text.split('\n');
+        let html = '';
+        let currentDay = null;
+        let blockOpen = false;
+        
+        // Debug: Extract all event names from schedule
+        const scheduleEvents = [];
+        lines.forEach(line => {
+            const trimmed = line.trim();
+            if (trimmed && trimmed.startsWith('- ')) {
+                scheduleEvents.push(trimmed.substring(2).trim());
+            }
+        });
+        
+        // Debug: Log what we're looking for
+        console.log('=== EVENT MATCHING DEBUG ===');
+        console.log('Events in schedule.txt:', scheduleEvents);
+        console.log('Your enrolled events:', userEvents.map(e => e.eventName));
+        console.log('');
+        
+        // Check for unmatched events
+        scheduleEvents.forEach(scheduleEvent => {
+            const foundExact = userEvents.some(e => e.eventName === scheduleEvent);
+            const foundCI = userEvents.some(e => e.eventName.toLowerCase() === scheduleEvent.toLowerCase());
+            
+            if (!foundExact && !foundCI) {
+                console.log(`❌ NO MATCH for schedule event: "${scheduleEvent}"`);
+            }
+        });
+        
+        userEvents.forEach(event => {
+            const foundInSchedule = scheduleEvents.some(s => 
+                s.toLowerCase() === event.eventName.toLowerCase()
+            );
+            if (!foundInSchedule) {
+                console.log(`⚠️ Your event NOT in schedule.txt: "${event.eventName}"`);
+            }
+        });
+        console.log('===========================');
+        
+        lines.forEach((line, idx) => {
+            const trimmed = line.trim();
+            
+            // Day header (e.g., "Tuesday:")
+            if (trimmed.match(/^(Monday|Tuesday|Wednesday|Thursday|Friday):$/)) {
+                if (blockOpen) {
+                    html += '</div></div>';
+                    blockOpen = false;
+                }
+                if (currentDay) html += '</div>';
+                currentDay = trimmed.replace(':', '');
+                html += `<div class="schedule-day"><div class="day-header">${currentDay}</div>`;
+            }
+            
+            // Block header (e.g., "Block 1 (3:45 - 4:20 PM):")
+            else if (trimmed.match(/^Block \d+ \(/)) {
+                if (blockOpen) {
+                    html += '</div></div>';
+                }
+                const timeMatch = trimmed.match(/\((.*?)\)/);
+                const time = timeMatch ? timeMatch[1] : '';
+                html += `<div class="block-row">
+                    <div class="block-time">${time}</div>
+                    <div class="block-events">`;
+                blockOpen = true;
+            }
+            
+            // Event name (indented under a block)
+            else if (trimmed && trimmed.startsWith('- ') && trimmed.length > 2) {
+                const eventName = trimmed.substring(2).trim();
+                
+                // Try exact match first, then case-insensitive match
+                let isUserEvent = userEvents.some(e => e.eventName === eventName);
+                
+                if (!isUserEvent) {
+                    // Case-insensitive match
+                    isUserEvent = userEvents.some(e => 
+                        e.eventName.toLowerCase() === eventName.toLowerCase()
+                    );
+                }
+                
+                const tagClass = isUserEvent ? 'event-tag user-event' : 'event-tag';
+                html += `<span class="${tagClass}">${eventName}</span>`;
+            }
+            
+            // Empty line after events
+            else if (!trimmed && blockOpen && currentDay) {
+                html += `</div></div>`;
+                blockOpen = false;
+            }
+        });
+        
+        if (blockOpen) html += '</div></div>';
+        if (currentDay) html += '</div>';
+        return html || '<p style="color: #6b7280;">Schedule not available</p>';
+    }
+    
+    // Load meetings and attendance data
+    async function loadAttendanceData() {
+        try {
+            const [meetingsResponse] = await Promise.all([
+                fetch('/api/Meeting')
+            ]);
+            
+            const meetingsData = await meetingsResponse.json();
+            
+            // Convert to array format
+            const meetingArray = Array.isArray(meetingsData) ? meetingsData : Object.values(meetingsData || {});
+            allMeetings = meetingArray.map(item => {
+                const id = Object.keys(item)[0];
+                return { id, ...item[id] };
+            });
+            
+            // Build attendance chart
+            buildAttendanceChart();
+        } catch (error) {
+            console.error('Error loading attendance data:', error);
+            document.getElementById('chartContent').innerHTML = 
+                '<div class="empty-state"><i class="fas fa-exclamation-circle"></i><p>Error loading attendance data</p></div>';
+        }
+    }
+    
+    // Build attendance chart
+    function buildAttendanceChart() {
+        if (userEvents.length === 0) {
+            document.getElementById('chartContent').innerHTML = 
+                '<div class="empty-state"><i class="fas fa-calendar-times"></i><p>You are not signed up for any events yet</p></div>';
+            return;
+        }
+        
+        // Group meetings by event
+        const meetingsByEvent = {};
+        userEvents.forEach(event => {
+            meetingsByEvent[event.eventName] = allMeetings.filter(m => m.eventName === event.eventName);
+        });
+        
+        // Sort meetings by date
+        Object.keys(meetingsByEvent).forEach(event => {
+            meetingsByEvent[event].sort((a, b) => {
+                const dateA = new Date(a.date);
+                const dateB = new Date(b.date);
+                return dateA - dateB;
+            });
+        });
+        
+        // Find all unique meetings across user's events (for columns)
+        const allUserMeetings = [];
+        Object.values(meetingsByEvent).forEach(meetings => {
+            meetings.forEach(m => {
+                if (!allUserMeetings.find(um => um.id === m.id)) {
+                    allUserMeetings.push(m);
+                }
+            });
+        });
+        allUserMeetings.sort((a, b) => new Date(a.date) - new Date(b.date));
+        
+        // Build table - use per-event meeting numbering
+        let html = '<table class="attendance-table"><thead><tr><th>Event</th>';
+        
+        // Find max meetings for any event to determine column count
+        let maxMeetings = 0;
+        Object.values(meetingsByEvent).forEach(meetings => {
+            maxMeetings = Math.max(maxMeetings, meetings.length);
+        });
+        
+        // Meeting headers (just numbers, no dates)
+        for (let i = 0; i < maxMeetings; i++) {
+            html += `<th class="meeting-column">Meeting ${i + 1}</th>`;
+        }
+        
+        html += '</tr></thead><tbody>';
+        
+        // Event rows
+        userEvents.forEach(event => {
+            html += `<tr><td class="event-column">${event.eventName}</td>`;
+            
+            const eventMeetingsList = meetingsByEvent[event.eventName] || [];
+            
+            // Add cells for each meeting slot
+            for (let i = 0; i < maxMeetings; i++) {
+                if (i < eventMeetingsList.length) {
+                    const meeting = eventMeetingsList[i];
+                    const attended = meeting.attended && meeting.attended.includes(currentUserId);
+                    const meetingDate = new Date(meeting.date);
+                    const now = new Date();
+                    const oneDayAgo = new Date(now.getTime() - 24 * 60 * 60 * 1000);
+                    const isPast = meetingDate < oneDayAgo;
+                    
+                    const dateStr = meetingDate.toLocaleDateString('en-US', { 
+                        weekday: 'short',
+                        month: 'short', 
+                        day: 'numeric',
+                        year: 'numeric'
+                    });
+                    
+                    let statusClass = 'future';
+                    let statusIcon = '○';
+                    let statusText = 'Upcoming';
+                    
+                    if (attended) {
+                        statusClass = 'attended';
+                        statusIcon = '✓';
+                        statusText = 'Attended';
+                    } else if (isPast) {
+                        statusClass = 'missed';
+                        statusIcon = '✗';
+                        statusText = 'Missed';
+                    }
+                    
+                    html += `<td class="meeting-column"><span class="status-icon ${statusClass}" title="${statusText} - ${dateStr}">${statusIcon}</span></td>`;
+                } else {
+                    // No meeting for this slot
+                    html += '<td class="meeting-column"><span class="status-icon future" title="No meeting scheduled">-</span></td>';
+                }
+            }
+            
+            html += '</tr>';
+        });
+        
+        html += '</tbody></table>';
+        document.getElementById('chartContent').innerHTML = html;
+        
+        // Calculate and display stats
+        displayAttendanceStats();
+    }
+    
+    // Display attendance statistics
+    function displayAttendanceStats() {
+        if (userEvents.length === 0) {
+            document.getElementById('statsContent').innerHTML = 
+                '<div class="empty-state"><i class="fas fa-calendar-times"></i><p>You are not signed up for any events yet</p></div>';
+            return;
+        }
+
+        let totalAttended = 0;
+        let totalMeetings = 0;
+        const eventStats = [];
+
+        userEvents.forEach(event => {
+            const eventMeetings = allMeetings.filter(m => m.eventName === event.eventName);
+            const attended = eventMeetings.filter(m => 
+                m.attended && m.attended.includes(currentUserId)
+            ).length;
+            
+            totalAttended += attended;
+            totalMeetings += eventMeetings.length;
+            
+            const percentage = eventMeetings.length > 0 
+                ? Math.round((attended / eventMeetings.length) * 100)
+                : 0;
+
+            eventStats.push({
+                eventName: event.eventName,
+                attended: attended,
+                total: eventMeetings.length,
+                percentage: percentage
+            });
+        });
+
+        const overallPercentage = totalMeetings > 0 
+            ? Math.round((totalAttended / totalMeetings) * 100)
+            : 0;
+
+        // Build stats HTML
+        let html = `<div style="margin-bottom: 1.5rem; padding: 1.5rem; background: #f0f9ff; border-radius: 8px; border-left: 4px solid #3b82f6;">
+            <p style="margin: 0; font-size: 1.1rem; color: #1e40af;"><strong>Overall Attendance:</strong> ${totalAttended}/${totalMeetings} meetings (${overallPercentage}%)</p>
+        </div>`;
+
+        if (eventStats.length > 0) {
+            html += '<h3 style="color: #374151; margin: 1.5rem 0 1rem 0; font-size: 1.1rem;">Attendance by Event:</h3>';
+            
+            eventStats.forEach(stat => {
+                const color = stat.percentage >= 80 ? '#10b981' : stat.percentage >= 50 ? '#f59e0b' : '#ef4444';
+                html += `
+                    <div style="margin-bottom: 1rem; padding: 1rem; background: white; border: 1px solid #e5e7eb; border-radius: 8px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <p style="margin: 0 0 0.5rem 0; font-weight: 600; color: #1f2937;">${stat.eventName}</p>
+                                <p style="margin: 0; color: #6b7280; font-size: 0.9rem;">${stat.attended}/${stat.total} meetings attended</p>
+                            </div>
+                            <div style="text-align: right;">
+                                <div style="font-size: 1.5rem; font-weight: bold; color: ${color};">${stat.percentage}%</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        document.getElementById('statsContent').innerHTML = html;
+    }
+    
+    // Setup code form listener
+    function setupCodeFormListener() {
+        const form = document.getElementById('codeForm');
+        const codeInput = document.getElementById('meetingCode');
+        const codeMessage = document.getElementById('codeMessage');
+        
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const code = codeInput.value.trim().toUpperCase();
+            if (!code) return;
+            
+            codeMessage.textContent = '';
+            codeMessage.className = 'code-message';
+            
+            try {
+                // Find meeting with this code
+                const meeting = allMeetings.find(m => m.code === code);
+                
+                if (!meeting) {
+                    codeMessage.textContent = '❌ Invalid meeting code';
+                    codeMessage.className = 'code-message error';
+                    return;
+                }
+                
+                // Check if user is already marked as attended
+                if (meeting.attended && meeting.attended.includes(currentUserId)) {
+                    codeMessage.textContent = '✓ You are already checked in for this meeting';
+                    codeMessage.className = 'code-message success';
+                    codeInput.value = '';
+                    return;
+                }
+                
+                // Check if user is in this event
+                const userInEvent = userEvents.some(e => e.eventName === meeting.eventName);
+                if (!userInEvent) {
+                    codeMessage.textContent = '❌ You are not registered for this event';
+                    codeMessage.className = 'code-message error';
+                    return;
+                }
+                
+                // Add user to attendance list - preserve all fields including code
+                const updatedAttended = meeting.attended ? [...meeting.attended, currentUserId] : [currentUserId];
+                
+                const updateData = {
+                    attended: updatedAttended,
+                    date: meeting.date,
+                    eventName: meeting.eventName,
+                    code: meeting.code
+                };
+                
+                // Add optional fields if they exist
+                if (meeting.block !== undefined) updateData.block = meeting.block;
+                if (meeting.room !== undefined) updateData.room = meeting.room;
+                
+                const response = await fetch(`/api/Meeting/${meeting.id}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(updateData)
+                });
+                
+                if (response.ok) {
+                    // Update local data
+                    meeting.attended = updatedAttended;
+                    
+                    codeMessage.textContent = `✓ Successfully checked in to ${meeting.eventName}!`;
+                    codeMessage.className = 'code-message success';
+                    codeInput.value = '';
+                    
+                    // Refresh chart
+                    setTimeout(() => buildAttendanceChart(), 500);
+                } else {
+                    codeMessage.textContent = '❌ Error checking in. Please try again.';
+                    codeMessage.className = 'code-message error';
+                }
+            } catch (error) {
+                console.error('Error submitting code:', error);
+                codeMessage.textContent = '❌ Network error. Please try again.';
+                codeMessage.className = 'code-message error';
+            }
+        });
+    }
+    
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initPage);
+    } else {
+        initPage();
+    }
+</script>
+{% endblock %}

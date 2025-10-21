@@ -289,6 +289,10 @@
             localStorage.removeItem('applicantId');
         }
         
+        // Get redirect URL from query parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const redirectUrl = urlParams.get('redirect');
+        
         loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -341,8 +345,12 @@
                     
                     sessionStorage.setItem('currentUser', JSON.stringify(userInfo));
                     
-                    // Redirect to dashboard or home
-                    window.location.href = '/'; // Or a dashboard page
+                    // Redirect to the original page or dashboard
+                    if (redirectUrl) {
+                        window.location.href = redirectUrl;
+                    } else {
+                        window.location.href = '/'; // Or a dashboard page
+                    }
                 })
                 .catch(error => {
                     console.error('Login error:', error);

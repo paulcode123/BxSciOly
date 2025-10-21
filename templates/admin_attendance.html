@@ -13,9 +13,6 @@
             <h1><i class="fas fa-clipboard-check"></i> Attendance Management</h1>
         </div>
         <div class="nav-right">
-            <button class="btn-primary" onclick="createAttendanceEvent()">
-                <i class="fas fa-plus"></i> Create Event
-            </button>
             <button class="btn-secondary" onclick="logout()">
                 <i class="fas fa-sign-out-alt"></i> Logout
             </button>
@@ -64,6 +61,76 @@
 
     <!-- Main Content Area -->
     <div class="content-container">
+        <!-- Create Meeting Panel -->
+        <div class="panel">
+            <div class="panel-header">
+                <h2>Create New Meeting</h2>
+            </div>
+            <div class="panel-body">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Select Event:</label>
+                        <select id="createEventSelect" required>
+                            <option value="">Choose an event...</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Date:</label>
+                        <input type="date" id="createMeetingDate" required>
+                    </div>
+                    <div class="form-group" style="display: flex; align-items: flex-end;">
+                        <button type="button" class="btn-primary" onclick="createMeeting()" style="margin-bottom: 0;">
+                            <i class="fas fa-plus"></i> Create Meeting
+                        </button>
+                    </div>
+                </div>
+                <div id="createdMeetingInfo" style="display: none; margin-top: 1.5rem; padding: 1.5rem; background: #dcfce7; border-radius: 8px; border-left: 4px solid #10b981;">
+                    <h4 style="margin: 0 0 1rem 0; color: #065f46;">✓ Meeting Created Successfully!</h4>
+                    <p style="margin: 0.5rem 0; color: #065f46;"><strong>Event:</strong> <span id="createdEventName"></span></p>
+                    <p style="margin: 0.5rem 0; color: #065f46;"><strong>Date:</strong> <span id="createdDate"></span></p>
+                    <p style="margin: 0.5rem 0; color: #065f46;"><strong>Attendance Code:</strong></p>
+                    <div style="display: inline-block; background: white; padding: 0.75rem 1.5rem; border-radius: 6px; border: 2px solid #10b981; font-size: 1.5rem; font-weight: bold; letter-spacing: 3px; color: #065f46; font-family: 'Courier New', monospace; margin-top: 0.5rem;" id="displayCode"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Member Lookup Panel -->
+        <div class="panel">
+            <div class="panel-header">
+                <h2>Member Lookup</h2>
+                <div class="panel-actions">
+                    <input type="text" id="memberSearchInput" placeholder="Search members..." onkeyup="filterMembers()">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div id="memberList" class="table-container">
+                    <table class="modern-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Grade</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="memberListBody">
+                            <!-- Member list will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+                <div id="memberAttendanceStats" style="display: none; margin-top: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <h3 id="memberNameDisplay" style="color: #1e293b; margin: 0;"></h3>
+                        <button class="btn-outline" onclick="backToMemberSearch()" style="padding: 0.5rem 1rem; font-size: 0.9rem;">
+                            <i class="fas fa-arrow-left"></i> Back to Search
+                        </button>
+                    </div>
+                    <div id="memberStatsContainer"></div>
+                </div>
+            </div>
+        </div>
+
         <!-- Event and Meeting Selection Panel -->
         <div class="panel">
             <div class="panel-header">
@@ -146,49 +213,25 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
 
-<!-- Create Event Modal -->
-<div id="createEventModal" class="modal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h3>Create New Meeting</h3>
-            <button class="close-btn" onclick="closeModal('createEventModal')">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div class="modal-body">
-            <form id="createEventForm">
-                <div class="form-group">
-                    <label>Event Name:</label>
-                    <select name="eventName" required>
-                        <option value="">Select an event...</option>
-                    </select>
+        <!-- Upcoming Meetings Panel -->
+        <div class="panel">
+            <div class="panel-header">
+                <h2>Upcoming Meetings</h2>
+                <div class="panel-actions">
+                    <button class="btn-outline" onclick="loadUpcomingMeetings()">
+                        <i class="fas fa-sync-alt"></i> Refresh
+                    </button>
                 </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Date:</label>
-                        <input type="date" name="date" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Block:</label>
-                        <select name="block" required>
-                            <option value="">Select block...</option>
-                            <option value="1">Block 1</option>
-                            <option value="2">Block 2</option>
-                        </select>
+            </div>
+            <div class="panel-body">
+                <div id="upcomingMeetingsContainer">
+                    <div class="empty-state">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Loading upcoming meetings...</p>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label>Room:</label>
-                    <input type="text" name="room" required>
-                </div>
-                <div class="form-actions">
-                    <button type="button" class="btn-secondary" onclick="closeModal('createEventModal')">Cancel</button>
-                    <button type="submit" class="btn-primary">Create Meeting</button>
-                </div>
-            </form>
+            </div>
         </div>
     </div>
 </div>
@@ -792,7 +835,7 @@
         loadStats();
         loadEvents();
         loadMembers();
-        loadAllEvents();
+        loadUpcomingMeetings();
     });
 
     async function loadStats() {
@@ -854,14 +897,24 @@
                 return { id, ...obj[id] };
             });
             
+            // Populate event select for viewing
             const select = document.getElementById('eventSelect');
             select.innerHTML = '<option value="">Choose an event...</option>';
             
+            // Populate event select for creating
+            const createSelect = document.getElementById('createEventSelect');
+            createSelect.innerHTML = '<option value="">Choose an event...</option>';
+            
             allEvents.forEach(event => {
-                const option = document.createElement('option');
-                option.value = event.id;
-                option.textContent = event.eventName;
-                select.appendChild(option);
+                const option1 = document.createElement('option');
+                option1.value = event.id;
+                option1.textContent = event.eventName;
+                select.appendChild(option1);
+                
+                const option2 = document.createElement('option');
+                option2.value = event.eventName;
+                option2.textContent = event.eventName;
+                createSelect.appendChild(option2);
             });
         } catch (error) {
             console.error('Error loading events:', error);
@@ -878,9 +931,162 @@
                 const id = Object.keys(obj)[0];
                 return { id, ...obj[id] };
             });
+            
+            // Don't populate initially - only show after search
         } catch (error) {
             console.error('Error loading members:', error);
         }
+    }
+
+    function populateMemberList(members) {
+        const tbody = document.getElementById('memberListBody');
+        tbody.innerHTML = '';
+        
+        if (members.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="4" style="text-align: center; padding: 2rem; color: #6b7280;">No members found</td></tr>';
+            return;
+        }
+        
+        members.forEach(member => {
+            const row = document.createElement('tr');
+            const email = member.doeEmail || member.personalEmail || 'No email';
+            row.innerHTML = `
+                <td>${member.firstName || ''} ${member.lastName || ''}</td>
+                <td>${email}</td>
+                <td>${member.grade || 'N/A'}</td>
+                <td>
+                    <button class="btn-outline" onclick="showMemberStats('${member.id}', '${member.firstName} ${member.lastName}')" style="padding: 0.5rem 1rem; font-size: 0.9rem;">
+                        View Stats
+                    </button>
+                </td>
+            `;
+            tbody.appendChild(row);
+        });
+    }
+
+    function filterMembers() {
+        const searchTerm = document.getElementById('memberSearchInput').value.toLowerCase().trim();
+        
+        // Show member list, hide stats when typing
+        document.getElementById('memberList').style.display = 'block';
+        document.getElementById('memberAttendanceStats').style.display = 'none';
+        
+        // Don't show anything if search is empty
+        if (!searchTerm) {
+            document.getElementById('memberListBody').innerHTML = '';
+            return;
+        }
+        
+        // Filter members by search term
+        const filtered = allMembers.filter(member => {
+            const name = `${member.firstName || ''} ${member.lastName || ''}`.toLowerCase();
+            const email = (member.doeEmail || member.personalEmail || '').toLowerCase();
+            return name.includes(searchTerm) || email.includes(searchTerm);
+        });
+        
+        populateMemberList(filtered);
+    }
+
+    function backToMemberSearch() {
+        document.getElementById('memberList').style.display = 'block';
+        document.getElementById('memberAttendanceStats').style.display = 'none';
+        document.getElementById('memberSearchInput').focus();
+    }
+
+    async function showMemberStats(memberId, memberName) {
+        try {
+            // Get all meetings and events
+            const [meetingsRes, eventsRes] = await Promise.all([
+                fetch('/api/Meeting'),
+                fetch('/api/Events')
+            ]);
+
+            const meetingsData = await meetingsRes.json();
+            const eventsData = await eventsRes.json();
+
+            // Flatten data
+            const allMeetings = meetingsData.map(obj => {
+                const id = Object.keys(obj)[0];
+                return { id, ...obj[id] };
+            });
+
+            const events = eventsData.map(obj => {
+                const id = Object.keys(obj)[0];
+                return { id, ...obj[id] };
+            });
+
+            // Get member's enrolled events
+            const memberEvents = events.filter(event => 
+                event.members && event.members.includes(memberId)
+            );
+
+            // Calculate stats for each event
+            let totalAttended = 0;
+            let totalMeetings = 0;
+            
+            const eventStats = memberEvents.map(event => {
+                const eventMeetings = allMeetings.filter(m => m.eventName === event.eventName);
+                const attended = eventMeetings.filter(m => 
+                    m.attended && m.attended.includes(memberId)
+                ).length;
+                
+                totalAttended += attended;
+                totalMeetings += eventMeetings.length;
+                
+                const percentage = eventMeetings.length > 0 
+                    ? Math.round((attended / eventMeetings.length) * 100)
+                    : 0;
+
+                return {
+                    eventName: event.eventName,
+                    attended: attended,
+                    total: eventMeetings.length,
+                    percentage: percentage
+                };
+            });
+
+            // Calculate overall percentage
+            const overallPercentage = totalMeetings > 0 
+                ? Math.round((totalAttended / totalMeetings) * 100)
+                : 0;
+
+            // Display stats
+            displayMemberStats(memberName, eventStats, overallPercentage, totalAttended, totalMeetings);
+        } catch (error) {
+            console.error('Error loading member stats:', error);
+            alert('Error loading member stats');
+        }
+    }
+
+    function displayMemberStats(memberName, eventStats, overallPercentage, totalAttended, totalMeetings) {
+        document.getElementById('memberNameDisplay').textContent = memberName;
+        
+        let html = `<div style="margin-bottom: 1.5rem; padding: 1rem; background: #f0f9ff; border-radius: 8px; border-left: 4px solid #3b82f6;">
+            <p style="margin: 0; color: #1e40af;"><strong>Overall Attendance:</strong> ${totalAttended}/${totalMeetings} meetings (${overallPercentage}%)</p>
+        </div>`;
+
+        html += '<h4 style="color: #374151; margin-bottom: 1rem;">Events:</h4>';
+        
+        eventStats.forEach(stat => {
+            const color = stat.percentage >= 80 ? '#10b981' : stat.percentage >= 50 ? '#f59e0b' : '#ef4444';
+            html += `
+                <div style="margin-bottom: 1rem; padding: 1rem; background: white; border: 1px solid #e5e7eb; border-radius: 8px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <p style="margin: 0 0 0.5rem 0; font-weight: 600; color: #1f2937;">${stat.eventName}</p>
+                            <p style="margin: 0; color: #6b7280; font-size: 0.9rem;">${stat.attended}/${stat.total} meetings</p>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="font-size: 1.5rem; font-weight: bold; color: ${color};">${stat.percentage}%</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+
+        document.getElementById('memberStatsContainer').innerHTML = html;
+        document.getElementById('memberAttendanceStats').style.display = 'block';
+        document.getElementById('memberList').style.display = 'none';
     }
 
     async function loadEventMeetings() {
@@ -1072,16 +1278,6 @@
         });
     }
 
-    function filterMembers() {
-        const searchTerm = document.getElementById('memberSearch').value.toLowerCase();
-        const rows = document.querySelectorAll('#meetingAttendanceTableBody tr');
-        
-        rows.forEach(row => {
-            const text = row.textContent.toLowerCase();
-            row.style.display = text.includes(searchTerm) ? '' : 'none';
-        });
-    }
-
     function manualCheckin(memberId, memberName) {
         currentMemberId = memberId;
         document.getElementById('checkinMemberName').textContent = memberName;
@@ -1122,6 +1318,7 @@
             // Only add other fields if they exist and are not undefined
             if (meeting.date !== undefined) updateData.date = meeting.date;
             if (meeting.eventName !== undefined) updateData.eventName = meeting.eventName;
+            if (meeting.code !== undefined) updateData.code = meeting.code;
             if (meeting.block !== undefined) updateData.block = meeting.block;
             if (meeting.room !== undefined) updateData.room = meeting.room;
             
@@ -1188,6 +1385,7 @@
             // Only add other fields if they exist and are not undefined
             if (meeting.date !== undefined) updateData.date = meeting.date;
             if (meeting.eventName !== undefined) updateData.eventName = meeting.eventName;
+            if (meeting.code !== undefined) updateData.code = meeting.code;
             if (meeting.block !== undefined) updateData.block = meeting.block;
             if (meeting.room !== undefined) updateData.room = meeting.room;
             
@@ -1213,30 +1411,6 @@
         } catch (error) {
             console.error('Error removing attendance:', error);
             alert('Error removing attendance');
-        }
-    }
-
-    function createAttendanceEvent() {
-        // Populate event dropdown before showing modal
-        populateEventDropdown();
-        document.getElementById('createEventModal').style.display = 'block';
-    }
-
-    function populateEventDropdown() {
-        const eventSelect = document.querySelector('#createEventModal select[name="eventName"]');
-        if (!eventSelect) return;
-        
-        // Clear existing options except the first one
-        eventSelect.innerHTML = '<option value="">Select an event...</option>';
-        
-        // Add options from allEvents
-        if (allEvents && allEvents.length > 0) {
-            allEvents.forEach(event => {
-                const option = document.createElement('option');
-                option.value = event.eventName;
-                option.textContent = event.eventName;
-                eventSelect.appendChild(option);
-            });
         }
     }
 
@@ -1462,6 +1636,7 @@
             // Only add other fields if they exist and are not undefined
             if (meetingToUpdate.date !== undefined) updateData.date = meetingToUpdate.date;
             if (meetingToUpdate.eventName !== undefined) updateData.eventName = meetingToUpdate.eventName;
+            if (meetingToUpdate.code !== undefined) updateData.code = meetingToUpdate.code;
             if (meetingToUpdate.block !== undefined) updateData.block = meetingToUpdate.block;
             if (meetingToUpdate.room !== undefined) updateData.room = meetingToUpdate.room;
 
@@ -1552,20 +1727,42 @@
         }
     }
 
-    // Handle form submission
-    document.getElementById('createEventForm').addEventListener('submit', async function(e) {
-        e.preventDefault();
-        
-        const formData = new FormData(this);
-        const meetingData = {
-            eventName: formData.get('eventName'),
-            date: new Date(formData.get('date')).toISOString(),
-            block: parseInt(formData.get('block')),
-            room: formData.get('room'),
-            attended: []
-        };
-        
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal')) {
+            event.target.style.display = 'none';
+        }
+    }
+
+    // Generate random 5-character code
+    function generateRandomCode() {
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        let code = '';
+        for (let i = 0; i < 5; i++) {
+            code += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+        return code;
+    }
+
+    // Create meeting from the panel form
+    async function createMeeting() {
+        const eventName = document.getElementById('createEventSelect').value;
+        const date = document.getElementById('createMeetingDate').value;
+
+        if (!eventName || !date) {
+            alert('Please select an event and date');
+            return;
+        }
+
         try {
+            const code = generateRandomCode();
+            const meetingData = {
+                eventName: eventName,
+                date: new Date(date).toISOString(),
+                code: code,
+                attended: []
+            };
+
             const response = await fetch('/api/Meeting', {
                 method: 'POST',
                 headers: {
@@ -1573,12 +1770,24 @@
                 },
                 body: JSON.stringify(meetingData)
             });
-            
+
             if (response.ok) {
-                closeModal('createEventModal');
-                loadEvents();
-                this.reset();
-                alert('Meeting created successfully!');
+                // Show success message with code
+                document.getElementById('createdEventName').textContent = eventName;
+                document.getElementById('createdDate').textContent = new Date(date).toLocaleDateString();
+                document.getElementById('displayCode').textContent = code;
+                document.getElementById('createdMeetingInfo').style.display = 'block';
+
+                // Clear the form
+                document.getElementById('createEventSelect').value = '';
+                document.getElementById('createMeetingDate').value = '';
+
+                // Refresh data
+                setTimeout(() => {
+                    loadEvents();
+                    loadStats();
+                    loadUpcomingMeetings();
+                }, 1000);
             } else {
                 alert('Error creating meeting');
             }
@@ -1586,13 +1795,103 @@
             console.error('Error creating meeting:', error);
             alert('Error creating meeting');
         }
-    });
+    }
 
-    // Close modal when clicking outside
-    window.onclick = function(event) {
-        if (event.target.classList.contains('modal')) {
-            event.target.style.display = 'none';
+    async function loadUpcomingMeetings() {
+        try {
+            const response = await fetch('/api/Meeting');
+            const meetingsData = await response.json();
+
+            // Flatten data
+            const allMeetings = meetingsData.map(obj => {
+                const id = Object.keys(obj)[0];
+                return { id, ...obj[id] };
+            });
+
+            // Filter for upcoming meetings (today or future dates)
+            const now = new Date();
+            const today = new Date(now.getFullYear(), now.getMonth(), now.getDate()); // Midnight today
+            
+            const upcoming = allMeetings.filter(meeting => {
+                let date;
+                if (meeting.date && typeof meeting.date === 'object' && meeting.date.seconds) {
+                    date = new Date(meeting.date.seconds * 1000);
+                } else if (meeting.date) {
+                    date = new Date(meeting.date);
+                } else {
+                    return false;
+                }
+                
+                // Compare dates only (ignore time)
+                const meetingDate = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+                return meetingDate >= today;
+            });
+
+            // Sort by date (soonest first)
+            upcoming.sort((a, b) => {
+                const dateA = new Date(a.date && a.date.seconds ? a.date.seconds * 1000 : a.date);
+                const dateB = new Date(b.date && b.date.seconds ? b.date.seconds * 1000 : b.date);
+                return dateA - dateB;
+            });
+
+            // Display upcoming meetings
+            displayUpcomingMeetings(upcoming);
+        } catch (error) {
+            console.error('Error loading upcoming meetings:', error);
+            document.getElementById('upcomingMeetingsContainer').innerHTML = 
+                '<div class="empty-state"><i class="fas fa-exclamation-circle"></i><p>Error loading upcoming meetings</p></div>';
         }
+    }
+
+    function displayUpcomingMeetings(meetings) {
+        const container = document.getElementById('upcomingMeetingsContainer');
+
+        if (meetings.length === 0) {
+            container.innerHTML = '<div class="empty-state"><i class="fas fa-calendar-times"></i><p>No upcoming meetings scheduled</p></div>';
+            return;
+        }
+
+        let html = '<div style="display: grid; gap: 1rem;">';
+
+        meetings.forEach(meeting => {
+            let date;
+            if (meeting.date && typeof meeting.date === 'object' && meeting.date.seconds) {
+                date = new Date(meeting.date.seconds * 1000);
+            } else if (meeting.date) {
+                date = new Date(meeting.date);
+            } else {
+                date = new Date();
+            }
+
+            const dateStr = date.toLocaleDateString('en-US', { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            });
+
+            html += `
+                <div style="padding: 1.5rem; background: white; border: 1px solid #e5e7eb; border-radius: 8px; border-left: 4px solid #3b82f6;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                        <div>
+                            <h4 style="margin: 0 0 0.5rem 0; color: #1f2937; font-size: 1.1rem;">${meeting.eventName}</h4>
+                            <p style="margin: 0; color: #6b7280; font-size: 0.95rem;">
+                                <i class="fas fa-calendar"></i> ${dateStr}
+                            </p>
+                        </div>
+                        <div style="text-align: right;">
+                            <p style="margin: 0 0 0.5rem 0; color: #6b7280; font-size: 0.85rem;">Attendance Code:</p>
+                            <div style="display: inline-block; background: #f0f9ff; padding: 0.75rem 1.25rem; border-radius: 6px; border: 2px solid #3b82f6; font-size: 1.25rem; font-weight: bold; letter-spacing: 2px; color: #1e40af; font-family: 'Courier New', monospace;">
+                                ${meeting.code || 'N/A'}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+
+        html += '</div>';
+        container.innerHTML = html;
     }
 </script>
 {% endblock %} 

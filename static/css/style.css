@@ -302,8 +302,8 @@ nav ul li a.active {
     box-shadow: 0 5px 15px rgba(10, 36, 99, 0.4);
 }
 
+/* Note: Application page tabs have custom styling in application.html */
 .tab-content {
-    display: none;
     padding: 30px;
     background-color: white;
     border-radius: 15px;
@@ -311,6 +311,11 @@ nav ul li a.active {
     transform-origin: top center;
     animation: fadeIn 0.5s ease-out;
     position: relative;
+}
+
+/* Hide tab content by default EXCEPT in user application page */
+.tab-content:not(.tabs-container *) {
+    display: none;
 }
 
 .tab-content:before {

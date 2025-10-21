@@ -1,0 +1,1272 @@
+{% extends "layout.html" %}
+
+{% block title %}Application - Bronx Science Olympiad{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/platform.css') }}">
+<style>
+    .application-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    .notice-banner {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 1.5rem;
+        border-radius: 12px;
+        margin-bottom: 2rem;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .notice-banner h2 {
+        margin: 0 0 0.5rem 0;
+        font-size: 1.5rem;
+    }
+
+    .notice-banner p {
+        margin: 0;
+        opacity: 0.95;
+    }
+
+    .tabs-container {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+
+    .tabs-header {
+        display: flex;
+        border-bottom: 2px solid #e2e8f0;
+        background: #f7fafc;
+    }
+
+    .tab-button {
+        flex: 1;
+        padding: 1rem 1.5rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 500;
+        color: #64748b;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    .tab-button:hover {
+        background: #e2e8f0;
+        color: #334155;
+    }
+
+    .tab-button.active {
+        color: #2c3e50;
+        background: white;
+    }
+
+    .tab-button.active::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: #2c3e50;
+    }
+
+    .tabs-container .tab-content {
+        padding: 2rem;
+        min-height: 400px;
+        display: block !important; /* Override style.css which sets display: none */
+        background: #f8f9fa;
+        box-shadow: none;
+        border-radius: 0 0 12px 12px;
+    }
+
+    .tabs-container .tab-panel {
+        display: none !important;
+        animation: fadeIn 0.3s ease-in;
+    }
+
+    .tabs-container .tab-panel.active {
+        display: block !important;
+    }
+    
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .empty-state {
+        text-align: center;
+        padding: 4rem 2rem;
+        color: #64748b;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .empty-state i {
+        font-size: 4rem;
+        margin-bottom: 1.5rem;
+        opacity: 0.3;
+        color: #667eea;
+    }
+
+    .empty-state h3 {
+        margin: 0 0 0.75rem 0;
+        color: #2c3e50;
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+
+    .empty-state p {
+        margin: 0;
+        font-size: 1.05rem;
+        line-height: 1.6;
+    }
+
+    .results-iframe-container {
+        width: 100%;
+        height: 600px;
+        border: none;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .results-iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+    /* Application Form Styles */
+    .application-form {
+        background: white;
+        border-radius: 12px;
+        padding: 2.5rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        margin-bottom: 2rem;
+    }
+
+    .form-section {
+        margin-bottom: 3rem;
+        padding-bottom: 2.5rem;
+        border-bottom: 1px solid #e2e8f0;
+    }
+
+    .form-section:last-of-type {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+
+    .form-section h3 {
+        color: #1a202c;
+        margin-bottom: 1.75rem;
+        font-size: 1.6rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+    
+    .form-section h3::before {
+        content: '';
+        width: 5px;
+        height: 2rem;
+        background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+        border-radius: 3px;
+    }
+
+    .form-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+        flex: 1;
+        min-width: 280px;
+        margin-bottom: 0.5rem;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 0.75rem;
+        font-weight: 650;
+        color: #2c3e50;
+        font-size: 1rem;
+    }
+
+    .required {
+        color: #e74c3c;
+        font-weight: 700;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="tel"],
+    .form-group input[type="number"],
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        padding: 0.95rem 1.1rem;
+        border: 2px solid #e2e8f0;
+        border-radius: 12px;
+        font-family: inherit;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        background: #fafbfc;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        border-color: #667eea;
+        box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.2), inset 0 0 0 2px rgba(102, 126, 234, 0.05);
+        outline: none;
+        background: white;
+    }
+    
+    .form-group textarea {
+        resize: vertical;
+        min-height: 110px;
+        font-family: inherit;
+    }
+
+    .field-hint {
+        font-size: 0.9rem;
+        color: #7a8fa8;
+        margin-top: 0.4rem;
+        font-style: italic;
+    }
+
+    .section-description {
+        font-size: 1rem;
+        color: #5a6f85;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+        font-style: italic;
+        padding: 1rem 1.2rem;
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.08), rgba(118, 75, 162, 0.08));
+        border-radius: 10px;
+        border-left: 4px solid #667eea;
+    }
+
+    .radio-group {
+        display: flex;
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+        flex-wrap: wrap;
+    }
+
+    .radio-option {
+        display: flex;
+        align-items: center;
+        padding: 1.1rem 1.5rem;
+        background: linear-gradient(135deg, #f8fafc, #f0f4f9);
+        border: 2.5px solid #cbd5e0;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .radio-option:has(input:checked) {
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(118, 75, 162, 0.15));
+        border-color: #667eea;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.25);
+        transform: translateY(-2px);
+    }
+    
+    .radio-option:hover {
+        border-color: #667eea;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 10px rgba(102, 126, 234, 0.15);
+    }
+
+    .radio-option input[type="radio"] {
+        margin-right: 0.875rem;
+        width: 22px;
+        height: 22px;
+        accent-color: #667eea;
+        cursor: pointer;
+    }
+    
+    .radio-option label {
+        cursor: pointer;
+        font-weight: 650;
+        color: #2c3e50;
+        font-size: 1.05rem;
+    }
+
+    .word-counter {
+        text-align: right;
+        font-size: 0.9rem;
+        color: #7a8fa8;
+        margin-top: 0.6rem;
+        font-weight: 600;
+    }
+    
+    .word-counter span {
+        color: #667eea;
+        font-weight: 700;
+    }
+
+    .selection-info,
+    .selection-note {
+        margin-bottom: 0.9rem;
+        color: #2c3e50;
+        font-weight: 600;
+        font-size: 1.05rem;
+    }
+
+    .selection-counter {
+        margin-bottom: 1.75rem;
+        padding: 1.2rem 1.6rem;
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.12), rgba(118, 75, 162, 0.12));
+        border-radius: 12px;
+        font-weight: 700;
+        color: #2c3e50;
+        font-size: 1.15rem;
+        border: 2px solid rgba(102, 126, 234, 0.3);
+        text-align: center;
+    }
+    
+    .selection-counter span {
+        color: #667eea;
+        font-size: 1.3rem;
+    }
+
+    .events-container {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 12px;
+        border: 2px solid #e2e8f0;
+    }
+
+    .events-container h4 {
+        color: #2c3e50;
+        margin: 2rem 0 1.2rem;
+        padding: 1.2rem;
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+        border-radius: 10px;
+        border-left: 5px solid #667eea;
+        font-size: 1.25rem;
+        font-weight: 700;
+    }
+
+    .events-container h4:first-of-type {
+        margin-top: 0;
+    }
+
+    .events-container h4 i {
+        margin-right: 0.75rem;
+        color: #667eea;
+        font-size: 1.35rem;
+    }
+
+    .events-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+        gap: 1rem;
+        margin-bottom: 2rem;
+        padding: 1.2rem;
+        background: #fafbfc;
+        border-radius: 10px;
+    }
+
+    .event-checkbox {
+        display: flex;
+        align-items: center;
+        padding: 1rem 1.2rem;
+        border-radius: 11px;
+        transition: all 0.3s ease;
+        background: white;
+        border: 2.5px solid #e2e8f0;
+        cursor: pointer;
+    }
+
+    .event-checkbox:hover {
+        background-color: rgba(102, 126, 234, 0.08);
+        border-color: #667eea;
+        transform: translateX(4px);
+        box-shadow: 0 2px 8px rgba(102, 126, 234, 0.1);
+    }
+    
+    .event-checkbox:has(input:checked) {
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.12), rgba(118, 75, 162, 0.12));
+        border-color: #667eea;
+        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+    }
+
+    .event-checkbox input[type="checkbox"] {
+        margin-right: 0.875rem;
+        accent-color: #667eea;
+        width: 21px;
+        height: 21px;
+        cursor: pointer;
+    }
+    
+    .event-checkbox label {
+        cursor: pointer;
+        font-weight: 600;
+        color: #2c3e50;
+        font-size: 1rem;
+    }
+
+    .subject-description {
+        font-size: 0.95rem;
+        color: #5a6f85;
+        margin-bottom: 1.2rem;
+        font-style: italic;
+        line-height: 1.5;
+    }
+
+    .loading-events {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 3rem 2rem;
+        color: #7a8fa8;
+    }
+
+    .loading-events i {
+        font-size: 2.5rem;
+        margin-bottom: 1.25rem;
+        color: #667eea;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+
+    .contract-container {
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.04), rgba(118, 75, 162, 0.04));
+        border-radius: 15px;
+        padding: 2.2rem;
+        border: 2.5px solid #e2e8f0;
+        border-left: 6px solid #667eea;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .contract-text h4 {
+        color: #1a202c;
+        margin-top: 2rem;
+        margin-bottom: 1.1rem;
+        font-size: 1.2rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+    }
+
+    .contract-text h4:first-of-type {
+        margin-top: 0.5rem;
+    }
+
+    .contract-text h4 i {
+        margin-right: 0.9rem;
+        color: #667eea;
+        font-size: 1.4rem;
+    }
+    
+    .contract-text > p {
+        font-size: 1.05rem;
+        color: #2c3e50;
+        margin-bottom: 1.5rem;
+        font-weight: 500;
+        line-height: 1.6;
+    }
+
+    .contract-text ul {
+        list-style-type: none;
+        padding-left: 0;
+        margin-bottom: 1.2rem;
+    }
+
+    .contract-text ul li {
+        position: relative;
+        padding-left: 1.75rem;
+        margin-bottom: 0.9rem;
+        line-height: 1.65;
+        color: #334155;
+        font-weight: 500;
+    }
+
+    .contract-text ul li:before {
+        content: '→';
+        color: #667eea;
+        position: absolute;
+        left: 0;
+        font-weight: bold;
+        font-size: 1.1rem;
+    }
+
+    .contract-footer {
+        background-color: rgba(102, 126, 234, 0.08);
+        padding: 1.2rem;
+        border-radius: 10px;
+        margin-top: 1.5rem;
+        border: 1.5px solid rgba(102, 126, 234, 0.25);
+    }
+
+    .contract-checkbox {
+        display: flex;
+        align-items: flex-start;
+        padding: 1.4rem 1.8rem;
+        background-color: white;
+        border-radius: 13px;
+        border: 3px solid #cbd5e0;
+        margin-top: 1.75rem;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    .contract-checkbox:hover {
+        border-color: #667eea;
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.08), rgba(118, 75, 162, 0.08));
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.18);
+        transform: translateY(-2px);
+    }
+    
+    .contract-checkbox:has(input:checked) {
+        border-color: #667eea;
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.12), rgba(118, 75, 162, 0.12));
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.25);
+    }
+
+    .contract-checkbox input[type="checkbox"] {
+        margin-right: 1.1rem;
+        margin-top: 0.2rem;
+        accent-color: #667eea;
+        width: 24px;
+        height: 24px;
+        flex-shrink: 0;
+        cursor: pointer;
+    }
+
+    .contract-checkbox label {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        cursor: pointer;
+        color: #2c3e50;
+        font-weight: 600;
+    }
+
+    .form-footer {
+        margin-top: 2.5rem;
+        text-align: center;
+    }
+
+    .error-message {
+        color: #c53030;
+        margin-bottom: 1.5rem;
+        padding: 1.25rem;
+        border-radius: 11px;
+        background-color: rgba(197, 48, 48, 0.1);
+        display: none;
+        border-left: 4px solid #c53030;
+    }
+
+    .error-list ul {
+        margin: 0.75rem 0 0 0;
+        padding-left: 1.75rem;
+    }
+
+    .error-list li {
+        margin-bottom: 0.5rem;
+        line-height: 1.5;
+        font-weight: 500;
+    }
+
+    .submit-btn {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        padding: 1.4rem 3.5rem;
+        font-size: 1.2rem;
+        font-weight: 700;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.45);
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+    }
+
+    .submit-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 35px rgba(102, 126, 234, 0.55);
+        background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    }
+
+    .submit-btn:disabled {
+        background: linear-gradient(135deg, #cbd5e0, #94a3b8);
+        color: #64748b;
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+        opacity: 0.6;
+    }
+    
+    .conditional-section {
+        background: linear-gradient(135deg, #f8fafc, #f0f4f9);
+        padding: 1.75rem;
+        border-radius: 13px;
+        border: 2px solid #e2e8f0;
+        margin-top: 1.25rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .application-container {
+            padding: 1rem;
+        }
+        
+        .application-form {
+            padding: 1.5rem;
+        }
+        
+        .form-row {
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .form-group {
+            min-width: 100%;
+        }
+        
+        .radio-group {
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .events-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 1rem 2rem;
+        }
+        
+        .tab-button {
+            font-size: 0.9rem;
+            padding: 0.875rem 1rem;
+        }
+        
+        .form-section h3 {
+            font-size: 1.4rem;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="application-container">
+    <div class="notice-banner">
+        <h2>🎓 Team Application</h2>
+        <p>Complete your application to join the Bronx Science Olympiad team!</p>
+    </div>
+
+    <div class="tabs-container">
+        <div class="tabs-header">
+            <button class="tab-button active" data-tab="application">Application</button>
+            <button class="tab-button" data-tab="tests">Tests</button>
+            <button class="tab-button" data-tab="resources">Resources</button>
+            <button class="tab-button" data-tab="results">Results</button>
+        </div>
+
+        <div class="tab-content">
+            <!-- Application Tab -->
+            <div class="tab-panel active" id="application-panel">
+                <form id="application-form" class="application-form">
+                    <div class="form-section">
+                        <h3>About You</h3>
+                        <div class="form-row writing-question">
+                            <div class="form-group">
+                                <label for="bio">Tell us about yourself! (Grade, interests, hobbies, etc.) <span class="required">*</span></label>
+                                <textarea id="bio" name="bio" rows="4" maxlength="500" data-word-limit="100" required></textarea>
+                                <div class="word-counter"><span id="bioCount">0</span>/100 words</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Team Status</h3>
+                        <p class="section-description">Returning members include those that have previous Division B experience in middle schools. New members describe those that have not had any previous SciOly experience.</p>
+                        <div class="form-group radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="newMember" name="memberStatus" value="new" checked>
+                                <label for="newMember">New Member</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="returningMember" name="memberStatus" value="returning">
+                                <label for="returningMember">Returning Member</label>
+                            </div>
+                        </div>
+
+                        <div id="newMemberSection" class="conditional-section">
+                            <div class="form-group">
+                                <label for="hearAboutUs">How did you hear about us? <span class="required">*</span></label>
+                                <select id="hearAboutUs" name="hearAboutUs" required>
+                                    <option value="" disabled selected>Select an option</option>
+                                    <option value="from a friend">From a friend</option>
+                                    <option value="from a family member">From a family member</option>
+                                    <option value="on insta">On Instagram</option>
+                                    <option value="on tiktok">On TikTok</option>
+                                    <option value="looked into it">Looked into it</option>
+                                    <option value="from WTV/poster">From WTV/poster</option>
+                                    <option value="on discord">On Discord</option>
+                                </select>
+                            </div>
+                            <div class="form-group writing-question">
+                                <label for="interestReason">Why are you interested in Science Olympiad? <span class="required">*</span></label>
+                                <textarea id="interestReason" name="interestReason" rows="4" maxlength="500" data-word-limit="100" required></textarea>
+                                <div class="word-counter"><span id="interestReasonCount">0</span>/100 words</div>
+                            </div>
+                        </div>
+
+                        <div id="returningMemberSection" class="conditional-section" style="display: none;">
+                            <div class="form-group">
+                                <label for="yearsOnTeam">How many years have you been on the team? <span class="required">*</span></label>
+                                <select id="yearsOnTeam" name="yearsOnTeam" required>
+                                    <option value="" disabled selected>Select number of years</option>
+                                    <option value="1">1 year</option>
+                                    <option value="2">2 years</option>
+                                    <option value="3">3 years</option>
+                                    <option value="4">4 years</option>
+                                    <option value="5">5 years</option>
+                                    <option value="6">6 years</option>
+                                </select>
+                                <div class="field-hint">Enter the number of years you've been on the Science Olympiad team, including your Division B experience, if applicable</div>
+                            </div>
+                            <div class="form-group writing-question">
+                                <label for="pastExperience">List your past Science Olympiad results, medal history, and membership <span class="required">*</span></label>
+                                <textarea id="pastExperience" name="pastExperience" rows="4" required></textarea>
+                            </div>
+                            <div class="form-group writing-question">
+                                <label for="returnReason">Why do you want to participate again this year? <span class="required">*</span></label>
+                                <textarea id="returnReason" name="returnReason" rows="4" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Time Commitment</h3>
+                        <p class="section-description">Please indicate how many hours per week (for a maximum of 4 hours per week) you can commit to Science Olympiad during each season.</p>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="preseasonHrs">Preseason (July-September) <span class="required">*</span></label>
+                                <select id="preseasonHrs" name="preseasonHrs" required>
+                                    <option value="" disabled selected>Select hours per week</option>
+                                    <option value="0">0 hours</option>
+                                    <option value="1">1 hour</option>
+                                    <option value="2">2 hours</option>
+                                    <option value="3">3 hours</option>
+                                    <option value="4">4 hours</option>
+                                </select>
+                                <div class="field-hint">Hours per week during preseason</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="regseasonHrs">Regular Season (October-December) <span class="required">*</span></label>
+                                <select id="regseasonHrs" name="regseasonHrs" required>
+                                    <option value="" disabled selected>Select hours per week</option>
+                                    <option value="0">0 hours</option>
+                                    <option value="1">1 hour</option>
+                                    <option value="2">2 hours</option>
+                                    <option value="3">3 hours</option>
+                                    <option value="4">4 hours</option>
+                                </select>
+                                <div class="field-hint">Hours per week during regular season</div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="postseasonHrs">Post-Season (January-March) <span class="required">*</span></label>
+                                <select id="postseasonHrs" name="postseasonHrs" required>
+                                    <option value="" disabled selected>Select hours per week</option>
+                                    <option value="0">0 hours</option>
+                                    <option value="1">1 hour</option>
+                                    <option value="2">2 hours</option>
+                                    <option value="3">3 hours</option>
+                                    <option value="4">4 hours</option>
+                                </select>
+                                <div class="field-hint">Hours per week during post-season</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Notification Preferences</h3>
+                        <p class="section-description">Choose how you'd like to receive different types of notifications.</p>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="importantNotification">Important Notifications <span class="required">*</span></label>
+                                <select id="importantNotification" name="importantNotification" required>
+                                    <option value="email" selected>Email</option>
+                                    <option value="text">Text</option>
+                                    <option value="both">Both Email & Text</option>
+                                    <option value="none">None</option>
+                                </select>
+                                <div class="field-hint">Critical team updates, deadlines, and announcements</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="teamNotification">Team Notifications <span class="required">*</span></label>
+                                <select id="teamNotification" name="teamNotification" required>
+                                    <option value="email" selected>Email</option>
+                                    <option value="text">Text</option>
+                                    <option value="both">Both Email & Text</option>
+                                    <option value="none">None</option>
+                                </select>
+                                <div class="field-hint">General team updates and communications</div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="eventNotification">Event Notifications <span class="required">*</span></label>
+                                <select id="eventNotification" name="eventNotification" required>
+                                    <option value="email" selected>Email</option>
+                                    <option value="text">Text</option>
+                                    <option value="both">Both Email & Text</option>
+                                    <option value="none">None</option>
+                                </select>
+                                <div class="field-hint">Meeting reminders, event updates, and competition notifications</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Event Selection</h3>
+                        <p class="selection-info">Select between 2-6 events you're interested in trying out for.</p>
+                        <p class="selection-note">Note: You can change your event preferences at any time through your account settings after joining the team.</p>
+                        <p class="selection-counter">Events selected: <span id="eventsCounter">0</span>/6</p>
+                        
+                        <div class="events-container" id="eventsContainer">
+                            <div class="loading-events">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                <p>Loading available events...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Science Olympiad Membership Contract</h3>
+                        <div class="contract-container">
+                            <div class="contract-text">
+                                <p>By submitting this application, I agree to the following terms and conditions of membership in the Bronx Science Science Olympiad team:</p>
+                                
+                                <h4><i class="fas fa-graduation-cap"></i> Academic Honesty and Integrity</h4>
+                                <ul>
+                                    <li>I will not use artificial intelligence (AI) tools, chatbots, or automated assistance in completing learning modules, practice tests, or any educational materials provided by the team.</li>
+                                    <li>I will not plagiarize, cheat, or engage in any form of academic dishonesty during practices, invitationals, competitions, or related activities.</li>
+                                    <li>I understand that violations of academic honesty may result in removal from the team and forfeiture of competition opportunities.</li>
+                                </ul>
+
+                                <h4><i class="fas fa-shield-alt"></i> Code of Conduct and Anti-Bullying Policy</h4>
+                                <ul>
+                                    <li>I will treat all team members, coaches, volunteers, and competitors with respect and dignity at all times.</li>
+                                    <li>I will not engage in bullying, harassment, discrimination, or intimidation of any kind, whether verbal, physical, or digital.</li>
+                                    <li>I will maintain appropriate language and behavior during all team activities, competitions, and related events.</li>
+                                    <li>I will report any instances of bullying, harassment, or inappropriate behavior to team leadership immediately.</li>
+                                    <li>I understand that violations may result in disciplinary action including warnings, suspension, or permanent removal from the team.</li>
+                                </ul>
+
+                                <h4><i class="fas fa-hard-hat"></i> Safety and Laboratory Precautions</h4>
+                                <ul>
+                                    <li>I will follow all safety protocols and guidelines during laboratory work, build sessions, and competitions.</li>
+                                    <li>I will wear appropriate personal protective equipment (PPE) as required and directed by coaches.</li>
+                                    <li>I will handle all materials, tools, and equipment responsibly and report any safety concerns immediately.</li>
+                                    <li>I will not engage in unsafe practices or horseplay during any team activities.</li>
+                                    <li>I understand that failure to follow safety protocols may result in immediate removal from the activity and potential team consequences.</li>
+                                </ul>
+
+                                <h4><i class="fas fa-calendar-check"></i> Commitment and Participation</h4>
+                                <ul>
+                                    <li>I understand that Science Olympiad requires significant time commitment and dedication throughout the school year.</li>
+                                    <li>I will attend all required practices, meetings, and competitions unless excused by team leadership.</li>
+                                    <li>I will communicate absences or conflicts in advance whenever possible.</li>
+                                </ul>
+
+                                <h4><i class="fas fa-users"></i> Team Representation and Sportsmanship</h4>
+                                <ul>
+                                    <li>I will represent Bronx Science with pride, integrity, and good sportsmanship at all competitions and team events.</li>
+                                    <li>I will accept both victories and defeats gracefully and congratulate competitors regardless of outcomes.</li>
+                                    <li>I will follow all competition rules and guidelines as set forth by Science Olympiad national and regional organizations.</li>
+                                    <li>I understand that poor sportsmanship or inappropriate behavior may result in disqualification from competitions.</li>
+                                </ul>
+
+                                <h4><i class="fas fa-gavel"></i> Disciplinary Actions and Consequences</h4>
+                                <ul>
+                                    <li>I understand that the team leadership reserves the right to impose disciplinary actions for violations of this contract.</li>
+                                    <li>Consequences may include but are not limited to: verbal warnings, written warnings, suspension from practices or competitions, removal from specific events, or permanent dismissal from the team.</li>
+                                    <li>I understand that serious violations may also result in school disciplinary action as per Bronx Science policies.</li>
+                                    <li>I have the right to appeal disciplinary decisions through the established team grievance process.</li>
+                                </ul>
+
+                                <h4><i class="fas fa-info-circle"></i> Additional Terms</h4>
+                                <ul>
+                                    <li>I understand that team membership is contingent upon maintaining good academic standing at Bronx Science.</li>
+                                    <li>I give permission for photographs and videos taken during team activities to be used for promotional purposes.</li>
+                                    <li>I understand that this contract remains in effect for the duration of my membership on the team.</li>
+                                    <li>I acknowledge that team policies and procedures may be updated throughout the year, and I agree to comply with any reasonable changes.</li>
+                                </ul>
+
+                                <div class="contract-footer">
+                                    <p><strong>By checking the box below and submitting this application, I acknowledge that I have read, understood, and agree to abide by all terms of this Science Olympiad Membership Contract.</strong></p>
+                                </div>
+                            </div>
+                            
+                            <div class="contract-checkbox">
+                                <input type="checkbox" id="contractAccepted" name="contractAccepted" required>
+                                <label for="contractAccepted">
+                                    <strong>I have read and agree to the Science Olympiad Membership Contract <span class="required">*</span></strong>
+                                </label>
+                            </div>
+                </div>
+                    </div>
+
+                    <div class="form-footer">
+                        <div id="formErrors" class="error-message"></div>
+                        <button type="submit" class="submit-btn">Submit Application</button>
+                </div>
+                </form>
+            </div>
+
+            <!-- Tests Tab -->
+            <div class="tab-panel" id="tests-panel">
+                <div class="empty-state">
+                    <i class="fas fa-clipboard-list"></i>
+                    <h3>Diagnostic Tests</h3>
+                    <p>Diagnostic test information will appear here during the application period.</p>
+                </div>
+            </div>
+
+            <!-- Resources Tab -->
+            <div class="tab-panel" id="resources-panel">
+                <div class="empty-state">
+                    <i class="fas fa-book"></i>
+                    <h3>Resources</h3>
+                    <p>Application resources and study materials will appear here.</p>
+                </div>
+            </div>
+
+            <!-- Results Tab -->
+            <div class="tab-panel" id="results-panel">
+                <div class="results-iframe-container">
+                    <iframe src="/DiagResults" class="results-iframe"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Tab switching functionality
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabPanels = document.querySelectorAll('.tab-panel');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const tabName = this.getAttribute('data-tab');
+
+                // Remove active class from all buttons and panels
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabPanels.forEach(panel => panel.classList.remove('active'));
+
+                // Add active class to clicked button and corresponding panel
+                this.classList.add('active');
+                document.getElementById(tabName + '-panel').classList.add('active');
+            });
+        });
+
+        // Application form functionality
+        const newMemberRadio = document.getElementById('newMember');
+        const returningMemberRadio = document.getElementById('returningMember');
+        const newMemberSection = document.getElementById('newMemberSection');
+        const returningMemberSection = document.getElementById('returningMemberSection');
+
+        // Handle member status toggle
+        newMemberRadio.addEventListener('change', function() {
+            if (this.checked) {
+                newMemberSection.style.display = 'block';
+                returningMemberSection.style.display = 'none';
+            }
+        });
+
+        returningMemberRadio.addEventListener('change', function() {
+            if (this.checked) {
+                newMemberSection.style.display = 'none';
+                returningMemberSection.style.display = 'block';
+            }
+        });
+
+        // Word counter for bio
+        const bioField = document.getElementById('bio');
+        const bioCount = document.getElementById('bioCount');
+
+        bioField.addEventListener('input', function() {
+            const words = this.value.trim().split(/\s+/).filter(word => word.length > 0);
+            const wordCount = words.length;
+            const maxWords = parseInt(this.getAttribute('data-word-limit'));
+
+            if (wordCount > maxWords) {
+                const truncatedWords = words.slice(0, maxWords);
+                this.value = truncatedWords.join(' ');
+                this.setSelectionRange(this.value.length, this.value.length);
+            }
+
+            const actualWords = this.value.trim().split(/\s+/).filter(word => word.length > 0);
+            const actualWordCount = actualWords.length;
+            bioCount.textContent = actualWordCount;
+
+            if (actualWordCount >= maxWords) {
+                bioCount.style.color = '#e74c3c';
+            } else {
+                bioCount.style.color = '';
+            }
+        });
+
+        // Word counter for interest reason
+        const interestReasonField = document.getElementById('interestReason');
+        const interestReasonCount = document.getElementById('interestReasonCount');
+
+        if (interestReasonField) {
+            interestReasonField.addEventListener('input', function() {
+                const words = this.value.trim().split(/\s+/).filter(word => word.length > 0);
+                const wordCount = words.length;
+                const maxWords = parseInt(this.getAttribute('data-word-limit'));
+
+                if (wordCount > maxWords) {
+                    const truncatedWords = words.slice(0, maxWords);
+                    this.value = truncatedWords.join(' ');
+                    this.setSelectionRange(this.value.length, this.value.length);
+                }
+
+                const actualWords = this.value.trim().split(/\s+/).filter(word => word.length > 0);
+                const actualWordCount = actualWords.length;
+                interestReasonCount.textContent = actualWordCount;
+
+                if (actualWordCount >= maxWords) {
+                    interestReasonCount.style.color = '#e74c3c';
+                } else {
+                    interestReasonCount.style.color = '';
+                }
+            });
+        }
+
+        // Load events from API
+        loadEventsFromAPI();
+
+        function loadEventsFromAPI() {
+            fetch('/api/Events')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to load events');
+                    }
+                    return response.json();
+                })
+                .then(eventsData => {
+                    const events = eventsData.map(item => {
+                        const id = Object.keys(item)[0];
+                        return { id, ...item[id] };
+                    });
+
+                    // Group events by subject
+                    const eventsBySubject = {};
+                    events.forEach(event => {
+                        let subject = event.subject || 'classification-compilation';
+
+                        if (subject === 'construction-build' || subject === 'precision-build') {
+                            subject = 'build-events';
+                        }
+
+                        if (!eventsBySubject[subject]) {
+                            eventsBySubject[subject] = [];
+                        }
+                        eventsBySubject[subject].push(event);
+                    });
+
+                    renderEventsBySubject(eventsBySubject);
+                })
+                .catch(error => {
+                    console.error('Error loading events:', error);
+                    document.getElementById('eventsContainer').innerHTML = `
+                        <div class="error-message">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <p>Failed to load events. Please refresh the page and try again.</p>
+                        </div>
+                    `;
+                });
+        }
+
+        function renderEventsBySubject(eventsBySubject) {
+            const container = document.getElementById('eventsContainer');
+            container.innerHTML = '';
+
+            const subjectInfo = {
+                'build-events': { name: 'Build Events', icon: 'fas fa-hammer', description: '<em>Events requiring foundations in physics — specifically applying them to engineering, electronics, and programming.</em>' },
+                'physics': { name: 'Physics and Design Events', icon: 'fas fa-cogs', description: 'These events require a strong foundation in physics, specifically mechanics and electricity, and are often hybrid events between test and build portions.' },
+                'earth-science': { name: 'Earth Science Events', icon: 'fas fa-globe-americas', description: 'These events describe the Earth as a system and how the dynamics and processes within its unique environments affect the Earth as a whole.' },
+                'classification-compilation': { name: 'Classification & Compilation Events', icon: 'fas fa-search', description: 'This category describes events that require heavy research and compilation of information. All events in this category are binder events between Biology and Earth Science.' },
+                'biology': { name: 'Biology Events', icon: 'fas fa-dna', description: 'These events require a strong foundation in biology, specifically applied to genetics, epidemiology, and neuroscience.' },
+                'chemistry': { name: 'Chemistry & Inquiry Events', icon: 'fas fa-flask', description: 'Events that require foundations in chemistry and scientific inquiry applied to experimentation and chemical interactions.' }
+            };
+
+            Object.keys(eventsBySubject).forEach(subject => {
+                const events = eventsBySubject[subject];
+                const info = subjectInfo[subject] || subjectInfo['classification-compilation'];
+
+                const subjectSection = document.createElement('div');
+                subjectSection.innerHTML = `
+                    <h4><i class="${info.icon}"></i> ${info.name}</h4>
+                    <p class="subject-description">${info.description}</p>
+                    <div class="events-grid" id="events-grid-${subject}">
+                    </div>
+                `;
+
+                container.appendChild(subjectSection);
+
+                const grid = document.getElementById(`events-grid-${subject}`);
+                events.forEach(event => {
+                    const eventCheckbox = document.createElement('div');
+                    eventCheckbox.className = 'event-checkbox';
+                    eventCheckbox.innerHTML = `
+                        <input type="checkbox" id="${event.id}" name="events[]" value="${event.eventName}" class="event-check">
+                        <label for="${event.id}">${event.eventName}</label>
+                    `;
+                    grid.appendChild(eventCheckbox);
+                });
+            });
+
+            initializeEventCheckboxes();
+        }
+
+        function initializeEventCheckboxes() {
+            const eventCheckboxes = document.querySelectorAll('.event-check');
+            const eventsCounter = document.getElementById('eventsCounter');
+
+            eventCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const checkedEvents = document.querySelectorAll('.event-check:checked').length;
+                    eventsCounter.textContent = checkedEvents;
+
+                    if (checkedEvents < 2) {
+                        eventsCounter.style.color = '#e74c3c';
+                    } else if (checkedEvents > 6) {
+                        eventsCounter.style.color = '#e74c3c';
+                    } else {
+                        eventsCounter.style.color = '#27ae60';
+                    }
+
+                    if (checkedEvents >= 6) {
+                        eventCheckboxes.forEach(cb => {
+                            if (!cb.checked) {
+                                cb.disabled = true;
+                            }
+                        });
+                    } else {
+                        eventCheckboxes.forEach(cb => {
+                            cb.disabled = false;
+                        });
+                    }
+                });
+            });
+        }
+
+        // Form submission
+        const applicationForm = document.getElementById('application-form');
+        const formErrors = document.getElementById('formErrors');
+
+        applicationForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            let errors = [];
+            formErrors.innerHTML = '';
+            formErrors.style.display = 'none';
+
+            // Validate event selection
+            const checkedEvents = document.querySelectorAll('.event-check:checked').length;
+            if (checkedEvents < 2) {
+                errors.push('Please select at least 2 events to try out for.');
+            } else if (checkedEvents > 6) {
+                errors.push('Please select no more than 6 events to try out for.');
+            }
+
+            // Validate word count
+            const bioWords = bioField.value.trim().split(/\s+/).filter(word => word.length > 0);
+            const bioWordCount = bioWords.length;
+            const bioMaxWords = parseInt(bioField.getAttribute('data-word-limit'));
+
+            if (bioWordCount > bioMaxWords) {
+                errors.push(`Your bio exceeds the ${bioMaxWords} word limit. Please shorten it.`);
+            }
+
+            // Validate contract acceptance
+            const contractAccepted = document.getElementById('contractAccepted').checked;
+            if (!contractAccepted) {
+                errors.push('You must read and agree to the Science Olympiad Membership Contract to proceed.');
+            }
+
+            if (errors.length > 0) {
+                formErrors.style.display = 'block';
+                errors.forEach(error => {
+                    const errorItem = document.createElement('div');
+                    errorItem.textContent = error;
+                    formErrors.appendChild(errorItem);
+                });
+            } else {
+                // Build application data
+                const selectedEvents = [];
+                document.querySelectorAll('.event-check:checked').forEach(checkbox => {
+                    selectedEvents.push(checkbox.value);
+                });
+
+                const applicationData = {
+                    bio: bioField.value,
+                    memberStatus: document.querySelector('input[name="memberStatus"]:checked').value,
+                    events: selectedEvents,
+                    preseasonHrs: parseFloat(document.getElementById('preseasonHrs').value),
+                    regseasonHrs: parseFloat(document.getElementById('regseasonHrs').value),
+                    postseasonHrs: parseFloat(document.getElementById('postseasonHrs').value),
+                    importantNotification: document.getElementById('importantNotification').value,
+                    teamNotification: document.getElementById('teamNotification').value,
+                    eventNotification: document.getElementById('eventNotification').value,
+                    contractAccepted: contractAccepted,
+                    contractAcceptedAt: new Date().toISOString(),
+                    applicationStatus: 'complete'
+                };
+
+                // Add member-specific fields
+                if (applicationData.memberStatus === 'new') {
+                    applicationData.interestReason = interestReasonField.value;
+                    applicationData.howDidYouHearAboutUs = document.getElementById('hearAboutUs').value;
+                } else {
+                    applicationData.pastExperience = document.getElementById('pastExperience').value;
+                    applicationData.returnReason = document.getElementById('returnReason').value;
+                    applicationData.yearsInTeam = parseInt(document.getElementById('yearsOnTeam').value);
+                }
+
+                // TODO: Submit to API to update member record
+                console.log('Application data:', applicationData);
+                alert('Application submitted successfully! (Feature in development)');
+            }
+        });
+    });
+</script>
+{% endblock %}
+

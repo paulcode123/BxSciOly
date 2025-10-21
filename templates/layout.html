@@ -167,13 +167,8 @@
                     <li id="loginLink"><a href="{{ url_for('login') }}" {% if request.path == url_for('login') %}class="active"{% endif %}><i class="fas fa-sign-in-alt"></i> Login</a></li>
                     <li id="userDropdown" class="dropdown" style="display: none;">
                         <a href="#"><i class="fas fa-user-circle"></i> <span id="userName">User</span></a>
-                        <div class="dropdown-content">
-                            <a href="{{ url_for('user_settings') }}"><i class="fas fa-id-card"></i> Profile &amp; Events</a>
-                            <a href="{{ url_for('user_conversations') }}"><i class="fas fa-graduation-cap"></i> Learning</a>
-                            <a href="{{ url_for('user_attendance') }}"><i class="fas fa-calendar-check"></i> Meetings</a>
-                            <a href="{{ url_for('user_competitions') }}"><i class="fas fa-trophy"></i> Competitions</a>
-                            <a href="{{ url_for('admin_login') }}" id="adminConsoleBtn" style="display: none;"><i class="fas fa-user-shield"></i> Admin Console</a>
-                            <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        <div class="dropdown-content" id="userDropdownMenu">
+                            <!-- Menu items will be dynamically populated based on roster status -->
                         </div>
                     </li>
                 </ul>
@@ -259,8 +254,7 @@
             const loginLink = document.getElementById('loginLink');
             const userDropdown = document.getElementById('userDropdown');
             const userName = document.getElementById('userName');
-            const logoutBtn = document.getElementById('logoutBtn');
-            const adminConsoleBtn = document.getElementById('adminConsoleBtn');
+            const userDropdownMenu = document.getElementById('userDropdownMenu');
             
             // Check if user data exists in session storage
             const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
@@ -275,24 +269,63 @@
                 userDropdown.style.display = 'inline-block';
                 userName.textContent = currentUser.firstName;
                 
-                // Debug: Log admin status
-                console.log('Admin status:', currentUser.adminStatus);
-                
-                // Show admin console button if user has full admin status
-                if (currentUser.adminStatus === 'full') {
-                    console.log('Showing admin console button');
-                    adminConsoleBtn.style.display = 'block';
-                    adminConsoleBtn.style.visibility = 'visible';
-                } else {
-                    console.log('Admin status is not full:', currentUser.adminStatus);
-                }
-                
-                // Handle logout
-                logoutBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    sessionStorage.removeItem('currentUser');
-                    window.location.href = '/';
-                });
+                // Check roster status
+                fetch(`/api/roster-status/${currentUser.id}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        const onRoster = data.onRoster;
+                        console.log('On roster:', onRoster);
+                        
+                        // Build menu based on roster status
+                        let menuHTML = '';
+                        
+                        if (onRoster) {
+                            // User is on the roster - show full member menu
+                            menuHTML += '<a href="/user/learning"><i class="fas fa-graduation-cap"></i> Learning</a>';
+                            menuHTML += '<a href="/user/meetings"><i class="fas fa-calendar-check"></i> Meetings</a>';
+                            menuHTML += '<a href="/user/competitions"><i class="fas fa-trophy"></i> Competitions</a>';
+                        } else {
+                            // User is not on the roster - show application menu
+                            menuHTML += '<a href="/user/application"><i class="fas fa-file-alt"></i> Application</a>';
+                        }
+                        
+                        // Show admin console if user has admin status
+                        if (currentUser.adminStatus && currentUser.adminStatus !== 'none') {
+                            menuHTML += '<a href="/admin/login"><i class="fas fa-user-shield"></i> Admin Console</a>';
+                        }
+                        
+                        // Always show settings and logout
+                        menuHTML += '<a href="/user/settings"><i class="fas fa-cog"></i> Settings</a>';
+                        menuHTML += '<a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>';
+                        
+                        userDropdownMenu.innerHTML = menuHTML;
+                        
+                        // Handle logout
+                        const logoutBtn = document.getElementById('logoutBtn');
+                        logoutBtn.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            sessionStorage.removeItem('currentUser');
+                            window.location.href = '/';
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error checking roster status:', error);
+                        // Default to showing application menu if error
+                        let menuHTML = '<a href="/user/application"><i class="fas fa-file-alt"></i> Application</a>';
+                        if (currentUser.adminStatus && currentUser.adminStatus !== 'none') {
+                            menuHTML += '<a href="/admin/login"><i class="fas fa-user-shield"></i> Admin Console</a>';
+                        }
+                        menuHTML += '<a href="/user/settings"><i class="fas fa-cog"></i> Settings</a>';
+                        menuHTML += '<a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>';
+                        userDropdownMenu.innerHTML = menuHTML;
+                        
+                        const logoutBtn = document.getElementById('logoutBtn');
+                        logoutBtn.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            sessionStorage.removeItem('currentUser');
+                            window.location.href = '/';
+                        });
+                    });
             } else {
                 // User is not logged in
                 loginLink.style.display = 'inline-block';

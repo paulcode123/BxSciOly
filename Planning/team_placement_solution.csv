@@ -1,0 +1,101 @@
+bxsciolyID,firebaseID,firstName,lastName,house,avgPercentile,numEvents,events,event1,event2,event3
+01864,9HKcCwSviCids8sUgHe2,Atef,Istiaque,A,51.98,4,"Bungee Drop, Circuit Lab, Heli, Hovercraft",Bungee Drop,Circuit Lab,Heli
+02268,LmQgYDYfXDfoKibjRguR,Simeon,Chen,B,78.69,3,"Codebusters, DP, Forensics",Codebusters,DP,Forensics
+03502,aPFNVZuAO6X3VDjAcBgh,Vincent,Lin,C,54.88,2,"DP, Water Quality",DP,Water Quality,
+03866,S8D1dW4XpR69dOjqpit5,Xuanhua,Chen,D,48.52,1,Bungee Drop,Bungee Drop,,
+04565,I5weCDDRfh9US8W5ayAT,Senna,Shiau,A,74.36,3,"Boomilever, Heli, Machines",Boomilever,Heli,Machines
+05233,k9Z2OrJ1xkAzlSs2wG5t,Michael,Mar,B,53.96,2,"Bungee Drop, MatSci",Bungee Drop,MatSci,
+07245,jel6V6OV0I1nt6Ydp4Q1,Xingtong,Chen,C,67.72,3,"DD, Designer Genes, RemSem",DD,Designer Genes,RemSem
+11734,6BIxPQMljpTs22MlRIeE,James,Kim,D,56.58,2,"Entomology, Heli",Entomology,Heli,
+12115,ZetC4ncM7IQmRI8LUtyp,Jodi,Zheng,A,78.91,3,"DP, Entomology, Rocks and Minerals",DP,Entomology,Rocks and Minerals
+13443,vwCfKB3odNAVf8VGacow,Wesley,Ho,B,73.08,2,"Heli, Hovercraft",Heli,Hovercraft,
+13924,lzFSA2gcWIQOxloAy2Ly,Tenzin,Yangtso,C,75.60,3,"Designer Genes, RemSem, Water Quality",Designer Genes,RemSem,Water Quality
+14047,SXH8pbX6sZ2Iw9kbl2yv,Protik,Modak,D,66.87,3,"Circuit Lab, Engineering CAD, Machines",Circuit Lab,Engineering CAD,Machines
+14259,Kb3VNA0tIeLKG79j1kDP,Ian,Liu,A,57.87,3,"Designer Genes, Entomology, Forensics",Designer Genes,Entomology,Forensics
+15387,l8CHy6WibZypOL0T9E1z,Samuel,Gao,B,27.03,2,"Circuit Lab, Hovercraft",Circuit Lab,Hovercraft,
+16736,CdxgotX0pVMs5relG9Bs,Sean,Kim,C,91.00,4,"A&P, Chem Lab, Codebusters, Forensics",A&P,Chem Lab,Codebusters
+16750,UTxBjYBb05iVseQdYrbl,Angela,Zhang,D,72.96,3,"A&P, DD, Forensics",A&P,DD,Forensics
+18982,LCZMiKK8kLOT1a8AwgG9,Wilson,Shao,A,87.15,4,"Bungee Drop, Chem Lab, EV, Engineering CAD",Bungee Drop,Chem Lab,EV
+19080,38zV071el4ZGLHgb6JOK,Stanley,Zhao,B,66.34,3,"Chem Lab, DD, Designer Genes",Chem Lab,DD,Designer Genes
+20251,R83nmHTcq9ZeQ7ssr5mk,Afraz,Mahmud,C,94.22,2,"Machines, MatSci",Machines,MatSci,
+20757,9SUVi8KRrq6DAH2hxhhr,Ian,Kim,D,52.88,1,Bungee Drop,Bungee Drop,,
+21536,65ZDf0hZcTWLr6SHQFFm,Jayden,Chan,A,65.56,3,"Codebusters, Engineering CAD, Robot Tour",Codebusters,Engineering CAD,Robot Tour
+21853,MaPFVYxI9gwRzQi8Hwls,Sagorika,Biswas,B,65.87,2,"Rocks and Minerals, Water Quality",Rocks and Minerals,Water Quality,
+25116,FMa771jJSGT5i7w2LyUW,Anthony,Roldan,C,60.42,3,"DP, Entomology, Water Quality",DP,Entomology,Water Quality
+25548,XG2MoZkGfZ1rP7mPlenQ,Nur,Rahman,D,63.10,4,"Astronomy, Circuit Lab, Machines, MatSci",Astronomy,Circuit Lab,Machines
+26217,zC9i9XeV3oAmeTxIiclx,Sophia,Weng,A,71.45,3,"A&P, DD, Designer Genes",A&P,DD,Designer Genes
+27330,1IigDw8fw6i5rLqMhKsV,Aidan,Davidescu,B,58.72,2,"EV, Machines",EV,Machines,
+27367,WGvtngJzvq91nxVHt7ca,Sophia,Zheng,C,73.55,3,"A&P, Chem Lab, DD",A&P,Chem Lab,DD
+27982,t6SXTzBRohNOZ8dwbgdE,Yufan,Lin,D,59.93,2,"DD, Designer Genes",DD,Designer Genes,
+28176,qzLpMIeyYWcpyIqLzIdr,Devin,Zhou,A,47.91,2,"EV, Engineering CAD",EV,Engineering CAD,
+28563,R8enRy2gh5np2Dx13mbV,Mason,Kim,B,84.10,3,"A&P, Designer Genes, EV",A&P,Designer Genes,EV
+32431,5XtDOGAaOtQ3dwzbNT9U,Allen,Huang,C,58.54,3,"A&P, RemSem, Water Quality",A&P,RemSem,Water Quality
+32944,KDcRuK6LS9YYUbQ6PXu1,Katie,Lim,D,74.86,3,"Boomilever, Bungee Drop, Heli",Boomilever,Bungee Drop,Heli
+34289,Khimr97GUT98ahbHcxib,Xinyi,Zhao,A,71.77,2,"Astronomy, Entomology",Astronomy,Entomology,
+34470,BfNcog9dYOORWEBeMPRC,Xin yue,Wen,B,63.37,3,"Designer Genes, Forensics, MatSci",Designer Genes,Forensics,MatSci
+34915,wb7FlsVgN649RbcISxgj,Zeyuan,Zhang,C,57.69,3,"Forensics, Machines, Rocks and Minerals",Forensics,Machines,Rocks and Minerals
+38007,fnxMXdLH8D4tGk5jI7sr,Sophie,Liu,D,46.37,2,"Astronomy, Designer Genes",Astronomy,Designer Genes,
+42451,C2wpUHYsGJEdU6vuPB4x,Anthony,Xu,A,74.10,3,"A&P, DD, Designer Genes",A&P,DD,Designer Genes
+45419,pmvzmlsqsGdZwQeUinSQ,Lyla,Quim,B,82.95,3,"Forensics, RemSem, Rocks and Minerals",Forensics,RemSem,Rocks and Minerals
+46080,qxbiebdXKsYuh8fTGu6g,Dena,Saha,C,54.49,2,"EV, MatSci",EV,MatSci,
+46736,cRkLjwd4cs8d5NDtkl8u,Jacqueline,Wang,D,59.74,3,"Boomilever, ExpD, Rocks and Minerals",Boomilever,ExpD,Rocks and Minerals
+48474,XMqglLrfcrw31GfHfNMI,Ella,Gao,A,76.00,3,"Circuit Lab, Codebusters, EV",Circuit Lab,Codebusters,EV
+48781,EuOTlTQUmXBzs6o1ICcs,Brandon Jeun Hei,Ho,B,68.16,3,"A&P, EV, Hovercraft",A&P,EV,Hovercraft
+51131,HFkVCf2Hsfghpimcktsj,Olivia,Hau,C,91.05,3,"A&P, Designer Genes, Forensics",A&P,Designer Genes,Forensics
+52884,KZLYmqFVc8OYKeyzvhcS,Ethan,Wang,D,60.57,4,"DP, Engineering CAD, Entomology, Water Quality",DP,Engineering CAD,Entomology
+53356,ISCpCK4oCqd6I09NsRJa,Xueqing,Lin,A,74.65,4,"A&P, DP, Designer Genes, Water Quality",A&P,DP,Designer Genes
+54638,8z1K9CnhwXfhtmQmN2ew,Nawaf,Faiha,B,84.97,3,"A&P, DD, Designer Genes",A&P,DD,Designer Genes
+55035,WEC5xseCc4BLCoz1MY2j,Yutong,Chen,C,67.46,4,"ExpD, RemSem, Rocks and Minerals, Water Quality",ExpD,RemSem,Rocks and Minerals
+55444,NfJyW568oCxDhcXW6ISs,Jason,Lee,D,78.61,3,"Boomilever, DP, Heli",Boomilever,DP,Heli
+57279,m40rgsicN9GyqDAYQJSd,Zev,Valdina,A,44.92,3,"Designer Genes, Entomology, ExpD",Designer Genes,Entomology,ExpD
+57890,PMEyuNOncB9nyguDMMTx,Jason,Poon,B,66.32,4,"A&P, Chem Lab, DD, Water Quality",A&P,Chem Lab,DD
+57913,x0BA1KGMj59zh6uzLnVW,Kenny,Ou,C,68.56,3,"Boomilever, Chem Lab, EV",Boomilever,Chem Lab,EV
+57928,8xLk4yTWSsYDpPCac1mg,Isabelle,Ross,D,60.03,3,"Astronomy, Codebusters, Rocks and Minerals",Astronomy,Codebusters,Rocks and Minerals
+59467,TK8tkzrHMT8EAGodIxsr,Chase,Li,A,39.75,2,"Boomilever, Heli",Boomilever,Heli,
+60692,I21sPe3MifnmbXTs572Q,Yuxuan,Jiang,B,51.71,2,"ExpD, Forensics",ExpD,Forensics,
+63039,ZfyG05WyRbnrRZaAPnbF,Andrew,Lin,C,87.44,4,"Chem Lab, EV, Forensics, Robot Tour",Chem Lab,EV,Forensics
+63564,1VWpuHoMNiuC5G9wSLLW,Sophia,Schnabl,D,39.33,2,"Astronomy, Rocks and Minerals",Astronomy,Rocks and Minerals,
+63571,Bi9PytZ5RsI4X0QVCp0Y,Kai,Kuriyama,A,93.75,1,Water Quality,Water Quality,,
+68042,DPBeyNWyICKBwS1TOBHU,Brian,Chen,B,67.63,3,"A&P, DD, Forensics",A&P,DD,Forensics
+69197,DHd1pMaJhvX76POzX3hQ,Eason,Chen,C,63.33,3,"EV, Forensics, Hovercraft",EV,Forensics,Hovercraft
+70664,ckAx7RkbWRl2ri6BYtGo,Sam,Land,D,69.99,4,"Astronomy, Circuit Lab, Codebusters, Engineering CAD",Astronomy,Circuit Lab,Codebusters
+71601,3lrLuaq00DDXlCMiQMiE,Kael,Barba,A,66.54,3,"Astronomy, Chem Lab, MatSci",Astronomy,Chem Lab,MatSci
+71816,1lSPcy9zAcH8DKr1qBG7,Julia,Chin,B,70.41,4,"DD, ExpD, Forensics, MatSci",DD,ExpD,Forensics
+72352,fDUdwfwMh8DIaQ9Bi6b5,Haylie,Leong,C,57.55,4,"Boomilever, Chem Lab, Heli, Hovercraft",Boomilever,Chem Lab,Heli
+72353,urOJRC6MfR5CgZtVhkYf,Sherman,Wong,D,70.39,4,"Codebusters, DD, ExpD, Heli",Codebusters,DD,ExpD
+73400,9zsjfnvQxDHxTIIYPDM5,James,Li,A,96.77,2,"Bungee Drop, Hovercraft",Bungee Drop,Hovercraft,
+73508,Z2UuyvUdboIB77PdIQNd,Vincent,Zhao,B,74.60,4,"A&P, Astronomy, Chem Lab, RemSem",A&P,Astronomy,Chem Lab
+76392,LxKq8aFN1aEiNUAtzPDe,Raymond,Lin,C,81.33,3,"Boomilever, Bungee Drop, Heli",Boomilever,Bungee Drop,Heli
+77225,,suren,reddy,D,75.51,1,Chem Lab,Chem Lab,,
+78190,yZeGcOQ5Q2Z0SGFHQ8fQ,Adeline,Nurenie,A,66.48,3,"Chem Lab, Engineering CAD, MatSci",Chem Lab,Engineering CAD,MatSci
+78307,vkK1MKs0pcQ46nPD6baz,Luce,Kim,B,52.63,2,"A&P, Codebusters",A&P,Codebusters,
+78914,oaUKxJ3nN60fpVvYbagn,Kenny,Tan,C,94.12,3,"Boomilever, DD, Designer Genes",Boomilever,DD,Designer Genes
+80840,2vc7fT5IMwxuPHcfQZqT,Matthew,Huang,D,63.77,3,"Chem Lab, DD, DP",Chem Lab,DD,DP
+81523,4973ea0f60bdf9f955dd,William,Zou,A,75.63,3,"Astronomy, Circuit Lab, Codebusters",Astronomy,Circuit Lab,Codebusters
+82068,fC8RMCM427JDoRQBoQlO,Dennis,Zhuo,B,51.93,2,"Astronomy, RemSem",Astronomy,RemSem,
+84179,AyMtWZLo06cyBvRoWCYh,Brandon,Lin,C,89.66,4,"Astronomy, DP, ExpD, MatSci",Astronomy,DP,ExpD
+84275,F5VJVPv5oNQrQq3sag7h,Elyn,Wang,D,65.76,3,"Codebusters, Entomology, Forensics",Codebusters,Entomology,Forensics
+85242,NPU1ci4ZwFURlt8t5iiU,Wing Yee,Chan,A,49.63,1,A&P,A&P,,
+87536,7GFgtknILGJvnr2YdbHe,Alan,Lin,B,68.59,3,"Hovercraft, Machines, Robot Tour",Hovercraft,Machines,Robot Tour
+87645,BPZBtq1xCC5UcQDdATk3,Rishav,Banik,C,57.25,2,"EV, Machines",EV,Machines,
+88297,OAqvbdsoE3LoTq3VLaj8,Karis,Lau,D,74.07,3,"Engineering CAD, Forensics, RemSem",Engineering CAD,Forensics,RemSem
+88513,xOrujc35jaI7OBRcG1un,Edison,Lee,A,94.87,3,"Bungee Drop, Codebusters, Machines",Bungee Drop,Codebusters,Machines
+88705,crc8eussbkEs2FQSuCEw,Maliha,Noreen,B,52.20,2,"Engineering CAD, Machines",Engineering CAD,Machines,
+88742,9Jpo6jryf6LG7uDHUdxW,Jeun,Ebat,C,76.61,3,"Astronomy, ExpD, RemSem",Astronomy,ExpD,RemSem
+89720,wyeKFYgoRSC1KvYIH8oZ,Eugene,Lim,D,61.19,2,"A&P, DD",A&P,DD,
+92012,xlylrh1numBp7BRujCR7,Pramit,Acharjee,A,80.88,2,"Astronomy, Entomology",Astronomy,Entomology,
+92151,6zMQ2sreDuq6lXK1HJFw,Ryan,Chen,B,74.55,3,"ExpD, RemSem, Water Quality",ExpD,RemSem,Water Quality
+92846,o9sMnLbF01A0wJMrL5Up,Jacob,Berner,C,44.10,3,"EV, Machines, Robot Tour",EV,Machines,Robot Tour
+92913,uLIiPDRttsImuC8vN49f,morgan,greenfield,D,85.92,3,"Codebusters, ExpD, Forensics",Codebusters,ExpD,Forensics
+93325,REkiu40EXFhGSEnlPQPZ,Raiyan,Karim,A,37.65,2,"Hovercraft, Robot Tour",Hovercraft,Robot Tour,
+94731,DIGsFBVWEAKqpeSqCJlM,Jerry,Zhu,B,60.56,3,"Boomilever, EV, Heli",Boomilever,EV,Heli
+15344,BJzUr9PicdwSLLR6e21P,Johnny,Lin,C,55.86,3,"Astronomy, Designer Genes, DP",Astronomy,Designer Genes,DP
+94883,QESURfjBoz2mFnIxgNxu,Johnny,Lin,C,55.86,2,"DP, Entomology",DP,Entomology,
+96214,yMVoPleNtoCQvxSPus4f,Anna,Gao,D,78.43,2,"Chem Lab, Water Quality",Chem Lab,Water Quality,
+96320,uHzWDRKIGI8bLhPQfSC1,Anushka,Biswas,A,75.76,2,"Entomology, Rocks and Minerals",Entomology,Rocks and Minerals,
+96870,t3PQbl6adL8wjW5go3Za,Leland,Cao,B,60.17,2,"Circuit Lab, Machines",Circuit Lab,Machines,
+97050,1MtbMqkZXSfvElz6pMV4,Owen,Zhang,C,79.53,3,"DD, Forensics, MatSci",DD,Forensics,MatSci
+97289,wcwnQPSDCKP2mIZv7GTx,Ryan,Yun,D,41.35,1,Rocks and Minerals,Rocks and Minerals,,
+98556,EKNsvJPfhm41co1mmkzY,May Thu,Khaing,A,55.24,1,Circuit Lab,Circuit Lab,,
+99167,jVvijqNRxnT6QLMGCKP0,Lia,Skarabot,B,38.23,2,"Circuit Lab, EV",Circuit Lab,EV,
+99673,PwKXUk9siKqRrgzgIZWD,Linwang,Li,C,81.26,3,"A&P, Engineering CAD, RemSem",A&P,Engineering CAD,RemSem
