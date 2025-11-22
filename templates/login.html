@@ -22,7 +22,7 @@
                 <form id="login-form" class="login-form">
                     <div class="form-group">
                         <label for="doeEmail">DOE Email Address</label>
-                        <input type="email" id="doeEmail" name="doeEmail" pattern=".*@nycstudents\.net$" title="Please enter your NYC DOE email address ending with @nycstudents.net" required>
+                        <input type="email" id="doeEmail" name="doeEmail" title="Please enter your NYC DOE email address" required>
                         <div class="field-hint">Enter your NYC DOE email address ending with @nycstudents.net</div>
                     </div>
                     
@@ -304,8 +304,16 @@
             loginError.style.display = 'none';
             loginError.textContent = '';
             
-            // Validate DOE email format
-            if (!doeEmail.endsWith('@nycstudents.net')) {
+            // Validate DOE email format - allow @nycstudents.net or specific admin emails
+            const allowedAdminEmails = [
+                'mwomer@schools.nyc.gov',
+                'JPowell27@schools.nyc.gov',
+                'jzheng8@schools.nyc.gov'
+            ];
+            
+            const isValidEmail = doeEmail.endsWith('@nycstudents.net') || allowedAdminEmails.includes(doeEmail.toLowerCase());
+            
+            if (!isValidEmail) {
                 loginError.textContent = 'Please enter a valid NYC DOE email address ending with @nycstudents.net';
                 loginError.style.display = 'block';
                 return;

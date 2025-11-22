@@ -302,6 +302,170 @@ def update(collection, document_id):
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+@firebase_routes.route('/api/Meeting/<meeting_id>/checkin', methods=['POST'])
+def meeting_checkin(meeting_id):
+    """Atomically add a member to meeting attendance (prevents race conditions)"""
+    try:
+        data = request.get_json()
+        if not data or 'memberId' not in data:
+            return jsonify({"error": "memberId is required"}), 400
+        
+        member_id = data['memberId']
+        
+        # Get meeting reference
+        meeting_ref = db.collection('Meeting').document(meeting_id)
+        meeting = meeting_ref.get()
+        
+        if not meeting.exists:
+            return jsonify({"error": "Meeting not found"}), 404
+        
+        # Use arrayUnion for atomic update - prevents race conditions
+        meeting_ref.update({
+            'attended': firestore.ArrayUnion([member_id])
+        })
+        
+        return jsonify({
+            "message": "Attendance recorded successfully",
+            "meetingId": meeting_id,
+            "memberId": member_id
+        }), 200
+        
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/Meeting/generate-today', methods=['POST'])
+def generate_todays_meetings():
+    """Generate meetings for all events scheduled today based on schedule.txt"""
+    try:
+        import random
+        import string
+        from datetime import datetime, timezone
+        
+        # Read schedule.txt
+        schedule_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'static', 'schedule.txt')
+        with open(schedule_path, 'r') as f:
+            schedule_text = f.read()
+        
+        # Get current day of week
+        days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+        today = days[datetime.now().weekday()]
+        
+        # Parse schedule for today's events
+        todays_events = []
+        lines = schedule_text.split('\n')
+        current_day = None
+        current_block = None
+        current_time = None
+        
+        for line in lines:
+            line_stripped = line.strip()
+            
+            # Check if this is a day header
+            if line_stripped.endswith(':') and any(day in line_stripped for day in days):
+                current_day = line_stripped.replace(':', '').strip()
+                continue
+            
+            # Check if this is a block header
+            if 'Block' in line_stripped and '(' in line_stripped:
+                import re
+                block_match = re.search(r'Block (\d+)', line_stripped)
+                time_match = re.search(r'\((.*?)\)', line_stripped)
+                if block_match and time_match:
+                    current_block = block_match.group(1)
+                    current_time = time_match.group(1)
+                continue
+            
+            # Check if this is an event (starts with -)
+            if line_stripped.startswith('- ') and current_day == today:
+                event_name = line_stripped[2:].strip()
+                todays_events.append({
+                    'eventName': event_name,
+                    'block': current_block,
+                    'time': current_time
+                })
+        
+        # Always add build events on Tues/Wed/Thurs - they meet both blocks every day
+        # Each build event gets TWO meetings (one per block)
+        build_events = ['Boomilever', 'Helicopter', 'Electric Vehicle', 'Robot Tour', 'Bungee Drop', 'Hovercraft']
+        
+        if today in ['Tuesday', 'Wednesday', 'Thursday']:
+            for build_event in build_events:
+                # Add Block 1 meeting
+                todays_events.append({
+                    'eventName': build_event,
+                    'block': '1',
+                    'time': '3:45 - 4:20 PM'
+                })
+                # Add Block 2 meeting
+                todays_events.append({
+                    'eventName': build_event,
+                    'block': '2',
+                    'time': '4:25 - 5:00 PM'
+                })
+        
+        if not todays_events:
+            return jsonify({
+                "message": f"No events scheduled for {today}",
+                "meetings": []
+            }), 200
+        
+        # Check if today's meetings already exist
+        today_date = datetime.now().replace(hour=12, minute=0, second=0, microsecond=0)
+        today_start = today_date.replace(hour=0, minute=0)
+        today_end = today_date.replace(hour=23, minute=59)
+        
+        # Query meetings for today
+        meetings_ref = db.collection('Meeting')
+        existing_meetings = meetings_ref.where('date', '>=', today_start).where('date', '<=', today_end).stream()
+        existing_event_names = set([m.to_dict().get('eventName') for m in existing_meetings])
+        
+        # Generate codes and create meetings
+        created_meetings = []
+        
+        def generate_code():
+            """Generate random 5-letter code"""
+            return ''.join(random.choices(string.ascii_uppercase, k=5))
+        
+        for event_info in todays_events:
+            event_name = event_info['eventName']
+            
+            # Skip if meeting already exists for this event today
+            if event_name in existing_event_names:
+                continue
+            
+            code = generate_code()
+            
+            meeting_data = {
+                'eventName': event_name,
+                'date': today_date,
+                'code': code,
+                'block': event_info.get('block', ''),
+                'room': '',  # Can be updated later
+                'attended': []
+            }
+            
+            # Create meeting
+            meeting_ref = meetings_ref.document()
+            meeting_ref.set(meeting_data)
+            
+            created_meetings.append({
+                'id': meeting_ref.id,
+                **meeting_data,
+                'time': event_info.get('time', '')
+            })
+        
+        return jsonify({
+            "message": f"Created {len(created_meetings)} meetings for {today}",
+            "meetings": created_meetings,
+            "day": today,
+            "alreadyExisted": len(existing_event_names)
+        }), 200
+        
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        return jsonify({"error": str(e)}), 500
+
 @firebase_routes.route('/api/<collection>/<document_id>', methods=['DELETE'])
 def delete(collection, document_id):
     """Delete a document from a collection"""
@@ -645,10 +809,10 @@ def admin_login():
         member = members[0]
         member_data = member.to_dict()
         
-        # Check if member has admin status
+        # Check if member has full admin status (only full admins can access admin console)
         admin_status = member_data.get('adminStatus', 'none')
-        if admin_status == 'none':
-            return jsonify({"error": "Access denied. Admin privileges required."}), 403
+        if admin_status != 'full':
+            return jsonify({"error": "Access denied. Full admin privileges required."}), 403
         
         # In production, you should hash and verify passwords properly
         # For now, we'll do a simple check (replace with proper authentication)
@@ -698,8 +862,9 @@ def check_admin_auth():
         member_data = member_doc.to_dict()
         admin_status = member_data.get('adminStatus', 'none')
         
-        if admin_status == 'none':
-            return jsonify({"error": "Admin privileges not found"}), 401
+        # Only full admins can access admin console
+        if admin_status != 'full':
+            return jsonify({"error": "Full admin privileges required"}), 401
         
         # Determine admin role and permissions based on adminStatus
         admin_role = admin_status
@@ -2178,4 +2343,517 @@ def get_user_votes(user_id):
         
     except Exception as e:
         logger.error(f"Error getting user votes: {str(e)}")
+        return jsonify({"error": str(e)}), 500
+
+# ---------------- Excused Absences ----------------
+
+@firebase_routes.route('/api/ExcusedAbsences', methods=['POST'])
+def create_excused_absence():
+    """Create a new excused absence request"""
+    try:
+        data = request.get_json()
+        if not data:
+            return jsonify({"error": "No data provided"}), 400
+        
+        # Validate required fields
+        required_fields = ['memberId', 'eventId', 'dateOfAbsence', 'reason']
+        for field in required_fields:
+            if field not in data:
+                return jsonify({"error": f"Missing required field: {field}"}), 400
+        
+        # Parse date and ensure it's stored correctly to avoid timezone shifts
+        date_str = data['dateOfAbsence']
+        # If format is YYYY-MM-DD, parse it and create datetime at midnight UTC
+        if len(date_str) == 10 and date_str.count('-') == 2:
+            from datetime import timezone
+            date_parts = date_str.split('-')
+            date_obj = datetime(int(date_parts[0]), int(date_parts[1]), int(date_parts[2]), 0, 0, 0, tzinfo=timezone.utc)
+        else:
+            # Fallback to isoformat parsing, ensure UTC if Z is present or add timezone
+            if 'Z' in date_str:
+                date_obj = datetime.fromisoformat(date_str.replace('Z', '+00:00'))
+            else:
+                # Try to parse and assume UTC if no timezone
+                try:
+                    date_obj = datetime.fromisoformat(date_str)
+                    if date_obj.tzinfo is None:
+                        from datetime import timezone
+                        date_obj = date_obj.replace(tzinfo=timezone.utc)
+                except:
+                    # Last resort: try as naive and add UTC
+                    from datetime import timezone
+                    date_obj = datetime.fromisoformat(date_str).replace(tzinfo=timezone.utc)
+        
+        # Create excused absence document
+        absence_data = {
+            'memberId': data['memberId'],
+            'eventId': data['eventId'],
+            'dateOfAbsence': date_obj,
+            'requestedTimestamp': firestore.SERVER_TIMESTAMP,
+            'reason': data['reason'],
+            'documentationFileId': data.get('documentationFileId', None),
+            'type': data.get('type', 'excused'),  # 'excused' | 'attendance_correction'
+            'status': 'pending',  # pending, approved, denied
+            'reviewedBy': None,
+            'reviewedAt': None,
+            'adminComments': ''
+        }
+        
+        doc_ref = db.collection('ExcusedAbsences').document()
+        doc_ref.set(absence_data)
+        
+        return jsonify({
+            "id": doc_ref.id,
+            "message": "Excused absence request submitted successfully"
+        }), 201
+        
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/ExcusedAbsences/member/<member_id>', methods=['GET'])
+def get_member_excused_absences(member_id):
+    """Get all excused absences for a specific member"""
+    try:
+        absences_query = db.collection('ExcusedAbsences').where('memberId', '==', member_id).order_by('dateOfAbsence', direction=firestore.Query.DESCENDING).stream()
+        absences = []
+        
+        for absence in absences_query:
+            absence_data = absence.to_dict()
+            absence_data['id'] = absence.id
+            absences.append(absence_data)
+        
+        return jsonify(absences), 200
+        
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/ExcusedAbsences/event/<event_id>', methods=['GET'])
+def get_event_excused_absences(event_id):
+    """Get all excused absences for a specific event"""
+    try:
+        absences_query = db.collection('ExcusedAbsences').where('eventId', '==', event_id).order_by('dateOfAbsence', direction=firestore.Query.DESCENDING).stream()
+        absences = []
+        
+        for absence in absences_query:
+            absence_data = absence.to_dict()
+            absence_data['id'] = absence.id
+            absences.append(absence_data)
+        
+        return jsonify(absences), 200
+        
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/ExcusedAbsences/<absence_id>', methods=['PATCH', 'PUT'])
+def update_excused_absence(absence_id):
+    """Update an excused absence (for admin review)"""
+    try:
+        data = request.get_json()
+        if not data:
+            return jsonify({"error": "No data provided"}), 400
+        
+        absence_ref = db.collection('ExcusedAbsences').document(absence_id)
+        absence_doc = absence_ref.get()
+        
+        if not absence_doc.exists:
+            return jsonify({"error": "Excused absence not found"}), 404
+        
+        # For PATCH, only update specified fields
+        if request.method == 'PATCH':
+            # If status is being updated, set reviewed timestamp
+            if 'status' in data and data['status'] != 'pending':
+                data['reviewedAt'] = firestore.SERVER_TIMESTAMP
+            absence_ref.update(data)
+            message = "Excused absence updated successfully"
+        else:
+            absence_ref.set(data)
+            message = "Excused absence replaced successfully"
+        
+        return jsonify({"message": message}), 200
+        
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/ExcusedAbsences/upload-documentation', methods=['POST'])
+def upload_absence_documentation():
+    """Upload documentation file for excused absence"""
+    try:
+        # Check if file is in the request
+        if 'file' not in request.files:
+            return jsonify({"error": "No file provided"}), 400
+        
+        # Get file and user ID
+        file = request.files['file']
+        member_id = request.form.get('memberId')
+        
+        if not member_id:
+            return jsonify({"error": "No member ID provided"}), 400
+        
+        if file.filename == '':
+            return jsonify({"error": "No file selected"}), 400
+            
+        # Check file type (allow common document formats and images)
+        allowed_types = ['application/pdf', 'application/msword', 
+                        'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                        'text/plain', 'image/png', 'image/jpeg', 'image/jpg']
+        if file.content_type not in allowed_types:
+            return jsonify({"error": "Only PDF, DOC, DOCX, TXT, PNG, and JPG files are allowed"}), 400
+        
+        # Generate a unique filename with timestamp
+        timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
+        file_extension = file.filename.split('.')[-1]
+        filename = f"absence_docs_{member_id}_{timestamp}.{file_extension}"
+        
+        # Upload to Firebase Storage
+        blob_path = f"absence_documentation/{filename}"
+        blob = bucket.blob(blob_path)
+        
+        # Set appropriate content type
+        blob.upload_from_file(file, content_type=file.content_type)
+        
+        # Make the blob publicly accessible
+        blob.make_public()
+        
+        # Get the public URL
+        url = blob.public_url
+        
+        return jsonify({
+            "fileId": filename,
+            "url": url,
+            "success": True
+        }), 200
+    
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/ExcusedAbsences/download-documentation/<file_id>', methods=['GET'])
+def download_absence_documentation(file_id):
+    """Download documentation file for excused absence"""
+    try:
+        # Construct the blob path
+        blob_path = f"absence_documentation/{file_id}"
+        blob = bucket.blob(blob_path)
+        
+        # Check if the blob exists
+        if not blob.exists():
+            return jsonify({"error": "File not found"}), 404
+        
+        # Get the blob content
+        blob_content = blob.download_as_bytes()
+        
+        # Determine content type based on file extension
+        file_extension = file_id.split('.')[-1].lower()
+        content_type_map = {
+            'pdf': 'application/pdf',
+            'doc': 'application/msword',
+            'docx': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+            'txt': 'text/plain',
+            'png': 'image/png',
+            'jpg': 'image/jpeg',
+            'jpeg': 'image/jpeg'
+        }
+        content_type = content_type_map.get(file_extension, 'application/octet-stream')
+        
+        # Create response with file content
+        from flask import Response
+        return Response(
+            blob_content,
+            mimetype=content_type,
+            headers={
+                'Content-Disposition': f'attachment; filename="{file_id}"',
+                'Content-Length': str(len(blob_content))
+            }
+        )
+    
+    except Exception as e:
         return jsonify({"error": str(e)}), 500 
+
+# ---------------- House Cup Points ----------------
+
+@firebase_routes.route('/api/HouseCupPoints', methods=['POST'])
+def create_house_cup_points():
+    """Create a new House Cup points entry"""
+    try:
+        data = request.get_json()
+        if not data:
+            return jsonify({"error": "No data provided"}), 400
+        
+        required_fields = ['points', 'house', 'reason', 'awardedBy']
+        for field in required_fields:
+            if field not in data:
+                return jsonify({"error": f"Missing required field: {field}"}), 400
+        
+        # Validate house
+        if data['house'] not in ['A', 'B', 'C', 'D']:
+            return jsonify({"error": "Invalid house. Must be A, B, C, or D"}), 400
+        
+        point_entry = {
+            'points': data['points'],
+            'house': data['house'],
+            'eventName': data.get('eventName'),  # Optional
+            'date': data.get('date', firestore.SERVER_TIMESTAMP),
+            'reason': data['reason'],
+            'awardedBy': data['awardedBy'],
+            'createdAt': firestore.SERVER_TIMESTAMP
+        }
+        
+        doc_ref = db.collection('HouseCupPoints').document()
+        doc_ref.set(point_entry)
+        
+        return jsonify({
+            'id': doc_ref.id,
+            'message': 'House Cup points added successfully'
+        }), 201
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/HouseCupPoints', methods=['GET'])
+def get_house_cup_points():
+    """Get all House Cup points (with optional filtering)"""
+    try:
+        house = request.args.get('house')
+        eventName = request.args.get('eventName')
+        
+        query = db.collection('HouseCupPoints')
+        
+        if house:
+            query = query.where('house', '==', house)
+        if eventName:
+            query = query.where('eventName', '==', eventName)
+        
+        docs = query.stream()
+        points = [{doc.id: doc.to_dict()} for doc in docs]
+        
+        return jsonify(points), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/HouseCupPoints/<point_id>', methods=['DELETE'])
+def delete_house_cup_points(point_id):
+    """Delete a House Cup points entry"""
+    try:
+        doc_ref = db.collection('HouseCupPoints').document(point_id)
+        doc = doc_ref.get()
+        
+        if not doc.exists:
+            return jsonify({"error": "Point entry not found"}), 404
+        
+        doc_ref.delete()
+        return jsonify({"message": "Point entry deleted successfully"}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/HouseCupPoints/leaderboard', methods=['GET'])
+def get_house_cup_leaderboard():
+    """Get House Cup leaderboard for all events combined or specific event"""
+    try:
+        eventName = request.args.get('eventName')  # Optional filter
+        
+        # Query HouseCupPoints
+        query = db.collection('HouseCupPoints')
+        if eventName:
+            query = query.where('eventName', '==', eventName)
+        
+        docs = query.stream()
+        
+        # Calculate points per house
+        house_points = {'A': 0, 'B': 0, 'C': 0, 'D': 0}
+        
+        for doc in docs:
+            data = doc.to_dict()
+            house = data.get('house')
+            points = data.get('points', 0)
+            if house in house_points:
+                house_points[house] += points
+        
+        # Convert to sorted list for leaderboard
+        leaderboard = [
+            {'house': house, 'points': points, 'rank': 0}
+            for house, points in sorted(house_points.items(), key=lambda x: x[1], reverse=True)
+        ]
+        
+        # Assign ranks (handle ties)
+        for i, entry in enumerate(leaderboard):
+            if i > 0 and entry['points'] == leaderboard[i-1]['points']:
+                entry['rank'] = leaderboard[i-1]['rank']
+            else:
+                entry['rank'] = i + 1
+        
+        return jsonify(leaderboard), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+# Merch ordering and design voting routes
+@firebase_routes.route('/api/merch/check-eligibility/<user_id>', methods=['GET'])
+def check_merch_eligibility(user_id):
+    """Check if user is eligible (in team_placement_solution.csv or has admin access) and if they've already submitted"""
+    try:
+        import csv
+        
+        # First check if user has admin status (admins can access even if not in CSV)
+        is_admin = False
+        try:
+            member_doc = db.collection('Members').document(user_id).get()
+            if member_doc.exists:
+                member_data = member_doc.to_dict()
+                admin_status = member_data.get('adminStatus', 'none')
+                if admin_status != 'none':
+                    is_admin = True
+        except Exception as e:
+            logger.warning(f"Error checking admin status for {user_id}: {e}")
+        
+        # If not admin, check if user is in team_placement_solution.csv
+        if not is_admin:
+            in_team = False
+            with open('Planning/team_placement_solution.csv', 'r', encoding='utf-8') as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    if row['firebaseID'] == user_id:
+                        in_team = True
+                        break
+            
+            if not in_team:
+                return jsonify({
+                    'eligible': False,
+                    'message': 'You must be on the team roster or have admin access to access this page.'
+                }), 403
+        
+        # Check if user has already submitted
+        merch_collection = db.collection('MerchOrders')
+        user_submissions = merch_collection.where('firebaseID', '==', user_id).limit(1).stream()
+        
+        already_submitted = len(list(user_submissions)) > 0
+        
+        return jsonify({
+            'eligible': True,
+            'alreadySubmitted': already_submitted,
+            'isAdmin': is_admin
+        }), 200
+        
+    except Exception as e:
+        logger.error(f"Error checking merch eligibility: {e}")
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/merch/submit', methods=['POST'])
+def submit_merch_order():
+    """Submit design votes and merch order"""
+    try:
+        import csv
+        
+        data = request.get_json()
+        user_id = data.get('firebaseID')
+        
+        if not user_id:
+            return jsonify({"error": "firebaseID is required"}), 400
+        
+        # Verify user is in team_placement_solution.csv OR has admin access
+        in_team = False
+        is_admin = False
+        member_data = {}
+        
+        # Check admin status first
+        try:
+            member_doc = db.collection('Members').document(user_id).get()
+            if member_doc.exists:
+                firestore_member_data = member_doc.to_dict()
+                admin_status = firestore_member_data.get('adminStatus', 'none')
+                if admin_status != 'none':
+                    is_admin = True
+                    # For admins, use data from Firestore
+                    member_data = {
+                        'bxsciolyID': firestore_member_data.get('bxsciolyID', ''),
+                        'firstName': firestore_member_data.get('firstName', ''),
+                        'lastName': firestore_member_data.get('lastName', ''),
+                        'house': firestore_member_data.get('house', '')
+                    }
+        except Exception as e:
+            logger.warning(f"Error checking admin status for {user_id}: {e}")
+        
+        # If not admin, check CSV
+        if not is_admin:
+            with open('Planning/team_placement_solution.csv', 'r', encoding='utf-8') as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    if row['firebaseID'] == user_id:
+                        in_team = True
+                        member_data = row
+                        break
+            
+            if not in_team:
+                return jsonify({"error": "User not on team roster and does not have admin access"}), 403
+        
+        # Check if already submitted
+        merch_collection = db.collection('MerchOrders')
+        existing = merch_collection.where('firebaseID', '==', user_id).limit(1).stream()
+        if len(list(existing)) > 0:
+            return jsonify({"error": "You have already submitted an order"}), 400
+        
+        # Validate required fields
+        design_votes = data.get('designVotes', [])
+        items = data.get('items', [])
+        spend_limit = data.get('spendLimit')
+        
+        if not design_votes or len(design_votes) == 0:
+            return jsonify({"error": "Design votes are required"}), 400
+        
+        if not items or len(items) == 0:
+            return jsonify({"error": "At least one merch item is required"}), 400
+        
+        # Check if they selected a required item (t-shirt, hoodie, or sweatshirt)
+        required_items = ['t-shirt', 'hoodie', 'sweatshirt']
+        has_required = any(item.get('type') in required_items for item in items)
+        
+        if not has_required:
+            return jsonify({"error": "You must select at least one of: T-shirt, Hoodie, or Sweatshirt to attend tournaments"}), 400
+        
+        # Store in Firestore
+        order_data = {
+            'firebaseID': user_id,
+            'bxsciolyID': member_data.get('bxsciolyID', ''),
+            'firstName': member_data.get('firstName', ''),
+            'lastName': member_data.get('lastName', ''),
+            'house': member_data.get('house', ''),
+            'designVotes': design_votes,  # Array of design numbers in ranked order
+            'items': items,  # Array of {type, rank} - prices not stored as they depend on team orders
+            'spendLimit': spend_limit,
+            'submittedAt': firestore.SERVER_TIMESTAMP,
+            'status': 'pending'
+        }
+        
+        merch_collection.add(order_data)
+        
+        return jsonify({
+            "success": True,
+            "message": "Your order has been submitted successfully!"
+        }), 200
+        
+    except Exception as e:
+        logger.error(f"Error submitting merch order: {e}")
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/merch/get-order/<user_id>', methods=['GET'])
+def get_merch_order(user_id):
+    """Get existing merch order for a user"""
+    try:
+        merch_collection = db.collection('MerchOrders')
+        orders = merch_collection.where('firebaseID', '==', user_id).limit(1).stream()
+        
+        order_list = []
+        for order in orders:
+            order_data = order.to_dict()
+            order_data['id'] = order.id
+            # Convert Firestore timestamp to string if needed
+            if 'submittedAt' in order_data:
+                timestamp = order_data['submittedAt']
+                if hasattr(timestamp, 'isoformat'):
+                    order_data['submittedAt'] = timestamp.isoformat()
+            order_list.append(order_data)
+        
+        if len(order_list) > 0:
+            return jsonify(order_list[0]), 200
+        else:
+            return jsonify({"error": "No order found"}), 404
+            
+    except Exception as e:
+        logger.error(f"Error getting merch order: {e}")
+        return jsonify({"error": str(e)}), 500

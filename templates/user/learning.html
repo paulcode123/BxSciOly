@@ -50,172 +50,113 @@
                 </div>
             </section>
 
-            <!-- Learning Experiences -->
+            <!-- Learning Portfolio -->
             <section class="portfolio-section">
                 <div class="section-header">
-                    <h3><i class="fas fa-book-open"></i> Learning Experiences</h3>
-                </div>
-
-                <div class="experience-form form-card">
-                    <div class="form-header">
-                        <div class="header-icon"><i class="fas fa-plus"></i></div>
-                        <div class="header-text">
-                            <h4>Add a Learning Artifact</h4>
-                            <p>Showcase conversations, files, or links that reflect your learning.</p>
-                        </div>
+                    <h3><i class="fas fa-graduation-cap"></i> Learning Portfolio</h3>
+                    <div class="section-description">
+                        <p>Document your learning journey throughout the Science Olympiad season. This portfolio helps you track your growth, reflect on your experiences, and showcase your progress. Each entry captures a meaningful learning moment - whether it's a breakthrough in understanding, a challenging problem you solved, or insights from competitions and practice sessions. By maintaining this portfolio, you'll build a comprehensive record of your development as a Science Olympiad competitor and create valuable resources for future reference.</p>
                     </div>
-                    <div class="form-body two-col">
-                        <div class="col">
-                            <div class="form-row">
-                                <label for="artifactEvent">Event</label>
-                                <div class="input-with-icon">
-                                    <i class="fas fa-flask"></i>
-                                    <select id="artifactEvent"></select>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <label for="artifactTitle">Title <span class="muted">(optional)</span></label>
-                                <div class="input-with-icon">
-                                    <i class="fas fa-heading"></i>
-                                    <input id="artifactTitle" type="text" maxlength="100" placeholder="e.g., CAD of bridge truss, Entomology research notes">
-                                </div>
-                                <div class="char-count" id="titleCount">0 / 100</div>
-                            </div>
-
-                            <div class="form-row">
-                                <label>Type</label>
-                                <div class="pill-toggle" id="typeToggle">
-                                    <button type="button" class="pill-option active" data-value="conversation"><i class="fas fa-robot"></i> Conversation</button>
-                                    <button type="button" class="pill-option" data-value="file"><i class="fas fa-file-upload"></i> File</button>
-                                    <button type="button" class="pill-option" data-value="link"><i class="fas fa-link"></i> Link</button>
-                                </div>
-                                <div class="visually-hidden">
-                                    <label><input type="radio" name="artifactType" value="conversation" checked> Conversation</label>
-                                    <label><input type="radio" name="artifactType" value="file"> File</label>
-                                    <label><input type="radio" name="artifactType" value="link"> Link</label>
-                                </div>
-                            </div>
-
-                            <div id="artifactConversationFields" class="fieldset">
-                                <div class="tip"><i class="fas fa-info-circle"></i> Paste your ChatGPT share link and transcript. You can tag related modules too.</div>
-                                <div class="form-row">
-                                    <label for="artifactShare">ChatGPT Share Link</label>
-                                    <div class="input-with-icon">
-                                        <i class="fas fa-external-link-alt"></i>
-                                        <input id="artifactShare" type="url" placeholder="https://chatgpt.com/share/...">
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <label for="artifactTranscript">Full Transcript</label>
-                                    <textarea id="artifactTranscript" rows="8" class="codeish" placeholder="Paste the transcript..."></textarea>
-                                </div>
-                                <div class="form-row">
-                                    <label>Related Modules <span class="muted">(optional)</span></label>
-                                    <div id="artifactModules" class="chips-grid"></div>
-                                </div>
-                            </div>
-
-                            <div id="artifactFileFields" class="fieldset" style="display:none;">
-                                <div class="dropzone" id="artifactDropzone">
-                                    <i class="fas fa-cloud-upload-alt"></i>
-                                    <p>Drag & drop your file here, or <span class="linklike">browse</span></p>
-                                    <p class="muted">Accepted: PDF, DOC/DOCX, TXT, PNG/JPG, CAD exports (.stl, .obj, .step, .iges), .zip</p>
-                                </div>
-                                <input id="artifactFile" type="file" class="visually-hidden" accept=".pdf,.doc,.docx,.txt,.png,.jpg,.jpeg,.stl,.obj,.step,.iges,.zip">
-                            </div>
-
-                            <div id="artifactLinkFields" class="fieldset" style="display:none;">
-                                <div class="form-row">
-                                    <label for="artifactUrl">External URL</label>
-                                    <div class="input-with-icon">
-                                        <i class="fas fa-link"></i>
-                                        <input id="artifactUrl" type="url" placeholder="https://...">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col side-panel">
-                            <div class="panel">
-                                <div class="panel-title"><i class="fas fa-lightbulb"></i> Good Artifacts</div>
-                                <ul class="panel-list">
-                                    <li>Authentic work that demonstrates progress</li>
-                                    <li>Clear, specific titles and descriptions</li>
-                                    <li>For conversations, highlight key takeaways</li>
-                                </ul>
-                            </div>
-                            <div class="panel muted-panel">
-                                <div class="panel-title"><i class="fas fa-shield-alt"></i> Review Notes</div>
-                                <p>AI conversations are reviewed by Event Managers. Files and links are saved immediately.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-footer">
-                        <button id="addArtifactBtn" class="btn-primary"><i class="fas fa-plus"></i> Add Artifact</button>
-                        <button type="button" id="resetArtifactBtn" class="btn-secondary"><i class="fas fa-undo"></i> Reset</button>
-                    </div>
-                </div>
-
-                <div id="experiencesList" class="experiences-list">
-                    <div class="loading-indicator"><i class="fas fa-spinner fa-spin"></i><p>Loading experiences...</p></div>
-                </div>
-            </section>
-
-            <!-- Questions & Reflections -->
-            <section class="portfolio-section">
-                <div class="section-header">
-                    <h3><i class="fas fa-question-circle"></i> Questions & Reflections</h3>
                 </div>
 
                 <div class="form-card">
                     <div class="form-header">
-                        <div class="header-icon"><i class="fas fa-pen"></i></div>
+                        <div class="header-icon"><i class="fas fa-plus"></i></div>
                         <div class="header-text">
-                            <h4>Add an Entry</h4>
-                            <p>Select a type and fill in the fields.</p>
+                            <h4>Add Learning Experience</h4>
+                            <p>Select the type of learning experience and provide your Google Doc link.</p>
                         </div>
                     </div>
                     <div class="form-body">
                         <div class="form-grid">
                             <div class="form-row">
-                                <label for="entryType">Entry Type</label>
+                                <label for="learningType">Learning Experience Type</label>
                                 <div class="input-with-icon">
                                     <i class="fas fa-list"></i>
-                                    <select id="entryType">
-                                        <option value="weekly">Weekly Update</option>
-                                        <option value="diagnostic">Diagnostic Reflection</option>
-                                        <option value="competition">Competition Reflection</option>
-                                        <option value="app_q1">Application Q1: Why compete in this event?</option>
-                                        <option value="app_q2">Application Q2: Preparation plan for next month?</option>
-                                        <option value="app_q3">Application Q3: Describe a weakness and how to address it</option>
-                                        <option value="app_q4">Application Q4: How will you support event partners?</option>
-                                        <option value="app_q5">Application Q5: What does success look like this season?</option>
+                                    <select id="learningType">
+                                        <option value="">Select a learning experience type...</option>
+                                        <option value="weekly_reflection">Weekly Learning Reflection</option>
+                                        <option value="diagnostic_reflection">Diagnostic Test Reflection</option>
+                                        <option value="competition_reflection">Competition Reflection</option>
+                                        <option value="practice_session">Practice Session Notes</option>
+                                        <option value="research_project">Research Project Documentation</option>
+                                        <option value="lab_experiment">Lab Experiment Report</option>
+                                        <option value="build_log">Build Event Progress Log</option>
+                                        <option value="study_session">Study Session Summary</option>
+                                        <option value="problem_solving">Problem-Solving Process</option>
+                                        <option value="concept_exploration">Concept Deep Dive</option>
+                                        <option value="team_collaboration">Team Collaboration Notes</option>
+                                        <option value="mentor_feedback">Mentor Feedback Reflection</option>
+                                        <option value="skill_development">Skill Development Tracking</option>
+                                        <option value="mistake_analysis">Mistake Analysis & Learning</option>
+                                        <option value="breakthrough_moment">Breakthrough Moment Documentation</option>
+                                        <option value="resource_compilation">Resource Compilation</option>
+                                        <option value="goal_setting">Goal Setting & Progress</option>
+                                        <option value="peer_learning">Peer Learning Session</option>
+                                        <option value="creative_solution">Creative Solution Documentation</option>
+                                        <option value="event_preparation">Event Preparation Strategy</option>
+                                        <option value="post_competition">Post-Competition Analysis</option>
+                                        <option value="learning_challenge">Learning Challenge Response</option>
+                                        <option value="knowledge_synthesis">Knowledge Synthesis Project</option>
+                                        <option value="teaching_moment">Teaching Others Documentation</option>
+                                        <option value="other">Other Learning Experience</option>
                                     </select>
                                 </div>
                             </div>
+
+                            <div class="form-row">
+                                <label for="learningEvent">Event</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-flask"></i>
+                                    <select id="learningEvent">
+                                        <option value="">Select an event...</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <label for="googleDocLink">Google Doc Link</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-link"></i>
+                                    <input id="googleDocLink" type="url" placeholder="https://docs.google.com/document/d/..." required>
+                                </div>
+                                <div class="tip"><i class="fas fa-info-circle"></i> Make sure your Google Doc is set to "Anyone with the link can view"</div>
+                            </div>
+
+                            <div class="form-row">
+                                <label for="learningDescription">Brief Description</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-align-left"></i>
+                                    <textarea id="learningDescription" rows="3" placeholder="Provide a brief description of what this learning experience covers..." maxlength="300"></textarea>
+                                </div>
+                                <div class="char-count" id="descCount">0 / 300</div>
+                            </div>
+
+                            <div class="form-row">
+                                <label for="learningDate">Date Created</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-calendar"></i>
+                                    <input id="learningDate" type="date" required>
+                                </div>
+                            </div>
                         </div>
-                        <div id="entryFields" class="form-grid"></div>
-                        <div style="margin-top:10px;">
-                            <button id="saveEntryBtn" class="btn-primary"><i class="fas fa-save"></i> Save Entry</button>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn-primary" id="saveLearningExperienceBtn">
+                                <i class="fas fa-save"></i> Save Learning Experience
+                            </button>
                         </div>
                     </div>
                 </div>
 
-                <div class="form-card" style="margin-top:16px;">
-                    <div class="form-header">
-                        <div class="header-icon"><i class="fas fa-list-ul"></i></div>
-                        <div class="header-text">
-                            <h4>Your Entries</h4>
-                            <p>Combined view of weekly updates and reflections.</p>
-                        </div>
-                    </div>
-                    <div class="form-body">
-                        <div id="qrList" class="experiences-list"></div>
-                    </div>
-                </div>
+                <!-- Live Preview -->
+                <div id="learningPreview" class="experience-card" style="display:none;"></div>
 
+                <div class="learning-experiences-list" id="learningExperiencesList">
+                    <div class="loading-indicator">Loading learning experiences...</div>
+                </div>
             </section>
+
         </div>
 
         <!-- Resources Tab -->
@@ -308,6 +249,103 @@
     .btn-secondary { background: #f1f5f9; color:#374151; border: 1px solid #d1d5db; }
     .loading-indicator { text-align:center; color:#777; padding:20px; }
     .empty-state { text-align:center; color:#666; padding:20px; }
+    
+    /* Learning Portfolio Styles */
+    .section-description {
+        margin-top: 12px;
+        padding: 16px;
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        border-radius: 12px;
+        border-left: 4px solid var(--primary-color);
+    }
+    
+    .section-description p {
+        margin: 0;
+        color: #4a5568;
+        line-height: 1.6;
+        font-size: 0.95rem;
+    }
+    
+    .experience-card {
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 20px;
+        margin-bottom: 16px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        transition: all 0.3s ease;
+    }
+    
+    .experience-card:hover {
+        box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        transform: translateY(-2px);
+    }
+    
+    .experience-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+    }
+    
+    .experience-type {
+        font-weight: 600;
+        color: var(--primary-color);
+        font-size: 1.1rem;
+    }
+    
+    .experience-date {
+        color: #718096;
+        font-size: 0.9rem;
+    }
+    
+    .experience-event {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #4a5568;
+        font-size: 0.95rem;
+        margin-bottom: 12px;
+    }
+    
+    .experience-event i {
+        color: var(--primary-color);
+    }
+    
+    .experience-description {
+        color: #2d3748;
+        line-height: 1.5;
+        margin-bottom: 16px;
+    }
+    
+    .experience-actions {
+        display: flex;
+        gap: 12px;
+    }
+    .btn-secondary { background: #f1f5f9; color:#374151; border:1px solid #d1d5db; padding:10px 14px; border-radius:10px; text-decoration:none; }
+    .btn-secondary:hover { background:#e5e7eb; }
+
+    /* Skeletons */
+    .skeleton { background: linear-gradient(90deg,#f3f4f6 25%,#e5e7eb 37%,#f3f4f6 63%); background-size:400% 100%; animation: shimmer 1.4s ease infinite; border-radius: 8px; }
+    @keyframes shimmer { 0%{background-position:100% 0} 100%{background-position:-100% 0} }
+    .skeleton-line { height:12px; margin:8px 0; }
+    .toast { position: fixed; right:16px; bottom:16px; background:#111827; color:#fff; padding:12px 14px; border-radius:10px; box-shadow:0 10px 30px rgba(0,0,0,0.18); display:none; z-index: 1000; }
+    
+    .tip {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px;
+        background: #f7fafc;
+        border-radius: 8px;
+        color: #4a5568;
+        font-size: 0.9rem;
+        margin-top: 8px;
+    }
+    
+    .tip i {
+        color: var(--primary-color);
+    }
 
     /* Reuse modules styles subset from events.html */
     .modules-container { max-width: 1000px; margin: 0 auto; }
@@ -697,11 +735,15 @@
         // Portfolio
         function initPortfolio() {
             loadMedals();
-            loadExperiences();
-            initArtifactForm();
+            loadDiagnostics();
+            initLearningPortfolio();
             const schedBtn = document.getElementById('scheduleDiagnosticBtn');
             if (schedBtn) schedBtn.addEventListener('click', () => { window.location.href = '/calendar'; });
-            initQuestionsReflections();
+        }
+
+        // Helper function to normalize names
+        function norm(s) {
+            return (s || '').toString().trim().toLowerCase().replace(/\s+/g, ' ');
         }
 
         async function loadMedals() {
@@ -715,19 +757,33 @@
                 const results = [];
                 competitions.forEach(competition => {
                     if (!competition.results || !competition.teamPlacement) return;
-                    const placement = (competition.teamPlacement || []).find(p => Array.isArray(p.participants) && p.participants.includes(userId));
-                    if (!placement) return;
-                    const eventResult = (competition.results.eventResults || []).find(r => r.eventName === placement.event && r.team === placement.team);
-                    if (!eventResult) return;
-                    results.push({
-                        competition: competition.name,
-                        date: competition.date,
-                        event: eventResult.eventName,
-                        placement: eventResult.placement,
-                        outOf: eventResult.outOf,
-                        team: placement.team,
-                        medal: eventResult.placement <= 3,
-                        medalType: eventResult.placement === 1 ? 'gold' : eventResult.placement === 2 ? 'silver' : eventResult.placement === 3 ? 'bronze' : null
+                    
+                    // Collect ALL participations for this user (by id OR full name)
+                    const userParticipations = (competition.teamPlacement || []).filter(placement => {
+                        const participants = placement.participants || [];
+                        if (participants.includes(userId)) return true;
+                        // Fallback: check if any participant name matches user's full name
+                        const userFullName = norm((currentUser.firstName || '') + ' ' + (currentUser.lastName || ''));
+                        const lowerNames = participants.map(p => norm(p));
+                        return userFullName && lowerNames.includes(userFullName);
+                    });
+                    
+                    if (userParticipations.length === 0) return;
+                    
+                    // Process each participation
+                    userParticipations.forEach(placement => {
+                        const eventResult = (competition.results.eventResults || []).find(r => r.eventName === placement.event && r.team === placement.team);
+                        if (!eventResult) return;
+                        results.push({
+                            competition: competition.name,
+                            date: competition.date,
+                            event: eventResult.eventName,
+                            placement: eventResult.placement,
+                            outOf: eventResult.outOf,
+                            team: placement.team,
+                            medal: eventResult.placement <= 3,
+                            medalType: eventResult.placement === 1 ? 'gold' : eventResult.placement === 2 ? 'silver' : eventResult.placement === 3 ? 'bronze' : null
+                        });
                     });
                 });
                 results.sort((a,b) => new Date(b.date) - new Date(a.date));
@@ -758,341 +814,234 @@
 
         function ordinal(n){ const j=n%10,k=n%100; if(j==1&&k!=11)return 'st'; if(j==2&&k!=12)return 'nd'; if(j==3&&k!=13)return 'rd'; return 'th'; }
 
-        function initArtifactForm() {
-            const typeRadios = document.querySelectorAll('input[name="artifactType"]');
-            const convo = document.getElementById('artifactConversationFields');
-            const fileF = document.getElementById('artifactFileFields');
-            const linkF = document.getElementById('artifactLinkFields');
-            const toggle = document.getElementById('typeToggle');
-            const titleInput = document.getElementById('artifactTitle');
-            const titleCount = document.getElementById('titleCount');
-            const dropzone = document.getElementById('artifactDropzone');
-            const fileInput = document.getElementById('artifactFile');
-
-            typeRadios.forEach(r => r.addEventListener('change', () => {
-                const val = document.querySelector('input[name="artifactType"]:checked').value;
-                convo.style.display = val==='conversation' ? '' : 'none';
-                fileF.style.display = val==='file' ? '' : 'none';
-                linkF.style.display = val==='link' ? '' : 'none';
-            }));
-
-            if (toggle) {
-                toggle.addEventListener('click', (e) => {
-                    const btn = e.target.closest('.pill-option');
-                    if (!btn) return;
-                    toggle.querySelectorAll('.pill-option').forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    const value = btn.dataset.value;
-                    document.querySelectorAll('input[name="artifactType"]').forEach(r => r.checked = (r.value === value));
-                    const event = new Event('change');
-                    document.querySelector(`input[name="artifactType"][value="${value}"]`).dispatchEvent(event);
-                });
-            }
-
-            if (titleInput && titleCount) {
-                titleInput.addEventListener('input', () => {
-                    titleCount.textContent = `${titleInput.value.length} / 100`;
-                });
-                titleCount.textContent = `${titleInput.value.length} / 100`;
-            }
-
-            if (dropzone && fileInput) {
-                dropzone.addEventListener('click', () => fileInput.click());
-                dropzone.addEventListener('dragover', (e) => { e.preventDefault(); dropzone.classList.add('drag'); });
-                dropzone.addEventListener('dragleave', () => dropzone.classList.remove('drag'));
-                dropzone.addEventListener('drop', (e) => {
-                    e.preventDefault(); dropzone.classList.remove('drag');
-                    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-                        fileInput.files = e.dataTransfer.files;
-                    }
-                });
-            }
-
-            const eventSelect = document.getElementById('artifactEvent');
-            eventSelect.innerHTML = `<option value="">Select an event...</option>` + userEvents.map(e => `<option value="${e.eventName}">${e.eventName}</option>`).join('');
-            eventSelect.addEventListener('change', async (e) => {
-                const mods = e.target.value ? await loadModulesByEvent(e.target.value) : [];
-                renderModuleCheckboxes('artifactModules', mods);
-            });
-
-            document.getElementById('addArtifactBtn').addEventListener('click', submitArtifact);
-            const resetBtn = document.getElementById('resetArtifactBtn');
-            if (resetBtn) resetBtn.addEventListener('click', () => {
-                document.getElementById('artifactTitle').value = '';
-                document.getElementById('artifactShare').value = '';
-                document.getElementById('artifactTranscript').value = '';
-                document.getElementById('artifactUrl').value = '';
-                if (titleCount) titleCount.textContent = '0 / 100';
-                if (fileInput) fileInput.value = '';
-                document.querySelectorAll('#artifactModules input[type=checkbox]').forEach(cb => cb.checked = false);
-            });
-        }
-
-        async function submitArtifact() {
-            const type = document.querySelector('input[name="artifactType"]:checked').value;
-            const eventName = document.getElementById('artifactEvent').value;
-            const title = document.getElementById('artifactTitle').value.trim();
-            if (!eventName) { alert('Please select an event'); return; }
-            if (type === 'conversation') {
-                const shareUrl = document.getElementById('artifactShare').value.trim();
-                const transcript = document.getElementById('artifactTranscript').value.trim();
-                const moduleIds = Array.from(document.querySelectorAll('#artifactModules input[type=checkbox]:checked')).map(cb => cb.value);
-                if (!shareUrl || !transcript) { alert('Share link and transcript required'); return; }
-                const payload = { userId: currentUser.id, kind:'artifact', artifactType:'conversation', eventName, moduleIds, shareUrl, transcript, title };
-                const res = await fetch('/api/Portfolio', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
-                if (!res.ok) { const err = await res.json().catch(()=>({})); alert('Failed to submit: ' + (err.error || res.status)); return; }
-                alert('Conversation submitted!');
-                loadExperiences();
-            } else if (type === 'file') {
-                const fileInput = document.getElementById('artifactFile');
-                if (!fileInput.files || !fileInput.files[0]) { alert('Choose a file'); return; }
-                const file = fileInput.files[0];
-                const formData = new FormData();
-                formData.append('file', file);
-                formData.append('userId', currentUser.id);
-                formData.append('eventName', eventName);
-                formData.append('title', title);
-                const res = await fetch('/api/portfolio/upload', { method: 'POST', body: formData });
-                if (!res.ok) { const err = await res.json().catch(()=>({})); alert('Upload failed: ' + (err.error || res.status)); return; }
-                alert('File uploaded to portfolio!');
-                loadExperiences();
-            } else if (type === 'link') {
-                const url = document.getElementById('artifactUrl').value.trim();
-                if (!url) { alert('Enter a URL'); return; }
-                const res = await fetch('/api/Portfolio', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ userId: currentUser.id, kind:'artifact', artifactType:'link', eventName, title, url }) });
-                if (!res.ok) { const err = await res.json().catch(()=>({})); alert('Save failed: ' + (err.error || res.status)); return; }
-                alert('Link saved to portfolio!');
-                loadExperiences();
-            }
-        }
-
-        async function loadExperiences() {
-            const list = document.getElementById('experiencesList');
+        async function loadDiagnostics() {
+            const diagnosticsList = document.getElementById('diagnosticsList');
             try {
                 const userId = currentUser.id || currentUser.uid || currentUser.userId;
-                const res = await fetch(`/api/Portfolio/user/${encodeURIComponent(userId)}?kind=artifact`);
-                const items = res.ok ? await res.json() : [];
-                if (items.length === 0) { list.innerHTML = '<div class="empty-state"><i class="fas fa-book-open"></i><p>No learning experiences yet.</p></div>'; return; }
-                // Sort newest first not guaranteed (createdAt is server timestamp); just render as-is
-                list.innerHTML = '';
-                items.forEach(it => {
-                    const card = document.createElement('div');
-                    card.className = 'experience-card';
-                    card.innerHTML = `
-                        <div style="display:flex; justify-content:space-between; align-items:center; gap:10px;">
-                            <div>
-                                <div style="font-weight:600;">${it.title || (it.artifactType==='conversation'?'Conversation':'Artifact')}</div>
-                                <div style="color:#666; font-size:0.9rem;"><i class="fas fa-flask"></i> ${it.eventName}</div>
-                            </div>
-                            ${it.url || it.shareUrl ? `<a class="btn-secondary" href="${it.url || it.shareUrl}" target="_blank"><i class="fas fa-external-link-alt"></i> Open</a>` : ''}
+                const res = await fetch(`/api/diag-results/${encodeURIComponent(userId)}`);
+                if (!res.ok) {
+                    if (res.status === 404) {
+                        diagnosticsList.innerHTML = '<div class="empty-state"><i class="fas fa-file-alt"></i><p>No diagnostics recorded yet.</p></div>';
+                    } else {
+                        diagnosticsList.innerHTML = '<div class="empty-state">Failed to load diagnostics</div>';
+                    }
+                    return;
+                }
+                const data = await res.json();
+                
+                if (!data.eventsTaken || data.eventsTaken.length === 0) {
+                    diagnosticsList.innerHTML = '<div class="empty-state"><i class="fas fa-file-alt"></i><p>No diagnostics recorded yet.</p></div>';
+                    return;
+                }
+                
+                diagnosticsList.innerHTML = '';
+                data.eventsTaken.forEach(event => {
+                    const div = document.createElement('div');
+                    div.className = 'diag-item';
+                    
+                    const eventDetail = data.eventDetails && data.eventDetails[event.name];
+                    const rank = eventDetail ? eventDetail.rank : null;
+                    const percentile = eventDetail ? eventDetail.percentile.toFixed(1) : null;
+                    const outOf = eventDetail && data.eventTotals ? data.eventTotals[event.name] : null;
+                    
+                    let rankDisplay = '';
+                    if (rank && outOf) {
+                        rankDisplay = `<div style="text-align:right; min-width:120px;">
+                            <div style="font-weight:700; font-size:1.1rem;">${rank}<span style="font-size:0.8rem; color:#777;">${ordinal(rank)}</span></div>
+                            <div style="color:#777;">out of ${outOf}</div>
+                            ${percentile ? `<div style="color:#777; font-size:0.9rem;">${percentile}th percentile</div>` : ''}
                         </div>`;
-                    list.appendChild(card);
+                    }
+                    
+                    div.innerHTML = `
+                        <div style="flex:1;">
+                            <div style="font-weight:600;">${event.name} '25 Entry Diagnostic</div>
+                            <div style="color:#777; font-size:0.9rem;">Score: ${event.score.toFixed(2)}</div>
+                        </div>
+                        ${rankDisplay}`;
+                    diagnosticsList.appendChild(div);
                 });
-            } catch(e) {
-                list.innerHTML = '<div class="empty-state">Failed to load experiences</div>';
+            } catch (e) {
+                console.error('Error loading diagnostics:', e);
+                diagnosticsList.innerHTML = '<div class="empty-state">Failed to load diagnostics</div>';
             }
         }
 
-        function initQuestionsReflections() {
-            // Dynamic entry form
-            const eventOptions = `<option value=\"\">Select an event...</option>` + userEvents.map(e => `<option value="${e.eventName}">${e.eventName}</option>`).join('');
-            const entryTypeSel = document.getElementById('entryType');
-            const entryFields = document.getElementById('entryFields');
-            function renderEntryFields(type) {
-                if (type === 'weekly') {
-                    entryFields.innerHTML = `
-                        <div class=\"form-row\">
-                            <label>Today's Date</label>
-                            <div class=\"input-with-icon\"><i class=\"fas fa-calendar\"></i><input id=\"weeklyToday\" type=\"text\" disabled></div>
-                        </div>
-                        <div class=\"form-row\">
-                            <label for=\"weeklyEvent\">Event <span class=\"muted\">(optional)</span></label>
-                            <div class=\"input-with-icon\"><i class=\"fas fa-flask\"></i><select id=\"weeklyEvent\">${eventOptions}</select></div>
-                        </div>
-                        <div class=\"form-row\">
-                            <label for=\"weeklyContent\">Update</label>
-                            <textarea id=\"weeklyContent\" rows=\"4\" placeholder=\"What did you work on? What is your plan for next week?\"></textarea>
-                        </div>`;
-                    // Fill today's date
-                    try { const d=new Date(); const yyyy=d.getFullYear(); const mm=String(d.getMonth()+1).padStart(2,'0'); const dd=String(d.getDate()).padStart(2,'0'); const el=document.getElementById('weeklyToday'); if(el) el.value=`${yyyy}-${mm}-${dd}`; } catch(e) {}
-                } else if (type === 'diagnostic') {
-                    entryFields.innerHTML = `
-                        <div class=\"form-row\">
-                            <label for=\"diagEvent\">Event</label>
-                            <div class=\"input-with-icon\"><i class=\"fas fa-flask\"></i><select id=\"diagEvent\">${eventOptions}</select></div>
-                        </div>
-                        <div class=\"form-row\">
-                            <label for=\"diagDate\">Diagnostic Date</label>
-                            <div class=\"input-with-icon\"><i class=\"fas fa-calendar\"></i><input id=\"diagDate\" type=\"date\"></div>
-                        </div>
-                        <div class=\"form-row\">
-                            <label for=\"diagReflection\">Reflection</label>
-                            <textarea id=\"diagReflection\" rows=\"4\" placeholder=\"What did you learn? What are your next steps?\"></textarea>
-                        </div>`;
-                } else if (type === 'competition') {
-                    entryFields.innerHTML = `
-                        <div class=\"form-row\">
-                            <label for=\"compName\">Competition</label>
-                            <div class=\"input-with-icon\"><i class=\"fas fa-flag\"></i><input id=\"compName\" type=\"text\" placeholder=\"e.g., LISO Invitational\"></div>
-                        </div>
-                        <div class=\"form-row\">
-                            <label for=\"compEvent\">Event <span class=\"muted\">(optional)</span></label>
-                            <div class=\"input-with-icon\"><i class=\"fas fa-flask\"></i><select id=\"compEvent\">${eventOptions}</select></div>
-                        </div>
-                        <div class=\"form-row\">
-                            <label for=\"compWentWell\">What went well?</label>
-                            <textarea id=\"compWentWell\" rows=\"3\"></textarea>
-                        </div>
-                        <div class=\"form-row\">
-                            <label for=\"compImprove\">What to improve?</label>
-                            <textarea id=\"compImprove\" rows=\"3\"></textarea>
-                        </div>
-                        <div class=\"form-row\">
-                            <label for=\"compReflection\">Overall reflection</label>
-                            <textarea id=\"compReflection\" rows=\"4\"></textarea>
-                        </div>`;
-                } else if (type.startsWith('app_q')) {
-                    const qNum = type.replace('app_q', '');
-                    const questions = {
-                        '1': { text: 'Why do you want to compete in this event?', id: 'q1' },
-                        '2': { text: 'What is your preparation plan for the next month?', id: 'q2' },
-                        '3': { text: 'Describe a weakness and how you will address it.', id: 'q3' },
-                        '4': { text: 'How will you support your event partners?', id: 'q4' },
-                        '5': { text: 'What does success look like for you this season?', id: 'q5' }
-                    };
-                    const q = questions[qNum];
-                    if (q) {
-                        entryFields.innerHTML = `
-                            <div class=\"form-row\">
-                                <label>Question</label>
-                                <input type=\"text\" id=\"appQuestionText\" value=\"${q.text}\" readonly style=\"background:#f5f5f5;\">
-                            </div>
-                            <div class=\"form-row\">
-                                <label>Your Answer</label>
-                                <textarea id=\"appQuestionAnswer\" rows=\"4\" placeholder=\"Your answer...\"></textarea>
-                            </div>`;
-                        loadAppQuestionAnswer(q.id);
-                    }
-                } else {
-                    entryFields.innerHTML = '';
-                }
-            }
-            if (entryTypeSel) {
-                renderEntryFields(entryTypeSel.value);
-                entryTypeSel.addEventListener('change', () => renderEntryFields(entryTypeSel.value));
+        function initLearningPortfolio() {
+            // Initialize event dropdown
+            const eventSelect = document.getElementById('learningEvent');
+            if (eventSelect) {
+                const eventOptions = `<option value="">Select an event...</option>` + userEvents.map(e => `<option value="${e.eventName}">${e.eventName}</option>`).join('');
+                eventSelect.innerHTML = eventOptions;
             }
 
-            const saveEntryBtn = document.getElementById('saveEntryBtn');
-            if (saveEntryBtn) saveEntryBtn.addEventListener('click', async () => {
-                const type = (entryTypeSel && entryTypeSel.value) || 'weekly';
-                try {
-                    if (type === 'weekly') {
-                        const payload = {
-                            userId: currentUser.id,
-                            kind: 'weekly',
-                            dateISO: (()=>{ const d=new Date(); const yyyy=d.getFullYear(); const mm=String(d.getMonth()+1).padStart(2,'0'); const dd=String(d.getDate()).padStart(2,'0'); return `${yyyy}-${mm}-${dd}`; })(),
-                            eventName: document.getElementById('weeklyEvent').value || '',
-                            content: (document.getElementById('weeklyContent').value || '').trim()
-                        };
-                        if (!payload.content) { alert('Please enter your weekly update.'); return; }
-                        const res = await fetch('/api/Portfolio', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
-                        if (!res.ok) throw await res.json().catch(()=>({ error: 'Failed' }));
-                    } else if (type === 'diagnostic') {
-                        const payload = {
-                            userId: currentUser.id,
-                            kind: 'diagnostic',
-                            eventName: document.getElementById('diagEvent').value || '',
-                            diagnosticDateISO: document.getElementById('diagDate').value || '',
-                            reflection: (document.getElementById('diagReflection').value || '').trim()
-                        };
-                        if (!payload.reflection) { alert('Please enter your diagnostic reflection.'); return; }
-                        const res = await fetch('/api/Portfolio', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
-                        if (!res.ok) throw await res.json().catch(()=>({ error: 'Failed' }));
-                    } else if (type === 'competition') {
-                        const payload = {
-                            userId: currentUser.id,
-                            kind: 'competition',
-                            competitionName: (document.getElementById('compName').value || '').trim(),
-                            eventName: document.getElementById('compEvent').value || '',
-                            whatWentWell: (document.getElementById('compWentWell').value || '').trim(),
-                            whatToImprove: (document.getElementById('compImprove').value || '').trim(),
-                            reflection: (document.getElementById('compReflection').value || '').trim()
-                        };
-                        if (!payload.competitionName || !payload.reflection) { alert('Enter competition name and overall reflection.'); return; }
-                        const res = await fetch('/api/Portfolio', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
-                        if (!res.ok) throw await res.json().catch(()=>({ error: 'Failed' }));
-                    } else if (type.startsWith('app_q')) {
-                        const qNum = type.replace('app_q', '');
-                        const qId = `q${qNum}`;
-                        const answer = (document.getElementById('appQuestionAnswer').value || '').trim();
-                        if (!answer) { alert('Please enter your answer.'); return; }
-                        const questionTexts = {
-                            '1': 'Why do you want to compete in this event?',
-                            '2': 'What is your preparation plan for the next month?',
-                            '3': 'Describe a weakness and how you will address it.',
-                            '4': 'How will you support your event partners?',
-                            '5': 'What does success look like for you this season?'
-                        };
-                        const payload = {
-                            userId: currentUser.id,
-                            kind: 'app_question',
-                            questionId: qId,
-                            questionText: questionTexts[qNum],
-                            answer: answer
-                        };
-                        const res = await fetch('/api/Portfolio', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
-                        if (!res.ok) throw await res.json().catch(()=>({ error: 'Failed' }));
-                    }
-                    alert('Saved!');
-                    loadQRList();
-                } catch(err) {
-                    alert('Failed to save entry');
-                }
-            });
-
-
-            async function loadAppQuestionAnswer(qId) {
-                try {
-                    const res = await fetch(`/api/application-responses/user/${encodeURIComponent(currentUser.id)}`);
-                    const data = res.ok ? await res.json() : { questions: [] };
-                    const questions = data.questions || [];
-                    const question = questions.find(q => q.id === qId);
-                    const answerEl = document.getElementById('appQuestionAnswer');
-                    if (answerEl && question) {
-                        answerEl.value = question.answer || '';
-                    }
-                } catch (e) {
-                    // Ignore errors, just leave answer field empty
-                }
+            // Initialize description character counter
+            const descInput = document.getElementById('learningDescription');
+            const descCount = document.getElementById('descCount');
+            if (descInput && descCount) {
+                descInput.addEventListener('input', () => {
+                    descCount.textContent = `${descInput.value.length} / 300`;
+                });
+                descCount.textContent = `${descInput.value.length} / 300`;
             }
 
-            // Initial loads
-            loadQRList();
+            // Set default date to today
+            const dateInput = document.getElementById('learningDate');
+            if (dateInput) {
+                const today = new Date().toISOString().split('T')[0];
+                dateInput.value = today;
+            }
+
+            // Live preview
+            const preview = document.getElementById('learningPreview');
+            const typeSel = document.getElementById('learningType');
+            const docInput = document.getElementById('googleDocLink');
+            function renderPreview(){
+                const typeDisplay = (typeSel.value || '').replace(/_/g,' ').replace(/\b\w/g, m=>m.toUpperCase()) || 'Learning Experience';
+                const dateStr = (dateInput && dateInput.value) ? new Date(dateInput.value).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}) : '';
+                const ev = eventSelect ? eventSelect.value : '';
+                const desc = descInput ? descInput.value : '';
+                if (!typeSel.value && !desc && !docInput.value) { preview.style.display='none'; return; }
+                preview.style.display='block';
+                preview.innerHTML = `
+                    <div class="experience-header">
+                        <div class="experience-type">${typeDisplay}</div>
+                        <div class="experience-date">${dateStr}</div>
+                    </div>
+                    ${ev?`<div class="experience-event"><i class="fas fa-flask"></i> ${ev}</div>`:''}
+                    ${desc?`<div class="experience-description">${desc}</div>`:''}
+                    ${docInput.value?`<div class="experience-actions"><a class="btn-secondary" target="_blank" href="${docInput.value}"><i class="fas fa-external-link-alt"></i> View Document</a></div>`:''}
+                `;
+            }
+            [typeSel,eventSelect,descInput,dateInput,docInput].forEach(el=>{ if(el) el.addEventListener('input', renderPreview); });
+            renderPreview();
+
+            // Save button event listener
+            const saveBtn = document.getElementById('saveLearningExperienceBtn');
+            if (saveBtn) {
+                saveBtn.addEventListener('click', async () => {
+                    const type = document.getElementById('learningType').value;
+                    const event = document.getElementById('learningEvent').value;
+                    const googleDocLink = document.getElementById('googleDocLink').value;
+                    const description = document.getElementById('learningDescription').value;
+                    const date = document.getElementById('learningDate').value;
+
+                    if (!type) {
+                        showToast('Please select a learning experience type.');
+                        return;
+                    }
+                    if (!googleDocLink) {
+                        showToast('Please provide a Google Doc link.');
+                        return;
+                    }
+                    if (!date) {
+                        showToast('Please select a date.');
+                        return;
+                    }
+
+                    try {
+                        // button loading
+                        saveBtn.disabled = true; 
+                        const prevHtml = saveBtn.innerHTML;
+                        saveBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Saving...';
+                        const payload = {
+                            userId: currentUser.id,
+                            kind: 'learning_experience',
+                            type: type,
+                            eventName: event || '',
+                            googleDocLink: googleDocLink.trim(),
+                            description: description.trim(),
+                            dateCreated: date,
+                            createdAt: new Date().toISOString()
+                        };
+
+                        const res = await fetch('/api/Portfolio', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+
+                        if (!res.ok) {
+                            const error = await res.json().catch(() => ({ error: 'Failed to save' }));
+                            throw new Error(error.error || 'Failed to save');
+                        }
+
+                        showToast('Learning experience saved successfully!');
+                        
+                        // Clear form
+                        document.getElementById('learningType').value = '';
+                        document.getElementById('learningEvent').value = '';
+                        document.getElementById('googleDocLink').value = '';
+                        document.getElementById('learningDescription').value = '';
+                        document.getElementById('learningDate').value = today;
+                        descCount.textContent = '0 / 300';
+                        renderPreview();
+
+                        // Reload the list
+                        loadLearningExperiences();
+                    } catch (err) {
+                        showToast('Failed to save: ' + err.message);
+                    } finally {
+                        saveBtn.disabled = false; saveBtn.innerHTML = '<i class="fas fa-save"></i> Save Learning Experience';
+                    }
+                });
+            }
+
+            // Load existing experiences
+            loadLearningExperiences();
         }
 
-        async function loadQRList() {
-            const list = document.getElementById('qrList');
+        async function loadLearningExperiences() {
+            const list = document.getElementById('learningExperiencesList');
             if (!list) return;
-            list.innerHTML = '<div class="loading-indicator">Loading...</div>';
+            
+            list.innerHTML = '<div class="experience-card"><div class="skeleton skeleton-line" style="width:40%"></div><div class="skeleton skeleton-line" style="width:70%"></div><div class="skeleton skeleton-line" style="width:55%"></div></div>';
+            
             try {
-                const res = await fetch(`/api/Portfolio/user/${encodeURIComponent(currentUser.id)}?kind=weekly,diagnostic,competition,app_question`);
+                const res = await fetch(`/api/Portfolio/user/${encodeURIComponent(currentUser.id)}?kind=learning_experience`);
                 const items = res.ok ? await res.json() : [];
-                if (!items.length) { list.innerHTML = '<div class="empty-state">No entries yet.</div>'; return; }
+                
+                if (!items.length) {
+                    list.innerHTML = '<div class="empty-state"><i class="fas fa-graduation-cap"></i><p>No learning experiences yet. Start documenting your learning journey!</p></div>';
+                    return;
+                }
+
                 list.innerHTML = '';
-                items.forEach(it => {
-                    if (it.kind === 'weekly') {
-                        const week = it.dateISO ? new Date(it.dateISO).toLocaleDateString('en-US', { month:'short', day:'numeric' }) : '';
-                        list.innerHTML += `<div class="mini"><div style="font-weight:600;">Weekly • ${it.eventName||'General'} ${week?`• ${week}`:''}</div><div style="white-space:pre-wrap; color:#374151;">${it.content||''}</div></div>`;
-                    } else if (it.kind === 'diagnostic') {
-                        const dateStr = it.diagnosticDateISO ? new Date(it.diagnosticDateISO).toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' }) : '';
-                        list.innerHTML += `<div class="mini"><div style="font-weight:600;">Diagnostic • ${it.eventName||'General'} ${dateStr?`• ${dateStr}`:''}</div><div style="white-space:pre-wrap; color:#374151;">${it.reflection||''}</div></div>`;
-                    } else if (it.kind === 'competition') {
-                        list.innerHTML += `<div class="mini"><div style="font-weight:600;">Competition • ${it.competitionName} ${it.eventName?`• ${it.eventName}`:''}</div>${it.whatWentWell?`<div><strong>Went well:</strong> <span style=\"white-space:pre-wrap; color:#374151;\">${it.whatWentWell}</span></div>`:''}${it.whatToImprove?`<div><strong>Improve:</strong> <span style=\"white-space:pre-wrap; color:#374151;\">${it.whatToImprove}</span></div>`:''}<div style="white-space:pre-wrap; color:#374151;">${it.reflection||''}</div></div>`;
-                    } else if (it.kind === 'app_question') {
-                        list.innerHTML += `<div class="mini"><div style="font-weight:600;">Application • ${it.questionText || it.questionId}</div><div style="white-space:pre-wrap; color:#374151;">${it.answer||''}</div></div>`;
-                    }
+                items.forEach(item => {
+                    const dateStr = item.dateCreated ? new Date(item.dateCreated).toLocaleDateString('en-US', { 
+                        month: 'short', 
+                        day: 'numeric', 
+                        year: 'numeric' 
+                    }) : '';
+                    
+                    const typeDisplay = item.type ? item.type.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) : 'Learning Experience';
+                    
+                    list.innerHTML += `
+                        <div class="experience-card" style="animation: fadeIn .3s ease">
+                            <div class="experience-header">
+                                <div class="experience-type">${typeDisplay}</div>
+                                <div class="experience-date">${dateStr}</div>
+                            </div>
+                            ${item.eventName ? `<div class="experience-event"><i class="fas fa-flask"></i> ${item.eventName}</div>` : ''}
+                            ${item.description ? `<div class="experience-description">${item.description}</div>` : ''}
+                            <div class="experience-actions">
+                                <a href="${item.googleDocLink}" target="_blank" class="btn-secondary">
+                                    <i class="fas fa-external-link-alt"></i> View Document
+                                </a>
+                            </div>
+                        </div>
+                    `;
                 });
-            } catch (e) { list.innerHTML = '<div class="empty-state">Failed to load entries.</div>'; }
+            } catch (e) {
+                list.innerHTML = '<div class="empty-state">Failed to load learning experiences.</div>';
+            }
+        }
+
+        function showToast(msg){
+            let t = document.getElementById('toast');
+            if (!t) { t = document.createElement('div'); t.id='toast'; t.className='toast'; document.body.appendChild(t); }
+            t.textContent = msg; t.style.display='block';
+            setTimeout(()=>{ t.style.display='none'; }, 2200);
         }
 
         // Resources

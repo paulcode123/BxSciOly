@@ -61,72 +61,25 @@
 
     <!-- Main Content Area -->
     <div class="content-container">
-        <!-- Create Meeting Panel -->
+        <!-- Today's Codes Panel -->
         <div class="panel">
             <div class="panel-header">
-                <h2>Create New Meeting</h2>
-            </div>
-            <div class="panel-body">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Select Event:</label>
-                        <select id="createEventSelect" required>
-                            <option value="">Choose an event...</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Date:</label>
-                        <input type="date" id="createMeetingDate" required>
-                    </div>
-                    <div class="form-group" style="display: flex; align-items: flex-end;">
-                        <button type="button" class="btn-primary" onclick="createMeeting()" style="margin-bottom: 0;">
-                            <i class="fas fa-plus"></i> Create Meeting
-                        </button>
-                    </div>
-                </div>
-                <div id="createdMeetingInfo" style="display: none; margin-top: 1.5rem; padding: 1.5rem; background: #dcfce7; border-radius: 8px; border-left: 4px solid #10b981;">
-                    <h4 style="margin: 0 0 1rem 0; color: #065f46;">✓ Meeting Created Successfully!</h4>
-                    <p style="margin: 0.5rem 0; color: #065f46;"><strong>Event:</strong> <span id="createdEventName"></span></p>
-                    <p style="margin: 0.5rem 0; color: #065f46;"><strong>Date:</strong> <span id="createdDate"></span></p>
-                    <p style="margin: 0.5rem 0; color: #065f46;"><strong>Attendance Code:</strong></p>
-                    <div style="display: inline-block; background: white; padding: 0.75rem 1.5rem; border-radius: 6px; border: 2px solid #10b981; font-size: 1.5rem; font-weight: bold; letter-spacing: 3px; color: #065f46; font-family: 'Courier New', monospace; margin-top: 0.5rem;" id="displayCode"></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Member Lookup Panel -->
-        <div class="panel">
-            <div class="panel-header">
-                <h2>Member Lookup</h2>
+                <h2>Today's Attendance Codes</h2>
                 <div class="panel-actions">
-                    <input type="text" id="memberSearchInput" placeholder="Search members..." onkeyup="filterMembers()">
-                    <i class="fas fa-search"></i>
+                    <button id="generateTodayBtn" class="btn-success" onclick="generateTodaysCodes()" style="display: none;">
+                        <i class="fas fa-magic"></i> Generate Today's Codes
+                    </button>
+                    <button class="btn-outline" onclick="loadTodaysCodes()">
+                        <i class="fas fa-sync-alt"></i> Refresh
+                    </button>
                 </div>
             </div>
             <div class="panel-body">
-                <div id="memberList" class="table-container">
-                    <table class="modern-table">
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Grade</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody id="memberListBody">
-                            <!-- Member list will be populated here -->
-                        </tbody>
-                    </table>
-                </div>
-                <div id="memberAttendanceStats" style="display: none; margin-top: 1.5rem;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-                        <h3 id="memberNameDisplay" style="color: #1e293b; margin: 0;"></h3>
-                        <button class="btn-outline" onclick="backToMemberSearch()" style="padding: 0.5rem 1rem; font-size: 0.9rem;">
-                            <i class="fas fa-arrow-left"></i> Back to Search
-                        </button>
+                <div id="todaysCodesContainer">
+                    <div class="empty-state">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Loading today's codes...</p>
                     </div>
-                    <div id="memberStatsContainer"></div>
                 </div>
             </div>
         </div>
@@ -134,7 +87,10 @@
         <!-- Event and Meeting Selection Panel -->
         <div class="panel">
             <div class="panel-header">
-                <h2>Event & Meeting Selection</h2>
+                <div>
+                    <h2 style="margin: 0;">Event & Meeting Selection</h2>
+                    <p style="margin: 0.25rem 0 0 0; color: #64748b; font-size: 0.875rem;">Change attendance</p>
+                </div>
                 <div class="panel-actions">
                     <button class="btn-outline" onclick="refreshData()">
                         <i class="fas fa-sync-alt"></i> Refresh
@@ -214,21 +170,100 @@
             </div>
         </div>
 
-        <!-- Upcoming Meetings Panel -->
+        <!-- Member Lookup Panel -->
         <div class="panel">
             <div class="panel-header">
-                <h2>Upcoming Meetings</h2>
+                <div>
+                    <h2 style="margin: 0;">Member Lookup</h2>
+                    <p style="margin: 0.25rem 0 0 0; color: #64748b; font-size: 0.875rem;">Check attendance records</p>
+                </div>
                 <div class="panel-actions">
-                    <button class="btn-outline" onclick="loadUpcomingMeetings()">
+                    <input type="text" id="memberSearchInput" placeholder="Search members..." onkeyup="filterMembers()" style="width: 250px; padding: 0.5rem 1rem; border: 2px solid #e2e8f0; border-radius: 8px;">
+                    <i class="fas fa-search" style="position: absolute; right: 1rem; color: #9ca3af;"></i>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div id="memberList" class="table-container">
+                    <table class="modern-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Grade</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="memberListBody">
+                            <!-- Member list will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+                <div id="memberAttendanceStats" style="display: none; margin-top: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <h3 id="memberNameDisplay" style="color: #1e293b; margin: 0;"></h3>
+                        <button class="btn-outline" onclick="backToMemberSearch()" style="padding: 0.5rem 1rem; font-size: 0.9rem;">
+                            <i class="fas fa-arrow-left"></i> Back to Search
+                        </button>
+                    </div>
+                    <div id="memberStatsContainer"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Create Unscheduled Meeting Panel -->
+        <div class="panel">
+            <div class="panel-header">
+                <div>
+                    <h2 style="margin: 0;">Create Unscheduled Meeting</h2>
+                    <p style="margin: 0.25rem 0 0 0; color: #64748b; font-size: 0.875rem;">For meetings not in today's schedule</p>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Select Event:</label>
+                        <select id="createEventSelect" required>
+                            <option value="">Choose an event...</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Date:</label>
+                        <input type="date" id="createMeetingDate" required>
+                    </div>
+                    <div class="form-group" style="display: flex; align-items: flex-end;">
+                        <button type="button" class="btn-primary" onclick="createMeeting()" style="margin-bottom: 0;">
+                            <i class="fas fa-plus"></i> Create Meeting
+                        </button>
+                    </div>
+                </div>
+                <div id="createdMeetingInfo" style="display: none; margin-top: 1.5rem; padding: 1.5rem; background: #dcfce7; border-radius: 8px; border-left: 4px solid #10b981;">
+                    <h4 style="margin: 0 0 1rem 0; color: #065f46;">✓ Meeting Created Successfully!</h4>
+                    <p style="margin: 0.5rem 0; color: #065f46;"><strong>Event:</strong> <span id="createdEventName"></span></p>
+                    <p style="margin: 0.5rem 0; color: #065f46;"><strong>Date:</strong> <span id="createdDate"></span></p>
+                    <p style="margin: 0.5rem 0; color: #065f46;"><strong>Attendance Code:</strong></p>
+                    <div style="display: inline-block; background: white; padding: 0.75rem 1.5rem; border-radius: 6px; border: 2px solid #10b981; font-size: 1.5rem; font-weight: bold; letter-spacing: 3px; color: #065f46; font-family: 'Courier New', monospace; margin-top: 0.5rem;" id="displayCode"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Excused Absences Review Panel -->
+        <div class="panel">
+            <div class="panel-header">
+                <div>
+                    <h2 style="margin: 0;">Excused Absences Review</h2>
+                    <p style="margin: 0.25rem 0 0 0; color: #64748b; font-size: 0.875rem;">Review and approve/deny absence requests</p>
+                </div>
+                <div class="panel-actions">
+                    <button class="btn-outline" onclick="loadExcusedAbsences()">
                         <i class="fas fa-sync-alt"></i> Refresh
                     </button>
                 </div>
             </div>
             <div class="panel-body">
-                <div id="upcomingMeetingsContainer">
+                <div id="excusedAbsencesContainer">
                     <div class="empty-state">
                         <i class="fas fa-spinner fa-spin"></i>
-                        <p>Loading upcoming meetings...</p>
+                        <p>Loading absence requests...</p>
                     </div>
                 </div>
             </div>
@@ -250,6 +285,32 @@
             <div class="form-actions">
                 <button type="button" class="btn-secondary" onclick="closeModal('manualCheckinModal')">Cancel</button>
                 <button type="button" class="btn-success" onclick="confirmManualCheckin()">Check In</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Absence Review Modal -->
+<div id="absenceReviewModal" class="modal">
+    <div class="modal-content" style="max-width: 800px;">
+        <div class="modal-header">
+            <h3>Review Absence Request</h3>
+            <button class="close-btn" onclick="closeAbsenceReviewModal()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div id="absenceReviewContent">
+                <!-- Content will be populated by JavaScript -->
+            </div>
+            <div class="form-actions">
+                <button type="button" class="btn-secondary" onclick="closeAbsenceReviewModal()">Close</button>
+                <button type="button" class="btn-success" onclick="approveAbsenceFromModal()">
+                    <i class="fas fa-check"></i> Approve
+                </button>
+                <button type="button" class="btn-outline" onclick="denyAbsenceFromModal()" style="border-color: #ef4444; color: #ef4444;">
+                    <i class="fas fa-times"></i> Deny
+                </button>
             </div>
         </div>
     </div>
@@ -606,6 +667,21 @@
         color: #991b1b;
     }
 
+    .status-pending {
+        background: #fef3c7;
+        color: #92400e;
+    }
+
+    .status-approved {
+        background: #dcfce7;
+        color: #166534;
+    }
+
+    .status-denied {
+        background: #fee2e2;
+        color: #991b1b;
+    }
+
     .modal {
         display: none;
         position: fixed;
@@ -835,7 +911,8 @@
         loadStats();
         loadEvents();
         loadMembers();
-        loadUpcomingMeetings();
+        loadTodaysCodes();
+        loadExcusedAbsences();
     });
 
     async function loadStats() {
@@ -1119,6 +1196,12 @@
             
             // Filter meetings for this event
             eventMeetings = allMeetings.filter(meeting => meeting.eventName === event.eventName);
+            // Sort meetings by date ascending
+            eventMeetings.sort((a, b) => {
+                const da = (a.date && typeof a.date === 'object' && a.date.seconds) ? new Date(a.date.seconds * 1000) : new Date(a.date);
+                const db = (b.date && typeof b.date === 'object' && b.date.seconds) ? new Date(b.date.seconds * 1000) : new Date(b.date);
+                return da - db;
+            });
             
             // Get members for this event
             if (event.members) {
@@ -1127,7 +1210,7 @@
                 eventMembers = [];
             }
             
-            // Populate meeting dropdown
+            // Populate meeting dropdown (ordered by date)
             const select = document.getElementById('meetingSelect');
             select.innerHTML = '<option value="">View all meetings for this event</option>';
             
@@ -1756,9 +1839,14 @@
 
         try {
             const code = generateRandomCode();
+            
+            // Create date at noon local time to avoid timezone issues
+            const dateParts = date.split('-');
+            const meetingDate = new Date(dateParts[0], dateParts[1] - 1, dateParts[2], 12, 0, 0);
+            
             const meetingData = {
                 eventName: eventName,
-                date: new Date(date).toISOString(),
+                date: meetingDate.toISOString(),
                 code: code,
                 attended: []
             };
@@ -1774,7 +1862,7 @@
             if (response.ok) {
                 // Show success message with code
                 document.getElementById('createdEventName').textContent = eventName;
-                document.getElementById('createdDate').textContent = new Date(date).toLocaleDateString();
+                document.getElementById('createdDate').textContent = meetingDate.toLocaleDateString();
                 document.getElementById('displayCode').textContent = code;
                 document.getElementById('createdMeetingInfo').style.display = 'block';
 
@@ -1786,7 +1874,7 @@
                 setTimeout(() => {
                     loadEvents();
                     loadStats();
-                    loadUpcomingMeetings();
+                    loadTodaysCodes();
                 }, 1000);
             } else {
                 alert('Error creating meeting');
@@ -1797,7 +1885,7 @@
         }
     }
 
-    async function loadUpcomingMeetings() {
+    async function loadTodaysCodes() {
         try {
             const response = await fetch('/api/Meeting');
             const meetingsData = await response.json();
@@ -1808,11 +1896,13 @@
                 return { id, ...obj[id] };
             });
 
-            // Filter for upcoming meetings (today or future dates)
+            // Filter for today's meetings only
             const now = new Date();
             const today = new Date(now.getFullYear(), now.getMonth(), now.getDate()); // Midnight today
+            const tomorrow = new Date(today);
+            tomorrow.setDate(tomorrow.getDate() + 1);
             
-            const upcoming = allMeetings.filter(meeting => {
+            const todaysMeetings = allMeetings.filter(meeting => {
                 let date;
                 if (meeting.date && typeof meeting.date === 'object' && meeting.date.seconds) {
                     date = new Date(meeting.date.seconds * 1000);
@@ -1822,76 +1912,757 @@
                     return false;
                 }
                 
-                // Compare dates only (ignore time)
+                // Check if meeting is today
                 const meetingDate = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-                return meetingDate >= today;
+                return meetingDate.getTime() === today.getTime();
             });
 
-            // Sort by date (soonest first)
-            upcoming.sort((a, b) => {
-                const dateA = new Date(a.date && a.date.seconds ? a.date.seconds * 1000 : a.date);
-                const dateB = new Date(b.date && b.date.seconds ? b.date.seconds * 1000 : b.date);
-                return dateA - dateB;
+            // Sort by block and event name
+            todaysMeetings.sort((a, b) => {
+                // Build events go last
+                if (a.block === 'Build' && b.block !== 'Build') return 1;
+                if (a.block !== 'Build' && b.block === 'Build') return -1;
+                // Otherwise sort by block number
+                const blockA = parseInt(a.block) || 999;
+                const blockB = parseInt(b.block) || 999;
+                if (blockA !== blockB) return blockA - blockB;
+                // Then by event name
+                return (a.eventName || '').localeCompare(b.eventName || '');
             });
 
-            // Display upcoming meetings
-            displayUpcomingMeetings(upcoming);
+            // Check if we should show the generate button
+            // Show it if there are no meetings for today
+            if (todaysMeetings.length === 0) {
+                document.getElementById('generateTodayBtn').style.display = 'inline-flex';
+            } else {
+                document.getElementById('generateTodayBtn').style.display = 'none';
+            }
+
+            // Display today's codes
+            displayTodaysCodes(todaysMeetings);
         } catch (error) {
-            console.error('Error loading upcoming meetings:', error);
-            document.getElementById('upcomingMeetingsContainer').innerHTML = 
-                '<div class="empty-state"><i class="fas fa-exclamation-circle"></i><p>Error loading upcoming meetings</p></div>';
+            console.error('Error loading today\'s codes:', error);
+            document.getElementById('todaysCodesContainer').innerHTML = 
+                '<div class="empty-state"><i class="fas fa-exclamation-circle"></i><p>Error loading today\'s codes</p></div>';
         }
     }
 
-    function displayUpcomingMeetings(meetings) {
-        const container = document.getElementById('upcomingMeetingsContainer');
+    function displayTodaysCodes(meetings) {
+        const container = document.getElementById('todaysCodesContainer');
+        const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        const today = days[new Date().getDay()];
 
         if (meetings.length === 0) {
-            container.innerHTML = '<div class="empty-state"><i class="fas fa-calendar-times"></i><p>No upcoming meetings scheduled</p></div>';
+            container.innerHTML = `
+                <div class="empty-state">
+                    <i class="fas fa-calendar-day"></i>
+                    <p>No meetings scheduled for ${today}</p>
+                    <p style="color: #9ca3af; font-size: 0.9rem; margin-top: 0.5rem;">Click "Generate Today's Codes" to create them</p>
+                </div>
+            `;
             return;
         }
 
-        let html = '<div style="display: grid; gap: 1rem;">';
+        // Separate build events from academic events
+        const buildEvents = ['Boomilever', 'Helicopter', 'Electric Vehicle', 'Robot Tour', 'Bungee Drop', 'Hovercraft'];
+        const academicMeetings = meetings.filter(m => !buildEvents.includes(m.eventName));
+        const buildMeetings = meetings.filter(m => buildEvents.includes(m.eventName));
 
-        meetings.forEach(meeting => {
-            let date;
-            if (meeting.date && typeof meeting.date === 'object' && meeting.date.seconds) {
-                date = new Date(meeting.date.seconds * 1000);
-            } else if (meeting.date) {
-                date = new Date(meeting.date);
-            } else {
-                date = new Date();
-            }
+        let html = `<div style="margin-bottom: 1rem;"><h3 style="color: #1f2937; margin: 0;">${today}'s Codes</h3></div>`;
 
-            const dateStr = date.toLocaleDateString('en-US', { 
-                weekday: 'long', 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric' 
+        // Display Academic Events
+        if (academicMeetings.length > 0) {
+            html += '<div style="margin-bottom: 1.5rem;">';
+            html += '<h4 style="color: #475569; font-size: 1rem; font-weight: 600; margin-bottom: 1rem;">Academic Events</h4>';
+            html += '<div style="display: grid; gap: 1.5rem;">';
+
+            // Group by block
+            const byBlock = {};
+            academicMeetings.forEach(meeting => {
+                const block = meeting.block || 'Other';
+                if (!byBlock[block]) byBlock[block] = [];
+                byBlock[block].push(meeting);
             });
 
-            html += `
-                <div style="padding: 1.5rem; background: white; border: 1px solid #e5e7eb; border-radius: 8px; border-left: 4px solid #3b82f6;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                        <div>
-                            <h4 style="margin: 0 0 0.5rem 0; color: #1f2937; font-size: 1.1rem;">${meeting.eventName}</h4>
-                            <p style="margin: 0; color: #6b7280; font-size: 0.95rem;">
-                                <i class="fas fa-calendar"></i> ${dateStr}
-                            </p>
-                        </div>
-                        <div style="text-align: right;">
-                            <p style="margin: 0 0 0.5rem 0; color: #6b7280; font-size: 0.85rem;">Attendance Code:</p>
-                            <div style="display: inline-block; background: #f0f9ff; padding: 0.75rem 1.25rem; border-radius: 6px; border: 2px solid #3b82f6; font-size: 1.25rem; font-weight: bold; letter-spacing: 2px; color: #1e40af; font-family: 'Courier New', monospace;">
-                                ${meeting.code || 'N/A'}
-                            </div>
-                        </div>
+            const blockOrder = ['1', '2', 'Other'];
+            blockOrder.forEach(blockNum => {
+                if (!byBlock[blockNum]) return;
+                
+                const blockName = blockNum === 'Other' ? 'Other' : `Block ${blockNum}`;
+                
+                html += `<div style="background: #f8fafc; padding: 1.25rem; border-radius: 8px;">`;
+                html += `<h5 style="margin: 0 0 1rem 0; color: #475569; font-size: 0.95rem; font-weight: 600;">${blockName}</h5>`;
+                html += '<div style="display: grid; gap: 0.75rem;">';
+                
+                byBlock[blockNum].forEach(meeting => {
+                    html += generateMeetingCard(meeting, today);
+                });
+                
+                html += '</div></div>';
+            });
+
+            html += '</div></div>';
+        }
+
+        // Display Build Events
+        if (buildMeetings.length > 0) {
+            html += '<div>';
+            html += '<h4 style="color: #475569; font-size: 1rem; font-weight: 600; margin-bottom: 1rem;"><i class="fas fa-tools"></i> Build Events</h4>';
+            html += '<div style="display: grid; gap: 1.5rem;">';
+
+            // Group by block
+            const byBlock = {};
+            buildMeetings.forEach(meeting => {
+                const block = meeting.block || 'Other';
+                if (!byBlock[block]) byBlock[block] = [];
+                byBlock[block].push(meeting);
+            });
+
+            const blockOrder = ['1', '2', 'Other'];
+            blockOrder.forEach(blockNum => {
+                if (!byBlock[blockNum]) return;
+                
+                const blockName = blockNum === 'Other' ? 'Other' : `Block ${blockNum}`;
+                
+                html += `<div style="background: #fef3c7; padding: 1.25rem; border-radius: 8px; border-left: 4px solid #f59e0b;">`;
+                html += `<h5 style="margin: 0 0 1rem 0; color: #92400e; font-size: 0.95rem; font-weight: 600;">${blockName}</h5>`;
+                html += '<div style="display: grid; gap: 0.75rem;">';
+                
+                byBlock[blockNum].forEach(meeting => {
+                    html += generateMeetingCard(meeting, today);
+                });
+                
+                html += '</div></div>';
+            });
+
+            html += '</div></div>';
+        }
+
+        container.innerHTML = html;
+    }
+
+    function generateMeetingCard(meeting, today) {
+        const attendedCount = meeting.attended ? meeting.attended.length : 0;
+        
+        return `
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; background: white; border: 1px solid #e2e8f0; border-radius: 6px;">
+                <div style="flex: 1;">
+                    <div style="font-weight: 600; color: #1e293b; margin-bottom: 0.25rem;">${meeting.eventName}</div>
+                    <div style="font-size: 0.85rem; color: #64748b;">
+                        <i class="fas fa-users"></i> ${attendedCount} checked in
                     </div>
                 </div>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 0.75rem; color: #64748b; margin-bottom: 0.25rem;">CODE</div>
+                        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 0.5rem 1rem; border-radius: 6px; font-size: 1.5rem; font-weight: bold; letter-spacing: 3px; font-family: 'Courier New', monospace;">
+                            ${meeting.code || 'N/A'}
+                        </div>
+                    </div>
+                    <button onclick="deleteMeeting('${meeting.id}', '${meeting.eventName}', '${today}')" class="btn-outline" style="padding: 0.5rem 0.75rem; border-color: #ef4444; color: #ef4444;" title="Delete">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            </div>
+        `;
+    }
+
+    async function generateTodaysCodes() {
+        if (!confirm('Generate attendance codes for all of today\'s scheduled events?')) {
+            return;
+        }
+        
+        try {
+            const response = await fetch('/api/Meeting/generate-today', {
+                method: 'POST'
+            });
+            
+            const data = await response.json();
+            
+            if (response.ok) {
+                alert(`Success! Created ${data.meetings.length} meeting(s) for ${data.day}`);
+                loadStats();
+                loadTodaysCodes();
+            } else {
+                alert(`Error: ${data.error || 'Failed to generate codes'}`);
+            }
+        } catch (error) {
+            console.error('Error generating today\'s codes:', error);
+            alert('Network error. Please try again.');
+        }
+    }
+
+    async function deleteMeeting(meetingId, eventName, dateStr) {
+        if (!confirm(`Are you sure you want to delete this meeting?\n\nEvent: ${eventName}\nDate: ${dateStr}\n\nThis action cannot be undone.`)) {
+            return;
+        }
+
+        try {
+            const response = await fetch(`/api/Meeting/${meetingId}`, {
+                method: 'DELETE'
+            });
+
+            if (response.ok) {
+                // Refresh data
+                loadStats();
+                loadTodaysCodes();
+            } else {
+                alert('Error deleting meeting');
+            }
+        } catch (error) {
+            console.error('Error deleting meeting:', error);
+            alert('Error deleting meeting');
+        }
+    }
+
+    // Excused Absences Functions
+    async function loadExcusedAbsences() {
+        try {
+            // Ensure we have members and events data loaded first
+            if (allMembers.length === 0) {
+                await loadMembers();
+            }
+            if (allEvents.length === 0) {
+                await loadEvents();
+            }
+            
+            const response = await fetch('/api/ExcusedAbsences');
+            const absencesData = await response.json();
+            
+            if (response.ok) {
+                // Flatten the data structure - each item is wrapped in an object with the ID as key
+                const flattenedAbsences = absencesData.map(obj => {
+                    const id = Object.keys(obj)[0];
+                    return { id, ...obj[id] };
+                });
+                
+                displayExcusedAbsences(flattenedAbsences);
+            } else {
+                document.getElementById('excusedAbsencesContainer').innerHTML = 
+                    '<div class="empty-state"><i class="fas fa-exclamation-circle"></i><p>Error loading absence requests</p></div>';
+            }
+        } catch (error) {
+            console.error('Error loading excused absences:', error);
+            document.getElementById('excusedAbsencesContainer').innerHTML = 
+                '<div class="empty-state"><i class="fas fa-exclamation-circle"></i><p>Error loading absence requests</p></div>';
+        }
+    }
+
+    function displayExcusedAbsences(absences) {
+        const container = document.getElementById('excusedAbsencesContainer');
+        
+        if (absences.length === 0) {
+            container.innerHTML = `
+                <div class="empty-state">
+                    <i class="fas fa-calendar-check"></i>
+                    <p>No absence requests found</p>
+                </div>
+            `;
+            return;
+        }
+
+        // Sort by status (pending first) and then by date
+        absences.sort((a, b) => {
+            const statusOrder = { 'pending': 0, 'approved': 1, 'denied': 2 };
+            const statusA = a.status || 'pending';
+            const statusB = b.status || 'pending';
+            if (statusOrder[statusA] !== statusOrder[statusB]) {
+                return statusOrder[statusA] - statusOrder[statusB];
+            }
+            return new Date(b.dateOfAbsence) - new Date(a.dateOfAbsence);
+        });
+
+        let html = '<div class="table-container"><table class="modern-table"><thead><tr>';
+        html += '<th>Member</th><th>Event</th><th>Date</th><th>Type</th><th>Reason</th><th>Status</th><th>Actions</th>';
+        html += '</tr></thead><tbody>';
+
+        absences.forEach(absence => {
+            // Skip if absence is missing required fields
+            if (!absence.id || !absence.memberId || !absence.eventId) {
+                console.warn('Skipping absence with missing required fields:', absence);
+                return;
+            }
+            
+            const member = allMembers.find(m => m.id === absence.memberId);
+            const event = allEvents.find(e => e.id === absence.eventId);
+            
+            // Debug logging
+            if (!member) {
+                console.warn('Member not found for ID:', absence.memberId, 'Available members:', allMembers.length);
+            }
+            if (!event) {
+                console.warn('Event not found for ID:', absence.eventId, 'Available events:', allEvents.length);
+            }
+            
+            const memberName = member ? `${member.firstName || ''} ${member.lastName || ''}`.trim() || 'Unknown Member' : 'Unknown Member';
+            const eventName = event ? event.eventName || 'Unknown Event' : 'Unknown Event';
+            
+            // Handle date safely - extract date part only to avoid timezone shifts
+            let dateStr = 'Unknown Date';
+            try {
+                if (absence.dateOfAbsence) {
+                    // Handle Firestore Timestamp object or date string
+                    let date;
+                    if (absence.dateOfAbsence.seconds) {
+                        // Firestore Timestamp object
+                        date = new Date(absence.dateOfAbsence.seconds * 1000);
+                    } else if (absence.dateOfAbsence.toDate) {
+                        // Firestore Timestamp with toDate method
+                        date = absence.dateOfAbsence.toDate();
+                    } else {
+                        // String or other format
+                        date = new Date(absence.dateOfAbsence);
+                    }
+                    if (!isNaN(date.getTime())) {
+                        // Use UTC methods to extract date parts to avoid timezone conversion
+                        const year = date.getUTCFullYear();
+                        const month = date.getUTCMonth() + 1;
+                        const day = date.getUTCDate();
+                        dateStr = `${month}/${day}/${year}`;
+                    }
+                }
+            } catch (error) {
+                console.warn('Error parsing date for absence:', absence.id, error);
+            }
+            
+            // Handle undefined/null status with default to 'pending'
+            const status = absence.status || 'pending';
+            const statusClass = status === 'pending' ? 'status-pending' : 
+                               status === 'approved' ? 'status-approved' : 'status-denied';
+            const statusText = status.charAt(0).toUpperCase() + status.slice(1);
+            
+            html += `
+                <tr>
+                    <td>${memberName}</td>
+                    <td>${eventName}</td>
+                    <td>${dateStr}</td>
+                    <td>${(absence.type === 'attendance_correction') ? 'Attendance Correction' : 'Excused Absence'}</td>
+                    <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="${absence.reason || 'No reason provided'}">
+                        ${absence.reason || 'No reason provided'}
+                    </td>
+                    <td>
+                        <span class="status-badge ${statusClass}">${statusText}</span>
+                    </td>
+                    <td>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button class="btn-outline" onclick="reviewAbsence('${absence.id}')" style="padding: 0.25rem 0.5rem; font-size: 0.8rem;">
+                                <i class="fas fa-eye"></i> Review
+                            </button>
+                            ${status === 'pending' ? `
+                                <button class="btn-success" onclick="approveAbsence('${absence.id}')" style="padding: 0.25rem 0.5rem; font-size: 0.8rem;">
+                                    <i class="fas fa-check"></i> Approve
+                                </button>
+                                <button class="btn-outline" onclick="denyAbsence('${absence.id}')" style="padding: 0.25rem 0.5rem; font-size: 0.8rem; border-color: #ef4444; color: #ef4444;">
+                                    <i class="fas fa-times"></i> Deny
+                                </button>
+                            ` : ''}
+                        </div>
+                    </td>
+                </tr>
             `;
         });
 
-        html += '</div>';
+        html += '</tbody></table></div>';
         container.innerHTML = html;
+    }
+
+    async function reviewAbsence(absenceId) {
+        try {
+            // Ensure we have members and events data loaded first
+            if (allMembers.length === 0) {
+                await loadMembers();
+            }
+            if (allEvents.length === 0) {
+                await loadEvents();
+            }
+            
+            // Find the absence data
+            const response = await fetch('/api/ExcusedAbsences');
+            const absencesData = await response.json();
+            
+            // Flatten the data structure
+            const flattenedAbsences = absencesData.map(obj => {
+                const id = Object.keys(obj)[0];
+                return { id, ...obj[id] };
+            });
+            
+            const absence = flattenedAbsences.find(a => a.id === absenceId);
+            if (absence) {
+                showAbsenceReviewModal(absence);
+            }
+        } catch (error) {
+            console.error('Error loading absence details:', error);
+            alert('Error loading absence details');
+        }
+    }
+
+    function showAbsenceReviewModal(absence) {
+        const member = allMembers.find(m => m.id === absence.memberId);
+        const event = allEvents.find(e => e.id === absence.eventId);
+        const memberName = member ? `${member.firstName} ${member.lastName}` : 'Unknown Member';
+        const eventName = event ? event.eventName : 'Unknown Event';
+        
+        // Parse date using UTC to avoid timezone shifts
+        let dateStr = 'Unknown Date';
+        try {
+            if (absence.dateOfAbsence) {
+                let date;
+                if (absence.dateOfAbsence.seconds) {
+                    date = new Date(absence.dateOfAbsence.seconds * 1000);
+                } else if (absence.dateOfAbsence.toDate) {
+                    date = absence.dateOfAbsence.toDate();
+                } else {
+                    date = new Date(absence.dateOfAbsence);
+                }
+                if (!isNaN(date.getTime())) {
+                    const year = date.getUTCFullYear();
+                    const month = date.getUTCMonth() + 1;
+                    const day = date.getUTCDate();
+                    dateStr = `${month}/${day}/${year}`;
+                }
+            }
+        } catch (error) {
+            console.warn('Error parsing date in modal:', error);
+        }
+        
+        const modal = document.getElementById('absenceReviewModal');
+        const content = document.getElementById('absenceReviewContent');
+        
+        content.innerHTML = `
+            <div style="margin-bottom: 1.5rem;">
+                <h4 style="margin: 0 0 1rem 0; color: #1e293b;">Absence Request Details</h4>
+                <div style="background: #f8fafc; padding: 1rem; border-radius: 8px;">
+                    <p style="margin: 0.5rem 0;"><strong>Member:</strong> ${memberName}</p>
+                    <p style="margin: 0.5rem 0;"><strong>Event:</strong> ${eventName}</p>
+                    <p style="margin: 0.5rem 0;"><strong>Date of Absence:</strong> ${dateStr}</p>
+                    <p style="margin: 0.5rem 0;"><strong>Type:</strong> ${(absence.type === 'attendance_correction') ? 'Attendance Correction' : 'Excused Absence'}</p>
+                    <p style="margin: 0.5rem 0;"><strong>Status:</strong> <span class="status-badge status-${absence.status}">${absence.status.charAt(0).toUpperCase() + absence.status.slice(1)}</span></p>
+                    <p style="margin: 0.5rem 0;"><strong>Requested:</strong> ${new Date(absence.requestedTimestamp).toLocaleString()}</p>
+                </div>
+            </div>
+            
+            <div style="margin-bottom: 1.5rem;">
+                <h5 style="margin: 0 0 0.5rem 0; color: #374151;">Reason for Absence:</h5>
+                <div style="background: #f8fafc; padding: 1rem; border-radius: 8px; border-left: 4px solid #3b82f6;">
+                    <p style="margin: 0; white-space: pre-wrap;">${absence.reason}</p>
+                </div>
+            </div>
+            
+            ${(absence.type !== 'attendance_correction' && absence.documentationFileId) ? `
+                <div style="margin-bottom: 1.5rem;">
+                    <h5 style="margin: 0 0 0.5rem 0; color: #374151;">Supporting Documentation:</h5>
+                    <div style="background: #f8fafc; padding: 1rem; border-radius: 8px; border-left: 4px solid #10b981;">
+                        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                            <i class="fas fa-file-alt" style="color: #10b981;"></i>
+                            <span style="color: #374151; font-weight: 500;">${absence.documentationFileId}</span>
+                        </div>
+                        <button class="btn-success" onclick="downloadDocumentation('${absence.documentationFileId}')" style="padding: 0.5rem 1rem; font-size: 0.9rem;">
+                            <i class="fas fa-download"></i> Download File
+                        </button>
+                    </div>
+                </div>
+            ` : ''}
+            
+            ${absence.adminComments ? `
+                <div style="margin-bottom: 1.5rem;">
+                    <h5 style="margin: 0 0 0.5rem 0; color: #374151;">Admin Comments:</h5>
+                    <div style="background: #fef3c7; padding: 1rem; border-radius: 8px; border-left: 4px solid #f59e0b;">
+                        <p style="margin: 0; white-space: pre-wrap;">${absence.adminComments}</p>
+                    </div>
+                </div>
+            ` : ''}
+            
+            <div style="margin-bottom: 1.5rem;">
+                <h5 style="margin: 0 0 0.5rem 0; color: #374151;">Admin Comments:</h5>
+                <textarea id="adminComments" placeholder="Add your comments here..." style="width: 100%; padding: 0.75rem; border: 2px solid #e2e8f0; border-radius: 8px; resize: vertical; min-height: 100px;">${absence.adminComments || ''}</textarea>
+            </div>
+        `;
+        
+        modal.style.display = 'block';
+        
+        // Store absence ID for actions
+        modal.dataset.absenceId = absence.id;
+    }
+
+    async function approveAbsence(absenceId) {
+        if (!confirm('Are you sure you want to approve this absence request?')) {
+            return;
+        }
+        
+        try {
+            // Load absence details
+            const absRes = await fetch('/api/ExcusedAbsences');
+            const absData = await absRes.json();
+            const flattened = absData.map(obj => { const id = Object.keys(obj)[0]; return { id, ...obj[id] }; });
+            const absence = flattened.find(a => a.id === absenceId);
+            if (!absence) throw new Error('Absence not found');
+
+            // If attendance correction, mark present on the matching meeting
+            if (absence.type === 'attendance_correction') {
+                // Resolve event name
+                if (allEvents.length === 0) { await loadEvents(); }
+                const ev = allEvents.find(e => e.id === absence.eventId);
+                const eventName = ev ? ev.eventName : null;
+                if (!eventName) throw new Error('Event not found for absence');
+
+                // Find meeting by event name and date (use UTC for date comparison)
+                const meetRes = await fetch('/api/Meeting');
+                const meetData = await meetRes.json();
+                const allMeetingsFlat = meetData.map(obj => { const id = Object.keys(obj)[0]; return { id, ...obj[id] }; });
+                // Parse target date using UTC
+                let targetDateObj;
+                if (absence.dateOfAbsence.seconds) {
+                    targetDateObj = new Date(absence.dateOfAbsence.seconds * 1000);
+                } else if (absence.dateOfAbsence.toDate) {
+                    targetDateObj = absence.dateOfAbsence.toDate();
+                } else {
+                    targetDateObj = new Date(absence.dateOfAbsence);
+                }
+                const targetDateOnly = new Date(Date.UTC(targetDateObj.getUTCFullYear(), targetDateObj.getUTCMonth(), targetDateObj.getUTCDate()));
+                const meeting = allMeetingsFlat.find(m => {
+                    const name = (m.eventName || '').trim();
+                    if (!(name === eventName || name.toLowerCase() === eventName.toLowerCase())) return false;
+                    let d;
+                    if (m.date && typeof m.date === 'object' && m.date.seconds) d = new Date(m.date.seconds * 1000);
+                    else if (m.date) d = new Date(m.date);
+                    else return false;
+                    const dOnly = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
+                    return dOnly.getTime() === targetDateOnly.getTime();
+                });
+                if (meeting) {
+                    // Check in member
+                    const checkinResp = await fetch(`/api/Meeting/${meeting.id}/checkin`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ memberId: absence.memberId })
+                    });
+                    if (!checkinResp.ok) {
+                        const err = await checkinResp.json().catch(() => ({}));
+                        throw new Error(err.error || 'Failed to mark attendance');
+                    }
+                } else {
+                    throw new Error('Matching meeting not found for the selected date');
+                }
+            }
+
+            // Approve after marking attendance if needed
+            const response = await fetch(`/api/ExcusedAbsences/${absenceId}`, {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    status: 'approved',
+                    reviewedBy: 'admin', // You might want to get actual admin ID
+                    reviewedAt: new Date().toISOString()
+                })
+            });
+
+            if (response.ok) {
+                alert('Absence request approved successfully');
+                loadExcusedAbsences();
+            } else {
+                alert('Error approving absence request');
+            }
+        } catch (error) {
+            console.error('Error approving absence:', error);
+            alert('Error approving absence request');
+        }
+    }
+
+    async function denyAbsence(absenceId) {
+        const comments = prompt('Please provide a reason for denying this absence request:');
+        if (comments === null) return; // User cancelled
+        
+        try {
+            const response = await fetch(`/api/ExcusedAbsences/${absenceId}`, {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    status: 'denied',
+                    reviewedBy: 'admin', // You might want to get actual admin ID
+                    reviewedAt: new Date().toISOString(),
+                    adminComments: comments
+                })
+            });
+            
+            if (response.ok) {
+                alert('Absence request denied');
+                loadExcusedAbsences();
+            } else {
+                alert('Error denying absence request');
+            }
+        } catch (error) {
+            console.error('Error denying absence:', error);
+            alert('Error denying absence request');
+        }
+    }
+
+    async function downloadDocumentation(fileId) {
+        try {
+            // Show loading state
+            const button = event.target;
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Downloading...';
+            button.disabled = true;
+            
+            // Create a download link
+            const downloadUrl = `/api/ExcusedAbsences/download-documentation/${fileId}`;
+            
+            // Create a temporary anchor element to trigger download
+            const link = document.createElement('a');
+            link.href = downloadUrl;
+            link.download = fileId;
+            link.style.display = 'none';
+            
+            // Add to DOM, click, and remove
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Reset button after a short delay
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.disabled = false;
+            }, 2000);
+            
+        } catch (error) {
+            console.error('Error downloading file:', error);
+            alert('Error downloading file. Please try again.');
+            
+            // Reset button on error
+            const button = event.target;
+            button.innerHTML = '<i class="fas fa-download"></i> Download File';
+            button.disabled = false;
+        }
+    }
+
+    function closeAbsenceReviewModal() {
+        document.getElementById('absenceReviewModal').style.display = 'none';
+    }
+
+    async function approveAbsenceFromModal() {
+        const modal = document.getElementById('absenceReviewModal');
+        const absenceId = modal.dataset.absenceId;
+        const adminComments = document.getElementById('adminComments').value;
+        
+        if (!confirm('Are you sure you want to approve this absence request?')) {
+            return;
+        }
+        
+        try {
+            // Load absence details
+            const absRes = await fetch('/api/ExcusedAbsences');
+            const absData = await absRes.json();
+            const flattened = absData.map(obj => { const id = Object.keys(obj)[0]; return { id, ...obj[id] }; });
+            const absence = flattened.find(a => a.id === absenceId);
+            if (!absence) throw new Error('Absence not found');
+
+            // If attendance correction, mark present
+            if (absence.type === 'attendance_correction') {
+                if (allEvents.length === 0) { await loadEvents(); }
+                const ev = allEvents.find(e => e.id === absence.eventId);
+                const eventName = ev ? ev.eventName : null;
+                if (!eventName) throw new Error('Event not found for absence');
+
+                const meetRes = await fetch('/api/Meeting');
+                const meetData = await meetRes.json();
+                const allMeetingsFlat = meetData.map(obj => { const id = Object.keys(obj)[0]; return { id, ...obj[id] }; });
+                // Parse target date using UTC
+                let targetDateObj;
+                if (absence.dateOfAbsence.seconds) {
+                    targetDateObj = new Date(absence.dateOfAbsence.seconds * 1000);
+                } else if (absence.dateOfAbsence.toDate) {
+                    targetDateObj = absence.dateOfAbsence.toDate();
+                } else {
+                    targetDateObj = new Date(absence.dateOfAbsence);
+                }
+                const targetDateOnly = new Date(Date.UTC(targetDateObj.getUTCFullYear(), targetDateObj.getUTCMonth(), targetDateObj.getUTCDate()));
+                const meeting = allMeetingsFlat.find(m => {
+                    const name = (m.eventName || '').trim();
+                    if (!(name === eventName || name.toLowerCase() === eventName.toLowerCase())) return false;
+                    let d;
+                    if (m.date && typeof m.date === 'object' && m.date.seconds) d = new Date(m.date.seconds * 1000);
+                    else if (m.date) d = new Date(m.date);
+                    else return false;
+                    const dOnly = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
+                    return dOnly.getTime() === targetDateOnly.getTime();
+                });
+                if (meeting) {
+                    const checkinResp = await fetch(`/api/Meeting/${meeting.id}/checkin`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ memberId: absence.memberId })
+                    });
+                    if (!checkinResp.ok) {
+                        const err = await checkinResp.json().catch(() => ({}));
+                        throw new Error(err.error || 'Failed to mark attendance');
+                    }
+                } else {
+                    throw new Error('Matching meeting not found for the selected date');
+                }
+            }
+
+            // Approve
+            const response = await fetch(`/api/ExcusedAbsences/${absenceId}`, {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    status: 'approved',
+                    reviewedBy: 'admin',
+                    reviewedAt: new Date().toISOString(),
+                    adminComments: adminComments
+                })
+            });
+
+            if (response.ok) {
+                alert('Absence request approved successfully');
+                closeAbsenceReviewModal();
+                loadExcusedAbsences();
+            } else {
+                alert('Error approving absence request');
+            }
+        } catch (error) {
+            console.error('Error approving absence:', error);
+            alert('Error approving absence request');
+        }
+    }
+
+    async function denyAbsenceFromModal() {
+        const modal = document.getElementById('absenceReviewModal');
+        const absenceId = modal.dataset.absenceId;
+        const adminComments = document.getElementById('adminComments').value;
+        
+        if (!adminComments.trim()) {
+            alert('Please provide a reason for denying this absence request');
+            return;
+        }
+        
+        if (!confirm('Are you sure you want to deny this absence request?')) {
+            return;
+        }
+        
+        try {
+            const response = await fetch(`/api/ExcusedAbsences/${absenceId}`, {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    status: 'denied',
+                    reviewedBy: 'admin',
+                    reviewedAt: new Date().toISOString(),
+                    adminComments: adminComments
+                })
+            });
+            
+            if (response.ok) {
+                alert('Absence request denied');
+                closeAbsenceReviewModal();
+                loadExcusedAbsences();
+            } else {
+                alert('Error denying absence request');
+            }
+        } catch (error) {
+            console.error('Error denying absence:', error);
+            alert('Error denying absence request');
+        }
     }
 </script>
 {% endblock %} 

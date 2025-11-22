@@ -178,6 +178,201 @@
         display: block;
     }
     
+    /* House Display Section */
+    .house-display {
+        background: white;
+        border-radius: 0.75rem;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        border: 3px solid;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .house-display::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -10%;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        opacity: 0.1;
+        z-index: 0;
+    }
+    
+    .house-display.fire {
+        border-color: #ef4444;
+        background: linear-gradient(135deg, #fff5f5 0%, #ffe4e6 100%);
+    }
+    
+    .house-display.fire::before {
+        background: #ef4444;
+    }
+    
+    .house-display.water {
+        border-color: #3b82f6;
+        background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    }
+    
+    .house-display.water::before {
+        background: #3b82f6;
+    }
+    
+    .house-display.earth {
+        border-color: #84cc16;
+        background: linear-gradient(135deg, #f7fee7 0%, #ecfccb 100%);
+    }
+    
+    .house-display.earth::before {
+        background: #84cc16;
+    }
+    
+    .house-display.wind {
+        border-color: #06b6d4;
+        background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+    }
+    
+    .house-display.wind::before {
+        background: #06b6d4;
+    }
+    
+    .house-content {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+    
+    .house-icon {
+        font-size: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: white;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .house-display.fire .house-icon {
+        color: #dc2626;
+        animation: flicker 2s ease-in-out infinite;
+    }
+    
+    .house-display.water .house-icon {
+        color: #2563eb;
+        animation: wave 3s ease-in-out infinite;
+    }
+    
+    .house-display.earth .house-icon {
+        color: #65a30d;
+        animation: pulse 2s ease-in-out infinite;
+    }
+    
+    .house-display.wind .house-icon {
+        color: #0891b2;
+        animation: float 3s ease-in-out infinite;
+    }
+    
+    @keyframes flicker {
+        0%, 100% { transform: scale(1); filter: brightness(1); }
+        50% { transform: scale(1.05); filter: brightness(1.2); }
+    }
+    
+    @keyframes wave {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-5px); }
+    }
+    
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.08); }
+    }
+    
+    @keyframes float {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-8px) rotate(5deg); }
+    }
+    
+    .house-info {
+        flex: 1;
+    }
+    
+    .house-label {
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 0.25rem;
+        opacity: 0.7;
+    }
+    
+    .house-display.fire .house-label {
+        color: #991b1b;
+    }
+    
+    .house-display.water .house-label {
+        color: #1e40af;
+    }
+    
+    .house-display.earth .house-label {
+        color: #3f6212;
+    }
+    
+    .house-display.wind .house-label {
+        color: #155e75;
+    }
+    
+    .house-name {
+        font-size: 2rem;
+        font-weight: 700;
+        margin: 0;
+        line-height: 1.2;
+    }
+    
+    .house-display.fire .house-name {
+        color: #dc2626;
+    }
+    
+    .house-display.water .house-name {
+        color: #2563eb;
+    }
+    
+    .house-display.earth .house-name {
+        color: #65a30d;
+    }
+    
+    .house-display.wind .house-name {
+        color: #0891b2;
+    }
+    
+    .house-motto {
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+        font-style: italic;
+        opacity: 0.8;
+    }
+    
+    .house-display.fire .house-motto {
+        color: #7f1d1d;
+    }
+    
+    .house-display.water .house-motto {
+        color: #1e3a8a;
+    }
+    
+    .house-display.earth .house-motto {
+        color: #365314;
+    }
+    
+    .house-display.wind .house-motto {
+        color: #164e63;
+    }
+    
     /* Attendance Chart Section */
     .chart-container {
         background: white;
@@ -236,6 +431,11 @@
         color: #ef4444;
     }
     
+    .status-icon.excused {
+        color: #f59e0b;
+        font-weight: bold;
+    }
+    
     .status-icon.future {
         color: #d1d5db;
     }
@@ -258,23 +458,216 @@
         margin-bottom: 0.75rem;
         display: block;
     }
+    
+    /* Absence Request Section */
+    .absence-request-section {
+        background: white;
+        border-radius: 0.75rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        padding: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .absence-form-container {
+        max-width: 600px;
+    }
+    
+    .absence-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+    
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .form-group label {
+        font-weight: 600;
+        color: #374151;
+        font-size: 0.9rem;
+    }
+    
+    .form-select,
+    .form-input,
+    .form-textarea {
+        padding: 0.75rem;
+        border: 1px solid #d1d5db;
+        border-radius: 0.5rem;
+        font-size: 1rem;
+        transition: all 0.2s;
+    }
+    
+    .form-select:focus,
+    .form-input:focus,
+    .form-textarea:focus {
+        outline: none;
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+    
+    .form-textarea {
+        resize: vertical;
+        min-height: 100px;
+    }
+    
+    .form-file {
+        padding: 0.5rem;
+        border: 2px dashed #d1d5db;
+        border-radius: 0.5rem;
+        background: #f9fafb;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    
+    .form-file:hover {
+        border-color: #3b82f6;
+        background: #f0f9ff;
+    }
+    
+    .file-help {
+        font-size: 0.8rem;
+        color: #6b7280;
+        margin-top: 0.25rem;
+    }
+    
+    .form-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 1rem;
+    }
+    
+    .btn-submit-absence {
+        padding: 0.75rem 1.5rem;
+        background-color: #3b82f6;
+        color: white;
+        border: none;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    
+    .btn-submit-absence:hover {
+        background-color: #2563eb;
+        transform: translateY(-1px);
+    }
+    
+    .btn-submit-absence:active {
+        transform: translateY(0);
+    }
+    
+    .absence-message {
+        margin-top: 1rem;
+        padding: 0.75rem 1rem;
+        border-radius: 0.5rem;
+        display: none;
+    }
+    
+    .absence-message.success {
+        background-color: #d1fae5;
+        color: #065f46;
+        display: block;
+    }
+    
+    .absence-message.error {
+        background-color: #fee2e2;
+        color: #991b1b;
+        display: block;
+    }
+    
+    /* House Cup Leaderboard Styles */
+    .house-cup-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+        border-radius: 0.75rem;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .house-cup-table th {
+        background: #f9fafb;
+        padding: 1rem;
+        text-align: center;
+        font-weight: 600;
+        color: #374151;
+        border-bottom: 2px solid #e5e7eb;
+    }
+    
+    .house-cup-table th:first-child {
+        text-align: left;
+    }
+    
+    .house-cup-table td {
+        padding: 1rem;
+        text-align: center;
+        border-bottom: 1px solid #e5e7eb;
+    }
+    
+    .house-cup-table tbody tr:hover {
+        background: #f9fafb;
+    }
+    
+    .house-cup-table tbody tr:last-child td {
+        border-bottom: none;
+    }
+    
+    .event-name-cell {
+        font-weight: 600;
+        color: #1f2937;
+        text-align: left !important;
+    }
+    
+    .points-cell {
+        font-size: 1.25rem;
+        font-weight: bold;
+    }
+    
+    .points-cell.house-A {
+        color: #ef4444;
+    }
+    
+    .points-cell.house-B {
+        color: #3b82f6;
+    }
+    
+    .points-cell.house-C {
+        color: #84cc16;
+    }
+    
+    .points-cell.house-D {
+        color: #06b6d4;
+    }
+    
+    .house-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.25rem;
+    }
+    
+    .house-header-icon {
+        font-size: 1.5rem;
+    }
+    
+    .house-header-name {
+        font-size: 0.75rem;
+        color: #6b7280;
+    }
 </style>
 {% endblock %}
 
 {% block content %}
 <div class="meetings-container">
-    <!-- Schedule Section -->
-    <div class="section-title">
-        <i class="fas fa-calendar"></i>
-        Event Schedule
-    </div>
-    
-    <div class="schedule-container" id="scheduleContainer">
-        <div style="text-align: center; color: #6b7280;">
-            <i class="fas fa-spinner fa-spin"></i> Loading schedule...
-        </div>
-    </div>
-    
     <!-- Meeting Code Section -->
     <div class="section-title">
         <i class="fas fa-key"></i>
@@ -297,6 +690,123 @@
             <button type="submit" class="btn-submit-code">Submit</button>
         </form>
         <div class="code-message" id="codeMessage"></div>
+    </div>
+    
+    <!-- Schedule Section -->
+    <div class="section-title">
+        <i class="fas fa-calendar"></i>
+        Event Schedule
+    </div>
+    
+    <div class="schedule-container" id="scheduleContainer">
+        <div style="text-align: center; color: #6b7280;">
+            <i class="fas fa-spinner fa-spin"></i> Loading schedule...
+        </div>
+    </div>
+    
+    <!-- Build Events Attendance Tracker -->
+    <div id="buildAttendanceSection" style="display: none;">
+        <div class="section-title">
+            <i class="fas fa-tools"></i>
+            Build Events Attendance (This Week)
+        </div>
+        
+        <div class="chart-container" id="buildAttendanceContainer">
+            <!-- Build attendance will be populated here -->
+        </div>
+    </div>
+    
+    <!-- House Display Section -->
+    <div id="houseDisplayContainer" style="display: none;">
+        <!-- House display will be populated by JavaScript -->
+    </div>
+    
+    <!-- House Cup Leaderboard Section -->
+    <div class="section-title">
+        <i class="fas fa-trophy"></i>
+        House Cup Leaderboard
+    </div>
+    
+    <div class="chart-container" id="houseCupContainer">
+        <div id="houseCupContent">
+            <div class="empty-state">
+                <i class="fas fa-spinner fa-spin"></i>
+                <p>Loading House Cup leaderboard...</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Absence Request Section -->
+    <div class="section-title">
+        <i class="fas fa-calendar-times"></i>
+        Request Excused Absence
+    </div>
+    
+    <div class="absence-request-section">
+        <div class="absence-form-container">
+            <form id="absenceForm" class="absence-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="absenceEvent">Event</label>
+                        <select id="absenceEvent" class="form-select" required>
+                            <option value="">Select an event</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="absenceDate">Date of Absence</label>
+                        <input 
+                            type="date" 
+                            id="absenceDate" 
+                            class="form-input" 
+                            required
+                        >
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Request Type</label>
+                        <div style="display:flex; gap:1rem; align-items:center;">
+                            <label style="display:flex; align-items:center; gap:0.5rem;">
+                                <input type="radio" name="absenceType" value="excused" id="absenceTypeExcused" checked>
+                                <span>Request an excused absence</span>
+                            </label>
+                            <label style="display:flex; align-items:center; gap:0.5rem;">
+                                <input type="radio" name="absenceType" value="attendance_correction" id="absenceTypeCorrection">
+                                <span>I attended but was not recorded present</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="absenceReason" id="absenceReasonLabel">Reason for Absence</label>
+                    <textarea 
+                        id="absenceReason" 
+                        class="form-textarea" 
+                        placeholder="Please provide a detailed reason for your absence..."
+                        rows="4"
+                        required
+                    ></textarea>
+                </div>
+                
+                <div class="form-group" id="documentationGroup">
+                    <label for="absenceDocumentation">Documentation (Optional)</label>
+                    <input 
+                        type="file" 
+                        id="absenceDocumentation" 
+                        class="form-file" 
+                        accept=".pdf,.doc,.docx,.txt,.png,.jpg,.jpeg"
+                    >
+                    <div class="file-help">Upload supporting documentation (PDF, DOC, DOCX, TXT, PNG, JPG)</div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn-submit-absence">Submit Request</button>
+                </div>
+            </form>
+            <div class="absence-message" id="absenceMessage"></div>
+        </div>
     </div>
     
     <!-- Attendance Stats Section -->
@@ -357,12 +867,69 @@
     async function initPage() {
         try {
             await loadUserData();
+            displayHouseAssignment(); // Display house assignment
             await loadSchedule();
             await loadAttendanceData();
+            await loadBuildAttendance();
+            await loadHouseCupLeaderboard();
             setupCodeFormListener();
+            setupAbsenceFormListener();
         } catch (error) {
             console.error('Error initializing page:', error);
         }
+    }
+    
+    // Display house assignment
+    function displayHouseAssignment() {
+        if (!currentUser || !currentUser.house) {
+            return; // Don't display if no house assigned
+        }
+        
+        const houseMap = {
+            'A': {
+                name: 'Fire',
+                icon: '🔥',
+                motto: 'Passion ignites excellence'
+            },
+            'B': {
+                name: 'Water',
+                icon: '💧',
+                motto: 'Adaptability flows through challenges'
+            },
+            'C': {
+                name: 'Earth',
+                icon: '🌍',
+                motto: 'Stability grounds achievement'
+            },
+            'D': {
+                name: 'Wind',
+                icon: '💨',
+                motto: 'Freedom propels innovation'
+            }
+        };
+        
+        const house = houseMap[currentUser.house];
+        if (!house) return;
+        
+        const container = document.getElementById('houseDisplayContainer');
+        const houseLower = house.name.toLowerCase();
+        
+        container.innerHTML = `
+            <div class="house-display ${houseLower}">
+                <div class="house-content">
+                    <div class="house-icon">
+                        ${house.icon}
+                    </div>
+                    <div class="house-info">
+                        <div class="house-label">Your House</div>
+                        <h2 class="house-name">House ${house.name}</h2>
+                        <p class="house-motto">${house.motto}</p>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        container.style.display = 'block';
     }
     
     // Load user data
@@ -382,10 +949,19 @@
             // Get user's events
             const eventArray = Array.isArray(eventsData) ? eventsData : Object.values(eventsData || {});
             userEvents = eventArray.map(item => {
-                const id = Object.keys(item)[0];
-                return { id, ...item[id] };
+                if (!item || typeof item !== 'object') return null;
+                const keys = Object.keys(item);
+                if (keys.length === 0) return null;
+                const id = keys[0];
+                const eventData = item[id];
+                if (!eventData) return null;
+                return { id, ...eventData };
             }).filter(event => 
-                event.members && event.members.includes(currentUserId)
+                event !== null && 
+                event.eventName && 
+                event.members && 
+                Array.isArray(event.members) &&
+                event.members.includes(currentUserId)
             );
             
             console.log('User events:', userEvents);
@@ -464,11 +1040,16 @@
                 }
                 if (currentDay) html += '</div>';
                 currentDay = trimmed.replace(':', '');
-                html += `<div class="schedule-day"><div class="day-header">${currentDay}</div>`;
+                // Skip Friday events
+                if (currentDay === 'Friday') {
+                    currentDay = null; // Set to null to skip Friday content
+                } else {
+                    html += `<div class="schedule-day"><div class="day-header">${currentDay}</div>`;
+                }
             }
             
             // Block header (e.g., "Block 1 (3:45 - 4:20 PM):")
-            else if (trimmed.match(/^Block \d+ \(/)) {
+            else if (trimmed.match(/^Block \d+ \(/) && currentDay !== null) {
                 if (blockOpen) {
                     html += '</div></div>';
                 }
@@ -481,7 +1062,7 @@
             }
             
             // Event name (indented under a block)
-            else if (trimmed && trimmed.startsWith('- ') && trimmed.length > 2) {
+            else if (trimmed && trimmed.startsWith('- ') && trimmed.length > 2 && currentDay !== null) {
                 const eventName = trimmed.substring(2).trim();
                 
                 // Try exact match first, then case-insensitive match
@@ -505,8 +1086,8 @@
             }
         });
         
-        if (blockOpen) html += '</div></div>';
-        if (currentDay) html += '</div>';
+        if (blockOpen && currentDay !== null) html += '</div></div>';
+        if (currentDay && currentDay !== 'Friday') html += '</div>';
         return html || '<p style="color: #6b7280;">Schedule not available</p>';
     }
     
@@ -522,9 +1103,18 @@
             // Convert to array format
             const meetingArray = Array.isArray(meetingsData) ? meetingsData : Object.values(meetingsData || {});
             allMeetings = meetingArray.map(item => {
-                const id = Object.keys(item)[0];
-                return { id, ...item[id] };
-            });
+                if (!item || typeof item !== 'object') return null;
+                const keys = Object.keys(item);
+                if (keys.length === 0) return null;
+                const id = keys[0];
+                const meetingData = item[id];
+                if (!meetingData) return null;
+                return { id, ...meetingData };
+            }).filter(meeting => 
+                meeting !== null && 
+                meeting.eventName && 
+                meeting.code
+            );
             
             // Build attendance chart
             buildAttendanceChart();
@@ -536,17 +1126,33 @@
     }
     
     // Build attendance chart
-    function buildAttendanceChart() {
+    async function buildAttendanceChart() {
         if (userEvents.length === 0) {
             document.getElementById('chartContent').innerHTML = 
                 '<div class="empty-state"><i class="fas fa-calendar-times"></i><p>You are not signed up for any events yet</p></div>';
             return;
         }
         
+        // Load excused absences for the user
+        let excusedAbsences = [];
+        try {
+            const absencesResponse = await fetch(`/api/ExcusedAbsences/member/${currentUserId}`);
+            if (absencesResponse.ok) {
+                excusedAbsences = await absencesResponse.json();
+            }
+        } catch (error) {
+            console.error('Error loading excused absences:', error);
+        }
+        
         // Group meetings by event
         const meetingsByEvent = {};
         userEvents.forEach(event => {
-            meetingsByEvent[event.eventName] = allMeetings.filter(m => m.eventName === event.eventName);
+            const eventName = (event.eventName || '').trim();
+            meetingsByEvent[eventName] = allMeetings.filter(m => {
+                const mEventName = (m.eventName || '').trim();
+                return mEventName === eventName || 
+                       mEventName.toLowerCase() === eventName.toLowerCase();
+            });
         });
         
         // Sort meetings by date
@@ -569,69 +1175,159 @@
         });
         allUserMeetings.sort((a, b) => new Date(a.date) - new Date(b.date));
         
-        // Build table - use per-event meeting numbering
-        let html = '<table class="attendance-table"><thead><tr><th>Event</th>';
-        
-        // Find max meetings for any event to determine column count
-        let maxMeetings = 0;
-        Object.values(meetingsByEvent).forEach(meetings => {
-            maxMeetings = Math.max(maxMeetings, meetings.length);
+        // Build table - group columns by week
+        // Determine build events and weekly requirement
+        const buildEventsList = ['Boomilever', 'Helicopter', 'Electric Vehicle', 'Robot Tour', 'Bungee Drop', 'Hovercraft'];
+        const userBuildEvents = userEvents.filter(e => {
+            const eventName = (e.eventName || '').trim();
+            return buildEventsList.some(be => be === eventName || be.toLowerCase() === eventName.toLowerCase());
         });
-        
-        // Meeting headers (just numbers, no dates)
-        for (let i = 0; i < maxMeetings; i++) {
-            html += `<th class="meeting-column">Meeting ${i + 1}</th>`;
+        let requiredBlocks = 0;
+        if (userBuildEvents.length === 1) requiredBlocks = 2;
+        else if (userBuildEvents.length === 2) requiredBlocks = 3;
+        else if (userBuildEvents.length >= 3) requiredBlocks = 4;
+
+        // Helper to normalize date to Monday-based week start and week end
+        function getWeekRange(dateInput) {
+            const d = (dateInput && typeof dateInput === 'object' && dateInput.seconds)
+                ? new Date(dateInput.seconds * 1000)
+                : new Date(dateInput);
+            const day = d.getDay();
+            const diffToMonday = day === 0 ? -6 : 1 - day; // Sunday -> -6, Mon->0
+            const start = new Date(d);
+            start.setDate(d.getDate() + diffToMonday);
+            start.setHours(0,0,0,0);
+            const end = new Date(start);
+            end.setDate(start.getDate() + 6);
+            end.setHours(23,59,59,999);
+            return { start, end };
         }
-        
+
+        // Collect unique weeks across user's meetings
+        const weekKeys = [];
+        const weekRanges = [];
+        allUserMeetings.forEach(m => {
+            if (!m.date) return;
+            const { start, end } = getWeekRange(m.date);
+            const key = start.toISOString().slice(0,10);
+            if (!weekKeys.includes(key)) {
+                weekKeys.push(key);
+                weekRanges.push({ key, start, end });
+            }
+        });
+        // Sort weeks chronologically
+        weekRanges.sort((a,b) => a.start - b.start);
+
+        let html = '<table class="attendance-table"><thead><tr><th>Event</th>';
+        weekRanges.forEach((wr, idx) => {
+            html += `<th class="meeting-column">Week ${idx + 1}<div class="meeting-date">${wr.start.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} - ${wr.end.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</div></th>`;
+        });
         html += '</tr></thead><tbody>';
-        
+
+        const now = new Date();
+        const oneDayAgo = new Date(now.getTime() - 24 * 60 * 60 * 1000);
+
         // Event rows
         userEvents.forEach(event => {
+            const isBuildEvent = buildEventsList.some(be => be.toLowerCase() === (event.eventName || '').trim().toLowerCase());
             html += `<tr><td class="event-column">${event.eventName}</td>`;
-            
-            const eventMeetingsList = meetingsByEvent[event.eventName] || [];
-            
-            // Add cells for each meeting slot
-            for (let i = 0; i < maxMeetings; i++) {
-                if (i < eventMeetingsList.length) {
-                    const meeting = eventMeetingsList[i];
-                    const attended = meeting.attended && meeting.attended.includes(currentUserId);
-                    const meetingDate = new Date(meeting.date);
-                    const now = new Date();
-                    const oneDayAgo = new Date(now.getTime() - 24 * 60 * 60 * 1000);
-                    const isPast = meetingDate < oneDayAgo;
-                    
-                    const dateStr = meetingDate.toLocaleDateString('en-US', { 
-                        weekday: 'short',
-                        month: 'short', 
-                        day: 'numeric',
-                        year: 'numeric'
+
+            weekRanges.forEach(wr => {
+                // Meetings for this event in this week
+                const eventMeetingsInWeek = (meetingsByEvent[event.eventName] || []).filter(m => {
+                    const d = (m.date && typeof m.date === 'object' && m.date.seconds)
+                        ? new Date(m.date.seconds * 1000)
+                        : new Date(m.date);
+                    return d >= wr.start && d <= wr.end;
+                });
+
+                let statusClass = 'future';
+                let statusIcon = '○';
+                let statusText = 'Upcoming';
+
+                // Past week check threshold: if week end is in the past (buffer 1 day)
+                const isPastWeek = wr.end < oneDayAgo;
+
+                if (isBuildEvent) {
+                    // For build events, evaluate requirement across ALL user's build events for the week
+                    const buildEventNamesLC = userBuildEvents.map(e => (e.eventName || '').trim().toLowerCase());
+                    const buildMeetingsThisWeek = allMeetings.filter(m => {
+                        const nameLc = (m.eventName || '').trim().toLowerCase();
+                        if (!buildEventNamesLC.includes(nameLc)) return false;
+                        const d = (m.date && typeof m.date === 'object' && m.date.seconds)
+                            ? new Date(m.date.seconds * 1000)
+                            : new Date(m.date);
+                        return d >= wr.start && d <= wr.end;
                     });
-                    
-                    let statusClass = 'future';
-                    let statusIcon = '○';
-                    let statusText = 'Upcoming';
-                    
-                    if (attended) {
+                    const attendedCount = buildMeetingsThisWeek.filter(m => m.attended && m.attended.includes(currentUserId)).length;
+
+                    if (isPastWeek) {
+                        if (attendedCount >= requiredBlocks) {
+                            statusClass = 'attended';
+                            statusIcon = '✓';
+                            statusText = `Requirement met: ${attendedCount}/${requiredBlocks} blocks`;
+                        } else {
+                            statusClass = 'missed';
+                            statusIcon = '✗';
+                            statusText = `Requirement not met: ${attendedCount}/${requiredBlocks} blocks`;
+                        }
+                    } else {
+                        // Upcoming/current week
+                        statusClass = 'future';
+                        statusIcon = '○';
+                        statusText = `Progress: ${attendedCount}/${requiredBlocks} blocks`;
+                    }
+                } else {
+                    // Non-build events: mark based on that event's meeting in the week
+                    // If multiple meetings in a week: attended if attended any; missed if past and attended none (consider excused)
+                    const attendedAny = eventMeetingsInWeek.some(m => m.attended && m.attended.includes(currentUserId));
+
+                    if (attendedAny) {
                         statusClass = 'attended';
                         statusIcon = '✓';
                         statusText = 'Attended';
-                    } else if (isPast) {
-                        statusClass = 'missed';
-                        statusIcon = '✗';
-                        statusText = 'Missed';
+                    } else if (isPastWeek) {
+                        // Check excused for any meeting date in this week
+                        const hasExcused = eventMeetingsInWeek.some(meeting => {
+                            const meetingDate = (meeting.date && typeof meeting.date === 'object' && meeting.date.seconds)
+                                ? new Date(meeting.date.seconds * 1000)
+                                : new Date(meeting.date);
+                            const meetingDateOnly = new Date(meetingDate.getFullYear(), meetingDate.getMonth(), meetingDate.getDate());
+                            return excusedAbsences.some(absence => {
+                                const absenceDate = new Date(absence.dateOfAbsence);
+                                const absenceDateOnly = new Date(absenceDate.getFullYear(), absenceDate.getMonth(), absenceDate.getDate());
+                                return absence.eventId === event.id && absence.status === 'approved' && absenceDateOnly.getTime() === meetingDateOnly.getTime();
+                            });
+                        });
+
+                        if (hasExcused) {
+                            statusClass = 'excused';
+                            statusIcon = 'E';
+                            statusText = 'Excused Absence';
+                        } else if (eventMeetingsInWeek.length > 0) {
+                            statusClass = 'missed';
+                            statusIcon = '✗';
+                            statusText = 'Unexcused Absence';
+                        } else {
+                            // No meeting that week for this event
+                            statusClass = 'future';
+                            statusIcon = '-';
+                            statusText = 'No meeting scheduled';
+                        }
+                    } else {
+                        // Upcoming week
+                        statusClass = 'future';
+                        statusIcon = '○';
+                        statusText = eventMeetingsInWeek.length > 0 ? 'Upcoming' : 'No meeting scheduled';
                     }
-                    
-                    html += `<td class="meeting-column"><span class="status-icon ${statusClass}" title="${statusText} - ${dateStr}">${statusIcon}</span></td>`;
-                } else {
-                    // No meeting for this slot
-                    html += '<td class="meeting-column"><span class="status-icon future" title="No meeting scheduled">-</span></td>';
                 }
-            }
-            
+
+                html += `<td class="meeting-column"><span class="status-icon ${statusClass}" title="${statusText}">${statusIcon}</span></td>`;
+            });
+
             html += '</tr>';
         });
-        
+
         html += '</tbody></table>';
         document.getElementById('chartContent').innerHTML = html;
         
@@ -640,7 +1336,7 @@
     }
     
     // Display attendance statistics
-    function displayAttendanceStats() {
+    async function displayAttendanceStats() {
         if (userEvents.length === 0) {
             document.getElementById('statsContent').innerHTML = 
                 '<div class="empty-state"><i class="fas fa-calendar-times"></i><p>You are not signed up for any events yet</p></div>';
@@ -649,36 +1345,223 @@
 
         let totalAttended = 0;
         let totalMeetings = 0;
+        let buildWeeksMet = 0;
+        let buildTotalWeeks = 0;
+        let nonBuildAttended = 0;
+        let nonBuildTotal = 0;
         const eventStats = [];
 
-        userEvents.forEach(event => {
-            const eventMeetings = allMeetings.filter(m => m.eventName === event.eventName);
-            const attended = eventMeetings.filter(m => 
-                m.attended && m.attended.includes(currentUserId)
-            ).length;
-            
-            totalAttended += attended;
-            totalMeetings += eventMeetings.length;
-            
-            const percentage = eventMeetings.length > 0 
-                ? Math.round((attended / eventMeetings.length) * 100)
-                : 0;
+        // Load excused absences for the user
+        let excusedAbsences = [];
+        try {
+            const absencesResponse = await fetch(`/api/ExcusedAbsences/member/${currentUserId}`);
+            if (absencesResponse.ok) {
+                excusedAbsences = await absencesResponse.json();
+            }
+        } catch (error) {
+            console.error('Error loading excused absences:', error);
+        }
 
-            eventStats.push({
-                eventName: event.eventName,
-                attended: attended,
-                total: eventMeetings.length,
-                percentage: percentage
+        // Determine build events and their requirements
+        const buildEventsList = ['Boomilever', 'Helicopter', 'Electric Vehicle', 'Robot Tour', 'Bungee Drop', 'Hovercraft'];
+        const userBuildEvents = userEvents.filter(e => {
+            const eventName = (e.eventName || '').trim();
+            return buildEventsList.some(be => be === eventName || be.toLowerCase() === eventName.toLowerCase());
+        });
+        let requiredBlocks = 0;
+        if (userBuildEvents.length === 1) requiredBlocks = 2;
+        else if (userBuildEvents.length === 2) requiredBlocks = 3;
+        else if (userBuildEvents.length >= 3) requiredBlocks = 4;
+
+        // Helper to get week range from a date
+        function getWeekRange(dateInput) {
+            const d = (dateInput && typeof dateInput === 'object' && dateInput.seconds)
+                ? new Date(dateInput.seconds * 1000)
+                : new Date(dateInput);
+            const day = d.getDay();
+            const diffToMonday = day === 0 ? -6 : 1 - day;
+            const start = new Date(d);
+            start.setDate(d.getDate() + diffToMonday);
+            start.setHours(0, 0, 0, 0);
+            const end = new Date(start);
+            end.setDate(start.getDate() + 6);
+            end.setHours(23, 59, 59, 999);
+            return { start, end };
+        }
+
+        // Calculate shared unexcused absences for build events (if any)
+        let sharedBuildUnexcusedAbsences = 0;
+        if (userBuildEvents.length > 0 && requiredBlocks > 0) {
+            const buildEventNamesLC = userBuildEvents.map(e => (e.eventName || '').trim().toLowerCase());
+            const allBuildMeetings = allMeetings.filter(m => {
+                const nameLc = (m.eventName || '').trim().toLowerCase();
+                return buildEventNamesLC.includes(nameLc);
             });
+
+            // Group all build meetings by week
+            const meetingsByWeek = {};
+            allBuildMeetings.forEach(m => {
+                if (!m.date) return;
+                const { start, end } = getWeekRange(m.date);
+                const weekKey = start.toISOString().slice(0, 10);
+                if (!meetingsByWeek[weekKey]) {
+                    meetingsByWeek[weekKey] = { start, end, meetings: [] };
+                }
+                meetingsByWeek[weekKey].meetings.push(m);
+            });
+
+            const now = new Date();
+            const oneDayAgo = new Date(now.getTime() - 24 * 60 * 60 * 1000);
+
+            // Count unexcused absences and track weeks for past weeks only (weeks that have completely ended)
+            Object.values(meetingsByWeek).forEach(weekData => {
+                // Only count weeks where the week end is in the past
+                if (weekData.end < oneDayAgo) {
+                    buildTotalWeeks++;
+                    const weekAttended = weekData.meetings.filter(m => 
+                        m.attended && m.attended.includes(currentUserId)
+                    ).length;
+                    // Check if requirement was met
+                    if (weekAttended >= requiredBlocks) {
+                        buildWeeksMet++;
+                    }
+                    const blocksShort = Math.max(0, requiredBlocks - weekAttended);
+                    sharedBuildUnexcusedAbsences += blocksShort;
+                }
+            });
+        }
+
+        userEvents.forEach(event => {
+            const eventName = (event.eventName || '').trim();
+            const isBuildEvent = buildEventsList.some(be => be.toLowerCase() === eventName.toLowerCase());
+            
+            if (isBuildEvent && userBuildEvents.length > 0) {
+                // For build events: calculate per-event stats but use shared unexcused absences
+                // First, get THIS event's meetings for attended/total
+                const eventMeetings = allMeetings.filter(m => {
+                    const mEventName = (m.eventName || '').trim();
+                    return mEventName === eventName || 
+                           mEventName.toLowerCase() === eventName.toLowerCase();
+                });
+                const attended = eventMeetings.filter(m => 
+                    m.attended && m.attended.includes(currentUserId)
+                ).length;
+
+                // Use shared unexcused absences calculated above
+                // Each block short counts as 1 unexcused absence (only for past weeks)
+
+                // Count excused absences for this specific event
+                const eventExcusedAbsences = excusedAbsences.filter(absence => 
+                    absence.eventId === event.id && absence.status === 'approved'
+                ).length;
+
+                // Note: For build events, we don't add to totalAttended/totalMeetings for overall percentage
+                // Build event attendance is tracked by weeks meeting requirement
+                
+                const percentage = eventMeetings.length > 0 
+                    ? Math.round((attended / eventMeetings.length) * 100)
+                    : 0;
+
+                eventStats.push({
+                    eventName: event.eventName,
+                    attended: attended,
+                    total: eventMeetings.length,
+                    percentage: percentage,
+                    excusedAbsences: eventExcusedAbsences,
+                    unexcusedAbsences: sharedBuildUnexcusedAbsences
+                });
+            } else {
+                // Non-build events: use original logic
+                const eventMeetings = allMeetings.filter(m => {
+                    const mEventName = (m.eventName || '').trim();
+                    return mEventName === eventName || 
+                           mEventName.toLowerCase() === eventName.toLowerCase();
+                });
+                const attended = eventMeetings.filter(m => 
+                    m.attended && m.attended.includes(currentUserId)
+                ).length;
+                
+                // Count excused absences for this event
+                const eventExcusedAbsences = excusedAbsences.filter(absence => 
+                    absence.eventId === event.id && absence.status === 'approved'
+                ).length;
+                
+                // Count unexcused absences (missed meetings that aren't excused)
+                const missedMeetings = eventMeetings.filter(m => {
+                    const meetingDate = new Date(m.date);
+                    const oneDayAgo = new Date(Date.now() - 24 * 60 * 60 * 1000);
+                    const isPast = meetingDate < oneDayAgo;
+                    const wasAttended = m.attended && m.attended.includes(currentUserId);
+                    return isPast && !wasAttended;
+                });
+                
+                const unexcusedAbsences = Math.max(0, missedMeetings.length - eventExcusedAbsences);
+                
+                // Track non-build events separately for overall percentage
+                nonBuildAttended += attended;
+                nonBuildTotal += eventMeetings.length;
+                // Keep legacy totals for backward compatibility
+                totalAttended += attended;
+                totalMeetings += eventMeetings.length;
+                
+                const percentage = eventMeetings.length > 0 
+                    ? Math.round((attended / eventMeetings.length) * 100)
+                    : 0;
+
+                eventStats.push({
+                    eventName: event.eventName,
+                    attended: attended,
+                    total: eventMeetings.length,
+                    percentage: percentage,
+                    excusedAbsences: eventExcusedAbsences,
+                    unexcusedAbsences: unexcusedAbsences
+                });
+            }
         });
 
-        const overallPercentage = totalMeetings > 0 
-            ? Math.round((totalAttended / totalMeetings) * 100)
-            : 0;
+        // Calculate overall percentage combining build weeks and non-build meetings
+        let overallPercentage = 0;
+        let overallDisplay = '';
+        
+        if (buildTotalWeeks > 0 && nonBuildTotal > 0) {
+            // Both build events and non-build events: weighted average
+            const buildPercentage = (buildWeeksMet / buildTotalWeeks) * 100;
+            const nonBuildPercentage = (nonBuildAttended / nonBuildTotal) * 100;
+            // Weight by total events (approximate)
+            const buildWeight = userBuildEvents.length;
+            const nonBuildWeight = userEvents.length - userBuildEvents.length;
+            const totalWeight = buildWeight + nonBuildWeight;
+            overallPercentage = Math.round(((buildPercentage * buildWeight) + (nonBuildPercentage * nonBuildWeight)) / totalWeight);
+            overallDisplay = `${buildWeeksMet}/${buildTotalWeeks} weeks (build), ${nonBuildAttended}/${nonBuildTotal} meetings (non-build)`;
+        } else if (buildTotalWeeks > 0) {
+            // Only build events
+            overallPercentage = Math.round((buildWeeksMet / buildTotalWeeks) * 100);
+            overallDisplay = `${buildWeeksMet}/${buildTotalWeeks} weeks`;
+        } else if (nonBuildTotal > 0) {
+            // Only non-build events
+            overallPercentage = Math.round((nonBuildAttended / nonBuildTotal) * 100);
+            overallDisplay = `${nonBuildAttended}/${nonBuildTotal} meetings`;
+        }
+
+        // Calculate total excused and unexcused absences
+        const totalExcusedAbsences = eventStats.reduce((sum, stat) => sum + stat.excusedAbsences, 0);
+        const totalUnexcusedAbsences = eventStats.reduce((sum, stat) => sum + stat.unexcusedAbsences, 0);
 
         // Build stats HTML
         let html = `<div style="margin-bottom: 1.5rem; padding: 1.5rem; background: #f0f9ff; border-radius: 8px; border-left: 4px solid #3b82f6;">
-            <p style="margin: 0; font-size: 1.1rem; color: #1e40af;"><strong>Overall Attendance:</strong> ${totalAttended}/${totalMeetings} meetings (${overallPercentage}%)</p>
+            <p style="margin: 0; font-size: 1.1rem; color: #1e40af;"><strong>Overall Attendance:</strong> ${overallDisplay} (${overallPercentage}%)</p>
+        </div>`;
+
+        // Add absence summary
+        html += `<div style="margin-bottom: 1.5rem; padding: 1.5rem; background: #fef3c7; border-radius: 8px; border-left: 4px solid #f59e0b;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div>
+                    <p style="margin: 0; font-size: 1rem; color: #92400e;"><strong>Excused Absences:</strong> ${totalExcusedAbsences}</p>
+                </div>
+                <div>
+                    <p style="margin: 0; font-size: 1rem; color: #92400e;"><strong>Unexcused Absences:</strong> ${totalUnexcusedAbsences}</p>
+                </div>
+            </div>
         </div>`;
 
         if (eventStats.length > 0) {
@@ -692,6 +1575,7 @@
                             <div>
                                 <p style="margin: 0 0 0.5rem 0; font-weight: 600; color: #1f2937;">${stat.eventName}</p>
                                 <p style="margin: 0; color: #6b7280; font-size: 0.9rem;">${stat.attended}/${stat.total} meetings attended</p>
+                                <p style="margin: 0; color: #6b7280; font-size: 0.8rem;">Excused: ${stat.excusedAbsences} | Unexcused: ${stat.unexcusedAbsences}</p>
                             </div>
                             <div style="text-align: right;">
                                 <div style="font-size: 1.5rem; font-weight: bold; color: ${color};">${stat.percentage}%</div>
@@ -703,6 +1587,153 @@
         }
 
         document.getElementById('statsContent').innerHTML = html;
+    }
+    
+    // Setup absence form listener
+    function setupAbsenceFormListener() {
+        const form = document.getElementById('absenceForm');
+        const eventSelect = document.getElementById('absenceEvent');
+        const absenceMessage = document.getElementById('absenceMessage');
+        const absenceTypeExcused = document.getElementById('absenceTypeExcused');
+        const absenceTypeCorrection = document.getElementById('absenceTypeCorrection');
+        const documentationGroup = document.getElementById('documentationGroup');
+        const absenceReasonLabel = document.getElementById('absenceReasonLabel');
+        
+        // Populate event dropdown with user's events
+        userEvents.forEach(event => {
+            const option = document.createElement('option');
+            option.value = event.id;
+            option.textContent = event.eventName;
+            eventSelect.appendChild(option);
+        });
+        
+        // Toggle fields based on type
+        function updateAbsenceTypeUI() {
+            if (absenceTypeCorrection.checked) {
+                documentationGroup.style.display = 'none';
+                absenceReasonLabel.textContent = "Why weren't you marked present?";
+                document.getElementById('absenceReason').placeholder = 'Explain briefly what happened (e.g., code issue, late check-in, coach saw me, etc.)';
+            } else {
+                documentationGroup.style.display = '';
+                absenceReasonLabel.textContent = 'Reason for Absence';
+                document.getElementById('absenceReason').placeholder = 'Please provide a detailed reason for your absence...';
+            }
+        }
+        updateAbsenceTypeUI();
+        absenceTypeExcused.addEventListener('change', updateAbsenceTypeUI);
+        absenceTypeCorrection.addEventListener('change', updateAbsenceTypeUI);
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const eventId = eventSelect.value;
+            const dateOfAbsence = document.getElementById('absenceDate').value;
+            const reason = document.getElementById('absenceReason').value;
+            const documentationFile = document.getElementById('absenceDocumentation').files[0];
+            const absenceType = absenceTypeCorrection.checked ? 'attendance_correction' : 'excused';
+            
+            if (!eventId || !dateOfAbsence || !reason) {
+                absenceMessage.textContent = '❌ Please fill in all required fields';
+                absenceMessage.className = 'absence-message error';
+                return;
+            }
+            
+            absenceMessage.textContent = '';
+            absenceMessage.className = 'absence-message';
+            
+            try {
+                let documentationFileId = null;
+
+                if (absenceType === 'excused') {
+                    // Upload documentation file if provided
+                    if (documentationFile) {
+                        const formData = new FormData();
+                        formData.append('file', documentationFile);
+                        formData.append('memberId', currentUserId);
+                        const uploadResponse = await fetch('/api/ExcusedAbsences/upload-documentation', {
+                            method: 'POST',
+                            body: formData
+                        });
+                        if (uploadResponse.ok) {
+                            const uploadData = await uploadResponse.json();
+                            documentationFileId = uploadData.fileId;
+                        } else {
+                            const errorData = await uploadResponse.json().catch(() => ({}));
+                            throw new Error(errorData.error || 'Failed to upload documentation');
+                        }
+                    }
+                }
+
+                // Resolve event name and targeted meeting by date (use UTC for date comparison)
+                const selectedEvent = userEvents.find(e => e.id === eventId);
+                const targetEventName = selectedEvent ? selectedEvent.eventName : null;
+                let targetMeeting = null;
+                if (targetEventName) {
+                    // Parse YYYY-MM-DD format as UTC midnight to avoid timezone shifts
+                    const dateParts = dateOfAbsence.split('-');
+                    const targetDateOnly = new Date(Date.UTC(parseInt(dateParts[0]), parseInt(dateParts[1]) - 1, parseInt(dateParts[2])));
+                    const meetingsForEvent = allMeetings.filter(m => {
+                        const mName = (m.eventName || '').trim();
+                        if (!(mName === targetEventName || mName.toLowerCase() === targetEventName.toLowerCase())) return false;
+                        let d;
+                        if (m.date && typeof m.date === 'object' && m.date.seconds) {
+                            d = new Date(m.date.seconds * 1000);
+                        } else if (m.date) {
+                            d = new Date(m.date);
+                        } else {
+                            return false;
+                        }
+                        const dOnly = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
+                        return dOnly.getTime() === targetDateOnly.getTime();
+                    });
+                    // If multiple meetings same day, pick first
+                    targetMeeting = meetingsForEvent[0] || null;
+                }
+
+                // Submit record for admin with type
+                const absenceData = {
+                    memberId: currentUserId,
+                    eventId: eventId,
+                    dateOfAbsence: dateOfAbsence,
+                    reason: reason,
+                    documentationFileId: documentationFileId,
+                    type: absenceType
+                };
+
+                const response = await fetch('/api/ExcusedAbsences', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(absenceData)
+                });
+
+                if (response.ok) {
+                    const successText = absenceType === 'attendance_correction'
+                        ? '✓ Attendance correction request submitted. An admin will review it.'
+                        : '✓ Excused absence request submitted successfully!';
+                    absenceMessage.textContent = successText;
+                    absenceMessage.className = 'absence-message success';
+
+                    // Reset form
+                    form.reset();
+                    updateAbsenceTypeUI();
+                    eventSelect.innerHTML = '<option value="">Select an event</option>';
+                    userEvents.forEach(event => {
+                        const option = document.createElement('option');
+                        option.value = event.id;
+                        option.textContent = event.eventName;
+                        eventSelect.appendChild(option);
+                    });
+                } else {
+                    const errorData = await response.json().catch(() => ({}));
+                    absenceMessage.textContent = `❌ ${errorData.error || 'Error submitting request. Please try again.'}`;
+                    absenceMessage.className = 'absence-message error';
+                }
+            } catch (error) {
+                console.error('Error submitting absence request:', error);
+                absenceMessage.textContent = '❌ Network error. Please try again.';
+                absenceMessage.className = 'absence-message error';
+            }
+        });
     }
     
     // Setup code form listener
@@ -739,45 +1770,54 @@
                 }
                 
                 // Check if user is in this event
-                const userInEvent = userEvents.some(e => e.eventName === meeting.eventName);
+                // Use case-insensitive, trimmed comparison to handle potential naming differences
+                const meetingEventName = (meeting.eventName || '').trim();
+                const userInEvent = userEvents.some(e => {
+                    const eventName = (e.eventName || '').trim();
+                    return eventName === meetingEventName || 
+                           eventName.toLowerCase() === meetingEventName.toLowerCase();
+                });
+                
                 if (!userInEvent) {
-                    codeMessage.textContent = '❌ You are not registered for this event';
+                    // Debug logging
+                    console.log('Meeting event name:', meeting.eventName);
+                    console.log('User event names:', userEvents.map(e => e.eventName));
+                    console.log('Meeting:', meeting);
+                    console.log('User Events:', userEvents);
+                    
+                    codeMessage.innerHTML = `❌ You are not registered for this event. <a href="/user/settings" style="color: #3b82f6; text-decoration: underline;">Go to settings to add events</a>`;
                     codeMessage.className = 'code-message error';
                     return;
                 }
                 
-                // Add user to attendance list - preserve all fields including code
-                const updatedAttended = meeting.attended ? [...meeting.attended, currentUserId] : [currentUserId];
-                
-                const updateData = {
-                    attended: updatedAttended,
-                    date: meeting.date,
-                    eventName: meeting.eventName,
-                    code: meeting.code
-                };
-                
-                // Add optional fields if they exist
-                if (meeting.block !== undefined) updateData.block = meeting.block;
-                if (meeting.room !== undefined) updateData.room = meeting.room;
-                
-                const response = await fetch(`/api/Meeting/${meeting.id}`, {
-                    method: 'PUT',
+                // Use atomic check-in endpoint to prevent race conditions
+                const response = await fetch(`/api/Meeting/${meeting.id}/checkin`, {
+                    method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(updateData)
+                    body: JSON.stringify({ memberId: currentUserId })
                 });
                 
                 if (response.ok) {
-                    // Update local data
-                    meeting.attended = updatedAttended;
+                    // Update local data (add user to attended array if not already there)
+                    if (!meeting.attended) {
+                        meeting.attended = [];
+                    }
+                    if (!meeting.attended.includes(currentUserId)) {
+                        meeting.attended.push(currentUserId);
+                    }
                     
                     codeMessage.textContent = `✓ Successfully checked in to ${meeting.eventName}!`;
                     codeMessage.className = 'code-message success';
                     codeInput.value = '';
                     
-                    // Refresh chart
-                    setTimeout(() => buildAttendanceChart(), 500);
+                    // Refresh chart and build attendance
+                    setTimeout(() => {
+                        buildAttendanceChart();
+                        loadBuildAttendance();
+                    }, 500);
                 } else {
-                    codeMessage.textContent = '❌ Error checking in. Please try again.';
+                    const errorData = await response.json().catch(() => ({}));
+                    codeMessage.textContent = `❌ ${errorData.error || 'Error checking in. Please try again.'}`;
                     codeMessage.className = 'code-message error';
                 }
             } catch (error) {
@@ -786,6 +1826,251 @@
                 codeMessage.className = 'code-message error';
             }
         });
+    }
+    
+    // Load build attendance tracking
+    async function loadBuildAttendance() {
+        try {
+            const buildEvents = ['Boomilever', 'Helicopter', 'Electric Vehicle', 'Robot Tour', 'Bungee Drop', 'Hovercraft'];
+            
+            // Check which build events user is in (case-insensitive comparison)
+            const userBuildEvents = userEvents.filter(e => {
+                const eventName = (e.eventName || '').trim();
+                return buildEvents.some(be => be === eventName || be.toLowerCase() === eventName.toLowerCase());
+            });
+            
+            if (userBuildEvents.length === 0) {
+                // User not in any build events
+                document.getElementById('buildAttendanceSection').style.display = 'none';
+                return;
+            }
+            
+            // Show the section
+            document.getElementById('buildAttendanceSection').style.display = 'block';
+            
+            // Calculate requirement based on number of build events
+            let requiredBlocks = 0;
+            if (userBuildEvents.length === 1) requiredBlocks = 2;
+            else if (userBuildEvents.length === 2) requiredBlocks = 3;
+            else if (userBuildEvents.length >= 3) requiredBlocks = 4;
+            
+            // Get start of current week (Monday)
+            const now = new Date();
+            const dayOfWeek = now.getDay(); // 0 = Sunday, 1 = Monday, etc.
+            const daysToMonday = dayOfWeek === 0 ? -6 : 1 - dayOfWeek; // If Sunday, go back 6 days
+            const weekStart = new Date(now);
+            weekStart.setDate(now.getDate() + daysToMonday);
+            weekStart.setHours(0, 0, 0, 0);
+            
+            // Get end of week (Sunday)
+            const weekEnd = new Date(weekStart);
+            weekEnd.setDate(weekStart.getDate() + 6);
+            weekEnd.setHours(23, 59, 59, 999);
+            
+            // Count attendance this week for build events
+            const buildEventNames = userBuildEvents.map(e => (e.eventName || '').trim().toLowerCase());
+            const thisWeekBuildMeetings = allMeetings.filter(m => {
+                const mEventName = (m.eventName || '').trim().toLowerCase();
+                if (!buildEventNames.includes(mEventName)) return false;
+                
+                let meetingDate;
+                if (m.date && typeof m.date === 'object' && m.date.seconds) {
+                    meetingDate = new Date(m.date.seconds * 1000);
+                } else if (m.date) {
+                    meetingDate = new Date(m.date);
+                } else {
+                    return false;
+                }
+                
+                return meetingDate >= weekStart && meetingDate <= weekEnd;
+            });
+            
+            // Count blocks attended
+            const attendedCount = thisWeekBuildMeetings.filter(m => 
+                m.attended && m.attended.includes(currentUserId)
+            ).length;
+            
+            // Display build attendance
+            displayBuildAttendance(userBuildEvents, attendedCount, requiredBlocks, thisWeekBuildMeetings);
+            
+        } catch (error) {
+            console.error('Error loading build attendance:', error);
+        }
+    }
+    
+    function displayBuildAttendance(buildEvents, attended, required, allBuildMeetings) {
+        const container = document.getElementById('buildAttendanceContainer');
+        
+        const percentage = required > 0 ? Math.round((attended / required) * 100) : 0;
+        const status = attended >= required ? 'good' : attended >= required - 1 ? 'warning' : 'danger';
+        
+        const statusColors = {
+            good: { bg: '#dcfce7', border: '#10b981', text: '#065f46' },
+            warning: { bg: '#fef3c7', border: '#f59e0b', text: '#92400e' },
+            danger: { bg: '#fee2e2', border: '#ef4444', text: '#991b1b' }
+        };
+        
+        const color = statusColors[status];
+        
+        let html = `
+            <div style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                <!-- Summary Card -->
+                <div style="background: ${color.bg}; border-left: 4px solid ${color.border}; padding: 1.25rem; border-radius: 6px; margin-bottom: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                        <div>
+                            <h3 style="margin: 0 0 0.5rem 0; color: ${color.text}; font-size: 1.1rem;">Weekly Requirement</h3>
+                            <p style="margin: 0; color: ${color.text}; font-size: 0.9rem;">
+                                You're in ${buildEvents.length} build event${buildEvents.length !== 1 ? 's' : ''}: 
+                                ${buildEvents.map(e => e.eventName).join(', ')}
+                            </p>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 2.5rem; font-weight: bold; color: ${color.text};">
+                                ${attended}/${required}
+                            </div>
+                            <div style="font-size: 0.85rem; color: ${color.text}; margin-top: 0.25rem;">
+                                blocks this week
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Progress Bar -->
+                    <div style="margin-top: 1rem; background: rgba(255,255,255,0.5); border-radius: 999px; height: 8px; overflow: hidden;">
+                        <div style="background: ${color.border}; height: 100%; width: ${Math.min(percentage, 100)}%; transition: width 0.3s ease;"></div>
+                    </div>
+                </div>
+                
+                <!-- Event Details -->
+                <h4 style="margin: 0 0 1rem 0; color: #1e293b; font-size: 1rem;">This Week's Meetings</h4>
+                <div style="display: grid; gap: 0.75rem;">
+        `;
+        
+        // Group meetings by event
+        const byEvent = {};
+        allBuildMeetings.forEach(meeting => {
+            const eventName = (meeting.eventName || '').trim();
+            if (!byEvent[eventName]) byEvent[eventName] = [];
+            byEvent[eventName].push(meeting);
+        });
+        
+        buildEvents.forEach(event => {
+            const eventName = (event.eventName || '').trim();
+            const meetings = byEvent[eventName] || [];
+            const eventAttended = meetings.filter(m => m.attended && m.attended.includes(currentUserId)).length;
+            
+            html += `
+                <div style="background: #f8fafc; padding: 1rem; border-radius: 6px; border: 1px solid #e2e8f0;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                        <div style="font-weight: 600; color: #1e293b;">${event.eventName}</div>
+                        <div style="font-size: 0.9rem; color: #64748b;">
+                            ${eventAttended}/${meetings.length} blocks
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            `;
+            
+            if (meetings.length === 0) {
+                html += '<div style="font-size: 0.85rem; color: #9ca3af;">No meetings this week</div>';
+            } else {
+                meetings.forEach(meeting => {
+                    const isAttended = meeting.attended && meeting.attended.includes(currentUserId);
+                    const date = meeting.date && typeof meeting.date === 'object' && meeting.date.seconds 
+                        ? new Date(meeting.date.seconds * 1000)
+                        : new Date(meeting.date);
+                    const dayName = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][date.getDay()];
+                    
+                    html += `
+                        <div style="display: inline-flex; align-items: center; gap: 0.25rem; padding: 0.25rem 0.75rem; background: ${isAttended ? '#dcfce7' : '#fff'}; border: 1px solid ${isAttended ? '#10b981' : '#e5e7eb'}; border-radius: 4px; font-size: 0.85rem;">
+                            <span>${isAttended ? '✓' : '○'}</span>
+                            <span style="color: #64748b;">${dayName} Block ${meeting.block}</span>
+                        </div>
+                    `;
+                });
+            }
+            
+            html += `
+                    </div>
+                </div>
+            `;
+        });
+        
+        html += `
+                </div>
+            </div>
+        `;
+        
+        container.innerHTML = html;
+    }
+    
+    // Load House Cup leaderboard
+    async function loadHouseCupLeaderboard() {
+        try {
+            const container = document.getElementById('houseCupContent');
+            
+            const houseNames = { 'A': 'Fire', 'B': 'Water', 'C': 'Earth', 'D': 'Wind' };
+            const houseIcons = { 'A': '🔥', 'B': '💧', 'C': '🌍', 'D': '💨' };
+            
+            // Load overall leaderboard
+            const overallResponse = await fetch('/api/HouseCupPoints/leaderboard');
+            const overallLeaderboard = await overallResponse.json();
+            
+            // Load leaderboards for user's events
+            const eventLeaderboards = {};
+            for (const event of userEvents) {
+                try {
+                    const eventResponse = await fetch(`/api/HouseCupPoints/leaderboard?eventName=${encodeURIComponent(event.eventName)}`);
+                    const eventData = await eventResponse.json();
+                    if (eventData && eventData.length > 0) {
+                        eventLeaderboards[event.eventName] = eventData;
+                    }
+                } catch (error) {
+                    console.error(`Error loading leaderboard for ${event.eventName}:`, error);
+                }
+            }
+            
+            // Convert leaderboards to house-indexed format
+            const getHousePoints = (leaderboard, house) => {
+                const entry = leaderboard.find(e => e.house === house);
+                return entry ? entry.points : 0;
+            };
+            
+            let html = '<table class="house-cup-table"><thead><tr>';
+            html += '<th>Event</th>';
+            html += `<th><div class="house-header"><span class="house-header-icon">${houseIcons['A']}</span><span class="house-header-name">Fire</span></div></th>`;
+            html += `<th><div class="house-header"><span class="house-header-icon">${houseIcons['B']}</span><span class="house-header-name">Water</span></div></th>`;
+            html += `<th><div class="house-header"><span class="house-header-icon">${houseIcons['C']}</span><span class="house-header-name">Earth</span></div></th>`;
+            html += `<th><div class="house-header"><span class="house-header-icon">${houseIcons['D']}</span><span class="house-header-name">Wind</span></div></th>`;
+            html += '</tr></thead><tbody>';
+            
+            // Overall row
+            html += '<tr>';
+            html += '<td class="event-name-cell">Overall</td>';
+            html += `<td class="points-cell house-A">${getHousePoints(overallLeaderboard, 'A')}</td>`;
+            html += `<td class="points-cell house-B">${getHousePoints(overallLeaderboard, 'B')}</td>`;
+            html += `<td class="points-cell house-C">${getHousePoints(overallLeaderboard, 'C')}</td>`;
+            html += `<td class="points-cell house-D">${getHousePoints(overallLeaderboard, 'D')}</td>`;
+            html += '</tr>';
+            
+            // Event-specific rows
+            for (const eventName in eventLeaderboards) {
+                const leaderboard = eventLeaderboards[eventName];
+                html += '<tr>';
+                html += `<td class="event-name-cell">${eventName}</td>`;
+                html += `<td class="points-cell house-A">${getHousePoints(leaderboard, 'A')}</td>`;
+                html += `<td class="points-cell house-B">${getHousePoints(leaderboard, 'B')}</td>`;
+                html += `<td class="points-cell house-C">${getHousePoints(leaderboard, 'C')}</td>`;
+                html += `<td class="points-cell house-D">${getHousePoints(leaderboard, 'D')}</td>`;
+                html += '</tr>';
+            }
+            
+            html += '</tbody></table>';
+            
+            container.innerHTML = html;
+        } catch (error) {
+            console.error('Error loading House Cup leaderboard:', error);
+            document.getElementById('houseCupContent').innerHTML = 
+                '<div class="empty-state"><i class="fas fa-exclamation-circle"></i><p>Error loading House Cup leaderboard</p></div>';
+        }
     }
     
     // Initialize when DOM is ready

@@ -196,6 +196,10 @@ def user_conversations():
 def competition_apply():
     return render_template('user/competition_apply.html')
 
+@app.route('/Merch')
+def merch():
+    return render_template('merch.html')
+
 @app.route('/user/topic-space')
 def topic_space():
     return render_template('user/topic_space.html')
@@ -424,6 +428,10 @@ def admin_learning_conversations():
 def admin_competitions():
     return render_template('admin_competitions.html')
 
+@app.route('/admin/house-cup')
+def admin_house_cup():
+    return render_template('admin_house_cup.html')
+
 @app.route('/platform')
 def platform():
     return render_template('platform.html')
@@ -435,6 +443,41 @@ def sponsors():
 @app.route('/templates/approved_emails.txt')
 def serve_approved_emails():
     return send_from_directory('templates', 'approved_emails.txt')
+
+# ----------------------- Practice Test PDFs -----------------------
+
+@app.route('/practice-tests/<path:filename>')
+def serve_practice_test(filename):
+    """Serve practice test PDFs from Planning/nonMasonChemInqTests directory"""
+    from urllib.parse import unquote
+    
+    # Security: Only allow PDF files and prevent directory traversal
+    if not filename.endswith('.pdf'):
+        return jsonify({'error': 'Invalid file type'}), 400
+    if '..' in filename:
+        return jsonify({'error': 'Invalid filename'}), 400
+    
+    # Decode URL-encoded filename (handles spaces encoded as %20)
+    decoded_filename = unquote(filename)
+    
+    # Map URL-friendly names to actual filenames (handle spaces)
+    filename_map = {
+        'ChemLabPractice.pdf': 'ChemLabPractice.pdf',
+        'ChemPracticeKey.pdf': 'ChemPracticeKey.pdf',
+        'Codebusters-Practice-Key.pdf': 'Codebusters Practice Key.pdf',
+        'Codebusters-Test.pdf': 'Codebusters Test.pdf',
+        'Experimental-Design-Practice.pdf': 'Experimental Design Practice.pdf',
+        'Forensics-Practice-Key.pdf': 'Forensics Practice Key.pdf',
+        'Forensics-Practice-Test.pdf': 'Forensics Practice Test.pdf'
+    }
+    
+    # Use mapped filename if available, otherwise use the decoded filename
+    actual_filename = filename_map.get(filename, decoded_filename)
+    
+    try:
+        return send_from_directory('Planning/nonMasonChemInqTests', actual_filename, mimetype='application/pdf')
+    except FileNotFoundError:
+        return jsonify({'error': 'File not found'}), 404
 
 # ----------------------- Interest Meeting Attendance -----------------------
 

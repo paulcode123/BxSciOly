@@ -1,0 +1,1023 @@
+{% extends "layout.html" %}
+
+{% block title %}Merch Ordering - Bronx Science Olympiad{% endblock %}
+
+{% block content %}
+<div class="hero" style="height: 30vh; background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/static/images/earth.jpg');">
+    <div class="hero-content">
+        <h1>Merch Ordering</h1>
+        <p>Vote for designs and order your team merch</p>
+    </div>
+</div>
+
+<section class="section">
+    <div class="container">
+        <div id="loadingState" style="text-align: center; padding: 50px;">
+            <i class="fas fa-spinner fa-spin fa-3x" style="color: #4a90e2;"></i>
+            <p style="margin-top: 20px;">Loading...</p>
+        </div>
+
+        <div id="errorState" style="display: none; text-align: center; padding: 50px;">
+            <i class="fas fa-exclamation-triangle fa-3x" style="color: #e74c3c; margin-bottom: 20px;"></i>
+            <h2>Access Denied</h2>
+            <p id="errorMessage"></p>
+            <a href="/" class="btn" style="margin-top: 20px;">Return to Home</a>
+        </div>
+
+        <div id="alreadySubmittedState" style="display: none; text-align: center; padding: 50px;">
+            <i class="fas fa-check-circle fa-3x" style="color: #27ae60; margin-bottom: 20px;"></i>
+            <h2>Order Already Submitted</h2>
+            <p>You have already submitted your merch order. Thank you!</p>
+            <div id="orderDetails" style="margin-top: 30px; text-align: left; max-width: 600px; margin-left: auto; margin-right: auto; background: #f5f5f5; padding: 20px; border-radius: 10px;"></div>
+            <a href="/" class="btn" style="margin-top: 20px;">Return to Home</a>
+        </div>
+
+        <div id="merchForm" style="display: none;">
+            <!-- Design Voting Section -->
+            <div class="merch-section" style="margin-bottom: 50px;">
+                <h2 style="margin-bottom: 20px;">Step 1: Vote for Design</h2>
+                <p style="margin-bottom: 30px; color: #666;">Rank the designs from your favorite (1) to least favorite (8). You can rank up to 8 designs. Click on any design image to view it in full screen.</p>
+                
+                <div id="designsContainer" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 30px;"></div>
+                
+                <div id="rankingContainer" style="background: #f5f5f5; padding: 20px; border-radius: 10px; margin-top: 30px;">
+                    <h3 style="margin-bottom: 15px;">Your Rankings:</h3>
+                    <div id="rankingsList"></div>
+                </div>
+            </div>
+
+            <!-- Fullscreen Design Modal -->
+            <div id="designModal">
+                <span class="modal-close">&times;</span>
+                <div class="modal-content">
+                    <div class="modal-images" id="modalImages"></div>
+                    <div class="modal-design-label" id="modalDesignLabel"></div>
+                </div>
+            </div>
+
+            <!-- Merch Ordering Section -->
+            <div class="merch-section" style="margin-bottom: 50px;">
+                <h2 style="margin-bottom: 20px;">Step 2: Select Merch Items</h2>
+                <p style="margin-bottom: 15px; color: #666;">Select which items you'd like to purchase and rank them by priority.</p>
+                <div style="background: #e3f2fd; padding: 15px; border-radius: 5px; border-left: 4px solid #2196f3; margin-bottom: 15px;">
+                    <p style="margin: 0; color: #1976d2;">
+                        <i class="fas fa-info-circle"></i> <strong>Note:</strong> All prices are estimates. Our supplier, 360OnlinePrint, adjusts prices based on how many items our team purchases. Final prices may vary.
+                    </p>
+                    <p style="margin: 10px 0 0 0; color: #1976d2;">
+                        <i class="fas fa-link"></i> You can check <a href="https://360onlineprint.com" target="_blank" style="color: #1565c0; text-decoration: underline;">360onlineprint.com</a> for more product details and price tables.
+                    </p>
+                </div>
+                <div style="background: #fff3cd; padding: 15px; border-radius: 5px; border-left: 4px solid #ffc107; margin-bottom: 15px;">
+                    <p style="margin: 0; color: #856404;">
+                        <i class="fas fa-exclamation-triangle"></i> <strong>Important:</strong> Please stick with what you say you'll buy, but you will have an opportunity to add/remove items if needed before final ordering.
+                    </p>
+                </div>
+                <p style="margin-bottom: 30px; color: #e74c3c; font-weight: 600;">
+                    <i class="fas fa-exclamation-circle"></i> Required: You must select at least one of T-shirt, Hoodie, or Sweatshirt to attend tournaments.
+                </p>
+                
+                <div id="itemsContainer" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 30px;"></div>
+
+                <div style="background: #f5f5f5; padding: 20px; border-radius: 10px; margin-top: 30px;">
+                    <h3 style="margin-bottom: 15px;">Item Preferences:</h3>
+                    <div id="itemsList"></div>
+                </div>
+            </div>
+
+            <!-- Spend Limit Section -->
+            <div class="merch-section" style="margin-bottom: 50px;">
+                <h2 style="margin-bottom: 20px;">Step 3: Set Spend Limit</h2>
+                <p style="margin-bottom: 15px; color: #666;">Set your maximum spending limit. We'll give you as many items as possible under your limit based on your rankings.</p>
+                <p style="margin-bottom: 30px; color: #666; font-style: italic;">Note: The preview uses maximum price estimates. Final prices may be lower depending on total team orders.</p>
+                
+                <div style="max-width: 400px;">
+                    <label for="spendLimit" style="display: block; margin-bottom: 10px; font-weight: 600;">Maximum Spending Limit ($):</label>
+                    <input type="number" id="spendLimit" min="0" step="0.01" placeholder="Enter amount" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 5px; font-size: 16px;">
+                </div>
+            </div>
+
+            <!-- Preview Section -->
+            <div class="merch-section" style="margin-bottom: 50px; background: #f9f9f9; padding: 30px; border-radius: 10px;">
+                <h2 style="margin-bottom: 20px;">Order Preview</h2>
+                <p style="margin-bottom: 15px; color: #666;">Based on your spend limit and rankings, here's what you'll receive:</p>
+                
+                <div id="previewContainer" style="background: white; padding: 20px; border-radius: 5px; margin-top: 20px;">
+                    <p style="color: #999; font-style: italic;">Complete the steps above to see your preview.</p>
+                </div>
+
+                <button id="submitBtn" class="btn" style="margin-top: 30px; padding: 15px 40px; font-size: 18px; background: #27ae60; border: none; color: white; border-radius: 5px; cursor: pointer; display: none;">
+                    <i class="fas fa-check"></i> Submit Order
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.merch-section {
+    padding: 30px 0;
+}
+
+.design-card {
+    background: white;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.design-card:hover {
+    border-color: #4a90e2;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.design-card.selected {
+    border-color: #4a90e2;
+    background: #f0f7ff;
+}
+
+.design-card .rank-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #4a90e2;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.design-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.design-images img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.design-images img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Fullscreen modal styles */
+#designModal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    position: relative;
+    margin: auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 1200px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10001;
+    transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+    color: #4a90e2;
+}
+
+.modal-images {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-images img {
+    max-width: 45%;
+    max-height: 80vh;
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
+}
+
+.modal-images img.single {
+    max-width: 80%;
+}
+
+.modal-design-label {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.modal-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 30px;
+    padding: 15px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    z-index: 10001;
+}
+
+.modal-nav:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.modal-nav.prev {
+    left: 20px;
+}
+
+.modal-nav.next {
+    right: 20px;
+}
+
+.design-label {
+    text-align: center;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.item-card {
+    background: white;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.item-card.selected {
+    border-color: #4a90e2;
+    background: #f0f7ff;
+}
+
+.item-card img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    display: block;
+    margin: 0 auto 15px;
+}
+
+.item-card h3 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.item-card .price-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.item-card .rank-select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.ranking-item, .item-preference {
+    padding: 10px;
+    margin: 5px 0;
+    background: white;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.preview-item {
+    padding: 15px;
+    margin: 10px 0;
+    background: white;
+    border-left: 4px solid #4a90e2;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    background: #4a90e2;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: #357abd;
+}
+
+.btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+</style>
+
+<script>
+let currentUser = null;
+let designVotes = []; // Array of design numbers in ranked order
+let selectedItems = {}; // {type: {price: number, rank: number, selected: boolean}}
+let spendLimit = 0;
+
+// Item definitions
+const items = [
+    { type: 't-shirt', name: 'T-Shirt', image: '/static/images/merch/products/Tshirt.png', minPrice: 15, maxPrice: 17, required: true },
+    { type: 'hoodie', name: 'Hoodie', image: '/static/images/merch/products/hoodie.png', minPrice: 22, maxPrice: 25, required: true },
+    { type: 'sweatshirt', name: 'Sweatshirt', image: '/static/images/merch/products/sweatshirt.png', minPrice: 23, maxPrice: 26, required: true },
+    { type: 'quarter-zip', name: 'Quarter Zip', image: '/static/images/merch/products/quarterzip.png', minPrice: 25, maxPrice: 28 },
+    { type: 'full-zip', name: 'Full Zip Embroidered', image: '/static/images/merch/products/fullzip.png', minPrice: 24, maxPrice: 26 },
+    { type: 'hat', name: 'Hat', image: '/static/images/merch/products/cap.png', minPrice: 3, maxPrice: 3 },
+    { type: 'tote-bag', name: 'Tote Bag', image: '/static/images/merch/products/bag.png', minPrice: 5, maxPrice: 8 },
+    { type: 'notebook', name: 'Notebook', image: '/static/images/merch/products/notebook.png', minPrice: 6, maxPrice: 12 },
+    { type: 'winter-hat', name: 'Winter Hat', image: '/static/images/merch/products/winterhat.png', minPrice: 10, maxPrice: 13 }
+];
+
+// Design options (Op1-Op8)
+const designs = [
+    { num: 1, front: '/static/images/merch/designs/Op1Front.jpg', back: '/static/images/merch/designs/Op1Back.jpg' },
+    { num: 2, front: '/static/images/merch/designs/Op2Front.PNG', back: '/static/images/merch/designs/Op2Back.PNG' },
+    { num: 3, front: '/static/images/merch/designs/Op3Front.png', back: '/static/images/merch/designs/Op3Back.png' },
+    { num: 4, front: '/static/images/merch/designs/Op4Front.jpg', back: '/static/images/merch/designs/Op4Back.jpg' },
+    { num: 5, front: '/static/images/merch/designs/Op5Front.png', back: null }, // No back image for Op5
+    { num: 6, front: '/static/images/merch/designs/Op6Front.PNG', back: '/static/images/merch/designs/Op6Back.PNG' },
+    { num: 7, front: '/static/images/merch/designs/Op7Front.png', back: '/static/images/merch/designs/Op7Back.png' },
+    { num: 8, front: '/static/images/merch/designs/Op8Front.png', back: '/static/images/merch/designs/Op8Back.png' }
+];
+
+document.addEventListener('DOMContentLoaded', async function() {
+    // Check if user is logged in
+    const currentUserStr = sessionStorage.getItem('currentUser');
+    
+    if (!currentUserStr) {
+        const returnUrl = encodeURIComponent(window.location.pathname);
+        window.location.href = `/login?redirect=${returnUrl}`;
+        return;
+    }
+
+    currentUser = JSON.parse(currentUserStr);
+
+    // Check eligibility
+    try {
+        const response = await fetch(`/api/merch/check-eligibility/${currentUser.id}`);
+        const data = await response.json();
+
+        if (!response.ok || !data.eligible) {
+            document.getElementById('loadingState').style.display = 'none';
+            document.getElementById('errorState').style.display = 'block';
+            document.getElementById('errorMessage').textContent = data.message || 'You are not eligible to access this page.';
+            return;
+        }
+
+        if (data.alreadySubmitted) {
+            // Show existing order
+            const orderResponse = await fetch(`/api/merch/get-order/${currentUser.id}`);
+            if (orderResponse.ok) {
+                const orderData = await orderResponse.json();
+                displayExistingOrder(orderData);
+            }
+            document.getElementById('loadingState').style.display = 'none';
+            document.getElementById('alreadySubmittedState').style.display = 'block';
+            return;
+        }
+
+        // User is eligible and hasn't submitted - show form
+        document.getElementById('loadingState').style.display = 'none';
+        document.getElementById('merchForm').style.display = 'block';
+        
+        initializeDesignVoting();
+        initializeItemSelection();
+        
+        // Setup event listeners
+        document.getElementById('spendLimit').addEventListener('input', updatePreview);
+        document.getElementById('submitBtn').addEventListener('click', submitOrder);
+        
+    } catch (error) {
+        console.error('Error checking eligibility:', error);
+        document.getElementById('loadingState').style.display = 'none';
+        document.getElementById('errorState').style.display = 'block';
+        document.getElementById('errorMessage').textContent = 'An error occurred. Please try again later.';
+    }
+});
+
+function initializeDesignVoting() {
+    const container = document.getElementById('designsContainer');
+    container.innerHTML = '';
+    
+    designs.forEach(design => {
+        const card = document.createElement('div');
+        card.className = 'design-card';
+        card.dataset.designNum = design.num;
+        
+        // Handle card click for ranking (but not when clicking images)
+        card.onclick = (e) => {
+            // Don't toggle rank if clicking on an image
+            if (!e.target.closest('.design-images img')) {
+                toggleDesignRank(design.num);
+            }
+        };
+        
+        const imagesDiv = document.createElement('div');
+        imagesDiv.className = 'design-images';
+        
+        const frontImg = document.createElement('img');
+        frontImg.src = design.front;
+        frontImg.alt = `Design ${design.num} Front`;
+        frontImg.onclick = (e) => {
+            e.stopPropagation();
+            openDesignModal(design.num);
+        };
+        imagesDiv.appendChild(frontImg);
+        
+        if (design.back) {
+            const backImg = document.createElement('img');
+            backImg.src = design.back;
+            backImg.alt = `Design ${design.num} Back`;
+            backImg.onclick = (e) => {
+                e.stopPropagation();
+                openDesignModal(design.num);
+            };
+            imagesDiv.appendChild(backImg);
+        } else {
+            // If no back image, just show front centered
+            frontImg.style.gridColumn = '1 / -1';
+        }
+        
+        card.appendChild(imagesDiv);
+        
+        const label = document.createElement('div');
+        label.className = 'design-label';
+        label.textContent = `Design Option ${design.num}`;
+        card.appendChild(label);
+        
+        container.appendChild(card);
+    });
+    
+    updateDesignRankings();
+    setupModalEvents();
+}
+
+function setupModalEvents() {
+    const modal = document.getElementById('designModal');
+    const closeBtn = modal.querySelector('.modal-close');
+    
+    // Close on X button click
+    closeBtn.onclick = () => closeDesignModal();
+    
+    // Close on outside click
+    modal.onclick = (e) => {
+        if (e.target === modal) {
+            closeDesignModal();
+        }
+    };
+    
+    // Close on ESC key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.style.display === 'block') {
+            closeDesignModal();
+        }
+    });
+}
+
+function openDesignModal(designNum) {
+    const modal = document.getElementById('designModal');
+    const modalImages = document.getElementById('modalImages');
+    const modalLabel = document.getElementById('modalDesignLabel');
+    
+    const design = designs.find(d => d.num === designNum);
+    if (!design) return;
+    
+    modalImages.innerHTML = '';
+    
+    // Add front image
+    const frontImg = document.createElement('img');
+    frontImg.src = design.front;
+    frontImg.alt = `Design ${designNum} Front`;
+    if (!design.back) {
+        frontImg.classList.add('single');
+    }
+    modalImages.appendChild(frontImg);
+    
+    // Add back image if available
+    if (design.back) {
+        const backImg = document.createElement('img');
+        backImg.src = design.back;
+        backImg.alt = `Design ${designNum} Back`;
+        modalImages.appendChild(backImg);
+    }
+    
+    modalLabel.textContent = `Design Option ${designNum}`;
+    
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+}
+
+function closeDesignModal() {
+    const modal = document.getElementById('designModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = ''; // Restore scrolling
+}
+
+function toggleDesignRank(designNum) {
+    const index = designVotes.indexOf(designNum);
+    
+    if (index > -1) {
+        // Remove from rankings
+        designVotes.splice(index, 1);
+    } else {
+        // Add to rankings (at the end if not already ranked)
+        if (designVotes.length < 8) {
+            designVotes.push(designNum);
+        } else {
+            alert('You can only rank up to 8 designs. Remove one first.');
+            return;
+        }
+    }
+    
+    updateDesignRankings();
+}
+
+function updateDesignRankings() {
+    // Update card appearances
+    document.querySelectorAll('.design-card').forEach(card => {
+        const designNum = parseInt(card.dataset.designNum);
+        const rank = designVotes.indexOf(designNum) + 1;
+        
+        card.classList.toggle('selected', rank > 0);
+        
+        // Update or create rank badge
+        let badge = card.querySelector('.rank-badge');
+        if (rank > 0) {
+            if (!badge) {
+                badge = document.createElement('div');
+                badge.className = 'rank-badge';
+                card.appendChild(badge);
+            }
+            badge.textContent = rank;
+        } else if (badge) {
+            badge.remove();
+        }
+    });
+    
+    // Update rankings list
+    const rankingsList = document.getElementById('rankingsList');
+    if (designVotes.length === 0) {
+        rankingsList.innerHTML = '<p style="color: #999; font-style: italic;">No designs ranked yet. Click on designs to rank them.</p>';
+    } else {
+        rankingsList.innerHTML = designVotes.map((designNum, index) => {
+            return `<div class="ranking-item">
+                <span><strong>#${index + 1}</strong> Design Option ${designNum}</span>
+                <button onclick="removeDesignRank(${designNum})" style="background: #e74c3c; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer;">Remove</button>
+            </div>`;
+        }).join('');
+    }
+}
+
+function removeDesignRank(designNum) {
+    const index = designVotes.indexOf(designNum);
+    if (index > -1) {
+        designVotes.splice(index, 1);
+        updateDesignRankings();
+    }
+}
+
+function initializeItemSelection() {
+    const container = document.getElementById('itemsContainer');
+    container.innerHTML = '';
+    
+    // Initialize selectedItems object (no price storage needed)
+    items.forEach(item => {
+        selectedItems[item.type] = {
+            selected: false,
+            rank: null
+        };
+    });
+    
+    items.forEach((item, index) => {
+        const card = document.createElement('div');
+        card.className = 'item-card';
+        card.dataset.itemType = item.type;
+        
+        if (item.required) {
+            card.style.borderColor = '#e74c3c';
+            card.style.borderWidth = '2px';
+        }
+        
+        const img = document.createElement('img');
+        img.src = item.image;
+        img.alt = item.name;
+        card.appendChild(img);
+        
+        const title = document.createElement('h3');
+        title.textContent = item.name;
+        if (item.required) {
+            title.innerHTML += ' <span style="color: #e74c3c;">*</span>';
+        }
+        card.appendChild(title);
+        
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.id = `item-${item.type}`;
+        checkbox.checked = false;
+        checkbox.addEventListener('change', (e) => toggleItemSelection(item.type, e.target.checked));
+        card.appendChild(checkbox);
+        
+        const checkboxLabel = document.createElement('label');
+        checkboxLabel.htmlFor = `item-${item.type}`;
+        checkboxLabel.textContent = ' Select';
+        checkboxLabel.style.marginLeft = '5px';
+        card.appendChild(checkboxLabel);
+        
+        // Price estimate display
+        const priceInfo = document.createElement('div');
+        priceInfo.style.marginTop = '10px';
+        priceInfo.style.color = '#666';
+        priceInfo.style.fontSize = '14px';
+        priceInfo.textContent = `Est. $${item.minPrice} - $${item.maxPrice}`;
+        card.appendChild(priceInfo);
+        
+        // Rank select (only show when selected)
+        const rankDiv = document.createElement('div');
+        rankDiv.style.display = 'none';
+        rankDiv.id = `rank-div-${item.type}`;
+        
+        const rankLabel = document.createElement('label');
+        rankLabel.textContent = 'Priority Rank:';
+        rankLabel.style.display = 'block';
+        rankLabel.style.marginTop = '15px';
+        rankLabel.style.marginBottom = '5px';
+        rankDiv.appendChild(rankLabel);
+        
+        const rankSelect = document.createElement('select');
+        rankSelect.className = 'rank-select';
+        rankSelect.id = `rank-${item.type}`;
+        rankSelect.addEventListener('change', () => updateItemRank(item.type, parseInt(rankSelect.value)));
+        rankDiv.appendChild(rankSelect);
+        
+        card.appendChild(rankDiv);
+        container.appendChild(card);
+    });
+    
+    updateItemsList();
+}
+
+function toggleItemSelection(itemType, selected) {
+    selectedItems[itemType].selected = selected;
+    
+    const card = document.querySelector(`[data-item-type="${itemType}"]`);
+    if (selected) {
+        card.classList.add('selected');
+        document.getElementById(`rank-div-${itemType}`).style.display = 'block';
+        
+        // Initialize rank options for all items
+        updateAllRankSelects();
+    } else {
+        card.classList.remove('selected');
+        document.getElementById(`rank-div-${itemType}`).style.display = 'none';
+        selectedItems[itemType].rank = null;
+        
+        // Update all rank selects to remove the freed rank
+        updateAllRankSelects();
+    }
+    
+    updateItemsList();
+    updatePreview();
+}
+
+function updateAllRankSelects() {
+    const selectedCount = Object.values(selectedItems).filter(item => item.selected).length;
+    
+    Object.keys(selectedItems).forEach(type => {
+        if (selectedItems[type].selected) {
+            const rankSelect = document.getElementById(`rank-${type}`);
+            if (rankSelect) {
+                const currentRank = selectedItems[type].rank;
+                rankSelect.innerHTML = '';
+                
+                // Add "No rank" option as default
+                const noRankOption = document.createElement('option');
+                noRankOption.value = '';
+                noRankOption.textContent = 'No rank';
+                if (currentRank === null || currentRank === undefined) {
+                    noRankOption.selected = true;
+                }
+                rankSelect.appendChild(noRankOption);
+                
+                // Add numbered rank options
+                for (let i = 1; i <= selectedCount; i++) {
+                    const option = document.createElement('option');
+                    option.value = i;
+                    option.textContent = i;
+                    if (currentRank === i) {
+                        option.selected = true;
+                    }
+                    rankSelect.appendChild(option);
+                }
+            }
+        }
+    });
+}
+
+
+function updateItemRank(itemType, rank) {
+    // Convert empty string to null for "no rank"
+    selectedItems[itemType].rank = rank === '' || rank === null ? null : rank;
+    
+    // Ensure no duplicate ranks (only if rank is set)
+    if (selectedItems[itemType].rank !== null) {
+        Object.keys(selectedItems).forEach(type => {
+            if (type !== itemType && selectedItems[type].selected && selectedItems[type].rank === selectedItems[itemType].rank) {
+                selectedItems[type].rank = null;
+            }
+        });
+    }
+    
+    // Update all rank selects to reflect changes
+    updateAllRankSelects();
+    
+    updateItemsList();
+    updatePreview();
+}
+
+function updateItemsList() {
+    const itemsList = document.getElementById('itemsList');
+    const selected = Object.entries(selectedItems)
+        .filter(([type, data]) => data.selected)
+        .sort((a, b) => {
+            const rankA = a[1].rank || 999;
+            const rankB = b[1].rank || 999;
+            return rankA - rankB;
+        });
+    
+    if (selected.length === 0) {
+        itemsList.innerHTML = '<p style="color: #999; font-style: italic;">No items selected yet.</p>';
+    } else {
+    itemsList.innerHTML = selected.map(([type, data]) => {
+        const item = items.find(i => i.type === type);
+        const estPrice = item.minPrice === item.maxPrice ? `$${item.minPrice}` : `$${item.minPrice}-$${item.maxPrice}`;
+        return `<div class="item-preference">
+            <span><strong>${item.name}</strong> - Est. ${estPrice} ${data.rank ? `(Priority #${data.rank})` : '(No rank)'}</span>
+        </div>`;
+    }).join('');
+    }
+}
+
+function updatePreview() {
+    const previewContainer = document.getElementById('previewContainer');
+    const spendLimitValue = parseFloat(document.getElementById('spendLimit').value) || 0;
+    spendLimit = spendLimitValue;
+    
+    if (spendLimitValue <= 0) {
+        previewContainer.innerHTML = '<p style="color: #999; font-style: italic;">Enter a spend limit to see your preview.</p>';
+        document.getElementById('submitBtn').style.display = 'none';
+        return;
+    }
+    
+    // Get selected items with their data
+    // Use max price for estimation (conservative estimate)
+    const selectedArray = Object.entries(selectedItems)
+        .filter(([type, data]) => data.selected)
+        .map(([type, data], index) => {
+            const item = items.find(i => i.type === type);
+            return {
+                type: type,
+                name: item.name,
+                estimatedPrice: item.maxPrice, // Use max price for estimation
+                minPrice: item.minPrice,
+                maxPrice: item.maxPrice,
+                rank: data.rank || (999 + index), // Unranked items go to end, in selection order
+                originalIndex: index
+            };
+        })
+        .sort((a, b) => {
+            // Sort by rank (lower is better), then by original selection order
+            if (a.rank !== b.rank) return a.rank - b.rank;
+            return a.originalIndex - b.originalIndex;
+        });
+    
+    const selected = selectedArray;
+    
+    if (selected.length === 0) {
+        previewContainer.innerHTML = '<p style="color: #999; font-style: italic;">Select items to see your preview.</p>';
+        document.getElementById('submitBtn').style.display = 'none';
+        return;
+    }
+    
+    // Calculate what they'll get using estimated prices (max price)
+    let total = 0;
+    const itemsToGet = [];
+    
+    for (const item of selected) {
+        if (total + item.estimatedPrice <= spendLimitValue) {
+            itemsToGet.push(item);
+            total += item.estimatedPrice;
+        } else {
+            break;
+        }
+    }
+    
+    // Check if they have at least one required item
+    const requiredItems = ['t-shirt', 'hoodie', 'sweatshirt'];
+    const hasRequired = itemsToGet.some(item => requiredItems.includes(item.type));
+    
+    if (!hasRequired) {
+        previewContainer.innerHTML = `
+            <div style="background: #ffe6e6; padding: 15px; border-radius: 5px; border-left: 4px solid #e74c3c;">
+                <p style="margin: 0; color: #e74c3c;"><strong>Warning:</strong> You must include at least one of: T-shirt, Hoodie, or Sweatshirt to attend tournaments.</p>
+            </div>
+        `;
+        document.getElementById('submitBtn').style.display = 'none';
+        return;
+    }
+    
+    // Display preview
+    let html = '<div style="margin-bottom: 15px;"><strong>Items You Will Receive:</strong></div>';
+    
+    if (itemsToGet.length === 0) {
+        html += '<p style="color: #999; font-style: italic;">No items fit under your spend limit (using max price estimates). Increase your limit.</p>';
+    } else {
+        html += itemsToGet.map(item => {
+            const priceRange = item.minPrice === item.maxPrice ? `$${item.minPrice}` : `$${item.minPrice}-$${item.maxPrice}`;
+            return `<div class="preview-item">
+                <span><strong>${item.name}</strong></span>
+                <span>Est. ${priceRange}</span>
+            </div>`;
+        }).join('');
+        
+        // Calculate estimated total range
+        const minTotal = itemsToGet.reduce((sum, item) => sum + item.minPrice, 0);
+        const maxTotal = itemsToGet.reduce((sum, item) => sum + item.maxPrice, 0);
+        const totalRange = minTotal === maxTotal ? `$${minTotal.toFixed(2)}` : `$${minTotal.toFixed(2)} - $${maxTotal.toFixed(2)}`;
+        
+        html += `<div style="margin-top: 20px; padding-top: 20px; border-top: 2px solid #ddd; display: flex; justify-content: space-between; font-size: 18px; font-weight: bold;">
+            <span>Estimated Total:</span>
+            <span>${totalRange}</span>
+        </div>`;
+        
+        html += `<div style="margin-top: 15px; padding: 10px; background: #e3f2fd; border-radius: 5px; font-size: 14px; color: #1976d2;">
+            <i class="fas fa-info-circle"></i> Prices are estimates. Final prices depend on total team orders.
+        </div>`;
+        
+        if (itemsToGet.length < selected.length) {
+            const remaining = selected.slice(itemsToGet.length);
+            html += `<div style="margin-top: 20px; padding: 15px; background: #fff3cd; border-radius: 5px;">
+                <p style="margin: 0; color: #856404;"><strong>Note:</strong> The following items cannot fit under your spend limit (using max price estimates):</p>
+                <ul style="margin: 10px 0 0 20px;">
+                    ${remaining.map(item => {
+                        const priceRange = item.minPrice === item.maxPrice ? `$${item.minPrice}` : `$${item.minPrice}-$${item.maxPrice}`;
+                        return `<li>${item.name} (Est. ${priceRange})</li>`;
+                    }).join('')}
+                </ul>
+            </div>`;
+        }
+    }
+    
+    previewContainer.innerHTML = html;
+    
+    // Show submit button if valid
+    if (itemsToGet.length > 0 && hasRequired) {
+        document.getElementById('submitBtn').style.display = 'block';
+    } else {
+        document.getElementById('submitBtn').style.display = 'none';
+    }
+}
+
+async function submitOrder() {
+    const submitBtn = document.getElementById('submitBtn');
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+    
+    // Prepare items array (no prices stored, just type and rank)
+    const itemsArray = Object.entries(selectedItems)
+        .filter(([type, data]) => data.selected)
+        .map(([type, data]) => ({
+            type: type,
+            rank: data.rank || 999
+        }))
+        .sort((a, b) => (a.rank || 999) - (b.rank || 999));
+    
+    // Prepare submission data
+    const submissionData = {
+        firebaseID: currentUser.id,
+        designVotes: designVotes,
+        items: itemsArray,
+        spendLimit: spendLimit
+    };
+    
+    try {
+        const response = await fetch('/api/merch/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(submissionData)
+        });
+        
+        const data = await response.json();
+        
+        if (response.ok) {
+            alert('Order submitted successfully!');
+            window.location.reload();
+        } else {
+            alert('Error: ' + (data.error || 'Failed to submit order'));
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<i class="fas fa-check"></i> Submit Order';
+        }
+    } catch (error) {
+        console.error('Error submitting order:', error);
+        alert('An error occurred. Please try again.');
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="fas fa-check"></i> Submit Order';
+    }
+}
+
+function displayExistingOrder(orderData) {
+    const container = document.getElementById('orderDetails');
+    
+    let html = '<h3>Your Submitted Order</h3>';
+    
+    // Design votes
+    html += '<div style="margin-top: 20px;"><strong>Design Votes:</strong><ol>';
+    orderData.designVotes.forEach((designNum, index) => {
+        html += `<li>Design Option ${designNum} (Rank ${index + 1})</li>`;
+    });
+    html += '</ol></div>';
+    
+    // Items
+    html += '<div style="margin-top: 20px;"><strong>Items:</strong><ul>';
+    orderData.items.sort((a, b) => (a.rank || 999) - (b.rank || 999)).forEach(item => {
+        const itemData = items.find(i => i.type === item.type);
+        const itemName = itemData?.name || item.type;
+        const priceRange = itemData ? (itemData.minPrice === itemData.maxPrice ? `$${itemData.minPrice}` : `$${itemData.minPrice}-$${itemData.maxPrice}`) : 'Price TBD';
+        html += `<li>${itemName} - Est. ${priceRange} (Priority ${item.rank || 'N/A'})</li>`;
+    });
+    html += '</ul></div>';
+    
+    html += `<div style="margin-top: 20px;"><strong>Spend Limit:</strong> $${orderData.spendLimit.toFixed(2)}</div>`;
+    
+    if (orderData.submittedAt) {
+        const date = new Date(orderData.submittedAt);
+        html += `<div style="margin-top: 10px; color: #666; font-size: 14px;">Submitted: ${date.toLocaleString()}</div>`;
+    }
+    
+    container.innerHTML = html;
+}
+</script>
+
+{% endblock %}
+

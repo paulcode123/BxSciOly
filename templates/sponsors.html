@@ -154,6 +154,124 @@
         text-decoration: underline;
     }
 
+    .current-sponsors-section {
+        padding: 100px 0;
+        background: white;
+        text-align: center;
+    }
+
+    .current-sponsors-section h2 {
+        font-size: 2.8rem;
+        color: var(--primary-color);
+        margin-bottom: 25px;
+        position: relative;
+    }
+
+    .current-sponsors-section h2::after {
+        content: '';
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 5px;
+        background: var(--accent-color);
+        border-radius: 3px;
+    }
+
+    .current-sponsors-section > .container > p {
+        font-size: 1.3rem;
+        color: #666;
+        max-width: 800px;
+        margin: 0 auto 60px;
+        line-height: 1.8;
+    }
+
+    .sponsor-tier {
+        margin-bottom: 60px;
+    }
+
+    .sponsor-tier h3 {
+        font-size: 2.2rem;
+        color: var(--primary-color);
+        margin-bottom: 40px;
+        font-weight: 600;
+    }
+
+    .sponsor-logos {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 40px;
+        align-items: center;
+    }
+
+    .sponsor-logo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        transition: transform 0.3s ease;
+    }
+
+    .sponsor-logo:hover {
+        transform: translateY(-5px);
+    }
+
+    .sponsor-logo img {
+        max-width: 200px;
+        max-height: 120px;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        margin-bottom: 15px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: box-shadow 0.3s ease;
+    }
+
+    .sponsor-logo:hover img {
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .sponsor-logo p {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--primary-color);
+        margin: 0;
+    }
+
+    @media (max-width: 768px) {
+        .current-sponsors-section {
+            padding: 60px 0;
+        }
+        
+        .current-sponsors-section h2 {
+            font-size: 2.2rem;
+        }
+        
+        .current-sponsors-section > .container > p {
+            font-size: 1.1rem;
+        }
+        
+        .sponsor-tier h3 {
+            font-size: 1.8rem;
+        }
+        
+        .sponsor-logos {
+            gap: 30px;
+        }
+        
+        .sponsor-logo img {
+            max-width: 150px;
+            max-height: 90px;
+        }
+        
+        .sponsor-logo p {
+            font-size: 1.1rem;
+        }
+    }
+
     .tiers-section {
         padding: 100px 0;
         background: white;
@@ -478,6 +596,25 @@
             equipment, materials, competition fees, and educational opportunities. Every contribution helps us 
             continue our tradition of excellence and innovation in STEM education.
         </p>
+    </div>
+</section>
+
+<!-- Current Sponsors Section -->
+<section class="current-sponsors-section">
+    <div class="container">
+        <h2>Our Current Sponsors</h2>
+        <p>We are grateful for the support of our sponsors who help make our Science Olympiad program possible.</p>
+        
+        <!-- Wolverine Tier Sponsors -->
+        <div class="sponsor-tier">
+            <h3>Wolverine Sponsors ($1500+)</h3>
+            <div class="sponsor-logos">
+                <div class="sponsor-logo">
+                    <img src="/static/images/ABCMath.png" alt="ABC Math" />
+                    <p>ABC Math</p>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 

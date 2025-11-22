@@ -1328,8 +1328,8 @@
         const adminRole = sessionStorage.getItem('adminRole');
         const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
         
-        // Check if admin is logged in OR if regular user has admin status
-        const isAdmin = adminId && adminRole || (currentUser && currentUser.adminStatus && currentUser.adminStatus !== 'none');
+        // Check if admin is logged in OR if regular user has full admin status
+        const isAdmin = adminId && adminRole || (currentUser && currentUser.adminStatus && currentUser.adminStatus === 'full');
         
         if (!isAdmin) {
             window.location.href = '{{ url_for("admin_login") }}';

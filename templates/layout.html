@@ -289,8 +289,8 @@
                             menuHTML += '<a href="/user/application"><i class="fas fa-file-alt"></i> Application</a>';
                         }
                         
-                        // Show admin console if user has admin status
-                        if (currentUser.adminStatus && currentUser.adminStatus !== 'none') {
+                        // Show admin console only for full admins
+                        if (currentUser.adminStatus && currentUser.adminStatus === 'full') {
                             menuHTML += '<a href="/admin/login"><i class="fas fa-user-shield"></i> Admin Console</a>';
                         }
                         
@@ -312,7 +312,7 @@
                         console.error('Error checking roster status:', error);
                         // Default to showing application menu if error
                         let menuHTML = '<a href="/user/application"><i class="fas fa-file-alt"></i> Application</a>';
-                        if (currentUser.adminStatus && currentUser.adminStatus !== 'none') {
+                        if (currentUser.adminStatus && currentUser.adminStatus === 'full') {
                             menuHTML += '<a href="/admin/login"><i class="fas fa-user-shield"></i> Admin Console</a>';
                         }
                         menuHTML += '<a href="/user/settings"><i class="fas fa-cog"></i> Settings</a>';
