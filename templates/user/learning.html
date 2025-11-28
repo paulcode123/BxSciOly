@@ -12,188 +12,132 @@
 
 <section class="section">
     <div class="container">
-        <div class="learning-tabs">
-            <button class="learning-tab active" data-tab="portfolio">Portfolio</button>
-            <button class="learning-tab" data-tab="resources">Resources</button>
-        </div>
-
-        <!-- Portfolio Tab -->
-        <div id="portfolio-tab" class="learning-tab-content active">
-            <div class="lean-intro">
-                <h2>Your Learning Portfolio</h2>
-                <p>This is what gets submitted to logistics when you apply for competitions. Don't worry, your Event Managers will help you make it as strong as possible!</p>
-            </div>
-
-            <!-- Medals -->
-            <section class="portfolio-section">
-                <div class="section-header">
-                    <h3><i class="fas fa-medal"></i> Medals</h3>
-                </div>
-                <div id="medalsList" class="medals-list">
-                    <div class="loading-indicator"><i class="fas fa-spinner fa-spin"></i><p>Loading medals...</p></div>
-                </div>
-            </section>
-
-            <!-- Diagnostics -->
-            <section class="portfolio-section">
-                <div class="section-header">
-                    <h3><i class="fas fa-clipboard-check"></i> Diagnostics</h3>
-                </div>
-                <div id="diagnosticsList" class="diagnostics-list">
-                    <div class="empty-state">
-                        <i class="fas fa-file-alt"></i>
-                        <p>No diagnostics recorded yet.</p>
-                    </div>
-                </div>
-                <div class="section-actions">
-                    <button id="scheduleDiagnosticBtn" class="btn-primary"><i class="fas fa-calendar-plus"></i> Schedule a Diagnostic</button>
-                </div>
-            </section>
-
-            <!-- Learning Portfolio -->
-            <section class="portfolio-section">
-                <div class="section-header">
-                    <h3><i class="fas fa-graduation-cap"></i> Learning Portfolio</h3>
-                    <div class="section-description">
-                        <p>Document your learning journey throughout the Science Olympiad season. This portfolio helps you track your growth, reflect on your experiences, and showcase your progress. Each entry captures a meaningful learning moment - whether it's a breakthrough in understanding, a challenging problem you solved, or insights from competitions and practice sessions. By maintaining this portfolio, you'll build a comprehensive record of your development as a Science Olympiad competitor and create valuable resources for future reference.</p>
-                    </div>
-                </div>
-
-                <div class="form-card">
-                    <div class="form-header">
-                        <div class="header-icon"><i class="fas fa-plus"></i></div>
-                        <div class="header-text">
-                            <h4>Add Learning Experience</h4>
-                            <p>Select the type of learning experience and provide your Google Doc link.</p>
-                        </div>
-                    </div>
-                    <div class="form-body">
-                        <div class="form-grid">
-                            <div class="form-row">
-                                <label for="learningType">Learning Experience Type</label>
-                                <div class="input-with-icon">
-                                    <i class="fas fa-list"></i>
-                                    <select id="learningType">
-                                        <option value="">Select a learning experience type...</option>
-                                        <option value="weekly_reflection">Weekly Learning Reflection</option>
-                                        <option value="diagnostic_reflection">Diagnostic Test Reflection</option>
-                                        <option value="competition_reflection">Competition Reflection</option>
-                                        <option value="practice_session">Practice Session Notes</option>
-                                        <option value="research_project">Research Project Documentation</option>
-                                        <option value="lab_experiment">Lab Experiment Report</option>
-                                        <option value="build_log">Build Event Progress Log</option>
-                                        <option value="study_session">Study Session Summary</option>
-                                        <option value="problem_solving">Problem-Solving Process</option>
-                                        <option value="concept_exploration">Concept Deep Dive</option>
-                                        <option value="team_collaboration">Team Collaboration Notes</option>
-                                        <option value="mentor_feedback">Mentor Feedback Reflection</option>
-                                        <option value="skill_development">Skill Development Tracking</option>
-                                        <option value="mistake_analysis">Mistake Analysis & Learning</option>
-                                        <option value="breakthrough_moment">Breakthrough Moment Documentation</option>
-                                        <option value="resource_compilation">Resource Compilation</option>
-                                        <option value="goal_setting">Goal Setting & Progress</option>
-                                        <option value="peer_learning">Peer Learning Session</option>
-                                        <option value="creative_solution">Creative Solution Documentation</option>
-                                        <option value="event_preparation">Event Preparation Strategy</option>
-                                        <option value="post_competition">Post-Competition Analysis</option>
-                                        <option value="learning_challenge">Learning Challenge Response</option>
-                                        <option value="knowledge_synthesis">Knowledge Synthesis Project</option>
-                                        <option value="teaching_moment">Teaching Others Documentation</option>
-                                        <option value="other">Other Learning Experience</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-row">
-                                <label for="learningEvent">Event</label>
-                                <div class="input-with-icon">
-                                    <i class="fas fa-flask"></i>
-                                    <select id="learningEvent">
-                                        <option value="">Select an event...</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-row">
-                                <label for="googleDocLink">Google Doc Link</label>
-                                <div class="input-with-icon">
-                                    <i class="fas fa-link"></i>
-                                    <input id="googleDocLink" type="url" placeholder="https://docs.google.com/document/d/..." required>
-                                </div>
-                                <div class="tip"><i class="fas fa-info-circle"></i> Make sure your Google Doc is set to "Anyone with the link can view"</div>
-                            </div>
-
-                            <div class="form-row">
-                                <label for="learningDescription">Brief Description</label>
-                                <div class="input-with-icon">
-                                    <i class="fas fa-align-left"></i>
-                                    <textarea id="learningDescription" rows="3" placeholder="Provide a brief description of what this learning experience covers..." maxlength="300"></textarea>
-                                </div>
-                                <div class="char-count" id="descCount">0 / 300</div>
-                            </div>
-
-                            <div class="form-row">
-                                <label for="learningDate">Date Created</label>
-                                <div class="input-with-icon">
-                                    <i class="fas fa-calendar"></i>
-                                    <input id="learningDate" type="date" required>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-actions">
-                            <button type="button" class="btn-primary" id="saveLearningExperienceBtn">
-                                <i class="fas fa-save"></i> Save Learning Experience
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Live Preview -->
-                <div id="learningPreview" class="experience-card" style="display:none;"></div>
-
-                <div class="learning-experiences-list" id="learningExperiencesList">
-                    <div class="loading-indicator">Loading learning experiences...</div>
-                </div>
-            </section>
-
-        </div>
-
         <!-- Resources Tab -->
-        <div id="resources-tab" class="learning-tab-content">
-            <div class="resources-controls card">
-                <div class="controls-row">
-                    <div class="event-selector">
-                        <label for="resourceEvent"><i class="fas fa-filter"></i> Select Event</label>
-                        <div class="select-wrapper">
-                            <select id="resourceEvent" class="styled-select">
-                                <option value="">Choose an event to explore...</option>
-                            </select>
-                            <i class="fas fa-chevron-down select-arrow"></i>
-                        </div>
-                    </div>
-                    <div class="event-actions">
-                        <a id="resourceEventDetail" class="btn-secondary" href="#" target="_blank">
-                            <i class="fas fa-external-link-alt"></i> 
-                            <span>Event Detail</span>
-                        </a>
-                    </div>
+        <div id="resources-tab" class="learning-tab-content active">
+            <!-- Event Tabs -->
+            <div class="event-tabs-container">
+                <div class="event-tabs" id="eventTabs">
+                    <div class="loading-indicator"><i class="fas fa-spinner fa-spin"></i><p>Loading events...</p></div>
                 </div>
             </div>
 
-            <!-- Reuse modules UI container -->
-            <div class="modules-container">
-                <div class="modules-header">
-                    <h3>Learning Path</h3>
-                    <div class="modules-progress">
-                        <div class="progress-info"><span id="modulesCompleted">0</span> / <span id="totalModules">0</span> completed</div>
-                        <div class="progress-bar-container"><div id="modulesProgressBar" class="progress-bar-fill"></div></div>
+            <!-- Resources Content (event-specific) -->
+            <div id="resourcesContent">
+                <!-- Google Classroom Section -->
+                <section class="resource-section">
+                    <div class="section-header">
+                        <h3><i class="fas fa-chalkboard-teacher"></i> Google Classroom</h3>
+                    </div>
+                    <div class="classroom-code-section">
+                        <label for="classroomCode">Join Code:</label>
+                        <div class="editable-field">
+                            <input type="text" id="classroomCode" class="editable-input" placeholder="Enter Google Classroom join code..." />
+                            <button id="saveClassroomCode" class="btn-icon"><i class="fas fa-save"></i></button>
+                        </div>
+                    </div>
+                </section>
+
+            <!-- Topics Section -->
+            <section class="resource-section">
+                <div class="section-header">
+                    <h3><i class="fas fa-sitemap"></i> Topics</h3>
+                    <button id="saveTopicsBtn" class="btn-primary btn-sm"><i class="fas fa-save"></i> Save</button>
+                </div>
+                <div class="topics-editor-container">
+                    <div id="topicsToolbar" class="topics-toolbar">
+                        <span class="ql-formats">
+                            <select class="ql-header" title="Header">
+                                <option value="1">Heading 1</option>
+                                <option value="2">Heading 2</option>
+                                <option value="3">Heading 3</option>
+                                <option selected>Normal</option>
+                            </select>
+                        </span>
+                        <span class="ql-formats">
+                            <button class="ql-bold" title="Bold"></button>
+                            <button class="ql-italic" title="Italic"></button>
+                            <button class="ql-underline" title="Underline"></button>
+                        </span>
+                        <span class="ql-formats">
+                            <select class="ql-color" title="Text Color"></select>
+                            <select class="ql-background" title="Background Color"></select>
+                        </span>
+                        <span class="ql-formats">
+                            <button class="ql-list" value="ordered" title="Numbered List"></button>
+                            <button class="ql-list" value="bullet" title="Bullet List"></button>
+                        </span>
+                        <span class="ql-formats">
+                            <button class="ql-link" title="Insert Link"></button>
+                            <button class="ql-image" title="Insert Image"></button>
+                        </span>
+                        <span class="ql-formats">
+                            <button class="ql-clean" title="Clear Formatting"></button>
+                        </span>
+                    </div>
+                    <div id="topicsEditor" class="topics-editor"></div>
+                </div>
+            </section>
+
+                <!-- Tests Section -->
+                <section class="resource-section">
+                    <div class="section-header">
+                        <h3><i class="fas fa-clipboard-check"></i> Tests</h3>
+                        <button id="addTestBtn" class="btn-primary btn-sm"><i class="fas fa-plus"></i> Add Test</button>
+                    </div>
+                    <div id="testsList" class="notes-list">
+                        <div class="empty-state"><i class="fas fa-info-circle"></i><p>Select an event to view tests</p></div>
+                    </div>
+                </section>
+
+                <!-- Resources Section -->
+                <section class="resource-section">
+                    <div class="section-header">
+                        <h3><i class="fas fa-link"></i> Resources</h3>
+                        <button id="addResourceBtn" class="btn-primary btn-sm"><i class="fas fa-plus"></i> Add Resource</button>
+                    </div>
+                    <div id="resourcesList" class="notes-list">
+                        <div class="empty-state"><i class="fas fa-info-circle"></i><p>Select an event to view resources</p></div>
+                    </div>
+                </section>
+
+                <!-- Notes & Binders Section -->
+                <section class="resource-section">
+                    <div class="section-header">
+                        <h3><i class="fas fa-sticky-note"></i> Notes & Binders</h3>
+                        <button id="addNoteBtn" class="btn-primary btn-sm"><i class="fas fa-plus"></i> Add Note</button>
+                    </div>
+                    <div id="notesList" class="notes-list">
+                        <div class="empty-state"><i class="fas fa-info-circle"></i><p>Select an event to view notes</p></div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Learning Modules Section -->
+            <section class="resource-section">
+                <div class="section-header">
+                    <h3><i class="fas fa-book"></i> Learning Modules</h3>
+                    <a id="resourceEventDetail" class="btn-secondary" href="#" target="_blank" style="display: none;">
+                        <i class="fas fa-external-link-alt"></i> 
+                        <span>Event Detail</span>
+                    </a>
+                </div>
+
+                <!-- Reuse modules UI container -->
+                <div class="modules-container">
+                    <div class="modules-header">
+                        <h3>Learning Path</h3>
+                        <div class="modules-progress">
+                            <div class="progress-info"><span id="modulesCompleted">0</span> / <span id="totalModules">0</span> completed</div>
+                            <div class="progress-bar-container"><div id="modulesProgressBar" class="progress-bar-fill"></div></div>
+                        </div>
+                    </div>
+                    <div class="learning-path">
+                        <div id="modulesPath" class="modules-path">
+                            <div class="empty-state"><i class="fas fa-info-circle"></i><p>Select an event to view learning modules</p></div>
+                        </div>
                     </div>
                 </div>
-                <div class="learning-path">
-                    <div id="modulesPath" class="modules-path"></div>
-                </div>
-            </div>
+            </section>
             
             <!-- Module Side Panel -->
             <div id="moduleSidePanel" class="module-side-panel">
@@ -207,6 +151,88 @@
                     <!-- Module content will be loaded here -->
                 </div>
             </div>
+
+
+            <!-- Overlay for edit panels -->
+            <div id="editPanelOverlay" class="edit-panel-overlay"></div>
+
+            <!-- Test Edit Panel (Slide-in) -->
+            <div id="testEditPanel" class="edit-panel">
+                <div class="edit-panel-header">
+                    <h3 id="testEditTitle">Add Test</h3>
+                    <button class="close-edit-panel" onclick="closeTestEditPanel()"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="edit-panel-body">
+                    <div class="form-row">
+                        <label for="testTitle">Title</label>
+                        <input type="text" id="testTitle" class="form-input" placeholder="Enter test title..." />
+                    </div>
+                    <div class="form-row">
+                        <label for="testDescription">Description</label>
+                        <textarea id="testDescription" class="form-textarea" rows="3" placeholder="Enter description..."></textarea>
+                    </div>
+                    <div class="form-row">
+                        <label for="testLink">Test Link</label>
+                        <input type="url" id="testLink" class="form-input" placeholder="https://..." />
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" id="saveTestBtn" class="btn-primary">Save</button>
+                        <button type="button" onclick="closeTestEditPanel()" class="btn-secondary">Cancel</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resource Edit Panel (Slide-in) -->
+            <div id="resourceEditPanel" class="edit-panel">
+                <div class="edit-panel-header">
+                    <h3 id="resourceEditTitle">Add Resource</h3>
+                    <button class="close-edit-panel" onclick="closeResourceEditPanel()"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="edit-panel-body">
+                    <div class="form-row">
+                        <label for="resourceTitle">Title</label>
+                        <input type="text" id="resourceTitle" class="form-input" placeholder="Enter resource title..." />
+                    </div>
+                    <div class="form-row">
+                        <label for="resourceDescription">Description</label>
+                        <textarea id="resourceDescription" class="form-textarea" rows="3" placeholder="Enter description..."></textarea>
+                    </div>
+                    <div class="form-row">
+                        <label for="resourceLink">Resource Link</label>
+                        <input type="url" id="resourceLink" class="form-input" placeholder="https://..." />
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" id="saveResourceBtn" class="btn-primary">Save</button>
+                        <button type="button" onclick="closeResourceEditPanel()" class="btn-secondary">Cancel</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Note Edit Panel (Slide-in) -->
+            <div id="noteEditPanel" class="edit-panel">
+                <div class="edit-panel-header">
+                    <h3 id="noteEditTitle">Add Note</h3>
+                    <button class="close-edit-panel" onclick="closeNoteEditPanel()"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="edit-panel-body">
+                    <div class="form-row">
+                        <label for="noteTitle">Title</label>
+                        <input type="text" id="noteTitle" class="form-input" placeholder="Enter note title..." />
+                    </div>
+                    <div class="form-row">
+                        <label for="noteDescription">Description</label>
+                        <textarea id="noteDescription" class="form-textarea" rows="3" placeholder="Enter description..."></textarea>
+                    </div>
+                    <div class="form-row">
+                        <label for="noteLink">Google Doc Link</label>
+                        <input type="url" id="noteLink" class="form-input" placeholder="https://docs.google.com/document/d/..." />
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" id="saveNoteBtn" class="btn-primary">Save</button>
+                        <button type="button" onclick="closeNoteEditPanel()" class="btn-secondary">Cancel</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -214,10 +240,7 @@
 
 {% block extra_css %}
 <style>
-    .learning-tabs { display:flex; gap:10px; background:#fff; padding:8px; border-radius:10px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); margin-top: -40px; margin-bottom: 20px; }
-    .learning-tab { flex:1; padding:12px 16px; border:none; background:#f7f7f7; border-radius:8px; cursor:pointer; font-weight:600; }
-    .learning-tab.active { background: var(--accent-color); color:#fff; }
-    .learning-tab-content { display:none; background:#fff; border-radius:12px; padding:24px; box-shadow: 0 5px 20px rgba(0,0,0,0.06); }
+    .learning-tab-content { background:#fff; border-radius:12px; padding:24px; box-shadow: 0 5px 20px rgba(0,0,0,0.06); }
     .learning-tab-content.active { display:block; }
     .lean-intro { margin-bottom: 16px; }
     .portfolio-section { margin-top: 20px; }
@@ -694,24 +717,80 @@
     .q-label { font-weight:600; color:#374151; margin-bottom:6px; }
     .q-row { display:flex; flex-direction:column; gap:6px; border:1px solid #edf2f7; border-radius:10px; padding:10px; background:#fafafa; margin-bottom:10px; }
     @media (max-width: 900px) { .two-col { grid-template-columns: 1fr; } }
+
+    /* Event Tabs */
+    .event-tabs-container { margin-bottom: 24px; }
+    .event-tabs { display: flex; gap: 8px; background: #fff; padding: 8px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); flex-wrap: wrap; }
+    .event-tab { padding: 12px 20px; border: none; background: #f7f7f7; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease; color: #555; }
+    .event-tab:hover { background: #e9ecef; }
+    .event-tab.active { background: var(--accent-color); color: #fff; box-shadow: 0 4px 12px rgba(79,70,229,0.3); }
+
+    /* Resource Sections */
+    .resource-section { margin-bottom: 32px; padding: 24px; background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    .resource-section .section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid #e2e8f0; }
+    .resource-section .section-header h3 { margin: 0; color: var(--primary-color); font-size: 1.3rem; display: flex; align-items: center; gap: 10px; }
+    .btn-sm { padding: 8px 16px; font-size: 0.9rem; }
+
+    /* Classroom Code */
+    .classroom-code-section { display: flex; align-items: center; gap: 12px; }
+    .classroom-code-section label { font-weight: 600; color: var(--text-dark); min-width: 100px; }
+    .editable-field { display: flex; gap: 8px; flex: 1; }
+    .editable-input { flex: 1; padding: 12px 16px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem; transition: all 0.3s ease; }
+    .editable-input:focus { outline: none; border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(79,70,229,0.1); }
+    .btn-icon { padding: 12px 16px; background: var(--primary-color); color: #fff; border: none; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; }
+    .btn-icon:hover { background: var(--accent-color); transform: translateY(-2px); }
+
+    /* Topics Editor */
+    .topics-editor-container { margin-top: 16px; border: 2px solid #e2e8f0; border-radius: 8px; overflow: hidden; }
+    .topics-toolbar { background: #f8fafc; border-bottom: 1px solid #e2e8f0; padding: 8px; }
+    .topics-editor { min-height: 400px; background: #fff; }
+
+    /* Notes List */
+    .notes-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; margin-top: 16px; }
+    .note-card { padding: 20px; background: #fff; border-radius: 10px; border: 1px solid #e2e8f0; transition: all 0.3s ease; position: relative; }
+    .note-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); transform: translateY(-2px); }
+    .note-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+    .note-card-title { font-weight: 600; color: var(--primary-color); font-size: 1.1rem; }
+    .note-card-description { color: #666; margin-bottom: 12px; line-height: 1.5; }
+    .note-card-link { display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; background: var(--primary-color); color: #fff; border-radius: 6px; text-decoration: none; transition: all 0.2s ease; }
+    .note-card-link:hover { background: var(--accent-color); transform: translateY(-2px); }
+    .note-card-actions { position: absolute; top: 16px; right: 16px; display: flex; gap: 6px; opacity: 0; transition: opacity 0.2s ease; }
+    .note-card:hover .note-card-actions { opacity: 1; }
+    .note-card-actions button { padding: 6px 10px; background: transparent; border: 1px solid #e2e8f0; border-radius: 6px; cursor: pointer; color: #666; transition: all 0.2s ease; font-size: 0.85rem; }
+    .note-card-actions button:hover { background: var(--primary-color); color: #fff; border-color: var(--primary-color); transform: scale(1.05); }
+
+    /* Edit Panel Styles (Slide-in) */
+    .edit-panel { position: fixed; top: 0; right: -450px; width: 450px; height: 100vh; background: #fff; box-shadow: -5px 0 25px rgba(0,0,0,0.15); z-index: 1000; transition: right 0.3s ease; overflow-y: auto; }
+    .edit-panel.active { right: 0; }
+    .edit-panel-header { display: flex; justify-content: space-between; align-items: center; padding: 20px 24px; border-bottom: 1px solid #e2e8f0; background: linear-gradient(135deg, var(--primary-color), var(--accent-color)); color: #fff; }
+    .edit-panel-header h3 { margin: 0; font-size: 1.3rem; }
+    .close-edit-panel { background: rgba(255,255,255,0.2); border: none; color: #fff; width: 35px; height: 35px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+    .close-edit-panel:hover { background: rgba(255,255,255,0.3); transform: scale(1.1); }
+    .edit-panel-body { padding: 24px; }
+    .form-input, .form-textarea { width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem; transition: all 0.3s ease; box-sizing: border-box; }
+    .form-input:focus, .form-textarea:focus { outline: none; border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(79,70,229,0.1); }
+    .form-textarea { resize: vertical; }
+    .links-list { margin-bottom: 12px; }
+    .link-item { display: flex; gap: 8px; margin-bottom: 8px; align-items: center; }
+    .link-item input { flex: 1; padding: 8px; border: 1px solid #e2e8f0; border-radius: 6px; }
+    .link-item button { padding: 8px 12px; background: #ef4444; color: #fff; border: none; border-radius: 6px; cursor: pointer; transition: all 0.2s; }
+    .link-item button:hover { background: #dc2626; }
+    
+    /* Overlay for edit panel */
+    .edit-panel-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); z-index: 999; }
+    .edit-panel-overlay.active { display: block; }
 </style>
 {% endblock %}
 
 {% block extra_js %}
+<!-- Quill CSS -->
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+<!-- Quill JS -->
+<script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
         if (!currentUser) { window.location.href = '{{ url_for("login") }}'; return; }
-
-        // Tabs
-        const tabButtons = document.querySelectorAll('.learning-tab');
-        const tabContents = document.querySelectorAll('.learning-tab-content');
-        tabButtons.forEach(btn => btn.addEventListener('click', () => {
-            tabButtons.forEach(b => b.classList.remove('active'));
-            tabContents.forEach(c => c.classList.remove('active'));
-            btn.classList.add('active');
-            document.getElementById(btn.dataset.tab + '-tab').classList.add('active');
-        }));
 
         // State
         let userEvents = [];
@@ -719,10 +798,17 @@
         let userProgress = {};
         let userConversations = [];
         let allTests = [];
+        let tests = [];
+        let resources = [];
+        let notes = [];
+        let currentEditingTest = null;
+        let currentEditingResource = null;
+        let currentEditingNote = null;
+        let selectedEvent = null;
+        let topicsEditor = null;
 
         // Init
         loadUserEvents().then(() => {
-            initPortfolio();
             initResources();
         });
         
@@ -732,310 +818,6 @@
         // Close module side panel when clicking outside
         document.addEventListener('click', handleOutsideClick);
 
-        // Portfolio
-        function initPortfolio() {
-            loadMedals();
-            loadDiagnostics();
-            initLearningPortfolio();
-            const schedBtn = document.getElementById('scheduleDiagnosticBtn');
-            if (schedBtn) schedBtn.addEventListener('click', () => { window.location.href = '/calendar'; });
-        }
-
-        // Helper function to normalize names
-        function norm(s) {
-            return (s || '').toString().trim().toLowerCase().replace(/\s+/g, ' ');
-        }
-
-        async function loadMedals() {
-            const medalsList = document.getElementById('medalsList');
-            try {
-                // Pull competitions and filter by user participation as in competitions.html
-                const compsRes = await fetch('/api/Competitions');
-                const compsRaw = await compsRes.json();
-                const competitions = compsRaw.map(item => { const id = Object.keys(item)[0]; return { id, ...item[id] }; });
-                const userId = currentUser.id || currentUser.uid || currentUser.userId;
-                const results = [];
-                competitions.forEach(competition => {
-                    if (!competition.results || !competition.teamPlacement) return;
-                    
-                    // Collect ALL participations for this user (by id OR full name)
-                    const userParticipations = (competition.teamPlacement || []).filter(placement => {
-                        const participants = placement.participants || [];
-                        if (participants.includes(userId)) return true;
-                        // Fallback: check if any participant name matches user's full name
-                        const userFullName = norm((currentUser.firstName || '') + ' ' + (currentUser.lastName || ''));
-                        const lowerNames = participants.map(p => norm(p));
-                        return userFullName && lowerNames.includes(userFullName);
-                    });
-                    
-                    if (userParticipations.length === 0) return;
-                    
-                    // Process each participation
-                    userParticipations.forEach(placement => {
-                        const eventResult = (competition.results.eventResults || []).find(r => r.eventName === placement.event && r.team === placement.team);
-                        if (!eventResult) return;
-                        results.push({
-                            competition: competition.name,
-                            date: competition.date,
-                            event: eventResult.eventName,
-                            placement: eventResult.placement,
-                            outOf: eventResult.outOf,
-                            team: placement.team,
-                            medal: eventResult.placement <= 3,
-                            medalType: eventResult.placement === 1 ? 'gold' : eventResult.placement === 2 ? 'silver' : eventResult.placement === 3 ? 'bronze' : null
-                        });
-                    });
-                });
-                results.sort((a,b) => new Date(b.date) - new Date(a.date));
-                if (results.length === 0) { medalsList.innerHTML = '<div class="empty-state"><i class="fas fa-medal"></i><p>No medals yet</p></div>'; return; }
-                medalsList.innerHTML = '';
-                results.forEach(r => {
-                    const div = document.createElement('div');
-                    div.className = 'result-item';
-                    const medalIcon = r.medal ? `<i class="fas fa-medal" style="color:${r.medalType==='gold'?'#ffd700':r.medalType==='silver'?'#c0c0c0':'#cd7f32'}"></i>` : '';
-                    const date = new Date(r.date).toLocaleDateString('en-US', { year:'numeric', month:'short', day:'numeric' });
-                    div.innerHTML = `
-                        <div style="width:60px; text-align:center;">${medalIcon}</div>
-                        <div style="flex:1;">
-                            <div style="font-weight:600;">${r.competition}</div>
-                            <div style="color:var(--accent-color); font-weight:500;">${r.event} <span class="team-badge">Team ${r.team}</span></div>
-                            <div style="color:#777;">${date}</div>
-                        </div>
-                        <div style="text-align:right; min-width:90px;">
-                            <div style="font-weight:700; font-size:1.2rem;">${r.placement}<span style="font-size:0.8rem; color:#777;">${ordinal(r.placement)}</span></div>
-                            <div style="color:#777;">out of ${r.outOf}</div>
-                        </div>`;
-                    medalsList.appendChild(div);
-                });
-            } catch (e) {
-                medalsList.innerHTML = '<div class="empty-state">Failed to load medals</div>';
-            }
-        }
-
-        function ordinal(n){ const j=n%10,k=n%100; if(j==1&&k!=11)return 'st'; if(j==2&&k!=12)return 'nd'; if(j==3&&k!=13)return 'rd'; return 'th'; }
-
-        async function loadDiagnostics() {
-            const diagnosticsList = document.getElementById('diagnosticsList');
-            try {
-                const userId = currentUser.id || currentUser.uid || currentUser.userId;
-                const res = await fetch(`/api/diag-results/${encodeURIComponent(userId)}`);
-                if (!res.ok) {
-                    if (res.status === 404) {
-                        diagnosticsList.innerHTML = '<div class="empty-state"><i class="fas fa-file-alt"></i><p>No diagnostics recorded yet.</p></div>';
-                    } else {
-                        diagnosticsList.innerHTML = '<div class="empty-state">Failed to load diagnostics</div>';
-                    }
-                    return;
-                }
-                const data = await res.json();
-                
-                if (!data.eventsTaken || data.eventsTaken.length === 0) {
-                    diagnosticsList.innerHTML = '<div class="empty-state"><i class="fas fa-file-alt"></i><p>No diagnostics recorded yet.</p></div>';
-                    return;
-                }
-                
-                diagnosticsList.innerHTML = '';
-                data.eventsTaken.forEach(event => {
-                    const div = document.createElement('div');
-                    div.className = 'diag-item';
-                    
-                    const eventDetail = data.eventDetails && data.eventDetails[event.name];
-                    const rank = eventDetail ? eventDetail.rank : null;
-                    const percentile = eventDetail ? eventDetail.percentile.toFixed(1) : null;
-                    const outOf = eventDetail && data.eventTotals ? data.eventTotals[event.name] : null;
-                    
-                    let rankDisplay = '';
-                    if (rank && outOf) {
-                        rankDisplay = `<div style="text-align:right; min-width:120px;">
-                            <div style="font-weight:700; font-size:1.1rem;">${rank}<span style="font-size:0.8rem; color:#777;">${ordinal(rank)}</span></div>
-                            <div style="color:#777;">out of ${outOf}</div>
-                            ${percentile ? `<div style="color:#777; font-size:0.9rem;">${percentile}th percentile</div>` : ''}
-                        </div>`;
-                    }
-                    
-                    div.innerHTML = `
-                        <div style="flex:1;">
-                            <div style="font-weight:600;">${event.name} '25 Entry Diagnostic</div>
-                            <div style="color:#777; font-size:0.9rem;">Score: ${event.score.toFixed(2)}</div>
-                        </div>
-                        ${rankDisplay}`;
-                    diagnosticsList.appendChild(div);
-                });
-            } catch (e) {
-                console.error('Error loading diagnostics:', e);
-                diagnosticsList.innerHTML = '<div class="empty-state">Failed to load diagnostics</div>';
-            }
-        }
-
-        function initLearningPortfolio() {
-            // Initialize event dropdown
-            const eventSelect = document.getElementById('learningEvent');
-            if (eventSelect) {
-                const eventOptions = `<option value="">Select an event...</option>` + userEvents.map(e => `<option value="${e.eventName}">${e.eventName}</option>`).join('');
-                eventSelect.innerHTML = eventOptions;
-            }
-
-            // Initialize description character counter
-            const descInput = document.getElementById('learningDescription');
-            const descCount = document.getElementById('descCount');
-            if (descInput && descCount) {
-                descInput.addEventListener('input', () => {
-                    descCount.textContent = `${descInput.value.length} / 300`;
-                });
-                descCount.textContent = `${descInput.value.length} / 300`;
-            }
-
-            // Set default date to today
-            const dateInput = document.getElementById('learningDate');
-            if (dateInput) {
-                const today = new Date().toISOString().split('T')[0];
-                dateInput.value = today;
-            }
-
-            // Live preview
-            const preview = document.getElementById('learningPreview');
-            const typeSel = document.getElementById('learningType');
-            const docInput = document.getElementById('googleDocLink');
-            function renderPreview(){
-                const typeDisplay = (typeSel.value || '').replace(/_/g,' ').replace(/\b\w/g, m=>m.toUpperCase()) || 'Learning Experience';
-                const dateStr = (dateInput && dateInput.value) ? new Date(dateInput.value).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}) : '';
-                const ev = eventSelect ? eventSelect.value : '';
-                const desc = descInput ? descInput.value : '';
-                if (!typeSel.value && !desc && !docInput.value) { preview.style.display='none'; return; }
-                preview.style.display='block';
-                preview.innerHTML = `
-                    <div class="experience-header">
-                        <div class="experience-type">${typeDisplay}</div>
-                        <div class="experience-date">${dateStr}</div>
-                    </div>
-                    ${ev?`<div class="experience-event"><i class="fas fa-flask"></i> ${ev}</div>`:''}
-                    ${desc?`<div class="experience-description">${desc}</div>`:''}
-                    ${docInput.value?`<div class="experience-actions"><a class="btn-secondary" target="_blank" href="${docInput.value}"><i class="fas fa-external-link-alt"></i> View Document</a></div>`:''}
-                `;
-            }
-            [typeSel,eventSelect,descInput,dateInput,docInput].forEach(el=>{ if(el) el.addEventListener('input', renderPreview); });
-            renderPreview();
-
-            // Save button event listener
-            const saveBtn = document.getElementById('saveLearningExperienceBtn');
-            if (saveBtn) {
-                saveBtn.addEventListener('click', async () => {
-                    const type = document.getElementById('learningType').value;
-                    const event = document.getElementById('learningEvent').value;
-                    const googleDocLink = document.getElementById('googleDocLink').value;
-                    const description = document.getElementById('learningDescription').value;
-                    const date = document.getElementById('learningDate').value;
-
-                    if (!type) {
-                        showToast('Please select a learning experience type.');
-                        return;
-                    }
-                    if (!googleDocLink) {
-                        showToast('Please provide a Google Doc link.');
-                        return;
-                    }
-                    if (!date) {
-                        showToast('Please select a date.');
-                        return;
-                    }
-
-                    try {
-                        // button loading
-                        saveBtn.disabled = true; 
-                        const prevHtml = saveBtn.innerHTML;
-                        saveBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Saving...';
-                        const payload = {
-                            userId: currentUser.id,
-                            kind: 'learning_experience',
-                            type: type,
-                            eventName: event || '',
-                            googleDocLink: googleDocLink.trim(),
-                            description: description.trim(),
-                            dateCreated: date,
-                            createdAt: new Date().toISOString()
-                        };
-
-                        const res = await fetch('/api/Portfolio', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(payload)
-                        });
-
-                        if (!res.ok) {
-                            const error = await res.json().catch(() => ({ error: 'Failed to save' }));
-                            throw new Error(error.error || 'Failed to save');
-                        }
-
-                        showToast('Learning experience saved successfully!');
-                        
-                        // Clear form
-                        document.getElementById('learningType').value = '';
-                        document.getElementById('learningEvent').value = '';
-                        document.getElementById('googleDocLink').value = '';
-                        document.getElementById('learningDescription').value = '';
-                        document.getElementById('learningDate').value = today;
-                        descCount.textContent = '0 / 300';
-                        renderPreview();
-
-                        // Reload the list
-                        loadLearningExperiences();
-                    } catch (err) {
-                        showToast('Failed to save: ' + err.message);
-                    } finally {
-                        saveBtn.disabled = false; saveBtn.innerHTML = '<i class="fas fa-save"></i> Save Learning Experience';
-                    }
-                });
-            }
-
-            // Load existing experiences
-            loadLearningExperiences();
-        }
-
-        async function loadLearningExperiences() {
-            const list = document.getElementById('learningExperiencesList');
-            if (!list) return;
-            
-            list.innerHTML = '<div class="experience-card"><div class="skeleton skeleton-line" style="width:40%"></div><div class="skeleton skeleton-line" style="width:70%"></div><div class="skeleton skeleton-line" style="width:55%"></div></div>';
-            
-            try {
-                const res = await fetch(`/api/Portfolio/user/${encodeURIComponent(currentUser.id)}?kind=learning_experience`);
-                const items = res.ok ? await res.json() : [];
-                
-                if (!items.length) {
-                    list.innerHTML = '<div class="empty-state"><i class="fas fa-graduation-cap"></i><p>No learning experiences yet. Start documenting your learning journey!</p></div>';
-                    return;
-                }
-
-                list.innerHTML = '';
-                items.forEach(item => {
-                    const dateStr = item.dateCreated ? new Date(item.dateCreated).toLocaleDateString('en-US', { 
-                        month: 'short', 
-                        day: 'numeric', 
-                        year: 'numeric' 
-                    }) : '';
-                    
-                    const typeDisplay = item.type ? item.type.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) : 'Learning Experience';
-                    
-                    list.innerHTML += `
-                        <div class="experience-card" style="animation: fadeIn .3s ease">
-                            <div class="experience-header">
-                                <div class="experience-type">${typeDisplay}</div>
-                                <div class="experience-date">${dateStr}</div>
-                            </div>
-                            ${item.eventName ? `<div class="experience-event"><i class="fas fa-flask"></i> ${item.eventName}</div>` : ''}
-                            ${item.description ? `<div class="experience-description">${item.description}</div>` : ''}
-                            <div class="experience-actions">
-                                <a href="${item.googleDocLink}" target="_blank" class="btn-secondary">
-                                    <i class="fas fa-external-link-alt"></i> View Document
-                                </a>
-                            </div>
-                        </div>
-                    `;
-                });
-            } catch (e) {
-                list.innerHTML = '<div class="empty-state">Failed to load learning experiences.</div>';
-            }
-        }
 
         function showToast(msg){
             let t = document.getElementById('toast');
@@ -1046,14 +828,707 @@
 
         // Resources
         function initResources() {
-            const resourceEvent = document.getElementById('resourceEvent');
-            resourceEvent.innerHTML = `<option value="">Choose an event to explore...</option>` + userEvents.map(e => `<option value="${e.eventName}">${e.eventName}</option>`).join('');
-            resourceEvent.addEventListener('change', async (e) => {
-                const eventName = e.target.value;
-                if (!eventName) { clearModulesUI(); return; }
-                document.getElementById('resourceEventDetail').href = `/event/${slugify(eventName)}`;
-                await loadModulesForEvent(eventName);
+            // Render event tabs
+            renderEventTabs();
+            
+            // Event listeners
+            document.getElementById('saveClassroomCode').addEventListener('click', saveClassroomCode);
+            document.getElementById('addTestBtn').addEventListener('click', () => openTestEditPanel());
+            document.getElementById('addResourceBtn').addEventListener('click', () => openResourceEditPanel());
+            document.getElementById('addNoteBtn').addEventListener('click', () => openNoteEditPanel());
+            document.getElementById('saveTopicsBtn').addEventListener('click', saveTopicsContent);
+            document.getElementById('saveTestBtn').addEventListener('click', saveTest);
+            document.getElementById('saveResourceBtn').addEventListener('click', saveResource);
+            document.getElementById('saveNoteBtn').addEventListener('click', saveNote);
+            
+            // Initialize topics editor
+            initTopicsEditor();
+            
+            // Close panels when clicking overlay
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('edit-panel-overlay')) {
+                    closeTestEditPanel();
+                    closeResourceEditPanel();
+                    closeNoteEditPanel();
+                }
             });
+        }
+        
+        function renderEventTabs() {
+            const eventTabs = document.getElementById('eventTabs');
+            if (!userEvents || userEvents.length === 0) {
+                eventTabs.innerHTML = '<div class="empty-state"><i class="fas fa-info-circle"></i><p>No events found. You need to be assigned to an event first.</p></div>';
+                document.getElementById('resourcesContent').style.display = 'none';
+                return;
+            }
+            
+            eventTabs.innerHTML = '';
+            userEvents.forEach((event, index) => {
+                const tab = document.createElement('button');
+                tab.className = 'event-tab';
+                const eventName = event.eventName || event.id || event.name || 'Unknown Event';
+                if (index === 0) {
+                    tab.classList.add('active');
+                    selectedEvent = eventName;
+                }
+                tab.textContent = eventName;
+                tab.dataset.eventName = eventName;
+                tab.addEventListener('click', () => switchEvent(eventName));
+                eventTabs.appendChild(tab);
+            });
+            
+            // Load resources for first event
+            if (selectedEvent) {
+                loadEventResources(selectedEvent).catch(e => console.error('Error loading event resources:', e));
+            }
+        }
+        
+        async function switchEvent(eventName) {
+            selectedEvent = eventName;
+            
+            // Update active tab
+            document.querySelectorAll('.event-tab').forEach(tab => {
+                tab.classList.remove('active');
+                if (tab.dataset.eventName === eventName) {
+                    tab.classList.add('active');
+                }
+            });
+            
+            // Load resources for selected event
+            await loadEventResources(eventName);
+        }
+        
+        async function loadEventResources(eventName) {
+            loadClassroomCode(eventName);
+            // Ensure editor is initialized before loading content
+            if (!topicsEditor) {
+                initTopicsEditor();
+                // Wait a bit for Quill to fully initialize
+                await new Promise(resolve => setTimeout(resolve, 100));
+            }
+            loadTopicsContent(eventName);
+            loadTests(eventName);
+            loadResources(eventName);
+            loadNotes(eventName);
+            loadModulesForEvent(eventName);
+            document.getElementById('resourceEventDetail').href = `/event/${slugify(eventName)}`;
+            document.getElementById('resourceEventDetail').style.display = 'inline-flex';
+        }
+        
+        // Classroom Code
+        async function loadClassroomCode(eventName) {
+            if (!eventName) return;
+            try {
+                const res = await fetch(`/api/LearningResources/classroom-code?eventName=${encodeURIComponent(eventName)}`);
+                if (res.ok) {
+                    const data = await res.json();
+                    document.getElementById('classroomCode').value = data.code || '';
+                }
+            } catch (e) {
+                console.error('Error loading classroom code:', e);
+            }
+        }
+        
+        async function saveClassroomCode() {
+            if (!selectedEvent) {
+                showToast('Please select an event first');
+                return;
+            }
+            const code = document.getElementById('classroomCode').value.trim();
+            try {
+                const res = await fetch('/api/LearningResources/classroom-code', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ code, eventName: selectedEvent })
+                });
+                if (res.ok) {
+                    showToast('Classroom code saved!');
+                } else {
+                    showToast('Failed to save classroom code');
+                }
+            } catch (e) {
+                console.error('Error saving classroom code:', e);
+                showToast('Failed to save classroom code');
+            }
+        }
+        
+        // Topics Editor
+        function initTopicsEditor() {
+            if (topicsEditor) return;
+            
+            const imageHandler = () => {
+                const input = document.createElement('input');
+                input.setAttribute('type', 'file');
+                input.setAttribute('accept', 'image/*');
+                input.click();
+                
+                input.onchange = () => {
+                    const file = input.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = (e) => {
+                            const range = topicsEditor.getSelection(true);
+                            topicsEditor.insertEmbed(range.index, 'image', e.target.result);
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                };
+            };
+            
+            topicsEditor = new Quill('#topicsEditor', {
+                modules: {
+                    toolbar: {
+                        container: '#topicsToolbar',
+                        handlers: { image: imageHandler }
+                    }
+                },
+                theme: 'snow',
+                placeholder: 'Start typing your topics content here...'
+            });
+        }
+        
+        async function loadTopicsContent(eventName) {
+            if (!eventName) {
+                console.log('loadTopicsContent: no eventName provided');
+                return;
+            }
+            
+            console.log('Loading topics content for event:', eventName);
+            
+            // Ensure editor is initialized
+            if (!topicsEditor) {
+                console.log('Editor not initialized, initializing now...');
+                initTopicsEditor();
+                // Wait for Quill to fully initialize
+                await new Promise(resolve => setTimeout(resolve, 200));
+            }
+            
+            if (!topicsEditor) {
+                console.error('Failed to initialize topics editor');
+                return;
+            }
+            
+            try {
+                const url = `/api/LearningResources/topics-content/${encodeURIComponent(eventName)}`;
+                console.log('Loading from URL:', url);
+                
+                const res = await fetch(url);
+                console.log('Load response:', { status: res.status, ok: res.ok });
+                
+                if (res.ok) {
+                    const data = await res.json();
+                    console.log('Loaded data:', { 
+                        hasContent: !!data.content, 
+                        contentLength: data.content?.length,
+                        contentPreview: data.content?.substring(0, 100)
+                    });
+                    
+                    if (data.content && data.content.trim() && data.content.trim() !== '<p><br></p>') {
+                        topicsEditor.root.innerHTML = data.content;
+                        console.log('Content loaded into editor');
+                    } else {
+                        topicsEditor.setContents([]);
+                        console.log('No content to load, cleared editor');
+                    }
+                } else if (res.status === 404) {
+                    // No content saved yet - that's okay
+                    console.log('No content found (404), clearing editor');
+                    topicsEditor.setContents([]);
+                } else {
+                    const errorData = await res.json().catch(() => ({}));
+                    console.error('Failed to load topics content:', res.status, errorData);
+                    topicsEditor.setContents([]);
+                }
+            } catch (e) {
+                console.error('Error loading topics content:', e);
+                if (topicsEditor) {
+                    topicsEditor.setContents([]);
+                }
+            }
+        }
+        
+        async function saveTopicsContent() {
+            if (!selectedEvent || !topicsEditor) {
+                console.error('Cannot save:', { selectedEvent, hasEditor: !!topicsEditor });
+                showToast('Please select an event first');
+                return;
+            }
+            
+            let content = topicsEditor.root.innerHTML;
+            console.log('Saving topics content:', { 
+                event: selectedEvent, 
+                contentLength: content?.length,
+                contentPreview: content?.substring(0, 100)
+            });
+            
+            if (!content || content.trim() === '<p><br></p>') {
+                // Empty content - still save it
+                content = '';
+            }
+            
+            const saveBtn = document.getElementById('saveTopicsBtn');
+            const originalHtml = saveBtn.innerHTML;
+            
+            saveBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Saving...';
+            saveBtn.disabled = true;
+            
+            try {
+                const url = `/api/LearningResources/topics-content/${encodeURIComponent(selectedEvent)}`;
+                console.log('Saving to URL:', url);
+                
+                const res = await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ content })
+                });
+                
+                console.log('Save response:', { status: res.status, ok: res.ok });
+                
+                if (res.ok) {
+                    const result = await res.json();
+                    console.log('Save successful:', result);
+                    showToast('Topics content saved!');
+                    // Verify it was saved by reloading
+                    setTimeout(async () => {
+                        console.log('Reloading content to verify...');
+                        await loadTopicsContent(selectedEvent);
+                    }, 500);
+                } else {
+                    const errorData = await res.json().catch(() => ({ error: 'Unknown error' }));
+                    console.error('Failed to save topics content:', res.status, errorData);
+                    showToast('Failed to save topics content: ' + (errorData.error || 'Unknown error'));
+                }
+            } catch (e) {
+                console.error('Error saving topics content:', e);
+                showToast('Failed to save topics content: ' + e.message);
+            } finally {
+                saveBtn.innerHTML = originalHtml;
+                saveBtn.disabled = false;
+            }
+        }
+        
+        // Tests
+        async function loadTests(eventName) {
+            if (!eventName) return;
+            const testsList = document.getElementById('testsList');
+            try {
+                const res = await fetch(`/api/LearningResources/tests?eventName=${encodeURIComponent(eventName)}`);
+                if (res.ok) {
+                    tests = await res.json();
+                    renderTests();
+                } else {
+                    testsList.innerHTML = '<div class="empty-state"><i class="fas fa-clipboard-check"></i><p>No tests yet. Add one to get started!</p></div>';
+                }
+            } catch (e) {
+                console.error('Error loading tests:', e);
+                testsList.innerHTML = '<div class="empty-state">Failed to load tests</div>';
+            }
+        }
+        
+        function renderTests() {
+            const testsList = document.getElementById('testsList');
+            if (!tests || tests.length === 0) {
+                testsList.innerHTML = '<div class="empty-state"><i class="fas fa-clipboard-check"></i><p>No tests yet. Add one to get started!</p></div>';
+                return;
+            }
+            
+            testsList.innerHTML = '';
+            tests.forEach(test => {
+                const testCard = document.createElement('div');
+                testCard.className = 'note-card';
+                testCard.innerHTML = `
+                    <div class="note-card-header">
+                        <div class="note-card-title">${test.title}</div>
+                    </div>
+                    <div class="note-card-actions">
+                        <button onclick="editTest('${test.id}')" title="Edit"><i class="fas fa-edit"></i></button>
+                        <button onclick="deleteTest('${test.id}')" title="Delete"><i class="fas fa-trash"></i></button>
+                    </div>
+                    ${test.description ? `<div class="note-card-description">${test.description}</div>` : ''}
+                    ${test.link ? `<a href="${test.link}" target="_blank" class="note-card-link"><i class="fas fa-external-link-alt"></i> Open Test</a>` : ''}
+                `;
+                testsList.appendChild(testCard);
+            });
+        }
+        
+        window.editTest = function(testId) {
+            const test = tests.find(t => t.id === testId);
+            if (test) {
+                currentEditingTest = test;
+                document.getElementById('testTitle').value = test.title;
+                document.getElementById('testDescription').value = test.description || '';
+                document.getElementById('testLink').value = test.link || '';
+                document.getElementById('testEditTitle').textContent = 'Edit Test';
+                document.getElementById('testEditPanel').classList.add('active');
+                document.getElementById('editPanelOverlay').classList.add('active');
+            }
+        };
+        
+        window.deleteTest = async function(testId) {
+            if (!confirm('Are you sure you want to delete this test?')) return;
+            try {
+                const res = await fetch(`/api/LearningResources/tests/${testId}?eventName=${encodeURIComponent(selectedEvent)}`, { method: 'DELETE' });
+                if (res.ok) {
+                    showToast('Test deleted');
+                    loadTests(selectedEvent);
+                } else {
+                    showToast('Failed to delete test');
+                }
+            } catch (e) {
+                console.error('Error deleting test:', e);
+                showToast('Failed to delete test');
+            }
+        };
+        
+        function openTestEditPanel() {
+            if (!selectedEvent) {
+                showToast('Please select an event first');
+                return;
+            }
+            currentEditingTest = null;
+            document.getElementById('testTitle').value = '';
+            document.getElementById('testDescription').value = '';
+            document.getElementById('testLink').value = '';
+            document.getElementById('testEditTitle').textContent = 'Add Test';
+            document.getElementById('testEditPanel').classList.add('active');
+            document.getElementById('editPanelOverlay').classList.add('active');
+        }
+        
+        function closeTestEditPanel() {
+            document.getElementById('testEditPanel').classList.remove('active');
+            document.getElementById('editPanelOverlay').classList.remove('active');
+            currentEditingTest = null;
+        }
+        
+        window.closeTestEditPanel = closeTestEditPanel;
+        
+        async function saveTest() {
+            if (!selectedEvent) {
+                showToast('Please select an event first');
+                return;
+            }
+            const title = document.getElementById('testTitle').value.trim();
+            if (!title) {
+                showToast('Please enter a test title');
+                return;
+            }
+            
+            const testData = {
+                title,
+                description: document.getElementById('testDescription').value.trim(),
+                link: document.getElementById('testLink').value.trim(),
+                eventName: selectedEvent
+            };
+            
+            try {
+                let res;
+                if (currentEditingTest && currentEditingTest.id) {
+                    res = await fetch(`/api/LearningResources/tests/${currentEditingTest.id}`, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(testData)
+                    });
+                } else {
+                    res = await fetch('/api/LearningResources/tests', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(testData)
+                    });
+                }
+                
+                if (res.ok) {
+                    showToast('Test saved!');
+                    closeTestEditPanel();
+                    loadTests(selectedEvent);
+                } else {
+                    showToast('Failed to save test');
+                }
+            } catch (e) {
+                console.error('Error saving test:', e);
+                showToast('Failed to save test');
+            }
+        }
+        
+        // Resources
+        async function loadResources(eventName) {
+            if (!eventName) return;
+            const resourcesList = document.getElementById('resourcesList');
+            try {
+                const res = await fetch(`/api/LearningResources/resources?eventName=${encodeURIComponent(eventName)}`);
+                if (res.ok) {
+                    resources = await res.json();
+                    renderResources();
+                } else {
+                    resourcesList.innerHTML = '<div class="empty-state"><i class="fas fa-link"></i><p>No resources yet. Add one to get started!</p></div>';
+                }
+            } catch (e) {
+                console.error('Error loading resources:', e);
+                resourcesList.innerHTML = '<div class="empty-state">Failed to load resources</div>';
+            }
+        }
+        
+        function renderResources() {
+            const resourcesList = document.getElementById('resourcesList');
+            if (!resources || resources.length === 0) {
+                resourcesList.innerHTML = '<div class="empty-state"><i class="fas fa-link"></i><p>No resources yet. Add one to get started!</p></div>';
+                return;
+            }
+            
+            resourcesList.innerHTML = '';
+            resources.forEach(resource => {
+                const resourceCard = document.createElement('div');
+                resourceCard.className = 'note-card';
+                resourceCard.innerHTML = `
+                    <div class="note-card-header">
+                        <div class="note-card-title">${resource.title}</div>
+                    </div>
+                    <div class="note-card-actions">
+                        <button onclick="editResource('${resource.id}')" title="Edit"><i class="fas fa-edit"></i></button>
+                        <button onclick="deleteResource('${resource.id}')" title="Delete"><i class="fas fa-trash"></i></button>
+                    </div>
+                    ${resource.description ? `<div class="note-card-description">${resource.description}</div>` : ''}
+                    ${resource.link ? `<a href="${resource.link}" target="_blank" class="note-card-link"><i class="fas fa-external-link-alt"></i> Open Resource</a>` : ''}
+                `;
+                resourcesList.appendChild(resourceCard);
+            });
+        }
+        
+        window.editResource = function(resourceId) {
+            const resource = resources.find(r => r.id === resourceId);
+            if (resource) {
+                currentEditingResource = resource;
+                document.getElementById('resourceTitle').value = resource.title;
+                document.getElementById('resourceDescription').value = resource.description || '';
+                document.getElementById('resourceLink').value = resource.link || '';
+                document.getElementById('resourceEditTitle').textContent = 'Edit Resource';
+                document.getElementById('resourceEditPanel').classList.add('active');
+                document.getElementById('editPanelOverlay').classList.add('active');
+            }
+        };
+        
+        window.deleteResource = async function(resourceId) {
+            if (!confirm('Are you sure you want to delete this resource?')) return;
+            try {
+                const res = await fetch(`/api/LearningResources/resources/${resourceId}?eventName=${encodeURIComponent(selectedEvent)}`, { method: 'DELETE' });
+                if (res.ok) {
+                    showToast('Resource deleted');
+                    loadResources(selectedEvent);
+                } else {
+                    showToast('Failed to delete resource');
+                }
+            } catch (e) {
+                console.error('Error deleting resource:', e);
+                showToast('Failed to delete resource');
+            }
+        };
+        
+        function openResourceEditPanel() {
+            if (!selectedEvent) {
+                showToast('Please select an event first');
+                return;
+            }
+            currentEditingResource = null;
+            document.getElementById('resourceTitle').value = '';
+            document.getElementById('resourceDescription').value = '';
+            document.getElementById('resourceLink').value = '';
+            document.getElementById('resourceEditTitle').textContent = 'Add Resource';
+            document.getElementById('resourceEditPanel').classList.add('active');
+            document.getElementById('editPanelOverlay').classList.add('active');
+        }
+        
+        function closeResourceEditPanel() {
+            document.getElementById('resourceEditPanel').classList.remove('active');
+            document.getElementById('editPanelOverlay').classList.remove('active');
+            currentEditingResource = null;
+        }
+        
+        window.closeResourceEditPanel = closeResourceEditPanel;
+        
+        async function saveResource() {
+            if (!selectedEvent) {
+                showToast('Please select an event first');
+                return;
+            }
+            const title = document.getElementById('resourceTitle').value.trim();
+            if (!title) {
+                showToast('Please enter a resource title');
+                return;
+            }
+            
+            const resourceData = {
+                title,
+                description: document.getElementById('resourceDescription').value.trim(),
+                link: document.getElementById('resourceLink').value.trim(),
+                eventName: selectedEvent
+            };
+            
+            try {
+                let res;
+                if (currentEditingResource && currentEditingResource.id) {
+                    res = await fetch(`/api/LearningResources/resources/${currentEditingResource.id}`, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(resourceData)
+                    });
+                } else {
+                    res = await fetch('/api/LearningResources/resources', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(resourceData)
+                    });
+                }
+                
+                if (res.ok) {
+                    showToast('Resource saved!');
+                    closeResourceEditPanel();
+                    loadResources(selectedEvent);
+                } else {
+                    showToast('Failed to save resource');
+                }
+            } catch (e) {
+                console.error('Error saving resource:', e);
+                showToast('Failed to save resource');
+            }
+        }
+        
+        // Notes
+        async function loadNotes(eventName) {
+            if (!eventName) return;
+            const notesList = document.getElementById('notesList');
+            try {
+                const res = await fetch(`/api/LearningResources/notes?eventName=${encodeURIComponent(eventName)}`);
+                if (res.ok) {
+                    notes = await res.json();
+                    renderNotes();
+                } else {
+                    notesList.innerHTML = '<div class="empty-state"><i class="fas fa-sticky-note"></i><p>No notes yet. Add one to get started!</p></div>';
+                }
+            } catch (e) {
+                console.error('Error loading notes:', e);
+                notesList.innerHTML = '<div class="empty-state">Failed to load notes</div>';
+            }
+        }
+        
+        function renderNotes() {
+            const notesList = document.getElementById('notesList');
+            if (!notes || notes.length === 0) {
+                notesList.innerHTML = '<div class="empty-state"><i class="fas fa-sticky-note"></i><p>No notes yet. Add one to get started!</p></div>';
+                return;
+            }
+            
+            notesList.innerHTML = '';
+            notes.forEach(note => {
+                const noteCard = document.createElement('div');
+                noteCard.className = 'note-card';
+                noteCard.innerHTML = `
+                    <div class="note-card-header">
+                        <div class="note-card-title">${note.title}</div>
+                    </div>
+                    <div class="note-card-actions">
+                        <button onclick="editNote('${note.id}')" title="Edit"><i class="fas fa-edit"></i></button>
+                        <button onclick="deleteNote('${note.id}')" title="Delete"><i class="fas fa-trash"></i></button>
+                    </div>
+                    ${note.description ? `<div class="note-card-description">${note.description}</div>` : ''}
+                    ${note.link ? `<a href="${note.link}" target="_blank" class="note-card-link"><i class="fas fa-external-link-alt"></i> Open Document</a>` : ''}
+                `;
+                notesList.appendChild(noteCard);
+            });
+        }
+        
+        window.editNote = function(noteId) {
+            const note = notes.find(n => n.id === noteId);
+            if (note) {
+                currentEditingNote = note;
+                document.getElementById('noteTitle').value = note.title;
+                document.getElementById('noteDescription').value = note.description || '';
+                document.getElementById('noteLink').value = note.link || '';
+                document.getElementById('noteEditTitle').textContent = 'Edit Note';
+                document.getElementById('noteEditPanel').classList.add('active');
+                document.getElementById('editPanelOverlay').classList.add('active');
+            }
+        };
+        
+        window.deleteNote = async function(noteId) {
+            if (!confirm('Are you sure you want to delete this note?')) return;
+            try {
+                const res = await fetch(`/api/LearningResources/notes/${noteId}?eventName=${encodeURIComponent(selectedEvent)}`, { method: 'DELETE' });
+                if (res.ok) {
+                    showToast('Note deleted');
+                    loadNotes(selectedEvent);
+                } else {
+                    showToast('Failed to delete note');
+                }
+            } catch (e) {
+                console.error('Error deleting note:', e);
+                showToast('Failed to delete note');
+            }
+        };
+        
+        function openNoteEditPanel() {
+            if (!selectedEvent) {
+                showToast('Please select an event first');
+                return;
+            }
+            currentEditingNote = null;
+            document.getElementById('noteTitle').value = '';
+            document.getElementById('noteDescription').value = '';
+            document.getElementById('noteLink').value = '';
+            document.getElementById('noteEditTitle').textContent = 'Add Note';
+            document.getElementById('noteEditPanel').classList.add('active');
+            document.getElementById('editPanelOverlay').classList.add('active');
+        }
+        
+        function closeNoteEditPanel() {
+            document.getElementById('noteEditPanel').classList.remove('active');
+            document.getElementById('editPanelOverlay').classList.remove('active');
+            currentEditingNote = null;
+        }
+        
+        window.closeNoteEditPanel = closeNoteEditPanel;
+        
+        async function saveNote() {
+            if (!selectedEvent) {
+                showToast('Please select an event first');
+                return;
+            }
+            const title = document.getElementById('noteTitle').value.trim();
+            if (!title) {
+                showToast('Please enter a note title');
+                return;
+            }
+            
+            const description = document.getElementById('noteDescription').value.trim();
+            const link = document.getElementById('noteLink').value.trim();
+            
+            const noteData = { title, description, link, eventName: selectedEvent };
+            
+            try {
+                let res;
+                if (currentEditingNote && currentEditingNote.id) {
+                    res = await fetch(`/api/LearningResources/notes/${currentEditingNote.id}`, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(noteData)
+                    });
+                } else {
+                    res = await fetch('/api/LearningResources/notes', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(noteData)
+                    });
+                }
+                
+                if (res.ok) {
+                    showToast('Note saved!');
+                    closeNoteEditPanel();
+                    loadNotes(selectedEvent);
+                } else {
+                    showToast('Failed to save note');
+                }
+            } catch (e) {
+                console.error('Error saving note:', e);
+                showToast('Failed to save note');
+            }
         }
 
         async function loadModulesForEvent(eventName) {
@@ -1109,7 +1584,7 @@
         async function loadUserEvents() {
             const res = await fetch('/api/Events');
             const items = await res.json();
-            const allEvents = items.map(it => { const id = Object.keys(it)[0]; return { id, ...it[id] }; });
+            const allEvents = items.map(it => { const id = Object.keys(it)[0]; return { id, eventName: it[id].eventName || id, ...it[id] }; });
             const uid = currentUser.id || currentUser.uid || currentUser.userId;
             userEvents = allEvents.filter(e => Array.isArray(e.members) && e.members.includes(uid));
         }

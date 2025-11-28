@@ -43,10 +43,22 @@
             <!-- Past Performance Section -->
             <div class="application-section" id="pastPerformanceSection">
                 <h3>Past Performance</h3>
-                <p class="section-note">Your recent competition results. If these are incorrect, please update them on the <a href="{{ url_for('user_competitions') }}">competitions page</a>.</p>
+                <p class="section-note">If incorrect, contact <a href="mailto:pauln30@nycstudents.net">pauln30@nycstudents.net</a>.</p>
                 
-                <div id="pastResults" class="past-results">
-                    <p class="loading-text">Loading your past results...</p>
+                <!-- Diagnostics Section -->
+                <div class="diagnostics-subsection">
+                    <h4><i class="fas fa-clipboard-check"></i> Diagnostic Results</h4>
+                    <div id="diagnosticsList" class="diagnostics-list">
+                        <p class="loading-text">Loading diagnostics...</p>
+                    </div>
+                </div>
+                
+                <!-- Competition Results -->
+                <div class="competition-results-subsection">
+                    <h4><i class="fas fa-trophy"></i> Competition Results</h4>
+                    <div id="pastResults" class="past-results">
+                        <p class="loading-text">Loading your competition results...</p>
+                    </div>
                 </div>
             </div>
 
@@ -77,6 +89,19 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- Event Ranking Section -->
+                <div id="eventRankingSection" class="event-ranking-section" style="display: none;">
+                    <h4>Rank Your Event Preferences</h4>
+                    <p class="section-note ranking-note">
+                        <i class="fas fa-info-circle"></i> 
+                        Please rank your selected events from <strong>highest to lowest preference</strong> by dragging them into order. 
+                        <strong>Rank all events you have any experience in</strong> to have the highest chance at being chosen for this competition.
+                    </p>
+                    <div id="eventRankingList" class="event-ranking-list">
+                        <!-- Ranked events will appear here -->
+                    </div>
+                </div>
             </div>
 
             <!-- Application Questions Section -->
@@ -85,8 +110,8 @@
                 <p class="section-note">Please answer the following questions about your interest and preparation for this competition.</p>
                 
                 <div class="question-item">
-                    <label for="whyCompete">1. Why do you want to compete in this tournament?</label>
-                    <textarea id="whyCompete" rows="4" placeholder="Explain your motivation for participating in this competition..."></textarea>
+                    <label for="whyCompete">1. Why do you want to compete in this tournament? Briefly explain why you want to compete in each of the events that you ranked.</label>
+                    <textarea id="whyCompete" rows="4" placeholder="Explain your motivation for participating in this competition and why you want to compete in each of your ranked events..."></textarea>
                 </div>
                 
                 <div class="question-item">
@@ -100,8 +125,16 @@
                 </div>
                 
                 <div class="question-item" id="returningQuestion" style="display: none;">
-                    <label for="pastInfluence">3. How have past results influenced your preparations for this tournament?</label>
-                    <textarea id="pastInfluence" rows="4" placeholder="Explain how your past competition experiences have shaped your approach..."></textarea>
+                    <label for="pastInfluence">3. How have past results influenced your preparations for this tournament? What makes you qualified to compete?</label>
+                    <textarea id="pastInfluence" rows="4" placeholder="Explain how your past competition experiences have shaped your approach and what makes you qualified to compete..."></textarea>
+                </div>
+                
+                <div class="question-item" id="feeWaiverQuestion" style="display: none;">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="feeWaiverRequest">
+                        <span>I would like to request a competition fee reduction/waiver</span>
+                    </label>
+                    <p class="checkbox-help-text">If you need financial assistance to cover competition fees, please check this box. We will review your request and contact you.</p>
                 </div>
             </div>
 
@@ -184,8 +217,57 @@
         margin: 0;
     }
     
+    .diagnostics-subsection,
+    .competition-results-subsection {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .diagnostics-subsection h4,
+    .competition-results-subsection h4 {
+        margin-bottom: 15px;
+        color: #333;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    .diagnostics-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .diag-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px;
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+    
+    .diag-item:hover {
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        transform: translateY(-2px);
+    }
+    
+    .empty-state {
+        text-align: center;
+        padding: 20px;
+        color: #777;
+    }
+    
+    .empty-state i {
+        font-size: 2rem;
+        margin-bottom: 10px;
+        color: #ddd;
+    }
+    
     .past-results {
-        max-height: 200px;
+        max-height: 400px;
         overflow-y: auto;
         border: 1px solid #eee;
         border-radius: 5px;
@@ -194,29 +276,103 @@
     
     .result-item {
         display: flex;
-        justify-content: space-between;
-        padding: 10px;
-        border-bottom: 1px solid #eee;
+        align-items: center;
+        padding: 15px;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        transition: all 0.2s;
     }
     
-    .result-item:last-child {
-        border-bottom: none;
+    .result-item:hover {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transform: translateY(-2px);
     }
     
     .result-medal {
-        margin-right: 10px;
+        flex: 0 0 60px;
+        display: flex;
+        justify-content: center;
     }
     
-    .result-medal i.gold {
-        color: gold;
+    .result-medal i {
+        font-size: 2rem;
     }
     
-    .result-medal i.silver {
-        color: silver;
+    .result-gold i {
+        color: #ffd700;
     }
     
-    .result-medal i.bronze {
+    .result-silver i {
+        color: #c0c0c0;
+    }
+    
+    .result-bronze i {
         color: #cd7f32;
+    }
+    
+    .result-info {
+        flex: 1;
+        padding: 0 15px;
+    }
+    
+    .result-competition {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 3px;
+    }
+    
+    .result-event {
+        color: var(--accent-color);
+        font-weight: 500;
+    }
+    
+    .team-badge {
+        background-color: #e9ecef;
+        color: #495057;
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-size: 0.8em;
+        margin-left: 8px;
+    }
+    
+    .result-date {
+        color: #777;
+        font-size: 0.9rem;
+    }
+    
+    .result-placement {
+        flex: 0 0 100px;
+        text-align: right;
+        padding-right: 15px;
+    }
+    
+    .result-placement-number {
+        font-size: 1.8rem;
+        font-weight: 700;
+        line-height: 1;
+    }
+    
+    .result-placement-suffix {
+        font-size: 0.9rem;
+        color: #777;
+    }
+    
+    .result-outof {
+        font-size: 0.9rem;
+        color: #777;
+    }
+    
+    .empty-results {
+        text-align: center;
+        padding: 20px;
+        color: #777;
+    }
+    
+    .empty-results i {
+        font-size: 2rem;
+        margin-bottom: 10px;
+        color: #ddd;
     }
     
     .events-container {
@@ -247,6 +403,110 @@
         margin-right: 10px;
     }
     
+    .event-ranking-section {
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 2px solid #e2e8f0;
+    }
+    
+    .event-ranking-section h4 {
+        margin-bottom: 10px;
+        color: #2c3e50;
+    }
+    
+    .ranking-note {
+        background-color: #e3f2fd;
+        border-left: 4px solid #2196f3;
+        padding: 12px 15px;
+        margin-bottom: 20px;
+        border-radius: 4px;
+    }
+    
+    .ranking-note i {
+        color: #2196f3;
+        margin-right: 8px;
+    }
+    
+    .event-ranking-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .ranked-event-item {
+        display: flex;
+        align-items: center;
+        padding: 12px 15px;
+        background: white;
+        border: 2px solid #e2e8f0;
+        border-radius: 8px;
+        cursor: move;
+        transition: all 0.2s;
+        user-select: none;
+    }
+    
+    .ranked-event-item:hover {
+        border-color: #3498db;
+        box-shadow: 0 2px 8px rgba(52, 152, 219, 0.2);
+    }
+    
+    .ranked-event-item.dragging {
+        opacity: 0.5;
+        border-color: #3498db;
+        box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+    }
+    
+    .rank-number {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 35px;
+        height: 35px;
+        background: linear-gradient(135deg, #3498db, #2980b9);
+        color: white;
+        border-radius: 50%;
+        font-weight: 700;
+        font-size: 1.1rem;
+        margin-right: 15px;
+        flex-shrink: 0;
+    }
+    
+    .rank-number.first {
+        background: linear-gradient(135deg, #ffd700, #ffb300);
+    }
+    
+    .rank-number.second {
+        background: linear-gradient(135deg, #c0c0c0, #a0a0a0);
+    }
+    
+    .rank-number.third {
+        background: linear-gradient(135deg, #cd7f32, #b87333);
+    }
+    
+    .ranked-event-name {
+        flex: 1;
+        font-weight: 500;
+        color: #2c3e50;
+    }
+    
+    .drag-handle {
+        color: #95a5a6;
+        font-size: 1.2rem;
+        margin-left: 10px;
+        cursor: grab;
+    }
+    
+    .drag-handle:active {
+        cursor: grabbing;
+    }
+    
+    .rank-placeholder {
+        border: 2px dashed #bdc3c7;
+        background: #f8f9fa;
+        height: 50px;
+        border-radius: 8px;
+    }
+    
     .add-events-toggle {
         margin: 20px 0;
         text-align: center;
@@ -272,6 +532,29 @@
     .question-item label {
         display: block;
         margin-bottom: 10px;
+    }
+    
+    .checkbox-label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        font-weight: 500;
+    }
+    
+    .checkbox-label input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        flex-shrink: 0;
+    }
+    
+    .checkbox-help-text {
+        margin-top: 8px;
+        margin-left: 30px;
+        color: #666;
+        font-size: 0.9rem;
+        font-style: italic;
         font-weight: 500;
     }
     
@@ -351,9 +634,11 @@
             return;
         }
         
-        // Get competition ID from URL parameter
+        // Get competition ID and application ID from URL parameters
         const urlParams = new URLSearchParams(window.location.search);
         const competitionId = urlParams.get('id');
+        const applicationId = urlParams.get('applicationId');
+        const isEditMode = !!applicationId;
         
         if (!competitionId) {
             alert('No competition selected. Please select a competition first.');
@@ -379,95 +664,312 @@
         const cancelApplication = document.getElementById('cancelApplication');
         
         // All Science Olympiad events
-        const allEvents = [
-            'Anatomy & Physiology', 'Astronomy', 'Bridge', 'Cell Biology', 
-            'Chemistry Lab', 'Codebusters', 'Detector Building', 'Disease Detectives', 
-            'Dynamic Planet', 'Ecology', 'Experimental Design', 'Fermi Questions', 
-            'Flight', 'Forensics', 'Forestry', 'Fossils', 'Geologic Mapping',
-            'Green Generation', 'Microbe Mission', 'Optics', 'Ornithology', 
-            'Remote Sensing', 'Robot Tour', 'Rocks & Minerals', 'Sounds of Music',
-            'Tower', 'Wind Power', 'Write It Do It'
-        ];
+        // Events will be loaded from API, stored here
+        let allAvailableEvents = [];
         
-        // Load competition data
-        function loadCompetitionData() {
-            // Create competition data based on the ID
-            let compName = 'Competition';
-            let compDate = new Date();
-            let deadline = new Date();
-            deadline.setDate(deadline.getDate() - 14); // 2 weeks before competition
-            
-            // Set competition data based on the ID
-            if (competitionId.includes('mit')) {
-                compName = 'MIT Invitational';
-                compDate = new Date('2025-10-18');
-                deadline = new Date('2025-09-01');
-            } else if (competitionId.includes('rickards')) {
-                compName = 'Rickards Invitational';
-                compDate = new Date('2025-11-15');
-                deadline = new Date('2025-07-15');
-            } else if (competitionId.includes('seal')) {
-                compName = 'Seal SO';
-                compDate = new Date('2025-12-10');
-                deadline = new Date('2025-11-01');
-            } else if (competitionId.includes('regional')) {
-                compName = 'Regionals';
-                compDate = new Date('2026-01-25');
-                deadline = new Date('2025-12-05');
-            } else if (competitionId.includes('state')) {
-                compName = 'States';
-                compDate = new Date('2026-03-20');
-                deadline = new Date('2026-02-15');
-            }
-            
-            // Update UI with competition data
-            competitionName.textContent = `Apply for ${compName}`;
-            
-            competitionDate.textContent = `Competition Date: ${compDate.toLocaleDateString('en-US', {
-                weekday: 'long',
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-            })}`;
-            
-            applicationDeadline.textContent = `Application Deadline: ${deadline.toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-            })}`;
-        }
+        // Store existing application data for edit mode
+        let existingApplication = null;
         
-        // Load user data
-        function loadUserData() {
-            fetch(`/api/Members/${currentUser.id}`)
+        // Load existing application data if in edit mode
+        function loadExistingApplication() {
+            if (!isEditMode || !applicationId) return Promise.resolve();
+            
+            return fetch(`/api/Applications/${applicationId}`)
                 .then(response => {
                     if (!response.ok) {
-                        throw new Error('Failed to load user data');
+                        throw new Error('Failed to load existing application');
                     }
                     return response.json();
                 })
                 .then(data => {
+                    // Handle Firebase response format
+                    const appData = Object.values(data)[0] || data;
+                    existingApplication = appData;
+                    return appData;
+                })
+                .catch(error => {
+                    console.error('Error loading existing application:', error);
+                    alert('Failed to load existing application. You can still create a new one.');
+                    return null;
+                });
+        }
+        
+        // Helper function to parse dates
+        function parseDate(value) {
+            if (!value) return null;
+            if (value instanceof Date) return isNaN(value) ? null : value;
+            if (typeof value === 'string' || typeof value === 'number') {
+                const d = new Date(value);
+                return isNaN(d) ? null : d;
+            }
+            if (typeof value === 'object') {
+                if (typeof value._seconds === 'number') {
+                    return new Date(value._seconds * 1000);
+                }
+                if (typeof value.seconds === 'number') {
+                    return new Date(value.seconds * 1000);
+                }
+                if (value.$date) {
+                    const d = new Date(value.$date);
+                    return isNaN(d) ? null : d;
+                }
+            }
+            return null;
+        }
+        
+        // Load competition data from API
+        function loadCompetitionData() {
+            fetch('/api/Competitions')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to load competitions');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Handle Firebase array structure: [{id: data}, ...]
+                    let competition = null;
+                    if (Array.isArray(data)) {
+                        for (const item of data) {
+                            if (typeof item === 'object') {
+                                const entries = Object.entries(item);
+                                if (entries.length === 1) {
+                                    const [id, compData] = entries[0];
+                                    if (id === competitionId || compData.id === competitionId) {
+                                        competition = { ...compData, id };
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                    if (!competition) {
+                        alert('Competition not found. Please select a valid competition.');
+                        window.location.href = '{{ url_for("user_competitions") }}';
+                        return;
+                    }
+                    
+                    // Parse dates
+                    const compDate = parseDate(competition.date);
+                    const regOpens = parseDate(competition.registrationOpens);
+                    const regCloses = parseDate(competition.registrationCloses);
+                    const rosterReleased = parseDate(competition.rosterReleased);
+                    
+                    // Check if registration window has passed
+                    const now = new Date();
+                    // Set end date to end of day (23:59:59) for comparison
+                    const regClosesEndOfDay = regCloses ? new Date(regCloses) : null;
+                    if (regClosesEndOfDay) {
+                        regClosesEndOfDay.setHours(23, 59, 59, 999);
+                    }
+                    const registrationClosed = regClosesEndOfDay && now > regClosesEndOfDay;
+                    const registrationNotOpen = regOpens && now < regOpens;
+                    
+                    if (registrationClosed) {
+                        // Registration window has passed
+                        alert('The application window for this competition has closed. You can no longer apply or edit your application.');
+                        window.location.href = '{{ url_for("user_competitions") }}';
+                        return;
+                    }
+                    
+                    if (registrationNotOpen) {
+                        // Registration hasn't opened yet
+                        alert('The application window for this competition has not opened yet.');
+                        window.location.href = '{{ url_for("user_competitions") }}';
+                        return;
+                    }
+                    
+                    // Update UI with competition data
+                    if (isEditMode) {
+                        competitionName.textContent = `Edit Application for ${competition.name}`;
+                    } else {
+                        competitionName.textContent = `Apply for ${competition.name}`;
+                    }
+                    
+                    // Format competition date
+                    let dateDisplay = 'TBD';
+                    if (compDate) {
+                        dateDisplay = compDate.toLocaleDateString('en-US', {
+                            weekday: 'long',
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
+                        });
+                        
+                        // Add time range if overnight
+                        if (competition.overnight && typeof competition.overnight === 'string') {
+                            const timeMatch = competition.overnight.match(/(\w+\s+\d+\s+\d+[ap]m)/g);
+                            if (timeMatch && timeMatch.length > 1) {
+                                dateDisplay += ` (${competition.overnight})`;
+                            }
+                        }
+                    }
+                    competitionDate.textContent = `Competition Date: ${dateDisplay}`;
+                    
+                    // Format location
+                    if (competition.location) {
+                        const locationEl = document.createElement('p');
+                        locationEl.className = 'competition-date';
+                        locationEl.textContent = `Location: ${competition.location}`;
+                        competitionDate.parentNode.insertBefore(locationEl, competitionDate.nextSibling);
+                    }
+                    
+                    // Format registration deadline
+                    let deadlineDisplay = 'TBD';
+                    if (regCloses) {
+                        deadlineDisplay = regCloses.toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric',
+                            hour: 'numeric',
+                            minute: '2-digit'
+                        });
+                    } else if (regOpens) {
+                        // Fallback: show registration opens date
+                        deadlineDisplay = regOpens.toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
+                        }) + ' (opens)';
+                    }
+                    
+                    applicationDeadline.textContent = `Application Deadline: ${deadlineDisplay}`;
+                    
+                    // Add additional info if available
+                    if (competition.numTeams) {
+                        const teamsEl = document.createElement('p');
+                        teamsEl.className = 'competition-date';
+                        teamsEl.textContent = `Teams: ${competition.numTeams}`;
+                        applicationDeadline.parentNode.insertBefore(teamsEl, applicationDeadline.nextSibling);
+                    }
+                    
+                    if (rosterReleased) {
+                        const rosterEl = document.createElement('p');
+                        rosterEl.className = 'competition-date';
+                        rosterEl.textContent = `Roster Released: ${rosterReleased.toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
+                        })}`;
+                        applicationDeadline.parentNode.insertBefore(rosterEl, applicationDeadline.nextSibling);
+                    }
+                    
+                    // Store competition data for later use
+                    window.currentCompetition = competition;
+                    
+                    // Show fee waiver checkbox for in-person invitational competitions
+                    const feeWaiverQuestion = document.getElementById('feeWaiverQuestion');
+                    if (feeWaiverQuestion) {
+                        // Show for invitational competitions (not satellite)
+                        const isInvitational = competition.type === 'invitational';
+                        feeWaiverQuestion.style.display = isInvitational ? 'block' : 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading competition data:', error);
+                    alert('Failed to load competition information. Please try again later.');
+                    window.location.href = '{{ url_for("user_competitions") }}';
+                });
+        }
+        
+        // Load user data
+        function loadUserData() {
+            Promise.all([
+                fetch(`/api/Members/${currentUser.id}`),
+                fetch('/api/Competitions'),
+                fetch('/api/Members'),
+                fetch('/api/Events')
+            ])
+                .then(responses => Promise.all(responses.map(r => r.json())))
+                .then(([userResponse, competitionsResponse, membersResponse, eventsResponse]) => {
                     // Get user data
-                    const userData = Object.values(data)[0];
+                    const userData = Object.values(userResponse)[0];
                     
                     // Update user info
-                    console.log(userData);
-                    console.log(userData.firstName, userData.lastName);
                     userName1.textContent = `${userData.firstName} ${userData.lastName}`;
-                    console.log(userName1.textContent);
                     userEmail.textContent = userData.doeEmail || userData.personalEmail || 'Email not available';
                     userGrade.textContent = userData.grade || 'Not specified';
                     
-                    // Get competition results
-                    const competitionResults = userData.competitionResults || [];
+                    // Normalize competitions into array
+                    const competitionsArray = Array.isArray(competitionsResponse) ? competitionsResponse : Object.values(competitionsResponse || {});
+                    const competitionsData = competitionsArray.map(item => {
+                        if (item && typeof item === 'object') {
+                            const entries = Object.entries(item);
+                            if (entries.length === 1) {
+                                const [id, data] = entries[0];
+                                return { ...(data || {}), id };
+                            }
+                        }
+                        return item;
+                    }).filter(Boolean);
+                    
+                    // Build members map
+                    const membersMap = {};
+                    const membersArray = Array.isArray(membersResponse) ? membersResponse : Object.values(membersResponse || {});
+                    membersArray.forEach(entry => {
+                        const entries = Object.entries(entry || {});
+                        if (entries.length === 1) {
+                            const [id, data] = entries[0];
+                            if (data) {
+                                const first = data.firstName || '';
+                                const last = data.lastName || '';
+                                const full = `${first} ${last}`.trim() || (data.doeEmail || id);
+                                membersMap[id] = full;
+                            }
+                        }
+                    });
+                    
+                    // Get user full name for matching
+                    const userFullName = `${(userData.firstName || '').trim()} ${(userData.lastName || '').trim()}`.trim().toLowerCase().replace(/\s+/g, ' ');
+                    
+                    // Process competition results
+                    const userCompetitionResults = [];
+                    const norm = s => (s || '').toString().trim().toLowerCase().replace(/\s+/g, ' ');
+                    
+                    competitionsData.forEach(competition => {
+                        if (!competition.teamPlacement) return;
+                        const resultsArray = (competition.results && Array.isArray(competition.results.eventResults)) ? competition.results.eventResults : [];
+                        
+                        // Collect all participations for the current user
+                        const userParticipations = competition.teamPlacement.filter(placement => {
+                            const participants = placement.participants || [];
+                            if (participants.includes(currentUser.id)) return true;
+                            const lowerNames = participants.map(p => norm(membersMap[p] || p));
+                            return userFullName && lowerNames.includes(userFullName);
+                        });
+                        if (userParticipations.length === 0) return;
+                        
+                        userParticipations.forEach(p => {
+                            const targetEvent = norm(p.event);
+                            const team = p.team;
+                            const eventResult = resultsArray.find(r => norm(r.eventName) === targetEvent && r.team === team);
+                            const placement = eventResult ? eventResult.placement : null;
+                            const outOf = eventResult ? eventResult.outOf : null;
+                            const medalType = placement === 1 ? 'gold' : placement === 2 ? 'silver' : placement === 3 ? 'bronze' : null;
+                            const medal = typeof placement === 'number' && placement <= 3;
+                            
+                            userCompetitionResults.push({
+                                competition: competition.name,
+                                competitionType: competition.type,
+                                date: competition.date,
+                                event: p.event,
+                                placement: placement,
+                                outOf: outOf,
+                                team: team,
+                                medal: medal,
+                                medalType: medalType
+                            });
+                        });
+                    });
                     
                     // Check if user has past results
-                    if (competitionResults.length > 0) {
+                    if (userCompetitionResults.length > 0) {
                         // Show returning questions
                         returningQuestion.style.display = 'block';
                         
-                        // Render past results
-                        renderPastResults(competitionResults);
+                        // Render competition results
+                        renderCompetitionResults(userCompetitionResults);
                     } else {
                         // Show first-time questions
                         firstTimeQuestion.style.display = 'block';
@@ -481,14 +983,29 @@
                         `;
                     }
                     
-                    // Get user events
-                    const userEvents = userData.events || [];
+                    // Process events data (like in settings.html)
+                    const allEvents = eventsResponse.map(item => {
+                        const id = Object.keys(item)[0];
+                        return { id, ...item[id] };
+                    });
+                    
+                    // Store all available events for use in renderOtherEvents
+                    allAvailableEvents = allEvents.map(event => event.eventName);
+                    
+                    // Filter events where current user is a member
+                    const userEvents = allEvents.filter(event => 
+                        event.members && event.members.includes(currentUser.id)
+                    );
+                    
+                    // Extract event names for rendering
+                    const userEventNames = userEvents.map(event => event.eventName);
                     
                     // Render current events
-                    renderCurrentEvents(userEvents);
+                    renderCurrentEvents(userEventNames);
                     
-                    // Render other events
-                    renderOtherEvents(userEvents);
+                    // Render other events (only from Events collection)
+                    // This will also populate the form if in edit mode
+                    renderOtherEvents(userEventNames);
                 })
                 .catch(error => {
                     console.error('Error loading user data:', error);
@@ -496,65 +1013,205 @@
                 });
         }
         
-        // Render past results
-        function renderPastResults(results) {
+        // Populate form with existing application data
+        function populateFormWithExistingData(appData) {
+            // Event checkboxes are already handled in renderCurrentEvents and renderOtherEvents
+            // Just need to handle rankings and show additional events section if needed
+            
+            if (appData.events && Array.isArray(appData.events)) {
+                // Check if any additional events are selected (not in current events)
+                const hasAdditionalEvents = document.querySelectorAll('#otherEvents .event-checkbox:checked').length > 0;
+                if (hasAdditionalEvents && additionalEvents.style.display === 'none') {
+                    additionalEvents.style.display = 'block';
+                    toggleAddEvents.innerHTML = '<i class="fas fa-minus"></i> Hide Additional Events';
+                }
+                
+                // Update event ranking if events are selected
+                updateEventRanking();
+                
+                // Restore event rankings if they exist
+                if (appData.eventRankings && Array.isArray(appData.eventRankings)) {
+                    // Sort by rank
+                    const sortedRankings = [...appData.eventRankings].sort((a, b) => a.rank - b.rank);
+                    const rankingList = document.getElementById('eventRankingList');
+                    if (rankingList) {
+                        // Clear existing items
+                        rankingList.innerHTML = '';
+                        // Recreate items in ranked order
+                        sortedRankings.forEach((ranking, index) => {
+                            const item = createRankedEventItem(ranking.eventName, index + 1);
+                            rankingList.appendChild(item);
+                        });
+                        // Make list sortable again
+                        makeRankingSortable();
+                    }
+                }
+            }
+            
+            // Populate question answers
+            if (appData.questions) {
+                if (appData.questions.whyCompete) {
+                    document.getElementById('whyCompete').value = appData.questions.whyCompete;
+                }
+                if (appData.questions.preparationPlan) {
+                    document.getElementById('preparationPlan').value = appData.questions.preparationPlan;
+                }
+                if (appData.questions.firstTimePrep) {
+                    document.getElementById('firstTimePrep').value = appData.questions.firstTimePrep;
+                    firstTimeQuestion.style.display = 'block';
+                }
+                if (appData.questions.pastInfluence) {
+                    document.getElementById('pastInfluence').value = appData.questions.pastInfluence;
+                    returningQuestion.style.display = 'block';
+                }
+            }
+            
+            // Populate fee waiver checkbox
+            if (appData.feeWaiverRequest) {
+                const feeWaiverCheckbox = document.getElementById('feeWaiverRequest');
+                if (feeWaiverCheckbox) {
+                    feeWaiverCheckbox.checked = true;
+                }
+            }
+            
+            // Update submit button text
+            submitApplication.textContent = 'Update Application';
+        }
+        
+        // Load diagnostics
+        function loadDiagnostics() {
+            const diagnosticsList = document.getElementById('diagnosticsList');
+            try {
+                const userId = currentUser.id || currentUser.uid || currentUser.userId;
+                fetch(`/api/diag-results/${encodeURIComponent(userId)}`)
+                    .then(res => {
+                        if (!res.ok) {
+                            if (res.status === 404) {
+                                diagnosticsList.innerHTML = '<div class="empty-state"><i class="fas fa-file-alt"></i><p>No diagnostics recorded yet.</p></div>';
+                            } else {
+                                diagnosticsList.innerHTML = '<div class="empty-state">Failed to load diagnostics</div>';
+                            }
+                            return;
+                        }
+                        return res.json();
+                    })
+                    .then(data => {
+                        if (!data) return;
+                        
+                        if (!data.eventsTaken || data.eventsTaken.length === 0) {
+                            diagnosticsList.innerHTML = '<div class="empty-state"><i class="fas fa-file-alt"></i><p>No diagnostics recorded yet.</p></div>';
+                            return;
+                        }
+                        
+                        diagnosticsList.innerHTML = '';
+                        data.eventsTaken.forEach(event => {
+                            const div = document.createElement('div');
+                            div.className = 'diag-item';
+                            
+                            const eventDetail = data.eventDetails && data.eventDetails[event.name];
+                            const rank = eventDetail ? eventDetail.rank : null;
+                            const percentile = eventDetail ? eventDetail.percentile.toFixed(1) : null;
+                            const outOf = eventDetail && data.eventTotals ? data.eventTotals[event.name] : null;
+                            
+                            let rankDisplay = '';
+                            if (rank && outOf) {
+                                rankDisplay = `<div style="text-align:right; min-width:120px;">
+                                    <div style="font-weight:700; font-size:1.1rem;">${rank}<span style="font-size:0.8rem; color:#777;">${getOrdinalSuffix(rank)}</span></div>
+                                    <div style="color:#777;">out of ${outOf}</div>
+                                    ${percentile ? `<div style="color:#777; font-size:0.9rem;">${percentile}th percentile</div>` : ''}
+                                </div>`;
+                            }
+                            
+                            div.innerHTML = `
+                                <div style="flex:1;">
+                                    <div style="font-weight:600;">${event.name} '25 Entry Diagnostic</div>
+                                    <div style="color:#777; font-size:0.9rem;">Score: ${event.score.toFixed(2)}</div>
+                                </div>
+                                ${rankDisplay}`;
+                            diagnosticsList.appendChild(div);
+                        });
+                    })
+                    .catch(e => {
+                        console.error('Error loading diagnostics:', e);
+                        diagnosticsList.innerHTML = '<div class="empty-state">Failed to load diagnostics</div>';
+                    });
+            } catch (e) {
+                console.error('Error loading diagnostics:', e);
+                diagnosticsList.innerHTML = '<div class="empty-state">Failed to load diagnostics</div>';
+            }
+        }
+        
+        // Helper to get ordinal suffix
+        function getOrdinalSuffix(num) {
+            const j = num % 10;
+            const k = num % 100;
+            if (j === 1 && k !== 11) return 'st';
+            if (j === 2 && k !== 12) return 'nd';
+            if (j === 3 && k !== 13) return 'rd';
+            return 'th';
+        }
+        
+        // Render competition results (like on competitions page)
+        function renderCompetitionResults(results) {
             if (results.length === 0) {
-                pastResults.innerHTML = '<p>No past competition results found.</p>';
+                pastResults.innerHTML = `
+                    <div class="empty-results" style="text-align: center; padding: 20px; color: #777;">
+                        <i class="fas fa-trophy" style="font-size: 2rem; margin-bottom: 10px; color: #ddd;"></i>
+                        <p>No competition results found.</p>
+                    </div>
+                `;
                 return;
             }
             
             pastResults.innerHTML = '';
             
             // Sort by date (newest first)
-            results.sort((a, b) => new Date(b.date) - new Date(a.date));
+            results.sort((a, b) => {
+                const dateA = parseDate(a.date);
+                const dateB = parseDate(b.date);
+                return (dateB || 0) - (dateA || 0);
+            });
             
-            // Take only the 5 most recent results
-            const recentResults = results.slice(0, 5);
+            // Take only the 10 most recent results
+            const recentResults = results.slice(0, 10);
             
             recentResults.forEach(result => {
-                // Format date
-                const date = new Date(result.date);
-                const formattedDate = date.toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'short',
-                    day: 'numeric'
-                });
-                
-                // Create result item
                 const resultItem = document.createElement('div');
                 resultItem.className = 'result-item';
                 
-                let eventsList = '';
+                // Format date
+                const date = parseDate(result.date);
+                const formattedDate = date ? date.toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric'
+                }) : '—';
                 
-                // Get medal counts
-                let medals = {gold: 0, silver: 0, bronze: 0};
+                // Get ordinal suffix
+                const ordinal = (typeof result.placement === 'number') ? getOrdinalSuffix(result.placement) : '';
                 
-                result.eventResults.forEach(event => {
-                    if (event.medal) {
-                        medals[event.medalType]++;
-                    }
-                });
-                
-                // Create medals display
-                let medalsDisplay = '';
-                if (medals.gold > 0) {
-                    medalsDisplay += `<span class="result-medal"><i class="fas fa-medal gold"></i> ${medals.gold}</span>`;
-                }
-                if (medals.silver > 0) {
-                    medalsDisplay += `<span class="result-medal"><i class="fas fa-medal silver"></i> ${medals.silver}</span>`;
-                }
-                if (medals.bronze > 0) {
-                    medalsDisplay += `<span class="result-medal"><i class="fas fa-medal bronze"></i> ${medals.bronze}</span>`;
+                // Determine medal class
+                let medalHTML = '';
+                if (result.medal) {
+                    medalHTML = `
+                        <div class="result-medal result-${result.medalType}">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                    `;
+                } else {
+                    medalHTML = `<div class="result-medal"></div>`;
                 }
                 
                 resultItem.innerHTML = `
-                    <div>
-                        <strong>${result.competitionName}</strong>
-                        <div style="color: #777; font-size: 0.9rem;">${formattedDate}</div>
+                    ${medalHTML}
+                    <div class="result-info">
+                        <div class="result-competition">${result.competition}</div>
+                        <div class="result-event">${result.event} <span class="team-badge">Team ${result.team}</span></div>
+                        <div class="result-date">${formattedDate}</div>
                     </div>
-                    <div>
-                        <div style="text-align: right; margin-bottom: 5px;">Team Rank: ${result.teamRank} of ${result.teamOutOf}</div>
-                        <div>${medalsDisplay}</div>
+                    <div class="result-placement">
+                        <div class="result-placement-number">${(result.placement ?? '—')}${ordinal ? `<span class="result-placement-suffix">${ordinal}</span>` : ''}</div>
+                        <div class="result-outof">${(typeof result.outOf === 'number') ? `out of ${result.outOf}` : ''}</div>
                     </div>
                 `;
                 
@@ -574,35 +1231,53 @@
             userEvents.forEach(event => {
                 const eventItem = document.createElement('div');
                 eventItem.className = 'event-item';
+                // Check if this event should be checked (from existing application, or default to checked for current events)
+                const shouldBeChecked = existingApplication && existingApplication.events 
+                    ? existingApplication.events.includes(event) 
+                    : true; // Default to checked for current events if not editing
                 eventItem.innerHTML = `
-                    <input type="checkbox" class="event-checkbox" value="${event}" checked>
+                    <input type="checkbox" class="event-checkbox" value="${event}" ${shouldBeChecked ? 'checked' : ''}>
                     <span>${event}</span>
                 `;
                 currentEvents.appendChild(eventItem);
             });
         }
         
-        // Render other events
+        // Render other events (only from Events collection)
         function renderOtherEvents(userEvents) {
             otherEvents.innerHTML = '';
             
             // Filter out events the user is already in
-            const otherEventsList = allEvents.filter(event => !userEvents.includes(event));
+            // Only show events from the Events collection
+            const otherEventsList = allAvailableEvents.filter(eventName => !userEvents.includes(eventName));
             
             if (otherEventsList.length === 0) {
                 otherEvents.innerHTML = '<p>You are already registered for all available events.</p>';
                 return;
             }
             
-            otherEventsList.forEach(event => {
+            // Sort events alphabetically
+            otherEventsList.sort();
+            
+            otherEventsList.forEach(eventName => {
                 const eventItem = document.createElement('div');
                 eventItem.className = 'event-item';
+                // Check if this event should be checked (from existing application)
+                const shouldBeChecked = existingApplication && existingApplication.events && existingApplication.events.includes(eventName);
                 eventItem.innerHTML = `
-                    <input type="checkbox" class="event-checkbox" value="${event}">
-                    <span>${event}</span>
+                    <input type="checkbox" class="event-checkbox" value="${eventName}" ${shouldBeChecked ? 'checked' : ''}>
+                    <span>${eventName}</span>
                 `;
                 otherEvents.appendChild(eventItem);
             });
+            
+            // After rendering, populate form if in edit mode
+            if (isEditMode && existingApplication) {
+                // Use setTimeout to ensure DOM is ready
+                setTimeout(() => {
+                    populateFormWithExistingData(existingApplication);
+                }, 100);
+            }
         }
         
         // Toggle additional events
@@ -613,6 +1288,177 @@
             } else {
                 additionalEvents.style.display = 'none';
                 toggleAddEvents.innerHTML = '<i class="fas fa-plus"></i> Add Additional Events';
+            }
+        });
+        
+        // Update event ranking when checkboxes change
+        function updateEventRanking() {
+            const selectedEvents = [];
+            
+            // Get all checked events
+            document.querySelectorAll('#currentEvents .event-checkbox:checked').forEach(checkbox => {
+                selectedEvents.push(checkbox.value);
+            });
+            document.querySelectorAll('#otherEvents .event-checkbox:checked').forEach(checkbox => {
+                selectedEvents.push(checkbox.value);
+            });
+            
+            const rankingSection = document.getElementById('eventRankingSection');
+            const rankingList = document.getElementById('eventRankingList');
+            
+            if (selectedEvents.length === 0) {
+                rankingSection.style.display = 'none';
+                return;
+            }
+            
+            // Show ranking section
+            rankingSection.style.display = 'block';
+            
+            // Get existing rankings to preserve order
+            const existingRankings = [];
+            document.querySelectorAll('#eventRankingList .ranked-event-item').forEach(item => {
+                const eventName = item.dataset.eventName;
+                if (eventName && selectedEvents.includes(eventName)) {
+                    existingRankings.push(eventName);
+                }
+            });
+            
+            // Add new events that aren't ranked yet
+            selectedEvents.forEach(eventName => {
+                if (!existingRankings.includes(eventName)) {
+                    existingRankings.push(eventName);
+                }
+            });
+            
+            // Remove events that are no longer selected
+            const finalRankings = existingRankings.filter(eventName => selectedEvents.includes(eventName));
+            
+            // Render ranking list
+            rankingList.innerHTML = '';
+            finalRankings.forEach((eventName, index) => {
+                const item = createRankedEventItem(eventName, index + 1);
+                rankingList.appendChild(item);
+            });
+            
+            // Make list sortable
+            makeRankingSortable();
+        }
+        
+        // Create a ranked event item
+        function createRankedEventItem(eventName, rank) {
+            const item = document.createElement('div');
+            item.className = 'ranked-event-item';
+            item.dataset.eventName = eventName;
+            
+            let rankClass = '';
+            if (rank === 1) rankClass = 'first';
+            else if (rank === 2) rankClass = 'second';
+            else if (rank === 3) rankClass = 'third';
+            
+            item.innerHTML = `
+                <div class="rank-number ${rankClass}">${rank}</div>
+                <div class="ranked-event-name">${eventName}</div>
+                <div class="drag-handle"><i class="fas fa-grip-vertical"></i></div>
+            `;
+            
+            return item;
+        }
+        
+        // Make ranking list sortable with drag and drop
+        function makeRankingSortable() {
+            const rankingList = document.getElementById('eventRankingList');
+            let draggedElement = null;
+            
+            // Remove existing listeners and add new ones
+            const items = rankingList.querySelectorAll('.ranked-event-item');
+            items.forEach(item => {
+                item.addEventListener('dragstart', handleDragStart);
+                item.addEventListener('dragend', handleDragEnd);
+                item.addEventListener('dragover', handleDragOver);
+                item.addEventListener('drop', handleDrop);
+                item.addEventListener('dragenter', handleDragEnter);
+                item.addEventListener('dragleave', handleDragLeave);
+                item.draggable = true;
+            });
+            
+            function handleDragStart(e) {
+                draggedElement = this;
+                this.classList.add('dragging');
+                e.dataTransfer.effectAllowed = 'move';
+                e.dataTransfer.setData('text/html', this.innerHTML);
+            }
+            
+            function handleDragEnd(e) {
+                this.classList.remove('dragging');
+                rankingList.querySelectorAll('.ranked-event-item').forEach(item => {
+                    item.classList.remove('drag-over');
+                });
+            }
+            
+            function handleDragOver(e) {
+                if (e.preventDefault) {
+                    e.preventDefault();
+                }
+                e.dataTransfer.dropEffect = 'move';
+                return false;
+            }
+            
+            function handleDragEnter(e) {
+                if (this !== draggedElement) {
+                    this.classList.add('drag-over');
+                }
+            }
+            
+            function handleDragLeave(e) {
+                this.classList.remove('drag-over');
+            }
+            
+            function handleDrop(e) {
+                if (e.stopPropagation) {
+                    e.stopPropagation();
+                }
+                
+                if (draggedElement !== this) {
+                    const allItems = Array.from(rankingList.querySelectorAll('.ranked-event-item'));
+                    const draggedIndex = allItems.indexOf(draggedElement);
+                    const targetIndex = allItems.indexOf(this);
+                    
+                    if (draggedIndex < targetIndex) {
+                        rankingList.insertBefore(draggedElement, this.nextSibling);
+                    } else {
+                        rankingList.insertBefore(draggedElement, this);
+                    }
+                    
+                    // Update rank numbers
+                    updateRankNumbers();
+                }
+                
+                this.classList.remove('drag-over');
+                return false;
+            }
+        }
+        
+        // Update rank numbers after reordering
+        function updateRankNumbers() {
+            const items = document.querySelectorAll('#eventRankingList .ranked-event-item');
+            items.forEach((item, index) => {
+                const rank = index + 1;
+                const rankNumber = item.querySelector('.rank-number');
+                
+                let rankClass = '';
+                if (rank === 1) rankClass = 'first';
+                else if (rank === 2) rankClass = 'second';
+                else if (rank === 3) rankClass = 'third';
+                
+                rankNumber.className = `rank-number ${rankClass}`;
+                rankNumber.textContent = rank;
+            });
+        }
+        
+        // Add event listeners to checkboxes to update ranking
+        document.addEventListener('change', function(e) {
+            if (e.target.classList.contains('event-checkbox')) {
+                updateEventRanking();
             }
         });
         
@@ -663,11 +1509,32 @@
                 return;
             }
             
+            // Get fee waiver request status
+            const feeWaiverRequest = document.getElementById('feeWaiverRequest');
+            const requestedFeeWaiver = feeWaiverRequest && feeWaiverRequest.checked;
+            
+            // Get event rankings if ranking section is visible
+            const eventRankings = [];
+            const rankingSection = document.getElementById('eventRankingSection');
+            if (rankingSection && rankingSection.style.display !== 'none') {
+                const rankedItems = document.querySelectorAll('#eventRankingList .ranked-event-item');
+                rankedItems.forEach((item, index) => {
+                    const eventName = item.dataset.eventName;
+                    if (eventName) {
+                        eventRankings.push({
+                            eventName: eventName,
+                            rank: index + 1
+                        });
+                    }
+                });
+            }
+            
             // Create application object
             const application = {
                 userId: currentUser.id,
                 competitionId: competitionId,
                 events: selectedEvents,
+                eventRankings: eventRankings.length > 0 ? eventRankings : undefined,
                 questions: {
                     whyCompete: whyCompete,
                     preparationPlan: preparationPlan
@@ -685,16 +1552,26 @@
                 application.questions.pastInfluence = pastInfluence;
             }
             
+            // Add fee waiver request if applicable
+            if (requestedFeeWaiver) {
+                application.feeWaiverRequest = true;
+            }
+            
             // Show loading state
             submitApplication.disabled = true;
-            submitApplication.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+            const originalButtonText = submitApplication.textContent;
+            submitApplication.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ' + (isEditMode ? 'Updating...' : 'Submitting...');
             
             // Log the application data
-            console.log('Submitting application to Firebase:', application);
+            console.log(isEditMode ? 'Updating application in Firebase:' : 'Submitting application to Firebase:', application);
             
-            // Make an API call to create the document in the Applications collection
-            fetch('/api/Applications', {
-                method: 'POST',
+            // Determine API endpoint and method
+            const apiUrl = isEditMode ? `/api/Applications/${applicationId}` : '/api/Applications';
+            const method = isEditMode ? 'PATCH' : 'POST';
+            
+            // Make an API call to create or update the document in the Applications collection
+            fetch(apiUrl, {
+                method: method,
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -710,30 +1587,32 @@
                 return response.json();
             })
             .then(data => {
-                console.log('Application successfully saved to Firebase:', data);
-                alert('Your application has been submitted successfully!');
+                console.log(isEditMode ? 'Application successfully updated in Firebase:' : 'Application successfully saved to Firebase:', data);
+                alert(isEditMode ? 'Your application has been updated successfully!' : 'Your application has been submitted successfully!');
                 
-                // Also save to localStorage as a backup
-                try {
-                    const existingApps = JSON.parse(localStorage.getItem('sciOlyApplications') || '[]');
-                    application.id = data.id; // Use the ID from Firebase
-                    existingApps.push(application);
-                    localStorage.setItem('sciOlyApplications', JSON.stringify(existingApps));
-                    console.log('Application also backed up to localStorage');
-                } catch (e) {
-                    console.warn('Could not backup to localStorage:', e);
+                // Also save to localStorage as a backup (only for new applications)
+                if (!isEditMode) {
+                    try {
+                        const existingApps = JSON.parse(localStorage.getItem('sciOlyApplications') || '[]');
+                        application.id = data.id || applicationId; // Use the ID from Firebase or existing ID
+                        existingApps.push(application);
+                        localStorage.setItem('sciOlyApplications', JSON.stringify(existingApps));
+                        console.log('Application also backed up to localStorage');
+                    } catch (e) {
+                        console.warn('Could not backup to localStorage:', e);
+                    }
                 }
                 
                 // Redirect to competitions page
                 window.location.href = '{{ url_for("user_competitions") }}';
             })
             .catch(error => {
-                console.error('Error saving application to Firebase:', error);
-                alert(`Failed to submit your application: ${error.message}`);
+                console.error(`Error ${isEditMode ? 'updating' : 'saving'} application to Firebase:`, error);
+                alert(`Failed to ${isEditMode ? 'update' : 'submit'} your application: ${error.message}`);
                 
                 // Reset button state
                 submitApplication.disabled = false;
-                submitApplication.innerHTML = 'Submit Application';
+                submitApplication.innerHTML = originalButtonText;
             });
         });
         
@@ -745,8 +1624,25 @@
         });
         
         // Load data
-        loadCompetitionData();
-        loadUserData();
+        // If in edit mode, load existing application first, then load other data
+        if (isEditMode) {
+            loadExistingApplication()
+                .then(() => {
+                    loadCompetitionData();
+                    loadUserData();
+                    loadDiagnostics();
+                })
+                .catch(() => {
+                    // If loading fails, still load other data
+                    loadCompetitionData();
+                    loadUserData();
+                    loadDiagnostics();
+                });
+        } else {
+            loadCompetitionData();
+            loadUserData();
+            loadDiagnostics();
+        }
     });
 </script>
 {% endblock %} 

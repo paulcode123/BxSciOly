@@ -13,115 +13,44 @@
             <h1><i class="fas fa-users"></i> Member Management</h1>
         </div>
         <div class="nav-right">
-            <button class="btn-info" onclick="exportMembers()">
-                <i class="fas fa-download"></i> Export
-            </button>
             <button class="btn-secondary" onclick="logout()">
                 <i class="fas fa-sign-out-alt"></i> Logout
             </button>
         </div>
     </div>
 
-    <!-- Quick Stats -->
-    <div class="stats-row">
-        <div class="stat-item">
-            <div class="stat-icon">
-                <i class="fas fa-users"></i>
-            </div>
-            <div class="stat-content">
-                <h3 id="totalMembers">--</h3>
-                <p>Total Members</p>
-            </div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-icon">
-                <i class="fas fa-user-check"></i>
-            </div>
-            <div class="stat-content">
-                <h3 id="activeMembers">--</h3>
-                <p>Active Members</p>
-            </div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-icon">
-                <i class="fas fa-user-plus"></i>
-            </div>
-            <div class="stat-content">
-                <h3 id="newMembers">--</h3>
-                <p>New Members</p>
-            </div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-icon">
-                <i class="fas fa-trophy"></i>
-            </div>
-            <div class="stat-content">
-                <h3 id="avgEvents">--</h3>
-                <p>Avg Events</p>
-            </div>
-        </div>
-    </div>
-
     <!-- Main Content -->
     <div class="content-container">
-        <div class="panel">
+        <div class="panel search-panel">
             <div class="panel-header">
-                <h2>Team Members</h2>
-                <div class="panel-actions">
-                    <div class="search-container">
-                        <input type="text" id="memberSearch" placeholder="Search members..." onkeyup="filterMembers()">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <select id="statusFilter" onchange="filterMembers()">
-                        <option value="">All Status</option>
-                        <option value="active">Active</option>
-                        <option value="inactive">Inactive</option>
-                        <option value="pending">Pending</option>
-                    </select>
-                    <select id="gradeFilter" onchange="filterMembers()">
-                        <option value="">All Grades</option>
-                        <option value="9">Grade 9</option>
-                        <option value="10">Grade 10</option>
-                        <option value="11">Grade 11</option>
-                        <option value="12">Grade 12</option>
-                    </select>
-                </div>
+                <h2>Search Member</h2>
             </div>
             <div class="panel-body">
-                <div class="table-container">
-                    <table class="modern-table">
-                        <thead>
-                            <tr>
-                                <th>Member</th>
-                                <th>Grade</th>
-                                <th>Status</th>
-                                <th>Events</th>
-                                <th>Progress</th>
-                                <th>Last Activity</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody id="membersTableBody">
-                            <!-- Members will be loaded here -->
-                        </tbody>
-                    </table>
+                <div class="search-wrapper">
+                    <div class="autocomplete-container">
+                        <input 
+                            type="text" 
+                            id="memberSearchInput" 
+                            placeholder="Start typing a member's name..." 
+                            autocomplete="off"
+                            class="search-input"
+                        >
+                        <i class="fas fa-search search-icon"></i>
+                        <div id="autocompleteDropdown" class="autocomplete-dropdown"></div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
 
-<!-- Member Details Modal -->
-<div id="memberDetailsModal" class="modal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h3>Member Details</h3>
-            <button class="close-btn" onclick="closeModal('memberDetailsModal')">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div class="modal-body">
-            <div id="memberDetailsContent">
+        <!-- Member Details Panel -->
+        <div id="memberDetailsPanel" class="panel" style="display: none;">
+            <div class="panel-header">
+                <h2 id="memberDetailsTitle">Member Details</h2>
+                <button class="close-details-btn" onclick="closeMemberDetails()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="panel-body" id="memberDetailsContent">
                 <!-- Member details will be loaded here -->
             </div>
         </div>
@@ -181,7 +110,7 @@
         gap: 1rem;
     }
 
-    .btn-primary, .btn-secondary, .btn-info {
+    .btn-secondary {
         padding: 0.625rem 1.25rem;
         border-radius: 25px;
         border: none;
@@ -191,9 +120,6 @@
         display: inline-flex;
         align-items: center;
         gap: 0.5rem;
-    }
-
-    .btn-secondary {
         background: rgba(255, 255, 255, 0.2);
         color: white;
         border: 2px solid rgba(255, 255, 255, 0.3);
@@ -203,66 +129,10 @@
         background: rgba(255, 255, 255, 0.3);
     }
 
-    .btn-info {
-        background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
-        color: white;
-    }
-
-    .btn-info:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(6, 182, 212, 0.4);
-    }
-
-    .stats-row {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 1.5rem;
-        padding: 2rem;
-        margin-top: -0.5rem;
-    }
-
-    .stat-item {
-        background: white;
-        padding: 1.5rem;
-        border-radius: 12px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        transition: transform 0.3s ease;
-    }
-
-    .stat-item:hover {
-        transform: translateY(-3px);
-    }
-
-    .stat-icon {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 1.2rem;
-    }
-
-    .stat-content h3 {
-        margin: 0;
-        font-size: 1.75rem;
-        font-weight: 700;
-        color: #1e293b;
-    }
-
-    .stat-content p {
-        margin: 0.25rem 0 0 0;
-        color: #64748b;
-        font-size: 0.875rem;
-    }
-
     .content-container {
-        padding: 0 2rem 2rem 2rem;
+        padding: 2rem;
+        max-width: 1400px;
+        margin: 0 auto;
     }
 
     .panel {
@@ -270,6 +140,11 @@
         border-radius: 12px;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         overflow: hidden;
+        margin-bottom: 2rem;
+    }
+    
+    .search-panel {
+        overflow: visible;
     }
 
     .panel-header {
@@ -288,233 +163,318 @@
         font-weight: 600;
     }
 
-    .panel-actions {
-        display: flex;
-        gap: 1rem;
-        align-items: center;
+    .close-details-btn {
+        background: none;
+        border: none;
+        color: #64748b;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 0.25rem 0.5rem;
+        transition: color 0.3s ease;
+    }
+
+    .close-details-btn:hover {
+        color: #1e293b;
     }
 
     .panel-body {
         padding: 2rem;
+        overflow: visible;
     }
 
-    .search-container {
+    .search-wrapper {
+        max-width: 600px;
+        margin: 0 auto;
+        overflow: visible;
+    }
+
+    .autocomplete-container {
         position: relative;
+        overflow: visible;
     }
 
-    .search-container input {
-        padding: 0.75rem 1rem;
-        padding-right: 2.5rem;
+    .search-input {
+        width: 100%;
+        padding: 1rem 3rem 1rem 1.5rem;
         border: 2px solid #e2e8f0;
         border-radius: 8px;
-        width: 250px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
     }
 
-    .search-container i {
+    .search-input:focus {
+        outline: none;
+        border-color: #667eea;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    .search-icon {
         position: absolute;
-        right: 1rem;
+        right: 1.5rem;
         top: 50%;
         transform: translateY(-50%);
         color: #9ca3af;
     }
 
-    .table-container {
+    .autocomplete-dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
         background: white;
+        border: 1px solid #e2e8f0;
         border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        max-height: 500px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        z-index: 10000;
+        margin-top: 0.5rem;
+        display: none;
+    }
+    
+    .autocomplete-dropdown::-webkit-scrollbar {
+        width: 8px;
+    }
+    
+    .autocomplete-dropdown::-webkit-scrollbar-track {
+        background: #f1f5f9;
+        border-radius: 4px;
+    }
+    
+    .autocomplete-dropdown::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 4px;
+    }
+    
+    .autocomplete-dropdown::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
     }
 
-    .modern-table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-
-    .modern-table th {
-        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    .autocomplete-item {
         padding: 1rem 1.5rem;
-        text-align: left;
-        font-weight: 600;
-        color: #374151;
-        border-bottom: 2px solid #e2e8f0;
-    }
-
-    .modern-table td {
-        padding: 1rem 1.5rem;
+        cursor: pointer;
         border-bottom: 1px solid #f1f5f9;
-        vertical-align: middle;
+        transition: background 0.2s ease;
     }
 
-    .modern-table tr:hover {
+    .autocomplete-item:hover {
         background: #f8fafc;
     }
 
-    .member-info {
+    .autocomplete-item:last-child {
+        border-bottom: none;
+    }
+
+    .autocomplete-item-name {
+        font-weight: 600;
+        color: #1e293b;
+        margin-bottom: 0.25rem;
+    }
+
+    .autocomplete-item-email {
+        font-size: 0.875rem;
+        color: #64748b;
+    }
+
+    .member-section {
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid #e2e8f0;
+    }
+
+    .member-section:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+
+    .section-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #1e293b;
+        margin-bottom: 1rem;
         display: flex;
         align-items: center;
+        gap: 0.5rem;
+    }
+
+    .section-title i {
+        color: #667eea;
+    }
+
+    .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 1rem;
     }
 
-    .member-avatar {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-weight: 600;
-        font-size: 1.125rem;
+    .info-item {
+        padding: 1rem;
+        background: #f8fafc;
+        border-radius: 8px;
     }
 
-    .member-details h4 {
-        margin: 0;
-        color: #1e293b;
-        font-size: 1rem;
-        font-weight: 600;
-    }
-
-    .member-details p {
-        margin: 0.25rem 0 0 0;
-        color: #64748b;
+    .info-label {
         font-size: 0.875rem;
+        color: #64748b;
+        margin-bottom: 0.25rem;
+        font-weight: 500;
     }
 
-    .status-badge {
+    .info-value {
+        font-size: 1rem;
+        color: #1e293b;
+        font-weight: 500;
+    }
+
+    .info-value.empty {
+        color: #94a3b8;
+        font-style: italic;
+    }
+
+    .event-card {
+        background: #f8fafc;
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .event-card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .event-name {
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: #1e293b;
+    }
+
+    .event-type-badge {
         padding: 0.25rem 0.75rem;
-        border-radius: 20px;
+        border-radius: 12px;
         font-size: 0.75rem;
         font-weight: 500;
         text-transform: uppercase;
-        letter-spacing: 0.05em;
     }
 
-    .status-active {
+    .event-type-build {
+        background: #dbeafe;
+        color: #1e40af;
+    }
+
+    .event-type-non-build {
         background: #dcfce7;
         color: #166534;
     }
 
-    .status-inactive {
-        background: #fee2e2;
-        color: #991b1b;
+    .attendance-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 1rem;
     }
 
-    .status-pending {
+    .attendance-table th {
+        background: #f1f5f9;
+        padding: 0.75rem;
+        text-align: left;
+        font-weight: 600;
+        font-size: 0.875rem;
+        color: #475569;
+        border-bottom: 2px solid #e2e8f0;
+    }
+
+    .attendance-table td {
+        padding: 0.75rem;
+        border-bottom: 1px solid #f1f5f9;
+        font-size: 0.875rem;
+        color: #64748b;
+    }
+
+    .status-badge {
+        padding: 0.25rem 0.75rem;
+        border-radius: 12px;
+        font-size: 0.75rem;
+        font-weight: 500;
+        display: inline-block;
+    }
+
+    .status-present {
+        background: #dcfce7;
+        color: #166534;
+    }
+
+    .status-excused {
         background: #fef3c7;
         color: #92400e;
     }
 
-    .events-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.25rem;
+    .status-unexcused {
+        background: #fee2e2;
+        color: #991b1b;
     }
 
-    .event-tag {
-        background: #f1f5f9;
+    .text-content {
+        background: #f8fafc;
+        padding: 1rem;
+        border-radius: 8px;
+        white-space: pre-wrap;
+        font-size: 0.875rem;
+        line-height: 1.6;
         color: #475569;
-        padding: 0.125rem 0.5rem;
-        border-radius: 12px;
-        font-size: 0.75rem;
-        font-weight: 500;
+        max-height: 300px;
+        overflow-y: auto;
     }
 
-    .progress-bar {
-        width: 100%;
-        height: 6px;
-        background: #e2e8f0;
-        border-radius: 3px;
-        overflow: hidden;
-        margin-bottom: 0.25rem;
+    .partner-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
     }
 
-    .progress-fill {
-        height: 100%;
-        background: linear-gradient(90deg, #10b981, #059669);
-        transition: width 0.3s ease;
+    .partner-item {
+        padding: 1rem;
+        background: #f8fafc;
+        border-radius: 8px;
+        margin-bottom: 0.5rem;
     }
 
-    .progress-text {
-        font-size: 0.75rem;
+    .partner-name {
+        font-weight: 600;
+        color: #1e293b;
+        margin-bottom: 0.5rem;
+    }
+
+    .loading {
+        text-align: center;
+        padding: 3rem;
         color: #64748b;
     }
 
-    .action-buttons {
-        display: flex;
-        gap: 0.5rem;
+    .loading i {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        animation: spin 1s linear infinite;
     }
 
-    .action-buttons button {
-        padding: 0.375rem 0.75rem;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-        font-size: 0.875rem;
-        transition: all 0.3s ease;
+    @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
     }
 
-    .view-btn {
-        background: #3b82f6;
-        color: white;
+    .empty-state {
+        text-align: center;
+        padding: 3rem;
+        color: #94a3b8;
     }
 
-    .edit-btn {
-        background: #f59e0b;
-        color: white;
-    }
-
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        backdrop-filter: blur(4px);
-    }
-
-    .modal-content {
-        background: white;
-        margin: 3% auto;
-        border-radius: 12px;
-        width: 90%;
-        max-width: 800px;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    }
-
-    .modal-header {
-        padding: 1.5rem 2rem;
-        border-bottom: 1px solid #e2e8f0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .modal-header h3 {
-        margin: 0;
-        color: #1e293b;
-        font-size: 1.25rem;
-    }
-
-    .close-btn {
-        background: none;
-        border: none;
-        color: #9ca3af;
-        font-size: 1.5rem;
-        cursor: pointer;
-        padding: 0.25rem;
-        transition: color 0.3s ease;
-    }
-
-    .close-btn:hover {
-        color: #6b7280;
-    }
-
-    .modal-body {
-        padding: 2rem;
+    .empty-state i {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        opacity: 0.5;
     }
 
     @media (max-width: 768px) {
@@ -528,27 +488,12 @@
             text-align: center;
         }
 
-        .stats-row {
-            grid-template-columns: 1fr;
+        .content-container {
             padding: 1rem;
         }
 
-        .content-container {
-            padding: 0 1rem 1rem 1rem;
-        }
-
-        .panel-header {
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .panel-actions {
-            flex-direction: column;
-            width: 100%;
-        }
-
-        .search-container input {
-            width: 100%;
+        .info-grid {
+            grid-template-columns: 1fr;
         }
     }
 </style>
@@ -556,240 +501,537 @@
 
 {% block extra_js %}
 <script>
-    let allMembers = [];
-    let filteredMembers = [];
+    let searchTimeout;
+    let selectedMemberId = null;
 
     document.addEventListener('DOMContentLoaded', function() {
-        loadStats();
-        loadMembers();
+        const searchInput = document.getElementById('memberSearchInput');
+        const dropdown = document.getElementById('autocompleteDropdown');
+
+        searchInput.addEventListener('input', function() {
+            const query = this.value.trim();
+            
+            clearTimeout(searchTimeout);
+            
+            if (query.length < 2) {
+                dropdown.style.display = 'none';
+                return;
+            }
+
+            searchTimeout = setTimeout(() => {
+                searchMembers(query);
+            }, 300);
+        });
+
+        searchInput.addEventListener('focus', function() {
+            if (this.value.trim().length >= 2) {
+                searchMembers(this.value.trim());
+            }
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.autocomplete-container')) {
+                dropdown.style.display = 'none';
+            }
+        });
     });
 
-    async function loadStats() {
+    async function searchMembers(query) {
         try {
             const adminId = sessionStorage.getItem('adminId');
-            const response = await fetch('/api/admin/members', { headers: { 'X-Admin-ID': adminId ? adminId : '' } });
-            const members = await response.json();
-            
-            const activeMembers = members.filter(m => m.status === 'active');
-            const newMembers = members.filter(m => m.memberStatus === 'new');
-            const totalEvents = members.reduce((sum, m) => sum + (m.events?.length || 0), 0);
-            
-            document.getElementById('totalMembers').textContent = members.length;
-            document.getElementById('activeMembers').textContent = activeMembers.length;
-            document.getElementById('newMembers').textContent = newMembers.length;
-            document.getElementById('avgEvents').textContent = Math.round(totalEvents / members.length) || 0;
+            const response = await fetch(`/api/admin/members/search?q=${encodeURIComponent(query)}`, {
+                headers: { 'X-Admin-ID': adminId ? adminId : '' }
+            });
+
+            if (!response.ok) {
+                throw new Error('Search failed');
+            }
+
+            const results = await response.json();
+            displayAutocompleteResults(results);
         } catch (error) {
-            console.error('Error loading stats:', error);
+            console.error('Error searching members:', error);
         }
     }
 
-    async function loadMembers() {
-        try {
-            const adminId = sessionStorage.getItem('adminId');
-            const response = await fetch('/api/admin/members', { headers: { 'X-Admin-ID': adminId ? adminId : '' } });
-            allMembers = await response.json();
-            filteredMembers = [...allMembers];
-            displayMembers();
-        } catch (error) {
-            console.error('Error loading members:', error);
-        }
-    }
-
-    function displayMembers() {
-        const tbody = document.getElementById('membersTableBody');
-        tbody.innerHTML = '';
-
-        if (filteredMembers.length === 0) {
-            tbody.innerHTML = `
-                <tr>
-                    <td colspan="7" class="empty-state">
-                        <div class="empty-content">
-                            <i class="fas fa-users"></i>
-                            <p>No members found</p>
-                        </div>
-                    </td>
-                </tr>
-            `;
+    function displayAutocompleteResults(results) {
+        const dropdown = document.getElementById('autocompleteDropdown');
+        
+        if (results.length === 0) {
+            dropdown.innerHTML = '<div class="autocomplete-item"><div class="autocomplete-item-name">No members found</div></div>';
+            dropdown.style.display = 'block';
             return;
         }
 
-        filteredMembers.forEach(member => {
-            const initials = (member.firstName?.charAt(0) || '') + (member.lastName?.charAt(0) || '');
-            const progress = member.learningProgress || [];
-            const avgProgress = progress.length > 0 ? 
-                Math.round(progress.reduce((sum, p) => sum + (p.modulesCompleted / p.totalModules * 100), 0) / progress.length) : 0;
+        dropdown.innerHTML = results.map(member => `
+            <div class="autocomplete-item" onclick="selectMember('${member.id}', '${member.displayName.replace(/'/g, "\\'")}')">
+                <div class="autocomplete-item-name">${escapeHtml(member.displayName)}</div>
+                <div class="autocomplete-item-email">${escapeHtml(member.doeEmail)}</div>
+            </div>
+        `).join('');
 
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>
-                    <div class="member-info">
-                        <div class="member-avatar">${initials}</div>
-                        <div class="member-details">
-                            <h4>${member.firstName} ${member.lastName}</h4>
-                            <p>${member.doeEmail}</p>
-                        </div>
-                    </div>
-                </td>
-                <td>Grade ${member.grade}</td>
-                <td>
-                    <span class="status-badge status-${member.status}">
-                        ${member.status}
-                    </span>
-                </td>
-                <td>
-                    <div class="events-list">
-                        ${member.events ? member.events.slice(0, 3).map(event => 
-                            `<span class="event-tag">${event}</span>`
-                        ).join('') : '<span class="event-tag">None</span>'}
-                        ${member.events && member.events.length > 3 ? 
-                            `<span class="event-tag">+${member.events.length - 3} more</span>` : ''}
-                    </div>
-                </td>
-                <td>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: ${avgProgress}%"></div>
-                    </div>
-                    <div class="progress-text">${avgProgress}% Complete</div>
-                </td>
-                <td>
-                    ${member.lastLogin ? 
-                        new Date(member.lastLogin).toLocaleDateString() : 
-                        'Never'
-                    }
-                </td>
-                <td>
-                    <div class="action-buttons">
-                        <button class="view-btn" onclick="viewMember('${member.id}')">
-                            <i class="fas fa-eye"></i> View
-                        </button>
-                        <button class="edit-btn" onclick="editMember('${member.id}')">
-                            <i class="fas fa-edit"></i> Edit
-                        </button>
-                    </div>
-                </td>
-            `;
-            tbody.appendChild(row);
-        });
+        dropdown.style.display = 'block';
     }
 
-    function filterMembers() {
-        const searchTerm = document.getElementById('memberSearch').value.toLowerCase();
-        const statusFilter = document.getElementById('statusFilter').value;
-        const gradeFilter = document.getElementById('gradeFilter').value;
-
-        filteredMembers = allMembers.filter(member => {
-            const matchesSearch = !searchTerm || 
-                member.firstName.toLowerCase().includes(searchTerm) ||
-                member.lastName.toLowerCase().includes(searchTerm) ||
-                member.doeEmail.toLowerCase().includes(searchTerm);
-
-            const matchesStatus = !statusFilter || member.status === statusFilter;
-            const matchesGrade = !gradeFilter || member.grade === gradeFilter;
-
-            return matchesSearch && matchesStatus && matchesGrade;
-        });
-
-        displayMembers();
+    function selectMember(memberId, memberName) {
+        selectedMemberId = memberId;
+        document.getElementById('memberSearchInput').value = memberName;
+        document.getElementById('autocompleteDropdown').style.display = 'none';
+        loadMemberDetails(memberId);
     }
 
-    function viewMember(memberId) {
-        const member = allMembers.find(m => m.id === memberId);
-        if (!member) return;
+    async function loadMemberDetails(memberId) {
+        const panel = document.getElementById('memberDetailsPanel');
+        const content = document.getElementById('memberDetailsContent');
+        
+        panel.style.display = 'block';
+        content.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i><p>Loading member details...</p></div>';
 
-        const detailsContent = document.getElementById('memberDetailsContent');
-        detailsContent.innerHTML = `
-            <div class="member-profile">
-                <div class="profile-header">
-                    <div class="profile-avatar">
-                        ${(member.firstName?.charAt(0) || '') + (member.lastName?.charAt(0) || '')}
-                    </div>
-                    <div class="profile-info">
-                        <h3>${member.firstName} ${member.lastName}</h3>
-                        <p>${member.doeEmail}</p>
-                        <p>Grade ${member.grade} • ${member.memberStatus} Member</p>
-                    </div>
+        try {
+            const adminId = sessionStorage.getItem('adminId');
+            const response = await fetch(`/api/admin/members/${memberId}/full`, {
+                headers: { 'X-Admin-ID': adminId ? adminId : '' }
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to load member details');
+            }
+
+            const data = await response.json();
+            displayMemberDetails(data);
+        } catch (error) {
+            console.error('Error loading member details:', error);
+            content.innerHTML = '<div class="empty-state"><i class="fas fa-exclamation-triangle"></i><p>Failed to load member details. Please try again.</p></div>';
+        }
+    }
+
+    function displayMemberDetails(data) {
+        const content = document.getElementById('memberDetailsContent');
+        const title = document.getElementById('memberDetailsTitle');
+        
+        title.textContent = `${data.basicInfo.firstName} ${data.basicInfo.lastName}`;
+        
+        let html = '';
+
+        // Basic Information
+        html += `
+            <div class="member-section">
+                <div class="section-title">
+                    <i class="fas fa-user"></i>
+                    Basic Information
                 </div>
-                
-                <div class="profile-details">
-                    <div class="detail-section">
-                        <h4>Contact Information</h4>
-                        <p><strong>DOE Email:</strong> ${member.doeEmail}</p>
-                        <p><strong>Personal Email:</strong> ${member.personalEmail || 'Not provided'}</p>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">Name</div>
+                        <div class="info-value">${escapeHtml(data.basicInfo.firstName)} ${escapeHtml(data.basicInfo.lastName)}</div>
                     </div>
-                    
-                    <div class="detail-section">
-                        <h4>Academic Information</h4>
-                        <p><strong>Grade:</strong> ${member.grade}</p>
-                        <p><strong>Status:</strong> ${member.status}</p>
-                        <p><strong>Member Type:</strong> ${member.memberStatus}</p>
+                    <div class="info-item">
+                        <div class="info-label">DOE Email</div>
+                        <div class="info-value">${escapeHtml(data.basicInfo.doeEmail || 'N/A')}</div>
                     </div>
-                    
-                    <div class="detail-section">
-                        <h4>Science Olympiad Events</h4>
-                        <div class="events-list">
-                            ${member.events ? member.events.map(event => 
-                                `<span class="event-tag">${event}</span>`
-                            ).join('') : '<p>No events assigned</p>'}
-                        </div>
+                    <div class="info-item">
+                        <div class="info-label">BXSCI Email</div>
+                        <div class="info-value">${escapeHtml(data.basicInfo.bxsciEmail || 'N/A')}</div>
                     </div>
-                    
-                    <div class="detail-section">
-                        <h4>Activity</h4>
-                        <p><strong>Last Login:</strong> ${member.lastLogin ? new Date(member.lastLogin).toLocaleDateString() : 'Never'}</p>
-                        <p><strong>Account Created:</strong> ${member.createdAt ? new Date(member.createdAt).toLocaleDateString() : 'Unknown'}</p>
+                    <div class="info-item">
+                        <div class="info-label">Personal Email</div>
+                        <div class="info-value">${escapeHtml(data.basicInfo.personalEmail || 'N/A')}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">BXSciOly ID</div>
+                        <div class="info-value">${escapeHtml(data.basicInfo.bxsciolyID || 'N/A')}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Phone Number</div>
+                        <div class="info-value">${escapeHtml(data.basicInfo.phoneNumber || 'N/A')}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Grade</div>
+                        <div class="info-value">${escapeHtml(data.basicInfo.grade || 'N/A')}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Years on Team</div>
+                        <div class="info-value">${data.basicInfo.yearsInTeam || 0}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Member Status</div>
+                        <div class="info-value">${escapeHtml(data.basicInfo.memberStatus || 'N/A')}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">House</div>
+                        <div class="info-value">${escapeHtml(data.basicInfo.house || 'N/A')}</div>
                     </div>
                 </div>
             </div>
         `;
 
-        document.getElementById('memberDetailsModal').style.display = 'block';
+        // Event Selection Form
+        if (data.eventSelectionForm) {
+            html += `
+                <div class="member-section">
+                    <div class="section-title">
+                        <i class="fas fa-clipboard-list"></i>
+                        Event Selection Form Responses
+                    </div>
+                    <div class="info-grid">
+                        <div class="info-item" style="grid-column: 1 / -1;">
+                            <div class="info-label">Events Selected</div>
+                            <div class="info-value">${escapeHtml(data.eventSelectionForm.eventsSelected || 'N/A')}</div>
+                        </div>
+                        <div class="info-item" style="grid-column: 1 / -1;">
+                            <div class="info-label">Why Join Team</div>
+                            <div class="text-content">${escapeHtml(data.eventSelectionForm.whyJoin || 'N/A')}</div>
+                        </div>
+                        <div class="info-item" style="grid-column: 1 / -1;">
+                            <div class="info-label">Event Rankings & Explanations</div>
+                            <div class="text-content">${escapeHtml(data.eventSelectionForm.eventRankings || 'N/A')}</div>
+                        </div>
+                        <div class="info-item" style="grid-column: 1 / -1;">
+                            <div class="info-label">Qualifications</div>
+                            <div class="text-content">${data.eventSelectionForm.qualifications && data.eventSelectionForm.qualifications.trim() ? escapeHtml(data.eventSelectionForm.qualifications) : 'N/A'}</div>
+                        </div>
+                        <div class="info-item" style="grid-column: 1 / -1;">
+                            <div class="info-label">Additional Information</div>
+                            <div class="text-content">${data.eventSelectionForm.additionalInfo && data.eventSelectionForm.additionalInfo.trim() ? escapeHtml(data.eventSelectionForm.additionalInfo) : 'N/A'}</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Diagnostic Scores
+        if (data.diagnosticScores && data.diagnosticScores.length > 0) {
+            html += `
+                <div class="member-section">
+                    <div class="section-title">
+                        <i class="fas fa-chart-line"></i>
+                        Diagnostic Scores
+                    </div>
+                    <table class="attendance-table">
+                        <thead>
+                            <tr>
+                                <th>Event</th>
+                                <th>Score</th>
+                                <th>Rank</th>
+                                <th>Percentile</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${data.diagnosticScores.map(score => `
+                                <tr>
+                                    <td>${escapeHtml(score.event)}</td>
+                                    <td>${score.score.toFixed(2)}</td>
+                                    <td>${score.rank ? `${score.rank}${getOrdinalSuffix(score.rank)}` : 'N/A'}</td>
+                                    <td>${score.percentile !== null && score.percentile !== undefined ? `${score.percentile.toFixed(2)}%` : 'N/A'}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>
+            `;
+        }
+
+        // Competition Placements
+        if (data.competitionPlacements && data.competitionPlacements.length > 0) {
+            html += `
+                <div class="member-section">
+                    <div class="section-title">
+                        <i class="fas fa-trophy"></i>
+                        Competition Placements
+                    </div>
+                    <table class="attendance-table">
+                        <thead>
+                            <tr>
+                                <th>Competition</th>
+                                <th>Event</th>
+                                <th>Team</th>
+                                <th>Placement</th>
+                                <th>Partners</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${data.competitionPlacements.map(placement => `
+                                <tr>
+                                    <td>${escapeHtml(placement.competitionName || 'N/A')}</td>
+                                    <td>${escapeHtml(placement.event || 'N/A')}</td>
+                                    <td>${escapeHtml(placement.team || 'N/A')}</td>
+                                    <td>${placement.placement ? `${placement.placement}${getOrdinalSuffix(placement.placement)}` : 'N/A'} ${placement.outOf ? `out of ${placement.outOf}` : ''}</td>
+                                    <td>${placement.partners ? placement.partners.join(', ') : 'N/A'}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>
+            `;
+        }
+
+        // Events & Attendance
+        if (data.events && data.events.length > 0) {
+            html += `
+                <div class="member-section">
+                    <div class="section-title">
+                        <i class="fas fa-calendar-check"></i>
+                        Events & Attendance
+                    </div>
+            `;
+
+            data.events.forEach(event => {
+                const isBuildEvent = event.attendance && event.attendance.type === 'build';
+                html += `
+                    <div class="event-card">
+                        <div class="event-card-header">
+                            <div class="event-name">${escapeHtml(event.eventName)}</div>
+                            <span class="event-type-badge event-type-${isBuildEvent ? 'build' : 'non-build'}">
+                                ${isBuildEvent ? 'Build Event' : 'Non-Build Event'}
+                            </span>
+                        </div>
+                `;
+
+                if (!event.attendance) {
+                    html += `<p style="color: #64748b; padding: 1rem;">No attendance data available</p>`;
+                } else if (isBuildEvent && event.attendance.weeklyData) {
+                    html += `
+                        <table class="attendance-table">
+                            <thead>
+                                <tr>
+                                    <th>Week</th>
+                                    <th>Build Meetings Attended</th>
+                                    <th>Excused Absences</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${Object.entries(event.attendance.weeklyData).map(([week, data]) => `
+                                    <tr>
+                                        <td>${escapeHtml(week)}</td>
+                                        <td>${data.buildMeetings}</td>
+                                        <td>
+                                            ${data.excused && data.excused.length > 0 
+                                                ? data.excused.map(exc => `<div>${formatDate(exc.date)}: ${escapeHtml(exc.reason)}</div>`).join('')
+                                                : 'None'}
+                                        </td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    `;
+                } else if (event.attendance && event.attendance.meetings) {
+                    if (event.attendance.meetings.length === 0) {
+                        html += `<p style="color: #64748b; padding: 1rem;">No meetings recorded yet</p>`;
+                    } else {
+                        html += `
+                            <table class="attendance-table">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                        <th>Excuse/Notes</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${event.attendance.meetings.map(meeting => `
+                                        <tr>
+                                            <td>${formatDate(meeting.date)}</td>
+                                            <td>
+                                                <span class="status-badge status-${meeting.status}">
+                                                    ${meeting.status === 'present' ? 'Present' : meeting.status === 'excused' ? 'Excused' : 'Unexcused'}
+                                                </span>
+                                            </td>
+                                            <td>
+                                                ${meeting.excuse ? escapeHtml(meeting.excuse) : (meeting.status === 'present' ? '—' : 'No excuse provided')}
+                                                ${meeting.adminComments ? `<br><small style="color: #64748b;">Admin: ${escapeHtml(meeting.adminComments)}</small>` : ''}
+                                            </td>
+                                        </tr>
+                                    `).join('')}
+                                </tbody>
+                            </table>
+                        `;
+                    }
+                } else if (event.attendance && event.attendance.type === 'build' && (!event.attendance.weeklyData || Object.keys(event.attendance.weeklyData).length === 0)) {
+                    html += `<p style="color: #64748b; padding: 1rem;">No build meetings recorded yet</p>`;
+                } else {
+                    html += `<p style="color: #64748b; padding: 1rem;">No attendance data available</p>`;
+                }
+
+                html += `</div>`;
+            });
+
+            html += `</div>`;
+        }
+
+        // Mason Invitational
+        if (data.masonInvitational) {
+            html += `
+                <div class="member-section">
+                    <div class="section-title">
+                        <i class="fas fa-medal"></i>
+                        Mason Invitational 2026
+                    </div>
+            `;
+
+            if (data.masonInvitational.partners && Object.keys(data.masonInvitational.partners).length > 0) {
+                html += `
+                    <div style="margin-bottom: 1.5rem;">
+                        <h3 style="font-size: 1rem; font-weight: 600; color: #475569; margin-bottom: 1rem;">Partners by Event</h3>
+                        <ul class="partner-list">
+                            ${Object.entries(data.masonInvitational.partners).map(([event, partners]) => {
+                                // Get partner feedback for this event
+                                const eventPartnerFeedback = data.masonInvitational.partnerFeedback && data.masonInvitational.partnerFeedback[event] 
+                                    ? data.masonInvitational.partnerFeedback[event] 
+                                    : {};
+                                
+                                // Collect all partners (from partners list + feedback list)
+                                const allPartnersSet = new Set(partners || []);
+                                if (eventPartnerFeedback) {
+                                    Object.keys(eventPartnerFeedback).forEach(p => allPartnersSet.add(p));
+                                }
+                                const allPartners = Array.from(allPartnersSet);
+                                
+                                return `
+                                <li class="partner-item">
+                                    <div class="partner-name">${escapeHtml(event)}</div>
+                                    <div style="margin-bottom: 0.75rem;">
+                                        <strong>Partners:</strong> ${partners.map(p => escapeHtml(p)).join(', ') || 'None'}
+                                    </div>
+                                    ${allPartners.length > 0 ? `
+                                        <div style="margin-top: 1rem;">
+                                            <strong style="color: #475569; font-size: 0.9rem;">Feedback from Partners:</strong>
+                                            <div style="color: #64748b; font-size: 0.85rem; margin-top: 0.25rem; margin-bottom: 0.75rem;">
+                                                What each partner said about working with this member
+                                            </div>
+                                            ${allPartners.map(partnerName => {
+                                                const feedback = eventPartnerFeedback[partnerName];
+                                                const isOfficialPartner = partners.includes(partnerName);
+                                                if (feedback && feedback.partnershipRating) {
+                                                    return `
+                                                        <div style="margin-top: 0.75rem; padding: 0.75rem; background: #f8fafc; border-radius: 6px; border-left: 3px solid #667eea;">
+                                                            <div style="font-weight: 600; color: #1e293b; margin-bottom: 0.5rem;">
+                                                                ${escapeHtml(partnerName)}${isOfficialPartner ? '' : ' (feedback only)'}'s Feedback:
+                                                            </div>
+                                                            <div class="text-content" style="margin-top: 0.5rem; font-size: 0.9rem;">
+                                                                ${escapeHtml(feedback.partnershipRating)}
+                                                            </div>
+                                                        </div>
+                                                    `;
+                                                } else {
+                                                    return `
+                                                        <div style="margin-top: 0.75rem; padding: 0.75rem; background: #f8fafc; border-radius: 6px; border-left: 3px solid #cbd5e1;">
+                                                            <div style="font-weight: 600; color: #64748b; margin-bottom: 0.5rem;">
+                                                                ${escapeHtml(partnerName)}:
+                                                            </div>
+                                                            <div style="color: #94a3b8; font-style: italic; font-size: 0.9rem;">
+                                                                Did not submit feedback form
+                                                            </div>
+                                                        </div>
+                                                    `;
+                                                }
+                                            }).join('')}
+                                        </div>
+                                    ` : ''}
+                                </li>
+                            `;
+                            }).join('')}
+                        </ul>
+                    </div>
+                `;
+            }
+
+            if (data.masonInvitational.memberFeedback) {
+                const feedback = data.masonInvitational.memberFeedback;
+                html += `
+                    <div>
+                        <h3 style="font-size: 1rem; font-weight: 600; color: #475569; margin-bottom: 1rem;">Member Feedback</h3>
+                        <div class="info-grid">
+                            <div class="info-item" style="grid-column: 1 / -1;">
+                                <div class="info-label">Events Competed In</div>
+                                <div class="info-value">${escapeHtml(feedback.eventsCompeted || 'N/A')}</div>
+                            </div>
+                            <div class="info-item" style="grid-column: 1 / -1;">
+                                <div class="info-label">Events Not Competed In</div>
+                                <div class="text-content">${escapeHtml(feedback.eventsNotCompeted || 'N/A')}</div>
+                            </div>
+                            <div class="info-item" style="grid-column: 1 / -1;">
+                                <div class="info-label">Exam Difficulty</div>
+                                <div class="text-content">${escapeHtml(feedback.examDifficulty || 'N/A')}</div>
+                            </div>
+                            <div class="info-item" style="grid-column: 1 / -1;">
+                                <div class="info-label">Partnerships</div>
+                                <div class="text-content">${escapeHtml(feedback.partnerships || 'N/A')}</div>
+                            </div>
+                            <div class="info-item" style="grid-column: 1 / -1;">
+                                <div class="info-label">What Went Well</div>
+                                <div class="text-content">${escapeHtml(feedback.whatWentWell || 'N/A')}</div>
+                            </div>
+                            <div class="info-item" style="grid-column: 1 / -1;">
+                                <div class="info-label">Road to Improvement</div>
+                                <div class="text-content">${escapeHtml(feedback.roadToImprovement || 'N/A')}</div>
+                            </div>
+                            <div class="info-item" style="grid-column: 1 / -1;">
+                                <div class="info-label">Primary Board Feedback</div>
+                                <div class="text-content">${escapeHtml(feedback.primaryBoardFeedback || 'N/A')}</div>
+                            </div>
+                            <div class="info-item" style="grid-column: 1 / -1;">
+                                <div class="info-label">Event Manager/Subject Director Feedback</div>
+                                <div class="text-content">${escapeHtml(feedback.emSdFeedback || 'N/A')}</div>
+                            </div>
+                            <div class="info-item" style="grid-column: 1 / -1;">
+                                <div class="info-label">Other Comments</div>
+                                <div class="text-content">${escapeHtml(feedback.otherComments || 'N/A')}</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            html += `</div>`;
+        }
+
+        content.innerHTML = html;
+        
+        // Scroll to top of panel
+        document.getElementById('memberDetailsPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
-    function editMember(memberId) {
-        // Implementation for editing member
-        console.log('Edit member:', memberId);
-        // You could open an edit modal or navigate to an edit page
+    function closeMemberDetails() {
+        document.getElementById('memberDetailsPanel').style.display = 'none';
+        document.getElementById('memberSearchInput').value = '';
+        selectedMemberId = null;
     }
 
-    function exportMembers() {
-        const csvContent = [
-            ['Name', 'Email', 'Grade', 'Status', 'Member Type', 'Events', 'Last Login'],
-            ...filteredMembers.map(member => [
-                `${member.firstName} ${member.lastName}`,
-                member.doeEmail,
-                member.grade,
-                member.status,
-                member.memberStatus,
-                member.events ? member.events.join('; ') : '',
-                member.lastLogin ? new Date(member.lastLogin).toLocaleDateString() : 'Never'
-            ])
-        ].map(row => row.join(',')).join('\n');
-
-        const blob = new Blob([csvContent], { type: 'text/csv' });
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `members-${new Date().toISOString().split('T')[0]}.csv`;
-        a.click();
-        window.URL.revokeObjectURL(url);
+    function escapeHtml(text) {
+        if (!text) return '';
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
     }
 
-    function closeModal(modalId) {
-        document.getElementById(modalId).style.display = 'none';
+    function formatDate(dateStr) {
+        if (!dateStr) return 'N/A';
+        try {
+            const date = new Date(dateStr);
+            return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+        } catch (e) {
+            return dateStr;
+        }
+    }
+
+    function getOrdinalSuffix(num) {
+        const j = num % 10;
+        const k = num % 100;
+        if (j === 1 && k !== 11) return 'st';
+        if (j === 2 && k !== 12) return 'nd';
+        if (j === 3 && k !== 13) return 'rd';
+        return 'th';
     }
 
     function logout() {
         if (confirm('Are you sure you want to logout?')) {
-            sessionStorage.removeItem('admin_token');
+            sessionStorage.removeItem('adminId');
+            sessionStorage.removeItem('adminRole');
+            sessionStorage.removeItem('adminPermissions');
+            sessionStorage.removeItem('adminUserInfo');
             window.location.href = '/admin/login';
         }
     }
-
-    // Close modal when clicking outside
-    window.onclick = function(event) {
-        if (event.target.classList.contains('modal')) {
-            event.target.style.display = 'none';
-        }
-    }
 </script>
-{% endblock %} 
+{% endblock %}

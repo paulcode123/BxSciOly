@@ -213,6 +213,38 @@ Wind Power: 5
 Write It Do It: 13
 Overall: 10th out of 23 teams
 
+Team C Results:
+Air Trajectory: 2
+Anatomy and Physiology: 11
+Astronomy: 7
+Bungee Drop: 24
+Chemistry Lab: 13
+Codebusters: 16
+Disease Detectives: 7
+Dynamic Planet: 9
+Ecology: 4
+Electric Vehicle: 24
+Entomology: 15
+Experimental Design: 11
+Forensics: 14
+Fossils: 17
+Geologic Mapping: 15
+Helicopter: 24
+Materials Science: 25
+Microbe Mission: 5
+Optics: 9
+Robot Tour: 24
+Tower: 24
+Wind Power: 11
+Write It Do It: 8*
+Bot: 24
+Fermi Questions: 11
+Forestry: 2
+Ornithology: 3
+Pokemon Pset: 14
+Science Pun Fun: 10
+Overall: 14th out of 23 teams
+
 ================================================================================
 
 NYC NORTH REGIONAL 2024-25
@@ -633,6 +665,117 @@ Notes:
 - DQ indicates disqualification
 - Numbers in parentheses indicate estimated placement when exact ranking unavailable
 - Event orders may vary slightly between competitions due to scheduling constraints
+
+================================================================================
+
+GEORGIA SCRIMMAGE SATELLITE INVITATIONAL 2025-26
+Date: October 11-18, 2025
+Type: Satellite Invitational
+
+Team A Results:
+Anatomy and Physiology: 44*
+Astronomy: 57
+Chemistry Lab: 57*
+Circuit Lab: 24
+Codebusters: 27
+Designer Genes: 17*
+Disease Detectives: 98*
+Dynamic Planet: 15
+Engineering CAD: 32
+Entomology: 98
+Forensics: 51
+Machines: 83*
+Materials Science: 2
+Remote Sensing: 39*
+Rocks and Minerals: 21*
+Water Quality: 102*
+Science in the News: 39
+Overall: 16th out of 230 teams
+
+================================================================================
+
+UPCOMING COMPETITIONS 2025-26
+
+================================================================================
+
+SOUTH WINDSOR INVITATIONAL 2025-26
+Date: December 12, 2025
+Type: Invitational
+Location: South Windsor High School, Connecticut
+Overnight: Yes (Fri Dec 12 4pm - Sat Dec 13 9pm)
+Teams: 2
+Registration Opens: November 24, 2025
+Registration Closes: November 28, 2025 11:59pm
+Roster Released: December 1, 2025
+
+Results: Pending competition
+
+================================================================================
+
+CAPITAL REGION INVITATIONAL 2025-26
+Date: January 9-10, 2026
+Type: Invitational
+Location: Albany, NY
+Overnight: Yes
+Status: Maybe
+
+Results: Pending confirmation
+
+================================================================================
+
+NYC NORTH REGIONAL 2025-26
+Date: January 24, 2026
+Type: Official Regional Championship
+Location: Bronx Science, New York
+Overnight: No
+Teams: 3
+Registration Opens: January 5, 2026
+Registration Closes: January 12, 2026
+Roster Released: January 18, 2026
+
+Results: Pending competition
+
+================================================================================
+
+YALE INVITATIONAL 2025-26
+Date: February 7, 2026
+Type: Invitational
+Location: Yale University, Connecticut
+Overnight: No (Day trip: 5am-6pm)
+Teams: 2
+Registration Opens: January 25, 2026
+Registration Closes: January 29, 2026
+Roster Released: February 1, 2026
+
+Results: Pending competition
+
+================================================================================
+
+SACRED HEART INVITATIONAL 2025-26
+Date: February 21, 2026
+Type: Invitational
+Location: Sacred Heart University, Connecticut
+Overnight: No (Day trip: 5am-6pm)
+Teams: 1-2
+Registration Opens: February 8, 2026
+Registration Closes: February 12, 2026
+Roster Released: February 14, 2026
+
+Results: Pending competition
+
+================================================================================
+
+NEW YORK STATE CHAMPIONSHIP 2025-26
+Date: March 14, 2026
+Type: Official State Championship
+Location: Le Moyne College, Syracuse, NY
+Overnight: Yes (March 13 10am - March 14 11pm)
+Teams: 1
+Registration Opens: February 22, 2026
+Registration Closes: February 28, 2026
+Roster Released: March 3, 2026
+
+Results: Pending competition
 
 ================================================================================
 

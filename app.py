@@ -479,6 +479,11 @@ def serve_practice_test(filename):
     except FileNotFoundError:
         return jsonify({'error': 'File not found'}), 404
 
+@app.route('/videos/BoomiCatastrophe.mp4')
+def serve_boomi_catastrophe():
+    """Serve BoomiCatastrophe.mp4 video from Planning directory"""
+    return send_from_directory('Planning', 'BoomiCatastrophe.mp4', mimetype='video/mp4')
+
 # ----------------------- Interest Meeting Attendance -----------------------
 
 @app.route('/admin/interestCode')

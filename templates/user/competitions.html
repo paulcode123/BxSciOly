@@ -29,12 +29,21 @@
                     <h2>My Competition Results</h2>
                     <p class="section-description">View your performance in competitions and tournaments.</p>
                     
-                    <!-- Duosmium import button hidden as requested -->
-                    <!-- <div class="duosmium-import">
-                        <button id="importDuosmiumBtn" class="btn btn-primary">
-                            <i class="fas fa-file-import"></i> Import from Duosmium
-                        </button>
-                    </div> -->
+                    <!-- Diagnostics Section -->
+                    <section class="diagnostics-section">
+                        <div class="section-header">
+                            <h3><i class="fas fa-clipboard-check"></i> Diagnostic Results</h3>
+                        </div>
+                        <div id="diagnosticsList" class="diagnostics-list">
+                            <div class="loading-indicator"><i class="fas fa-spinner fa-spin"></i><p>Loading diagnostics...</p></div>
+                        </div>
+                    </section>
+                    
+                    <!-- Competition Results -->
+                    <section class="competition-results-section">
+                        <div class="section-header">
+                            <h3><i class="fas fa-trophy"></i> Competition Results</h3>
+                        </div>
                     
                     <div class="results-filter">
                         <div class="filter-group">
@@ -99,6 +108,7 @@
                             <p>Loading your competition results...</p>
                         </div>
                     </div>
+                    </section>
                 </div>
                 
                 <!-- Upcoming Competitions Section -->
@@ -121,14 +131,35 @@
                     <h2>Past Competitions</h2>
                     <p class="section-description">View complete information about past competitions.</p>
                     
+                    <!-- Graphs and Stats Section -->
+                    <div class="past-stats-graphs" id="pastStatsGraphs" style="display: none;">
+                        <div class="graphs-container">
+                            <div class="graph-card">
+                                <h3><i class="fas fa-chart-line"></i> Team Rank Over Time</h3>
+                                <canvas id="teamRankChart"></canvas>
+                            </div>
+                            <div class="graph-card">
+                                <h3><i class="fas fa-chart-pie"></i> Medal Distribution</h3>
+                                <canvas id="medalChart"></canvas>
+                            </div>
+                            <div class="graph-card">
+                                <h3><i class="fas fa-chart-bar"></i> Top Events Performance</h3>
+                                <canvas id="topEventsChart"></canvas>
+                            </div>
+                            <div class="graph-card">
+                                <h3><i class="fas fa-chart-bar"></i> Competition Type Breakdown</h3>
+                                <canvas id="competitionTypeChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div class="past-competitions" id="pastCompetitionsList">
                         <div class="loading-past-competitions">
                             <i class="fas fa-spinner fa-spin"></i>
                             <p>Loading past competitions...</p>
-                            </div>
-                            </div>
-                            </div>
                         </div>
+                    </div>
+                </div>
         </div>
     </div>
 </section>
@@ -211,6 +242,73 @@
     .section-description {
         color: #777;
         margin-bottom: 25px;
+    }
+    
+    /* Diagnostics Section */
+    .diagnostics-section {
+        margin-bottom: 40px;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+    }
+    
+    .diagnostics-section .section-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+        border-bottom: 2px solid #e2e8f0;
+    }
+    
+    .diagnostics-section .section-header h3 {
+        margin: 0;
+        color: var(--primary-color);
+        font-size: 1.3rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .diagnostics-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .diag-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px;
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+    
+    .diag-item:hover {
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        transform: translateY(-2px);
+    }
+    
+    .competition-results-section {
+        margin-top: 30px;
+    }
+    
+    .competition-results-section .section-header {
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+        border-bottom: 2px solid #e2e8f0;
+    }
+    
+    .competition-results-section .section-header h3 {
+        margin: 0;
+        color: var(--primary-color);
+        font-size: 1.3rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
     }
     
     /* Results Section */
@@ -541,6 +639,106 @@
     .metric-value { font-size: 1.4rem; font-weight: 700; }
     .past-stats .medals { display: flex; align-items: center; justify-content: center; gap: 8px; background: transparent; border: none; }
     
+    /* Graphs section */
+    .past-stats-graphs {
+        margin-bottom: 30px;
+    }
+    
+    .graphs-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin-bottom: 30px;
+    }
+    
+    .graph-card {
+        background: white;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .graph-card h3 {
+        margin: 0 0 15px 0;
+        color: var(--primary-color);
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    .graph-card canvas {
+        max-height: 300px;
+    }
+    
+    /* Advanced stats in modal */
+    .advanced-stats {
+        padding: 20px 0;
+    }
+    
+    .stats-summary {
+        margin-bottom: 30px;
+    }
+    
+    .stats-summary h3 {
+        margin-bottom: 15px;
+        color: var(--primary-color);
+    }
+    
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
+    }
+    
+    .stat-card {
+        background: #f8f9fa;
+        border-radius: 8px;
+        padding: 15px;
+        text-align: center;
+        border: 1px solid #e9ecef;
+    }
+    
+    .stat-label {
+        font-size: 0.85rem;
+        color: #6c757d;
+        margin-bottom: 8px;
+    }
+    
+    .stat-value {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #333;
+    }
+    
+    .stat-value.gold { color: #ffd700; }
+    .stat-value.silver { color: #c0c0c0; }
+    .stat-value.bronze { color: #cd7f32; }
+    
+    .stats-charts {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin-top: 30px;
+    }
+    
+    .chart-container {
+        background: white;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    
+    .chart-container h3 {
+        margin: 0 0 15px 0;
+        font-size: 1rem;
+        color: #333;
+    }
+    
+    .chart-container canvas {
+        max-height: 250px;
+    }
+    
     /* Pills and medals */
     .pill { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; font-weight: 600; font-size: 0.9rem; border: 1px solid transparent; }
     .pill.gold { background: #fff3cd; color: #856404; border-color: #ffeeba; }
@@ -812,6 +1010,29 @@
         background-color: #27ae60;
     }
     
+    .btn-success {
+        background-color: #2ecc71;
+        color: white;
+    }
+    
+    .btn-warning {
+        background-color: #f39c12;
+        color: white;
+    }
+    
+    .btn-danger {
+        background-color: #e74c3c;
+        color: white;
+    }
+    
+    .registered-btn {
+        cursor: default;
+    }
+    
+    .registered-btn:hover {
+        opacity: 1;
+    }
+    
     /* Responsive Timeline */
     @media screen and (max-width: 768px) {
         .timeline::after {
@@ -836,12 +1057,15 @@
 {% endblock %}
 
 {% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Check if user is logged in
         const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
         if (!currentUser) {
-            window.location.href = '{{ url_for("login") }}';
+            // Redirect to login with return URL
+            const returnUrl = encodeURIComponent(window.location.pathname);
+            window.location.href = `{{ url_for("login") }}?redirect=${returnUrl}`;
             return;
         }
         
@@ -876,10 +1100,11 @@
             Promise.all([
                 fetch(`/api/Members/${currentUser.id}`),
                 fetch('/api/Competitions'),
-                fetch('/api/Members')
+                fetch('/api/Members'),
+                fetch('/api/Applications')
             ])
-            .then(responses => Promise.all(responses.map(r => r.json())))
-            .then(([userResponse, competitionsResponse, membersResponse]) => {
+                .then(responses => Promise.all(responses.map(r => r.json())))
+                .then(([userResponse, competitionsResponse, membersResponse, applicationsResponse]) => {
                 // Extract member data
                 userData = Object.values(userResponse)[0];
                 
@@ -927,6 +1152,25 @@
                     
                 // Count medals
                 countMedals();
+                
+                // Process applications to create a map of competitionId -> application
+                const applicationsArray = Array.isArray(applicationsResponse) ? applicationsResponse : Object.values(applicationsResponse || {});
+                const userApplicationsMap = {};
+                applicationsArray.forEach(appItem => {
+                    if (typeof appItem === 'object') {
+                        const entries = Object.entries(appItem);
+                        if (entries.length === 1) {
+                            const [id, appData] = entries[0];
+                            if (appData.userId === currentUser.id) {
+                                // Store application by competitionId
+                                userApplicationsMap[appData.competitionId] = { id, ...appData };
+                            }
+                        }
+                    }
+                });
+                
+                // Store applications map for use in loadUpcomingCompetitions
+                window.userApplicationsMap = userApplicationsMap;
                 
                 // Load past competitions (now shows all, not just user's)
                 loadPastCompetitions();
@@ -1229,8 +1473,8 @@
                     // Format dates
                     const competitionDate = parseDate(competition.date);
                     const registrationOpens = parseDate(competition.registrationOpens);
-                    const registrationDeadline = parseDate(competition.registrationDeadline);
-                    const teamsRelease = parseDate(competition.teamsRelease);
+                    const registrationDeadline = parseDate(competition.registrationCloses);
+                    const teamsRelease = parseDate(competition.rosterReleased);
                     
                     // Determine competition type badge
                     const typeBadge = competition.type === 'satellite' ? 'Satellite invitational' : 
@@ -1242,27 +1486,115 @@
                     // Show month only for first competition in the month
                     const showMonth = index === 0;
                     
+                    // Get additional info
+                    const location = competition.location || 'TBD';
+                    const overnight = competition.overnight;
+                    const numTeams = competition.numTeams || 'TBD';
+                    const status = competition.status;
+                    
+                    // Format overnight display
+                    let overnightDisplay = '';
+                    if (overnight === true || (typeof overnight === 'string' && overnight.toLowerCase().includes('yes'))) {
+                        if (typeof overnight === 'string' && overnight.includes('(')) {
+                            // Extract time range from parentheses
+                            const timeMatch = overnight.match(/\(([^)]+)\)/);
+                            if (timeMatch) {
+                                overnightDisplay = `<span class="badge" style="background-color: #e3f2fd; color: #1976d2;">Overnight: ${timeMatch[1]}</span>`;
+                            } else {
+                                overnightDisplay = '<span class="badge" style="background-color: #e3f2fd; color: #1976d2;">Overnight Trip</span>';
+                            }
+                        } else if (typeof overnight === 'string' && overnight.length > 0 && !overnight.toLowerCase().includes('day trip')) {
+                            overnightDisplay = `<span class="badge" style="background-color: #e3f2fd; color: #1976d2;">Overnight: ${overnight}</span>`;
+                        } else {
+                            overnightDisplay = '<span class="badge" style="background-color: #e3f2fd; color: #1976d2;">Overnight Trip</span>';
+                        }
+                    } else if (overnight === false || (typeof overnight === 'string' && overnight.toLowerCase().includes('no'))) {
+                        overnightDisplay = '<span class="badge" style="background-color: #f1f8e9; color: #558b2f;">Day Trip</span>';
+                    } else if (typeof overnight === 'string' && overnight.toLowerCase().includes('day trip')) {
+                        const timeMatch = overnight.match(/\(([^)]+)\)/);
+                        if (timeMatch) {
+                            overnightDisplay = `<span class="badge" style="background-color: #f1f8e9; color: #558b2f;">Day Trip: ${timeMatch[1]}</span>`;
+                        } else {
+                            overnightDisplay = '<span class="badge" style="background-color: #f1f8e9; color: #558b2f;">Day Trip</span>';
+                        }
+                    } else if (overnight && typeof overnight === 'string') {
+                        overnightDisplay = `<span class="badge" style="background-color: #e3f2fd; color: #1976d2;">${overnight}</span>`;
+                    } else {
+                        overnightDisplay = '<span class="badge" style="background-color: #f1f8e9; color: #558b2f;">Day Trip</span>';
+                    }
+                    
+                    // Format competition date range
+                    let dateDisplay = '';
+                    if (competitionDate) {
+                        dateDisplay = competitionDate.toLocaleDateString('en-US', { 
+                            year: 'numeric', 
+                            month: 'long', 
+                            day: 'numeric',
+                            weekday: 'short'
+                        });
+                        if (overnight && typeof overnight === 'string' && overnight.includes('-')) {
+                            // Try to parse end date from overnight string if available
+                            const dateParts = overnight.match(/(\w+\s+\d+)/g);
+                            if (dateParts && dateParts.length > 1) {
+                                dateDisplay += ` - ${dateParts[dateParts.length - 1]}`;
+                            }
+                        }
+                    } else {
+                        dateDisplay = 'TBD';
+                    }
+                    
+                    // Status badge for maybe competitions
+                    let statusBadge = '';
+                    if (status && status.toLowerCase() === 'maybe') {
+                        statusBadge = '<span class="badge" style="background-color: #fff3cd; color: #856404;">Maybe</span>';
+                    }
+                    
+                    // Check if user has already applied
+                    const hasApplied = window.userApplicationsMap && window.userApplicationsMap[competition.id];
+                    const applicationStatus = hasApplied ? (hasApplied.status || 'pending') : null;
+                    const applicationId = hasApplied ? hasApplied.id : null;
+                    
+                    // Determine button text and styling
+                    let applyButtonHTML = '';
+                    if (hasApplied) {
+                        // User has applied - show "Edit my application" button
+                        applyButtonHTML = `<a href="{{ url_for('competition_apply') }}?id=${competition.id}&applicationId=${applicationId}" class="btn btn-primary edit-application-btn" 
+                                   data-start="${competition.registrationOpens}" data-end="${competition.registrationCloses}">Edit my application</a>`;
+                    } else {
+                        // User hasn't applied - show "Apply Now" button
+                        applyButtonHTML = `<a href="{{ url_for('competition_apply') }}?id=${competition.id}" class="btn btn-primary apply-btn" 
+                                   data-start="${competition.registrationOpens}" data-end="${competition.registrationCloses}">Apply Now</a>`;
+                    }
+                    
                     timelineItem.innerHTML = `
                         ${showMonth ? `<div class="timeline-date">${monthKey}</div>` : ''}
                         <div class="timeline-content">
-                            <h3>${competition.name}</h3>
-                            <p><span class="badge">${typeBadge}</span></p>
+                            <h3>${competition.name} ${statusBadge}</h3>
+                            <p>
+                                <span class="badge">${typeBadge}</span>
+                                ${overnightDisplay}
+                            </p>
                             <div class="competition-details">
                                 <div class="detail-item">
-                                    <i class="fas fa-calendar-alt"></i> Tournament: ${competitionDate ? competitionDate.toLocaleDateString() : 'TBD'}
+                                    <i class="fas fa-calendar-alt"></i> <strong>Tournament:</strong> ${dateDisplay}
                                 </div>
                                 <div class="detail-item">
-                                    <i class="fas fa-clock"></i> Apply: ${registrationOpens ? registrationOpens.toLocaleDateString() : 'TBD'} - ${registrationDeadline ? registrationDeadline.toLocaleDateString() : 'TBD'}
+                                    <i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> ${location}
                                 </div>
                                 <div class="detail-item">
-                                    <i class="fas fa-users"></i> Team Release: ${teamsRelease ? teamsRelease.toLocaleDateString() : 'TBD'}
+                                    <i class="fas fa-users"></i> <strong>Teams:</strong> ${numTeams}
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-clock"></i> <strong>Apply:</strong> ${registrationOpens ? registrationOpens.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : 'TBD'} - ${registrationDeadline ? registrationDeadline.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : 'TBD'}
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-user-check"></i> <strong>Roster Released:</strong> ${teamsRelease ? teamsRelease.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : 'TBD'}
                                 </div>
                             </div>
                             <div class="action-buttons">
-                                <a href="{{ url_for('competition_apply') }}?id=${competition.id}" class="btn btn-primary apply-btn" 
-                                   data-start="${competition.registrationOpens}" data-end="${competition.registrationDeadline}">Apply Now</a>
+                                ${applyButtonHTML}
                                 <a href="#" class="btn btn-info roster-btn" 
-                                   data-start="${competition.teamsRelease}" data-end="${competition.date}">See Roster</a>
+                                   data-start="${competition.rosterReleased}" data-end="${competition.date}">See Roster</a>
                             </div>
                         </div>
                     `;
@@ -1279,7 +1611,7 @@
         function updateTimelineButtons() {
             const now = new Date();
             
-            // Update Apply buttons
+            // Update Apply buttons (only show if registration is open)
             const applyButtons = document.querySelectorAll('.apply-btn');
             applyButtons.forEach(button => {
                 const startDate = new Date(button.dataset.start);
@@ -1291,6 +1623,26 @@
                 } else {
                     button.style.display = 'none';
                 }
+            });
+            
+            // Update Edit Application buttons (only show if registration is still open)
+            const editButtons = document.querySelectorAll('.edit-application-btn');
+            editButtons.forEach(button => {
+                const startDate = new Date(button.dataset.start);
+                const endDate = new Date(button.dataset.end);
+                endDate.setHours(23, 59, 59, 999); // End of day
+                
+                if (now >= startDate && now <= endDate) {
+                    button.style.display = 'inline-block';
+                } else {
+                    button.style.display = 'none';
+                }
+            });
+            
+            // Registered buttons are always visible (they're disabled anyway)
+            const registeredButtons = document.querySelectorAll('.registered-btn');
+            registeredButtons.forEach(button => {
+                button.style.display = 'inline-block';
             });
             
             // Update Roster buttons
@@ -1340,6 +1692,7 @@
         // Load past competitions where user participated
         function loadPastCompetitions() {
             const pastCompetitionsList = document.getElementById('pastCompetitionsList');
+            const pastStatsGraphs = document.getElementById('pastStatsGraphs');
             
             // All competitions that are in the past
             const now = new Date();
@@ -1376,7 +1729,9 @@
                 });
             });
             
-            pastCompetitionsList.innerHTML = '';
+            // Clear loading state
+            const loadingEl = pastCompetitionsList.querySelector('.loading-past-competitions');
+            if (loadingEl) loadingEl.remove();
             
             // Stats header
             const statsHeader = document.createElement('div');
@@ -1401,6 +1756,15 @@
                 </div>
             `;
             pastCompetitionsList.appendChild(statsHeader);
+            
+            // Show graphs section
+            if (pastStatsGraphs) {
+                pastStatsGraphs.style.display = 'block';
+                // Render graphs after a short delay to ensure DOM is ready
+                setTimeout(() => {
+                    renderPastCompetitionGraphs(pastCompetitions, medalCounts);
+                }, 100);
+            }
             
             // Cards
             pastCompetitions.forEach(competition => {
@@ -1464,11 +1828,13 @@
             
             const resultsList = (competition.results && Array.isArray(competition.results.eventResults)) ? competition.results.eventResults : [];
             
-            // Build placements table
+            // Build placements table - show ALL placements, not just top 10
             const placementsSorted = [...resultsList].sort((a, b) => (a.placement || 9999) - (b.placement || 9999));
             const placementsRows = placementsSorted.map(r => {
                 const medalClass = r.placement === 1 ? 'gold' : r.placement === 2 ? 'silver' : r.placement === 3 ? 'bronze' : (r.placement && r.placement <= 10 ? 'top10' : '');
-                const pill = r.placement && r.placement <= 10 ? `<span class="pill ${medalClass}">${r.placement}${getOrdinalSuffix(r.placement)}</span>` : '';
+                // Show placement for all results, not just top 10
+                const placementText = r.placement ? `${r.placement}${getOrdinalSuffix(r.placement)}` : '—';
+                const pill = r.placement ? `<span class="pill ${medalClass}">${placementText}</span>` : '<span>—</span>';
                 return `
                     <tr>
                         <td>${r.eventName || '—'}</td>
@@ -1502,11 +1868,69 @@
             });
             if (!rosterHTML) rosterHTML = '<p>No roster data available.</p>';
             
-            // Quick stats
+            // Advanced stats for statistics tab
             const gold = resultsList.filter(r => r.placement === 1).length;
             const silver = resultsList.filter(r => r.placement === 2).length;
             const bronze = resultsList.filter(r => r.placement === 3).length;
             const top10 = resultsList.filter(r => r.placement && r.placement <= 10).length;
+            const top25 = resultsList.filter(r => r.placement && r.placement <= 25).length;
+            
+            // Calculate average placement
+            const validPlacements = resultsList.filter(r => r.placement && typeof r.placement === 'number').map(r => r.placement);
+            const avgPlacement = validPlacements.length > 0 ? (validPlacements.reduce((a, b) => a + b, 0) / validPlacements.length).toFixed(1) : null;
+            
+            // Calculate best and worst placements
+            const bestPlacement = validPlacements.length > 0 ? Math.min(...validPlacements) : null;
+            const worstPlacement = validPlacements.length > 0 ? Math.max(...validPlacements) : null;
+            
+            // Event performance breakdown
+            const eventStats = {};
+            resultsList.forEach(r => {
+                if (!r.eventName) return;
+                if (!eventStats[r.eventName]) {
+                    eventStats[r.eventName] = { placements: [], teams: new Set() };
+                }
+                if (r.placement) eventStats[r.eventName].placements.push(r.placement);
+                if (r.team) eventStats[r.eventName].teams.add(r.team);
+            });
+            
+            // Calculate average placement per event
+            const eventAverages = Object.keys(eventStats).map(eventName => {
+                const stats = eventStats[eventName];
+                const avg = stats.placements.length > 0 
+                    ? (stats.placements.reduce((a, b) => a + b, 0) / stats.placements.length).toFixed(1)
+                    : null;
+                return { event: eventName, avg: avg, count: stats.placements.length };
+            }).sort((a, b) => parseFloat(a.avg || 9999) - parseFloat(b.avg || 9999));
+            
+            // Team performance breakdown
+            const teamStats = {};
+            resultsList.forEach(r => {
+                if (!r.team) return;
+                if (!teamStats[r.team]) {
+                    teamStats[r.team] = { placements: [], events: new Set() };
+                }
+                if (r.placement) teamStats[r.team].placements.push(r.placement);
+                if (r.eventName) teamStats[r.team].events.add(r.eventName);
+            });
+            
+            // Calculate average placement per team
+            const teamAverages = Object.keys(teamStats).map(team => {
+                const stats = teamStats[team];
+                const avg = stats.placements.length > 0 
+                    ? (stats.placements.reduce((a, b) => a + b, 0) / stats.placements.length).toFixed(1)
+                    : null;
+                return { team: team, avg: avg, events: stats.events.size };
+            }).sort((a, b) => parseFloat(a.avg || 9999) - parseFloat(b.avg || 9999));
+            
+            // Placement distribution
+            const placementRanges = {
+                '1st': resultsList.filter(r => r.placement === 1).length,
+                '2nd-3rd': resultsList.filter(r => r.placement >= 2 && r.placement <= 3).length,
+                '4th-10th': resultsList.filter(r => r.placement >= 4 && r.placement <= 10).length,
+                '11th-25th': resultsList.filter(r => r.placement >= 11 && r.placement <= 25).length,
+                '26th+': resultsList.filter(r => r.placement > 25).length
+            };
             
             modalContent.innerHTML = `
                 <h2>${competition.name}</h2>
@@ -1542,14 +1966,156 @@
                     ${rosterHTML}
                 </div>
                 <div class="tab-content" id="tab-statistics">
-                    <div class="stats-row">
-                        <span class="pill gold"><i class="fas fa-medal"></i> ${gold}</span>
-                        <span class="pill silver"><i class="fas fa-medal"></i> ${silver}</span>
-                        <span class="pill bronze"><i class="fas fa-medal"></i> ${bronze}</span>
-                        <span class="pill top10">Top 10: ${top10}</span>
+                    <div class="advanced-stats">
+                        <div class="stats-summary">
+                            <h3>Summary Statistics</h3>
+                            <div class="stats-grid">
+                                <div class="stat-card">
+                                    <div class="stat-label">Gold Medals</div>
+                                    <div class="stat-value gold">${gold}</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-label">Silver Medals</div>
+                                    <div class="stat-value silver">${silver}</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-label">Bronze Medals</div>
+                                    <div class="stat-value bronze">${bronze}</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-label">Top 10 Finishes</div>
+                                    <div class="stat-value">${top10}</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-label">Top 25 Finishes</div>
+                                    <div class="stat-value">${top25}</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-label">Average Placement</div>
+                                    <div class="stat-value">${avgPlacement || '—'}</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-label">Best Placement</div>
+                                    <div class="stat-value">${bestPlacement ? `${bestPlacement}${getOrdinalSuffix(bestPlacement)}` : '—'}</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-label">Total Events</div>
+                                    <div class="stat-value">${resultsList.length}</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="stats-charts">
+                            <div class="chart-container">
+                                <h3>Placement Distribution</h3>
+                                <canvas id="modalPlacementChart"></canvas>
+                            </div>
+                            <div class="chart-container">
+                                <h3>Top Event Performances</h3>
+                                <canvas id="modalEventChart"></canvas>
+                            </div>
+                            <div class="chart-container">
+                                <h3>Team Performance Comparison</h3>
+                                <canvas id="modalTeamChart"></canvas>
+                            </div>
+                        </div>
                     </div>
                 </div>
             `;
+            
+            // Render charts in statistics tab after modal is displayed
+            setTimeout(() => {
+                // Placement distribution chart
+                const placementCtx = document.getElementById('modalPlacementChart');
+                if (placementCtx) {
+                    new Chart(placementCtx, {
+                        type: 'bar',
+                        data: {
+                            labels: Object.keys(placementRanges),
+                            datasets: [{
+                                label: 'Number of Events',
+                                data: Object.values(placementRanges),
+                                backgroundColor: [
+                                    '#ffd700',
+                                    '#c0c0c0',
+                                    '#cd7f32',
+                                    '#90EE90',
+                                    '#D3D3D3'
+                                ]
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            plugins: {
+                                legend: { display: false }
+                            },
+                            scales: {
+                                y: { beginAtZero: true }
+                            }
+                        }
+                    });
+                }
+                
+                // Top event performances chart
+                const eventCtx = document.getElementById('modalEventChart');
+                if (eventCtx && eventAverages.length > 0) {
+                    const topEvents = eventAverages.slice(0, 10);
+                    new Chart(eventCtx, {
+                        type: 'bar',
+                        data: {
+                            labels: topEvents.map(e => e.event),
+                            datasets: [{
+                                label: 'Average Placement',
+                                data: topEvents.map(e => parseFloat(e.avg || 0)),
+                                backgroundColor: '#3498db'
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            indexAxis: 'y',
+                            plugins: {
+                                legend: { display: false }
+                            },
+                            scales: {
+                                x: { 
+                                    beginAtZero: true,
+                                    reverse: true,
+                                    title: { display: true, text: 'Average Placement (lower is better)' }
+                                }
+                            }
+                        }
+                    });
+                }
+                
+                // Team performance chart
+                const teamCtx = document.getElementById('modalTeamChart');
+                if (teamCtx && teamAverages.length > 0) {
+                    new Chart(teamCtx, {
+                        type: 'bar',
+                        data: {
+                            labels: teamAverages.map(t => `Team ${t.team}`),
+                            datasets: [{
+                                label: 'Average Placement',
+                                data: teamAverages.map(t => parseFloat(t.avg || 0)),
+                                backgroundColor: ['#3498db', '#2ecc71', '#e74c3c']
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            plugins: {
+                                legend: { display: false }
+                            },
+                            scales: {
+                                y: { 
+                                    beginAtZero: true,
+                                    reverse: true,
+                                    title: { display: true, text: 'Average Placement (lower is better)' }
+                                }
+                            }
+                        }
+                    });
+                }
+            }, 100);
             
             // Tab switching
             const tabButtons = modalContent.querySelectorAll('.tab-btn');
@@ -1582,8 +2148,269 @@
         
         // Timeline buttons are updated when upcoming competitions are loaded
         
+        // Render graphs for past competitions
+        function renderPastCompetitionGraphs(pastCompetitions, medalCounts) {
+            // Check if Chart.js is loaded
+            if (typeof Chart === 'undefined') {
+                console.error('Chart.js is not loaded');
+                return;
+            }
+            
+            // Destroy existing charts if they exist
+            try {
+                if (window.teamRankChart && window.teamRankChart.destroy) {
+                    window.teamRankChart.destroy();
+                }
+            } catch (e) {
+                console.warn('Error destroying teamRankChart:', e);
+            }
+            
+            try {
+                if (window.medalChart && window.medalChart.destroy) {
+                    window.medalChart.destroy();
+                }
+            } catch (e) {
+                console.warn('Error destroying medalChart:', e);
+            }
+            
+            try {
+                if (window.topEventsChart && window.topEventsChart.destroy) {
+                    window.topEventsChart.destroy();
+                }
+            } catch (e) {
+                console.warn('Error destroying topEventsChart:', e);
+            }
+            
+            try {
+                if (window.competitionTypeChart && window.competitionTypeChart.destroy) {
+                    window.competitionTypeChart.destroy();
+                }
+            } catch (e) {
+                console.warn('Error destroying competitionTypeChart:', e);
+            }
+            
+            // Prepare data for team rank over time
+            const teamRankData = [];
+            const teamRankLabels = [];
+            pastCompetitions.forEach(comp => {
+                const date = parseDate(comp.date);
+                if (date && comp.results && typeof comp.results.teamRank === 'number') {
+                    teamRankLabels.push(date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' }));
+                    teamRankData.push(comp.results.teamRank);
+                }
+            });
+            
+            // Team rank chart
+            const teamRankCtx = document.getElementById('teamRankChart');
+            if (teamRankCtx && teamRankData.length > 0) {
+                window.teamRankChart = new Chart(teamRankCtx, {
+                    type: 'line',
+                    data: {
+                        labels: teamRankLabels,
+                        datasets: [{
+                            label: 'Team Rank',
+                            data: teamRankData,
+                            borderColor: '#3498db',
+                            backgroundColor: 'rgba(52, 152, 219, 0.1)',
+                            tension: 0.4,
+                            fill: true
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return `Rank: ${context.parsed.y}${getOrdinalSuffix(context.parsed.y)}`;
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                reverse: true,
+                                beginAtZero: false,
+                                title: { display: true, text: 'Team Rank (lower is better)' }
+                            }
+                        }
+                    }
+                });
+            }
+            
+            // Medal distribution chart
+            const medalCtx = document.getElementById('medalChart');
+            if (medalCtx) {
+                const totalMedals = medalCounts.gold + medalCounts.silver + medalCounts.bronze;
+                if (totalMedals > 0) {
+                    window.medalChart = new Chart(medalCtx, {
+                        type: 'doughnut',
+                        data: {
+                            labels: ['Gold', 'Silver', 'Bronze'],
+                            datasets: [{
+                                data: [medalCounts.gold, medalCounts.silver, medalCounts.bronze],
+                                backgroundColor: ['#ffd700', '#c0c0c0', '#cd7f32']
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            plugins: {
+                                legend: { position: 'bottom' }
+                            }
+                        }
+                    });
+                }
+            }
+            
+            // Top events performance chart
+            const eventPerformance = {};
+            pastCompetitions.forEach(comp => {
+                (comp.results && Array.isArray(comp.results.eventResults) ? comp.results.eventResults : []).forEach(r => {
+                    if (!r.eventName || !r.placement) return;
+                    if (!eventPerformance[r.eventName]) {
+                        eventPerformance[r.eventName] = { placements: [], count: 0 };
+                    }
+                    eventPerformance[r.eventName].placements.push(r.placement);
+                    eventPerformance[r.eventName].count++;
+                });
+            });
+            
+            const eventAverages = Object.keys(eventPerformance).map(eventName => {
+                const data = eventPerformance[eventName];
+                const avg = data.placements.length > 0 
+                    ? data.placements.reduce((a, b) => a + b, 0) / data.placements.length
+                    : null;
+                return { event: eventName, avg: avg, count: data.count };
+            }).filter(e => e.avg !== null).sort((a, b) => a.avg - b.avg).slice(0, 10);
+            
+            const topEventsCtx = document.getElementById('topEventsChart');
+            if (topEventsCtx && eventAverages.length > 0) {
+                window.topEventsChart = new Chart(topEventsCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: eventAverages.map(e => e.event),
+                        datasets: [{
+                            label: 'Average Placement',
+                            data: eventAverages.map(e => e.avg),
+                            backgroundColor: '#2ecc71'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        indexAxis: 'y',
+                        plugins: {
+                            legend: { display: false }
+                        },
+                        scales: {
+                            x: {
+                                reverse: true,
+                                beginAtZero: false,
+                                title: { display: true, text: 'Average Placement (lower is better)' }
+                            }
+                        }
+                    }
+                });
+            }
+            
+            // Competition type breakdown
+            const typeCounts = {};
+            pastCompetitions.forEach(comp => {
+                const type = comp.type || 'unknown';
+                typeCounts[type] = (typeCounts[type] || 0) + 1;
+            });
+            
+            const competitionTypeCtx = document.getElementById('competitionTypeChart');
+            if (competitionTypeCtx) {
+                window.competitionTypeChart = new Chart(competitionTypeCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: Object.keys(typeCounts).map(t => t.charAt(0).toUpperCase() + t.slice(1)),
+                        datasets: [{
+                            label: 'Number of Competitions',
+                            data: Object.values(typeCounts),
+                            backgroundColor: ['#3498db', '#2ecc71', '#e74c3c', '#f39c12', '#9b59b6']
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: { display: false }
+                        },
+                        scales: {
+                            y: { beginAtZero: true }
+                        }
+                    }
+                });
+            }
+        }
+        
+        // Load diagnostics
+        function loadDiagnostics() {
+            const diagnosticsList = document.getElementById('diagnosticsList');
+            try {
+                const userId = currentUser.id || currentUser.uid || currentUser.userId;
+                fetch(`/api/diag-results/${encodeURIComponent(userId)}`)
+                    .then(res => {
+                        if (!res.ok) {
+                            if (res.status === 404) {
+                                diagnosticsList.innerHTML = '<div class="empty-state"><i class="fas fa-file-alt"></i><p>No diagnostics recorded yet.</p></div>';
+                            } else {
+                                diagnosticsList.innerHTML = '<div class="empty-state">Failed to load diagnostics</div>';
+                            }
+                            return;
+                        }
+                        return res.json();
+                    })
+                    .then(data => {
+                        if (!data) return;
+                        
+                        if (!data.eventsTaken || data.eventsTaken.length === 0) {
+                            diagnosticsList.innerHTML = '<div class="empty-state"><i class="fas fa-file-alt"></i><p>No diagnostics recorded yet.</p></div>';
+                            return;
+                        }
+                        
+                        diagnosticsList.innerHTML = '';
+                        data.eventsTaken.forEach(event => {
+                            const div = document.createElement('div');
+                            div.className = 'diag-item';
+                            
+                            const eventDetail = data.eventDetails && data.eventDetails[event.name];
+                            const rank = eventDetail ? eventDetail.rank : null;
+                            const percentile = eventDetail ? eventDetail.percentile.toFixed(1) : null;
+                            const outOf = eventDetail && data.eventTotals ? data.eventTotals[event.name] : null;
+                            
+                            let rankDisplay = '';
+                            if (rank && outOf) {
+                                rankDisplay = `<div style="text-align:right; min-width:120px;">
+                                    <div style="font-weight:700; font-size:1.1rem;">${rank}<span style="font-size:0.8rem; color:#777;">${getOrdinalSuffix(rank)}</span></div>
+                                    <div style="color:#777;">out of ${outOf}</div>
+                                    ${percentile ? `<div style="color:#777; font-size:0.9rem;">${percentile}th percentile</div>` : ''}
+                                </div>`;
+                            }
+                            
+                            div.innerHTML = `
+                                <div style="flex:1;">
+                                    <div style="font-weight:600;">${event.name} '25 Entry Diagnostic</div>
+                                    <div style="color:#777; font-size:0.9rem;">Score: ${event.score.toFixed(2)}</div>
+                                </div>
+                                ${rankDisplay}`;
+                            diagnosticsList.appendChild(div);
+                        });
+                    })
+                    .catch(e => {
+                        console.error('Error loading diagnostics:', e);
+                        diagnosticsList.innerHTML = '<div class="empty-state">Failed to load diagnostics</div>';
+                    });
+            } catch (e) {
+                console.error('Error loading diagnostics:', e);
+                diagnosticsList.innerHTML = '<div class="empty-state">Failed to load diagnostics</div>';
+            }
+        }
+        
         // Load user data on page load
         loadUserData();
+        loadDiagnostics();
         
         // Note: Duosmium import functionality has been removed as requested
     });

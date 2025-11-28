@@ -13,6 +13,17 @@ import secrets
 from datetime import timedelta
 import smtplib
 from email.message import EmailMessage
+from email.utils import parsedate_to_datetime
+import csv
+from collections import defaultdict
+
+# Import competition parser
+try:
+    from competition_parser import get_all_competitions
+except ImportError:
+    # Fallback if parser not available
+    def get_all_competitions():
+        return []
 
 # Try to import from our initialization module
 try:
@@ -196,9 +207,38 @@ def _send_password_reset_email(to_email: str, reset_link: str) -> None:
         server.login(user, password)
         server.send_message(msg)
 
+@firebase_routes.route('/api/Competitions', methods=['GET'])
+def get_competitions():
+    """Get all competitions from text files (not Firebase)"""
+    try:
+        competitions = get_all_competitions()
+        # Format to match Firebase structure: [{id: data}, ...]
+        # Convert datetime objects to ISO strings for JSON serialization
+        items = []
+        for comp in competitions:
+            comp_data = {}
+            for k, v in comp.items():
+                if k != 'id':
+                    # Convert datetime to ISO string if needed
+                    if hasattr(v, 'isoformat'):
+                        comp_data[k] = v.isoformat()
+                    else:
+                        comp_data[k] = v
+            items.append({comp['id']: comp_data})
+        return jsonify(items), 200
+    except Exception as e:
+        logger.error(f"Error loading competitions: {str(e)}")
+        import traceback
+        logger.error(traceback.format_exc())
+        return jsonify({"error": str(e)}), 500
+
 @firebase_routes.route('/api/<collection>', methods=['GET'])
 def get_all(collection):
     """Get all documents from a collection"""
+    # Skip Competitions collection - handled by specific route
+    if collection == 'Competitions':
+        return get_competitions()
+    
     try:
         docs = db.collection(collection).stream()
         items = [{doc.id: doc.to_dict()} for doc in docs]
@@ -965,6 +1005,16 @@ def get_members():
         if not admin_id:
             return jsonify({"error": "Admin authentication required"}), 401
         
+        # Verify full admin status
+        member_doc = db.collection('Members').document(admin_id).get()
+        if not member_doc.exists:
+            return jsonify({"error": "Invalid admin session"}), 401
+        
+        member_data = member_doc.to_dict()
+        admin_status = member_data.get('adminStatus', 'none')
+        if admin_status != 'full':
+            return jsonify({"error": "Full admin privileges required"}), 403
+        
         # Get members
         members_query = db.collection('Members').order_by('lastName').stream()
         members = []
@@ -979,6 +1029,785 @@ def get_members():
         return jsonify(members), 200
         
     except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/admin/members/search', methods=['GET'])
+def search_members():
+    """Search members by name for autocomplete"""
+    try:
+        # Check admin auth
+        admin_id = request.headers.get('X-Admin-ID')
+        if not admin_id:
+            return jsonify({"error": "Admin authentication required"}), 401
+        
+        # Verify full admin status
+        member_doc = db.collection('Members').document(admin_id).get()
+        if not member_doc.exists:
+            return jsonify({"error": "Invalid admin session"}), 401
+        
+        member_data = member_doc.to_dict()
+        admin_status = member_data.get('adminStatus', 'none')
+        if admin_status != 'full':
+            return jsonify({"error": "Full admin privileges required"}), 403
+        
+        query = request.args.get('q', '').strip().lower()
+        if not query or len(query) < 2:
+            return jsonify([]), 200
+        
+        # Load team members from team_placement_solution.csv
+        team_member_ids = set()
+        try:
+            with open('Planning/team_placement_solution.csv', 'r', encoding='utf-8') as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    firebase_id = row.get('firebaseID', '').strip()
+                    if firebase_id:
+                        team_member_ids.add(firebase_id)
+            logger.info(f"Loaded {len(team_member_ids)} team members from team_placement_solution.csv")
+        except Exception as e:
+            logger.warning(f"Could not load team members: {e}")
+            # If we can't load the team file, fall back to all members
+            team_member_ids = None
+        
+        # Get all members and filter
+        members_query = db.collection('Members').stream()
+        results = []
+        
+        for member in members_query:
+            # Skip if not in team (unless we couldn't load the team file)
+            if team_member_ids is not None and member.id not in team_member_ids:
+                continue
+            
+            member_data = member.to_dict()
+            first_name = (member_data.get('firstName', '') or '').lower()
+            last_name = (member_data.get('lastName', '') or '').lower()
+            full_name = f"{first_name} {last_name}".strip()
+            
+            if query in first_name or query in last_name or query in full_name:
+                results.append({
+                    'id': member.id,
+                    'firstName': member_data.get('firstName', ''),
+                    'lastName': member_data.get('lastName', ''),
+                    'doeEmail': member_data.get('doeEmail', ''),
+                    'displayName': f"{member_data.get('firstName', '')} {member_data.get('lastName', '')}".strip()
+                })
+        
+        # Sort by relevance (exact matches first, then by name)
+        results.sort(key=lambda x: (
+            0 if query in x['displayName'].lower() else 1,
+            x['displayName'].lower()
+        ))
+        
+        return jsonify(results[:20]), 200  # Limit to 20 results
+        
+    except Exception as e:
+        logger.error(f"Error searching members: {e}")
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/admin/members/<member_id>/debug-mason', methods=['GET'])
+def debug_mason_data(member_id):
+    """Debug endpoint to check Mason data for a member"""
+    try:
+        # Get member data
+        member_doc = db.collection('Members').document(member_id).get()
+        if not member_doc.exists:
+            return jsonify({"error": "Member not found"}), 404
+        
+        member_data = member_doc.to_dict()
+        member_name = f"{member_data.get('firstName', '')} {member_data.get('lastName', '')}".strip()
+        
+        # Read Mason placements
+        mason_partners = {}
+        all_events_parsed = []
+        with open('Planning/Mason Invitational 2026 Placements - Team A.csv', 'r', encoding='utf-8') as f:
+            reader = csv.DictReader(f)
+            headers = reader.fieldnames if reader else []
+            logger.info(f"CSV Headers: {headers}")
+            logger.info(f"Looking for member: '{member_name}'")
+            
+            for i, row in enumerate(reader):
+                # Event name is in the first column
+                first_key = list(row.keys())[0] if row.keys() else None
+                event_name = row.get(first_key, '').strip() if first_key else None
+                
+                if not event_name:
+                    continue
+                
+                all_events_parsed.append(event_name)
+                
+                # Get all COMPETITORS columns (first 2-3 columns after event name)
+                competitors = []
+                row_keys = list(row.keys())[1:7]
+                logger.info(f"Row {i}: Event='{event_name}', Columns to check: {row_keys}")
+                
+                for key in row_keys:
+                    comp_name = row.get(key, '').strip()
+                    if comp_name and 'COMPETITOR' not in key.upper() and 'GRADE' not in key.upper():
+                        competitors.append(comp_name)
+                        logger.info(f"  - Added competitor: '{comp_name}' from column '{key}'")
+                
+                logger.info(f"Event: {event_name}, Competitors: {competitors}, Looking for: {member_name}")
+                
+                # Check if member is in this event (case-insensitive)
+                for comp in competitors:
+                    if member_name.lower() == comp.lower():
+                        partners = [c for c in competitors if c.lower() != member_name.lower()]
+                        mason_partners[event_name] = partners
+                        logger.info(f"MATCH FOUND: {member_name} in {event_name} with partners: {partners}")
+                        break
+        
+        return jsonify({
+            'member_name': member_name,
+            'all_events_parsed': all_events_parsed,
+            'partner_events': mason_partners,
+            'summary': f"{len(mason_partners)} events, parsed {len(all_events_parsed)} events total"
+        }), 200
+        
+        # Read Mason feedback
+        partner_feedback = {}
+        feedback_count = 0
+        
+        with open('Planning/2026 Mason Invitational Feedback Form (Responses) - Form Responses 1.csv', 'r', encoding='utf-8') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                row_name = row.get('Name (First Last)', '').strip()
+                partnership_response = row.get('How did you feel about your partnerships? Rate each from 1-5 and explain why you gave the rating. Do this for each event you competed in, with a brief explanation. (Would you compete with this partner again? How was the collaboration? How was the preparation and communication in the weeks leading up to competition day?)', '').strip()
+                
+                if not partnership_response:
+                    continue
+                
+                # Check if this person is a partner
+                for event_name, partners in mason_partners.items():
+                    matched_partner_name = None
+                    for partner_name in partners:
+                        if row_name.lower().strip() == partner_name.lower().strip():
+                            matched_partner_name = partner_name
+                            break
+                    
+                    if matched_partner_name:
+                        if event_name not in partner_feedback:
+                            partner_feedback[event_name] = {}
+                        partner_feedback[event_name][matched_partner_name] = {
+                            'partnershipRating': partnership_response
+                        }
+                        feedback_count += 1
+        
+        return jsonify({
+            'member_name': member_name,
+            'partner_events': mason_partners,
+            'partner_feedback': partner_feedback,
+            'feedback_count': feedback_count,
+            'summary': f"{len(mason_partners)} events, {feedback_count} feedback entries"
+        }), 200
+    except Exception as e:
+        logger.error(f"Debug error: {e}")
+        import traceback
+        logger.error(traceback.format_exc())
+        return jsonify({"error": str(e), "trace": traceback.format_exc()}), 500
+
+@firebase_routes.route('/api/admin/members/<member_id>/full', methods=['GET'])
+def get_member_full_data(member_id):
+    """Get comprehensive member data including CSV data, attendance, etc."""
+    try:
+        # Check admin auth
+        admin_id = request.headers.get('X-Admin-ID')
+        if not admin_id:
+            return jsonify({"error": "Admin authentication required"}), 401
+        
+        # Verify full admin status
+        admin_doc = db.collection('Members').document(admin_id).get()
+        if not admin_doc.exists:
+            return jsonify({"error": "Invalid admin session"}), 401
+        
+        admin_data = admin_doc.to_dict()
+        admin_status = admin_data.get('adminStatus', 'none')
+        if admin_status != 'full':
+            return jsonify({"error": "Full admin privileges required"}), 403
+        
+        # Get member from database
+        member_doc = db.collection('Members').document(member_id).get()
+        if not member_doc.exists:
+            return jsonify({"error": "Member not found"}), 404
+        
+        member_data = member_doc.to_dict()
+        member_data['id'] = member_doc.id
+        
+        # Remove password
+        member_data.pop('password', None)
+        
+        # Get bxsciolyID from mapping CSV
+        bxscioly_id = None
+        bxscioly_number = None
+        try:
+            with open('Planning/SCIOLY MEMBER IDS - member_names_ids_20250929_074942.csv', 'r', encoding='utf-8') as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    if row['id'] == member_id:
+                        bxscioly_number = row.get('bxscioly_number', '')
+                        if bxscioly_number and bxscioly_number.startswith('bxscioly_'):
+                            bxscioly_id = bxscioly_number.replace('bxscioly_', '')
+                        break
+        except Exception as e:
+            logger.warning(f"Could not read member IDs CSV: {e}")
+        
+        result = {
+            'basicInfo': {
+                'id': member_data.get('id'),
+                'firstName': member_data.get('firstName', ''),
+                'lastName': member_data.get('lastName', ''),
+                'doeEmail': member_data.get('doeEmail', ''),
+                'personalEmail': member_data.get('personalEmail', ''),
+                'bxsciEmail': member_data.get('bxsciEmail', ''),
+                'bxsciolyID': bxscioly_number or '',
+                'phoneNumber': member_data.get('phoneNumber', ''),
+                'grade': member_data.get('grade', ''),
+                'yearsInTeam': member_data.get('yearsInTeam', 0),
+                'memberStatus': member_data.get('memberStatus', ''),
+                'house': member_data.get('house', ''),
+                'createdAt': member_data.get('createdAt'),
+            },
+            'eventSelectionForm': None,
+            'diagnosticScores': [],
+            'competitionPlacements': [],
+            'events': [],
+            'masonInvitational': None
+        }
+        
+        # Get event selection form responses
+        try:
+            with open('Planning/BxSciOly \'25-\'26_ Event Selection Form  (Responses) - Form Responses 1 (1).csv', 'r', encoding='utf-8') as f:
+                reader = csv.DictReader(f)
+                
+                # Normalize member data for matching
+                member_doe_email = (member_data.get('doeEmail', '') or '').strip().lower()
+                member_personal_email = (member_data.get('personalEmail', '') or '').strip().lower()
+                member_first_name = (member_data.get('firstName', '') or '').strip().lower()
+                member_last_name = (member_data.get('lastName', '') or '').strip().lower()
+                member_full_name = f"{member_first_name} {member_last_name}".strip()
+                
+                for row in reader:
+                    # Try to get DOE email from CSV (handle column name with trailing space)
+                    csv_doe_email = (row.get('DOE Email (Make sure there are no typos. We will be sending all important information to your DOE email.) ', '') or '').strip().lower()
+                    if not csv_doe_email:
+                        csv_doe_email = (row.get('DOE Email (Make sure there are no typos. We will be sending all important information to your DOE email.)', '') or '').strip().lower()
+                    
+                    # Try to get BXSCI email from CSV (check both BXSCI Email and Email Address columns)
+                    csv_bxsci_email = (row.get('BXSCI Email', '') or '').strip().lower()
+                    csv_email_address = (row.get('Email Address', '') or '').strip().lower()
+                    if not csv_bxsci_email and csv_email_address:
+                        csv_bxsci_email = csv_email_address
+                    
+                    # Try to get name from CSV (format: "Last, First" or "First Last")
+                    csv_name = (row.get('Name (First, Last)', '') or '').strip()
+                    csv_name_lower = csv_name.lower()
+                    
+                    # Match by DOE email
+                    doe_email_match = csv_doe_email and member_doe_email and csv_doe_email == member_doe_email
+                    
+                    # Match by BXSCI email (check against personalEmail and doeEmail)
+                    bxsci_email_match = csv_bxsci_email and (
+                        csv_bxsci_email == member_personal_email or
+                        csv_bxsci_email == member_doe_email
+                    )
+                    
+                    # Match by name as fallback (handle "Last, First" format)
+                    name_match = False
+                    if csv_name_lower and member_full_name:
+                        # Try direct match
+                        if csv_name_lower == member_full_name:
+                            name_match = True
+                        # Try "Last, First" format
+                        elif ',' in csv_name:
+                            csv_parts = [p.strip() for p in csv_name_lower.split(',')]
+                            if len(csv_parts) == 2:
+                                csv_last, csv_first = csv_parts
+                                if csv_last == member_last_name and csv_first == member_first_name:
+                                    name_match = True
+                        # Try reversed format
+                        elif csv_name_lower == f"{member_last_name}, {member_first_name}":
+                            name_match = True
+                    
+                    if doe_email_match or bxsci_email_match or name_match:
+                        # Get all the form fields - use the exact column names from the CSV
+                        doe_email_col = 'DOE Email (Make sure there are no typos. We will be sending all important information to your DOE email.) '
+                        past_experience_col = 'If you have past SciOly experience (Division B/C), please list prior competition/medals. Use the template below to format your competitions.\n\n[Year] - [Invitational Name] - [Event Name (Place)]\nExample:\n2024 - Lexington Invitational - Anatomy (2nd), Disease Detectives (5th)\n2023 - BirdSO Invitational - Forensics (1st)\nIf you participated but did not receive a medal, you may still list the invitational and events. '
+                        events_selected_col = 'What events would you like to take diagnostics for? Please select at least three (this is MANDATORY). We strongly recommend trying out for more than 3, as you may not be accepted to all the events you try out for. Keep in mind that each additional event comes with its own time commitment, and that you cannot select more than 6 events! The more events you select and take diagnostics for, the higher your chances of getting onto the team!'
+                        qualifications_col = 'Please make a list of all qualifications that you have (classes, knowledge, experiences, extracurriculars, etc.) relevant to the events you are applying for. This is OPTIONAL, but may strengthen your application.\n\nFor example, a person applying to A&P might include:\n- AP Biology (5 on the AP)\n- Took Anatomy class at Hunter\n- Brain cancer research at Weill Cornell Medicine'
+                        additional_info_col = 'Is there anything else you would like us to know? Any questions?'
+                        
+                        result['eventSelectionForm'] = {
+                            'timestamp': row.get('Timestamp', ''),
+                            'name': row.get('Name (First, Last)', ''),
+                            'doeEmail': row.get(doe_email_col, '') or csv_doe_email,
+                            'bxsciEmail': row.get('BXSCI Email', '') or row.get('Email Address', '') or csv_bxsci_email,
+                            'grade': row.get('Grade', ''),
+                            'memberType': row.get('New or returning member?', ''),
+                            'yearsOnTeam': row.get('If returning, how many years have you been on the Bronx Science SciOly team for?', ''),
+                            'pastExperience': row.get(past_experience_col, ''),
+                            'eventsSelected': row.get(events_selected_col, ''),
+                            'whyJoin': row.get('Why do you want to join the team? Be specific but concise. (1000 characters max)', ''),
+                            'eventRankings': row.get('What draws you to the events that you selected? Why would you like to join said event? Please rank the events you chose (number them in order) with a concise explanation.', ''),
+                            'qualifications': row.get(qualifications_col, ''),
+                            'additionalInfo': row.get(additional_info_col, '')
+                        }
+                        logger.info(f"Matched event selection form for {member_id} ({member_data.get('firstName', '')} {member_data.get('lastName', '')}) by {'DOE email' if doe_email_match else 'BXSCI email' if bxsci_email_match else 'name'}")
+                        break
+        except Exception as e:
+            logger.warning(f"Could not read event selection form CSV: {e}")
+            import traceback
+            logger.warning(traceback.format_exc())
+        
+        # Get diagnostic scores with rank and percentile
+        if bxscioly_id:
+            try:
+                # First, get scores from consolidated_scores.csv
+                diagnostic_events = []
+                with open('Planning/consolidated_scores.csv', 'r', encoding='utf-8') as f:
+                    reader = csv.DictReader(f)
+                    for row in reader:
+                        if row.get('bxsciolyID') == bxscioly_id:
+                            for i in range(1, 9):
+                                event_key = f'Event{i}'
+                                score_key = f'Score{i}'
+                                if row.get(event_key) and row.get(score_key):
+                                    diagnostic_events.append({
+                                        'event': row[event_key],
+                                        'score': float(row[score_key]) if row[score_key] else 0
+                                    })
+                            break
+                
+                # Then, get rank and percentile from team_placement_by_event.csv
+                event_rankings = {}
+                try:
+                    with open('Planning/team_placement_by_event.csv', 'r', encoding='utf-8') as f:
+                        reader = csv.DictReader(f)
+                        for row in reader:
+                            if row.get('bxsciolyID') == bxscioly_id:
+                                event_name = row.get('event', '').strip()
+                                if event_name:
+                                    event_rankings[event_name] = {
+                                        'rank': int(row.get('eventRank', 0)) if row.get('eventRank') else None,
+                                        'percentile': float(row.get('eventPercentile', 0)) if row.get('eventPercentile') else None
+                                    }
+                except Exception as e:
+                    logger.warning(f"Could not read team placement by event CSV: {e}")
+                
+                # Merge rank and percentile data into diagnostic events
+                for diag_event in diagnostic_events:
+                    event_name = diag_event['event']
+                    if event_name in event_rankings:
+                        diag_event['rank'] = event_rankings[event_name]['rank']
+                        diag_event['percentile'] = event_rankings[event_name]['percentile']
+                    else:
+                        # If not found in placement file, try to calculate from consolidated_scores
+                        try:
+                            event_scores = []
+                            with open('Planning/consolidated_scores.csv', 'r', encoding='utf-8') as f:
+                                reader = csv.DictReader(f)
+                                for row in reader:
+                                    for i in range(1, 9):
+                                        if row.get(f'Event{i}') == event_name and row.get(f'Score{i}'):
+                                            event_scores.append((float(row[f'Score{i}']), row.get('bxsciolyID', '')))
+                            
+                            if event_scores:
+                                # Sort by score descending
+                                event_scores.sort(key=lambda x: x[0], reverse=True)
+                                total_participants = len(event_scores)
+                                
+                                # Find user's rank
+                                user_rank = None
+                                for idx, (score, bid) in enumerate(event_scores):
+                                    if bid == bxscioly_id:
+                                        user_rank = idx + 1
+                                        break
+                                
+                                if user_rank:
+                                    diag_event['rank'] = user_rank
+                                    diag_event['percentile'] = round(((total_participants - user_rank + 1) / total_participants) * 100, 2) if total_participants > 0 else None
+                        except Exception as e:
+                            logger.warning(f"Could not calculate rank/percentile for {event_name}: {e}")
+                
+                result['diagnosticScores'] = diagnostic_events
+            except Exception as e:
+                logger.warning(f"Could not read consolidated scores CSV: {e}")
+        
+        # Get competition placements
+        try:
+            competitions_query = db.collection('Competitions').stream()
+            for comp in competitions_query:
+                comp_data = comp.to_dict()
+                if comp_data.get('teamPlacement'):
+                    for placement in comp_data['teamPlacement']:
+                        if member_id in placement.get('participants', []):
+                            result['competitionPlacements'].append({
+                                'competitionName': comp_data.get('name', ''),
+                                'competitionDate': comp_data.get('date'),
+                                'event': placement.get('event', ''),
+                                'team': placement.get('team', ''),
+                                'partners': [p for p in placement.get('participants', []) if p != member_id]
+                            })
+                
+                if comp_data.get('results') and comp_data['results'].get('eventResults'):
+                    member_in_comp = False
+                    member_events = []
+                    if comp_data.get('teamPlacement'):
+                        for placement in comp_data['teamPlacement']:
+                            if member_id in placement.get('participants', []):
+                                member_in_comp = True
+                                member_events.append(placement.get('event', ''))
+                    
+                    if member_in_comp:
+                        for event_result in comp_data['results']['eventResults']:
+                            if event_result.get('eventName') in member_events:
+                                team = None
+                                partners = []
+                                for placement in comp_data.get('teamPlacement', []):
+                                    if placement.get('event') == event_result.get('eventName') and member_id in placement.get('participants', []):
+                                        team = placement.get('team')
+                                        partners = [p for p in placement.get('participants', []) if p != member_id]
+                                        break
+                                
+                                if team == event_result.get('team'):
+                                    result['competitionPlacements'].append({
+                                        'competitionName': comp_data.get('name', ''),
+                                        'competitionDate': comp_data.get('date'),
+                                        'event': event_result.get('eventName', ''),
+                                        'team': team,
+                                        'placement': event_result.get('placement'),
+                                        'outOf': event_result.get('outOf'),
+                                        'partners': partners
+                                    })
+        except Exception as e:
+            logger.warning(f"Error getting competition placements: {e}")
+        
+        # Get events the member is in
+        try:
+            events_query = db.collection('Events').stream()
+            member_events = []
+            for event in events_query:
+                event_data = event.to_dict()
+                if member_id in event_data.get('members', []):
+                    member_events.append({
+                        'id': event.id,
+                        'eventName': event_data.get('eventName', ''),
+                        'subject': event_data.get('subject', ''),
+                        'meetingDay': event_data.get('meetingDay', ''),
+                        'meetingBlock': event_data.get('meetingBlock', ''),
+                        'meetingRoom': event_data.get('meetingRoom', '')
+                    })
+            result['events'] = member_events
+        except Exception as e:
+            logger.warning(f"Error getting member events: {e}")
+        
+        # Get attendance for each event
+        build_events = ['Boomilever', 'Helicopter', 'Electric Vehicle', 'Robot Tour', 'Bungee Drop', 'Hovercraft']
+        
+        for event_info in result['events']:
+            event_id = event_info['id']
+            event_name = event_info['eventName']
+            is_build_event = event_name in build_events
+            
+            # Get all meetings for this event - fetch all and filter in Python for case-insensitive matching
+            try:
+                # Get ALL meetings and filter by event name (case-insensitive) - matches meetings.html approach
+                all_meetings_query = db.collection('Meeting').stream()
+                meetings = []
+                event_name_normalized = event_name.strip().lower()
+                
+                for meeting in all_meetings_query:
+                    meeting_data = meeting.to_dict()
+                    meeting_event_name = (meeting_data.get('eventName', '') or '').strip()
+                    
+                    # Case-insensitive matching (like meetings.html does)
+                    if meeting_event_name.lower() != event_name_normalized:
+                        continue
+                    
+                    # Handle date field - can be Firestore timestamp or datetime
+                    meeting_date = meeting_data.get('date')
+                    if meeting_date is None:
+                        continue
+                    
+                    # Convert Firestore timestamp to datetime in UTC
+                    from datetime import timezone
+                    if hasattr(meeting_date, 'timestamp'):  # Firestore Timestamp object
+                        meeting_date = meeting_date.timestamp()
+                        meeting_date = datetime.fromtimestamp(meeting_date, tz=timezone.utc)
+                    elif isinstance(meeting_date, dict):
+                        if 'seconds' in meeting_date:
+                            meeting_date = datetime.fromtimestamp(meeting_date['seconds'], tz=timezone.utc)
+                        elif '_seconds' in meeting_date:
+                            meeting_date = datetime.fromtimestamp(meeting_date['_seconds'], tz=timezone.utc)
+                        else:
+                            continue
+                    elif isinstance(meeting_date, str):
+                        try:
+                            meeting_date = datetime.fromisoformat(meeting_date.replace('Z', '+00:00'))
+                        except:
+                            try:
+                                meeting_date = datetime.fromisoformat(meeting_date)
+                            except:
+                                try:
+                                    # Try RFC2822 format: "Tue, 25 Nov 2025 12:00:00 GMT"
+                                    meeting_date = parsedate_to_datetime(meeting_date)
+                                except:
+                                    logger.warning(f"Could not parse meeting date: {meeting_date}")
+                                    continue
+                    
+                    # Check if member attended
+                    attended_list = meeting_data.get('attended', []) or []
+                    attended = member_id in attended_list
+                    
+                    meetings.append({
+                        'id': meeting.id,
+                        'date': meeting_date.isoformat() if isinstance(meeting_date, datetime) else str(meeting_date),
+                        'attended': attended,
+                        'code': meeting_data.get('code', '')
+                    })
+                
+                # Sort meetings by date
+                meetings.sort(key=lambda x: x['date'])
+                
+                logger.info(f"Found {len(meetings)} meetings for event '{event_name}' (normalized: '{event_name_normalized}', member {member_id})")
+                
+                # Get excused absences for this event
+                excused_query = db.collection('ExcusedAbsences').where('memberId', '==', member_id).where('eventId', '==', event_id).where('status', '==', 'approved').stream()
+                excused_absences = []
+                for absence in excused_query:
+                    absence_data = absence.to_dict()
+                    absence_date = absence_data.get('dateOfAbsence')
+                    
+                    if absence_date is None:
+                        continue
+                    
+                    # Convert Firestore timestamp to UTC
+                    from datetime import timezone
+                    if hasattr(absence_date, 'timestamp'):
+                        absence_date = datetime.fromtimestamp(absence_date.timestamp(), tz=timezone.utc)
+                    elif isinstance(absence_date, dict):
+                        if 'seconds' in absence_date:
+                            absence_date = datetime.fromtimestamp(absence_date['seconds'], tz=timezone.utc)
+                        elif '_seconds' in absence_date:
+                            absence_date = datetime.fromtimestamp(absence_date['_seconds'], tz=timezone.utc)
+                        else:
+                            continue
+                    elif isinstance(absence_date, str):
+                        try:
+                            absence_date = datetime.fromisoformat(absence_date.replace('Z', '+00:00'))
+                        except:
+                            try:
+                                absence_date = datetime.fromisoformat(absence_date)
+                            except:
+                                try:
+                                    # Try RFC2822 format: "Tue, 25 Nov 2025 12:00:00 GMT"
+                                    absence_date = parsedate_to_datetime(absence_date)
+                                except:
+                                    logger.warning(f"Could not parse absence date: {absence_date}")
+                                    continue
+                    
+                    excused_absences.append({
+                        'date': absence_date.isoformat() if isinstance(absence_date, datetime) else str(absence_date),
+                        'reason': absence_data.get('reason', ''),
+                        'adminComments': absence_data.get('adminComments', '')
+                    })
+                
+                if is_build_event:
+                    # For build events: group by week
+                    weekly_data = defaultdict(lambda: {'buildMeetings': 0, 'excused': []})
+                    
+                    for meeting in meetings:
+                        try:
+                            meeting_date = datetime.fromisoformat(meeting['date'].replace('Z', '+00:00')) if 'T' in meeting['date'] else datetime.fromisoformat(meeting['date'])
+                            # Convert to UTC if needed to handle timezone-aware dates correctly
+                            if meeting_date.tzinfo is not None:
+                                from datetime import timezone as dt_timezone
+                                meeting_date = meeting_date.astimezone(dt_timezone.utc)
+                            year, week_num, _ = meeting_date.isocalendar()
+                            week_key = f"{year}-W{week_num:02d}"
+                            
+                            if meeting['attended']:
+                                weekly_data[week_key]['buildMeetings'] += 1
+                        except Exception as e:
+                            logger.warning(f"Error processing meeting date for build event: {e}")
+                            continue
+                    
+                    for excused in excused_absences:
+                        try:
+                            excused_date = datetime.fromisoformat(excused['date'].replace('Z', '+00:00')) if 'T' in excused['date'] else datetime.fromisoformat(excused['date'])
+                            # Convert to UTC if needed to handle timezone-aware dates correctly
+                            if excused_date.tzinfo is not None:
+                                from datetime import timezone as dt_timezone
+                                excused_date = excused_date.astimezone(dt_timezone.utc)
+                            year, week_num, _ = excused_date.isocalendar()
+                            week_key = f"{year}-W{week_num:02d}"
+                            weekly_data[week_key]['excused'].append(excused)
+                        except Exception as e:
+                            logger.warning(f"Error processing excused absence date: {e}")
+                            continue
+                    
+                    event_info['attendance'] = {
+                        'type': 'build',
+                        'weeklyData': dict(weekly_data)
+                    }
+                else:
+                    # For non-build events: show each meeting
+                    meeting_attendance = []
+                    for meeting in meetings:
+                        try:
+                            meeting_date = datetime.fromisoformat(meeting['date'].replace('Z', '+00:00')) if 'T' in meeting['date'] else datetime.fromisoformat(meeting['date'])
+                            # Convert to UTC if needed to handle timezone-aware dates correctly
+                            if meeting_date.tzinfo is not None:
+                                from datetime import timezone as dt_timezone
+                                meeting_date_only = meeting_date.astimezone(dt_timezone.utc).date()
+                            else:
+                                meeting_date_only = meeting_date.date()
+                            
+                            # Find matching excused absence
+                            excused_match = None
+                            for excused in excused_absences:
+                                try:
+                                    excused_date = datetime.fromisoformat(excused['date'].replace('Z', '+00:00')) if 'T' in excused['date'] else datetime.fromisoformat(excused['date'])
+                                    # Convert to UTC if needed to handle timezone-aware dates correctly
+                                    if excused_date.tzinfo is not None:
+                                        from datetime import timezone as dt_timezone
+                                        excused_date_only = excused_date.astimezone(dt_timezone.utc).date()
+                                    else:
+                                        excused_date_only = excused_date.date()
+                                    if excused_date_only == meeting_date_only:
+                                        excused_match = excused
+                                        break
+                                except Exception as e:
+                                    continue
+                            
+                            status = 'present' if meeting['attended'] else ('excused' if excused_match else 'unexcused')
+                            meeting_attendance.append({
+                                'date': meeting['date'],
+                                'status': status,
+                                'excuse': excused_match['reason'] if excused_match else None,
+                                'adminComments': excused_match['adminComments'] if excused_match else None
+                            })
+                        except Exception as e:
+                            logger.warning(f"Error processing meeting: {e}")
+                            continue
+                    
+                    event_info['attendance'] = {
+                        'type': 'non-build',
+                        'meetings': meeting_attendance
+                    }
+            except Exception as e:
+                logger.warning(f"Error getting attendance for event {event_name}: {e}")
+                import traceback
+                logger.warning(traceback.format_exc())
+                # Set empty attendance data
+                if is_build_event:
+                    event_info['attendance'] = {
+                        'type': 'build',
+                        'weeklyData': {}
+                    }
+                else:
+                    event_info['attendance'] = {
+                        'type': 'non-build',
+                        'meetings': []
+                    }
+        
+        # Get Mason Invitational data
+        try:
+            mason_partners = {}
+            member_name = f"{member_data.get('firstName', '')} {member_data.get('lastName', '')}".strip()
+            
+            with open('Planning/Mason Invitational 2026 Placements - Team A.csv', 'r', encoding='utf-8') as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    # Event name is in the first column
+                    first_key = list(row.keys())[0] if row.keys() else None
+                    event_name = row.get(first_key, '').strip() if first_key else None
+                    
+                    if not event_name:
+                        continue
+                    
+                    # Get all COMPETITORS columns (first 2-3 columns after event name)
+                    competitors = []
+                    for key in list(row.keys())[1:7]:  # Check columns 2-7 (typical COMPETITORS columns)
+                        comp_name = row.get(key, '').strip()
+                        if comp_name and 'COMPETITOR' not in key.upper() and 'GRADE' not in key.upper():
+                            competitors.append(comp_name)
+                    
+                    # Check if member is in this event (case-insensitive)
+                    for comp in competitors:
+                        if member_name.lower() == comp.lower():
+                            partners = [c for c in competitors if c.lower() != member_name.lower()]
+                            mason_partners[event_name] = partners
+                            break
+            
+            # Read Mason feedback CSV
+            mason_feedback = None
+            partner_feedback = {}
+            
+            with open('Planning/2026 Mason Invitational Feedback Form (Responses) - Form Responses 1.csv', 'r', encoding='utf-8') as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    row_name = row.get('Name (First Last)', '').strip()
+                    row_doe_email = row.get('DOE Email', '').strip().lower()
+                    row_bxsci_email = row.get('BXSCI Email', '').strip().lower()
+                    
+                    member_name_check = f"{member_data.get('firstName', '')} {member_data.get('lastName', '')}".strip()
+                    member_doe_email = member_data.get('doeEmail', '').strip().lower()
+                    member_bxsci_email = member_data.get('bxsciEmail', '').strip().lower()
+                    
+                    is_member = (row_name.lower() == member_name_check.lower() or 
+                                row_doe_email == member_doe_email or 
+                                row_bxsci_email == member_bxsci_email)
+                    
+                    if is_member:
+                        mason_feedback = {
+                            'eventsCompeted': row.get('What events were you programmed to compete in?', ''),
+                            'eventsNotCompeted': row.get('Did you NOT compete in any of the events you were programmed for? List the events you didn\'t compete in and briefly explain why. If this question doesn\'t apply to you, write "N/A".', ''),
+                            'examDifficulty': row.get('How did you feel about the exam difficulty? Feel free to talk about any event(s) you want.', ''),
+                            'partnerships': row.get('How did you feel about your partnerships? Rate each from 1-5 and explain why you gave the rating. Do this for each event you competed in, with a brief explanation. (Would you compete with this partner again? How was the collaboration? How was the preparation and communication in the weeks leading up to competition day?)', ''),
+                            'whatWentWell': row.get('For each of your events, outline what you were able to answer successfully from what you learned in meetings or studied individually. What worked well in preparation for Mason?', ''),
+                            'roadToImprovement': row.get('Above all, Mason is a learning experience. The tests were difficult across the board, but this gives us the opportunity to see where we\'re at and where we need to be. Outline which areas you need to focus on. What\'s the game plan before South Windsor and regionals diagnostics in 3-4 weeks?', ''),
+                            'primaryBoardFeedback': row.get('What could we (Primary Board) have done better? (Introducing you to the Scilympiad platform with greater detail? Any logistical placement concerns?)', ''),
+                            'emSdFeedback': row.get('What could your event managers and subject directors have done better? How can we improve how we spend our time and yours both in and out of meetings?', ''),
+                            'otherComments': row.get('Any other comments or concerns? Explain if necessary. If no other comments, write "N/A".', '')
+                        }
+                    else:
+                        # Check if this person is a partner (case-insensitive matching)
+                        partnership_response = row.get('How did you feel about your partnerships? Rate each from 1-5 and explain why you gave the rating. Do this for each event you competed in, with a brief explanation. (Would you compete with this partner again? How was the collaboration? How was the preparation and communication in the weeks leading up to competition day?)', '').strip()
+                        
+                        if not partnership_response:
+                            continue
+                        
+                        for event_name, partners in mason_partners.items():
+                            # Try case-insensitive matching with whitespace trimming
+                            matched_partner_name = None
+                            for partner_name in partners:
+                                if row_name.lower().strip() == partner_name.lower().strip():
+                                    matched_partner_name = partner_name
+                                    break
+                            
+                            if matched_partner_name:
+                                if event_name not in partner_feedback:
+                                    partner_feedback[event_name] = {}
+                                partner_feedback[event_name][matched_partner_name] = {
+                                    'partnershipRating': partnership_response
+                                }
+                                logger.info(f"Stored feedback from {row_name} for {event_name} about member {member_name_check}")
+            
+            if mason_partners or mason_feedback or partner_feedback:
+                result['masonInvitational'] = {
+                    'partners': mason_partners,
+                    'memberFeedback': mason_feedback,
+                    'partnerFeedback': partner_feedback
+                }
+                logger.info(f"Mason data for {member_name_check}: partners={list(mason_partners.keys())}, feedback_count={sum(len(v) for v in partner_feedback.values())}")
+        except Exception as e:
+            logger.warning(f"Error getting Mason Invitational data: {e}")
+        
+        return jsonify(result), 200
+        
+    except Exception as e:
+        logger.error(f"Error getting full member data: {e}")
+        import traceback
+        logger.error(traceback.format_exc())
         return jsonify({"error": str(e)}), 500
 
 @firebase_routes.route('/api/EventContent', methods=['GET'])
@@ -2150,7 +2979,8 @@ def update_calendar_event(event_id):
 # Competitions
 @firebase_routes.route('/api/admin/competitions', methods=['GET'])
 def admin_get_competitions():
-    return get_all('Competitions')
+    """Get all competitions from text files (not Firebase)"""
+    return get_competitions()
 
 @firebase_routes.route('/api/admin/competitions', methods=['POST'])
 def admin_create_competition():
@@ -2856,4 +3686,495 @@ def get_merch_order(user_id):
             
     except Exception as e:
         logger.error(f"Error getting merch order: {e}")
+        return jsonify({"error": str(e)}), 500
+
+# ---------------- Learning Resources ----------------
+
+@firebase_routes.route('/api/LearningResources/classroom-code', methods=['GET'])
+def get_classroom_code():
+    """Get the Google Classroom join code for an event"""
+    try:
+        event_name = request.args.get('eventName')
+        if not event_name:
+            return jsonify({"error": "eventName is required"}), 400
+        
+        doc_ref = db.collection('LearningResources').document('classroom-codes').collection('events').document(event_name)
+        doc = doc_ref.get()
+        if doc.exists:
+            data = doc.to_dict()
+            return jsonify({"code": data.get('code', '')}), 200
+        else:
+            return jsonify({"code": ""}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/LearningResources/classroom-code', methods=['POST'])
+def update_classroom_code():
+    """Update the Google Classroom join code for an event"""
+    try:
+        data = request.get_json() or {}
+        code = data.get('code', '').strip()
+        event_name = data.get('eventName')
+        if not event_name:
+            return jsonify({"error": "eventName is required"}), 400
+        
+        doc_ref = db.collection('LearningResources').document('classroom-codes').collection('events').document(event_name)
+        doc_ref.set({
+            'code': code,
+            'eventName': event_name,
+            'updatedAt': firestore.SERVER_TIMESTAMP
+        }, merge=True)
+        return jsonify({"message": "Classroom code updated"}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/LearningResources/topics', methods=['GET'])
+def get_topics():
+    """Get all topics for an event"""
+    try:
+        event_name = request.args.get('eventName')
+        if not event_name:
+            return jsonify({"error": "eventName is required"}), 400
+        
+        docs = db.collection('LearningResources').document('topics').collection('events').document(event_name).collection('items').stream()
+        items = []
+        for doc in docs:
+            d = doc.to_dict()
+            d['id'] = doc.id
+            items.append(d)
+        return jsonify(items), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/LearningResources/topics', methods=['POST'])
+def create_topic():
+    """Create a new topic for an event"""
+    try:
+        data = request.get_json() or {}
+        name = data.get('name', '').strip()
+        event_name = data.get('eventName')
+        if not name:
+            return jsonify({"error": "Topic name is required"}), 400
+        if not event_name:
+            return jsonify({"error": "eventName is required"}), 400
+        
+        doc = {
+            'name': name,
+            'description': data.get('description', ''),
+            'links': data.get('links', []),
+            'parentId': data.get('parentId'),
+            'eventName': event_name,
+            'createdAt': firestore.SERVER_TIMESTAMP,
+            'updatedAt': firestore.SERVER_TIMESTAMP
+        }
+        ref = db.collection('LearningResources').document('topics').collection('events').document(event_name).collection('items').document()
+        ref.set(doc)
+        return jsonify({'id': ref.id, 'message': 'Topic created'}), 201
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/LearningResources/topics/<topic_id>', methods=['PUT'])
+def update_topic(topic_id):
+    """Update a topic"""
+    try:
+        data = request.get_json() or {}
+        event_name = data.get('eventName')
+        if not event_name:
+            return jsonify({"error": "eventName is required"}), 400
+        
+        ref = db.collection('LearningResources').document('topics').collection('events').document(event_name).collection('items').document(topic_id)
+        if not ref.get().exists:
+            return jsonify({"error": "Topic not found"}), 404
+        
+        updates = {
+            'name': data.get('name', '').strip(),
+            'description': data.get('description', ''),
+            'links': data.get('links', []),
+            'parentId': data.get('parentId'),
+            'updatedAt': firestore.SERVER_TIMESTAMP
+        }
+        ref.update(updates)
+        return jsonify({"message": "Topic updated"}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/LearningResources/topics/<topic_id>', methods=['DELETE'])
+def delete_topic(topic_id):
+    """Delete a topic"""
+    try:
+        event_name = request.args.get('eventName')
+        if not event_name:
+            return jsonify({"error": "eventName is required"}), 400
+        
+        ref = db.collection('LearningResources').document('topics').collection('events').document(event_name).collection('items').document(topic_id)
+        if not ref.get().exists:
+            return jsonify({"error": "Topic not found"}), 404
+        
+        # Also delete any subtopics
+        subtopics = db.collection('LearningResources').document('topics').collection('events').document(event_name).collection('items').where('parentId', '==', topic_id).stream()
+        for subtopic in subtopics:
+            subtopic.reference.delete()
+        
+        ref.delete()
+        return jsonify({"message": "Topic deleted"}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/LearningResources/notes', methods=['GET'])
+def get_notes():
+    """Get all notes for an event"""
+    try:
+        event_name = request.args.get('eventName')
+        if not event_name:
+            return jsonify({"error": "eventName is required"}), 400
+        
+        docs = db.collection('LearningResources').document('notes').collection('events').document(event_name).collection('items').stream()
+        items = []
+        for doc in docs:
+            d = doc.to_dict()
+            d['id'] = doc.id
+            items.append(d)
+        # Sort by createdAt desc
+        def get_ts(d):
+            ts = d.get('createdAt')
+            try:
+                return ts.timestamp() if hasattr(ts, 'timestamp') else 0
+            except Exception:
+                return 0
+        items.sort(key=get_ts, reverse=True)
+        return jsonify(items), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/LearningResources/notes', methods=['POST'])
+def create_note():
+    """Create a new note for an event"""
+    try:
+        data = request.get_json() or {}
+        title = data.get('title', '').strip()
+        event_name = data.get('eventName')
+        if not title:
+            return jsonify({"error": "Note title is required"}), 400
+        if not event_name:
+            return jsonify({"error": "eventName is required"}), 400
+        
+        doc = {
+            'title': title,
+            'description': data.get('description', ''),
+            'link': data.get('link', ''),
+            'eventName': event_name,
+            'createdAt': firestore.SERVER_TIMESTAMP,
+            'updatedAt': firestore.SERVER_TIMESTAMP
+        }
+        ref = db.collection('LearningResources').document('notes').collection('events').document(event_name).collection('items').document()
+        ref.set(doc)
+        return jsonify({'id': ref.id, 'message': 'Note created'}), 201
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/LearningResources/notes/<note_id>', methods=['PUT'])
+def update_note(note_id):
+    """Update a note"""
+    try:
+        data = request.get_json() or {}
+        event_name = data.get('eventName')
+        if not event_name:
+            return jsonify({"error": "eventName is required"}), 400
+        
+        ref = db.collection('LearningResources').document('notes').collection('events').document(event_name).collection('items').document(note_id)
+        if not ref.get().exists:
+            return jsonify({"error": "Note not found"}), 404
+        
+        updates = {
+            'title': data.get('title', '').strip(),
+            'description': data.get('description', ''),
+            'link': data.get('link', ''),
+            'updatedAt': firestore.SERVER_TIMESTAMP
+        }
+        ref.update(updates)
+        return jsonify({"message": "Note updated"}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/LearningResources/notes/<note_id>', methods=['DELETE'])
+def delete_note(note_id):
+    """Delete a note"""
+    try:
+        event_name = request.args.get('eventName')
+        if not event_name:
+            return jsonify({"error": "eventName is required"}), 400
+        
+        ref = db.collection('LearningResources').document('notes').collection('events').document(event_name).collection('items').document(note_id)
+        if not ref.get().exists:
+            return jsonify({"error": "Note not found"}), 404
+        
+        ref.delete()
+        return jsonify({"message": "Note deleted"}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+# Tests endpoints
+@firebase_routes.route('/api/LearningResources/tests', methods=['GET'])
+def get_tests():
+    """Get all tests for an event"""
+    try:
+        event_name = request.args.get('eventName')
+        if not event_name:
+            return jsonify({"error": "eventName is required"}), 400
+        
+        docs = db.collection('LearningResources').document('tests').collection('events').document(event_name).collection('items').stream()
+        items = []
+        for doc in docs:
+            d = doc.to_dict()
+            d['id'] = doc.id
+            items.append(d)
+        # Sort by createdAt desc
+        def get_ts(d):
+            ts = d.get('createdAt')
+            try:
+                return ts.timestamp() if hasattr(ts, 'timestamp') else 0
+            except Exception:
+                return 0
+        items.sort(key=get_ts, reverse=True)
+        return jsonify(items), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/LearningResources/tests', methods=['POST'])
+def create_test():
+    """Create a new test for an event"""
+    try:
+        data = request.get_json() or {}
+        title = data.get('title', '').strip()
+        event_name = data.get('eventName')
+        if not title:
+            return jsonify({"error": "Test title is required"}), 400
+        if not event_name:
+            return jsonify({"error": "eventName is required"}), 400
+        
+        doc = {
+            'title': title,
+            'description': data.get('description', ''),
+            'link': data.get('link', ''),
+            'eventName': event_name,
+            'createdAt': firestore.SERVER_TIMESTAMP,
+            'updatedAt': firestore.SERVER_TIMESTAMP
+        }
+        ref = db.collection('LearningResources').document('tests').collection('events').document(event_name).collection('items').document()
+        ref.set(doc)
+        return jsonify({'id': ref.id, 'message': 'Test created'}), 201
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/LearningResources/tests/<test_id>', methods=['PUT'])
+def update_test(test_id):
+    """Update a test"""
+    try:
+        data = request.get_json() or {}
+        event_name = request.args.get('eventName')
+        if not event_name:
+            return jsonify({"error": "eventName is required"}), 400
+        
+        ref = db.collection('LearningResources').document('tests').collection('events').document(event_name).collection('items').document(test_id)
+        if not ref.get().exists:
+            return jsonify({"error": "Test not found"}), 404
+        
+        updates = {
+            'title': data.get('title', '').strip(),
+            'description': data.get('description', ''),
+            'link': data.get('link', ''),
+            'updatedAt': firestore.SERVER_TIMESTAMP
+        }
+        ref.update(updates)
+        return jsonify({"message": "Test updated"}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/LearningResources/tests/<test_id>', methods=['DELETE'])
+def delete_test(test_id):
+    """Delete a test"""
+    try:
+        event_name = request.args.get('eventName')
+        if not event_name:
+            return jsonify({"error": "eventName is required"}), 400
+        
+        ref = db.collection('LearningResources').document('tests').collection('events').document(event_name).collection('items').document(test_id)
+        if not ref.get().exists:
+            return jsonify({"error": "Test not found"}), 404
+        
+        ref.delete()
+        return jsonify({"message": "Test deleted"}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+# Resources endpoints
+@firebase_routes.route('/api/LearningResources/resources', methods=['GET'])
+def get_resources():
+    """Get all resources for an event"""
+    try:
+        event_name = request.args.get('eventName')
+        if not event_name:
+            return jsonify({"error": "eventName is required"}), 400
+        
+        docs = db.collection('LearningResources').document('resources').collection('events').document(event_name).collection('items').stream()
+        items = []
+        for doc in docs:
+            d = doc.to_dict()
+            d['id'] = doc.id
+            items.append(d)
+        # Sort by createdAt desc
+        def get_ts(d):
+            ts = d.get('createdAt')
+            try:
+                return ts.timestamp() if hasattr(ts, 'timestamp') else 0
+            except Exception:
+                return 0
+        items.sort(key=get_ts, reverse=True)
+        return jsonify(items), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/LearningResources/resources', methods=['POST'])
+def create_resource():
+    """Create a new resource for an event"""
+    try:
+        data = request.get_json() or {}
+        title = data.get('title', '').strip()
+        event_name = data.get('eventName')
+        if not title:
+            return jsonify({"error": "Resource title is required"}), 400
+        if not event_name:
+            return jsonify({"error": "eventName is required"}), 400
+        
+        doc = {
+            'title': title,
+            'description': data.get('description', ''),
+            'link': data.get('link', ''),
+            'eventName': event_name,
+            'createdAt': firestore.SERVER_TIMESTAMP,
+            'updatedAt': firestore.SERVER_TIMESTAMP
+        }
+        ref = db.collection('LearningResources').document('resources').collection('events').document(event_name).collection('items').document()
+        ref.set(doc)
+        return jsonify({'id': ref.id, 'message': 'Resource created'}), 201
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/LearningResources/resources/<resource_id>', methods=['PUT'])
+def update_resource(resource_id):
+    """Update a resource"""
+    try:
+        data = request.get_json() or {}
+        event_name = request.args.get('eventName')
+        if not event_name:
+            return jsonify({"error": "eventName is required"}), 400
+        
+        ref = db.collection('LearningResources').document('resources').collection('events').document(event_name).collection('items').document(resource_id)
+        if not ref.get().exists:
+            return jsonify({"error": "Resource not found"}), 404
+        
+        updates = {
+            'title': data.get('title', '').strip(),
+            'description': data.get('description', ''),
+            'link': data.get('link', ''),
+            'updatedAt': firestore.SERVER_TIMESTAMP
+        }
+        ref.update(updates)
+        return jsonify({"message": "Resource updated"}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/LearningResources/resources/<resource_id>', methods=['DELETE'])
+def delete_resource(resource_id):
+    """Delete a resource"""
+    try:
+        event_name = request.args.get('eventName')
+        if not event_name:
+            return jsonify({"error": "eventName is required"}), 400
+        
+        ref = db.collection('LearningResources').document('resources').collection('events').document(event_name).collection('items').document(resource_id)
+        if not ref.get().exists:
+            return jsonify({"error": "Resource not found"}), 404
+        
+        ref.delete()
+        return jsonify({"message": "Resource deleted"}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/LearningResources/topics-content/<event_name>', methods=['GET'])
+def get_topics_content(event_name):
+    """Get topics content for an event"""
+    try:
+        # Construct blob path
+        safe_event_name = event_name.replace('/', '_')
+        blob_path = f"topics/{safe_event_name}/content.html"
+        
+        print(f"[GET topics-content] Event: {event_name}, Safe: {safe_event_name}, Path: {blob_path}")
+        
+        # Check if blob exists
+        blob = bucket.blob(blob_path)
+        exists = blob.exists()
+        print(f"[GET topics-content] Blob exists: {exists}")
+        
+        if not exists:
+            return jsonify({"content": ""}), 200
+        
+        # Get content
+        content = blob.download_as_text(encoding='utf-8')
+        print(f"[GET topics-content] Content length: {len(content)}, Preview: {content[:100]}")
+        return jsonify({"content": content}), 200
+    
+    except Exception as e:
+        print(f"[GET topics-content] ERROR for {event_name}: {e}")
+        logger.error(f"Error getting topics content for {event_name}: {e}")
+        return jsonify({"error": str(e)}), 500
+
+@firebase_routes.route('/api/LearningResources/topics-content/<event_name>', methods=['POST'])
+def update_topics_content(event_name):
+    """Update topics content for an event"""
+    try:
+        # Get content from request
+        data = request.json
+        print(f"[POST topics-content] Event: {event_name}, Data: {data}")
+        
+        if not data or 'content' not in data:
+            print(f"[POST topics-content] ERROR: No content provided")
+            return jsonify({"error": "No content provided"}), 400
+        
+        content = data.get('content', '')
+        print(f"[POST topics-content] Content length: {len(content)}, Preview: {content[:100]}")
+        
+        # Save content to Firebase Storage
+        safe_event_name = event_name.replace('/', '_')
+        blob_path = f"topics/{safe_event_name}/content.html"
+        print(f"[POST topics-content] Safe name: {safe_event_name}, Blob path: {blob_path}")
+        
+        # Create blob and upload content with HTML content type
+        blob = bucket.blob(blob_path)
+        print(f"[POST topics-content] Bucket name: {bucket.name}, Blob: {blob.name}")
+        
+        # Upload as string directly (Quill content is already a string)
+        blob.upload_from_string(content, content_type='text/html; charset=utf-8')
+        print(f"[POST topics-content] Upload completed")
+        
+        # Verify it was saved
+        blob.reload()  # Refresh blob metadata
+        exists = blob.exists()
+        print(f"[POST topics-content] Blob exists after upload: {exists}")
+        
+        if exists:
+            # Double check by trying to read it back
+            saved_content = blob.download_as_text(encoding='utf-8')
+            print(f"[POST topics-content] Verified saved content length: {len(saved_content)}")
+            return jsonify({"success": True, "message": "Content saved successfully", "contentLength": len(saved_content)}), 200
+        else:
+            print(f"[POST topics-content] ERROR: Failed to verify blob exists after upload")
+            logger.error(f"Failed to verify blob exists after upload: {blob_path}")
+            return jsonify({"error": "Failed to verify content was saved"}), 500
+    
+    except Exception as e:
+        print(f"[POST topics-content] EXCEPTION for {event_name}: {e}")
+        import traceback
+        traceback.print_exc()
+        logger.error(f"Error updating topics content for {event_name}: {e}")
         return jsonify({"error": str(e)}), 500
