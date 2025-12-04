@@ -476,6 +476,168 @@
         margin-bottom: 1rem;
         opacity: 0.5;
     }
+    
+    /* Competition Results Styles */
+    .medal-summary {
+        display: flex;
+        gap: 25px;
+        margin-bottom: 25px;
+        padding: 15px;
+        background-color: #f8fafc;
+        border-radius: 8px;
+        justify-content: center;
+    }
+    
+    .medal-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+    
+    .medal {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .medal i {
+        font-size: 1.8rem;
+    }
+    
+    .gold {
+        background: linear-gradient(145deg, #ffd700, #ffc800);
+        color: #b8860b;
+    }
+    
+    .silver {
+        background: linear-gradient(145deg, #e0e0e0, #c0c0c0);
+        color: #808080;
+    }
+    
+    .bronze {
+        background: linear-gradient(145deg, #cd7f32, #b87333);
+        color: #8b4513;
+    }
+    
+    .medal-item span {
+        font-weight: 600;
+        font-size: 1.2rem;
+    }
+    
+    .results-list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .result-item {
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        background: #f8fafc;
+        transition: all 0.2s;
+    }
+    
+    .result-item:hover {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        transform: translateY(-2px);
+    }
+    
+    .result-medal {
+        flex: 0 0 60px;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .result-medal i {
+        font-size: 2rem;
+    }
+    
+    .result-gold i {
+        color: #ffd700;
+    }
+    
+    .result-silver i {
+        color: #c0c0c0;
+    }
+    
+    .result-bronze i {
+        color: #cd7f32;
+    }
+    
+    .result-info {
+        flex: 1;
+        padding: 0 15px;
+    }
+    
+    .result-competition {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 3px;
+        color: #1e293b;
+    }
+    
+    .result-event {
+        color: #667eea;
+        font-weight: 500;
+        margin-bottom: 3px;
+    }
+    
+    .result-partners {
+        font-size: 0.875rem;
+        color: #64748b;
+        margin-top: 5px;
+    }
+    
+    .result-partners i {
+        margin-right: 5px;
+        color: #94a3b8;
+    }
+    
+    .team-badge {
+        background-color: #e9ecef;
+        color: #495057;
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-size: 0.8em;
+        margin-left: 8px;
+    }
+    
+    .result-date {
+        color: #94a3b8;
+        font-size: 0.875rem;
+        margin-top: 3px;
+    }
+    
+    .result-placement {
+        flex: 0 0 100px;
+        text-align: right;
+        padding-right: 15px;
+    }
+    
+    .result-placement-number {
+        font-size: 1.8rem;
+        font-weight: 700;
+        line-height: 1;
+        color: #1e293b;
+    }
+    
+    .result-placement-suffix {
+        font-size: 0.9rem;
+        color: #64748b;
+    }
+    
+    .result-outof {
+        font-size: 0.9rem;
+        color: #94a3b8;
+        margin-top: 3px;
+    }
 
     @media (max-width: 768px) {
         .admin-nav {
@@ -494,6 +656,29 @@
 
         .info-grid {
             grid-template-columns: 1fr;
+        }
+        
+        .result-item {
+            flex-direction: column;
+            text-align: center;
+        }
+        
+        .result-medal {
+            margin-bottom: 10px;
+        }
+        
+        .result-info {
+            padding: 0;
+        }
+        
+        .result-placement {
+            margin-top: 10px;
+            text-align: center;
+            padding-right: 0;
+        }
+        
+        .medal-summary {
+            gap: 15px;
         }
     }
 </style>
@@ -590,20 +775,123 @@
 
         try {
             const adminId = sessionStorage.getItem('adminId');
-            const response = await fetch(`/api/admin/members/${memberId}/full`, {
-                headers: { 'X-Admin-ID': adminId ? adminId : '' }
-            });
+            
+            // Fetch member details and competition data (same as competitions.html)
+            const [memberDetailsResponse, competitionsResponse, membersResponse] = await Promise.all([
+                fetch(`/api/admin/members/${memberId}/full`, {
+                    headers: { 'X-Admin-ID': adminId ? adminId : '' }
+                }),
+                fetch('/api/Competitions'),
+                fetch('/api/Members')
+            ]);
 
-            if (!response.ok) {
+            if (!memberDetailsResponse.ok) {
                 throw new Error('Failed to load member details');
             }
 
-            const data = await response.json();
+            const data = await memberDetailsResponse.json();
+            const competitionsData = await competitionsResponse.json();
+            const membersData = await membersResponse.json();
+            
+            // Process competition results using the same logic as competitions.html
+            data.competitionPlacements = processCompetitionResults(memberId, data.basicInfo, competitionsData, membersData);
+            
+            console.log('Member data received:', data);
+            console.log('Competition placements:', data.competitionPlacements);
             displayMemberDetails(data);
         } catch (error) {
             console.error('Error loading member details:', error);
             content.innerHTML = '<div class="empty-state"><i class="fas fa-exclamation-triangle"></i><p>Failed to load member details. Please try again.</p></div>';
         }
+    }
+    
+    // Process competition results - same logic as competitions.html
+    function processCompetitionResults(memberId, memberInfo, competitionsResponse, membersResponse) {
+        const results = [];
+        
+        // Normalize competitions into array
+        const competitionsArray = Array.isArray(competitionsResponse) ? competitionsResponse : Object.values(competitionsResponse || {});
+        const competitionsData = competitionsArray.map(item => {
+            if (item && typeof item === 'object') {
+                const entries = Object.entries(item);
+                if (entries.length === 1) {
+                    const [id, data] = entries[0];
+                    return { ...(data || {}), id };
+                }
+            }
+            return item;
+        }).filter(Boolean);
+        
+        // Build members map id -> "First Last"
+        const membersMap = {};
+        const membersArray = Array.isArray(membersResponse) ? membersResponse : Object.values(membersResponse || {});
+        membersArray.forEach(entry => {
+            const entries = Object.entries(entry || {});
+            if (entries.length === 1) {
+                const [id, data] = entries[0];
+                if (data) {
+                    const first = data.firstName || '';
+                    const last = data.lastName || '';
+                    const full = `${first} ${last}`.trim() || (data.doeEmail || id);
+                    membersMap[id] = full;
+                }
+            }
+        });
+        
+        // Get user full name (normalized)
+        const userFullName = `${(memberInfo.firstName || '').trim()} ${(memberInfo.lastName || '').trim()}`.trim().toLowerCase().replace(/\s+/g, ' ');
+        
+        // Helper to normalize strings
+        const norm = s => (s || '').toString().trim().toLowerCase().replace(/\s+/g, ' ');
+        
+        // Process each competition
+        competitionsData.forEach(competition => {
+            if (!competition.teamPlacement) return;
+            const resultsArray = (competition.results && Array.isArray(competition.results.eventResults)) ? competition.results.eventResults : [];
+            
+            // Collect all participations for the current user (by id OR full name)
+            const userParticipations = competition.teamPlacement.filter(placement => {
+                const participants = placement.participants || [];
+                if (participants.includes(memberId)) return true;
+                const lowerNames = participants.map(p => norm(membersMap[p] || p));
+                return userFullName && lowerNames.includes(userFullName);
+            });
+            
+            if (userParticipations.length === 0) return;
+            
+            userParticipations.forEach(p => {
+                const targetEvent = norm(p.event);
+                const team = p.team;
+                const eventResult = resultsArray.find(r => norm(r.eventName) === targetEvent && r.team === team);
+                const placement = eventResult ? eventResult.placement : null;
+                const outOf = eventResult ? eventResult.outOf : null;
+                
+                // Get partner names
+                const participants = p.participants || [];
+                const partners = [];
+                for (const participantId of participants) {
+                    if (participantId !== memberId) {
+                        // Check if it's the same person by name
+                        const participantName = norm(membersMap[participantId] || participantId);
+                        if (participantName !== userFullName) {
+                            partners.push(membersMap[participantId] || participantId);
+                        }
+                    }
+                }
+                
+                results.push({
+                    competitionName: competition.name,
+                    competitionDate: competition.date,
+                    event: p.event,
+                    team: team,
+                    placement: placement,
+                    outOf: outOf,
+                    partners: partners
+                });
+            });
+        });
+        
+        return results;
     }
 
     function displayMemberDetails(data) {
@@ -732,39 +1020,106 @@
             `;
         }
 
-        // Competition Placements
+        // Competition Results - Always show this section
+        html += `
+            <div class="member-section">
+                <div class="section-title">
+                    <i class="fas fa-trophy"></i>
+                    Competition Results
+                </div>
+        `;
+        
         if (data.competitionPlacements && data.competitionPlacements.length > 0) {
+            // Sort by date (newest first), then by placement (best first)
+            const sortedPlacements = [...data.competitionPlacements].sort((a, b) => {
+                const dateA = parseCompetitionDate(a.competitionDate);
+                const dateB = parseCompetitionDate(b.competitionDate);
+                if (dateB - dateA !== 0) return dateB - dateA;
+                const placementA = a.placement || 9999;
+                const placementB = b.placement || 9999;
+                return placementA - placementB;
+            });
+            
+            // Count medals
+            const medals = {
+                gold: sortedPlacements.filter(p => p.placement === 1).length,
+                silver: sortedPlacements.filter(p => p.placement === 2).length,
+                bronze: sortedPlacements.filter(p => p.placement === 3).length
+            };
+            
             html += `
-                <div class="member-section">
-                    <div class="section-title">
-                        <i class="fas fa-trophy"></i>
-                        Competition Placements
+                <div class="medal-summary">
+                    <div class="medal-item">
+                        <div class="medal gold">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <span>${medals.gold}</span>
                     </div>
-                    <table class="attendance-table">
-                        <thead>
-                            <tr>
-                                <th>Competition</th>
-                                <th>Event</th>
-                                <th>Team</th>
-                                <th>Placement</th>
-                                <th>Partners</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            ${data.competitionPlacements.map(placement => `
-                                <tr>
-                                    <td>${escapeHtml(placement.competitionName || 'N/A')}</td>
-                                    <td>${escapeHtml(placement.event || 'N/A')}</td>
-                                    <td>${escapeHtml(placement.team || 'N/A')}</td>
-                                    <td>${placement.placement ? `${placement.placement}${getOrdinalSuffix(placement.placement)}` : 'N/A'} ${placement.outOf ? `out of ${placement.outOf}` : ''}</td>
-                                    <td>${placement.partners ? placement.partners.join(', ') : 'N/A'}</td>
-                                </tr>
-                            `).join('')}
-                        </tbody>
-                    </table>
+                    <div class="medal-item">
+                        <div class="medal silver">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <span>${medals.silver}</span>
+                    </div>
+                    <div class="medal-item">
+                        <div class="medal bronze">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <span>${medals.bronze}</span>
+                    </div>
+                </div>
+                
+                <div class="results-list">
+                    ${sortedPlacements.map(placement => {
+                        const hasMedal = placement.placement && placement.placement <= 3;
+                        const medalType = placement.placement === 1 ? 'gold' : placement.placement === 2 ? 'silver' : placement.placement === 3 ? 'bronze' : '';
+                        const formattedDate = formatCompetitionDate(placement.competitionDate);
+                        
+                        return `
+                            <div class="result-item">
+                                ${hasMedal ? `
+                                    <div class="result-medal result-${medalType}">
+                                        <i class="fas fa-medal"></i>
+                                    </div>
+                                ` : '<div class="result-medal"></div>'}
+                                
+                                <div class="result-info">
+                                    <div class="result-competition">${escapeHtml(placement.competitionName || 'N/A')}</div>
+                                    <div class="result-event">
+                                        ${escapeHtml(placement.event || 'N/A')} 
+                                        <span class="team-badge">Team ${escapeHtml(placement.team || '?')}</span>
+                                    </div>
+                                    ${placement.partners && placement.partners.length > 0 ? `
+                                        <div class="result-partners">
+                                            <i class="fas fa-user-friends"></i> ${placement.partners.map(p => escapeHtml(p)).join(', ')}
+                                        </div>
+                                    ` : ''}
+                                    <div class="result-date">${formattedDate}</div>
+                                </div>
+                                
+                                <div class="result-placement">
+                                    ${placement.placement ? `
+                                        <div class="result-placement-number">
+                                            ${placement.placement}<span class="result-placement-suffix">${getOrdinalSuffix(placement.placement)}</span>
+                                        </div>
+                                        ${placement.outOf ? `<div class="result-outof">out of ${placement.outOf}</div>` : ''}
+                                    ` : '<div class="result-placement-number">—</div>'}
+                                </div>
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+            `;
+        } else {
+            html += `
+                <div class="empty-state">
+                    <i class="fas fa-trophy"></i>
+                    <p>No competition results recorded yet.</p>
                 </div>
             `;
         }
+        
+        html += `</div>`;
 
         // Events & Attendance
         if (data.events && data.events.length > 0) {
@@ -1013,6 +1368,39 @@
         } catch (e) {
             return dateStr;
         }
+    }
+    
+    function parseCompetitionDate(value) {
+        if (!value) return new Date(0);
+        if (value instanceof Date) return value;
+        
+        // Handle Firestore timestamp objects
+        if (typeof value === 'object') {
+            if (typeof value._seconds === 'number') {
+                return new Date(value._seconds * 1000);
+            }
+            if (typeof value.seconds === 'number') {
+                return new Date(value.seconds * 1000);
+            }
+            if (value.$date) {
+                return new Date(value.$date);
+            }
+        }
+        
+        // Try parsing as string or number
+        const parsed = new Date(value);
+        return isNaN(parsed) ? new Date(0) : parsed;
+    }
+    
+    function formatCompetitionDate(value) {
+        const date = parseCompetitionDate(value);
+        if (date.getTime() === 0) return '—';
+        
+        return date.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric'
+        });
     }
 
     function getOrdinalSuffix(num) {

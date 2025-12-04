@@ -1433,52 +1433,131 @@ def get_member_full_data(member_id):
         
         # Get competition placements
         try:
+            # First, get all members to create a name map for partner resolution
+            members_map = {}
+            members_query = db.collection('Members').stream()
+            for m in members_query:
+                m_data = m.to_dict()
+                first_name = m_data.get('firstName', '')
+                last_name = m_data.get('lastName', '')
+                full_name = f"{first_name} {last_name}".strip()
+                members_map[m.id] = full_name
+            
+            # Helper function to normalize names for comparison (matches competitions.html)
+            def normalize_name(name):
+                return str(name or '').strip().lower().replace('  ', ' ')
+            
+            # Get the current member's full name (normalized)
+            member_full_name_normalized = normalize_name(f"{member_data.get('firstName', '')} {member_data.get('lastName', '')}")
+            
+            logger.info(f"Looking for competitions for member {member_id} (name: {member_full_name_normalized})")
+            
+            # Get competitions and build placements list
             competitions_query = db.collection('Competitions').stream()
+            placements_added = set()  # Track (comp_name, event, team) to avoid duplicates
+            
             for comp in competitions_query:
                 comp_data = comp.to_dict()
+                comp_name = comp_data.get('name', '')
+                comp_date = comp_data.get('date')
+                
+                # Check if member participated in this competition (by ID OR by name)
+                member_participations = []
                 if comp_data.get('teamPlacement'):
                     for placement in comp_data['teamPlacement']:
-                        if member_id in placement.get('participants', []):
-                            result['competitionPlacements'].append({
-                                'competitionName': comp_data.get('name', ''),
-                                'competitionDate': comp_data.get('date'),
+                        participants = placement.get('participants', [])
+                        
+                        # Check if member participated (by ID or by name)
+                        member_participated = False
+                        
+                        # Check by ID
+                        if member_id in participants:
+                            member_participated = True
+                        else:
+                            # Check by name (resolve participant IDs to names and compare)
+                            for p in participants:
+                                # Resolve the participant to a name
+                                if p in members_map:
+                                    p_name_normalized = normalize_name(members_map[p])
+                                else:
+                                    # It might already be a name
+                                    p_name_normalized = normalize_name(p)
+                                
+                                if p_name_normalized == member_full_name_normalized:
+                                    member_participated = True
+                                    break
+                        
+                        if member_participated:
+                            member_participations.append({
                                 'event': placement.get('event', ''),
                                 'team': placement.get('team', ''),
-                                'partners': [p for p in placement.get('participants', []) if p != member_id]
+                                'participants': participants
                             })
                 
-                if comp_data.get('results') and comp_data['results'].get('eventResults'):
-                    member_in_comp = False
-                    member_events = []
-                    if comp_data.get('teamPlacement'):
-                        for placement in comp_data['teamPlacement']:
-                            if member_id in placement.get('participants', []):
-                                member_in_comp = True
-                                member_events.append(placement.get('event', ''))
+                # For each participation, try to find the result
+                for participation in member_participations:
+                    event_name = participation['event']
+                    team = participation['team']
+                    participants = participation['participants']
                     
-                    if member_in_comp:
+                    # Create unique key to avoid duplicates
+                    placement_key = (comp_name, event_name, team)
+                    if placement_key in placements_added:
+                        continue
+                    
+                    # Get result if available
+                    placement_data = None
+                    out_of = None
+                    
+                    if comp_data.get('results') and comp_data['results'].get('eventResults'):
                         for event_result in comp_data['results']['eventResults']:
-                            if event_result.get('eventName') in member_events:
-                                team = None
-                                partners = []
-                                for placement in comp_data.get('teamPlacement', []):
-                                    if placement.get('event') == event_result.get('eventName') and member_id in placement.get('participants', []):
-                                        team = placement.get('team')
-                                        partners = [p for p in placement.get('participants', []) if p != member_id]
-                                        break
-                                
-                                if team == event_result.get('team'):
-                                    result['competitionPlacements'].append({
-                                        'competitionName': comp_data.get('name', ''),
-                                        'competitionDate': comp_data.get('date'),
-                                        'event': event_result.get('eventName', ''),
-                                        'team': team,
-                                        'placement': event_result.get('placement'),
-                                        'outOf': event_result.get('outOf'),
-                                        'partners': partners
-                                    })
+                            # Case-insensitive event name matching
+                            if (normalize_name(event_result.get('eventName', '')) == normalize_name(event_name) 
+                                and event_result.get('team') == team):
+                                placement_data = event_result.get('placement')
+                                out_of = event_result.get('outOf')
+                                break
+                    
+                    # Resolve partner names
+                    partner_names = []
+                    for p in participants:
+                        # Skip the current member
+                        p_is_current_member = False
+                        if p == member_id:
+                            p_is_current_member = True
+                        elif p in members_map:
+                            if normalize_name(members_map[p]) == member_full_name_normalized:
+                                p_is_current_member = True
+                        elif normalize_name(p) == member_full_name_normalized:
+                            p_is_current_member = True
+                        
+                        if not p_is_current_member:
+                            # Resolve to name
+                            if p in members_map:
+                                partner_names.append(members_map[p])
+                            else:
+                                # It might already be a name
+                                partner_names.append(p)
+                    
+                    # Add to results
+                    result['competitionPlacements'].append({
+                        'competitionName': comp_name,
+                        'competitionDate': comp_date,
+                        'event': event_name,
+                        'team': team,
+                        'placement': placement_data,
+                        'outOf': out_of,
+                        'partners': partner_names
+                    })
+                    
+                    placements_added.add(placement_key)
+            
+            logger.info(f"Found {len(result['competitionPlacements'])} competition placements for member {member_id}")
+                    
         except Exception as e:
             logger.warning(f"Error getting competition placements: {e}")
+            import traceback
+            logger.warning(traceback.format_exc())
         
         # Get events the member is in
         try:

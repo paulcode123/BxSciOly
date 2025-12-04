@@ -608,6 +608,101 @@ Science in the News: Maliha Noreen, Adeline Nurenie
 
 ================================================================================
 
+MASON INVITATIONAL 2025-26
+Date: November 15, 2025
+Type: Satellite Invitational
+
+Team A:
+Anatomy and Physiology: Noelle Delosreyes, Ileene Ng
+Astronomy: Pramit Acharjee, Brandon Lin
+Boomilever: Jonathan Yip, Edison Lee
+Bungee Drop: Jin Zhao, Edison Lee
+Chemistry Lab: Sabir Sobur, Andrew Lin
+Circuit Lab: Aaron Krasinski, William Zou
+Codebusters: Edison Lee, Elyn Wang, William Zou
+Designer Genes: Noelle Delosreyes, Ileene Ng
+Disease Detectives: Noelle Delosreyes, Ileene Ng
+Dynamic Planet: Brandon Lin, Sabir Sobur
+Electric Vehicle: Andrew Lin, Menqian Cai
+Entomology: Pramit Acharjee, Elyn Wang
+Engineering CAD: Menqian Cai, Linwang Li
+Experimental Design: Yutong Chen, Jonathan Yip, Brandon Lin
+Forensics: Elyn Wang, Andrew Lin
+Helicopter: Jin Zhao, Jonathan Yip
+Hovercraft: Jin Zhao, Edison Lee
+Machines: Jonathan Yip, Aaron Krasinski
+Materials Science: Aaron Krasinski, Brandon Lin
+Remote Sensing: Linwang Li, Sabir Sobur
+Robot Tour: Andrew Lin, Menqian Cai
+Rocks and Minerals: Yutong Chen, Pramit Acharjee
+Water Quality: Yutong Chen, Pramit Acharjee
+K-pop Identification: Noelle Delosreyes, Brandon Lin
+Taylor Trivia: Noelle Delosreyes, Brandon Lin
+Minecraft Mission: Aaron Krasinski, Jonathan Yip
+Probabilistic Studies: Aaron Krasinski, Linwang Li
+Gene Regulation: Jonathan Yip, Ileene Ng
+
+Team B:
+Anatomy and Physiology: Sean Kim, Eugene Lim
+Astronomy: Jeun Ebat, Rishav Banik
+Boomilever: Jerry Zhu, Senna Shiau
+Bungee Drop: Atef Istiaque, Senna Shiau
+Chemistry Lab: Queenie Tang, Stanley Zhao
+Circuit Lab: Ella Gao, Rishav Banik
+Codebusters: Queenie Tang, Sean Kim, Ella Gao
+Designer Genes: Eugene Lim, Stanley Zhao
+Disease Detectives: Eugene Lim, Stanley Zhao
+Dynamic Planet: Cielle Voulgarides, Jeun Ebat
+Electric Vehicle: Rishav Banik, Jerry Zhu
+Entomology: Eugene Lim, Cielle Voulgarides
+Engineering CAD: Adeline Nurenie, Maliha Noreen
+Experimental Design: Anna Gao, Jeun Ebat, Eugene Lim
+Forensics: Lyla Quim, Queenie Tang
+Helicopter: Atef Istiaque, Jerry Zhu
+Hovercraft: Jerry Zhu, Atef Istiaque
+Machines: Senna Shiau, Maliha Noreen
+Materials Science: Anna Gao, Adeline Nurenie
+Remote Sensing: Lyla Quim, Jeun Ebat
+Robot Tour: Ella Gao, Rishav Banik
+Rocks and Minerals: Lyla Quim, Cielle Voulgarides
+Water Quality: Anna Gao, Cielle Voulgarides
+K-pop Identification: Eugene Lim
+Taylor Trivia: Maliha Noreen, Adeline Nurenie
+Minecraft Mission: Sean Kim, Adeline Nurenie
+Probabilistic Studies: Queenie Tang, Atef Istiaque
+Gene Regulation: Maliha Noreen, Stanley Zhao
+
+Team C:
+Anatomy and Physiology: Arick Lin, Allen Huang
+Astronomy: Vincent Zhao, Isabelle Ross
+Boomilever: Raymond Lin, Jacqueline Wang
+Bungee Drop: Raymond Lin, Michael Mar
+Chemistry Lab: Michael Mar, Vincent Zhao
+Circuit Lab: Protik Modak, Lia Skarabot
+Codebusters: Brian Chen, Arick Lin, Isabelle Ross
+Designer Genes: Tenzin Yangtso, Arick Lin
+Disease Detectives: Julia Chin, Brian Chen
+Dynamic Planet: Tenzin Yangtso, Ethan Wang
+Electric Vehicle: Devin Zhou, Lia Skarabot
+Entomology: Tenzin Yangtso, Ethan Wang
+Engineering CAD: Devin Zhou, Protik Modak
+Experimental Design: Julia Chin, Jacqueline Wang, Ethan Wang
+Forensics: Julia Chin, Brian Chen
+Helicopter: Devin Zhou, Raymond Lin
+Hovercraft: Alan Lin, Raymond Lin
+Machines: Protik Modak, Alan Lin
+Materials Science: Julia Chin, Michael Mar
+Remote Sensing: Allen Huang, Vincent Zhao
+Robot Tour: Lia Skarabot, Alan Lin
+Rocks and Minerals: Isabelle Ross, Jacqueline Wang
+Water Quality: Tenzin Yangtso, Ethan Wang
+K-pop Identification: Julia Chin
+Minecraft Mission: Brian Chen, Allen Huang
+Probabilistic Studies: Isabelle Ross
+Gene Regulation: Allen Huang
+
+================================================================================
+
 UPCOMING COMPETITIONS 2025-26
 
 ================================================================================

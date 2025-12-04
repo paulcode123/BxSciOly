@@ -694,6 +694,105 @@ Overall: 16th out of 230 teams
 
 ================================================================================
 
+MASON INVITATIONAL 2025-26
+Date: November 15, 2025
+Type: Satellite Invitational
+
+Team A Results:
+Anatomy and Physiology: 33
+Astronomy: 20
+Boomilever: 40
+Bungee Drop: 196
+Chemistry Lab: 47*
+Circuit Lab: 105
+Codebusters: 93
+Designer Genes: 32
+Disease Detectives: 31
+Dynamic Planet: 78
+Electric Vehicle: 24
+Engineering CAD: 196
+Entomology: 74
+Experimental Design: 59
+Forensics: 28
+Helicopter: 36
+Hovercraft: 196
+Machines: 71
+Materials Science: 12
+Remote Sensing: 24
+Robot Tour: 15
+Rocks and Minerals: 74
+Water Quality: 119
+Gene Regulation: 9
+K-pop Identification: 4
+Minecraft Mission: 52
+Probabilistic Studies: 22
+Taylor Trivia: 18
+Overall: 27th out of 196 teams
+
+Team B Results:
+Anatomy and Physiology: 68
+Astronomy: 62
+Boomilever: 196
+Bungee Drop: 36
+Chemistry Lab: 13
+Circuit Lab: 115
+Codebusters: 36
+Designer Genes: 107
+Disease Detectives: 42
+Dynamic Planet: 94
+Electric Vehicle: 196
+Engineering CAD: 40
+Entomology: 83
+Experimental Design: 69
+Forensics: 5
+Helicopter: 196
+Hovercraft: 196
+Machines: 132
+Materials Science: 107
+Remote Sensing: 43
+Robot Tour: 196
+Rocks and Minerals: 27
+Water Quality: 49
+Gene Regulation: 18
+K-pop Identification: 196
+Minecraft Mission: 49
+Probabilistic Studies: 27
+Taylor Trivia: 34
+Overall: 58th out of 196 teams
+
+Team C Results:
+Anatomy and Physiology: 54
+Astronomy: 69
+Boomilever: 196
+Bungee Drop: 196
+Chemistry Lab: 79*
+Circuit Lab: 65
+Codebusters: 119
+Designer Genes: 72
+Disease Detectives: 105
+Dynamic Planet: 118
+Electric Vehicle: 196
+Engineering CAD: 196
+Entomology: 124
+Experimental Design: 55
+Forensics: 61
+Helicopter: 196
+Hovercraft: 196
+Machines: 40
+Materials Science: 81
+Remote Sensing: 69
+Robot Tour: 23*
+Rocks and Minerals: 64
+Water Quality: 110
+Gene Regulation: 15
+K-pop Identification: 34
+Minecraft Mission: 36
+Probabilistic Studies: 196
+Taylor Trivia: 196
+Overall: 77th out of 196 teams
+
+================================================================================
+
 UPCOMING COMPETITIONS 2025-26
 
 ================================================================================
