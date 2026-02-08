@@ -1,0 +1,434 @@
+2025 Invitational Tournament - Div C -Georgia 
+Anatomy and Physiology 
+ 
+ 
+Written by: Sarth Patel, Savanna Shephard, Marc Merrill 
+ 
+ 
+School Name/Team: _____________________________________________ 
+ 
+Student Names: ________________________________________________ 
+ 
+Instructions:  
+1.​ Write all answers on the Answer Sheet. DO NOT WRITE on the Test Packet. 
+2.​ See the Image Sheet when asked to refer to an image by a question (it may be 
+a separate sheet or attached to the back of this packet). 
+3.​ For numerical questions, answers within a reasonable range will be accepted. 
+4.​ When answering free-response questions, use the appropriate abbreviations 
+for satellite and instrument names  
+5.​ For free-response questions, the answer sheet indicates the amount of space 
+you should allocate to fully answer each question. Points are assigned based 
+on accurately answering each part of the question. 
+6.​ Ties marked with a * will be broken in order 
+ 
+FOR GRADERS ONLY: ____________________ / 90 (Total points) 
+
+1.​ What is the signaling mechanism for the endocrine system? (1 point)  
+A.​ Electrical  
+B.​ Chemical  
+C.​ Chemical and Electrical  
+D.​ None of the above  
+  
+2.​ Name 3 glands that make up the endocrine system (3 points)  
+ 
+ Thyorid 
+Adrenal gland 
+Pituitary 
+  
+3.​ From the previous question, choose any 2 glands and define what they secrete, 
+what they control, and why it is important to keep the body in homeostasis. (4 
+points)  
+ Thyroid: produces and secretes t3, t4, (thyroxine, Triiodione), Amines part of thyroid 
+hormones group which are tyrosine derivatives, control/regulate the metabolism of the 
+body, regulation of metabolism allows body to stay in homeostasis by keeping energy 
+minerals levels normal, allowing for normal process to occur. 
+ 
+Adrenal cortex : produces and secretes aldosterone (zona glomerulosa), Cortisol (zona 
+fasciculata), Androgens, DHEA (zona reticularis),  aldosterone is steroid reabsorbs 
+sodium, water cause it follows sodium, bicarb, excretion of potassium and hydrogen 
+which causes increase in bp. Cortisol is steroid, causes stress response, Androgens 
+(steroid) cause minor role in development of secondary sex characteristics in male gonads 
+very minorly, produces estrogen precursor (no progesterone) 
+ 
+Adrenal medulla: produces and secretes epinephrine and norepinephrine, which cause 
+fight or flight response in stressful situations. This response prepares the body to survive 
+situations, increasing energy levels and storing more energy reserves 
+  
+ 
+  
+  
+4.​ Which one of the following is a secondary messenger (1 point)  
+A.​ Ligand  
+B.​ IP3  
+C.​ Adenylyl cyclase  
+D.​ Cyclic AMP  
+E.​ None of the above  
+
+  
+5.​ How does the body regulate hormone secretion? (2 points)  
+  
+  
+6.​ A researcher treats cultured liver cells with insulin and measures the rate of 
+glucose uptake. In the second experiment, cells are treated with glucagon. Based 
+on endocrine physiology, which result is most likely? (1 point)  
+A.​ Insulin increases glucose uptake; glucagon decreases it.  
+B.​ Insulin decreases glucose uptake; glucagon increases it.  
+C.​ Both hormones increase glucose uptake equally.  
+D.​ Neither hormone affects glucose uptake.  
+  
+7.​  A patient presents with polyuria, polydipsia, and dilute urine. Plasma osmolality 
+is high, but blood glucose is normal. A water deprivation test shows no increase 
+in urine osmolality. Which is the most likely explanation? (1 point)  
+A.​ Diabetes mellitus → high glucose → osmotic diuresis  
+B.​ Central diabetes insipidus → ADH deficiency → inability to concentrate urine 
+C.​ Nephrogenic diabetes insipidus → excessive insulin  
+D.​ Hyperthyroidism → increased metabolism → polyuria  
+  
+8.​ A student measures the effect of different hormones on glucose levels. When cells 
+are treated with glucagon, cAMP increases, leading to increased glycogen 
+breakdown Which type of hormone-receptor mechanism does glucagon use?  
+      (*1 point)  
+A.​ Steroid hormone → nuclear receptor  
+B.​ Peptide hormone → G-protein coupled receptor → second messenger  
+C.​ Thyroid hormone → nuclear receptor  
+D.​ Cortisol → membrane receptor  
+  
+9.​ During stress, which combination of hormones would increase blood glucose 
+most rapidly? (1 point)  
+A.​ Cortisol + epinephrine → increase gluconeogenesis + glycogen breakdown 
+B.​ Insulin + glucagon → decrease blood glucose  
+C.​ PTH + calcitonin → regulate calcium, not glucose  
+D.​ Melatonin + ADH → no effect on glucose  
+  
+Use the following scenario to answer questions 10-13: ​
+John, a 28-year-old man, reports frequent urination and extreme thirst. Blood glucose is normal. 
+
+Urine is very diluted. ​
+ 
+10.​Which type of diabetes is more likely? (1 point)  
+ 
+11.​Which hormone is deficient or ineffective? (1 point)  
+ 
+ 
+12.​Explain why his urine is so diluted. (2 points)  
+ 
+ 
+13.​How is this different from diabetes mellitus? (2 points)  
+  
+Use the following scenario to answer questions 14-18: ​
+Alex, a 32-year-old man, presents with excessive thirst, frequent urination, fatigue, and 
+unexplained weight loss. Lab tests show:  
+ 
+Parameter  
+Value  
+Normal Range  
+  Fasting Blood Glucose  
+280 mg/dL  
+70–100 mg/dL  
+  Plasma Insulin  
+Low  
+5–20 µU/mL  
+ HbA1c  
+9.5%  
+4–5.6%  
+ Urine Glucose  
+High  
+Nondetectable  
+Further tests reveal that Alex’s pancreas has significantly fewer beta cells than normal.  
+  
+ 
+14.​Based on the scenario and lab data, identify the most likely endocrine disorder Alex 
+has. Explain your reasoning using at least two lab results. (*3 points)  
+This is diabetes mellitus, as shown by the very high blood glucose levels (180 mg/dL over the 
+normal range) and the low amounts of plasma insulin, indicating ineffectiveness of glucose 
+breakdown causing these high levels of blood glucose. 
+
+ 
+15.​Explain the role of insulin under normal conditions in regulating blood glucose and 
+describe what goes wrong in Alex’s case. (4 points)  
+Under normal conditions, insulin breaks down glucose in the blood. In Alex’s case, his plasma 
+insulin is low so there was decreased inability for his body to break down blood glucose, 
+resulting in high levels of glucose in his blood. 
+ 
+16.​Predict the effect of this disorder on glycogen, fat, and protein metabolism. Provide 
+reasoning for each. (*6 points)  
+ 
+ 
+17.​Alex is treated with exogenous insulin. Predict how this treatment will affect the 
+following and explain your reasoning: (*6 points)  
+A.​ Blood glucose  
+B.​ Urine glucose  
+C.​ HbA1c  
+ 
+18.​A friend suggests Alex could “eat less sugar” to fix the problem. Critically evaluate 
+this suggestion based on the pathophysiology of the disorder. (3 points)  
+  
+ 
+19.​A researcher wants to study the effect of peptide versus steroid hormones on gene 
+expression. Which experiment would provide the clearest comparison? (1 point) ​
+A) Treat cultured cells with insulin and cortisol → measure nuclear transcription factor 
+activity ​
+B) Treat cells with thyroid hormone only → measure cytoplasmic signaling ​
+C) Treat cells with melatonin → measure membrane receptor activity ​
+D) Treat cells with glucose → measure insulin production  
+ 
+
+20.​A patient with PCOS may have which combination of symptoms? (1 point) ​
+A) Low androgen, irregular periods ​
+B) High androgen, insulin resistance, irregular ovulation ​
+C) High thyroid hormone, weight loss ​
+D) Low cortisol, low blood pressure  
+ 
+ii. Central Nervous System 
+ 
+1.​ Which type of neuron sends commands from the brain to muscles to carry out 
+functions? (1 point)  
+a.​ Sensory Neuron 
+b.​ Interneuron  
+c.​ Motor Neuron 
+d.​ Muscle Neuron 
+ 
+ 
+2.​ Which system contains the brainstem? (1 point)  
+a.​ Central Nervous System 
+b.​ Peripheral Nervous System 
+c.​ Skeletal System 
+d.​ Digestive System 
+ 
+3.​ The main purpose of dendrites is to: (1 point)  
+a.​ Send away information 
+b.​ Receive information 
+c.​ Stop a neural impulse 
+d.​ Slow down impulses 
+ 
+4.​ What is the name of the gap between neurons where signals are transferred? (1 
+point)  
+a.​ Soma 
+b.​ Synapse 
+c.​ Dendrite 
+d.​ Axon Terminal 
+ 
+5.​ Which disorder is characterized by a destruction of myelin in the CNS? (1 point)  
+a.​ Parkinson’s 
+b.​ Alzheimer’s 
+c.​ Multiple Sclerosis 
+d.​ Schizophrenia  
+
+ 
+6.​ Which brain structure is memory formation most associated with? (1 point)  
+a.​ Medulla 
+b.​ Cerebellum 
+c.​ Broca’s Area 
+d.​ Hippocampus 
+ 
+7.​ Parkinson’s disease is caused by the loss of neurons producing: (1 point)  
+a.​ Serotonin 
+b.​ Dopamine 
+c.​ GABA 
+d.​ Acetylcholine 
+ 
+ 
+ 
+ 
+8.​ What is the role of the hypothalamus? (1 point)  
+a.​ Control reflexes 
+b.​ Contract muscles 
+c.​ Maintain homeostasis 
+d.​ Control balance 
+ 
+9.​ How does myelin affect nerve conduction? (1 point)  
+a.​ Produces neurotransmitters 
+b.​ Slows down impulses 
+c.​ Inhibiting synapses 
+d.​ Speeding up impulses 
+ 
+10.​What is Neuroplasticity? (1 point)  
+a.​ Brain’s ability to grow larger neurons 
+b.​ The brain’s ability to reorganize and adapt 
+c.​ The replacement of neurons with glial cells 
+d.​ The formation of scar tissue after brain injury 
+ 
+11.​What is the role of the frontal lobe? (1 point)  
+a.​ Hearing and memory 
+b.​ Vision and balance 
+c.​ Problem solving, voluntary movement 
+d.​ Breathing and heart beat regulation 
+ 
+
+12.​Which lobe processes touch and body position? (1 point)  
+a.​ Temporal 
+b.​ Frontal 
+c.​ Parietal 
+d.​ Occipital 
+ 
+13.​Which neurotransmitter is most involved in muscle contraction? (1 point)  
+a.​ Acetylcholine 
+b.​ Serotonin 
+c.​ Dopamine 
+d.​ GABA 
+ 
+ 
+ 
+ 
+ 
+14.​Which area of the brain links the nervous system to the endocrine system? (1 point)  
+a.​ Hippocampus 
+b.​ Hypothalamus 
+c.​ Amygdala 
+d.​ Cerebellum 
+ 
+15.​Which structure connects the two cerebral hemispheres? (1 point)  
+a.​ Brainstem 
+b.​ Corpus callosum 
+c.​ Thalamus 
+d.​ Hippocampus 
+ 
+16.​The cerebellum is divided into two: (1 point)  
+a.​ Hemispheres 
+b.​ Lobes 
+c.​ Ventricles 
+d.​ Gyri 
+ 
+17.​The dorsal root of a spinal nerve carries: (1 point)  
+a.​ Motor signals away from the CNS 
+b.​ Sensory signals toward the CNS 
+c.​ Both motor and sensory signals 
+d.​ Reflexes only 
+ 
+
+18.​Which brain region is highly developed in humans for reasoning? (1 point)  
+a.​ Cerebellum 
+b.​ Hippocampus 
+c.​ Medulla 
+d.​ Prefrontal Corex 
+ 
+19.​The cerebellum primarily coordinates: (1 point)  
+a.​ Conscious thought 
+b.​ Emotions 
+c.​ Voluntary movement and balance 
+d.​ Hormone release 
+ 
+20.​The pons are important for: (1 point)  
+a.​ Balance only 
+b.​ Linking the cerebellum with the brain and spinal cord 
+c.​ Hormone regulation 
+d.​ Memory storage 
+21.​What is the role of the midbrain? (1 point)  
+a.​ Visual and auditory processing 
+b.​ Language comprehension 
+c.​ Voluntary movement initiation 
+d.​ Hormone secretion 
+ 
+22.​Which part of the CNS is most affected by Alzheimer’s disease? (1 point)  
+a.​ Cerebellum 
+b.​ Hippocampus 
+c.​ Medulla 
+d.​ Cerebral peduncles 
+ 
+23.​What is the main cause of Huntington’s disease? (1 point)  
+a.​ Loss of dopamine 
+b.​ Genetic mutation  
+c.​ Myelin sheath destruction 
+d.​ Lack of oxygen to the cerebrum 
+ 
+24.​The reticular formation is important for: (1 point)  
+a.​ Balance 
+b.​ Reflexes 
+c.​ Hormone release 
+d.​ Consciousness and alertness 
+
+ 
+25.​The limbic system helps regulate: (1 point)  
+a.​ Voluntary muscle movement 
+b.​ Emotions and memory 
+c.​ Blood pressure 
+d.​ Synaptic transmission 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+For questions 26-32, label each part of this nerve diagram. (7 points) 
+ 
+26 . __________________ 
+27.  __________________ 
+28.  __________________ 
+
+29.  __________________ 
+30.  __________________ 
+31.  __________________ 
+32.  __________________ 
+ 
+33.​In what part of the neuron are neurotransmitters located? (1 point)  
+a.        Dendrites 
+b.        Soma 
+c.        Axon 
+d.        Myelin sheath 
+e.        Nerve terminals 
+34.​Name the (primary) neurotransmitter in the CNS. (1 point)  
+ 
+35.​The sodium-potassium pump moves __ ___ions __ the cell. Select all that apply.  
+(*2 points)   
+a.​ 3 potassium; into 
+b.​ 3 sodium; out of 
+c.​ 2 potassium; into 
+d.​ 2 sodium; out of 
+ 
+36.​Calculate the Nernst potential of calcium for a cell with 100 nM inside the cell 2 mM 
+outside the cell. (*2 points)   
+ 
+  
+37.​Find the voltage across the membrane of a cell at 37ºC -with the following ion 
+concentrations: (1 point)   
+Ion 
+Inside Concentration 
+(mM) 
+Outside Concentration 
+(mM) 
+Permeability 
+K+ 
+135 
+10 
+1.0 
+Na+ 
+20 
+120 
+.3 
+Cl- 
+4 
+120 
+.45 
+  
+ __________________ 
+
+38.​Name the glial cell that is responsible for producing cerebral spinal fluid. (1 point)   
+  
+39.​What is the function of astrocytes?(1 point)   
+  
+ 
+40.​Which of the following is the glial cell responsible for producing myelin for neurons 
+in the PNS? (1 point) 
+a.        Schwann cells 
+b.        Microglia 
+c.        Oligodendrocytes 
+d.        Satellite cells 
+  
+ 
+41.​What is the threshold value for this action potential? (1 point) 
+ 
+ 
+42.​Which number corresponds to the inactivation of sodium ion channels? (1 point) 
+ 
+43.​Which number corresponds to the opening of potassium channels? (1 point) 
+ 
+44.​Which number corresponds to the refractory period? (1 point) 
+  
+45.​How does myelin increase (propagation) velocity? (1 point) 
+
+ 
+ 
+  
+ 

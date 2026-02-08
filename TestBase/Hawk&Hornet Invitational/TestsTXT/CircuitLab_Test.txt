@@ -1,0 +1,275 @@
+​1​
+​MC score ____/61​
+​FR score ____/99​
+​Total Score_____/180​
+​Lab score ____/20​
+​Circuit Lab Div C.​
+​Hawk and Hornet Invitational​
+​Do not open this test until instructed by your proctor​
+​●​ ​You have 50 Minutes to complete both this test and a lab module.​
+​●​ ​You may split up to work on the test and lab separately if desired.​
+​●​ ​You are allowed a graphing calculator.​
+​●​ ​You may separate the pages of this test.​
+​●​ ​Use correct units when necessary​
+​●​ ​This event consists of three parts with 40 questions total:​
+​●​ ​Part 1: Multiple Choice - 30 questions (60pts)​
+​●​ ​Part 2: Free Response - 10 questions (99 pts)​
+​●​ ​Part 3: Lab - (20 pts)​
+​Team Name: _______________​
+​Team #: _____​
+​Student Names:​
+​___________        ___________​
+
+​2​
+​Multiple choice(2 pts each) - circle the correct answer​
+​1.​ ​A 9V battery is connected to a 10 ohm resistor and a 5 ohm resistor in series.​
+​What is the current through the 5 ohm resistor?​
+​a)​ ​2.7 A​
+​b)​ ​1.8 A​
+​c)​ ​0.6 A​
+​d)​ ​0.9 A​
+​2.​ ​The current carrying capacity of a standard wire​​most​​depends on what?​
+​a)​ ​Wire material​
+​b)​ ​Gauge​
+​c)​ ​Length​
+​d)​ ​Insulation material​
+​3.​ ​The voltage rating of a wire depends on what?​
+​a)​ ​Wire material​
+​b)​ ​Gauge​
+​c)​ ​Length​
+​d)​ ​Insulation material​
+​4.​ ​Who invented the first electric battery? Bonus point if you can name it​
+​a)​ ​Thomas Edison​
+​b)​ ​Michael Faraday​
+​c)​ ​Nikola Tesla​
+​d)​ ​Alessandro Volta​
+​Called a: _________________​
+​5.​ ​Which factors determine how dangerous a shock may be?​
+​a)​ ​Voltage​
+​b)​ ​Current​
+​c)​ ​Frequency​
+​d)​ ​Contact duration​
+​e)​ ​All of the above​
+
+​3​
+​6.​ ​What can be used to produce a magnetic field? (circle all that apply)​
+​a)​ ​A very hot iron nail​
+​b)​ ​A changing current​
+​c)​ ​A steady-state current​
+​d)​ ​A stationary proton​
+​e)​ ​A moving neutron​
+​7.​ ​What can be used to produce an electric field? (circle all that apply)​
+​a)​ ​A changing magnetic field​
+​b)​ ​A stationary lone proton​
+​c)​ ​A moving lone electron​
+​d)​ ​A moving neutron​
+​8.​ ​What is the peak to peak voltage of a standard American electrical outlet?​
+​a)​ ​120V​
+​b)​ ​240V​
+​c)​ ​340V​
+​d)​ ​170V​
+​9.​ ​If an electron has a velocity out of the page in a uniform magnetic field toward the​
+​left of the page. In what direction is the force experienced by the electron?​
+​a)​ ​Into the page​
+​b)​ ​Towards the top of the page​
+​c)​ ​Towards the bottom of the page​
+​d)​ ​Towards the left of the page​
+​10.​​A current flows through a wire towards the top of the page as shown.​
+​On the right of the wire is a stationary proton. In what direction is the​
+​Lorentz force exerted on the proton?​
+​a)​
+​Toward the wire​
+​b)​
+​Away from the wire​
+​c)​
+​No force exerted​
+​d)​
+​Into the page​
+
+​4​
+​11.​ ​Approximately how efficient are typical LEDs?​
+​a)​ ​30%​
+​b)​ ​90%​
+​c)​ ​5%​
+​d)​ ​80%​
+​12.​​A 5 ohm resistor and two 10 ohm resistors are all placed in parallel. What is the​
+​equivalent resistance of the circuit?​
+​a)​ ​2.6 ohms​
+​b)​ ​2.5 ohms​
+​c)​ ​4 ohms​
+​d)​ ​8.3 ohms​
+​13.​​Two side by side wires both carry current in the same direction as shown. What​
+​direction is the force on each wire?​
+​a)​ ​Toward the other wire​
+​b)​ ​Away from the other wire​
+​c)​ ​No force exerted​
+​d)​ ​One goes into the page and the other goes out of​
+​the page​
+​14.​​Why are there no magnetic monopoles?​
+​a)​ ​Valence electron interference​
+​b)​ ​Quantized electron energies​
+​c)​ ​Trick question, there are magnetic monopoles​
+​d)​ ​That's just the way the universe works​
+​15.​​When a capacitor fails due to overvoltage, what is it that fails?​
+​a)​ ​The plates touch due to electrostatic attraction​
+​b)​ ​The dielectric undergoes dielectric breakdown​
+​c)​ ​Electrons flow through the insulative package​
+​d)​ ​The dielectric inside reacts with the metal plates​
+​16.​ ​A point charge q1 has a magnitude of 9nC.  A second charge q2 has a​
+​magnitude of -1.5nC and is located 0.12m from the first charge. Determine the​
+​net force each charge exerts on the other.​
+​a)​ ​1.2E-16 N​
+​b)​ ​1.1E-16 N​
+​c)​ ​6.2E-8 N​
+​d)​ ​8.4E-6 N​
+
+​5​
+​17.​​Magnetism is _____​
+​a)​ ​A fundamental force separate from the electric force​
+​b)​ ​Only present in transition metals​
+​c)​ ​The result of relativistic length contraction​
+​d)​ ​Magic​
+​18.​​For any two resistors, which of the following is​​false​​?​
+​a)​ ​The equivalent series resistance will always be the sum of the individual​
+​resistances​
+​b)​ ​The equivalent parallel resistance will always be greater than or equal to​
+​the largest resistor​
+​c)​ ​The equivalent parallel resistance will always be less than or equal to the​
+​smallest resistor​
+​d)​ ​The resistors in series will form a voltage divider​
+​19.​​A Van De Graaff Generator can produce long electrical arcs but can be touched​
+​safely. Why is this the case?​
+​a)​ ​They have high current but low voltage​
+​b)​ ​They have high voltage but low current​
+​c)​ ​They have very low frequency​
+​d)​ ​They have very high frequency​
+​20.​ ​How fast do electrons move through a typical DC current-carrying wire?​
+​a)​ ​Exactly the speed of light​
+​b)​ ​Almost (99.9999%) the speed of light​
+​c)​ ​A few millimeters per second​
+​d)​ ​Electrons don’t actually move in a wire​
+​21.​ ​Which of the following figures did not contribute to Maxwell’s equations?​
+​a)​ ​Heinrich Hertz​
+​b)​ ​Carl Friedrich Gauss​
+​c)​ ​André-Marie Ampere​
+​d)​ ​Michael Faraday​
+
+​6​
+​22.​​50mA of current flows into a 2F capacitor for 25 seconds before it is​
+​disconnected from the current source. About how much energy is stored in the​
+​capacitor after it has been disconnected?​
+​a)​ ​2.5 J​
+​b)​ ​0.6 J​
+​c)​ ​1.2 J​
+​d)​ ​0.4 J​
+​23.​ ​Which type of capacitor is typically polarized?​
+​a)​ ​Electrolytic​
+​b)​ ​Ceramic​
+​c)​ ​Film​
+​d)​ ​SMT​
+​24.​ ​Which of the following is​​not​​an equation for power?​
+​a)​ ​𝑉𝐼​
+​b)​ ​𝑉​
+​2​​/​𝑅​
+​c)​
+​𝐼​
+​2​​𝑅​
+​d)​ ​𝑉​
+​2​​𝑅​
+​25.​​A device with a large load (like a refrigerator) acts most similar to​
+​a)​ ​A resistor with a high resistance​
+​b)​ ​A resistor with a low resistance​
+​c)​ ​A DC voltage source​
+​d)​ ​A diode​
+​26.​​Three diodes (Vf = 0.7V) and a 10 ohm resistor are placed in series and are​
+​connected to a battery with voltage Vs. Which equation best represents the​
+​current in the circuit?​
+​a)​ ​(​​𝑉𝑠​ −​0​. ​7​)​/10​
+​b)​ ​(​​𝑉𝑠​ −​10​ −​0​. ​7​)
+​c)​ ​(​​𝑉𝑠​ −(​3​ * ​0​. ​7​))​/10​
+​d)​ (​𝑉𝑠​/10​) −(​3​ * ​0​. ​7​)
+​27.​​What happens if a magnet is broken in half?​
+​a)​ ​One half becomes a north pole and the other half a south pole​
+​b)​ ​The magnet stops working​
+​c)​ ​It splits into two smaller magnets​
+​d)​ ​The universe explodes​
+
+​7​
+​28.​​Is light a particle or a wave?​
+​a)​ ​Light is a particle because photons are discrete packets of energy​
+​b)​ ​Light is a wave because it interferes with itself​
+​c)​ ​Light is either a particle or a wave depending on its frequency​
+​d)​ ​Light is both a particle and a wave​
+​29.​ ​Which of the following would make a resistor have a higher resistance?​
+​a)​ ​Using a more conductive material​
+​b)​ ​Heating up the resistor​
+​c)​ ​Increasing cross-sectional area​
+​d)​ ​Decreasing length​
+​30.​ ​How hard was this test? (All answers are correct)​
+​a)​ ​Easy​
+​b)​ ​Medium​
+​c)​ ​Hard​
+​d)​ ​Just right​
+
+​8​
+​Free Response - You may round all answers to the nearest tenth​
+​1.​ ​a) You have a red LED (Vf = 1.8V) that you want to run at 35mW using a 3.7V​
+​battery. What value resistor must be used in series to achieve this? (5 pts)​
+​b) Find the power dropped across the resistor (3pts)​
+​c) Find the number of LEDs you could put in parallel before burning out the​
+​resistor (assuming it is a typical 1/4W resistor) (3pts)​
+​2.​ ​In a sentence or two, what is the difference between a buck converter and a​
+​boost converter? (In terms of what they do, not how they work) (3pts)​
+
+​9​
+​3.​ ​What is the resonant frequency, in Hz, of an LC oscillator with an inductance of​
+​700uH and a capacitance of 8mF (5pts)​
+​4.​ ​Write the units for the following values using only Coulombs(C), Joules(J),​
+​Seconds(s). (3 pts each)​
+​a)​ ​Voltage​
+​b)​ ​Current​
+​c)​ ​Capacitance​
+​d)​ ​Power​
+​e)​ ​Impedance​
+
+​10​
+​5.​ ​List the following materials in order of descending conductance:​
+​Tap Water, Copper, Gold, Distilled Water, Silver (5pts)​
+​6.​ ​You have a blue LED (Vf = 3.0V) and a voltage source with variable voltage Vs.​
+​Assuming you have a 1/4W variable resistor in series that always makes the​
+​current through the LED 20mA, what is the largest voltage Vs can be without​
+​destroying your resistor? (5pts)​
+
+​11​
+​7.​ ​Derive a general solution for the equivalent​
+​resistance between nodes A and B of this resistor​
+​network (25 pts)​
+
+​12​
+​8.​ ​a) In the image shown, a 9V battery is connected to two​
+​series resistors and two series capacitors. R1 = 5 ohms​
+​R2 = 10 ohms C1 = 3nF C2 = 8nF, find the potential​
+​difference between points A and B. (5pts)​
+​b) find the energy stored in C2 (5pts)​
+
+​13​
+​9.​ ​Adia builds the circuit shown using a 1:10 step up transformer.​
+​Both resistors shown have a value of 10 ohms and the AC​
+​source has a voltage of 10V RMS.​
+​1)​ ​Adia calculates that the RMS current in the primary circuit​
+​is 10V/10ohms = 1A​
+​2)​ ​Thus the total power coming from the source is 10V*1A =​
+​10W.​
+​3)​ ​On the secondary coil however, adia measures 100V​
+​4)​ ​She calculates that there must be a current of​
+​100V/10ohms = 10A​
+​5)​ ​which implies that the power on the secondary side of the circuit must be​
+​100V*10A = 1000W.​
+​6)​ ​This cannot be true since for any transformer, power in = power out.​
+​On what line was the first mistake Adia made in her calculations and why was it wrong?​
+​(8 pts)​
+​10. Draw the schematic symbol for the following components: (3pts each)​
+​a) Relay​
+​b) NPN BJT​
+​c) Potentiometer​
+​d) LED​

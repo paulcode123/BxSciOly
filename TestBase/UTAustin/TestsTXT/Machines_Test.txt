@@ -1,0 +1,433 @@
+University of Texas at Austin 2025 Invitational
+Machines C Exam
+Directions:
+• This is a class set, DO NOT WRITE
+• Write all answers on the answer sheets; any marks elsewhere will not be scored. If additional
+space is needed on a question, clearly mark the question number and your team
+number on the top left of the page and attach to your test.
+• There is no penalty for wrong answers. Answer as many questions as possible, even if you
+aren’t sure if you’re correct. For questions with parts that build on one another, points will
+be awarded for correct answers on parts regardless of previous part completion.
+• Units are required whenever giving a numerical answer. Don’t worry about significant figures.
+• Tiebreaker questions (in order):
+1. Section 4, Question 3
+2. Section 3, Question 19
+3. Section 3, Question 17
+• Good luck on the test!
+Page 1 of 14
+
+Section 1
+Circle True or False; Each question is worth 2 points
+1. True
+False
+In an ideal machine, input work always equals output work
+2. True
+False
+The mechanical advantage of a wedge can be increased by making the
+wedge longer and thinner
+3. True
+False
+A wheel and axle always provides a mechanical advantage greater than 1
+4. True
+False
+Friction always increases the efficiency of a machine
+5. True
+False
+A lever with the effort between the load and the fulcrum is a class 3 lever
+6. True
+False
+A screw is a modification of an inclined plane
+7. True
+False
+Work is defined as the product of force and displacement in the same
+direction
+8. True
+False
+The coefficient of static friction is always less than the coefficient of kinetic
+friction
+9. True
+False
+Actual Mechanical Advantage (AMA) is always less than or equal to Ideal
+Mechanical Advantage (IMA)
+10. True
+False
+A simple machine can multiply both force and energy at the same time
+11. True
+False
+The efficiency of a machine can be expressed as η = AMA
+IMA
+12. True
+False
+If a lever is balanced, the torques on both sides of the fulcrum must be
+unequal
+13. True
+False
+For a pulley system, the IMA can be determined by counting the number
+of rope segments supporting the load
+14. True
+False
+Potential energy is lost when an object is lifted vertically
+15. True
+False
+The conservation of energy applies to all machines, regardless of efficiency
+16. True
+False
+A block-and-tackle (compound pulley system) increases the distance the
+rope must be pulled compared to a single pulley
+17. True
+False
+In a wheelbarrow, both a lever and a wheel-and-axle act together
+18. True
+False
+The AMA of a compound machine is always exactly the product of the
+AMAs of its components
+19. True
+False
+Combining two simple machines always guarantees higher efficiency
+20. True
+False
+For a compound machine, the overall IMA is always less than the IMA
+of any single component machine
+21. True
+False
+If a pulley system is self-locking, it means the friction in the pulleys is
+sufficient to prevent reverse motion under load
+Page 2 of 14
+
+22. True
+False
+In a gear train, if the driver has fewer teeth than the driven gear, the
+driven gear always rotates faster
+23. True
+False
+The angle of repose is numerically equal to the angle of friction
+24. True
+False
+AMA can exceed IMA if friction in the machine assists motion
+Page 3 of 14
+
+Section 2
+Circle the correct answer
+1. (2 points) Which of the following is/are considered simple machine(s)?
+A. Pulley
+B. Wheel and axle
+C. Screw
+D. All of the above
+2. (2 points) A wheelbarrow is an example of which class of lever?
+A. Class 1
+B. Class 2
+C. Class 3
+D. None of the above
+3. (2 points) The IMA of an inclined plane is:
+A. Height/Length
+B. Length/Height
+C. Thickness/Length
+D. Force/Distance
+4. (2 points) A knife functions primarily as which type of machine?
+A. Lever
+B. Pulley
+C. Wedge
+D. Screw
+5. (2 points) A pulley system with 2 movable pulleys has an ideal mechanical advantage of:
+A. 1
+B. 2
+C. 3
+D. 4
+Page 4 of 14
+
+6. (2 points) A screw with a pitch of 2 mm and a handle radius of 2.5 cm has how many turns
+per cm of linear advancement?
+A. 2
+B. 4
+C. 5
+D. 10
+7. (2 points) A ramp has IMA = 5. Its angle θ is closest to:
+A. 5.7◦
+B. 11.5◦
+C. 22.0◦
+D. 45.0◦
+8. (2 points) A pulley has mass and radius R. What happens if pulley inertia is included?
+A. Efficiency increases because pulleys add energy
+B. Efficiency stays the same
+C. Efficiency decreases due to rotational kinetic energy
+D. AMA increases beyond IMA
+9. (2 points) A wedge has separation angle 20◦. Find its IMA.
+A. 1.37
+B. 2.75
+C. 5.5
+D. 10
+10. (2 points) A class 1 lever has an effort arm of 80 cm and a load arm of 20 cm. If the load is
+100 N, what effort is required?
+A. 25 N
+B. 50 N
+C. 100 N
+D. 400 N
+11. (2 points) A block is pushed up a 4 m incline that rises 1 m. If the load is 200 N, what is the
+IMA of the incline?
+A. 0.25
+B. 1
+C. 4
+D. 200
+Page 5 of 14
+
+12. (2 points) A pulley system lifts a 300 N load with an effort of 75 N. If the IMA is 5, the
+efficiency is:
+A. 60%
+B. 70%
+C. 80%
+D. 100%
+13. (2 points) A gear train has driver gear with 20 teeth and driven gear with 60 teeth. If the
+driver rotates at 180 rpm, the driven rotates at:
+A. 180 rpm
+B. 120 rpm
+C. 90 rpm
+D. 60 rpm
+14. (2 points) A block of mass 10 kg is lifted 2 m with a pulley requiring 250 J of input work.
+What is the efficiency? (g = 9.8)
+A. 65%
+B. 78%
+C. 85%
+D. 100%
+15. (2 points) In an ideal machine:
+A. Input force = Output force
+B. Input distance = Output distance
+C. Input work = Output work
+D. Input power = Output power
+16. (2 points) For a lever in equilibrium:
+A. Sum of forces = 0
+B. IMA = AMA
+C. Sum of torques = 0
+D. Output work > Input work
+17. (2 points) AMA is defined as:
+A. Input distance / Output distance
+B. IMA × efficiency
+C. Output force / Input force
+D. Input work / Output work
+Page 6 of 14
+
+18. (2 points) The coefficient of friction is defined as:
+A. Input/Output work
+B. Load/Effort
+C. Frictional force / Normal force
+D. Torque/Force
+19. (2 points) A third-class lever always has:
+A. Effort between load and fulcrum
+B. IMA < 1
+C. Efficiency greater than 100%
+D. Torque output greater than input
+20. (2 points) The IMA of a screw depends on:
+A. Pitch only
+B. Radius only
+C. Circumference / Pitch
+D. Mass of screw
+21. (2 points) A 5 kg block slides down a frictionless incline of 30◦from a height of 2 m. Its
+velocity at bottom is closest to:
+A. 2.0 m/s
+B. 6.0 m/s
+C. 6.3 m/s
+D. 9.8 m/s
+22. (2 points) A lever has an AMA less than its IMA. The most likely cause is:
+A. Incorrect fulcrum position
+B. Frictional forces and energy losses
+C. Torque imbalance
+D. Excess efficiency
+23. (2 points) In a rope-and-pulley system with IMA = 6, the load moves:
+A. The same distance as the effort
+B. Half the distance of the effort
+C. One-sixth the distance of the effort
+D. Six times the distance of the effort
+Page 7 of 14
+
+24. (2 points) A wedge with length L and width t has IMA:
+A. t/L
+B. L/t
+C. L × t
+D. t −L
+25. (2 points) A block on an incline begins to slide when angle = 25°. The coefficient of static
+friction is approximately:
+A. 0.25
+B. 0.47
+C. 0.66
+D. 0.93
+26. (3 points) A wheelbarrow is an example of which compound machine?
+A. Lever and inclined plane
+B. Lever and pulley
+C. Lever and wheel-and-axle
+D. Screw and wedge
+27. (3 points) A system has an inclined plane of IMA = 4 and a pulley system of IMA = 3 used
+in series. The ideal combined IMA is:
+A. 7
+B. 7/12
+C. 12
+D. 1/12
+28. (3 points) A screw jack uses a lever handle of radius 20 cm to turn a screw with pitch 5 mm.
+What type of compound machine is this?
+A. Pulley–wedge combination
+B. Wheel-and-axle with a screw
+C. Lever with wedge
+D. Screw with inclined plane
+Page 8 of 14
+
+29. (3 points) A gear train has driver gear A (30 teeth) driving gear B (90 teeth), which drives
+gear C (15 teeth). If A rotates at 12 rad/s, the speed of C is:
+A. 3 rad/s
+B. 4 rad/s
+C. 9 rad/s
+D. 18 rad/s
+30. (3 points) A screw jack with pitch p = 5.0 mm and handle length 0.40 m lifts a 2000 N load.
+If efficiency is 25%, the required input force is:
+A. 20 N
+B. 50 N
+C. 160 N
+D. 400 N
+31. (4 points) A lever of IMA = 4 drives a pulley system of IMA = 3. However, the lever arm is
+angled 30◦relative to the vertical force applied, and the pulley has an additional 20% frictional
+loss. What is the effective overall mechanical advantage of the compound machine?
+A. 7.2
+B. 9.6
+C. 10.4
+D. 12.0
+32. (4 points) A two-stage compound machine has Stage 1 efficiency η1 = 70% and Stage 2 effi-
+ciency η2 = 80%. Stage 1 is a lever with IMA = 4, Stage 2 is a pulley with IMA = 3. If the
+input effort is 120 N, which load is closest to what the system can actually lift?
+A. 700 N
+B. 800 N
+C. 806 N
+D. 1,152 N
+Page 9 of 14
+
+33. (5 points) A compound machine has three sequential stages:
+• Stage 1: Lever with IMA = 3, efficiency = 90%
+• Stage 2: Inclined plane with θ = 15◦, efficiency = 75%
+• Stage 3: Pulley system with IMA = 2.5, efficiency = 80%
+If the input force is 100 N, what is the approximate maximum output load the system can
+lift?
+A. 370 N
+B. 400 N
+C. 425 N
+D. 450 N
+Page 10 of 14
+
+Section 3
+Write out a short response to the following questions
+1. (4 points) A lever has an effort arm of 80 cm and a load arm of 20 cm. If the load is 100 N,
+what effort force is required?
+2. (4 points) A ramp is 4.0 m long and rises 1.0 m. If a 200 N load is pushed up, calculate:
+(a) The IMA of the ramp
+(b) The effort force required (ignore friction)
+3. (4 points) A pulley system lifts a 300 N load with an effort force of 75 N.
+(a) What is the AMA?
+(b) If the IMA is 5, what is the efficiency?
+4. (6 points) A wheel of radius 0.6 m is attached to an axle of radius 0.1 m. A 200 N force is
+applied to the wheel rim.
+(a) What is the IMA?
+(b) Find the AMA if 900 N load is lifted.
+(c) Given the previous part, what is the efficiency?
+5. (6 points) A class II lever of total length 3.0 m supports a 500 N load placed 1.0 m from the
+fulcrum.
+(a) What is the IMA?
+(b) If the effort is applied 2.5 m from fulcrum and 220 N is needed, find the AMA.
+(c) Given the previous part, what is the efficiency?
+6. (8 points) A 20 kg mass is connected to a 40 kg mass via a pulley system with IMA = 3.
+(a) If released (frictionless tabletop under the 20 kg), which way does the system accelerate?
+(b) Compute the acceleration magnitudes of the 20 kg and 40 kg masses.
+(c) If coefficient of friction under the 20 kg mass is µ = 0.20, recalculate the accelerations.
+7. (8 points) A 15 kg block slides down a rough incline 5.0 m long, 30◦angle, µ = 0.15.
+(a) Determine the work done by friction.
+(b) Compute the final velocity at the bottom of the block (start from rest).
+(c) If connected over a pulley to lift a 5.0 kg block vertically, does the system move? Justify.
+8. (5 points) A single-start screw has pitch p = 1.5 mm and a handle radius R = 3.0 cm. Find
+the IMA and the effort to raise a 350 N load at 80% efficiency.
+Page 11 of 14
+
+9. (6 points) A gear train has driver A (20 teeth) driving B (50 teeth) on the same shaft as C
+(10 teeth) driving D (100 teeth). If A turns at 6.0 rad/s, find:
+(a) the overall speed ratio ωD/ωA
+(b) ωD
+(c) the overall IMA (force multiplication), assuming ideal gears
+10. (5 points) A symmetric wedge of total separation angle 2α splits a material. Show that IMA =
+1
+tan α and compute the IMA for 2α = 18◦.
+11. (6 points) A crate (600 N) is lifted using a ramp (length 5.0 m, height 1.0 m) and a pulley
+system (IMA = 2).
+(a) Find the IMA of the ramp.
+(b) Find the combined IMA of the ramp + pulley system.
+(c) Calculate the required effort force (ignore friction).
+12. (6 points) A screw jack has handle radius 0.20 m and pitch 2.0 mm.
+(a) Find the IMA of the screw.
+(b) If the handle acts as a lever arm, find the overall IMA.
+(c) Determine the required input force to lift a 2000 N load at 70% efficiency.
+13. (5 points) A gear train connects a wheel-and-axle (IMA = 5) to a pulley system (IMA = 3).
+(a) Compute the combined IMA.
+(b) If a 1200 N load is lifted, calculate the ideal effort.
+14. (6 points) A double-pulley system lifts a 500 N load with an input effort of 120 N.
+(a) Calculate the AMA.
+(b) If the IMA of the system is 5, calculate efficiency.
+(c) If the effort is increased to 150 N, determine the new acceleration of the load (mass = 50
+kg).
+15. (7 points) A wedge of angle 15◦is used to lift a block of weight 800 N.
+(a) Derive the expression for IMA of the wedge.
+(b) Compute the IMA numerically.
+(c) If the actual input force required is 300 N, calculate AMA and efficiency.
+(d) Explain why the wedge might be self-locking in this case.
+Page 12 of 14
+
+16. (8 points) A gear train has driver gear A (20 teeth) driving B (40 teeth, same shaft as C), C
+(10 teeth) driving D (100 teeth).
+(a) Derive the overall speed ratio ωD/ωA.
+(b) If A rotates at 20 rad/s, compute ωD.
+(c) If the system is 80% efficient, compute the AMA if input force is 10 N and load is 150 N.
+17. (6 points) A screw jack has a mean diameter of 5 cm and pitch of 1 cm.
+(a) Derive the formula for IMA in terms of screw diameter and pitch.
+(b) Compute the IMA.
+(c) If a 1000 N load is lifted with an input effort of 60 N, calculate efficiency.
+18. (10 points) A lever with geometric IMAℓ= 5 transmits force to a pulley system with IMAp =
+4. The input force is applied at an angle ϕ relative to the direction perpendicular to the lever
+arm, so only the perpendicular component produces torque. The lever stage has efficiency
+ηℓ= 85%, and the pulley stage has efficiency ηp = 75%. Let the input force be Fin = 50 N.
+(a) Derive the effective overall geometric IMA as a function of ϕ.
+(b) For ϕ = 30◦, compute the ideal output load (ignore losses but include the angle effect).
+(c) With the given stage efficiencies, compute the actual output load for ϕ = 30◦.
+(d) If the maximum input linear speed at the handle is vin = 0.20 m/s, estimate the output
+speed vout under the ideal geometric mapping (include the angle effect consistently).
+19. (12 points) A compound machine consists of a wheel–and–axle driving a power screw. The
+wheel radius is Rw = 0.50 m, the axle/screw mean radius is Rs = 0.10 m, and the screw pitch
+is p = 0.005 m (single start). Assume the wheel is keyed to the screw (no gearing between axle
+and screw). The wheel–axle stage has efficiency ηw = 90% and the screw stage has efficiency
+ηs = 40% under load.
+(a) Find the IMA of the wheel–axle stage.
+(b) Find the IMA of the screw stage.
+(c) Compute the total geometric IMA.
+(d) For an input force Fin = 30 N applied at the wheel rim, compute the actual output load.
+(e) Determine whether the screw is self-locking by evaluating the lead angle λ and comparing
+tan λ to a typical friction coefficient µ = 0.05.
+Page 13 of 14
+
+Section 4
+Write out your answer to the following questions
+1. (5 points) Explain why a compound machine may have a very high IMA but still be inefficient
+in practice.
+2. (5 points) Describe how potential energy and kinetic energy trade off in a non-equilibrium
+pulley system when the load accelerates.
+3. (5 points) Explain why in compound machines the total mechanical advantage multiplies, but
+the efficiency always decreases compared to each individual stage.
+4. (6 points) Explain why a machine can increase force but cannot increase the total amount
+of work done. In your answer, include the relationship between input work, output work,
+and efficiency, and describe how this applies to the definition of Ideal Mechanical Advantage
+(IMA).
+5. (7 points) Define both IMA and AMA. Derive the equation for efficiency in terms of these two
+quantities, and explain why AMA is always less than or equal to IMA.
+6. (6 points) Derive the formula for the IMA of an inclined plane. State your assumptions clearly
+(ignore friction). Then explain how the efficiency would change if friction were included and
+how this affects the AMA.
+7. (6 points) Explain how the Ideal Mechanical Advantage of a pulley system can be determined
+by counting rope segments. Why does this method work? Justify mathematically using the
+conservation of work principle.
+8. (5 points) Why does friction always reduce the efficiency of a machine? Hint: relate friction
+to input work, output work, and wasted energy.
+9. (6 points) Compare the effects of static and kinetic friction in simple machines. Which one
+determines whether the machine starts moving, and which one governs motion after it starts?
+10. (6 points) Explain why increasing the force output of a machine always requires a propor-
+tional increase in the input distance. Derive this from the definition of work and show the
+force–distance tradeoff explicitly.
+Page 14 of 14

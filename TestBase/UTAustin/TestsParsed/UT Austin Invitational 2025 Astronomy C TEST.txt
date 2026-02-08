@@ -1,0 +1,545 @@
+EVENT: Astronomy
+SOURCE: UT Austin Invitational 2025 (Div. C)
+FORMAT: 65 questions (Multiple Choice, Matching, Short Answer, Calculation) across 4 sections: Stars! (23 pts), Star Birth (25 pts), Star Death (41 pts), Star Math (16 pts)
+TOTAL POINTS: 105
+
+---QUESTION 1---
+ID: 1
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: Stellar Classification | Morgan-Keenan system | Harvard system | Secchi classification | Draper system | G2V | Sun
+DIFFICULTY: Low
+QUESTION: The sun is classified as a G2V star under what widely-used stellar classification scheme?
+OPTIONS:
+A) Harvard system
+B) Secchi classification
+C) Draper system
+D) Morgan–Keenan system
+
+---QUESTION 2---
+ID: 2
+POINTS: 2.00
+FORMAT: Matching
+TOPIC: Stellar Classification | Luminosity classes | Roman numerals | White dwarf | Giant | Main sequence | Subgiant | Supergiant
+DIFFICULTY: Medium
+QUESTION: In this classification scheme, Roman numerals are used to denote different luminosity classes. Match each luminosity class (I, III, IV, V, VII) with its corresponding star type:
+• White dwarf
+• Giant
+• Main sequence
+• Subgiant
+• Supergiant
+
+---QUESTION 3---
+ID: 3
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Stellar Evolution | White dwarfs | Chandrasekhar limit | Mass limits
+DIFFICULTY: Medium
+QUESTION: The Chandrasekhar limit is the upper bound mass to what astronomical object?
+
+---QUESTION 4---
+ID: 4
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Stellar Evolution | Neutron stars | TOV limit | Tolman-Oppenheimer-Volkoff limit | Mass limits
+DIFFICULTY: Medium
+QUESTION: The Tolman–Oppenheimer–Volkoff limit is the upper bound mass to what astronomical objects?
+
+---QUESTION 5---
+ID: 5
+POINTS: 2.00
+FORMAT: Ordering
+TOPIC: Electromagnetic Spectrum | Wavelength | Frequency | Visible | Infrared | Gamma | Microwave | Far ultraviolet
+DIFFICULTY: Low
+QUESTION: Order these five wavelength regimes by increasing frequency:
+• Visible
+• Infrared
+• Gamma
+• Microwave
+• Far ultraviolet
+
+---QUESTION 6---
+ID: 6
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: HR Diagram | Sun | Stellar evolution | Main sequence
+DIFFICULTY: Low
+QUESTION: Which letter is closest to where our sun would be on this diagram? (A–I)
+
+---QUESTION 7---
+ID: 7
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: HR Diagram | Sun | Stellar evolution | Red giant branch | 5 billion years
+DIFFICULTY: Medium
+QUESTION: Which letter is closest to where our sun would be in about 5 billion years? (A–I)
+
+---QUESTION 8---
+ID: 8
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: HR Diagram | Sun | Stellar evolution | White dwarf | 10 billion years
+DIFFICULTY: Medium
+QUESTION: Which letter is closest to where our sun would be in about 10 billion years? (A–I)
+
+---QUESTION 9---
+ID: 9
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: HR Diagram | Red dwarfs | Low-mass stars | Main sequence
+DIFFICULTY: Low
+QUESTION: Which letter is closest to where a red dwarf would be on this diagram? (A–I)
+
+---QUESTION 10---
+ID: 10
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: HR Diagram | Zero-age main sequence | ZAMS | Red dashed line
+DIFFICULTY: Medium
+QUESTION: What is the name of the red dashed line?
+
+---QUESTION 11---
+ID: 11
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: HR Diagram | Brown dwarfs | Substellar objects | Plotting
+DIFFICULTY: Medium
+QUESTION: Can brown dwarfs be plotted on an HR diagram? If so, what general area would they be in Image 1?
+
+---QUESTION 12---
+ID: 12
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: HR Diagram | Axes | Temperature | Luminosity | Parameters | Color | Magnitude
+DIFFICULTY: Medium
+QUESTION: HR diagrams don't necessarily require temperature or luminosity themselves on the x- and y-axes—a diagram with parameters that relate to temperature and luminosity will work just as well. Name a potential set of x- and y-axis parameters that could be used.
+
+---QUESTION 13---
+ID: 13
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Spectroscopy | Blackbody | Idealized object | Spectra
+DIFFICULTY: Medium
+QUESTION: What idealized object closely approximates the spectra?
+
+---QUESTION 14---
+ID: 14
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Spectroscopy | Absorption lines | Emission lines | Atomic processes | Energy levels | Transitions
+DIFFICULTY: High
+QUESTION: Name the non-ideal features apparent in the spectra. Describe the process (at the atomic level) through which they are created.
+
+---QUESTION 15---
+ID: 15
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Spectroscopy | Temperature | Blackbody | Wien's law | Peak wavelength
+DIFFICULTY: Medium
+QUESTION: Which object is warmer? Explain why.
+
+---QUESTION 16---
+ID: 16
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Spectroscopy | Emission spectra | Absorption spectra | Blackbody approximation | Non-thermal sources
+DIFFICULTY: Medium
+QUESTION: Image 3 depicts the spectra of another two objects. Why can't you approximate them by the idealized object in question 13?
+
+---QUESTION 17---
+ID: 17
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Star Formation | Orion Molecular Cloud Complex | Deep-sky objects | Stellar nurseries
+DIFFICULTY: Low
+QUESTION: Identify the object.
+
+---QUESTION 18---
+ID: 18
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Star Formation | H II regions | Emission nebulae | Bright red structure
+DIFFICULTY: Medium
+QUESTION: What is the name of the bright red circular structure on the right side of the image?
+
+---QUESTION 19---
+ID: 19
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Star Formation | Herbig-Haro objects | Jets | Outflows | Red arc-like structure
+DIFFICULTY: Medium
+QUESTION: What is the name of the red arc-like structure on the left side of the image?
+
+---QUESTION 20---
+ID: 20
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Star Formation | Stellar winds | Outflows | Circular shape | Formation mechanisms
+DIFFICULTY: Medium
+QUESTION: What is suspected to have caused the aforementioned structures to assume their circular shape?
+
+---QUESTION 21---
+ID: 21
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Star Formation | Wavelength | Infrared | Radio | Molecular clouds | Dust | Observation
+DIFFICULTY: Medium
+QUESTION: This object is one of the largest areas of stellar formation in our vicinity. What wavelength of light would be best suited to study this area, and why?
+
+---QUESTION 22---
+ID: 22
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Star Formation | Age | Stellar evolution | Future appearance | Gas | Stars
+DIFFICULTY: Medium
+QUESTION: How old is this object? What would the stars and gas in this object look like in a few million years' time?
+
+---QUESTION 23---
+ID: 23
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Star Formation | Molecular clouds | Cold dense regions | Gas | Dust
+DIFFICULTY: Low
+QUESTION: Name the cold, dense regions of gas and dust that lead to star formation.
+
+---QUESTION 24---
+ID: 24
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Star Formation | Gravitational collapse | Energy conversion | Thermal energy | Kinetic energy | Protostars
+DIFFICULTY: Medium
+QUESTION: As gas and dust collapses into protostars, gravitational potential energy is released. What is the energy first converted into?
+
+---QUESTION 25---
+ID: 25
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Star Formation | Ophion Star Family | Stellar families | Unique properties | Stellar associations
+DIFFICULTY: High
+QUESTION: This process eventually forms groups of stars like the Ophion star family. What unique property makes it different from other stellar families?
+
+---QUESTION 26---
+ID: 26
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Star Formation | Molecular tracers | CO | Carbon monoxide | H2 | Hydrogen
+DIFFICULTY: Medium
+QUESTION: What other abundant, simple molecule is often used as a tracer for H2?
+
+---QUESTION 27---
+ID: 27
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Star Formation | Radio astronomy | Wavelength | CO | Millimeter | Detection
+DIFFICULTY: Medium
+QUESTION: What wavelength is used to detect them?
+
+---QUESTION 28---
+ID: 28
+POINTS: 3.00
+FORMAT: Calculation
+TOPIC: Star Formation | Mass function | IMF | Initial mass function | Low-mass stars | Cluster A
+DIFFICULTY: High
+QUESTION: What is the mass ratio of cluster A captured in low-mass stars (less than 2 M)?
+
+---QUESTION 29---
+ID: 29
+POINTS: 3.00
+FORMAT: Short Answer
+TOPIC: Star Formation | Mass function | Cluster age | Stellar evolution | High-mass stars | Low-mass stars
+DIFFICULTY: High
+QUESTION: Which cluster is older? Justify your answer.
+
+---QUESTION 30---
+ID: 30
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Variable Stars | HP Tau | T Tauri stars | Image identification
+DIFFICULTY: Medium
+QUESTION: Which image depicts HP Tau?
+
+---QUESTION 31---
+ID: 31
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Variable Stars | HP Tau | T Tauri stars | Variable star types
+DIFFICULTY: Medium
+QUESTION: What type of variable star is HP Tau?
+
+---QUESTION 32---
+ID: 32
+POINTS: 2.00
+FORMAT: Fill-in-the-Blank
+TOPIC: Variable Stars | T Tauri stars | Diagram | Structure | Components
+DIFFICULTY: Medium
+QUESTION: Fill in the four blanks in the provided diagram of the type of star from the previous question.
+
+---QUESTION 33---
+ID: 33
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Stellar Remnants | Chandra | X-ray astronomy | FITS header | Object identification
+DIFFICULTY: Low
+QUESTION: Look for the "OBJECT" field. What is the name of the object shown in this observation?
+
+---QUESTION 34---
+ID: 34
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Stellar Remnants | Supernova remnants | SNR | Object type
+DIFFICULTY: Low
+QUESTION: What type of object is this?
+
+---QUESTION 35---
+ID: 35
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Stellar Remnants | Coordinates | Right ascension | Declination | Central object
+DIFFICULTY: Medium
+QUESTION: What are the coordinates of this central object?
+
+---QUESTION 36---
+ID: 36
+POINTS: 2.00
+FORMAT: Calculation
+TOPIC: Stellar Remnants | X-ray spectrum | Energy | Peak | Continuous emission | eV
+DIFFICULTY: Medium
+QUESTION: Click [Analysis > Energy spectrum]. Estimate the energy corresponding to the peak of the continuous emission, in eV.
+
+---QUESTION 37---
+ID: 37
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Stellar Remnants | X-ray astronomy | Counts | Net counts | Regions
+DIFFICULTY: Low
+QUESTION: Select [Analysis > Counts in Regions]. Record the number from the "net_counts" column.
+
+---QUESTION 38---
+ID: 38
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Stellar Remnants | X-ray spectrum | Emission lines | Absorption lines | Features | Bright knot
+DIFFICULTY: Medium
+QUESTION: Select [Analysis > Energy spectrum]. What additional feature(s) do you observe in this spectrum from the central object spectrum?
+
+---QUESTION 39---
+ID: 39
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Stellar Remnants | X-ray brightness | Bright knot | Central object | Comparison
+DIFFICULTY: Low
+QUESTION: Select [Analysis > Counts in regions]. Is this knot brighter or dimmer than the central object in x-rays?
+
+---QUESTION 40---
+ID: 40
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Stellar Remnants | Supernova remnants | X-ray bright knots | Shock waves | Particle acceleration
+DIFFICULTY: Medium
+QUESTION: Given the type of object this is, what is likely happening in this region that results in these x-ray bright knots?
+
+---QUESTION 41---
+ID: 41
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Stellar Remnants | Planetary nebulae | Helix Nebula | NGC 7293 | Image identification
+DIFFICULTY: Low
+QUESTION: What object is shown in Image 10?
+
+---QUESTION 42---
+ID: 42
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Stellar Remnants | Planetary nebulae | Distance | Parsecs | Helix Nebula
+DIFFICULTY: Low
+QUESTION: How far is this object, in parsecs?
+
+---QUESTION 43---
+ID: 43
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Stellar Remnants | Planetary nebulae | Formation | Extended envelope | Glow | Ionization
+DIFFICULTY: Medium
+QUESTION: This object is a planetary nebula, but this name is a misnomer as its extended envelope is not related to planets. How does this extended envelope form and why does it glow?
+
+---QUESTION 44---
+ID: 44
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Stellar Remnants | White dwarfs | Composition | Carbon | Oxygen | Central star
+DIFFICULTY: Medium
+QUESTION: Identify the type of object at the center of Image 10 and list the two elements it is primarily composed of.
+
+---QUESTION 45---
+ID: 45
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: Stellar Remnants | Neutron stars | Pulsars | Angular momentum | Rotational energy | Mass transfer
+DIFFICULTY: Medium
+QUESTION: Which of the following best explains why not all neutron stars are pulsars?
+OPTIONS:
+A) Only neutron stars whose progenitors had a high angular momentum became pulsars.
+B) Many neutron stars used to pulsate, but have since lost rotational energy and no longer do.
+C) Pulsars require a lot of energy transfer from supernovae, and only the most massive progenitor stars end up as pulsars.
+D) Pulsars require mass transfer from a secondary object to generate rotational energy, and many neutron stars are not accompanied by another star.
+
+---QUESTION 46---
+ID: 46
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Stellar Remnants | Crab Nebula | M1 | Supernova remnant | Image identification
+DIFFICULTY: Low
+QUESTION: What object is portrayed in Image 11?
+
+---QUESTION 47---
+ID: 47
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Stellar Remnants | Telescopes | Multi-wavelength | Infrared | Visible | X-ray | Composite image
+DIFFICULTY: Medium
+QUESTION: This image is a composite image of infrared, visible, and x-ray light. Which three telescopes helped to create this image?
+
+---QUESTION 48---
+ID: 48
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Stellar Remnants | Crab Nebula | Supernova | 1054 | Age | Formation year
+DIFFICULTY: Low
+QUESTION: This object is an extremely young stellar remnant! What year did it form, and how old is it right now, in years?
+
+---QUESTION 49---
+ID: 49
+POINTS: 2.00
+FORMAT: Calculation
+TOPIC: Stellar Remnants | Pulsars | Rotation rate | Revolutions per second | Period
+DIFFICULTY: Medium
+QUESTION: How many revolutions per second does this object complete?
+
+---QUESTION 50---
+ID: 50
+POINTS: 3.00
+FORMAT: Short Answer
+TOPIC: Stellar Remnants | Millisecond pulsars | Spin rate | Age | Mass transfer | Binary systems
+DIFFICULTY: High
+QUESTION: Despite being very young and energetic, many other pulsars spin even faster than this object. What are these pulsars called, and why do they spin faster despite being much older?
+
+---QUESTION 51---
+ID: 51
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Stellar Remnants | Cas A | Cassiopeia A | Supernova remnant | Image identification
+DIFFICULTY: Low
+QUESTION: Identify the image of it.
+
+---QUESTION 52---
+ID: 52
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Stellar Remnants | Supernovae | Type II | Type Ia | Cas A | Classification
+DIFFICULTY: Medium
+QUESTION: What type of supernova is it? Be specific.
+
+---QUESTION 53---
+ID: 53
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Stellar Remnants | Supernovae | Light echoes | Spectrum reconstruction | Historical supernovae
+DIFFICULTY: High
+QUESTION: Although this supernova formed over three centuries ago, its spectrum was recently reconstructed to confirm its classification. How was this done?
+
+---QUESTION 54---
+ID: 54
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Stellar Remnants | Supernovae | Type I | Type II | Distinction | Hydrogen | Classification
+DIFFICULTY: Medium
+QUESTION: What is the main distinction between type I and II supernovae?
+
+---QUESTION 55---
+ID: 55
+POINTS: 5.00
+FORMAT: Short Answer
+TOPIC: Stellar Remnants | Binary systems | Double white dwarf | Orbital motion | Mass ratio | Validity
+DIFFICULTY: High
+QUESTION: Your friend Maddy has come up with a few models for the orbital motion of a double white dwarf binary system. Image 6 depicts three possible configurations of the system, with a white dwarf in blue and one in red. For each one, tell her if it is valid or not. If it is, estimate the ratio of the masses to the nearest integer (i.e., Mblue : Mred), and if it is not, explain to her why.
+
+---QUESTION 56---
+ID: 56
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Stellar Remnants | Binary systems | Kepler's laws | Mass determination | Total mass
+DIFFICULTY: Medium
+QUESTION: What law can be used to determine the total mass of the system?
+
+---QUESTION 57---
+ID: 57
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Stellar Remnants | Binary systems | Double white dwarf | Janus | ZTF J203349.8+322901.1 | Deep-sky objects
+DIFFICULTY: Medium
+QUESTION: Which object in this year's list is a double white dwarf binary?
+
+---QUESTION 58---
+ID: 58
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Stellar Remnants | Binary systems | Orbital decay | Gravitational waves | Merger | 23 million years
+DIFFICULTY: Medium
+QUESTION: That binary system is predicted to merge in 23 million years. What is the source/cause of the orbital decay of the system?
+
+---QUESTION 59---
+ID: 59
+POINTS: 2.00
+FORMAT: Calculation
+TOPIC: Stellar Properties | Temperature | Spectrum | Wien's law | Effective temperature | Kelvin
+DIFFICULTY: Medium
+QUESTION: Using the spectrum in Image 4, help her find the effective surface temperature of the star, in kelvin.
+
+---QUESTION 60---
+ID: 60
+POINTS: 3.00
+FORMAT: Calculation
+TOPIC: Stellar Properties | Radius | Absolute magnitude | Bolometric magnitude | Stefan-Boltzmann law | Luminosity | km
+DIFFICULTY: High
+QUESTION: With her expertise, she determines the star has an absolute, bolometric magnitude of `4.75. She asks you to calculate the radius of the star, in km.
+
+---QUESTION 61---
+ID: 61
+POINTS: 2.00
+FORMAT: Calculation
+TOPIC: Distance Measurement | Parallax | Annual parallax | Milliarcseconds | Parsecs | Distance ladder
+DIFFICULTY: Medium
+QUESTION: Tycho owns an observatory and discovers a bright star in the night sky. Over the course of a year, he observes an annual parallax of 200 milliarcseconds. How far away is this star, in parsecs?
+
+---QUESTION 62---
+ID: 62
+POINTS: 3.00
+FORMAT: Calculation
+TOPIC: Distance Measurement | Variable stars | Absolute magnitude | Apparent magnitude | Distance modulus | Period | Log10
+DIFFICULTY: High
+QUESTION: For each of the four stars, find their absolute magnitude and the base 10 logarithm of their period.
+
+---QUESTION 63---
+ID: 63
+POINTS: 2.00
+FORMAT: Graph/Plot
+TOPIC: Distance Measurement | Variable stars | Period-luminosity | Plotting | Axes | Log10 P | Absolute magnitude
+DIFFICULTY: Medium
+QUESTION: Plot these two parameters in the given space, with the base 10 logarithm of their period (log10 P) on the x-axis and the absolute magnitude (M) on the y-axis. Make sure to include axes labels and appropriate tick marks.
+
+---QUESTION 64---
+ID: 64
+POINTS: 3.00
+FORMAT: Calculation
+TOPIC: Distance Measurement | Variable stars | Period-luminosity relationship | Line of best fit | Slope | Y-intercept | Standard candles
+DIFFICULTY: High
+QUESTION: Draw a line of best fit to the data computed above and determine a period-luminosity relationship for this class of variable stars (i.e., find the slope α and y-intercept β for the line M " α log10 P ` β).
+
+---QUESTION 65---
+ID: 65
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Distance Measurement | Standard candles | Supernovae | Type Ia | Variable stars
+DIFFICULTY: Medium
+QUESTION: Variable stars are often used as standard candles. What type of supernova is also used as one?
+

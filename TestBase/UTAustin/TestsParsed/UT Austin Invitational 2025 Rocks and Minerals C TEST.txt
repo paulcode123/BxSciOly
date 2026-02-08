@@ -1,0 +1,876 @@
+EVENT: Rocks and Minerals
+SOURCE: UT Austin Invitational 2025 (Div. C)
+FORMAT: Station-based exam with 12 stations
+TOTAL POINTS: Variable by station
+
+---QUESTION 1---
+ID: 1
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Station 1 | Mineral definition | Characteristics
+DIFFICULTY: Easy
+QUESTION: To build a mineral, we need to be able to understand what exactly a mineral is. On your answer sheet, list four characteristics an object needs to meet before we can formally declare it a mineral.
+
+---QUESTION 2---
+ID: 2
+POINTS: 5.00
+FORMAT: Classification
+TOPIC: Station 1 | Mineral classification | Objects
+DIFFICULTY: Medium
+QUESTION: Given a list of 5 objects, classify them as either a mineral or not a mineral.
+OPTIONS:
+a) Opal
+b) Ice
+c) Sulfur
+d) Gold
+e) Amber
+
+---QUESTION 3---
+ID: 3
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Station 1 | Halite | Chemical formula
+DIFFICULTY: Easy
+QUESTION: One of the minerals on the list is halite, which has a cubic crystal habit. What is the chemical formula for halite?
+
+---QUESTION 4---
+ID: 4
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Station 1 | Halite | Bonding structure
+DIFFICULTY: Medium
+QUESTION: Based on the diagram, how many Cl⁻ ions is Na⁺ bonded with? (Make sure to visualize it in 3D for the correct answer!) (Using provided diagram)
+
+---QUESTION 5---
+ID: 5
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Station 1 | Halite | Polyhedral shape
+DIFFICULTY: Medium
+QUESTION: What is name of the polyhedral shape based on the arrangement of Na⁺ and Cl⁻? (think: tetrahedral, cubic, linear... etc)
+
+---QUESTION 6---
+ID: 6
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Station 1 | Halite | Coordination number
+DIFFICULTY: Medium
+QUESTION: Now think about the reverse: what is the coordination number between Na⁺ and Cl⁻? What information does this tell us about the bonding structure of Na and Cl?
+
+---QUESTION 7---
+ID: 7
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Station 1 | Unit cells | Halite structure
+DIFFICULTY: Medium
+QUESTION: Based on the diagram, which type of unit cell best represents halite? (Primitive, body-centered-cubic (BCC), or face-centered cubic (FCC))
+OPTIONS:
+A) Primitive
+B) Body-centered-cubic (BCC)
+C) Face-centered cubic (FCC)
+
+---QUESTION 8---
+ID: 8
+POINTS: 4.00
+FORMAT: Calculation
+TOPIC: Station 1 | Unit cells | Atom counting
+DIFFICULTY: Medium
+QUESTION: Using the diagram, count how many Cl⁻ atoms are fully owned by a singular unit cell. Do the same for Na⁺. Show your work!
+
+---QUESTION 9---
+ID: 9
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Station 1 | Crystallography | Law of constancy of angles
+DIFFICULTY: Medium
+QUESTION: Question 3 illustrates a key concept that is important in understanding crystal lattices. What is the name of the law that states that the angles within the various faces of a crystal remain unchanged throughout its growth called?
+
+---QUESTION 10---
+ID: 10
+POINTS: 6.00
+FORMAT: Identification
+TOPIC: Station 2 | Mineral identification | Specimens A-F
+DIFFICULTY: Medium
+QUESTION: Identify the minerals A-F.
+
+---QUESTION 11---
+ID: 11
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Station 2 | Chemical composition | Same composition
+DIFFICULTY: Medium
+QUESTION: Which 2 specimens have the same chemical composition?
+
+---QUESTION 12---
+ID: 12
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Station 2 | Polymorphism | Term
+DIFFICULTY: Easy
+QUESTION: What term is used to describe elements that can take on 2 or more different physical forms?
+
+---QUESTION 13---
+ID: 13
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Station 2 | Bonding structure | Morphology difference
+DIFFICULTY: Medium
+QUESTION: What difference in bonding structure makes these 2 specimens so different in morphology?
+
+---QUESTION 14---
+ID: 14
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Station 2 | Ores | Coinage metals
+DIFFICULTY: Easy
+QUESTION: Which three specimens have been used as coinage metals?
+
+---QUESTION 15---
+ID: 15
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Station 2 | Ores | Chemical property
+DIFFICULTY: Medium
+QUESTION: What chemical property allows these minerals to exist in their pure elemental form?
+OPTIONS:
+A) Low reactivity
+B) Electronegativity
+C) Stable Crystal Structure
+D) Diaphaneity
+
+---QUESTION 16---
+ID: 16
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Station 2 | Ores | Household wiring
+DIFFICULTY: Easy
+QUESTION: Out of the three, which is commonly found in households for wiring?
+
+---QUESTION 17---
+ID: 17
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Station 2 | Ores | Fool's gold
+DIFFICULTY: Easy
+QUESTION: What mineral on the list is confused with specimen A for its similarity in color and as a result, has a nickname that refers to its trickery?
+
+---QUESTION 18---
+ID: 18
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Station 2 | Color | Electron contribution
+DIFFICULTY: Medium
+QUESTION: While other minerals have different color variations, Specimen F is known for its bright lemon-yellow color and can be easily identified by this distinction. How do electrons contribute to Specimen F's color?
+OPTIONS:
+A) Their orbitals correspond to different wavelengths on the electromagnetic spectrum
+B) They change the hardness and the specific gravity of the mineral
+C) They absorb all colors and reflect yellow
+D) Its birefringence and symmetry contribute to its yellow color
+
+---QUESTION 19---
+ID: 19
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Station 3 | Gemstones | Term
+DIFFICULTY: Easy
+QUESTION: The term describing all 6 of these specimens is known as what?
+
+---QUESTION 20---
+ID: 20
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Station 3 | Polymorphs | Same mineral different forms
+DIFFICULTY: Medium
+QUESTION: Two of the specimens at this station are the same mineral, just in different forms. What specimens are they?
+
+---QUESTION 21---
+ID: 21
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Station 3 | Color | Pink/red color element
+DIFFICULTY: Medium
+QUESTION: What element gives Specimen A its unique pink/red color?
+OPTIONS:
+A) Aluminum
+B) Chromium
+C) Magnesium
+D) Iron
+
+---QUESTION 22---
+ID: 22
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Station 3 | Color | Deep green vs pale green
+DIFFICULTY: Medium
+QUESTION: Specimen C is known to have other specimens with the same color, but not the same quality. What chemical difference makes Specimen C a deep green compared to pale green specimens? Answer with the chemical element's name and NOT the chemical symbol.
+
+---QUESTION 23---
+ID: 23
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Station 3 | Hardness | Mohs scale
+DIFFICULTY: Easy
+QUESTION: Most of these minerals are known for their hardness on the Mohs scale. What is the hardness of Specimen B? (The answer is a whole number)
+
+---QUESTION 24---
+ID: 24
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Station 3 | Close packing | Type identification
+DIFFICULTY: Medium
+QUESTION: Look at the following image: This image is an image of a structure in Specimen B referred to as close packing. There are two types of close packing for minerals: cubic and hexagonal close packing. Based on what you know about Specimen B, what kind of close packing do you think is shown in the diagram?
+
+---QUESTION 25---
+ID: 25
+POINTS: 1.00
+FORMAT: Fill-in
+TOPIC: Station 3 | Close packing | Octahedral sites
+DIFFICULTY: Medium
+QUESTION: However, when you look at the diagram, it does not look like it is a true closely packed structure due to the octahedral sites being occupied by _________________ ions.
+
+---QUESTION 26---
+ID: 26
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Station 4 | Fracture and cleavage | Definitions
+DIFFICULTY: Easy
+QUESTION: Define fracture and cleavage on your answer sheet.
+
+---QUESTION 27---
+ID: 27
+POINTS: 5.00
+FORMAT: Classification
+TOPIC: Station 4 | Cleavage | Mineral classification
+DIFFICULTY: Medium
+QUESTION: Given a set of minerals, circle either poor, fair, good/perfect, or no cleavage.
+OPTIONS:
+i) Mica
+ii) Talc
+iii) Diamond
+iv) Halite
+v) Quartz
+
+---QUESTION 28---
+ID: 28
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Station 4 | Cleavage | No cleavage mineral
+DIFFICULTY: Medium
+QUESTION: Which of the minerals in part B has no cleavage? In its atomic structure, what makes this mineral not be able to form any cleavage planes?
+
+---QUESTION 29---
+ID: 29
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Station 4 | Cleavage | Plane orientation
+DIFFICULTY: Medium
+QUESTION: Cleavage is often determined by the atomic structure of the mineral. For example, when you break halite, you find perfect cubes after breaking it. Given this information, at what angle are the planes of weakness oriented in?
+
+---QUESTION 30---
+ID: 30
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Station 4 | Mineral properties | Luster and streak
+DIFFICULTY: Easy
+QUESTION: Define luster and streak.
+
+---QUESTION 31---
+ID: 31
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Station 4 | Streak test | Hardness greater than 7
+DIFFICULTY: Medium
+QUESTION: If I were to perform a streak test on a mineral with a hardness greater than 7, will it produce a streak? Why or why not?
+
+---QUESTION 32---
+ID: 32
+POINTS: 1.00
+FORMAT: Fill-in
+TOPIC: Station 4 | Hardness testing | Range determination
+DIFFICULTY: Medium
+QUESTION: Bob finds an unknown mineral and uses apatite to scratch the surface of the mineral and finds out that it scratches the surface of the mineral. He then uses feldspar to scratch the surface and finds that it does not scratch the surface of the mineral. The hardness of the unknown mineral is between _____ and _____.
+
+---QUESTION 33---
+ID: 33
+POINTS: 3.00
+FORMAT: Diagram
+TOPIC: Station 4 | Miller indices | Cleavage planes
+DIFFICULTY: High
+QUESTION: Specimens of orthoclase have perfect cleavage on {001} and a good cleavage on {010}. Mark the diagram where these planes occur. Make sure to label your axes and show how you were able to determine which faces correspond to the Miller indices.
+
+---QUESTION 34---
+ID: 34
+POINTS: 6.00
+FORMAT: Identification
+TOPIC: Station 5 | Specimen identification | A-F
+DIFFICULTY: Medium
+QUESTION: Identify the specimens. (Specimens A-F)
+
+---QUESTION 35---
+ID: 35
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Station 5 | General formula | Mineral group
+DIFFICULTY: Medium
+QUESTION: What is the general formula for these types of minerals?
+
+---QUESTION 36---
+ID: 36
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Station 5 | Formula variation | Group differences
+DIFFICULTY: Medium
+QUESTION: However, depending on the type of mineral, this formula will be altered. Why does the formula change depending on the group (or type of mineral)?
+
+---QUESTION 37---
+ID: 37
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Station 5 | Polymorph | Definition
+DIFFICULTY: Easy
+QUESTION: The following questions will be about Specimen C. Specimen C is also known as a polymorph. What does this mean?
+
+---QUESTION 38---
+ID: 38
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Station 5 | Polymorph | Environmental changes
+DIFFICULTY: Medium
+QUESTION: What environmental changes create Specimen C's polymorphs?
+
+---QUESTION 39---
+ID: 39
+POINTS: 3.00
+FORMAT: Matching
+TOPIC: Station 5 | Structures | Mineral matching
+DIFFICULTY: Medium
+QUESTION: Match the following structures to the minerals at this station. (Structure 1, Structure 2, Structure 3)
+
+---QUESTION 40---
+ID: 40
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Station 5 | Rock formation | Upper mantle
+DIFFICULTY: Medium
+QUESTION: Specimen A makes up what rock that makes up the majority of Earth's upper mantle?
+
+---QUESTION 41---
+ID: 41
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Station 5 | Igneous rocks | Specimen E
+DIFFICULTY: Medium
+QUESTION: Specimen E is often found in what types of igneous rocks?
+
+---QUESTION 42---
+ID: 42
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Station 5 | Igneous rocks | Specimen F
+DIFFICULTY: Medium
+QUESTION: In comparison, specimen F can be found in what types of igneous rocks?
+
+---QUESTION 43---
+ID: 43
+POINTS: 3.00
+FORMAT: Identification
+TOPIC: Station 6 | Specimen identification | A-C
+DIFFICULTY: Medium
+QUESTION: Identify the specimens at this station. (Specimens A-C)
+
+---QUESTION 44---
+ID: 44
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Station 6 | Igneous rocks | Occurrence
+DIFFICULTY: Medium
+QUESTION: Which of the specimens can be found in igneous rocks?
+
+---QUESTION 45---
+ID: 45
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Station 6 | Dating | K-Ar dating
+DIFFICULTY: Medium
+QUESTION: Which of these specimens is used for K-Ar dating?
+
+---QUESTION 46---
+ID: 46
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Station 6 | Historical use | Glass alternative
+DIFFICULTY: Easy
+QUESTION: Which of these specimens was used as a cheaper alternative to glass during the 16th century?
+
+---QUESTION 47---
+ID: 47
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Station 6 | Pleochromism | Definition
+DIFFICULTY: Medium
+QUESTION: Specimen C has weak pleochromism. What does this mean?
+
+---QUESTION 48---
+ID: 48
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Station 6 | Structure identification | Diagram
+DIFFICULTY: Medium
+QUESTION: Which of the specimens at this station most likely has this structure? (Using provided diagram)
+
+---QUESTION 49---
+ID: 49
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Station 6 | Dioctahedral | Definition
+DIFFICULTY: Medium
+QUESTION: This structure is referred to as dioctahedral. Using your knowledge of mineralogy, define what dioctahedral means.
+
+---QUESTION 50---
+ID: 50
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Station 6 | Dioctahedral | Sites
+DIFFICULTY: Medium
+QUESTION: Which two sites make this mineral dioctahedral?
+
+---QUESTION 51---
+ID: 51
+POINTS: 4.00
+FORMAT: Identification
+TOPIC: Station 7 | Specimen identification | A-D
+DIFFICULTY: Medium
+QUESTION: Identify all the specimens at this station. (Specimens A-D)
+
+---QUESTION 52---
+ID: 52
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Station 7 | Sedimentary rocks | Conglomerate vs Specimen C
+DIFFICULTY: Medium
+QUESTION: What is the difference between a conglomerate and Specimen C?
+
+---QUESTION 53---
+ID: 53
+POINTS: 3.00
+FORMAT: Multiple Choice (select all)
+TOPIC: Station 7 | Conglomerate | Formation environments
+DIFFICULTY: Medium
+QUESTION: Select all of the following environments where a conglomerate can form:
+OPTIONS:
+A) River delta
+B) Aeolian environment
+C) Outwash plain
+D) Dry plain
+E) Beach
+
+---QUESTION 54---
+ID: 54
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Station 7 | Fossils | Specimen identification
+DIFFICULTY: Easy
+QUESTION: Which of the following specimens will most likely contain fossils?
+
+---QUESTION 55---
+ID: 55
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Station 7 | Structure | Specimen identification
+DIFFICULTY: Medium
+QUESTION: Which of the following specimens at this station would most likely have the structure shown below? (Using provided diagram)
+
+---QUESTION 56---
+ID: 56
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Station 7 | Structure formation | Environmental change
+DIFFICULTY: Medium
+QUESTION: Usually, these specimens will not have the structure shown in question 5. However, list one environmental change that will allow this structure to form.
+
+---QUESTION 57---
+ID: 57
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Station 7 | Ores | Gallium source
+DIFFICULTY: Medium
+QUESTION: Which of the following specimens is the primary source of gallium?
+
+---QUESTION 58---
+ID: 58
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Station 7 | Environments | Specimen D
+DIFFICULTY: Medium
+QUESTION: Which of the following environments can specimen D be found in?
+OPTIONS:
+A) Desert
+B) Continental shelf
+C) Swamp
+D) Beach
+
+---QUESTION 59---
+ID: 59
+POINTS: 3.00
+FORMAT: Identification
+TOPIC: Station 8 | Specimen identification | A-C
+DIFFICULTY: Medium
+QUESTION: Identify all the specimens at this station. (Specimens A-C)
+
+---QUESTION 60---
+ID: 60
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Station 8 | Foliation | Ranking
+DIFFICULTY: Medium
+QUESTION: Rank these specimens from the most foliated to the least foliated.
+
+---QUESTION 61---
+ID: 61
+POINTS: 2.00
+FORMAT: Multiple Choice (select all)
+TOPIC: Station 8 | Foliation | Conditions
+DIFFICULTY: Medium
+QUESTION: Select all of the following conditions in which foliation is possible:
+OPTIONS:
+A) High heat, high pressure
+B) Low heat, low pressure
+C) Low heat, high pressure
+D) High heat, low pressure
+
+---QUESTION 62---
+ID: 62
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Station 8 | Metamorphic minerals | Specimen A
+DIFFICULTY: Medium
+QUESTION: Which of the following minerals could you expect in Specimen A?
+OPTIONS:
+A) Kyanite
+B) Muscovite
+C) Biotite
+D) Hornblende
+
+---QUESTION 63---
+ID: 63
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Station 8 | Metamorphic rocks | Parent rock
+DIFFICULTY: Medium
+QUESTION: What is the parent rock of Specimen B?
+
+---QUESTION 64---
+ID: 64
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Station 8 | Metamorphic facies | Diagram name
+DIFFICULTY: Medium
+QUESTION: The following questions will use the diagram above. What is the name of this kind of diagram?
+
+---QUESTION 65---
+ID: 65
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Station 8 | Metamorphic facies | Low pressure high temperature
+DIFFICULTY: Medium
+QUESTION: Name the rock that will form at low pressure and high temperature.
+
+---QUESTION 66---
+ID: 66
+POINTS: 2.00
+FORMAT: Diagram
+TOPIC: Station 8 | Metamorphic facies | Barrovian metamorphism
+DIFFICULTY: Medium
+QUESTION: On your answer sheet, you have the same diagram. Mark the region where you believe that Barrovian metamorphism will occur.
+
+---QUESTION 67---
+ID: 67
+POINTS: 2.00
+FORMAT: Diagram
+TOPIC: Station 8 | Metamorphic facies | Subduction zones
+DIFFICULTY: Medium
+QUESTION: Mark the region on the diagram which rocks will be found at subduction zones.
+
+---QUESTION 68---
+ID: 68
+POINTS: 4.00
+FORMAT: Identification
+TOPIC: Station 9 | Specimen identification | A-D
+DIFFICULTY: Medium
+QUESTION: Identify the specimens at this station. (Specimens A-D)
+
+---QUESTION 69---
+ID: 69
+POINTS: 2.00
+FORMAT: Classification
+TOPIC: Station 9 | Igneous rocks | Intrusive vs extrusive
+DIFFICULTY: Medium
+QUESTION: Classify the specimens into intrusive and extrusive specimens.
+
+---QUESTION 70---
+ID: 70
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Station 9 | Color | Pink mineral indicator
+DIFFICULTY: Easy
+QUESTION: When Specimen A is pink colored, it indicates the presence of what mineral?
+
+---QUESTION 71---
+ID: 71
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Station 9 | Continental crust | Composition
+DIFFICULTY: Medium
+QUESTION: Which of these make up the majority of continental crust?
+
+---QUESTION 72---
+ID: 72
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Station 9 | Classification systems | TAS vs QAPF
+DIFFICULTY: Medium
+QUESTION: In what case would we use the TAS system instead of QAPF?
+
+---QUESTION 73---
+ID: 73
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Station 9 | Classification diagram | Gap name
+DIFFICULTY: Medium
+QUESTION: Given the diagram above, answer the following questions. What is the name of this gap (aka the region of white space)?
+
+---QUESTION 74---
+ID: 74
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Station 9 | Classification diagram | Gap reason
+DIFFICULTY: Medium
+QUESTION: Propose a reason why this gap might exist. (Hint: it has something to do with stability)
+
+---QUESTION 75---
+ID: 75
+POINTS: 3.00
+FORMAT: Identification
+TOPIC: Station 10 | Specimen identification | A-C
+DIFFICULTY: Medium
+QUESTION: Identify the following specimens. (Specimens A-C)
+
+---QUESTION 76---
+ID: 76
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Station 10 | Twinning | Process identification
+DIFFICULTY: Medium
+QUESTION: Which of the following specimens at this station go through the process of twinning?
+
+---QUESTION 77---
+ID: 77
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Station 10 | Twinning | Simple contact twins
+DIFFICULTY: Medium
+QUESTION: Which of these specimens is most likely will form simple contact twins?
+
+---QUESTION 78---
+ID: 78
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Station 10 | Twinning | Polysynthetic twins
+DIFFICULTY: Medium
+QUESTION: Which of these specimens is most likely will form complex contact twins referred to as polysynthetic twins?
+
+---QUESTION 79---
+ID: 79
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Station 10 | Miller indices | Twinning relationship
+DIFFICULTY: Medium
+QUESTION: Miller indices are a notation for how we describe lattice planes in minerals. How might this relate to the process described in question 2?
+
+---QUESTION 80---
+ID: 80
+POINTS: 3.00
+FORMAT: Diagram
+TOPIC: Station 10 | Miller indices | 2D vector sketching
+DIFFICULTY: Medium
+QUESTION: Before we start working in a 3D plane, we'll work slowly and start drawing these indexes in 2D, where the z plane does not exist. Given the following indices, sketch a vector from the point marked {000} when you start drawing each vector.
+OPTIONS:
+i) [100]
+ii) [210]
+iii) [1-10]
+
+---QUESTION 81---
+ID: 81
+POINTS: 3.00
+FORMAT: Diagram
+TOPIC: Station 10 | Miller indices | 3D plane plotting
+DIFFICULTY: High
+QUESTION: Let's try it in 3D. Specimen B is known for its twins on the {031} plane and the {231} plane. On your answer sheet there will be a diagram in which you will draw the {031} plane, provided with the axes. Make sure to show how you got there—hint: there is something that needs to be done with the numbers in order for the plane to be correctly plotted!
+
+---QUESTION 82---
+ID: 82
+POINTS: 2.00
+FORMAT: Multiple Choice (select all)
+TOPIC: Station 11 | Crystal habit | Same habit minerals
+DIFFICULTY: Medium
+QUESTION: Select all of the following minerals that have the same crystal habit:
+OPTIONS:
+A) Halite
+B) Pyrite
+C) Sphalerite
+D) Magnetite
+E) Garnet / Almandine
+
+---QUESTION 83---
+ID: 83
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Station 11 | Sandstone | Formation environments
+DIFFICULTY: Medium
+QUESTION: Which of the following environments would you NOT expect sandstone to form in?
+OPTIONS:
+A) Desert
+B) Aeolian
+C) Deltas
+D) Deep Lake
+
+---QUESTION 84---
+ID: 84
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Station 11 | Ores | Iron primary ore
+DIFFICULTY: Easy
+QUESTION: Which of the following minerals is the primary ore of iron?
+OPTIONS:
+A) Hematite
+B) Corundum
+C) Pyrite
+D) Stibnite
+
+---QUESTION 85---
+ID: 85
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Station 11 | Minerals | Peacock ore nickname
+DIFFICULTY: Easy
+QUESTION: Which of the following minerals has the nickname "Peacock ore"?
+OPTIONS:
+A) Willemite
+B) Bornite
+C) Copper
+D) Labradorite
+
+---QUESTION 86---
+ID: 86
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Station 11 | Chalcedony | Banding name
+DIFFICULTY: Easy
+QUESTION: If I find a piece of chalcedony, and I notice that it has black and white banding, it is referred to as what name?
+OPTIONS:
+A) Moss agate
+B) Chalcedony
+C) Onyx
+D) Jasper
+
+---QUESTION 87---
+ID: 87
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Station 11 | Nesosilicates | Identification
+DIFFICULTY: Medium
+QUESTION: Which of the following minerals is NOT a nesosilicate?
+OPTIONS:
+A) Augite
+B) Almandine
+C) Grossular
+D) Topaz
+
+---QUESTION 88---
+ID: 88
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Station 11 | Bowen's Reaction Series | Discontinuous vs continuous
+DIFFICULTY: Medium
+QUESTION: What is the difference between the discontinuous and the continuous branch of Bowen's Reaction series?
+OPTIONS:
+A) Discontinuous branch shows the formation of feldspars while the continuous branch shows the formation of mafic minerals
+B) Continuous describes the evolution of compositions, while discontinuous represents distinct minerals
+C) Discontinuous branch shows the formation of metamorphic facies while the continuous branch shows the formation of igneous facies
+D) Discontinuous branch shows the formation of silicates, while the continuous branch shows the formation of oxides
+
+---QUESTION 89---
+ID: 89
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Station 11 | Pseudomorphs | Paramorph
+DIFFICULTY: Medium
+QUESTION: Which of the following is a pair of pseudomorphs referred as to as a paramorph?
+OPTIONS:
+A) Hematite and magnetite
+B) Corundum and pyrite
+C) Calcite and aragonite
+D) Turquoise and Amazonite
+
+---QUESTION 90---
+ID: 90
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Station 11 | Metamorphic facies | High pressure high heat
+DIFFICULTY: Medium
+QUESTION: Given an unknown metamorphic facies, what rock would you expect to form under extremely high pressure and high heat?
+OPTIONS:
+A) Serpentine
+B) Mica schist
+C) Blueschist
+D) Eclogite
+
+---QUESTION 91---
+ID: 91
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Station 11 | Metamorphic rocks | Parent rock type
+DIFFICULTY: Medium
+QUESTION: If I had an unknown rock, but I knew that it went under high heat and pressure and transformed into a metamorphic rock, what type of rock would I expect my parent rock to be?
+OPTIONS:
+A) Metamorphic
+B) Igneous
+C) Sedimentary
+D) Porphyritic
+E) Can not be determined
+
+---QUESTION 92---
+ID: 92
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Station 11 | Metamorphism | Convergent boundaries
+DIFFICULTY: Medium
+QUESTION: What kind of metamorphism is associated with convergent boundaries?
+OPTIONS:
+A) Regional
+B) Contact
+C) Shear
+D) Dynamic
+
+---QUESTION 93---
+ID: 93
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Station 11 | Faulting zones | Rock types
+DIFFICULTY: Medium
+QUESTION: Which rocks would I most likely find at a faulting zone?
+OPTIONS:
+A) Granite
+B) Shale
+C) Siltstone
+D) Rock Salt
+E) None of the Above
+
+---QUESTION 94---
+ID: 94
+POINTS: 12.00
+FORMAT: Identification
+TOPIC: Station 12 | Speed ID | Specimens A-L
+DIFFICULTY: Medium
+QUESTION: Identify the specimens at this station. (Specimens A-L, 1 point each)
+

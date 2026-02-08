@@ -1,0 +1,622 @@
+EVENT: Disease Detectives
+SOURCE: Hawk&Hornet Invitational 2026 (Div. C)
+FORMAT: 77 questions (Matching, True/False, MC, Free Response, Calculation)
+TOTAL POINTS: 108
+
+---SECTION I: BACKGROUND & SURVEILLANCE---
+
+---QUESTIONS 1-9 (SHARED CONTEXT)---
+ID: 1-9 | POINTS: 1.00 each | FORMAT: Matching
+TOPIC: Epidemiology | Terminology | Definitions
+CONTEXT: Match terms to definitions: (A) Herd immunity, (B) Incidence, (C) Zoonosis, (D) Fomite, (E) Prevalence, (AB) Risk, (AC) Subclinical, (AD) Host factor, (AE) Efficacy
+
+---QUESTION 1---
+ID: 1 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: Epidemiology | Transmission | Fomites
+DIFFICULTY: Easy
+QUESTION: Fomite.
+ANSWER: D
+
+---QUESTION 2---
+ID: 2 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: Epidemiology | Host Factors | Risk Factors
+DIFFICULTY: Easy
+QUESTION: Host factor.
+ANSWER: AD
+
+---QUESTION 3---
+ID: 3 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: Epidemiology | Herd Immunity | Vaccination
+DIFFICULTY: Easy
+QUESTION: Herd immunity.
+ANSWER: A
+
+---QUESTION 4---
+ID: 4 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: Epidemiology | Incidence | Disease Measurement
+DIFFICULTY: Easy
+QUESTION: Incidence.
+ANSWER: B
+
+---QUESTION 5---
+ID: 5 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: Epidemiology | Subclinical | Asymptomatic
+DIFFICULTY: Easy
+QUESTION: Subclinical.
+ANSWER: AC
+
+---QUESTION 6---
+ID: 6 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: Epidemiology | Prevalence | Disease Measurement
+DIFFICULTY: Easy
+QUESTION: Prevalence.
+ANSWER: E
+
+---QUESTION 7---
+ID: 7 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: Epidemiology | Risk | Probability
+DIFFICULTY: Easy
+QUESTION: Risk.
+ANSWER: AB
+
+---QUESTION 8---
+ID: 8 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: Epidemiology | Zoonosis | Animal-Human Transmission
+DIFFICULTY: Easy
+QUESTION: Zoonosis.
+ANSWER: C
+
+---QUESTION 9---
+ID: 9 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: Epidemiology | Efficacy | Intervention Effectiveness
+DIFFICULTY: Easy
+QUESTION: Efficacy.
+ANSWER: AE
+
+---QUESTION 10---
+ID: 10 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Epidemiology | Transmission | Direct Contact | Vector-Borne | Lyme Disease
+DIFFICULTY: Easy
+QUESTION: Receiving lyme disease from a tick bite is an example of a direct contact for disease transmission.
+ANSWER: FALSE
+
+---QUESTION 11---
+ID: 11 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Statistics | Variables | Continuous Variables | BMI
+DIFFICULTY: Easy
+QUESTION: One's BMI can be considered a continuous variable.
+ANSWER: TRUE
+
+---QUESTION 12---
+ID: 12 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Epidemiology | Enabling Factors | Risk Factors
+DIFFICULTY: Easy
+QUESTION: Examples of enabling factors include poor nutrition and low income.
+ANSWER: TRUE
+
+---QUESTION 13---
+ID: 13 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Epidemiology | Iatrogenic Diseases | Medical Procedures
+DIFFICULTY: Easy
+QUESTION: Iatrogenic diseases are those caused by medical or diagnostic procedures.
+ANSWER: TRUE
+
+---QUESTION 14---
+ID: 14 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Public Health | Leading Causes of Death | Falls | United States
+DIFFICULTY: Medium
+QUESTION: Falls are the current (2025) leading cause of death in the U.S.
+ANSWER: FALSE
+
+---QUESTION 15---
+ID: 15 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Foodborne Illness | Enterotoxins | Bacterial Toxins
+DIFFICULTY: Medium
+QUESTION: Symptoms of bacterial foodborne illnesses may still be exhibited by individuals who eat food with no live bacterial populations. This is due to the presence of:
+OPTIONS:
+A) The placebo effect
+B) Mycotoxins
+C) Enterotoxins
+D) Vectors
+
+---QUESTION 16---
+ID: 16 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Public Health | Prevention | Primary Prevention | Food Regulations
+DIFFICULTY: Easy
+QUESTION: National regulations which dictate the amount of acceptable heavy metals in certain foods is an example of:
+OPTIONS:
+A) Primary prevention
+B) Secondary prevention
+C) Tertiary prevention
+D) Quaternary prevention
+
+---QUESTION 17---
+ID: 17 | POINTS: 1.00 | FORMAT: MC
+TOPIC: History of Epidemiology | John Snow | Cholera Outbreak | London
+DIFFICULTY: Easy
+QUESTION: John Snow was an epidemiologist credited with the tracing of a _______ outbreak to a well in London.
+OPTIONS:
+A) Colitis
+B) Salmonella
+C) Cholera
+D) Syphilis
+
+---QUESTION 18---
+ID: 18 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Epidemiology | Epidemiological Triangle | Components
+DIFFICULTY: Easy
+QUESTION: Which of the following is not a component of the epidemiological triangle?
+OPTIONS:
+A) Host
+B) Environment
+C) Agent
+D) Time
+
+---QUESTION 19---
+ID: 19 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Statistics | McNemar Test | Study Types
+DIFFICULTY: Medium
+QUESTION: To what type of study is a McNemar test applicable to?
+OPTIONS:
+A) Cross-sectional
+B) Case-control
+C) Cohort
+D) More than one of the above
+
+---QUESTION 20---
+ID: 20 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Public Health | VAERS | Vaccine Surveillance | Acronyms
+DIFFICULTY: Easy
+QUESTION: What does VAERS stand for?
+OPTIONS:
+A) Vaccine Adverse Event Reporting System
+B) Vector and Endemic Regulatory Sites
+C) Veterans Affairs External Report System
+D) Vaccine and Environment Repertoire Scale
+
+---QUESTION 21---
+ID: 21 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Epidemiology | Surveillance | Passive Surveillance | VAERS
+DIFFICULTY: Easy
+QUESTION: What type of surveillance does VAERS utilize?
+OPTIONS:
+A) Active surveillance
+B) Passive surveillance
+C) Sentinel surveillance
+D) Clinical surveillance
+
+---QUESTION 22---
+ID: 22 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Epidemiology | Bias | Attrition Bias | Study Bias
+DIFFICULTY: Medium
+QUESTION: A study is conducted and it is found that those who remained in the study tend to have more minor forms of a disorder than those who withdrew. This scenario is an example of:
+OPTIONS:
+A) Information bias
+B) Berkson's bias
+C) Observer bias
+D) Recall bias
+
+---QUESTION 23---
+ID: 23 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Epidemiology | Bias | Hawthorne Effect | Observer Effect
+DIFFICULTY: Medium
+QUESTION: Subjects in an insomnia study act differently because they know they are being monitored. This is due to:
+OPTIONS:
+A) Interviewer bias
+B) The Hawthorne effect
+C) Selection bias
+D) The placebo effect
+
+---QUESTION 24---
+ID: 24 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Statistics | Fisher's Exact Test | Small Samples | Categorical Variables
+DIFFICULTY: Medium
+QUESTION: This type of test is applicable to small samples (n < 30) to test for significant association between two categorical variables. It often involves a 2×2 contingency table.
+OPTIONS:
+A) Z-test
+B) T-test
+C) McNemar test
+D) Fisher's Exact test
+
+---QUESTION 25---
+ID: 25 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Public Health | Prophylaxis | Health Preservation
+DIFFICULTY: Easy
+QUESTION: Measures designed to preserve health are known as:
+OPTIONS:
+A) Metaphalaxis
+B) Epistaxis
+C) Prophylaxis
+D) Anaphylaxis
+
+---QUESTION 26---
+ID: 26 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Epidemiology | Latency | Incubation Period | Infectiousness
+DIFFICULTY: Medium
+QUESTION: Latency describes the time between _______ and infectiousness.
+OPTIONS:
+A) Exposure
+B) Display of symptoms
+C) Incubation
+D) None of the above
+
+---QUESTION 27---
+ID: 27 | POINTS: 1.00 | FORMAT: MC
+TOPIC: History of Epidemiology | John Graunt | Vital Statistics | 1662
+DIFFICULTY: Medium
+QUESTION: Who was responsible for first quantifying factors such as birth, death, and disease occurrence in 1662?
+OPTIONS:
+A) John Snow
+B) John Graunt
+C) William Farr
+D) Irving Langmuir
+
+---QUESTION 28---
+ID: 28 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Infectious Diseases | Pathogen Types | Bacterial vs Fungal | Histoplasmosis
+DIFFICULTY: Easy
+QUESTION: Which of the following diseases is not bacterial in origin?
+OPTIONS:
+A) Botulism
+B) Shigella
+C) Histoplasmosis
+D) MRSA
+
+---QUESTION 29---
+ID: 29 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Study Design | Blinding | Double-Blind | Triple-Blind | Clinical Trials
+DIFFICULTY: Medium
+QUESTION: A certain experiment involves having anonymous test subjects randomly assigned to researchers who then administer placebo or a new drug X (the researchers are unaware of which they are administering). Raw data from this trial is then reported to another team of researchers who are not told about the experimental conditions present. In this case, this experiment is best described as:
+OPTIONS:
+A) Open
+B) Single-blind
+C) Double-blind
+D) Triple-blind
+
+---QUESTIONS 30-35 (SHARED CONTEXT)---
+ID: 30-35 | POINTS: 1.00 each | FORMAT: Matching
+TOPIC: Epidemiology | Chain of Transmission | Components | Candida albicans
+CONTEXT: Match components to examples: (A) Candida albicans (fungus), (B) Healthcare workers, (C) IV catheter sites, (D) Sweat, (E) Contaminated equipment, (AB) Immunocompromised patient
+
+---QUESTION 30---
+ID: 30 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: Epidemiology | Chain of Transmission | Portal of Entry
+DIFFICULTY: Medium
+QUESTION: Portal of entry.
+ANSWER: C
+
+---QUESTION 31---
+ID: 31 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: Epidemiology | Chain of Transmission | Mode of Transmission
+DIFFICULTY: Medium
+QUESTION: Mode of transmission.
+ANSWER: E
+
+---QUESTION 32---
+ID: 32 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: Epidemiology | Chain of Transmission | Portal of Exit
+DIFFICULTY: Medium
+QUESTION: Portal of exit.
+ANSWER: D
+
+---QUESTION 33---
+ID: 33 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: Epidemiology | Chain of Transmission | Reservoir
+DIFFICULTY: Medium
+QUESTION: Reservoir.
+ANSWER: B
+
+---QUESTION 34---
+ID: 34 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: Epidemiology | Chain of Transmission | Infectious Agent
+DIFFICULTY: Easy
+QUESTION: Infectious agent.
+ANSWER: A
+
+---QUESTION 35---
+ID: 35 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: Epidemiology | Chain of Transmission | Susceptible Host
+DIFFICULTY: Easy
+QUESTION: Susceptible host.
+ANSWER: AB
+
+---SECTIONS II & III: OUTBREAK INVESTIGATION & PATTERNS, CONTROL, PREVENTION---
+
+---QUESTIONS 36-42 (SHARED CONTEXT)---
+ID: 36-42 | POINTS: 1.00 each | FORMAT: Matching
+TOPIC: Study Design | Case-Control | Cohort | Cross-Sectional | Experimental Studies
+CONTEXT: Identify study types: (A) Case-control, (B) Cohort, (C) Cross-sectional, (D) Experimental
+
+---QUESTION 36---
+ID: 36 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: Study Design | Case-Control Study | Characteristics
+DIFFICULTY: Easy
+QUESTION: Investigators start by enrolling a group of people with disease. The investigator then enrolls a group of people without disease. Investigators then compare previous exposures between the two groups.
+ANSWER: A (Case-control)
+
+---QUESTION 37---
+ID: 37 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: Study Design | Cohort Study | Characteristics
+DIFFICULTY: Easy
+QUESTION: The epidemiologist records whether each study participant is exposed or not, and then tracks the participants to see if they develop the disease of interest.
+ANSWER: B (Cohort)
+
+---QUESTION 38---
+ID: 38 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: Study Design | Cross-Sectional Study | Characteristics
+DIFFICULTY: Easy
+QUESTION: A sample of persons from a population is enrolled and their exposures and health outcomes are measured simultaneously.
+ANSWER: C (Cross-sectional)
+
+---QUESTION 39---
+ID: 39 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: Study Design | Case-Control Study | Brainrot Disease
+DIFFICULTY: Medium
+QUESTION: Individuals diagnosed with a new strain of Brainrot disease are asked how often they go outside the house, speak to friends, etc. Two times the number of individuals without this disease are also asked the same set of questions, with their responses being compared.
+ANSWER: A (Case-control)
+
+---QUESTION 40---
+ID: 40 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: Study Design | Cross-Sectional Study | Exercise | Narcolepsy
+DIFFICULTY: Medium
+QUESTION: A random, representative sample of residents of the city of Troy are called and asked how often they exercise each week. They are then asked whether they have ever been diagnosed with narcolepsy.
+ANSWER: C (Cross-sectional)
+
+---QUESTION 41---
+ID: 41 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: Study Design | Experimental Study | Randomized Control Trial | Vaccines
+DIFFICULTY: Medium
+QUESTION: Subjects from a children's hospital are randomly given one of two new vaccines against measles. The subjects' parents would then be called a week later for a follow-up survey for side effects by attending nurses.
+ANSWER: D (Experimental)
+
+---QUESTION 42---
+ID: 42 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: Study Design | Randomized Control Trial | Gold Standard
+DIFFICULTY: Easy
+QUESTION: A randomized control trial is an example of this type of study.
+ANSWER: D (Experimental)
+
+---QUESTIONS 43-48 (SHARED CONTEXT)---
+ID: 43-48 | POINTS: Variable | FORMAT: Free Response / Calculation
+TOPIC: Outbreak Investigation | Chi-Squared Test | Incidence Rate | Odds Ratio | Relative Risk | Party Outbreak
+CONTEXT: Case Study 1: Party at Dirtmouth with 203 attendees, 150 drank punch (67 sick), 53 did not drink punch (36 sick)
+
+---QUESTION 43---
+ID: 43 | POINTS: 4.00 | FORMAT: Free Response
+TOPIC: Statistics | Chi-Squared Test | Hypotheses
+DIFFICULTY: Medium
+QUESTION: Write hypotheses based on this scenario for a chi-squared test.
+
+---QUESTION 44---
+ID: 44 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Statistics | Chi-Squared Test | Degrees of Freedom
+DIFFICULTY: Easy
+QUESTION: How many degrees of freedom would be applicable to this chi-squared test?
+
+---QUESTION 45---
+ID: 45 | POINTS: 1.00 | FORMAT: Calculation
+TOPIC: Epidemiology | Incidence Rate | Attack Rate | Punch Consumption
+DIFFICULTY: Easy
+QUESTION: Calculate the incidence rate among partygoers who drank the punch.
+
+---QUESTION 46---
+ID: 46 | POINTS: 1.00 | FORMAT: Calculation
+TOPIC: Epidemiology | Odds Ratio | Association Measure
+DIFFICULTY: Medium
+QUESTION: Calculate the odds ratio for this scenario.
+
+---QUESTION 47---
+ID: 47 | POINTS: 1.00 | FORMAT: Calculation
+TOPIC: Epidemiology | Relative Risk | Association Measure
+DIFFICULTY: Medium
+QUESTION: Calculate the relative risk for this scenario.
+
+---QUESTION 48---
+ID: 48 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Outbreak Investigation | Interpretation | Association | Causation
+DIFFICULTY: Medium
+QUESTION: Based on your calculations, is it likely that the symptoms reported by attendees are due to the punch offered at the party?
+
+---QUESTIONS 49-58 (SHARED CONTEXT)---
+ID: 49-58 | POINTS: Variable | FORMAT: Free Response
+TOPIC: Study Design | Case Series | Hill's Criteria | Causation | MMR Vaccine | Autism | Wakefield Study
+CONTEXT: Questions relate to Andrew Wakefield's fraudulent 1998 study linking MMR vaccine to autism
+
+---QUESTION 49---
+ID: 49 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Study Design | Case Series | Wakefield Study
+DIFFICULTY: Easy
+QUESTION: What kind of study was originally employed by Wakefield?
+
+---QUESTION 50---
+ID: 50 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Study Design | Case Series | Limitations | Flaws
+DIFFICULTY: Medium
+QUESTION: Identify one flaw present with this type of study in general.
+
+---QUESTIONS 51-56 (SHARED CONTEXT)---
+ID: 51-56 | POINTS: 1.00 each | FORMAT: Free Response
+TOPIC: Epidemiology | Hill's Criteria | Causation | Consistency | Specificity | Temporality | Biological Gradient | Coherence | Experiment
+CONTEXT: Identify details showing Hill's criteria NOT met in Wakefield's claims
+
+---QUESTION 51---
+ID: 51 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Epidemiology | Hill's Criteria | Consistency
+DIFFICULTY: Medium
+QUESTION: Consistency.
+
+---QUESTION 52---
+ID: 52 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Epidemiology | Hill's Criteria | Specificity
+DIFFICULTY: Medium
+QUESTION: Specificity.
+
+---QUESTION 53---
+ID: 53 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Epidemiology | Hill's Criteria | Temporality
+DIFFICULTY: Medium
+QUESTION: Temporality.
+
+---QUESTION 54---
+ID: 54 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Epidemiology | Hill's Criteria | Biological Gradient | Dose-Response
+DIFFICULTY: Medium
+QUESTION: Biological gradient.
+
+---QUESTION 55---
+ID: 55 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Epidemiology | Hill's Criteria | Coherence
+DIFFICULTY: Medium
+QUESTION: Coherence.
+
+---QUESTION 56---
+ID: 56 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Epidemiology | Hill's Criteria | Experiment
+DIFFICULTY: Medium
+QUESTION: Experiment.
+
+---QUESTION 57---
+ID: 57 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Study Design | Randomized Control Trials | Limitations | Downsides
+DIFFICULTY: Medium
+QUESTION: Identify two downsides to randomized control trials.
+
+---QUESTION 58---
+ID: 58 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Epidemiology | Counterfactual Modeling | Causation Analysis
+DIFFICULTY: Medium
+QUESTION: Briefly define what counterfactual modeling is.
+
+---QUESTIONS 59-72 (SHARED CONTEXT)---
+ID: 59-72 | POINTS: Variable | FORMAT: Free Response / Calculation
+TOPIC: Outbreak Investigation | Salmonellosis | Raw Milk | Case Definition | Epi-Curve | Case-Control Study | Odds Ratio | Attack Rate
+CONTEXT: Case Study 2: October 2023 San Diego County salmonellosis outbreak linked to brand A raw milk from dairy farm A
+
+---QUESTION 59---
+ID: 59 | POINTS: 3.00 | FORMAT: Free Response
+TOPIC: Outbreak Investigation | Steps | Initial Investigation
+DIFFICULTY: Medium
+QUESTION: What are the first three steps which should be taken to investigate this outbreak?
+
+---QUESTION 60---
+ID: 60 | POINTS: 4.00 | FORMAT: Free Response
+TOPIC: Outbreak Investigation | Case Definition | Criteria
+DIFFICULTY: Medium
+QUESTION: Write a case definition for this outbreak.
+
+---QUESTION 61---
+ID: 61 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Outbreak Investigation | Vehicle | Transmission
+DIFFICULTY: Easy
+QUESTION: What is the vehicle of this scenario?
+
+---QUESTION 62---
+ID: 62 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Public Health | PulseNet | CDC | Disease Surveillance
+DIFFICULTY: Easy
+QUESTION: Briefly, what is CDC's PulseNet?
+
+---QUESTION 63---
+ID: 63 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Epidemiology | Epi-Curve | Classification | Outbreak Pattern
+DIFFICULTY: Medium
+QUESTION: Identify the type of epi-curve classification associated with the outbreak shown.
+
+---QUESTION 64---
+ID: 64 | POINTS: 3.00 | FORMAT: Free Response
+TOPIC: Study Design | Case-Control Study | Identification
+DIFFICULTY: Easy
+QUESTION: What method of study is described?
+
+---QUESTION 65---
+ID: 65 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Epidemiology | Odds Ratio | Case-Control Study | Association Measure
+DIFFICULTY: Easy
+QUESTION: What method of association is appropriate for this study?
+
+---QUESTIONS 66-69 (SHARED CONTEXT)---
+ID: 66-69 | POINTS: 2.00 each | FORMAT: Calculation
+TOPIC: Epidemiology | Odds Ratio | Case-Control Study | Food Items | Milk | Cheese | Heavy Cream | Kefir
+CONTEXT: Calculate odds ratio for each food item from case-control data
+
+---QUESTION 66---
+ID: 66 | POINTS: 2.00 | FORMAT: Calculation
+TOPIC: Epidemiology | Odds Ratio | Milk | Association Measure
+DIFFICULTY: Medium
+QUESTION: Calculate the measure of association for Milk.
+CALCULATION: Odds ratio = (Ill consumed × Healthy not consumed) / (Ill not consumed × Healthy consumed)
+
+---QUESTION 67---
+ID: 67 | POINTS: 2.00 | FORMAT: Calculation
+TOPIC: Epidemiology | Odds Ratio | Cheese | Association Measure
+DIFFICULTY: Medium
+QUESTION: Calculate the measure of association for Cheese.
+CALCULATION: Odds ratio = (Ill consumed × Healthy not consumed) / (Ill not consumed × Healthy consumed)
+
+---QUESTION 68---
+ID: 68 | POINTS: 2.00 | FORMAT: Calculation
+TOPIC: Epidemiology | Odds Ratio | Heavy Cream | Association Measure
+DIFFICULTY: Medium
+QUESTION: Calculate the measure of association for Heavy cream.
+CALCULATION: Odds ratio = (Ill consumed × Healthy not consumed) / (Ill not consumed × Healthy consumed)
+
+---QUESTION 69---
+ID: 69 | POINTS: 2.00 | FORMAT: Calculation
+TOPIC: Epidemiology | Odds Ratio | Kefir | Association Measure
+DIFFICULTY: Medium
+QUESTION: Calculate the measure of association for Kefir.
+CALCULATION: Odds ratio = (Ill consumed × Healthy not consumed) / (Ill not consumed × Healthy consumed)
+
+---QUESTION 70---
+ID: 70 | POINTS: 2.00 | FORMAT: Calculation
+TOPIC: Epidemiology | Attack Rate | Heavy Cream | Non-Consumers
+DIFFICULTY: Medium
+QUESTION: Calculate and interpret the attack rate for those who did not consume heavy cream from dairy farm A.
+CALCULATION: Attack rate = (Ill / Total) × 100
+
+---QUESTION 71---
+ID: 71 | POINTS: 3.00 | FORMAT: Free Response
+TOPIC: Outbreak Investigation | Interpretation | Odds Ratios | Causation
+DIFFICULTY: Medium
+QUESTION: Based on your results, what type of product(s) are the most likely cause of this outbreak?
+
+---QUESTION 72---
+ID: 72 | POINTS: 3.00 | FORMAT: Free Response
+TOPIC: Epidemiology | Odds Ratio | Interpretation | Association
+DIFFICULTY: Medium
+QUESTION: Interpret the measure of association calculated for the type of raw milk product which is the most likely cause of this outbreak.
+
+---QUESTIONS 73-77 (SHARED CONTEXT)---
+ID: 73-77 | POINTS: Variable | FORMAT: Free Response
+TOPIC: Outbreak Investigation | PFGE | Campylobacter jejuni | Science Olympiad | Gel Electrophoresis | Study Design | Odds vs Relative Risk
+CONTEXT: Case Study 3: Campylobacter jejuni infection in Hawk Science Olympiad team (7 infected out of 45), PFGE gel analysis
+
+---QUESTION 73---
+ID: 73 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Molecular Epidemiology | PFGE | Acronym | Pulsed-Field Gel Electrophoresis
+DIFFICULTY: Easy
+QUESTION: What does PFGE stand for?
+
+---QUESTION 74---
+ID: 74 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Molecular Epidemiology | PFGE vs SNP Mapping | Gel Electrophoresis | Applications
+DIFFICULTY: Medium
+QUESTION: Why might a PFGE gel be used for this case rather than SNP mapping?
+
+---QUESTION 75---
+ID: 75 | POINTS: 3.00 | FORMAT: Free Response
+TOPIC: Molecular Epidemiology | PFGE | Gel Analysis | Relatedness | Outbreak Investigation
+DIFFICULTY: Medium
+QUESTION: Is it plausible for the infection in the Hawk Science Olympiad students to have originated from the Hornet Science Olympiad student? Briefly explain.
+
+---QUESTION 76---
+ID: 76 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Study Design | Cohort Study | Risk Measurement | Campylobacter jejuni
+DIFFICULTY: Medium
+QUESTION: What type of epidemiological study should you conduct for the most accurate measure of risk of Campylobacter jejuni infection in the Hawk Science Olympiad team?
+
+---QUESTION 77---
+ID: 77 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Epidemiology | Odds Ratio vs Relative Risk | Study Design | Exposure-Outcome Association
+DIFFICULTY: Medium
+QUESTION: If you wanted to determine whether exposure to infected students was linked to illness or not, would you use an odds or a relative risk ratio?

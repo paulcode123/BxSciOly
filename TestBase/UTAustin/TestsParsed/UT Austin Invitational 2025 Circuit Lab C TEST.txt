@@ -1,0 +1,453 @@
+EVENT: Circuit Lab
+SOURCE: UT Austin Invitational 2025 (Div. B/C)
+FORMAT: 4 main questions with multiple subparts: Resistor Dividers (63 pts), PCB Planes and Capacitance (31 pts), Magic Boxes and Magistrates (27 pts), Scientists (11 pts)
+TOTAL POINTS: 132
+
+---QUESTION 1---
+ID: 1
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Circuits | Resistor dividers | Voltage divider | KVL | V1 | V2 | Vin
+DIFFICULTY: Low
+QUESTION: Write an equation that relates V1 and V2 to Vin
+
+---QUESTION 2---
+ID: 2
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Circuits | Resistor dividers | Voltage divider | V2 | R1 | R2 | Vin | Voltage division formula
+DIFFICULTY: Medium
+QUESTION: Write an equation for V2 in terms of the resistances (R1, R2) and input voltage (Vin)
+
+---QUESTION 3---
+ID: 3
+POINTS: 3.00
+FORMAT: Graph/Sketch
+TOPIC: Circuits | Resistor dividers | V2 vs R1 | Graph | Limiting cases | Asymptotic behavior
+DIFFICULTY: Medium
+QUESTION: Sketch a graph for V2 as a function of R1. Include the limiting cases (0, ∞) and general shape.
+
+---QUESTION 4---
+ID: 4
+POINTS: 3.00
+FORMAT: Graph/Sketch
+TOPIC: Circuits | Resistor dividers | V2 vs R2 | Graph | Limiting cases | Asymptotic behavior
+DIFFICULTY: Medium
+QUESTION: Sketch a graph for V2 as a function of R2. Include the limiting cases (0, ∞) and general shape.
+
+---QUESTION 5---
+ID: 5
+POINTS: 3.00
+FORMAT: Graph/Sketch
+TOPIC: Circuits | Resistor dividers | V2 vs Vin | Graph | Linear relationship | Limiting cases
+DIFFICULTY: Low
+QUESTION: Sketch a graph for V2 as a function of Vin. Include the limiting cases (0, ∞) and general shape.
+
+---QUESTION 6---
+ID: 6
+POINTS: 2.00
+FORMAT: Calculation
+TOPIC: Circuits | Power | Resistor divider | Power dissipation | Vin | R1 | R2 | P = V^2/R
+DIFFICULTY: Medium
+QUESTION: Calculate the power dissipated by this resistor divider in terms of Vin, R1, and R2.
+
+---QUESTION 7---
+ID: 7
+POINTS: 3.00
+FORMAT: Calculation
+TOPIC: Circuits | Resistor dividers | ADC | Microcontrollers | 3.3V | 5V | Voltage range | Resolution | R1/R2 ratio
+DIFFICULTY: High
+QUESTION: A common maximum value that microcontrollers can sense is 3.3V. Given that Vin is 5V, what ratio of R1 to R2 is best suited for to measure V2 with this ADC? (Hint: ADC resolution is fixed by the number of bits and the voltage range it senses. Try ensure that V2 fills the entire range)
+
+---QUESTION 8---
+ID: 8
+POINTS: 1.00
+FORMAT: Yes/No
+TOPIC: Circuits | Resistor dividers | AC | DC | Alternating current | Direct current | Frequency response
+DIFFICULTY: Low
+QUESTION: Does this circuit work for AC input voltages? (Y/N)
+
+---QUESTION 9---
+ID: 9
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Circuits | Resistor dividers | Resistor selection | Standard values | 1:50 ratio | Fewest resistors | Lowest current
+DIFFICULTY: Medium
+QUESTION: Using only the standard list of resistors (1kΩ, 3.3kΩ, 10kΩ, 22kΩ, 51kΩ, 100kΩ), make the following divider ratio using the fewest resistors possible and the lowest DC currents (in that order): ≈1 : 50
+
+---QUESTION 10---
+ID: 10
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Circuits | Resistor dividers | Resistor selection | Standard values | 1:100 ratio | Fewest resistors | Lowest current
+DIFFICULTY: Medium
+QUESTION: Using only the standard list of resistors (1kΩ, 3.3kΩ, 10kΩ, 22kΩ, 51kΩ, 100kΩ), make the following divider ratio using the fewest resistors possible and the lowest DC currents (in that order): ≈1 : 100
+
+---QUESTION 11---
+ID: 11
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Circuits | Resistor dividers | Resistor selection | Standard values | 1:10 ratio | Fewest resistors | Lowest current
+DIFFICULTY: Medium
+QUESTION: Using only the standard list of resistors (1kΩ, 3.3kΩ, 10kΩ, 22kΩ, 51kΩ, 100kΩ), make the following divider ratio using the fewest resistors possible and the lowest DC currents (in that order): ≈1 : 10
+
+---QUESTION 12---
+ID: 12
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Circuits | Resistor dividers | Resistor selection | Standard values | 1:3 ratio | Fewest resistors | Lowest current
+DIFFICULTY: Medium
+QUESTION: Using only the standard list of resistors (1kΩ, 3.3kΩ, 10kΩ, 22kΩ, 51kΩ, 100kΩ), make the following divider ratio using the fewest resistors possible and the lowest DC currents (in that order): ≈1 : 3
+
+---QUESTION 13---
+ID: 13
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Circuits | Thermistors | Positive temperature coefficient | Temperature increase | V2 | Limiting value | Asymptotic behavior
+DIFFICULTY: Medium
+QUESTION: Consider the case where R2 is a thermistor with a positive temperature coefficient (ie, the resistance of the device increases as the temperature increases). For this particular thermistor, assume that the temperature in Kelvin (T) and resistance(R) follow R = AT + B where A and B are constants. What value would V2 approach as the temperature increases?
+
+---QUESTION 14---
+ID: 14
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Circuits | Thermistors | Positive temperature coefficient | Temperature decrease | V2 | Limiting value | Asymptotic behavior
+DIFFICULTY: Medium
+QUESTION: What value would V2 approach as the temperature decreases?
+
+---QUESTION 15---
+ID: 15
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Circuits | Thermistors | V2 expression | Temperature | Vin | R1 | T | Functional relationship
+DIFFICULTY: Medium
+QUESTION: Write an expression for V2 in terms of Vin, R1, and T.
+
+---QUESTION 16---
+ID: 16
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Circuits | Potentiometers | Rmin | Minimum resistance | Wiper position | Location
+DIFFICULTY: Low
+QUESTION: Assuming Rmin is the smallest resistance between nodes 1 and 2, which location on the potentiometer corresponds to a resistance of Rmin between nodes 1 and 2?
+
+---QUESTION 17---
+ID: 17
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Circuits | Potentiometers | Rmax | Maximum resistance | Wiper position | Location
+DIFFICULTY: Low
+QUESTION: Assuming Rmax is the largest resistance between nodes 1 and 2, which location on the potentiometer corresponds to a resistance of Rmax between nodes 1 and 2?
+
+---QUESTION 18---
+ID: 18
+POINTS: 3.00
+FORMAT: Short Answer
+TOPIC: Circuits | Potentiometers | Thermal failure | Power density | Wiper position | Constant voltage | Maximum power
+DIFFICULTY: High
+QUESTION: In what wiper position is the potentiometer most likely to thermally fail assuming that voltage across the potentiometer is constant? (ie, when is the thermal density the highest?)
+
+---QUESTION 19---
+ID: 19
+POINTS: 3.00
+FORMAT: Short Answer
+TOPIC: Circuits | Potentiometers | Resistance function | Position | R = ρL/A | Resistivity | Length | Area
+DIFFICULTY: Medium
+QUESTION: Using the equation R = ρL/A, write an expression for the resistance of the potentiometer as a function of the position around the loop. (The position of the potentiometer is defined as x = 0 on the left end of the loop and x = L at the right end.)
+
+---QUESTION 20---
+ID: 20
+POINTS: 4.00
+FORMAT: Graph
+TOPIC: Circuits | Potentiometers | Wiper position vs time | Resistance vs time | Graph | Relationship
+DIFFICULTY: Medium
+QUESTION: Graph the position of the wiper vs time that would needed to generate the resistance vs time graph in the figure above.
+
+---QUESTION 21---
+ID: 21
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Circuits | AC | Alternating current | Definition | Abbreviation
+DIFFICULTY: Low
+QUESTION: What does AC stand for?
+
+---QUESTION 22---
+ID: 22
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Circuits | Resistor dividers | AC generation | Amplitude | Rmin | R1 | Maximization
+DIFFICULTY: Medium
+QUESTION: What must be true about the value of Rmin compared to R1 for the amplitude to be maximized?
+
+---QUESTION 23---
+ID: 23
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Circuits | Resistor dividers | AC generation | Amplitude | Rmax | R1 | Maximization
+DIFFICULTY: Medium
+QUESTION: What must be true about the value of Rmax compared to R1 for the amplitude to be maximized?
+
+---QUESTION 24---
+ID: 24
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Circuits | AC generation | Period | Frequency | American grid | 60 Hz | t1 | t2
+DIFFICULTY: Medium
+QUESTION: What is the period of V1 with this changing resistance (in terms of t1 and t2)? What would this period have to be in order to generate an AC signal with the same frequency as the American grid?
+
+---QUESTION 25---
+ID: 25
+POINTS: 3.00
+FORMAT: Graph/Sketch
+TOPIC: Circuits | Resistor dividers | V1 graph | AC signal | Resistance graph | Relationship | Shape
+DIFFICULTY: Medium
+QUESTION: Sketch the graph of V1 for this changing resistance. Be sure to show how the shape is the same or different as the resistance graph.
+
+---QUESTION 26---
+ID: 26
+POINTS: 1.00
+FORMAT: Yes/No
+TOPIC: Circuits | AC source | Quality | Evaluation | Good AC source
+DIFFICULTY: Low
+QUESTION: Is this a good AC source? (Y/N)
+
+---QUESTION 27---
+ID: 27
+POINTS: 4.00
+FORMAT: Short Answer
+TOPIC: Electromagnetism | Motors | Magnetic flux | Rotation | Maximum | Minimum | Loop | Permanent magnet
+DIFFICULTY: Medium
+QUESTION: At what points in the magnet's rotation is the magnetic flux through the plane of the loop the largest? The smallest?
+
+---QUESTION 28---
+ID: 28
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Electromagnetism | Faraday's law | Induced current | Changing flux | Lenz's law
+DIFFICULTY: Medium
+QUESTION: Since the magnetic flux is changing, an opposing current is induced in the wires. What law defines this behavior?
+
+---QUESTION 29---
+ID: 29
+POINTS: 3.00
+FORMAT: Short Answer
+TOPIC: Electromagnetism | Motors | Number of poles | Peak flux | Magnetic poles | Rotation
+DIFFICULTY: Medium
+QUESTION: If the number of poles in the permanent, rotating magnet are increased, what happens to the peak flux seen through the loop?
+
+---QUESTION 30---
+ID: 30
+POINTS: 3.00
+FORMAT: Short Answer
+TOPIC: Electromagnetism | Maxwell's equations | Odd number of poles | Magnetic poles | Gauss's law for magnetism
+DIFFICULTY: High
+QUESTION: Can there ever be an odd number of poles present in the rotating magnet? (Y/N). Which of Maxwell's equations confirm this thinking?
+
+---QUESTION 31---
+ID: 31
+POINTS: 2.00
+FORMAT: Calculation
+TOPIC: Circuits | Capacitance | PCB | Coupled capacitance | vsig1 | vsig2 | Parallel plates | C = εA/d
+DIFFICULTY: Medium
+QUESTION: What is the coupled capacitance between vsig1 and vsig2? (Given: thickness d = 1.5mm, relative dielectric constant εr = 4.5, area = 20mm²)
+
+---QUESTION 32---
+ID: 32
+POINTS: 2.00
+FORMAT: Calculation
+TOPIC: Circuits | Capacitance | PCB | Coupled capacitance | vsig1 | GND | Parallel plates | C = εA/d
+DIFFICULTY: Medium
+QUESTION: What is the coupled capacitance between vsig1 and GND? (Given: thickness d = 1.5mm, relative dielectric constant εr = 4.5, area = 10mm²)
+
+---QUESTION 33---
+ID: 33
+POINTS: 2.00
+FORMAT: Calculation
+TOPIC: Circuits | Capacitance | PCB | Coupled capacitance | vDD | GND | Parallel plates | C = εA/d
+DIFFICULTY: Medium
+QUESTION: What is the coupled capacitance between vDD and GND? (Given: thickness d = 1.5mm, relative dielectric constant εr = 4.5, area = 40mm²)
+
+---QUESTION 34---
+ID: 34
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Circuits | Capacitance | PCB | vsig2 | GND | Small capacitance | Dielectric constant | Material properties
+DIFFICULTY: Medium
+QUESTION: Give an equality in terms of εr for two different materials that illustrates one reason the coupled capacitance between vsig2 and GND is very small.
+
+---QUESTION 35---
+ID: 35
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Circuits | PCB | Current capacity | vsig1 | vDD | Area | Comparison
+DIFFICULTY: Low
+QUESTION: Is vsig1 or vDD able to carry more current?
+
+---QUESTION 36---
+ID: 36
+POINTS: 3.00
+FORMAT: Short Answer
+TOPIC: Circuits | Capacitance | Fringing fields | PCB | Edge effects | Location
+DIFFICULTY: Medium
+QUESTION: Where, in relation to the planes, would there actually be large fringing fields in this figure?
+
+---QUESTION 37---
+ID: 37
+POINTS: 1.00
+FORMAT: Graph/Sketch
+TOPIC: Circuits | Clock signal | Square wave | Edge | Sketch | 0V to vDD
+DIFFICULTY: Low
+QUESTION: Sketch the clock edge described in the statement above. (A square wave with sharp edges that can be modeled as though vsig1 started at 0V and then quickly steps to vDD)
+
+---QUESTION 38---
+ID: 38
+POINTS: 3.00
+FORMAT: Short Answer
+TOPIC: Circuits | RC circuit | Time constant | Resistance | Capacitance | Modeling | Clock edge
+DIFFICULTY: Medium
+QUESTION: Given that any connection between two points using metal will have resistance, what type of circuit can model the shape of the clock edge including both the resistive and capacitive parameters?
+
+---QUESTION 39---
+ID: 39
+POINTS: 4.00
+FORMAT: Calculation
+TOPIC: Circuits | RC circuit | Time constant | τ | Resistance | Capacitance | 50mΩ | GND
+DIFFICULTY: Medium
+QUESTION: Using your answer to the previous question (and assuming that the combined resistance seen by vsig1 is 50mΩ), what is the time constant to GND for this modeling circuit?
+
+---QUESTION 40---
+ID: 40
+POINTS: 4.00
+FORMAT: Calculation
+TOPIC: Circuits | RC circuit | Maximum frequency | 4τ | Stabilization | Clock frequency | Edge resolution
+DIFFICULTY: High
+QUESTION: Given that a system generally stabilizes within 4τ, what is the maximum frequency that the clock can change at before the edges don't resolve before switching?
+
+---QUESTION 41---
+ID: 41
+POINTS: 2.00
+FORMAT: Yes/No
+TOPIC: Circuits | Capacitive coupling | Current | ic = CΔV/Δt | Faster signal | vsig1 | vsig2
+DIFFICULTY: Medium
+QUESTION: Since vsig1 is a high speed node (ie, the voltage of the node changes quickly), there is current generated in vsig2 according to ic = CΔV/Δt. Would this current be larger for a faster signal? (Y/N)
+
+---QUESTION 42---
+ID: 42
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Circuits | Capacitive coupling | Accuracy | vsig2 | Amplitude | Large | Small | Problem severity
+DIFFICULTY: Medium
+QUESTION: Is this resulting current a larger problem for the accuracy of vsig2 if vsig2 is large in amplitude or small in amplitude?
+
+---QUESTION 43---
+ID: 43
+POINTS: 3.00
+FORMAT: Short Answer
+TOPIC: Circuits | Capacitance | Constant voltage | vDD | GND | Current generation | ΔV = 0 | Equation
+DIFFICULTY: Medium
+QUESTION: VDD is generally considered to be a constant supply voltage. Will the capacitance between VDD and GND generate any currents as in the previous subparts? Write an equation to support your answer.
+
+---QUESTION 44---
+ID: 44
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Circuits | Op-amps | KVL | Kirchhoff's Voltage Law | vin | va | vx | Loop equation
+DIFFICULTY: Medium
+QUESTION: Use Kirchhoff's Voltage Law (KVL) to express an equation for the voltages in this circuit (vin, va, and vx). Express each term in the loop explicitly. (The magic box has properties: inputs are high resistance, output v0 = A(v+ − v−) where A is the gain.)
+
+---QUESTION 45---
+ID: 45
+POINTS: 3.00
+FORMAT: Short Answer
+TOPIC: Circuits | Op-amps | KCL | Kirchhoff's Current Law | Node va | Current balance | vin | va | vx
+DIFFICULTY: Medium
+QUESTION: Write the current balance equation for node va using Kirchhoff's Current Law (KCL) in terms of voltages only (vin, va, and vx).
+
+---QUESTION 46---
+ID: 46
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Circuits | Op-amps | vx | Function | vin | va | vx | Output voltage
+DIFFICULTY: Medium
+QUESTION: Write vx as a function of the voltages (vin, va, and vx).
+
+---QUESTION 47---
+ID: 47
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Circuits | Op-amps | Combining equations | va | vin | A | R1 | R2 | System parameters
+DIFFICULTY: Medium
+QUESTION: Combine (but don't simplify yet) the two equations above to get a single equation with only va, vin, and system parameters (A, R1, R2).
+
+---QUESTION 48---
+ID: 48
+POINTS: 4.00
+FORMAT: Calculation
+TOPIC: Circuits | Op-amps | Solving | va | vin | A | R1 | R2 | Algebra
+DIFFICULTY: High
+QUESTION: Solve the equation above for va in terms of vin and system parameters (A, R1, R2).
+
+---QUESTION 49---
+ID: 49
+POINTS: 3.00
+FORMAT: Short Answer
+TOPIC: Circuits | Op-amps | Large gain | A → ∞ | va | Limiting value | Virtual short
+DIFFICULTY: Medium
+QUESTION: For very large gains (ie, A →∞), what is va?
+
+---QUESTION 50---
+ID: 50
+POINTS: 4.00
+FORMAT: Calculation
+TOPIC: Circuits | Op-amps | v0 | Output voltage | vin | A | R1 | R2 | Solving
+DIFFICULTY: High
+QUESTION: Write and solve an equation for v0 in terms of vin and system parameters (A, R1, R2).
+
+---QUESTION 51---
+ID: 51
+POINTS: 3.00
+FORMAT: Short Answer
+TOPIC: Circuits | Op-amps | Large gain | A → ∞ | v0 | Limiting value | Gain formula
+DIFFICULTY: Medium
+QUESTION: For very large gains (ie, A →∞), what is vo?
+
+---QUESTION 52---
+ID: 52
+POINTS: 4.00
+FORMAT: Short Answer
+TOPIC: Circuits | Op-amps | Virtual short | v+ | v- | Input voltages | Condition | Large gain
+DIFFICULTY: High
+QUESTION: Using your understanding of this box, what would be a condition on the input voltages (v+ and v−) that could replace using the limit on A?
+
+---QUESTION 53---
+ID: 53
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Physics History | Scientists | Coulomb | 1/r^2 dependence | Electrostatics | Laws
+DIFFICULTY: Low
+QUESTION: Answer with the first letter of the scientist(s) from the rules ((A)mpere, (C)oulomb, (K)irchhoff, (V)olta, (O)hm, (T)esla, (F)araday) that satisfy: The law directly named after them has a 1/r^2 dependence.
+
+---QUESTION 54---
+ID: 54
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Physics History | Scientists | Ampere | 1/r dependence | Magnetic fields | Laws
+DIFFICULTY: Medium
+QUESTION: Answer with the first letter of the scientist(s) from the rules ((A)mpere, (C)oulomb, (K)irchhoff, (V)olta, (O)hm, (T)esla, (F)araday) that satisfy: The law directly named after them has a 1/r dependence.
+
+---QUESTION 55---
+ID: 55
+POINTS: 5.00
+FORMAT: Short Answer
+TOPIC: Physics History | Scientists | Steady state | No time dependence | Kirchhoff | Ohm | Laws
+DIFFICULTY: Medium
+QUESTION: Answer with the first letter of the scientist(s) from the rules ((A)mpere, (C)oulomb, (K)irchhoff, (V)olta, (O)hm, (T)esla, (F)araday) that satisfy: The law named directly after them is useful in steady state (ie, has no time dependence).
+
+---QUESTION 56---
+ID: 56
+POINTS: 3.00
+FORMAT: Short Answer
+TOPIC: Physics History | Scientists | France | Ampere | Coulomb | Work location
+DIFFICULTY: Low
+QUESTION: Answer with the first letter of the scientist(s) from the rules ((A)mpere, (C)oulomb, (K)irchhoff, (V)olta, (O)hm, (T)esla, (F)araday) that satisfy: They did most of their work in France.
+

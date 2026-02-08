@@ -1,0 +1,501 @@
+ 
+2025-2026 Hawk & Hornet Invitational 
+Disease Detectives C 
+EXAM BOOKLET 
+DO NOT WRITE  
+ON THESE PAGES! 
+ 
+ 
+Total Score: ___ / 108 
+ 
+ 
+Instructions & Information 
+-​
+50 minutes will be given for the exam 
+-​
+Each team may bring writing utensils, two Class II calculators, and one (1) 8.5" x 11" sheet of paper that may 
+contain information on both sides in any form and from any source. The sheet of paper may be laminated or 
+placed in a sheet protector to increase durability. Affixed labels, as well as multiple sheets of paper (whether in a 
+single sheet protector or not) are prohibited. 
+-​
+Points will not be deducted for rounding IF numbers are recognizable. To be safe, round to the nearest 
+hundredth for questions. 
+-​
+Partial credit will not be given for work. 
+-​
+Tiebreakers will be denoted with [TB#] and will be in the following order: 11, 18, 23, 26, 38 
+ 
+Good luck! 
+ 
+ 
+ 
+ 
+
+ 
+CLASS COPY - DO NOT WRITE ON THESE PAGES! 
+ 
+Section I: Background & Surveillance 
+ 
+Match the following terms to the definitions to which they best correspond. 
+ 
+1.​
+_______ Fomite. 
+ 
+2.​ _______ Host factor. 
+ 
+3.​ _______ Herd 
+immunity. 
+ 
+4.​ _______ Incidence. 
+ 
+5.​ _______ Subclinical. 
+ 
+6.​ _______ Prevalence. 
+ 
+7.​
+_______ Risk. 
+ 
+8.​ _______ Zoonosis. 
+ 
+9.​ _______ Efficacy. 
+ 
+A. Indirect protection from an infectious disease that happens when a population is immune either 
+through vaccination or experience of a previous infection. 
+B. The number of cases of disease having their onset during a prescribed period of time. 
+C. Diseases which can spread between people and animals 
+D. An inanimate object that can be the vehicle for the transmission of an infectious agent. 
+E. The number of cases of a disease, number of infected people, or number of people with some 
+other attribute present during a particular interval of time. 
+AB. The probability that an event will occur. 
+AC. Without apparent symptoms. 
+AD. Items such as age, ethnicity, or behaviors which affect one's exposure, susceptibility, or 
+response to an agent. 
+AE. The ability of an intervention or program to produce the intended or expected results under 
+ideal conditions. 
+ 
+ 
+10.​ True (A) / False (B): Receiving lyme disease from a tick bite is an example of a direct contact for disease transmission. 
+ 
+11.​  [TB#1] True (A) / False (B): One’s BMI can be considered a continuous variable. 
+ 
+12.​ True (A) / False (B): Examples of enabling factors include poor nutrition and low income. 
+ 
+13.​ True (A) / False (B): Iatrogenic diseases are those caused by medical or diagnostic procedures. 
+ 
+14.​ True (A) / False (B): Falls are the current (2025) leading cause of death in the U.S. 
+ 
+ 
+ 
+15.​ Symptoms of bacterial foodborne illnesses may still be 
+exhibited by individuals who eat food with no live 
+bacterial populations. This is due to the presence of: 
+a.​ The placebo effect 
+b.​ Mycrotoxins 
+c.​ Enterotoxins 
+d.​ Vectors 
+ 
+16.​ National regulations which dictate the amount of 
+acceptable heavy metals in certain foods is an example 
+of: 
+a.​ Primary prevention 
+b.​ Secondary prevention 
+c.​ Tertiary prevention 
+d.​ Quaternary prevention 
+17.​ John Snow was an epidemiologist credited with the 
+tracing of a _______ outbreak to a well in London. 
+a.​ Colitis 
+b.​ Salmonella 
+c.​ Cholera 
+d.​ Syphilis 
+18.​  [TB#2] Which of the following is not a component of the 
+epidemiological triangle? 
+a.​ Host 
+b.​ Environment 
+c.​ Agent 
+d.​ Time 
+ 
+ 
+ 
+Disease Detectives C EXAM 
+1 / 6 
+2025 Hawk & Hornet C
+ 
+ 
+
+ 
+CLASS COPY - DO NOT WRITE ON THESE PAGES! 
+ 
+19.​ To what type of study is a McNemar test applicable to? 
+a.​ Cross-sectional 
+b.​ Case-control 
+c.​ Cohort 
+d.​ More than one of the above 
+ 
+20.​What does VAERS stand for? 
+a.​ Vaccine Adverse Event Reporting System 
+b.​ Vector and Endemic Regulatory Sites 
+c.​ Veterans Affairs External Report System 
+d.​ Vaccine and Environment Repertoire Scale 
+ 
+21.​ What type of surveillance does VAERS utilize? 
+a.​ Active surveillance 
+b.​ Passive surveillance 
+c.​ Sentinel surveillance 
+d.​ Clinical surveillance 
+ 
+22.​A study is conducted and it is found that those who 
+remained in the study tend to have more minor forms of a 
+disorder than those who withdrew. This scenario is an 
+example of: 
+a.​ Information bias 
+b.​ Berkson's bias  
+c.​ Observer bias  
+d.​ Recall bias 
+ 
+23.​ [TB#3] Subjects in an insomnia study act differently 
+because they know they are being monitored. This is due 
+to:  
+a.​ Interviewer bias  
+b.​ The Hawthorne effect  
+c.​ Selection bias  
+d.​ The placebo effect 
+ 
+24.​This type of test is applicable to small samples (n < 30) to 
+test for significant association between two categorical 
+variables. It often involves a 2x2 contingency table. 
+a.​ Z-test 
+b.​ T-test  
+c.​ McNemar test  
+d.​ Fisher's Exact test 
+25.​Measures designed to preserve health are known as: 
+a.​ Metaphalaxis 
+b.​ Epistaxis 
+c.​ Prophylaxis 
+d.​ Anaphylaxis 
+26.​ [TB#4] Latency describes the time between _______ 
+and infectiousness. 
+a.​ Exposure 
+b.​ Display of symptoms 
+c.​ Incubation 
+d.​ None of the above 
+27.​ Who was responsible for first quantifying factors such as 
+birth, death, and disease occurrence in 1662? 
+a.​ John Snow 
+b.​ John Graunt 
+c.​ William Farr 
+d.​ Irving Langmuir 
+28.​Which of the following diseases is not bacterial in origin? 
+a.​ Botulism  
+b.​ Shigella  
+c.​ Histoplasmosis  
+d.​ MRSA  
+29.​A certain experiment involves having anonymous test 
+subjects randomly assigned to researchers who then 
+administer placebo or a new drug X (the researchers are 
+unaware of which they are administering). Raw data from 
+this trial is then reported to another team of researchers 
+who are not told about the experimental conditions 
+present. In this case, this experiment is best described as: 
+a.​ Open 
+b.​ Single-blind 
+c.​ Double-blind 
+d.​ Triple-blind 
+ 
+Match the following components of the chain of transmission to the example which they best exemplify 
+ 
+30.​ _______ Portal of entry. 
+ 
+31.​ _______ Mode of transmission. 
+ 
+32.​_______ Portal of exit. 
+ 
+33.​ _______ Reservoir. 
+ 
+34.​ _______ Infectious agent. 
+ 
+35.​_______ Susceptible host. 
+A. Candida albicans (fungus). 
+B. Healthcare workers who carry Candida on their skin. 
+C. IV catheter insertion sites in healthy patients. 
+D. Sweat containing Candida of infected healthcare workers. 
+E. Contaminated medical equipment. 
+AB. An immunocompromised patient in the ICU. 
+ 
+ 
+Disease Detectives C EXAM 
+2 / 6 
+2025 Hawk & Hornet C
+ 
+ 
+
+ 
+CLASS COPY - DO NOT WRITE ON THESE PAGES! 
+ 
+Sections II & III: Outbreak Investigation & Patterns, Control, Preventation 
+ 
+Identify whether the following descriptions correspond best to a case-control study (A), cohort study (B), cross-sectional study (C), or 
+experimental (D) study. Some labels may be used more than once, while some may not be used at all. 
+ 
+36.​_______ Investigators start by enrolling a group of people with disease. The investigator then enrolls a group of people 
+without disease. Investigators then compare previous exposures between the two groups. 
+ 
+37.​ _______ The epidemiologist records whether each study participant is exposed or not, and then tracks the participants to 
+see if they develop the disease of interest. 
+ 
+38.​ [TB#5] _______ A sample of persons from a population is enrolled and their exposures and health outcomes are 
+measured simultaneously. 
+ 
+39.​ ________ Individuals diagnosed with a new strain of Brainrot disease are asked how often they go outside the house, 
+speak to friends, etc. Two times the number of individuals without this disease are also asked the same set of questions, 
+with their responses being compared. 
+ 
+40.​ ________ A random, representative sample of residents of the city of Troy are called and asked how often they exercise 
+each week. They are then asked whether they have ever been diagnosed with narcolepsy. 
+ 
+41.​ ________ Subjects from a children's hospital are randomly given one of two new vaccines against measles. The subjects' 
+parents would then be called a week later for a follow-up survey for side effects by attending nurses. 
+ 
+42.​_______ A randomized control trial is an example of this type of study. 
+ 
+ 
+ 
+Case Study 1: You are hosting a party at a town known as Dirtmouth. Unfortunately, 
+some of the 203 total attendees report feeling hopelessness, bloat, fever, chills, 
+and vomiting for a week after the party. You suspect that some punch served at the 
+party may be the cause for this sickness. Of the 150 partygoers who drank the 
+punch, 67 became sick for up to 72 hours afterwards. Though, 36 other partygoers 
+also reported being sick even when they did not drink the punch. 
+ 
+ 
+43.​ [4 pts] Write hypotheses based on this scenario for a chi-squared test.​
+ 
+44.​ [2 pts] How many degrees of freedom would be applicable to this chi-squared test?  
+ 
+45.​Calculate the incidence rate among partygoers who drank the punch.  
+ 
+46.​Calculate the odds ratio for this scenario.  
+ 
+47.​ Calculate the relative risk for this scenario.  
+ 
+48.​ Based on your calculations, is it likely that the symptoms reported by attendees are due to the punch offered at the party?  
+ 
+ 
+ 
+Disease Detectives C EXAM 
+3 / 6 
+2025 Hawk & Hornet C
+ 
+ 
+
+ 
+CLASS COPY - DO NOT WRITE ON THESE PAGES! 
+ 
+Pseudoscience Study! In 1998, Andrew Wakefield published a study in The Lancet claiming a link between the MMR vaccine and 
+autism. It described a small group of patients (12 children) who shared certain clinical features– gastrointestinal symptoms and 
+developmental regression (autism-like symptoms)- after receiving the MMR vaccine. 
+ 
+The study was later found to be fraudulent; Wakefield had undisclosed conflicts of interest and manipulated data. Multiple 
+large-scale studies found no link between vaccines and autism. In 2010, The Lancet fully retracted the paper, and Wakefield lost his 
+medical license. Despite this, the claim sparked a persistent conspiracy theory that fueled vaccine hesitancy, particularly in the U.S. 
+and U.K., and continues to impact public health efforts today. 
+ 
+Multiple lines of evidence demonstrate that vaccination, including the MMR vaccine, is not causally linked to autism. The onset of 
+autism symptoms is not related to the timing of vaccination, and the incidence of autism does not increase with the number of 
+vaccines received. Follow-up studies show no significant rise in blood mercury levels (something believed to cause 
+neurodevelopmental issues) after vaccination. Autism also occurs in unvaccinated children, and not every child who receives the 
+MMR vaccine develops autism.  
+ 
+Scenario above is adapted from Effiong (2016) with supplemental data from Rao & Andrade (2011) doi: 10.4103/0019-5545.82529. 
+ 
+49.​ [2 pts] What kind of study was originally employed by Wakefield?  
+ 
+50.​Identify one flaw present with this type of study in general.  
+ 
+ 
+Identify details provided above which correspond to the following components of Hill’s criteria which are NOT met in Wakefield’s 
+claims. 
+ 
+51.​ Consistency.  
+ 
+52.​Specificity.  
+ 
+53.​Temporarily.  
+ 
+54.​Biological gradient.  
+ 
+55.​Coherence.  
+ 
+56.​Experiment.  
+ 
+ 
+Although randomized control trials are considered the 'gold standard' for evaluating causation, this type of analysis is not always 
+possible. In these cases, other methods such as counterfactual modeling and generalized propensity scoring can be used to 
+supplement other ways to identify causation. 
+ 
+57.​ [2 pts] Identify two downsides to randomized control trials.  
+ 
+58.​Briefly define what counterfactual modeling is. 
+ 
+ 
+ 
+Disease Detectives C EXAM 
+4 / 6 
+2025 Hawk & Hornet C
+ 
+ 
+
+ 
+CLASS COPY - DO NOT WRITE ON THESE PAGES! 
+ 
+ 
+Case Study 2: In October 2023, the County of 
+San Diego Health and Human Services Agency 
+notified the California Department of Public 
+Health (CDPH) of eight cases of salmonellosis 
+(diarrhea, fever, vomiting, or abdominal pain) in 
+persons who reported consuming brand A raw 
+milk, produced exclusively by dairy farm A.  
+ 
+Several outbreak-associated Salmonella 
+Typhimurium cases were identified through 
+review of standardized salmonellosis case 
+report forms and a search of PulseNet. A 
+graphical representation of the outbreak is 
+generated and displayed to the right. 
+ 
+ 
+ 
+Adapted from Weinstein et al., (2025). doi:
+10.15585/mmwr.mm7427a1.
+ 
+59.​[3 pts] What are the first three steps which should be taken to investigate this outbreak? ​
+ 
+60.​[4 pts] Write a case definition for this outbreak. 
+ 
+61.​ [2 pts] What is the vehicle of this scenario?  
+ 
+62.​[2 pts] Briefly, what is CDC’s PulseNet?  
+ 
+63.​[2 pts] Identify the type of epi-curve classification associated with the outbreak shown.  
+ 
+Further study is conducted, resulting in the data shown below. 
+ 
+Product 
+Type 
+Ill 
+Healthy 
+ 
+ 
+Consumed 
+ 
+Did not 
+consume 
+ 
+Consumed 
+ 
+Did not 
+consume 
+ 
+Milk 
+61 
+ 
+12 
+16 
+42 
+Cheese 
+18 
+ 
+42 
+25 
+29 
+Heavy 
+Cream 
+32 
+ 
+16 
+31 
+19 
+Kefir 
+5 
+ 
+10 
+10 
+6 
+ 
+64.​[3 pts] What method of study is described?  
+ 
+65.​[2 pts] What method of association is appropriate for this 
+study?  
+ 
+Calculate the measure of association for each of the following food 
+items: 
+66.​[2 pts] Milk.  
+ 
+67.​ [2 pts] Cheese. 
+ 
+68.​[2 pts] Heavy cream.  
+ 
+69.​[2 pts] Kefir.  
+ 
+70.​ [2 pts] Calculate and interpret the attack rate for those who did not consume heavy cream from dairy farm A.​
+ 
+71.​ [3 pts] Based on your results, what type of product(s) are the most likely cause of this outbreak?  
+ 
+72.​ [3 pts] Interpret the measure of association calculated for the type of raw milk product which is the most likely cause of this 
+outbreak. 
+ 
+ 
+ 
+Disease Detectives C EXAM 
+5 / 6 
+2025 Hawk & Hornet C
+ 
+ 
+
+ 
+CLASS COPY - DO NOT WRITE ON THESE PAGES! 
+ 
+Case Study 3: Campylobacter jejuni is the most common bacterial cause of diarrheal illness in the United States. Early in the 
+morning of November 15th, you (an epidemiologist) receive a call from Hawk High School. A teacher at this school reports one of 
+the students on their Science Olympiad team has come down sick with a Campylobacter jejuni infection. Six other students on the 
+team have also gone to the doctor and reported having the same infection (for 7 total infected students). The Hawk Science 
+Olympiad team consists of 45 kids.  
+ 
+Hawk Science Olympiad is also good friends with Hornet Science Olympiad, with the two teams having a potluck together relatively 
+recently. Worried about a potential outbreak on your hands, you want to determine where the Campylobacter jejuni infection came 
+from. Lane 1 contains the strain used by PulseNet laboratories as the size standard for PFGE analysis. Another student down with a 
+Campylobacter jejuni from the neighboring Hornet Science Olympiad team is also included in the gel shown (lane 6). All other lanes 
+(2-5, 7-9) come from infected Hawk Science Olympiad students.  
+ 
+Adapted from Ribot et al. (2001), https://doi.org/10.1128/jcm.39.5.1889-1894.2001 
+ 
+73.​ What does PFGE stand for?  
+ 
+74.​ [2 pts] Why might a PFGE gel be used for this case rather 
+than SNP mapping?  
+ 
+75.​ [3 pts] Is it plausible for the infection in the Hawk Science 
+Olympiad students to have originated from the Hornet 
+Science Olympiad student? Briefly explain.  
+ 
+76.​ [2 pts] What type of epidemiological study should you 
+conduct for the most accurate measure of risk of 
+Campylobacter jejuni infection in the Hawk Science 
+Olympiad team?  
+ 
+77.​ [2 pts] If you wanted to determine whether exposure to 
+infected students was linked to illness or not, would you 
+use an odds or a relative risk ratio?  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Disease Detectives C EXAM 
+6 / 6 
+2025 Hawk & Hornet C
+ 
+ 

@@ -1,0 +1,633 @@
+Materials Science C - Materials Science - Rickards Invitational Div. C SATELLITE - 11-01-2025
+Student Answer Sheet (/rickards/ES/AnswerSheet?tid=000G7X)
+Instructions (shown before students start the test)
+Hello! Welcome to the Materials Science C exam for the 2025 Rickards Invitational Satellite Tournament. We hope you enjoy the test! Please read the instructions below carefully.
+1) Out-of-browser time will be monitored, and significant time out of the browser will be considered grounds for disqualification.
+2) Each participant may bring one 8.5" x 11" sheet of paper, which may be in a sheet protector or laminated and may contain information on both sides.
+3) Each participant may bring up to one Class III (or below) calculator.
+4) You will be able to use a printed copy of the Scilympiad Periodic Table, which can be found here: Scilympiad Periodic Table
+(https://scilympiad.com/Data/shared/testRefs/PeriodicTable.png) If you are unable to print this reference before the exam, an image at the beginning of the exam will be provided.
+5) A reference sheet with relevant constants is provided here: MS References (https://drive.google.com/file/d/1_ZeGKP_KyLnnDSc3gOqKOIiycEhr77-8/view?usp=sharing)
+Please ensure you have this document printed out before the exam. If you are unable to print this reference before the exam, an image at the beginning of the exam will be
+provided, but note that you may be at a disadvantage if you do not have access to a printed version throughout the exam.
+6) Each participant will be allowed to have one printed copy of both the periodic table and the constants reference sheet.
+Good luck!
+Introduction (shown after students start the test)
+Hello! Welcome to the Materials Science C exam for the 2025 Rickards Invitational Satellite Tournament. We hope you enjoy the test! Please read the instructions below carefully.
+1) Out-of-browser time will be monitored, and significant time out of the browser will be considered grounds for disqualification.
+2) Each participant may bring one 8.5" x 11" sheet of paper, which may be in a sheet protector or laminated and may contain information on both sides.
+3) Each participant may bring up to one Class III (or below) calculator.
+4) You will be able to use a printed copy of the Scilympiad Periodic Table, which can be found here: Scilympiad Periodic Table
+(https://scilympiad.com/Data/shared/testRefs/PeriodicTable.png). If you are unable to print this reference before the exam, an image at the beginning of the exam will be provided.
+5) A reference sheet with relevant constants is provided here: MS References (https://drive.google.com/file/d/1_ZeGKP_KyLnnDSc3gOqKOIiycEhr77-8/view?usp=sharing)
+Please ensure you have this document printed out before the exam. If you are unable to print this reference before the exam, an image at the beginning of the exam will be
+provided, but note that you may be at a disadvantage if you do not have access to a printed version it throughout the exam.
+6) Each participant will be allowed to have one printed copy of both the periodic table and the constants reference sheet.
+Good luck!
+Reference Materials (if they could not be printed)
+﻿We apologize if the quality was degraded through Scilympiad.
+12/3/25, 2:18 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000G7X
+https://scilympiad.com/rickards/Es/PrevTest?tid=000G7X
+1/21
+
+12/3/25, 2:18 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000G7X
+https://scilympiad.com/rickards/Es/PrevTest?tid=000G7X
+2/21
+
+Section 1: Nanofibers in The Three-Body Problem
+﻿Image Credit: Finception﻿﻿﻿
+In Liu Cixin’s The Three-Body Problem, nanomaterials represent one of the most advanced technologies developed by Earth’s scientists in response to the alien threat posed by the
+Trisolaran civilization. Among these innovations is the Flying Blade, an ultra-strong and incredibly thin nanofiber with mechanical properties so extreme that it is depicted as
+capable of cutting through virtually any material.
+In the novel, Flying Blades were initially fabricated using more rudimentary molecular construction techniques, where molecules were stacked one by one with a molecular probe. A
+you might realize, this is not only tedious but also highly inefficient. Manually arranging molecules was extremely resource-intensive and impractical for large-scale production, and
+so, to address this, researchers transitioned to catalytic self-assembly, which allowed molecules to spontaneously organize into nanofiber structures through specific reaction
+pathways.
+This section will explore the nanofibers created by the Earth civilization, and you will evaluate both their realism and their potential applications (mostly good...but we will also learn
+how NOT to use them) outside of the novel. Before focusing on the fictional case of the Flying Blade, however, we first need to examine nanofibers more generally, specifically
+carbon nanofibers, and develop a theoretical foundation for understanding one-dimensional (1D) nanomaterials. (we will also try to avoid spoilers!)
+12/3/25, 2:18 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000G7X
+https://scilympiad.com/rickards/Es/PrevTest?tid=000G7X
+3/21
+
+1. (0.50 pts)
+Before we proceed with discussing nanofibers, we need to return to the basics: with carbon! 
+How many covalent bonds does a neutral carbon atom typically form in stable organic structures?
+   A)
+2
+   B)
+3
+   C)
+4
+   D)
+5
+2. (1.00 pts)
+Orbital hybridization is a critical concept for understanding the versatility of carbon in organic compounds and nanomaterials. Which of the following statements are correct?
+   A)
+Promotion of an electron from the 2s to the 2p orbital enables carbon to maximize the number of available half-filled orbitals which increases bonding capacity.
+   B)
+In trigonal planar systems, the unhybridized p orbital can overlap side-by-side with others by creating delocalized π bonds.
+   C)
+Linear geometries arise when one 2s and three 2p orbitals hybridize equally, leaving no unhybridized orbitals.
+   D)
+In tetrahedral geometries, the resulting orbitals are equivalent and separated by ~109.5° to minimize electron pair repulsion.
+   E)
+Resonance in conjugated systems is only possible if hybridization leaves at least two orbitals unhybridized.
+   F)
+All orbitals are unhybridized in linear geometry, which prevents σ-bonding from occurring.
+3. (2.00 pts)
+Hybridization is a great model for modeling where electrons are present in carbon, especially when we are considering a single atom or local bonding environments. Molecular
+orbital (MO) theory helps us expand upon the concept of hybridization to explain carbon-based systems.
+Which of the following statements are correct?
+   A)
+In diamond, hybridization accounts for the tetrahedral arrangement of bonds, but only MO theory explains the existence of a wide band gap that makes it an insulator.
+   B)
+In graphene, hybridization explains trigonal planar geometry, while MO theory describes the delocalized π-system that produces semimetallic conductivity.
+   C)
+Carbon nanotubes can be predicted to be semimetallic based on their cylindrical geometry in the hybridization model, but MO theory predicts this based on chirality dependence.
+   D)
+In carbyne chains, sp hybridization explains their linear geometry, but MO theory is required to analyze how two perpendicular π-systems contribute to unusual electronic behavior.
+   E)
+The highest-occupied molecular orbital (HOMO) of benzene is formed by localized sp² hybrid orbitals on each carbon, and the lowest-unoccupied molecular orbital (LUMO)
+corresponds to the unoccupied sp² lobes.
+4. (1.00 pts)
+Now that we understand more about the foundations of carbon chemistry, we can begin to transition towards 1D carbon nanomaterials. Which of the following can be described as
+1D carbon nanomaterials?
+   A)
+Nanowires
+   B)
+Graphene
+   C)
+Fullerenes
+   D)
+Nanorods
+   E)
+Quantum dots
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+12/3/25, 2:18 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000G7X
+https://scilympiad.com/rickards/Es/PrevTest?tid=000G7X
+4/21
+
+5. (2.00 pts)
+Which of the following statements are correct about CNTs and carbyne chains?
+   A)
+In CNTs, sp² hybridization explains the trigonal bonding framework, but only MO theory (applied to rolled graphene) explains why chirality determines metallic vs semiconducting
+behavior.
+   B)
+In carbyne, sp hybridization leaves two orthogonal p orbitals per carbon, which can overlap along the chain to form two perpendicular delocalized pi-systems.
+   C)
+Because every carbon in a CNT is sp²-hybridized, hybridization alone predicts semimetallic behavior in all cases.
+   D)
+The density of states in 1D systems such as CNTs exhibits sharp Van Hove singularities which directly influence their optical absorption spectra.
+   E)
+Carbyne with alternating single-triple bonds is predicted to be more stable than the cumulene form (equal double bonds) because bond-length alternation lowers electronic energy
+by opening a gap.
+   F)
+The σ bond framework in CNTs comes entirely from unhybridized p orbitals, whereas the pi system is derived from sp² hybrid orbitals.
+6. (1.50 pts)
+How does the density of states of a 1D nanomaterial like a carbon nanotube differ from that of bulk materials? Limit your answer to 1-2 sentences.
+7. (2.00 pts)
+The mechanical strength of 1D carbon nanomaterials arises from their bonding and dimensionality. Which of the following statements are correct?
+   A)
+In carbon nanotubes, the strength of sp² σ bonds along the tube walls provides extremely high tensile strength.
+   B)
+Stone-Wales bond rotations are defects that can reduce strength dramatically because they act as local stress concentrators.
+   C)
+The strength of CNTs exceeds that of diamond.
+   D)
+Carbyne chains are predicted to be stiffer (higher tensile modulus) than CNTs.
+8. (1.00 pts)
+Now that we have a little more knowledge about the structure of some 1D nanomaterials, we need to model them quantitatively. Let us model carbon nanofibers as cylinders of
+infinite length and radius r (for now). Using these parameters, derive the surface area to volume ratio of a carbon nanofiber. Only list the formula in your answer.
+9. (2.00 pts)
+If the carbon fiber has a radius of 30 nm and a length of 100 nm, what is the SA:V ratio (with units)? Show your work.
+10. (3.00 pts)
+Although simplified models are great, not everything is a solid cylinder in engineering! Derive the SA:V ratio for a hollow nanofiber of outer radius R and inner radius r and finite
+length L. Given the same parameters in the last question in addition to a fiber thickness of 6 nm, how do the estimates for the proportions compare? Show your work.
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+12/3/25, 2:18 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000G7X
+https://scilympiad.com/rickards/Es/PrevTest?tid=000G7X
+5/21
+
+11. (5.00 pts)
+Congrats! You have now been hired at a nanotechnology firm. Your first project is to design a hollow carbon nanofiber with length of 10 μm. However, given your lab's lithography
+constraints, you must limit the outer radius of your CNF to 200 nm. You are also limited to a cross-sectional area of 700 nm^2 (imagine viewing the CNF from the front). Select a
+value for R that maximizes your SA:V ratio while following all of the constraints. Show your work.
+12. (3.00 pts)
+A species diffuses through this CNF with diffusivity D. Derive the diffusive conductance using Fick's first law.
+13. (1.00 pts)
+Now, let's begin to discuss some of the synthesis strategies used to construct Flying Blade in the novel. To reiterate, Flying Blade was originally made with atom-by-atom
+construction but later shifted to self-assembly. Which of the below answer choices best describes an analagous transition in technique?
+   A)
+Electron-beam lithography of patterned carbon materials to focused ion beam refinement.
+   B)
+Catalytic vapor-liquid-solid (VLS) whisker growth to template-directed CVD synthesis.
+   C)
+AFM to manipulate single molecules to catalytic CVD.
+   D)
+Electrospinning nanofibers to graphitization through high-T pyrolysis.
+14. (1.50 pts)
+Which of the following are some trade-offs that the nanomaterials engineers might have had to face when switching to self-assembly?
+   A)
+Catalytic self-assembly enables greater scalability but often leads to distributions in chirality and defect densities.
+   B)
+Catalytic self-assembly typically produces more uniform chirality across macroscopic lengths than manual assembly.
+   C)
+Molecule-by-molecule assembly is generally faster but suffers from higher grain boundary density.
+   D)
+Both approaches produce fibers with identical defect statistics if the same carbon source is used.
+15. (4.50 pts)
+For a hollow CNF of outer radius R, inner radius r, length L, and Young's modulus E pinned at both ends, derive an expression for the critical buckling load of the nanofiber.
+Compare this to a solid cylinder of radius R. 
+(Mark ALL correct answers)
+12/3/25, 2:18 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000G7X
+https://scilympiad.com/rickards/Es/PrevTest?tid=000G7X
+6/21
+
+16. (3.00 pts)
+A CNF needs to survive a compressive load of 5*10^-8 N without buckling. For R=30nm, r=0, and E=1TPa, what is the maximum allowable length of the CNF to avoid buckling?
+Round to the nearest nanometer.
+17. (1.50 pts)
+Which of the following statements are correct regarding the Weibull modulus?
+   A)
+A higher Weibull modulus means less scatter in strength (i.e. narrower distribution).
+   B)
+A higher Weibull modulus increases characteristic strength directly.
+   C)
+For the same characteristic strength, a higher Weibull modulus makes the size effect weaker. 
+   D)
+The Weibull modulus controls the tail of the Weibull distribution and decreases outliers as you increase its value.
+   E)
+The Weibull modulus depends only on the material properties of the cross-sectional area of a microstructure.
+18. (1.50 pts)
+Using the Weibull survival probability expression, derive an expression for σ0 from the given parameters in the problem.
+19. (2.00 pts)
+Calculate σ0 using the given parameters.
+20. (1.50 pts)
+What is the stress of a single CNF under the load? 
+21. (1.50 pts)
+What is the single-fiber stress required for 99% survival for L=10 m?
+After some thorough engineering of the CNF, you and your fellow engineers want to add another feature to the Flying Blade: its blade ability. For samples of L=1mm, tensile tests
+yielded a median strength of 9.0 GPa and a Weibull modulus of 12. Your goal is to design a 10-meter-long nanofiber to carry a tensile load of 2.0*10^-5 N. Each solid nanofiber was
+constructed with R=30nm. 
+(Mark ALL correct answers)
+12/3/25, 2:18 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000G7X
+https://scilympiad.com/rickards/Es/PrevTest?tid=000G7X
+7/21
+
+22. (1.50 pts)
+Why isn't it possible to use a single fiber for 99% survival? Explain your reasoning.
+23. (2.50 pts)
+How many fibers in parallel are needed for 99% system survival? Write the number ONLY or no credit will be given.
+24. (8.00 pts)
+Your bestie, Wang Miao, has given you a prototype of another CNF design that he believes can outcompete current CSA methods. Your goal is to prove him wrong by performing
+manual and self-assembly experiments on his design to gather tensile strength data at different gauge lengths and evaluate which design will be strong enough to cut through...a
+boat of very dangerous Labubus.
+Your lab already has protocols for manual assembly of his prototype, but you don't yet have a protocol for the self-assembly method. Design a protocol for the self-assembly
+experiment to collect the tensile strength data. Ensure that you include controls, randomization for the Weibull distribution, catalysts and substrates, method of CSA,
+characterization techniques, and testing. 
+25. (10.00 pts)
+After performing your experiment successfully, you collect the below data for both methods:
+Length (L) (mm)
+1
+5
+10
+100
+Manual Assembly
+10.5
+9.8
+9.4
+8.6
+Catalytic Self Assembly
+8.9
+7.5
+6.8
+4.1
+Using a linearized form of the Weibull failure probability, collect values for the Weibull modulus m and characteristic strength σ0 for each method. Show your work and clearly
+indicate axes used. Explain how you used the linearized form to obtain the parameters. 
+26. (4.00 pts)
+Comment on the expected similarities/differences between the values for the Weibull parameters between the two methods.
+27. (6.00 pts)
+Using your derived parameters, what are the characteristic strengths at 99% failure for a single fiber?
+    
+12/3/25, 2:18 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000G7X
+https://scilympiad.com/rickards/Es/PrevTest?tid=000G7X
+8/21
+
+28. (6.00 pts)
+Did you prove Miao wrong? Explain your reasoning.
+29. (4.00 pts)
+Using this structure of graphene and your knowledge of chemistry, is graphene is electrically conductive? Why or why not? (Hint: Go back to Question 1)
+30. (3.00 pts)
+Who were the two scientists awarded the 2010 Nobel Prize in Physics? What was their discovery or achievement that earned them the prize?
+31. (3.00 pts)
+Select all the possible methods of synthesizing graphene.
+Section 2: More Carbon!
+﻿Image Credit: xkcd Comic #2648 (Chemicals)
+12/3/25, 2:18 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000G7X
+https://scilympiad.com/rickards/Es/PrevTest?tid=000G7X
+9/21
+
+   A)
+Mechanical Exfoliation
+   B)
+Solvothermal Synthesis
+   C)
+Chemical Exfoliation
+   D)
+Chemical Vapor Deposition
+   E)
+Hydrothermal Synthesis
+32. (2.00 pts)
+In graphene oxide (GO), which type of functional group is most commonly found on its surface?
+   A)
+Epoxide
+   B)
+Alcohol
+   C)
+Amine
+   D)
+Carboxyl
+33. (2.00 pts)
+Which of the following is a key feature of graphene at the nanoscale that distinguishes it from conventional 3D materials like metals or semiconductors?
+   A)
+It exhibits a distinct quantum Hall effect at room temperature
+   B)
+It has a zero band gap, making it a semimetal
+   C)
+Its electrical properties are temperature dependent
+   D)
+It undergoes a superconductor-to-insulator transition at low temperatures
+34. (2.00 pts)
+How does the surface-to-volume ratio of graphene at the nanoscale affect its potential for use in energy storage devices such as supercapacitors?
+   A)
+It limits the amount of charge that can be stored
+   B)
+It increases the energy density of the device
+   C)
+It results in higher self-discharge rates
+   D)
+It allows for faster charging times due to better charge distribution
+35. (3.00 pts)
+Graphene's unique electronic properties make it an ideal material for use in high-speed electronic devices, such as transistors. The specific type of transistor that benefits from
+graphene's high electron mobility is called a __________ _______ _____.
+36. (1.00 pts)
+Graphene is a single layer of carbon atoms arranged in a two-dimensional lattice, while graphite consists of many layers of graphene stacked together. Graphene is much stronger
+and more conductive than graphite, but graphite is more commonly used in everyday applications like pencils.
+The core of a pencil is made from a mixture of graphite and __________, which gives the pencil its ability to leave marks on paper.
+(Mark ALL correct answers)
+     
+     
+    
+    
+Reference Materials (again)
+We would never make you scroll up to the top! We apologize, again, if the quality was degraded through Scilympiad.
+12/3/25, 2:18 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000G7X
+https://scilympiad.com/rickards/Es/PrevTest?tid=000G7X
+10/21
+
+'
+12/3/25, 2:18 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000G7X
+https://scilympiad.com/rickards/Es/PrevTest?tid=000G7X
+11/21
+
+37. (1.50 pts)
+Which statements correctly describe the physical picture and assumptions of the original Drude model of conduction?
+   A)
+Electrons move freely through a uniform positive background of ions.
+   B)
+Collisions are instantaneous and random and characterized by a relaxation time τ.
+   C)
+Thermal velocity is comparable to drift velocity under typical electric fields.
+   D)
+The model assumes that all conduction electrons participate equally in transport.
+   E)
+The model assumes charge carriers obey Fermi–Dirac statistics.
+38. (1.50 pts)
+The Drude–Sommerfeld model improves upon the Drude model by introducing quantum statistics.
+Which statements describe changes introduced by this extension?
+Section 3: Electrical Conductivity and Scattering
+Just for fun bc why not!
+﻿Image Credit: Wikipedia
+(Mark ALL correct answers)
+12/3/25, 2:18 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000G7X
+https://scilympiad.com/rickards/Es/PrevTest?tid=000G7X
+12/21
+
+   A)
+Electrons occupy energy states up to the Fermi energy at 0 K.
+   B)
+Only electrons near the Fermi surface contribute to electrical conduction.
+   C)
+The Fermi–Dirac distribution replaces the Maxwell–Boltzmann distribution.
+   D)
+The mean free path decreases because of quantum confinement.
+   E)
+The model explains the small electronic contribution to heat capacity.
+39. (4.00 pts)
+Derive the Drude equation of motion:
+beginning with Newton's second law for a single electron in an electric field E. 
+40. (3.00 pts)
+From the Drude equation in the previous question, derive an expression for the average drift velocity of the conduction electrons (v ).
+41. (3.00 pts)
+Derive a value for the drift velocity of copper if an electric field of 1.0 V/m is applied and the relaxation time is known to be 2.5*10
+ s. Round to two significant figures and express
+your answer in scientific notation, filling in the blanks for A and B: A x 10 .
+42. (5.00 pts)
+Define Fermi velocity. Using the same parameters, derive the Fermi velocity for copper and, if applicable, explain any discrepancies between the conduction drift velocity you found
+in the previous question and the Fermi velocity.
+43. (2.50 pts)
+Calculate the Fermi energy of copper. Show your work and round to two significant figures.
+(Mark ALL correct answers)
+     
+    
+d
+-14
+B
+12/3/25, 2:18 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000G7X
+https://scilympiad.com/rickards/Es/PrevTest?tid=000G7X
+13/21
+
+44. (1.50 pts)
+Which statements correctly describe scattering in metals and semiconductors?
+   A)
+Phonon scattering dominates at high temperature.
+   B)
+Impurity scattering dominates at cryogenic temperatures.
+   C)
+Grain boundaries and surfaces can act as scattering centers in thin films.
+   D)
+Increasing carrier effective mass 𝑚∗ decreases conductivity.
+   E)
+Increasing carrier concentration tends to increase conductivity.
+45. (1.50 pts)
+As materials reach the nanometer scale, which of the following effects become significant? (Hint: what are the assumptions of the Drude model?)
+   A)
+Electron wave functions are quantized in confined dimensions.
+   B)
+Mean free path can exceed material dimensions, leading to ballistic transport.
+   C)
+Resistivity decreases linearly with size due to fewer phonons.
+   D)
+Discrete sub-bands form instead of continuous energy bands.
+   E)
+Surface and interface scattering dominate over bulk scattering.
+46. (3.00 pts)
+Electrons in a very thin metallic layer can be modeled as free particles confined in one dimension between two infinite potential walls while moving freely in the other two
+dimensions. 
+Write the allowed energy levels for an electron confined in a quantum well of thickness L. 
+47. (4.00 pts)
+Calculate the energy spacing between the first two subbands of a copper thin film of thickness L = 5 nm. Express your answer as a decimal with units of eV and round to two
+significant figures.
+48. (4.00 pts)
+Compare your answer to the bulk Fermi energy of copper. What does this tell you about the impact of confinement on the copper film? Limit your answer to 1-3 sentences.
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+    
+12/3/25, 2:18 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000G7X
+https://scilympiad.com/rickards/Es/PrevTest?tid=000G7X
+14/21
+
+49. (3.00 pts)
+For what thickness of the film would the energy spacing be equal to kT at T=300K. Express your answer in nm (don't put the units) and round to two significant figures.
+50. (2.00 pts)
+What happens to the system when you decrease spacing below the thickness in the previous question?
+   A)
+The energy spacing increases and begins to exceed kT.
+   B)
+The number of available electronic subbands for conduction decreases.
+   C)
+The system begins to behave more metallic with an increase in conductivity.
+   D)
+Electrons can move more freely because there are fewer scattering events.
+   E)
+The density of states near the Fermi energy becomes discrete rather than continuous.
+   F)
+Quantum tunneling between adjacent layers or barriers may become significant.
+51. (2.00 pts)
+You were mailed a suspicious package containing a sample of black powder, and are requested to analyze it to determine its identity. Using your DIY XRD with CuKα radiation
+(λ=1.54Å) and first-order diffraction, you collect the following diffractogram and label the four largest peaks:
+    
+(Mark ALL correct answers)
+Section 4: Characterization!
+﻿Image Credit: xkcd Comic #3080: Tennis Balls
+12/3/25, 2:18 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000G7X
+https://scilympiad.com/rickards/Es/PrevTest?tid=000G7X
+15/21
+
+Determine the d-spacing associated with the lowest and highest 2θ values. Round your answers to three decimal places and include no units.
+52. (2.00 pts)
+Which lattice type best aligns with the XRD?
+   A)
+cubic
+   B)
+tetragonal
+   C)
+hexagonal
+   D)
+monoclinic
+   E)
+orthorhombic
+53. (2.00 pts)
+Using only the information from the XRD, which lattice type is most probable?
+   A)
+tetragonal
+   B)
+cubic
+   C)
+monoclinic
+   D)
+orthorhombic
+   E)
+hexagonal
+54. (7.50 pts)
+Explain your selection for the previous question and why you eliminated the other lattice types. Limit your answer to 2-3 sentences per lattice type.
+     
+    
+12/3/25, 2:18 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000G7X
+https://scilympiad.com/rickards/Es/PrevTest?tid=000G7X
+16/21
+
+55. (2.50 pts)
+After some further analysis, you determine the (hkl) assignments for each peak to be (002), (-111), (111), and (200).
+What is a Miller index, and what information can it give you about the crystal structure?
+   A)
+A Miller index tells you about the orientation of a family of lattice planes as reciprocals of the intercepts with the unit cell axes.
+   B)
+Planes with higher index magnitudes are generally more closely spaced and therefore scatter at higher diffraction angles.
+   C)
+Negative indices denote planes that cut the axis in the opposite sense through the origin.
+   D)
+Equivalent |h|,|k|,|l| planes can produce different d-spacings if the lattice constants are isotropic.
+   E)
+In a cubic crystal, (002) and (200) describe distinct physical planes separated by different distances.
+56. (8.00 pts)
+Using your selected lattice type, derive the lattice constants from the diffraction peaks. Show all your work and include all relevant equations, calculations, and justifications.
+57. (5.00 pts)
+The Debye-Scherrer equation is a common formula used to calculate the crystallite size and can be found on your reference sheet. The FWHMs (full widths at half maximum) for the
+(-111) and (111) peaks were determined to be 0.0015 and 0.0094, respectively. Take K=0.90 (we will derive this later). Calculate the average crystallite size for the sample. Show you
+work.
+58. (3.00 pts)
+Finally, you collect electron micrographs of your sample and obtain the following images
+1.
+(Mark ALL correct answers)
+12/3/25, 2:18 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000G7X
+https://scilympiad.com/rickards/Es/PrevTest?tid=000G7X
+17/21
+
+2. 
+Each of the images was captured using an _____ microscope, but more specifically, (1) used a ______ _______ microscope and (2) used a ______ ______ microscope.
+59. (2.50 pts)
+Using your reference table, what is the identity of the unknown sample? Enter only the formula name, or Scilympiad will mark it incorrectly.
+60. (1.00 pts)
+What material is commonly used to make quantum dots for electronic and optical applications?
+   A)
+Copper
+   B)
+Silicon
+   C)
+Cadmium selenide
+   D)
+Graphene
+61. (3.00 pts)
+Why do quantum dots exhibit fluorescence when exposed to light?
+62. (1.00 pts)
+A quantum dot in the range of 2-3 nm produces blue light.
+63. (1.00 pts)
+Quantum dots generally exhibit a Stokes shift, meaning that the emission wavelength is shorter than the absorption wavelength.
+     
+     
+    
+    
+Section 5: Quantum Dots!
+﻿Did you know fruit peels can be used to prepare carbon quantum dots?
+   True     
+   False
+   True     
+   False
+12/3/25, 2:18 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000G7X
+https://scilympiad.com/rickards/Es/PrevTest?tid=000G7X
+18/21
+
+64. (1.00 pts)
+Nonradiative recombination decreases the quantum yield of quantum dots.
+65. (2.00 pts)
+The ____ _________ of a nanoparticle in a colloidal suspension is a measure of the electric charge on its surface and is important for predicting the stability of the suspension. It is
+influenced by factors such as particle size, surface charge, and the ionic strength of the surrounding medium.
+66. (1.00 pts)
+Increasing electrolye concentration in a nanoparticle suspension causes the Debye length to decrease.
+67. (1.00 pts)
+Decreasing electrolye concentration in a nanoparticle suspension decreases the barrier to flocculation.
+68. (2.00 pts)
+The DLVO theory explains the interaction between charged nanoparticles in suspension. Which two forces are considered the primary contributors to the total interaction energy in
+the DLVO model?
+69. (4.00 pts)
+What are the two regions that make up the electric double layer (EDL) around a nanoparticle? Describe each region (i.e. What are the key features of each?).
+70. (2.00 pts)
+Describe 2 benefits of conjugating nanoparticles with a polyethylene glycol (PEG) coating.
+   True     
+   False
+Section 6: Nanoparticles!
+﻿Image Credit: xkcd Comic #2856: Materials Scientists
+     
+    
+   True     
+   False
+   True     
+   False
+12/3/25, 2:18 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000G7X
+https://scilympiad.com/rickards/Es/PrevTest?tid=000G7X
+19/21
+
+71. (2.00 pts)
+How does quantum confinement affect the density of states and, consequently, the Curie temperature in magnetic nanoparticles?
+72. (2.00 pts)
+Why does surface spin disorder reduce the saturation magnetization of ultrasmall magnetic nanoparticles?
+73. (2.00 pts)
+How can applying a magnetic field during synthesis influence the anisotropy axis distribution of nanoparticles?
+74. (1.00 pts)
+The magnetic moment of a single magnetic nanoparticle is always fixed in one direction and does not fluctuate at room temperature.
+   True     
+   False
+﻿Reference Materials (yay!)
+﻿We are not heartless.
+12/3/25, 2:18 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000G7X
+https://scilympiad.com/rickards/Es/PrevTest?tid=000G7X
+20/21
+
+The data from the characterization section was derived from the below article:
+Mobarak, M. B., et al. (2022). Synthesis and characterization of CuO nanoparticles derived from waste fish scale (Labeo rohita). Materials Today: Proceedings.
+https://doi.org/10.1016/j.matpr.2022.04.512 (https://doi.org/10.1016/j.matpr.2022.04.512)
+Thank you for taking our test! If you are able to, we would appreciate it if you could fill out this feedback form: https://docs.google.com/forms/d/e/1FAIpQLSe_t5-
+bFDhaHSVW7ajxa3PJJJkNjY4p_WsXW7MBaNulNoHlig/viewform?usp=header (https://docs.google.com/forms/d/e/1FAIpQLSe_t5-
+bFDhaHSVW7ajxa3PJJJkNjY4p_WsXW7MBaNulNoHlig/viewform?usp=header)
+Brycen and Anirudh
+© 2025 - powered by Scilympiad (https://scilympiad.com) | Tournaments (/rickards/Home/Subscribers?sort=t) | Support Us (/rickards/Give)
+Terms of Use (/ToS.html) | Privacy (/Privacy.html) | Cookie Policy (/CookiePolicy.html) | Support (/rickards/Support) | Contact (/rickards/Home/Contact)
+12/3/25, 2:18 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000G7X
+https://scilympiad.com/rickards/Es/PrevTest?tid=000G7X
+21/21

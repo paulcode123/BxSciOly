@@ -12,4 +12,16 @@ README.md
 Plan.txt
 
 # Tests (exclude test files but not the routes)
-test_firebase.py 
+test_firebase.py
+
+# Astronomy search (not needed in production)
+astronomy_search/
+astronomy_search_store/
+
+
+# WikiQA routes (requires astronomy_search)
+routes/wikiqa_routes.py
+
+# Markdown files
+*.md
+**/*.md 

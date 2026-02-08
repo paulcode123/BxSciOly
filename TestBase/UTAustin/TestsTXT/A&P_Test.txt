@@ -1,0 +1,990 @@
+ 
+Anatomy and Physiology C - EXAM PACKET 
+UT Austin Invitational Tournament 2025 
+October 25, 2025 
+_______ / 192 points 
+ 
+Authored by:  
+(EQ) Elaine Qu, University of Michigan, Biochemistry and Biophysics 2025 
+(SV) Sophia Velasco, UCF College of Medicine, M.D. Class of 2029 
+ 
+ 
+Event Parameters: 
+●​ Each team may bring one 8.5” x 11” sheet of paper that may contain information on both 
+sides with two stand-alone non-programmable, non-graphic calculators. 
+●​ There are 170 questions on this exam with a total of 192 points. Point values are denoted 
+throughout the exam. 
+●​ There are 10 tiebreakers on this exam. They will be denoted as TB#. 
+●​ The exam authors do not take credit for any images used for this exam. Credits are 
+attributed to the proper owners. 
+●​ Write your team number and answers in the “Answer Sheet” provided. Please do not write 
+on the exam packets. 
+●​ Good luck and have fun! :) 
+ 
+ 
+ 
+ 
+ 
+
+CLASS SET - PLEASE DO NOT WRITE IN THE EXAM PACKET. 
+I. Nervous System ​
+​
+​
+​
+​
+​
+​
+​
+[68 points] 
+ 
+T/F: Determine if the provided statement is true (T) or false (F). Each is worth one point. (3) 
+ 
+1.​
+The corpus callosum is primarily composed of white matter.  
+2.​ Most strokes are ischemic in nature- meaning their root cause is the blockage of an artery.  
+3.​ TB#1 The Nernst and Goldman-Hodgkin-Katz equations both are rearrangements of the same 
+fundamental relation between charge and permeability of multiple ionic species. 
+ 
+Multiple Choice: Choose the most appropriate answer for the following questions. Each question is 
+worth one point. (15) 
+ 
+4.​ These are the most abundant glial cells 
+found in the CNS. 
+a.​ Oligodendrocytes  
+b.​ Schwann cells  
+c.​ Satellite cells  
+d.​ Astrocytes  
+e.​ Ependymal cells 
+5.​ Node of Ranviers: 
+a.​ Are unmyelinated regions between 
+two adjacent myelinated axon 
+segments 
+b.​ Contains a small amount of Na+ 
+channels  
+c.​ Decreases action potential velocity 
+d.​ A and B 
+e.​ All of the above   
+6.​ Which supporting glial cell transports 
+substances between the blood and the 
+ventricles and is mainly found in the floor 
+of the third ventricle? 
+a.​ Astrocytes 
+b.​ Microglia 
+c.​ Ependymal cells 
+d.​ Tanycytes 
+e.​ Oligodendrocytes 
+7.​ In response to CNS tissue damage, which 
+supporting glial cell is activated in 
+response and proliferates, migrates to the 
+damaged tissue, and releases 
+inflammatory mediators? 
+a.​ Astrocytes 
+b.​ Microglia 
+c.​ Ependymal cells 
+d.​ Tanycytes 
+e.​ Oligodendrocytes 
+8.​ Myelin wraps around nerve axons in a 
+spiral structure and acts as an insulator. 
+Myelin also: 
+a.​ Increases space constant 
+b.​ Increases membrane resistance 
+c.​ Increases membrane capacitance 
+d.​ A and B 
+e.​ All of the above 
+9.​ Which of the following is a risk factor for 
+cerebral palsy? 
+a.​ Preterm birth 
+b.​ Low birth weight 
+c.​ Perinatal asphyxia 
+d.​ A and B 
+e.​ All of the above 
+ 
+ 
+Division C Anatomy & Physiology @ ATX 2025  
+Page 2 of 18
+ 
+
+CLASS SET - PLEASE DO NOT WRITE IN THE EXAM PACKET. 
+10.​ What peripheral nerve layer is the layer 
+around nerve fascicles and contains the 
+blood-nerve barrier? 
+a.​ Endoneurium 
+b.​ Perineurium 
+c.​ Epineurium 
+d.​ None of the above 
+ 
+11.​ What is the conduction velocity of A-alpha 
+fibers? 
+a.​ 60-120 m/s 
+b.​ 2-30 m/s  
+c.​ 3-15 m/s  
+d.​ 0.25-1.5 m/s  
+12.​ What nerve fiber is not myelinated and 
+responsible for the detection and 
+transmission of pain? 
+a.​ A-alpha fibers 
+b.​ A-beta fibers 
+c.​ A-delta fibers 
+d.​ B fibers 
+e.​ C fibers 
+ 
+13.​ Which of the following is an example of an 
+unconventional neurotransmitter? 
+a.​ GABA  
+b.​ Adenosine  
+c.​ Substance P  
+d.​ Neuropeptide Y  
+e.​ Nitric oxide 
+14.​ Which of the following neurotransmitters is 
+mainly synthesized for glutamate via 
+glutamate decarboxylase and is inhibitory? 
+a.​ Aspartate 
+b.​ Dopamine 
+c.​ Endorphins 
+d.​ Enkephalins 
+e.​ GABA 
+15.​ What is the site of action of 
+norepinephrine? 
+a.​ Basal nucleus of Meynert  
+b.​ Substantia nigra  
+c.​ Locus coeruleus 
+d.​ Raphe nucleus  
+e.​ Nucleus accumbens  
+16.​ Increased levels of what neurotransmitter 
+is associated with Parkinson disease? 
+a.​ Acetylcholine 
+b.​ Dopamine  
+c.​ Norepinephrine  
+d.​ Serotonin  
+e.​ GABA  
+17.​ Decreased levels of what neurotransmitter 
+is associated with Alzheimer disease? 
+a.​ Acetylcholine 
+b.​ Dopamine  
+c.​ Norepinephrine  
+d.​ Serotonin  
+e.​ GABA  
+ 
+ 
+ 
+Division C Anatomy & Physiology @ ATX 2025  
+Page 3 of 18
+ 
+
+CLASS SET - PLEASE DO NOT WRITE IN THE EXAM PACKET. 
+ 
+18.​ Which of the following statements is true 
+regarding the etiology of multiple 
+sclerosis? 
+a.​ High vitamin D levels is an 
+environmental risk factor of MS. 
+HLA-DRB11*15 allele presence is 
+associated with an increased risk 
+of MS. 
+b.​ HLA-A*02 allele presence is 
+associated with an increased risk 
+of MS.  
+c.​ A and B 
+d.​ All of the above 
+19.​ TB#2 What medication that is used for 
+multiple sclerosis suppresses T cell activity 
+and leads to decreased proinflammatory 
+cytokines and decreased lymphocyte 
+invasion of the CNS?  
+a.​ Dimethyl fumarate 
+b.​ Teriflunomide 
+c.​ Glatiramer acetate 
+d.​ Interferon beta 
+e.​ Cladribine 
+ 
+Matching: Please refer to image packet (pg. 1). Select the label below which corresponds best to the 
+description provided. Some labels may be used more than once, while some may not be used at all. 
+Each match is worth one point. (8) 
+Resource: University of Michigan - BlueLink Photographic Atlas 
+20.​Parietal lobe.  
+21.​ Frontal lobe.  
+22.​Cerebellum.  
+23.​Generally regarded as 
+the main integration 
+center of sensory 
+information.  
+24.​TB#3 One's working 
+memory and executive 
+control are generally 
+attributed to this lobe.  
+ 
+25.​Degeneration of this structure is associated with memory-related changes in those with 
+Alzheimer’s.  
+26.​Which label aside from Label E does NOT directly contain components of the limbic system?  
+27.​ The type of neurons affected by Amyotrophic Lateral Asclerosis (ALS) are largely 
+concentrated within this region.
+ 
+ 
+Division C Anatomy & Physiology @ ATX 2025  
+Page 4 of 18
+ 
+
+CLASS SET - PLEASE DO NOT WRITE IN THE EXAM PACKET. 
+Fill-in: Complete the sentences with the most appropriate answer. Be as clear and concise as 
+possible. Each is worth one point. (6) 
+ 
+28.​____________ is the main glial cells in cerebral white matter and can myelinate 30 axons on 
+average.   
+29.​____________ promotes repair after nerve injury and myelinates axons of the PNS.  
+30.​Acetylcholine is synthesized from ____________ and acetyl coenzyme A.  
+31.​ Dopamine is both excitatory and inhibitory and involved in initiating ____________.    
+32.​G-protein-gated neurotransmitter receptors is an example of a ____________-gated ion 
+channel.  
+33.​____________ synapses signal between axons.  
+ 
+ 
+Histology: Use the provided slides in the image packet (pg. 1) to answer the following questions. Point 
+values will be denoted. (6) 
+Resource: University of Michigan - Histology 
+ 
+34.​What name is used for the synapse in Slide 1?  
+35.​What is the neurotransmitter used at this synapse?  
+36.​What is the structure encircled by the red dashed line in Slide 2?  
+37.​ This structure in Slide 2 is lined by what type of glial cell ?  
+38.​What is the main product secreted by these glial cells into the ventricular spaces?  
+39.​What are the cells that are stained black in Slide 3?  
+Classification: Determine if the following statements apply to ionotropic receptors or metabotropic 
+receptors. If ionotropic, write I in your answer sheet. If metabotropic, write M. If both, write B. Each is 
+worth one point. (10) 
+ 
+40.​Fast receptor opening time  
+41.​ Signal transduction mechanisms such as G-proteins  
+42.​Receptor and ion channel are separate molecules  
+43.​Short-lasting postsynaptic potential 
+44.​Nicotinic acetylcholine receptor  
+ 
+Division C Anatomy & Physiology @ ATX 2025  
+Page 5 of 18
+ 
+
+CLASS SET - PLEASE DO NOT WRITE IN THE EXAM PACKET. 
+45.​Muscarinic acetylcholine  
+46.​Glutamate receptor  
+47.​ GABAA receptor  
+48.​Histamine receptor  
+49.​Effects are more widespread and persistent throughout cell  
+Toxins: Answer the following questions regarding toxins and their effects on neuron function and 
+signaling. Each is worth one point. (5) 
+ 
+50.​Bacteria inhabiting the gut of puffer fish can produce a neurotoxin called? 
+a.​ Tetrodotoxin 
+b.​ Curare 
+c.​ Botulinum toxin 
+d.​ Anatoxin-a 
+e.​ Tetanus toxin 
+ 
+51.​ Which neurotoxin is also known as Very Fast Death Factor? 
+a.​ Tetrodotoxin 
+b.​ Curare 
+c.​ Botulinum toxin 
+d.​ Anatoxin-a 
+e.​ Tetanus toxin 
+ 
+52.​Curare is a neurotoxin that has been used for centuries by American Indigenes and was 
+known as “arrow poison.” It is a long-acting neuromuscular blocking agent that primarily 
+competes with? 
+a.​ Dopamine 
+b.​ Serotonin 
+c.​ Acetylcholine 
+d.​ Nitric Oxide 
+e.​ Glycine 
+ 
+53.​T/F: The Tetanus toxin acts as a protease and prevents the release of excitatory 
+neurotransmitters from Renshaw cells in the spinal cord. (1)  
+ 
+54.​T/F: The Botulinum neurotoxin is produced by Clostridium botulinum and blocks the release of 
+GABA from the neuromuscular junction. (1)  
+ 
+ 
+Division C Anatomy & Physiology @ ATX 2025  
+Page 6 of 18
+ 
+
+CLASS SET - PLEASE DO NOT WRITE IN THE EXAM PACKET. 
+Labeling: Label the diagram in the image packet (pg. 1). Each is worth one point. (15) Reference: Konan et 
+al. (2023). 
+ 
+55.​A  
+56.​B  
+57.​ C  
+58.​D  
+59.​E  
+60.​F  
+61.​ G  
+62.​H  
+63.​I  
+64.​J  
+65.​K  
+66.​L  
+67.​ M  
+68.​N  
+69.​O  
+ 
+ 
+ 
+ 
+Division C Anatomy & Physiology @ ATX 2025  
+Page 7 of 18
+ 
+
+CLASS SET - PLEASE DO NOT WRITE IN THE EXAM PACKET. 
+II. Sense Organs ​​
+​
+​
+​
+​
+​
+​
+​
+[42 points] 
+ 
+T/F: Determine if the provided statement is true (T) or false (F). Each is worth one point. (5) 
+ 
+70.​The amino acid tryptophan is primarily responsible for the umami flavor of savory food such as 
+meats or cheeses.  
+ 
+71.​ The facial (VII) nerve is responsible for collecting sensations of taste from the largest area of 
+the tongue.  
+ 
+72.​While most odors act via receptors and second messenger systems, some odorants such as 
+ammonia, chlorine, and capsaicin act via the vagus (X) nerve instead. 
+ 
+73.​TB#4 Structures at the base of the cochlea are responsible for sensing low-pitched sounds, 
+while structures at the apex of the cochlea are responsible for sensing high-pitched sounds.  
+ 
+74.​Sound can be transmitted through a vacuum.  
+ 
+ 
+Multiple Choice: Choose the most appropriate answer for the following questions. Each question is 
+worth one point. (14) 
+ 
+75.​  Which of the following is not 
+considered a special sense? 
+a.​ Vision 
+b.​ Hearing 
+c.​ Equilibrium 
+d.​ Stretch 
+e.​ Smell 
+ 
+76.​ Taste buds can be found in all of the 
+following locations with the exception of 
+the: 
+a.​ Tongue 
+b.​ Pharynx 
+c.​ Epiglottis 
+d.​ Soft palate 
+e.​ Hard palate 
+77.​  The bumps on one’s tongue are best 
+described as? 
+a.​ Taste buds 
+b.​ Basal cells 
+c.​ Supporting cells 
+d.​ Lingual papillae 
+e.​ Taste hairs 
+78.​The TRPV1 receptor, responsible for spicy 
+sensations from molecules such as 
+capsaicin, is best described as a: 
+a.​ Thermoreceptor 
+b.​ Photoreceptor 
+c.​ Nociceptor 
+d.​ Mechanoreceptor 
+e.​ More than one of the above  
+ 
+ 
+Division C Anatomy & Physiology @ ATX 2025  
+Page 8 of 18
+ 
+
+CLASS SET - PLEASE DO NOT WRITE IN THE EXAM PACKET. 
+ 
+79.​Most of the tongue’s taste buds can be 
+found on: 
+a.​ Filiform papillae 
+b.​ Foliate papillae 
+c.​ Fungiform papillae 
+d.​ Vallate papillae 
+e.​ Taste buds are equally distributed 
+across all these structures 
+80.​The threshold for tasting _______ flavors 
+is the lowest of all the tastes. 
+a.​ Salty 
+b.​ Sour 
+c.​ Sweet 
+d.​ Umami 
+e.​ Bitter 
+81.​ Which of these structures is not found in 
+the region considered the outer ear? 
+a.​ Auricle 
+b.​ Cerumen 
+c.​ Pinna 
+d.​ Eustachian tube 
+e.​ Lobule 
+82.​Hearing loss caused by severe otitis 
+externa is generally classified as: 
+a.​ Sensorimotor 
+b.​ Sensorineural 
+c.​ Conductive 
+d.​ A mix of the above 
+e.​ None of the above; otitis externa 
+does not affect hearing 
+83.​One may experience discomfort as a plane 
+lifts off and the external air pressure drops. 
+The subsequent pressure increase in the 
+ear is relieved by opening of the: 
+a.​ Auditory canal 
+b.​ Eustachian tube 
+c.​ Oval window 
+d.​ Round window 
+e.​ Nasopharynx  
+84.​The small pit in the eye which contains the 
+highest concentration of cone cells is the: 
+a.​ Optic nerve 
+b.​ Ora serrata 
+c.​ Macula 
+d.​ Fovea 
+e.​ Saccades 
+85.​What structure is the origin of the blood 
+supply for the retina? 
+a.​ Optic nerve 
+b.​ Optic disk 
+c.​ Optic tract 
+d.​ Retinal ganglion 
+e.​ Ciliary muscles 
+86.​Which of the below is most commonly 
+notably reduced in patients with 
+nyctalopia? 
+a.​ Rod cells 
+b.​ Cone cells 
+c.​ Rhodopsin 
+d.​ Bipolar neurons 
+e.​ Melanin 
+87.​ In healthy individuals, which of the 
+following ocular tissues contains blood 
+vessels? 
+a.​ Cornea 
+b.​ Lens 
+c.​ Iris 
+d.​ A and C 
+e.​ All of the above 
+88.​Stimulation of the _______ nervous 
+system results in _______ of the pupil. 
+a.​ Parasympathetic; constriction 
+b.​ Sympathetic; dilation 
+c.​ Somatic; dilation 
+d.​ Parasympathetic; dilation 
+e.​ Sympathetic; constriction 
+ 
+Division C Anatomy & Physiology @ ATX 2025  
+Page 9 of 18
+ 
+
+CLASS SET - PLEASE DO NOT WRITE IN THE EXAM PACKET. 
+Histology: Use the slide in the image packet (pg. 2) to answer the following questions. Point values 
+will be denoted. (7) 
+*Reference: Histology @ Yale 
+ 
+89.​TB#5 Identify Label A. (1)  
+ 
+90.​Identify Label B. (1)  
+ 
+91.​ T/F: Label C contains perilymph. (1)  
+ 
+92.​T/F: The cells at Label D do not send signals which are registered as sounds by the brain. (1)  
+ 
+93.​Which label(s) are components of the spiral organ? (2)  
+ 
+94.​Which label shown corresponds to the basilar membrane? (1)  
+ 
+Histology: Use the slide in the image packet (pg. 2) to answer the following questions. Point values 
+will be denoted. (3)  
+*Reference: Histology @ Yale 
+95.​At which region would one expect to find 
+the nuclei for sustentacular cells? (1)  
+a.​ Region A 
+b.​ Region B 
+c.​ Region C 
+d.​ Region D 
+e.​ Region E 
+96.​At which region would one expect to find 
+microvilli? (1)  
+a.​ Region A 
+b.​ Region C 
+c.​ Region D 
+d.​ Surrounding the nerve bundle 
+e.​ None of the above 
+97.​ T/F: The cells found in Region B are 
+capable of regenerating via cell division if 
+damaged. (1)   
+ 
+ 
+ 
+Division C Anatomy & Physiology @ ATX 2025  
+Page 10 of 18
+ 
+
+CLASS SET - PLEASE DO NOT WRITE IN THE EXAM PACKET. 
+Labeling: Complete the provided diagram in the image packet (pg. 2). Each label is worth one point. 
+(4)  
+98.​Label A.  
+99.​ Label B.  
+ 
+100.​
+Label C.  
+ 
+101.​Label D.  
+Matching: Select the term which corresponds best to the description provided. Some terms may be 
+used more than once, while some may not be used at all. Each match is worth one point. (5)  
+ 
+A. Myopia ​
+​
+B. Hyperopia ​ ​
+C. Presbyopia​ ​
+D. Astigmatism 
+ 
+102.​
+TB#6 Occurs when light is focused in front of the retina.  
+ 
+103.​
+Is associated with unequal refraction of light.  
+ 
+104.​
+Nearby objects are seen as blurry and the eye’s ability to accommodate is reduced.  
+ 
+105.​
+Occurs when the eyeball is too short.  
+ 
+106.​
+Is corrected with concave lenses.  
+ 
+ 
+Fill-in: Complete the sentences with the most appropriate answer. Be as clear and concise as 
+possible. Each is worth one point. (4)  
+ 
+107.​The phototransduction cascade starts with a conversion of the pigment 11-cis ____________ 
+to all-trans ____________ [same word 2X].  
+ 
+108.​
+The previous change results in movement of transducin and hydrolysis of cGMP to GMP 
+by phosphodiesterase. GMP closes Na+ channels which results in the rod cell undergoing a 
+phenomenon known as ____________.  
+ 
+109.​
+The previous conversion results in the rod cell being turned ____________.  
+ 
+110.​When the rod cell is in the aforementioned state, the ____________ to which it is associated 
+with will be activated. This signals to the brain that light is present.  
+ 
+ 
+ 
+Division C Anatomy & Physiology @ ATX 2025  
+Page 11 of 18
+ 
+
+CLASS SET - PLEASE DO NOT WRITE IN THE EXAM PACKET. 
+III. Endocrine System ​ ​
+​
+​
+​
+​
+​
+​
+[52 points]  
+ 
+Multiple Choice: Choose the most appropriate answer for the following questions. Each question is 
+worth one point. (21) 
+ 
+111.​ Which of the following is not a steroid 
+hormone? 
+a.​ Oxytocin  
+b.​ Prolactin  
+c.​ Testosterone 
+d.​ A and B 
+e.​ None of the above 
+  
+112.​Somatostatin is produced by D cells of the 
+stomach and inhibits G cells from secreting 
+gastrin. This is an example of what 
+signaling pathway? 
+a.​ Paracrine 
+b.​ Autocrine 
+c.​ Endocrine 
+d.​ None of the above 
+113.​The thyroid gland cells produce which of 
+the following? 
+a.​ Tetraiodothyronine 
+b.​ Triiodothyronine  
+c.​ Calcitonin  
+d.​ A and B 
+e.​ All of the above 
+ 
+114.​An 11-year-old boy presents to the ER with 
+complaints of polyuria, polydipsia, and 
+polyphagia. His mother claims that her son 
+has lost weight out of nowhere and often 
+complains of being tired. The patient most 
+likely has: 
+a.​ Type 1 Diabetes mellitus  
+b.​ Congenital iodine deficiency 
+c.​ Goiter 
+d.​ Primary hyperaldosteronism 
+115.​There are three major types of pituitary 
+cells. Select the option that matches the 
+pituitary cell type with its correct match. 
+a.​ Acidophil cells - secretes 
+adrenocorticotropic hormone  
+b.​ Acidophil cells - secretes prolactin 
+c.​ Basophilic cells - secretes growth 
+hormone  
+d.​ Basophilic cells - do not secrete 
+hormones  
+116.​How are steroid and thyroid hormones 
+degraded? 
+a.​ They are degraded by enzymes 
+and excreted in the urine. 
+b.​ They are inactivated and 
+conjugated in the liver and 
+excreted in bile. 
+c.​ They undergo proteolytic 
+degradation in the liver. 
+d.​ They undergo proteolytic 
+degradation in the kidneys. 
+117.​Hormones can also be classified based on 
+their solubility. Which of the following 
+hormones can diffuse through the cell 
+plasma membrane and bind to intracellular 
+receptors? 
+a.​ Steroid hormones 
+b.​ Thyroid hormones 
+c.​ Peptide hormones  
+d.​ A and B 
+e.​ All of the above 
+ 
+ 
+Division C Anatomy & Physiology @ ATX 2025  
+Page 12 of 18
+ 
+
+CLASS SET - PLEASE DO NOT WRITE IN THE EXAM PACKET. 
+118.​What layer of the adrenal cortex produces 
+aldosterone? 
+a.​ Zona reticularis 
+b.​ Zona fasciculata 
+c.​ Zona glomerulosa 
+d.​ None of the above. The adrenal 
+cortex does not produce 
+aldosterone. 
+ 
+119.​When the renin-angiotensin-aldosterone 
+system is activated, which of the following 
+is released? 
+a.​ Glucocorticoids 
+b.​ Androgens 
+c.​ Mineralocorticoids 
+d.​ A and B 
+e.​ All of the above 
+120.​
+A 34-year-old woman presents to the 
+ER with palpitations, heat intolerance, and 
+bilateral exophthalmos. She also complains 
+that her menstrual cycle is irregular, 
+feelings of anxiety, and double vision 
+which has impaired her driving. The patient 
+most likely has: 
+a.​ Hashimoto’s 
+b.​ Polycystic ovary syndrome 
+c.​ Hypoglycemia 
+d.​ Graves’ disease 
+ 
+121.​TB#7 A 22-year-old man goes for a 
+check-up due to anxiety, fatigue, and sleep 
+disturbances. During his check-up, he tells 
+his doctor that he noticed he has more 
+stretch marks, his face seems more 
+flushed, and his skin bruises easily. The 
+doctor also notes that the patient is obese, 
+has a round face, and a hump on his upper 
+central back. The patient most likely has: 
+a.​ Hashimoto’s 
+b.​ Myxedema 
+c.​ Central diabetes insipidus 
+d.​ Cushing’s Syndrome 
+122.​
+Which of the following is not a 
+symptom of Addison disease? 
+a.​ Increased libido  
+b.​ Hyperpigmented skin 
+c.​ Hypotension 
+d.​ Metabolic acidosis  
+e.​ All of the above are symptoms of 
+Addison disease. 
+  
+123.​A 53-year-old man was rushed to the ER 
+after fainting. He also presents with tetany, 
+seizures, and a cardiac arrhythmia. When 
+taking his blood pressure using a cuff, you 
+notice that his hand spasmed. Upon 
+reviewing his past medical history, you 
+note that he recently had anterior neck 
+surgery, seizures, and puffy coarse skin. 
+His labs show that he has a total Ca2+ of 
+6.9 mg/dL. The patient most likely has: 
+a.​ Hypoglycemia 
+b.​ Hyperparathyroidism 
+c.​ Hypoparathyroidism  
+d.​ Hyperthyroidism 
+ 
+124.​
+Goiters can be classified based on 
+thyroid function. Increased thyroid 
+hormone production is associated with: 
+a.​ Nontoxic goiter 
+b.​ Toxic goiter 
+c.​ Hypothyroid goiter  
+d.​ All of the above. 
+125.​
+Hypothyroidism effects include: 
+a.​ Decreasing sweating 
+b.​ Cold skin 
+c.​ Decreased prolactin production  
+d.​ A and B 
+e.​ B and C 
+ 
+ 
+Division C Anatomy & Physiology @ ATX 2025  
+Page 13 of 18
+ 
+
+CLASS SET - PLEASE DO NOT WRITE IN THE EXAM PACKET. 
+126.​
+The kidneys play a role in hormone 
+synthesis. In patients with anemia or 
+patients that experience severe blood loss, 
+what hormone will be produced by the 
+kidneys? 
+a.​ Calcitriol 
+b.​ Prostaglandins 
+c.​ Dopamine 
+d.​ Erythropoietin 
+127.​At low doses, what hormone helps in the 
+maintenance of renal blood flow and 
+increases sodium excretion via 
+vasodilation of interlobular arteries, 
+afferent arterioles and efferent arterioles? 
+a.​ Calcitriol 
+b.​ Prostaglandins 
+c.​ Dopamine  
+d.​ Erythropoietin 
+ 
+128.​
+Leptin is a hormone that is mainly 
+produced in adipose tissue. Which of the 
+following statement(s) regarding leptin is 
+correct? 
+a.​ It induces a feeling of satiety. 
+b.​ Lack of sleep increases leptin 
+production. 
+c.​ Leptin production is decreased in 
+states of inflammation. 
+d.​ B and C 
+e.​ None of the above are true. 
+129.​
+Insulin has effects on adipose tissue. 
+Which of the following is an effect of 
+insulin? 
+a.​ Increased glucose intake for 
+lipogenesis 
+b.​ Decreased lipolysis 
+c.​ GLUT4 transporter expression  
+d.​ A and B 
+e.​ All of the above 
+130.​What is the mode of inheritance for 
+congenital adrenal hyperplasia? 
+a.​ Autosomal dominant 
+b.​ Autosomal recessive 
+c.​ X-linked dominant 
+d.​ X-linked recessive 
+e.​ Mitochondrial 
+ 
+131.​21β-hydroxylase deficiency, the most 
+common subtype of congenital adrenal 
+hyperplasia, is associated with: 
+a.​ Primary amenorrhea 
+b.​ Hypotension 
+c.​ Normal female external genitalia at 
+birth  
+d.​ Delayed puberty 17α-hydroxylase 
+deficiency 
+e.​ Male pseudohermaphroditism  
+ 
+T/F: Determine if the following statements are true or false. Each question is worth one point. (10) 
+  
+132.​The liver has insulin-independent glucose uptake.  
+133.​Sweating, tachycardia, confusion, and somnolence are symptoms of hypoglycemia.  
+134.​Increased adipose tissue can lead to increased conversion of androgen to estrogen.  
+135.​
+Insulin is derived from an amino acid.  
+136.​
+Hydrophilic hormones transmit signals by binding to cell membrane receptors. 
+137.​Thyroid hormones (T3 and T4) are derived from cholesterol.  
+ 
+Division C Anatomy & Physiology @ ATX 2025  
+Page 14 of 18
+ 
+
+CLASS SET - PLEASE DO NOT WRITE IN THE EXAM PACKET. 
+138.​Calcitonin is controlled by the hypothalamic-pituitary-thyroid axis.  
+139.​The most common cause of Addison disease in the US is autoimmune adrenalitis.  
+140.​Prostaglandins maintain renal blood flow via vasodilation of efferent arterioles.   
+141.​NSAIDs increase prostaglandin synthesis by blocking COX.  
+ 
+Histology: Use the provided slides in the image packet (pg. 3) to answer the following questions. 
+Point values will be denoted. (13) Resource: University of Michigan - Histology 
+ 
+142.​
+What part of the pituitary gland is shown in Slide 1? (1)  
+143.​There are wavy, fibrous structures present in Slide 1. These structures represent what? (2)   
+144.​The structures in Slide 1 secrete what two hormones? (2)  
+145.​
+State the region of the adrenal gland shown in Slide 2? (1)   
+146.​
+What are the cells shown in Slide 2? (1)   
+147.​T/F: Epinephrine is produced by the cells in Slide 2. (1)   
+148.​T/F: Dopamine is produced by the cells in Slide 2. (1)   
+149.​What gland is shown in Slide 3? (1)  
+150.​
+What cells are marked by the green circles in Slide 3? (1)  
+151.​State two mechanisms of actions of the main secretory protein product released by the cells 
+marked by the blue lines in Slide 3. (2) 
+ 
+ 
+Division C Anatomy & Physiology @ ATX 2025  
+Page 15 of 18
+ 
+
+CLASS SET - PLEASE DO NOT WRITE IN THE EXAM PACKET. 
+Endocrine Disruptors: According to the NIH, endocrine disruptors are natural or man-made chemicals 
+that could interfere with hormones and our body’s endocrine system. They are not only linked to 
+health problems involving people, but also in wildlife. Answer the following questions regarding 
+endocrine disruptors. Complete sentences are not required. (8)  
+ 
+152.​
+Which human-made chemical is used to make polycarbonate plastics and epoxy resins? 
+(1) 
+a.​ DDT 
+b.​ BPA 
+c.​ PFAS  
+ 
+153.​
+For DDT, why does body burden increase with age? (3)  
+ 
+154.​
+Khalil et al. (2016) demonstrated that 95% of U.S. citizens had PFASs present in their blood 
+stream. What are the two main sources of PFASs exposures? (2)   
+ 
+155.​
+T/F: PFASs can enter organisms through the skin and with inhaled polluted air (e.g., dust). 
+(1)  
+ 
+156.​
+T/F: BPA is a compound that is an endocrine disruptor and exhibits estrogenic activity. (1)  
+ 
+ 
+ 
+Division C Anatomy & Physiology @ ATX 2025  
+Page 16 of 18
+ 
+
+CLASS SET - PLEASE DO NOT WRITE IN THE EXAM PACKET. 
+IV. Case Studies ​
+​
+​
+​
+​
+​
+​
+[30 points] 
+ 
+Case 1:  
+A 27-year-old woman presents to the clinic with complaints of nausea, frequent vomiting, and 
+sensitivity to smell. Notably, she visited the same clinic eight months earlier with a fever of 101°F and a 
+severe, persistent headache. She tested positively for SARS-CoV-2 at that time, and then sent home 
+to recover. A re-test for SARS-CoV-2 at her second visit comes back as negative. The physicians find 
+that she has lost significant weight from a reported inability to eat even foods she used to enjoy. (9) 
+Sequeria Rodriguez, P., Santana Ortiz, R., & Ortiz-Hernández, E. (2023). PMID: 36691459 
+ 
+157.​ TB#8 Diagnose the patient with two issues arising from their SARS-CoV-2 exposure. (3)  
+ 
+158.​
+How long do the diagnoses above generally last? In the case of this patient, is it possible 
+for these diagnoses to remain permanent? Briefly explain. (3)  
+ 
+159.​
+T/F: The previous diagnoses generally act completely independently of one another. (1)  
+ 
+160.​
+ What is the specific term used to describe this patient’s report of being unable to eat 
+even familiar, formerly-enjoyable foods due to how they smell? (2)  
+ 
+ 
+ 
+Case 2:  
+You are a third-year medical student on a neurology clerkship rotation. A 63-year-old man walks into 
+the clinic. As he walked, you notice that he had a shuffling gait with quickened and shortened steps. 
+His main concerns were a resting tremor in his hand, dystonia, and a stooped posture. He also said 
+that he often feels imbalanced and he has experienced a fall recently. As the patient is sharing his 
+concerns, you note that he has a low degree of facial expression. (14) Reference: AMBOSS 
+ 
+161.​Diagnose the patient. (1)  
+ 
+162.​
+Patients with this disorder may also experience depressive symptoms. These symptoms 
+are likely caused by? (4) 
+ 
+163.​
+Fill-in: This disease is caused by the progressive ___________ degeneration in the 
+___________ and ___________, leading to the deficiency of ___________ at the receptors 
+of the striatum. (Hint: Some lines do not have a one-word answer.) (4)  
+ 
+164.​
+TB#9 What is the likely cause of dyskinesia in this disease? (3)  
+ 
+165.​
+T/F: Exposure to manganese and low levels of vitamin D are risk factors for this disease.(1)  
+ 
+166.​
+TB#10 T/F: There is currently no cure for this disease. (1)  
+ 
+Division C Anatomy & Physiology @ ATX 2025  
+Page 17 of 18
+ 
+
+CLASS SET - PLEASE DO NOT WRITE IN THE EXAM PACKET. 
+Case 3:  
+A 42-year-old woman presents to the emergency room and has a chief complaint of fatigue, 
+headaches, muscle weakness, polyuria, and polydipsia. She also has been experiencing constipation 
+and palpitations. The staff took her vital signs and she has a blood pressure of 173/118 mm Hg. The 
+patient later reports that she has been experiencing high blood pressure and is also actively taking 
+three antihypertensive medications. On her exam, she has no peripheral edema.  (7)  
+References: AMBOSS; Cobb A, Leslie SW. Primary Hyperaldosteronism. [Updated 2025 May 4]. In: StatPearls [Internet]. Treasure Island (FL): StatPearls 
+Publishing; 2025 Jan-. Available from: https://www.ncbi.nlm.nih.gov/books/NBK539779/ 
+ 
+167.​Diagnose the patient. (1)  
+ 
+168.​
+What are the two most common etiologies for this disease? (2)  
+ 
+169.​
+Patients with this disease are at a heightened cardiovascular risk. State the reason for this 
+risk. (2)  
+ 
+170.​Surgery is an option for treatment of this disease. If a patient cannot undergo surgery, what 
+treatment is recommended? (2)  
+ 
+Division C Anatomy & Physiology @ ATX 2025  
+Page 18 of 18
+ 

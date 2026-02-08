@@ -1,0 +1,364 @@
+ 
+2025 Hawk and Hornet Invitational 
+ 
+Machines Division C 
+November 15, 2025 
+ 
+ 
+ 
+Instructions: 
+• Tiebreakers 1st – Best ES, 2nd – Best TS, 3rd – Best R1, 4th – Questions 9, 11, 12, 19, 
+28, 33 
+• Each team’s ES score, out of 80.5 points, will be scaled to be out of 50 points 
+• Use g = 9.8 
+𝑚𝑚
+𝑠𝑠2 unless otherwise noted 
+• Round values to 3 decimal places  
+• There are 9 sections to this test 
+• This test was written by Lucia Lee (Athens High School Alum ’22) 
+• Lab portion will be during the test 
+• A wise teacher once said, RIF, Reading is Fundamental 
+• Capital letters indicate a multi-part question, lowercase letters are multiple
+ choice 
+• Good Luck! 
+ 
+Team Name: _____________________________________________________ 
+Team Number: __________________________________________________ 
+
+Hawk and Hornet Invitational  
+ 
+Page 2 of 9 
+Section 1. General 
+1) Which of the following is the most comprehensive deϐinition of a simple machine? (2 points) 
+a. An elementary device that has a speciϐic movement, which can be combined with 
+other devices and movements to form a complicated machine. 
+b. A non-electronic device created for the purpose of comparing weights of objects or 
+make physical jobs easier, by changing the magnitude or direction of the force.  
+c. Mechanical devices combined together to apply force to reduce the work needed in 
+order to accomplish a task. 
+d. A device that modiϐies motion and force to perform work 
+ 
+2) List ϐive types of simple machines and for two, explain how each can make work easier (3 
+points – 1 point for list ϐive simple machines, 1 point per each of the two explanations):  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+3) Write the mass of a 10 kg box in terms of fundamental SI units (1 point).  
+ 
+ 
+ 
+4) Which of the following are composed of a single simple machine (Mark all correct answers)? 
+(2 points) 
+a. Blade of a Pencil Sharpener  
+b. Fishing Rod 
+c. Nail Clipper  
+d. Screwdriver 
+e. Roller Coaster 
+ 
+5) Write the name of this device based on its description and provide identify the type
+ of simple machine it is (3 points):  
+A. 
+Consists of a horizontal cylinder (barrel), which is rotated by the turn of a cra
+nk or belt. A winch is afϐixed to one or both ends, and a cable or rope is wou
+nd around the winch, pulling a weight attached to the opposite end. 
+ 
+B. 
+Used for lifting water from a low-lying body of water into irrigation ditches, it l
+ifts water by turning a spiral-shaped surface inside a pipe. 
+ 
+ 
+C. 
+This machine is operated by pulling upon the slack section of a continuous cha
+in that wraps around two pulleys on a common shaft. (The two pulleys are joi
+ned together such that they rotate as a unit on the single shaft that they shar
+e.) It is used to manually lift very heavy objects like car engines. 
+
+Hawk and Hornet Invitational  
+ 
+Page 3 of 9 
+If applicable, provide the standard dimensions for the following. Dimensions are types of
+ measurements, such as time and length. The dimension of speed is 
+𝑙𝑙𝑙𝑙𝑙𝑙𝑙𝑙𝑙𝑙ℎ
+𝑡𝑡𝑡𝑡𝑡𝑡𝑡𝑡 .  
+6) Provide the dimensions of Energy (1 point) 
+ 
+ 
+7) Provide the dimensions of Momentum (1 point) 
+ 
+ 
+8) Provide the dimensions of Efϐiciency (1 point) 
+ 
+ 
+ 
+Section 2. Newton 
+9) A 5 kg block of mass moves across a plane 2 meters long with an incline of 30° at
+ 2 m/s. The ϐirst meter of the plane is a smooth, frictionless surface, while the seco
+nd meter requires 20% more work due to friction for the object to maintain the sa
+me velocity. What is the coefϐicient of friction of the second half of the plane’s surfa
+ce? (4 points) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+10) Match the following phenomena to Newton’s ϐirst, second or third law of motion. 
+A. 
+It takes more force to push a wagon with a child than an empty wagon. (1 point) 
+ 
+B. 
+Pins hit by a bowling ball are knocked down. (1 point) 
+
+Hawk and Hornet Invitational  
+ 
+Page 4 of 9 
+ 
+ 
+C. 
+A swimmer’s stroke pushes on the water and they move forward. (1 point) 
+ 
+ 
+ 
+11) You are standing at a roller rink with inline skates and are (dangerously) holding a 
+bowling ball. You decide to throw the ball at 10.0 
+𝑚𝑚
+𝑠𝑠 at an angle of 15 degrees abov
+e the horizontal. If you are 65.0 kg and the ball has a mass of 4.54 kg, what is yo
+ur speed after you throw the bowling ball (surface is frictionless)? (4 points) 
+ 
+ 
+ 
+ 
+ 
+12) A wire is bent into a square, with a side length of 25 cm. If the wire’s total mass is 3.1 g, ϐind 
+the moment of inertia about an axis through the center and perpendicular to the plane of the 
+square. Please provide an answer in standard units. (note: The wire is a thin uniform rod; 
+hint: Use parallel axis theorem) (4 points) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+13) Calculate the IMA of a truck shown below (length 5.36 feet, height 3.4 feet) (3 poin
+ts)  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+Hawk and Hornet Invitational  
+ 
+Page 5 of 9 
+14) What is the AMA of the truck ramp from question 13 if the ramp has frictional con
+stant of .18? (3 points) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+15) How much work is needed to push a crate of 83 kg up this truck ramp given fricti
+on still exists? (Note: 1 meter = 3.28 foot) (2 points) 
+ 
+ 
+ 
+16) The mechanical advantage of an inclined plane is the _________ of the slope divided b
+y the ________ of the slope. (2 points) 
+ 
+ 
+ 
+17) Why is the efϐiciency of a simple machine always less than 100%? (2 points) 
+ 
+ 
+ 
+18) At what instance is the AMA equal to its IMA? (2 points) 
+ 
+ 
+ 
+19) A cube with equally distributed mass of 0.7 kg is placed in a parallel multiverse wh
+ere smooth frictionless ramps exist. As it is traveling down at .8 m/s, suddenly, the 
+cube is instantaneously transported to an equivalent ramps on earth where it contin
+ues sliding down, now, with a friction constant of 0.52. If the incline of the mountai
+n is 27 degrees, how long will the block have traveled on the surface with friction 
+until it comes to a stop?  (4 points) 
+ 
+ 
+ 
+ 
+ 
+
+Hawk and Hornet Invitational  
+ 
+Page 6 of 9 
+20) A block’s mass is 50 kg and it has been pushed down an inclined plane so that it i
+s traveling at 100 m/s. If this inclined plane has the same friction constant, but is i
+nϐinitely long, will the block still come to a stop? Explain why or why not. (2 point
+s) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Section 3. Levers 
+21) Identify which lever category each of the following objects are  (8 points – 0.5 poin
+ts per correct object) 
+A. 
+Brake pedal of a car 
+B. 
+Crowbar 
+C. 
+Wheelbarrow 
+D. 
+Hammer 
+E. 
+Nutcracker 
+F. 
+Bottle Opener 
+G. 
+Scissors 
+H. 
+Pair of tweezers 
+ 
+22) Given that the actual mechanical advantage of the lever is 4, calculate the efϐiciency. 
+(2 points) 
+ 
+a. 80% 
+b. 75% 
+c. 50% 
+d. 40% 
+e. 25% 
+ 
+23) Given the weight, evenly distributed across the lever, is 1kg, calculate the effort forc
+e needed to support a load of 3 kg as it is depicted below. (2 points) 
+ 
+a. 0.87 N 
+b. 6.5 N 
+c. 7.1 N 
+d. 8.5 N 
+e. 11.9 N 
+
+Hawk and Hornet Invitational  
+ 
+Page 7 of 9 
+24) The mechanical advantage of a lever is the length of the ________ arm divided by the 
+length of the _______ arm. (2 points) 
+ 
+ 
+25) Of the ϐive levers below, which has the highest IMA? Please circle the letter of the c
+orrect answer. (2 points) 
+ 
+ 
+Section 4: Wedges 
+26) True or False: Wedges depend on the friction between the outer surface and the reg
+ion it is pushing against. (1 point) 
+ 
+ 
+27) A lumberjack uses swings a 3-kg axe head at 15 m/s to split a log. If the axe head 
+decelerates in 0.1 seconds during the collision, what force does the log impart on th
+e axe? (3 points) 
+ 
+ 
+ 
+ 
+28) Various kitchen knives are used around the household, including the bread knife (im
+age on left) and the chef’s knife (image on right). Though they are both wedges, th
+ey are shaped differently. Explain why the bread knife uses a back-and-forth sawing 
+motion while the chef’s knife uses a single slicing motion from the tip of the blade. 
+(2 points) 
+ 
+(Note the toothed blade on the edge of the bread knife) 
+ 
+ 
+ 
+ 
+ 
+
+Hawk and Hornet Invitational  
+ 
+Page 8 of 9 
+Section 5: Screws 
+29) The following is a diagram of a stainless steel socket head screw from a well-known
+ manufacturer and distributor. The pitch is 0.8 mm. 
+ 
+A. 
+This screw is a M__ x ____ mm thread screw (1 point) 
+ 
+B. 
+What is the IMA of the screw if effort is applied by a 10 cm long wrench? (2 points) 
+ 
+ 
+ 
+30) In screw assemblies, one must consider the possibility of back driving. Why might a 
+greater efϐiciency lead to a greater tendency for the screw to back drive? (1 point) 
+ 
+ 
+ 
+31) What is something that will not strengthen the connection of a screw? (1 point) 
+a. Wider diameter 
+b. Longer screw length 
+c. Heat treatment  
+d. Coarser threads 
+ 
+32) The following questions will be about the lead and pitch of a screw. 
+A. 
+What is a lead and pitch of a screw? (1 point) 
+ 
+ 
+B. 
+Label the lead and pitch of each of the starts on the diagram below (1 point) 
+ 
+ 
+ 
+ 
+ 
+
+Hawk and Hornet Invitational  
+ 
+Page 9 of 9 
+Section 6. Gears 
+33) Identify each of the gears and indicate if the following is a correct use case for the ge
+ar. There will be one remaining image. (2.5 points – 0.5 per correct match) 
+A. 
+Rack and Pinion 
+B. 
+Helical Gear 
+C. 
+Hypoid Gear 
+D. 
+Worm Gear 
+E. 
+Miter Gear 
+ 
+1 
+2 
+ 
+3 
+ 
+4 
+ 
+5  
+ 
+6 
+ 

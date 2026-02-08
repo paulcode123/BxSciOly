@@ -1,0 +1,618 @@
+EVENT: Water Quality
+SOURCE: Rickards Invitational 2025 (Div. C)
+FORMAT: 75 questions (MC, True/False, Free Response, Calculations, Image Analysis)
+TOTAL POINTS: 150
+
+---SECTION 1: Basic Concepts---
+
+---QUESTION 1---
+ID: 1 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Aquatic Systems | Lentic systems | Fast-moving | Bodies of water
+DIFFICULTY: Easy
+QUESTION: Lentic systems are fast-moving bodies of water
+
+---QUESTION 2---
+ID: 2 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Wetlands | Defining characteristics | Soil saturation | Oxygen poor soil | Land-water interface | Herbaceous vegetation
+DIFFICULTY: Easy
+QUESTION: What is the most defining characteristic of wetlands?
+OPTIONS:
+A) Soil that is saturated with water for part of the year
+B) Oxygen poor soil as a result of constant flooding
+C) The region between bodies of water and land
+D) The presence of herbaceous vegetation that can grow in hypersaturated soils
+
+---QUESTION 3---
+ID: 3 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Aquatic Systems | Ponds | Lakes | Differences | Pelagic zone | Profundal zone | Size | Formation
+DIFFICULTY: Easy
+QUESTION: What is the main difference between ponds and lakes?
+OPTIONS:
+A) Ponds have a pelagic zone but lakes do not
+B) Lakes have a profundal zone where light cannot penetrate through but ponds do not
+C) Lakes are larger than ponds
+D) Ponds are created from an accumulation of rainfall, whereas lakes are created through erosion and other geologically-driven processes
+
+---QUESTION 4---
+ID: 4 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Plankton | Phytoplankton | Zooplankton | Autotrophs | Symbiotic relationships | Nektons | Feeding relationships | Swimming ability
+DIFFICULTY: Easy
+QUESTION: What is an accurate characterization of phytoplankton and zooplankton?
+OPTIONS:
+A) Both zooplankton and phytoplankton are autotrophs
+B) Both zooplankton and phytoplankton form symbiotic relationships with nektons in freshwater ecosystems
+C) Phytoplankton eat zooplankton
+D) Zooplankton can swim weakly; phytoplankton are generally stagnant
+
+---QUESTION 5---
+ID: 5 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Water Properties | Maximum density | Temperature | 0°C | -3°C | 4°C | 1°C
+DIFFICULTY: Easy
+QUESTION: At what temperature does water have its maximum density?
+OPTIONS:
+A) 0 degrees C
+B) -3 degrees C
+C) 4 degrees C
+D) 1 degree C
+
+---QUESTION 6---
+ID: 6 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Lotic Systems | Zones | Producers | Source zone | Transition zone | Flood plain zone | Rapid zone
+DIFFICULTY: Easy
+QUESTION: In which zone of lotic systems would you find the most producers?
+OPTIONS:
+A) Source zone
+B) Transition zone
+C) Flood plain zone
+D) Rapid zone
+
+---QUESTION 7---
+ID: 7 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Wastewater Treatment | Process steps | Last step | Clarification | Disinfection | Bar screening | Bioremediation
+DIFFICULTY: Easy
+QUESTION: What is ALWAYS the last step of the wastewater treatment process?
+OPTIONS:
+A) Clarification
+B) Disinfection
+C) Bar screening
+D) Bioremediation
+
+---QUESTION 8---
+ID: 8 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Wastewater Treatment | Sewage plant | Separated facility | Bar screen | Tox screen | Disinfectant | Clarifier
+DIFFICULTY: Easy
+QUESTION: What is the only part of a sewage plant that is separated from the rest of the wastewater treatment facility?
+OPTIONS:
+A) Bar screen
+B) Tox screen
+C) Disinfectant
+D) Clarifier
+
+---QUESTION 9---
+ID: 9 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Water Properties | Surface tension | Water strider | Adhesion | Buoyancy | Polarity
+DIFFICULTY: Easy
+QUESTION: What property of water allows a water strider to walk across it?
+OPTIONS:
+A) Adhesion
+B) Buoyancy
+C) Polarity
+D) Surface Tension
+
+---QUESTION 10---
+ID: 10 | POINTS: 5.00 | FORMAT: Image Analysis / Free Response
+TOPIC: Aquatic Systems | Diagram labeling | A-E | Specification | Colors
+DIFFICULTY: Medium
+QUESTION: Label A -- E on the diagram below: Make sure to SPECIFY what you're labeling. For example: A = green, B=blue, etc
+
+---QUESTION 11---
+ID: 11 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Aquatic Ecosystems | Productivity | Large bodies of water | Plants | Nutrients | Sunlight | Distribution | Why not highly productive
+DIFFICULTY: Medium
+QUESTION: Considering the distribution of plants, nutrients, and sunlight in aquatic ecosystems, why do you think large bodies of water are not highly productive?
+
+---QUESTION 12---
+ID: 12 | POINTS: 2.00 | FORMAT: Free Response / Image Analysis
+TOPIC: Wastewater Treatment | Septic tanks | Rural communities | Green grass | Patch | Explanation
+DIFFICULTY: Medium
+QUESTION: In some rural communities, where large wastewater treatment plants are not readily accessible, homes have septic tanks in their backyards, which process waste. Considering that information, explain why there's a random patch of green grass in this backyard:
+
+---SECTION 2: Ecology and Evolution---
+
+---QUESTION 13---
+ID: 13 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Ecology | Predator-prey relationships | Evolution | Niche differentiation | Court Jester Hypothesis | Disruptive Selection | Red Queen Hypothesis
+DIFFICULTY: Medium
+QUESTION: A predator-prey relationship in which both the predator and prey are evolving is an example of which phenomenon?
+OPTIONS:
+A) Niche differentiation
+B) Court Jester Hypothesis
+C) Disruptive Selection
+D) Red Queen Hypothesis
+
+---QUESTION 14---
+ID: 14 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Ecology | Lotka-Volterra Model | Population cycles | Prey population | Predator population | Lag | Decline | Dependence | Hardy-Weinberg equilibrium
+DIFFICULTY: Medium
+QUESTION: Which of the following statements about the Lotka-Volterra model is true?
+OPTIONS:
+A) The Lotka-Volterra model only applies in situations in Hardy-Weinberg equilibrium
+B) In population cycles, the prey population lags behind the predator population
+C) In the absence of prey, predator population would decline linearly
+D) Predator population is solely dependent on prey population
+E) In the absence of prey, predator population would decline logarithmically
+
+---QUESTION 15---
+ID: 15 | POINTS: 1.00 | FORMAT: MC (multi-select)
+TOPIC: Ecology | Paradox of the plankton | Solutions | Kill-the-winner hypothesis | Metabolic differentiation | Competitive stasis | Fluctuating conditions | Differential predation
+DIFFICULTY: Medium
+QUESTION: (select all that apply) Which of the following are valid solutions to the paradox of the plankton?
+OPTIONS:
+A) "Kill-the-winner" lytic viral hypothesis
+B) Metabolic differentiation theory
+C) Competitive Stasis
+D) Fluctuating environmental conditions
+E) Differential Predation
+
+---QUESTION 16---
+ID: 16 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Evolution | Selective pressure | Oysters | Shell color | Camouflage | Disruptive selection | Stabilizing selection | Directional selection
+DIFFICULTY: Medium
+QUESTION: In an aquatic environment, oysters with light-colored shells are able to camouflage in sandy areas. Similarly, oysters with dark-colored shells are favored in darker areas or in areas in shade. Camouflage enables oysters to avoid predation. What type of selective pressure would apply on a population of oysters with shells that are neither particularly light or dark?
+OPTIONS:
+A) Disruptive selection
+B) Stabilizing selection
+C) Directional selection
+
+---SECTION 3: Nutrients and Chemistry---
+
+---QUESTION 17---
+ID: 17 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Nitrogen Fixation | Rate | Oligotrophic lakes | Eutrophic lakes | Freshwater lakes | Saltwater oceans | Ordering | Lowest to highest
+DIFFICULTY: Medium
+QUESTION: Order the following by rate of nitrogen fixation from lowest to highest: Oligotrophic lakes, Eutrophic lakes, Freshwater lakes, Saltwater oceans
+OPTIONS:
+A) Oligotrophic lakes, Freshwater lake, Eutrophic lakes, Saltwater oceans
+B) Saltwater oceans, Oligotrophic Lakes, Eutrophic Lakes, Freshwater lakes
+C) Freshwater lakes, eutrophic lakes, saltwater oceans, oligotrophic lakes
+D) Saltwater oceans, Oligotrophic lakes, Freshwater lakes, eutrophic lakes
+
+---QUESTION 18---
+ID: 18 | POINTS: 3.00 | FORMAT: Free Response
+TOPIC: Climate Change | Carbon dioxide | Coral reefs | Extinction | Chemical processes | Ocean acidification
+DIFFICULTY: Medium
+QUESTION: Describe how increased carbon dioxide levels as a result of climate change drives extinction of coral reefs. Include mention of the chemical processes involved.
+
+---QUESTION 19---
+ID: 19 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Water Chemistry | Dissolved oxygen | Dissolved carbon dioxide | Temperature | Changes | Increase | Decrease
+DIFFICULTY: Easy
+QUESTION: How does the level of dissolved oxygen and carbon dioxide change with increased temperature?
+OPTIONS:
+A) The level of dissolved oxygen and the level of dissolved carbon dioxide increase
+B) The level of dissolved oxygen and the level of dissolved carbon dioxide decrease
+C) The level of dissolved oxygen and the level of dissolved carbon dioxide decrease
+D) The level of dissolved oxygen decreases and the level of dissolved carbon dioxide increases
+
+---QUESTION 20---
+ID: 20 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Phosphorus | Sources | Aquatic environments | Atmospheric diffusion | Terrestrial runoff | Erosion | Phosphate rocks | Hydrothermal vents
+DIFFICULTY: Easy
+QUESTION: What is the primary source of phosphorus in aquatic environments?
+OPTIONS:
+A) Atmospheric diffusion
+B) Terrestrial runoff
+C) Erosion from phosphate rocks
+D) Hydrothermal vents
+
+---QUESTION 21---
+ID: 21 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Aquatic Systems | Thermocline | Definition
+DIFFICULTY: Easy
+QUESTION: What is a thermocline?
+
+---QUESTION 22---
+ID: 22 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Ecology | Pioneer species | Soil acidification | Toxicity | Organic compounds | Salts | Microbial activity | Nutrients | Insoluble compounds
+DIFFICULTY: Medium
+QUESTION: Why do some pioneer species acidify soil?
+OPTIONS:
+A) To reduce toxicity of organic compounds in the soil
+B) To create salts which promote microbial activity
+C) To increase the availability of nutrients
+D) To increase the amount of insoluble compounds in the soil
+
+---QUESTION 23---
+ID: 23 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Toxicology | Mercury poisoning | Fish | Biological processes | Biomagnification | Bioaccumulation | Bioremediation | Biodegradation
+DIFFICULTY: Easy
+QUESTION: If a person eats too much fish, they will experience mercury poisoning. What biological process does this describe?
+OPTIONS:
+A) Biomagnification
+B) Bioaccumulation
+C) Bioremediation
+D) Biodegradation
+
+---QUESTION 24---
+ID: 24 | POINTS: 3.00 | FORMAT: Free Response
+TOPIC: Bioindicators | Amphibians | Permeable skin | Microalgae | Mayflies | Water pollution | Good oxygen levels | Nutrient levels | Indications
+DIFFICULTY: Medium
+QUESTION: Amphibians that have permeable skin indicate ______________(water pollution/good oxygen levels/nutrient levels). Microalgae indicate ________ (water pollution/good oxygen levels/nutrient levels). Mayflies indicate ____________ (water pollution/good oxygen levels/nutrient levels).
+
+---SECTION 4: Algal Blooms and Pollution---
+
+---QUESTION 25---
+ID: 25 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Algal Blooms | Harmful algal blooms | Impacts | Aquatic turbulence | Water clarity | Dissolved oxygen | Chemical toxins | Absorption
+DIFFICULTY: Easy
+QUESTION: Which of the following are impacts of harmful algal blooms?
+OPTIONS:
+A) Reduced aquatic turbulence
+B) Improved water clarity
+C) Decreased dissolved oxygen levels
+D) Absorption of chemical toxins
+
+---QUESTION 26---
+ID: 26 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Agriculture | Human activity | Harmful algal blooms | Irrigation | Pesticides | Agricultural runoff | Fertilizers | Phosphorus | Nitrogen | Industrial burning | Biofuel | Acidity
+DIFFICULTY: Medium
+QUESTION: How does human agricultural activity cause harmful algal blooms?
+OPTIONS:
+A) Irrigation processes for crops increase the rate of harmful algal blooms
+B) Pesticides applied to crops inhibit various aquatic species and increase the risk of a harmful algal bloom
+C) Agricultural runoff from fertilize rich in Phosphorous and Nitrogen stimulates algal growth and causes blooms
+D) Industrial burning of crops like corn as biofuel releases compounds that increase the acidity of nearby freshwater bodies, providing conditions more suitable for rapid algal growth.
+
+---QUESTION 27---
+ID: 27 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Pollution | Agricultural runoff | Type | Light pollution | Point-source pollution | Non point-source pollution | Organic acid pollution
+DIFFICULTY: Easy
+QUESTION: What type of pollution does agricultural runoff represent?
+OPTIONS:
+A) Light pollution
+B) Point-source pollution
+C) Non point-source pollution
+D) Organic acid pollution
+
+---QUESTION 28---
+ID: 28 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Human Activities | Habitat fragmentation | Freshwater ecosystems | Dam construction | Agricultural runoff | Industrial pollution | Captive breeding programs
+DIFFICULTY: Easy
+QUESTION: What human activity has the largest effect on habitat fragmentation within freshwater ecosystems?
+OPTIONS:
+A) Dam construction
+B) Agricultural runoff
+C) Industrial pollution
+D) Captive breeding programs
+
+---QUESTION 29---
+ID: 29 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Pollution | Agricultural runoff | Chemical pollution | Algal blooms | Dead zones | Aquatic species | Suffocation
+DIFFICULTY: Easy
+QUESTION: Agricultural runoff/chemical pollution causes algal blooms and dead zones in which many aquatic species suffocate
+
+---QUESTION 30---
+ID: 30 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Fisheries | Bycatch | Species decline | Freshwater ecosystems | Ecosystem health | Effects
+DIFFICULTY: Easy
+QUESTION: Bycatch leads to the rapid decline of certain species within freshwater ecosystems, and this can have larger effects on overall ecosystem health
+
+---QUESTION 31---
+ID: 31 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Acid Rain | Human activities | Chemical environment | Freshwater ecosystems | Species endangerment
+DIFFICULTY: Easy
+QUESTION: Acid raid caused by human activities alters the chemical environment of freshwater ecosystems, endangering many species within freshwater ecosystems
+
+---QUESTION 32---
+ID: 32 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Water Abstraction | Industry | Human consumption | Flooding risk | Increased risk
+DIFFICULTY: Easy
+QUESTION: Water abstraction for use in industry or human consumption leads to an increased risk of flooding
+
+---SECTION 5: Hydropower and Energy---
+
+---QUESTION 33---
+ID: 33 | POINTS: 3.00 | FORMAT: Free Response
+TOPIC: Hydropower | Human hydropower | Freshwater ecosystems | Effects | Three effects
+DIFFICULTY: Medium
+QUESTION: Describe 3 effects of human hydropower on freshwater ecosystems
+
+---QUESTION 34---
+ID: 34 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Hydropower | Water quality | Thermal stratification | Dissolved oxygen | Water clarity | Fluctuating water flow | Biofilms | Turbidity
+DIFFICULTY: Medium
+QUESTION: How does hydropower impact water quality?
+OPTIONS:
+A) Causes thermal stratification
+B) Decreases dissolved oxygen levels on the top layer of a thermal stratified reservoir
+C) Definitively increases water clarity
+D) Causes fluctuating water flow which suspends biofilms and particles, increasing turbidity
+
+---QUESTION 35---
+ID: 35 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Hydropower | Greenhouse gas emissions | Increase | Two ways | Two gases | Primarily released
+DIFFICULTY: Medium
+QUESTION: Describe the two ways in which hydropower results in an increase in greenhouse gas emissions. Mention the two gases primarily released.
+
+---QUESTION 36---
+ID: 36 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Biofuels | Human use | Energy | Indirect damage | Freshwater ecosystems | Ways
+DIFFICULTY: Medium
+QUESTION: Explain the ways in which human use of biofuels for energy indirectly damages freshwater ecosystems
+
+---SECTION 6: Oxygen Demand and Organisms---
+
+---QUESTION 37---
+ID: 37 | POINTS: 2.00 | FORMAT: Free Response / Image Analysis
+TOPIC: Oxygen Demand | Sag curve | Graph | X-axis | Y-axis | Labels | Pollutant concentration | Oxygen saturation
+DIFFICULTY: Medium
+QUESTION: Questions 37- 40 reference the picture below. This diagram is an oxygen demand curve, or a sag curve, and shows the relationship between pollutant concentration and oxygen saturation. What would the X and Y axes of this graph be labeled, respectively?
+
+---QUESTION 38---
+ID: 38 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Oxygen Demand | Biological oxygen demand | BOD | Dissolved oxygen | Inverse relationship | Why
+DIFFICULTY: Medium
+QUESTION: What is biological oxygen demand and why is it inversely related to dissolved oxygen?
+
+---QUESTION 39---
+ID: 39 | POINTS: 2.00 | FORMAT: Free Response / Image Analysis
+TOPIC: Oxygen Demand | Dissolved oxygen | Lowest concentration | Pollutant concentration | Highest | Why | Location
+DIFFICULTY: Medium
+QUESTION: As you can see from the graph, the concentration of dissolved oxygen is lowest in the section to the right of the area with the highest pollutant concentration? Why is this the case?
+
+---QUESTION 40---
+ID: 40 | POINTS: 2.00 | FORMAT: Free Response / Image Analysis
+TOPIC: Organisms | Rules | Third zone | Lowest DO concentration | Two organisms | Identification
+DIFFICULTY: Medium
+QUESTION: List two organisms from the rules that would be found in the third zone of this graph (lowest DO concentration):
+
+---QUESTION 41---
+ID: 41 | POINTS: 2.00 | FORMAT: Image Analysis / Free Response
+TOPIC: Organism Identification | Common name | Insect | Larvae | Adults | Purpose
+DIFFICULTY: Medium
+QUESTION: Questions 41-42 are about the organism below: ID this organism with its common name
+
+---QUESTION 42---
+ID: 42 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Organisms | Insect | Larvae | Feeding | Adults | Purpose | Fill in blank
+DIFFICULTY: Medium
+QUESTION: While this insect's larvae spends almost its entire lives feeding, adults don't eat at all because their entire purpose is to __________ (fill in the blank)
+
+---QUESTION 43---
+ID: 43 | POINTS: 2.00 | FORMAT: Image Analysis / Free Response
+TOPIC: Organism Identification | Common name | Questions 43-44
+DIFFICULTY: Medium
+QUESTION: Questions 43-44 are about the organism below: ID this organism with its common name
+
+---QUESTION 44---
+ID: 44 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Organisms | Bait | Aquariums | Disease | Fill in blanks
+DIFFICULTY: Medium
+QUESTION: Although this organism is used as bait in aquariums, it can cause _______ disease in ________
+
+---QUESTION 45---
+ID: 45 | POINTS: 2.00 | FORMAT: Image Analysis / Free Response
+TOPIC: Organism Identification | Common name | Questions 45-47
+DIFFICULTY: Medium
+QUESTION: Questions 45-47 are about the following organism: ID this organism with its common name
+
+---QUESTION 46---
+ID: 46 | POINTS: 2.00 | FORMAT: Free Response / Image Analysis
+TOPIC: Organisms | Male | Female | Minority | Majority | Gender | Population
+DIFFICULTY: Medium
+QUESTION: Is the organism shown in the image male or a female? Is it the minority or majority gender in the population?
+
+---QUESTION 47---
+ID: 47 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Ecology | Mating behavior | Trivers' theory | Parental investment | Support | Explanation
+DIFFICULTY: Medium
+QUESTION: How does the mating behavior of the organism above support Trivers' theory of parental investment?
+
+---QUESTION 48---
+ID: 48 | POINTS: 2.00 | FORMAT: Image Analysis / Free Response
+TOPIC: Organism Identification | Questions 48-49
+DIFFICULTY: Medium
+QUESTION: Questions 48-49 are about the following organism: ID what organism this is
+
+---QUESTION 49---
+ID: 49 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Organisms | Adult form | Vector | Parasitic nematode | Onchocerca volvulus | Disease
+DIFFICULTY: Medium
+QUESTION: The adult form of this organism is the vector of the parasitic nematode, Onchocerca volvulus, which causes what disease?
+
+---QUESTION 50---
+ID: 50 | POINTS: 2.00 | FORMAT: Image Analysis / Free Response
+TOPIC: Organism Identification | Questions 50-51
+DIFFICULTY: Medium
+QUESTION: Questions 50-51 are about the organism below: ID this organism
+
+---QUESTION 51---
+ID: 51 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Invasive Species | Organisms | General features | Outcompete | Native populations | Two features
+DIFFICULTY: Medium
+QUESTION: This organism is invasive. Describe two general features of invasive species that allow them to outcompete native populations
+
+---SECTION 7: Aquatic Organisms and Systems---
+
+---QUESTION 52---
+ID: 52 | POINTS: 4.00 | FORMAT: Free Response
+TOPIC: Aquatic Organisms | Nekton | Benthos | Characteristics | Definitions | Examples | One example each
+DIFFICULTY: Medium
+QUESTION: What characterizes nekton and benthos organisms, respectively (define what they are)? Give one example of each.
+
+---QUESTION 53---
+ID: 53 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Lakes | Formation | Processes | Volcanic activity | Glaciations | Crustal displacement | Diagenesis | Does not result
+DIFFICULTY: Easy
+QUESTION: Which of the following processes does not result in the formation of a lake?
+OPTIONS:
+A) Volcanic activity
+B) Glaciations
+C) Crustal displacement
+D) Diagenesis
+
+---QUESTION 54---
+ID: 54 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Deep-sea | Giantism theory | Deep-sea-dwelling creatures | Benefits | Phenomenon
+DIFFICULTY: Medium
+QUESTION: What is the deep-sea giantism theory? How can the phenomenon described by this theory benefit deep-sea-dwelling creatures?
+
+---QUESTION 55---
+ID: 55 | POINTS: 3.00 | FORMAT: Free Response / Image Analysis
+TOPIC: Lakes | Types | Diagram | Labeling | a | b | c | Respectively | Questions 55-57
+DIFFICULTY: Medium
+QUESTION: Questions 55-57 are about the following diagram: Label what type of lakes a, b, and c are, respectively
+
+---QUESTION 56---
+ID: 56 | POINTS: 4.00 | FORMAT: Free Response / Image Analysis
+TOPIC: Lakes | Aerobic conditions | Anaerobic conditions | Dotted lines | Divide | Picture A | Picture C | Features | Why
+DIFFICULTY: High
+QUESTION: All three diagrams have dotted lines showing the general divide between aerobic and anaerobic regions. Based on the type of lake picture A is, why does it make sense that it has aerobic conditions throughout? Similarly, based on the kind of lake picture C shows, what features of it result in it having highly anaerobic conditions?
+
+---QUESTION 57---
+ID: 57 | POINTS: 2.00 | FORMAT: Free Response / Image Analysis
+TOPIC: Anaerobic Conditions | Biogas | Production | Exploitation | Algae | Lipid extraction | Picture C
+DIFFICULTY: Medium
+QUESTION: How can anaerobic conditions, similar to the ones present in picture C, be exploited to produce biogas? (Hint: your answer should include something about algae and lipid extraction)
+
+---QUESTION 58---
+ID: 58 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Eutrophication | Human activities | Specific term | Algal blooms | Excess nutrients
+DIFFICULTY: Easy
+QUESTION: Eutrophication is the accumulation of excess nutrients in bodies of water that cause algal blooms. What is eutrophication, specifically caused by human activities, called?
+
+---QUESTION 59---
+ID: 59 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Earth | Freshwater systems | Surface percentage | 1% | 2% | 3% | 4%
+DIFFICULTY: Easy
+QUESTION: What percentage of the Earth's surface is made up of freshwater systems?
+OPTIONS:
+A) 1%
+B) 2%
+C) 3%
+D) 4%
+
+---QUESTION 60---
+ID: 60 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Lotic Systems | Zones | Dissolved oxygen | Highest concentration | Source zone | Transition zone | Watershed zone | Floodplain zone
+DIFFICULTY: Easy
+QUESTION: Which zone of lotic systems has the highest concentration of dissolved oxygen?
+OPTIONS:
+A) Source zone
+B) Transition zone
+C) Watershed zone
+D) Floodplain zone
+
+---QUESTION 61---
+ID: 61 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Wetlands | Benefits | Humans | Two benefits
+DIFFICULTY: Easy
+QUESTION: What are two benefits that wetlands provide humans?
+
+---SECTION 8: Population Ecology and Diversity---
+
+---QUESTION 62---
+ID: 62 | POINTS: 8.00 | FORMAT: Calculation / Free Response
+TOPIC: Population Ecology | Survivorship | Age | Table | Calculation | Each age
+DIFFICULTY: Medium
+QUESTION: Using the table below, calculate the survivorship for each respective age:
+
+---QUESTION 63---
+ID: 63 | POINTS: 5.00 | FORMAT: Free Response
+TOPIC: Population Ecology | Survivorship curves | Type 1 | Type 2 | Type 3 | Question 62 | Table | Why | Differences
+DIFFICULTY: Medium
+QUESTION: Referring to the table above (Question 62), would this species display a Type 1, Type 2, or Type 3 survivorship curve, and why? What makes each survivorship type different from the others?
+
+---QUESTION 64---
+ID: 64 | POINTS: 4.00 | FORMAT: Calculation
+TOPIC: Diversity | Shannon Wiener index | Calculation | Table | Work | Rounding | Two decimal places
+DIFFICULTY: Medium
+QUESTION: Calculate the Shannon Wiener index for the table above. Show your work!! Round your answer to two decimal places
+
+---QUESTION 65---
+ID: 65 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Ecology | Coral reefs | Inertia | Resilience | Succession | Meaning
+DIFFICULTY: Medium
+QUESTION: It is often said that coral reefs have high inertia but low resilience. What does this mean in terms of succession?
+
+---SECTION 9: Water Treatment and Regulations---
+
+---QUESTION 66---
+ID: 66 | POINTS: 3.00 | FORMAT: Free Response
+TOPIC: Pollution | Point source | Nonpoint source | Pollutants | Differences | Examples | One example each
+DIFFICULTY: Easy
+QUESTION: What is the difference between point source and nonpoint source pollutants and give an example of each
+
+---QUESTION 67---
+ID: 67 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Water Chemistry | Rainwater | pH | Average | 5.5 | 5.9 | 6.3 | 6.8 | Closest answer
+DIFFICULTY: Easy
+QUESTION: What is the average pH of rainwater? Choose the closest answer
+OPTIONS:
+A) 5.5
+B) 5.9
+C) 6.3
+D) 6.8
+
+---QUESTION 68---
+ID: 68 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Water Chemistry | Rainwater | Acidity | Why | Chemical reaction | Acidity formation
+DIFFICULTY: Medium
+QUESTION: Why is rainwater acidic? List the chemical reaction that results in the acidity of rainwater.
+
+---QUESTION 69---
+ID: 69 | POINTS: 4.00 | FORMAT: Free Response
+TOPIC: Eutrophication | Fertilizers | Fish populations | Dying | Lakes | Process | Entire process | Full credit
+DIFFICULTY: Medium
+QUESTION: How do fertilizers lead to fish populations dying in nearby lakes (explain the entire process of eutrophication for full credit)?
+
+---QUESTION 70---
+ID: 70 | POINTS: 4.00 | FORMAT: Free Response
+TOPIC: Water Testing | Ascorbic acid method | Molybdenum blue method | Phosphate concentrations | Wastewater | Ammonium molybdate | Reaction | Spectrophotometers | How used
+DIFFICULTY: Medium
+QUESTION: Describe the ascorbic acid method (also known as the molybdenum blue method) and how it's used to detect phosphate concentrations in wastewater? Be sure to mention the acid created from the reaction between ammonium molybdate and phosphate and how spectrophotometers are used
+
+---QUESTION 71---
+ID: 71 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Water Regulations | National Primary Drinking Water Regulations | What regulated
+DIFFICULTY: Easy
+QUESTION: What do the National Primary Drinking Water Regulations regulate?
+
+---QUESTION 72---
+ID: 72 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Water Treatment | Surface Water Treatment Rules | Guidelines | Surface water | Human consumption | Filter | Disinfect | Maximum contaminant levels | Viruses | Bacteria | Giardia lamblia | Treatment technique requirements | Pathogen safety | Not true
+DIFFICULTY: Medium
+QUESTION: Which of the following is not true about the Surface Water Treatment Rules, a set of guidelines that outlines how surface water should be treated for human consumption?
+OPTIONS:
+A) Requires most water systems to filter and disinfect water from surface water before releasing it for public consumption
+B) Establishes maximum contaminant levels for viruses, bacteria, and Giardia lamblia
+C) Includes treatment technique requirements
+D) Mandates that surface water must be treated at least twice to ensure pathogen safety levels
+
+---QUESTION 73---
+ID: 73 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Water Treatment | Coliform bacteria | Potable water | Removal methods | Two common methods
+DIFFICULTY: Medium
+QUESTION: What are the two common methods for removing coliform bacteria from potable water?
+
+---QUESTION 74---
+ID: 74 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Water Contamination | Freshwater contaminants | Most common | Arsenic | Lead | Mercury | Copper
+DIFFICULTY: Easy
+QUESTION: What is the most common freshwater contaminant?
+OPTIONS:
+A) Arsenic
+B) Lead
+C) Mercury
+D) Copper
+
+---QUESTION 75---
+ID: 75 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Water Quality | Coliform bacteria | Acceptable limit | Potable water | Colonies | 100mL | 0 | 3 | 5 | 7
+DIFFICULTY: Easy
+QUESTION: What is the acceptable limit for coliform bacteria in potable water?
+OPTIONS:
+A) 0 colonies/100mL
+B) 3 colonies/100mL
+C) 5 colonies/100mL
+D) 7 colonies/100mL

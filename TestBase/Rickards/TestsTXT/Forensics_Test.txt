@@ -1,0 +1,1173 @@
+ 
+Forensics C 
+Rickards Satellite Invitational 2026 
+November 1-8, 2025 
+ 
+​
+ 
+ 
+This event is sponsored by the Florida State University Chemistry Department and College 
+of Arts & Sciences. 
+ 
+ 
+​
+ 
+ 
+Event Supervisors 
+Gianne Rimando (Lane Tech CO '27) 
+Asmitha Etukala (University of Florida CO '29) 
+ 
+FEEDBACK FORM (Thanks!) → https://forms.gle/CCTp398bctCRNwCo8 
+ 
+ 
+ 
+ 
+ 
+
+Event Introduction 
+Welcome to Forensics for Rickards 2025! 
+We (your Event Supervisors) are very excited to bring this event to you all. Do your best, 
+you got this! If you don't know an answer, don't hesitate to put a silly one :) We might be 
+featuring some of them at the awards ceremony… 
+ 
+Here are some reminders for today's exam: 
+❖​ Each team is allowed 1 PRINTED, unique, double-sided, 8.5" x 11" note sheet with 
+notes from any source per participant. 
+❖​ Each team is allowed 2 stand-alone calculators (Class 3). 
+❖​ Each team is allowed a standard ruler. 
+❖​ No lab materials will be required. There is no wet lab for this exam. 
+❖​ Do not use Control-F or click outside of the testing tab. This will lead to 
+Out-Of-Browser (OOB) Time and disqualification.  
+❖​ Do not use Google or any outside references (other people in the room, other 
+devices, room posters, or printed information, etc.) that are not your note sheet 
+whilst taking the exam. 
+❖​ National-level rules will be used for the exam. 
+❖​ If you run into any issues, immediately notify your head coach, let us know in the 
+Scilympiad Chatbox, and email the RSOI directors. 
+ 
+This exam has 122 questions for a total of 616.5 points. You have 50 minutes to complete 
+this exam. 
+ 
+Good luck and have fun! :D 
+ 
+ 
+
+Crime Scene ​ Note: Do not use any previous knowledge you have about the show this scenario is inspired by. 
+It was a cold October night at Nevermore Academy, and the annual Rave’N Dance was in full 
+swing. Students were dressed in their best attire, enjoying the eerie decorations and 
+desserts made by Academy Staff. At 10:42 pm, the lights suddenly went out. Attendees 
+noted that the black out lasted no longer than a minute and the atmosphere was calm, with 
+many thinking it was a part of the spooky vibe. When the lights flickered back on, Principal 
+Weems was found collapsed near the refreshment table. A half-eaten cupcake sat nearby, 
+next to the spilled punch bowl that tested positive for Ricksane-ium (C20H25N3O). 
+ 
+Evidence was collected from the Academy Kitchen and the Refreshments Table. The 
+Academy Kitchen is only accessible to staff and all staff alibis checked out. Additionally, 
+none of the collected evidence could be traced back to any Academy Staff. Under a fridge in 
+the Academy Kitchen, a plastic baggie with sticky-note with "Ricksane-ium" 
+sloppily-written on it was found. On the plastic baggie, investigators found fingerprints, 
+traces of DNA, and traces of an unknown chemical which was analyzed via mass 
+spectrometry. 5 students have been brought in as prime suspects. 
+ 
+The Victim 
+Principal Larissa Weems 
+Fingerprint: Plain Arch 
+Blood Type: A+ 
+Description: Despite her endless wardrobe of elegant outfits, her heart is pitch black. 
+Principal Weems is notorious for her dictatorial rule over Nevermore Academy. Weems 
+wore a silk blouse and a wool skirt on the night of the Rave’N. She collapsed near the 
+refreshment table, her hand cut by her champagne-styled, lead crystal punch glass. 
+ 
+The Suspects 
+Suspect A: Wednesday Addams 
+Fingerprint: Double Loop Whorl 
+Blood Type: AB- 
+Description: Wednesday spends hours in the lab conducting macabre experiments, like 
+making radioactive oobleck. She has an obsessive fascination in embalming, using 
+glutaraldehyde (C5H8O2) to preserve her favorite animals, including squirrels (and maybe 
+even humans). Many of these preserved artifacts are adorned in PMMA display cases across 
+her dorm walls. On the night of the dance, she wore her signature black wool cardigan over 
+a cotton dress to match her black hair. Witnesses reported seeing her hovering near the 
+refreshments before the blackout.  
+ 
+Suspect B: Enid Sinclair 
+Fingerprint: Radial Loop 
+Blood Type: O+ 
+Description: Enid is an avid baker, known for her colorful frosted cupcakes. When the 
+students returned for the new school year, Enid brought her favorite cow to keep in her 
+dorm, but this act made Principal Weems quite displeased. Since then, it seems like Weems 
+has always been out to get her. Enid's white apron and blonde hair are always covered with 
+ 
+
+her ingredients. The night of the dance, she wore a polyester rainbow sweater and plastic 
+charm bracelets made of PS. Enid admitted to bringing her own cupcakes to the 
+refreshment table just before the chaos. 
+ 
+Suspect C: Xavier Thorpe 
+Fingerprint: Tented Arch 
+Blood Type: A+ 
+Description: Xavier spends much of his free time painting and sketching, often using 
+graphite and charcoal (C7H4O) as his medium of choice. One time, Weems found Xavier's 
+anti-Weems art and exploded like a red tomato. He also loves spending time in the Academy 
+Workshops, where he glass-blows vases out of soda-lime glass. The blonde's dorm is filled 
+with plants, elaborately hung from the ceiling in his vases adorned with LDPE "melted 
+popcorn" ornaments. He attended the dance in a denim jacket and sneakers. Though he 
+claimed to be sketching from the corner, witnesses say he was walking toward the 
+refreshment table when the blackout hit. 
+ 
+Suspect D: Bianca Barclay 
+Fingerprint: Accidental Whorl 
+Blood Type: B- 
+Description: Bianca always carries around a makeup bag for her stunning looks, a 
+caffeinated (C8H10N4O2) drink for keeping up her A-game, and a pill bottle full of antacids 
+for her heartburn. She's fascinated with circuits and has entire drawers full of 
+breadboarding and wiring materials. She wore a silk gown at the dance that flowed well 
+with her slick, black hair. Earlier in the evening, she was overheard having a tense exchange 
+with Weems but insisted she was “just dancing” during the blackout. 
+ 
+Suspect E: Tyler Galpin 
+Fingerprint: Ulnar Loop 
+Blood Type: O- 
+Description: Tyler is known for being quite the teacher's pet. Last week, he performed an 
+insanely-complicated experiment on bats expecting extra credit for the effort. Instead, he 
+got hit with a big F and got sent to Weems' office for "disrespecting the bats". Outside class, 
+Tyler dives into sports; his dorm is filled with sports equipment, pill bottles full of 
+performance supplements, and fireworks to celebrate wins. Before every competition, he 
+takes a sip from his "good-luck punch jar" (made of soda-lime glass) sweetened with 
+saccharin (C7H5NO3S). He wore a cotton jacket and polyester shirt to the dance.  
+ 
+ 
+
+Section I: Qualitative Analysis 
+Ten solid samples were collected from 2 main locations at the crime scene (the staff-only 
+Academy Kitchen and Refreshments Table) and qualitative tests were conducted. Here are 
+the results: 
+ 
+# 
+Location 
+Found 
+pH 
+Flame 
+Color 
+Water 
+HCl 
+Iodine 
+NaOH 
+Benedict’s 
+1 
+Academy 
+Kitchen 
+7 
+Orange-re
+d 
+Soluble 
+NR 
+NR 
+NR 
+NR 
+2 
+Academy 
+Kitchen 
+7 
+Red 
+Soluble 
+NR 
+NR 
+NR 
+NR 
+3 
+Academy 
+Kitchen 
+7-8 
+Orange-re
+d 
+Insoluble 
+Bubbles 
+NR 
+NR 
+NR 
+4 
+Academy 
+Kitchen 
+8 
+Orange-Yel
+low 
+Soluble 
+Bubbles 
+NR 
+NR 
+NR 
+5 
+Refreshments 
+Table 
+7-8 
+Red-Orang
+e 
+Insoluble 
+NR 
+NR 
+NR 
+NR 
+6 
+Refreshments 
+Table 
+6-7 
+No color 
+Soluble 
+NR 
+NR 
+NR 
+NR 
+7 
+Refreshments 
+Table 
+8 
+Orange-Yel
+low 
+Soluble 
+NR 
+NR 
+NR 
+NR 
+8 
+Refreshments 
+Table 
+7 
+No Color 
+Soluble 
+NR 
+NR 
+NR 
+Orange 
+when 
+heated 
+9 
+Refreshments 
+Table 
+4 
+Green 
+Soluble 
+Bubbles 
+NR 
+NR 
+NR 
+1
+0 
+Refreshments 
+Table 
+6-7 
+No Color 
+Insoluble 
+NR 
+Black 
+NR 
+NR 
+NR = No Reaction 
+1.​ Identify solid 1 and its chemical formula. TIEBREAKER #2   
+ 
+2.​ Identify solid 2 and its chemical formula.   
+ 
+3.​ Identify solid 3 and its chemical formula.   
+ 
+ 
+
+4.​ Identify solid 4 and its chemical formula.  
+ 
+5.​ Identify solid 5 and its chemical formula.  
+ 
+6.​ Identify solid 6 and its chemical formula.   
+ 
+7.​ Identify solid 7 and its chemical formula.  
+ 
+8.​ Identify solid 8 and its chemical formula.   
+ 
+9.​ Identify solid 9 and its chemical formula.   
+ 
+10.​Identify solid 10 and its chemical formula.   
+ 
+11.​In the baking world, sodium bicarbonate is a leavening agent: vital to the formation 
+of light and airy food textures. Enid's bread loaf recipe currently includes sodium 
+bicarbonate. Should she add an acidic substance into her bread loaf recipe to make it 
+more airy? Why or why not? 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+12.​Balance the following chemical equation.  
+____ Na + ____ NaNO3 —> ____ Na2O + ____ N2. 
+ 
+ 
+13.​Balance the following chemical equation.   
+____ Al(OH)3 + ____ H2CO3 —> ____ Al2(CO3)3 + ____ H2O 
+ 
+ 
+14.​What are antacids? Explain their chemical mechanism. 
+ 
+ 
+ 
+ 
+ 
+ 
+
+15.​Which of the following Forensics Powders are antacids? Select all that apply. 
+a.​ Glucose 
+b.​ Sodium hydrogen carbonate 
+c.​ Calcium carbonate 
+d.​ Sucrose 
+e.​ Calcium sulfate 
+f.​ Magnesium sulfate 
+ 
+16.​Which part of those chemicals makes it an antacid? 
+ 
+ 
+17.​What powder(s) and reagent(s) used in this event are associated with Milk of 
+Magnesia?​
+ 
+ 
+ 
+ 
+18.​Is Milk of Magnesia acidic or basic? Does it have a relatively low or high hydronium 
+ion concentration? 
+a.​ Acidic. High hydronium ion concentration. 
+b.​ Acidic. Low hydronium ion concentration. 
+c.​ Basic. High hydronium ion concentration. 
+d.​ Basic. Low hydronium ion concentration. 
+ 
+19.​The Nevermore Academy curriculum may define the flame test as magic (or even 
+Pyrochromancy), but it certainly isn't. Describe and explain the atomic-level process 
+for how the flame test works. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+20.​What is the speed of red light in a vacuum in meters/second? 
+ 
+ 
+ 
+21.​Compared to red light, violet light has _______(shorter/longer)_______ wavelengths and 
+____(more/less)______ energy. 
+ 
+
+22.​Which of the following chemical analysis tests differentiate sucrose from glucose? 
+a.​ Tollens' Test 
+b.​ Seliwanoff's Test 
+c.​ Benedict's Test 
+d.​ Solvay Process 
+e.​ Barfoed's Test 
+f.​ Fehlings' Test 
+ 
+23.​Describe the chemical-structural differences between glucose and sucrose. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+24.​Briefly explain what cobalt blue glass is used for in flame testing. 
+ 
+ 
+ 
+ 
+ 
+ 
+25.​What are the 3 main components of Benedict's Solution?  
+ 
+ 
+ 
+
+Section II: Hairs  
+Four hair samples that did not match any of the staff members were collected from the 
+Academy Kitchen. Microscopic images of each sample were taken. Here are the results: 
+ 
+# 
+Hair 
+1 
+  
+2 
+  
+3 
+  
+4 
+  
+ 
+26.​Identify hair 1. What type of medulla pattern is shown? TIEBREAKER #4  
+ 
+27.​Identify hair 2. What type of medulla pattern is shown?  
+ 
+ 
+
+28.​Identify hair 3. What type of medulla pattern is shown? 
+ 
+29.​Identify hair 4. What type of cuticle scale pattern is shown?  
+ 
+30.​What are the 3 parts of the hair shaft from innermost to outermost?  
+ 
+ 
+31.​Label A-G on the diagram below. Make sure to include which letter you are 
+identifying. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+32.​What type of reaction occurs when hair is bleached? What compound is broken 
+down in the bleaching process that alters hair color?  
+ 
+ 
+ 
+ 
+
+33.​On average, how long does it take for hair to grow 1 centimeter? 
+a.​ Half a Month 
+b.​ 1 Month 
+c.​ 2 Months 
+d.​ 3 Months 
+ 
+34.​How long is the catagen phase of hair growth? Approximately what percent of hair is 
+in the anagen phase at any given time? 
+ 
+ 
+ 
+ 
+ 
+ 
+35.​What is the name of the scalp disorder that causes thinning or shedding of the hair 
+by making it enter the telogen phase prematurely? Who discovered this disorder?  
+ 
+ 
+
+Section III: Fibers 
+Four fiber samples were collected from the crime scene and a microscopic analysis was 
+conducted. Here are the results: 
+ 
+# 
+Collection 
+Location 
+Fiber 
+1 
+Academy 
+Kitchen 
+ 
+2 
+Academy 
+Kitchen 
+ 
+3 
+Refreshments 
+Table 
+ 
+ 
+
+4 
+Refreshments 
+Table 
+ 
+ 
+36.​Identify fiber 1. Is this an animal, plant, or synthetic fiber? TIEBREAKER 3 
+ 
+37.​Identify fiber 2. Is this an animal, plant, or synthetic fiber? 
+ 
+38.​Identify fiber 3. Is this an animal, plant, or synthetic fiber?  
+ 
+39.​Identify fiber 4. Is this an animal, plant, or synthetic fiber?  
+ 
+40.​In the late 1870s, Hilaire de Chardonnet worked with Louis Pasteur to remedy the 
+pandemic hitting French silkworms. After failing to clean up a spill in the darkroom, 
+Chardonnet discovered a compound that could potentially replace silk. What was 
+this compound that could potentially replace silk? What spilled chemical led to this 
+discovery?  
+ 
+ 
+41.​ What are the 2 main components of silk? When processed for commercial use, 
+which component of silk is typically removed? And, what is the name of that 
+process? 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+42.​Nylon is characterized by which of the following functional groups? 
+a.​ Nitrile 
+b.​ Ester 
+c.​ Amine 
+d.​ Amide 
+e.​ Imine 
+f.​ Ketone 
+ 
+43.​What plant and part of that plant are each of the plant fibers from?  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+44.​What fiber is the process of mercerization most commonly done with? Who invented 
+mercerization and when? 
+ 
+ 
+ 
+ 
+ 
+45.​Which Forensics fibers does sodium hypochlorite dissolve? Select all that apply. 
+a.​ Cotton 
+b.​ Nylon 
+c.​ Silk  
+d.​ Spandex 
+e.​ Wool  
+f.​ Linen 
+ 
+46.​What specific property is Spandex best known for? 
+a.​ Breathability 
+b.​ Elasticity  
+c.​ High Absorbency 
+d.​ Durability under UV light
+ 
+ 
+
+Section IV: Plastics 
+Four plastic samples were collected from the Academy Kitchen, with density and flame 
+tests being conducted. Here are the results: 
+ 
+# 
+Corn Oil 
+(0.90) 
+46% v/v 
+Isopropyl 
+Alcohol 
+(0.93) 
+Distilled 
+H2O 
+(1.00) 
+10% NaCl 
+solution 
+(1.07) 
+Saturated 
+NaCl 
+solution 
+(1.20) 
+Flame Test 
+(Color) 
+1 
+Sink 
+Sink 
+Sink 
+Sink 
+Sink 
+Yellow + 
+green 
+2 
+Float 
+Float 
+Float 
+Float 
+Float 
+Yellow + 
+blue 
+3 
+Sink 
+Sink 
+Sink 
+Sink 
+Sink 
+yellow 
+4 
+Sink 
+Sink 
+Sink 
+Float 
+Float 
+yellow 
+* Densities are in units of g/mL 
+47.​Identify plastic 1, its monomer formula, and recycling code.  TIEBREAKER #5 
+ 
+48.​Identify plastic 2, its monomer formula, and recycling code.  
+ 
+49.​Identify plastic 3, its monomer formula, and recycling code.   
+ 
+50.​Identify plastic 4, its monomer formula, and recycling code.   
+ 
+51.​Which of the following functional groups can be found in a polycarbonate monomer? 
+Select all that apply. 
+a.​ Phenol  
+b.​ Halide 
+c.​ Aromatic Rings  
+d.​ Carbonate ester  
+e.​ Ketone 
+f.​ Amine 
+ 
+52.​Which 2 recycling codes are recycled the most?  
+a.​ 1  
+b.​ 2  
+c.​ 3 
+d.​ 4 
+ 
+
+e.​ 5 
+f.​ 6 
+ 
+53.​Consider the visual representations of tacticity below.  What does diagram A 
+represent? Diagram B? Diagram C? 
+ 
+a.​ Syndiotacticity, Syndiotacticity, Isotacticity 
+b.​ Syndiotacticity, Syndiotacticity, Atacticity 
+c.​ Atacticity, Isotacticity, Syndiotacticity 
+d.​ Isotacticity, Atacticity, Syndiotacticity 
+e.​ Syndiotacticity, Isotacticity, Atacticity 
+f.​ Atacticity, Syndiotacticity, Isotacticity 
+ 
+54.​What is the difference between addition and condensation polymerization? 
+Categorize all 8 Forensics plastics based on their polymerization method. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+55.​Which Forensics plastics are thermosetting plastics? 
+ 
+56.​What does it mean when a polymer is amorphous? Which Forensics plastics are 
+amorphous? 
+ 
+ 
+
+Section V: Chromatography 
+The ink on the Ricksane-ium baggie label was analyzed via paper chromatography with a 
+solvent of isopropyl alcohol. The favorite writing utensils of each of the 5 suspects were 
+also collected and analyzed via paper chromatography with the same solvent. The results 
+are shown below.  
+ 
+57.​Consider the CS Sample. How far did the purple dye travel? 
+ 
+ 
+ 
+58.​Calculate the Rf of the blue dye for each sample. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+59.​Which suspect, if any, wrote the label?  
+ 
+
+60.​Which colored dye is the most nonpolar in this scenario? 
+a.​ Purple 
+b.​ Blue 
+c.​ Red 
+d.​ They are all the same polarity. 
+e.​ None of them have polarity 
+f.​ Purple and Red. 
+ 
+61.​Which colored dye is the most polar in this scenario? 
+a.​ Blue 
+b.​ Purple 
+c.​ Red 
+d.​ They are all the same polarity. 
+e.​ None of them have polarity 
+f.​ Purple and Red. 
+ 
+62.​What are the units for Rf?  
+ 
+63.​What is the difference between normal and reverse phase chromatography?  
+a.​ In normal-phase, stationary phase is polar. In reverse-phase, stationary phase 
+is non-polar.  
+b.​ In normal-phase, mobile phase is polar. In reverse-phase, mobile phase is 
+non-polar. 
+c.​ In normal-phase, stationary and mobile phase are the same polarity. In 
+reverse-phase, stationary and mobile phase have different polarities. 
+d.​ In normal-phase, stationary and mobile phase have different polarities. In 
+reverse-phase, stationary and mobile phase are the same polarity. 
+e.​ No differences between them. 
+ 
+64.​Which of the following compounds is not an appropriate stationary phase for 
+thin-layer chromatography? 
+a.​ Silica gel 
+b.​ Alumina 
+c.​ Cellulose 
+d.​ Hexane  
+ 
+ 
+ 
+65.​What is the most common element or compound used for the mobile phase in gas 
+chromatography? What is the biggest reason for this? 
+ 
+
+66.​What is the physical state of the analyte in gas chromatography? 
+a.​ Solid 
+b.​ Liquid 
+c.​ Gas  
+d.​ Plasma 
+e.​ None of the above. 
+ 
+67.​True or false. Gas chromatography does not involve heating any substances. 
+ 
+ 
+ 
+ 
+
+Section VI: Mass Spectrometry 
+The chemical trace found on the outside of the "Ricksane-ium" baggie was analyzed via 
+mass spectrometry. The results of that test are shown below. 
+ 
+  
+68.​Determine the base peak with units.  
+ 
+69.​Estimate the molar mass of this compound with units.  
+ 
+70.​Determine the identity of this compound and give its chemical formula.  
+TIEBREAKER #6 
+ 
+ 
+71.​What are the 3 parts of a mass spectrometer? 
+ 
+ 
+ 
+72.​A new element named Rickardium has just been discovered. Testing shows that it 
+has an average atomic mass of 459.18 amu and 3 isotopes: Rickardium-457, 
+Rickardium-459, and Rickardium-460. Rickardium-459 is 3 times more abundant 
+than Rickardium-457 in the sample. Find the percent abundance for each isotope. 
+ 
+ 
+
+ 
+73.​In 1912, a scientist improved Wilhelm Wien's 1899 experiment that separated ions 
+based on their charge-to-mass ratio (z/m). This scientist proved that atoms of the 
+same element can have different masses. Who was this scientist? What gas did they 
+use for the described experiment? Describe in one word what they discovered. 
+ 
+ 
+ 
+ 
+ 
+74.​What is the difference between hard and soft ionization? 
+ 
+ 
+ 
+​
+ 
+ 
+ 
+ 
+75.​Is electron ionization (EI) considered hard or soft ionization? 
+a.​ Hard Ionization  
+b.​ Soft Ionization 
+ 
+76.​Are lighter or heavier ions deflected by the magnetic force at a greater degree? 
+a.​ Lighter ions  
+b.​ Heavier ions 
+ 
+ 
+ 
+ 
+ 
+ 
+
+Section VII: Fingerprints 
+Four analyzable fingerprint samples were found at the crime scene. Assume all of the prints 
+were from the right hand. The specific locations where they were found are included. 
+ 
+# 
+Location 
+Image 
+1 
+Ricksane-ium Baggie 
+ 
+2 
+Ricksane-ium Baggie 
+ 
+3 
+Refreshments Table 
+ 
+4 
+Refreshments Table 
+ 
+ 
+
+5 
+Refreshments Table 
+ 
+ 
+77.​Identify fingerprint 1. TIEBREAKER #7 
+ 
+78.​Identify fingerprint 2.  
+ 
+79.​Identify fingerprint 3.  
+ 
+80.​Identify fingerprint 4.  
+ 
+81.​Identify fingerprint 5.  
+ 
+82.​Edmond Locard, "The Sherlock Holmes of France", suggested that to declare a 
+fingerprint a match, _____ or more points (minutiae) must match. What number goes 
+in the blank?  
+ 
+ 
+83.​What other vital forensic science principle did Edmond Locard theorize? 
+​
+ 
+ 
+ 
+ 
+84.​How many fingerprint profiles, on average, are added to IAFIS each day? 
+a.​ 7000 
+b.​ 460 
+c.​ 63000 
+d.​ 1200 
+e.​ 500000 
+ 
+85.​One way to develop latent fingerprints is by using ninhydrin. Does ninhydrin 
+development work best on porous or nonporous surfaces? Give 2 examples of 
+surfaces ninhydrin development works best on. 
+ 
+ 
+
+86.​How does ninhydrin development chemically work? 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+87.​In 1933, William Hamm, the president of the Theodore Hamm Brewing Company, 
+was kidnapped by 4 masked men after leaving his office in St. Paul, MN. The 
+kidnappers had Hamm write ransom notes which were then used to collect a sum of 
+$100,000. Investigators found fingerprints on the ransom notes and developed them 
+via the silver nitrate technique. Explain how the silver nitrate development 
+technique chemically works. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+88.​Fingerprints are made up of ___ % water. 
+a.​ 100 
+b.​ 95 
+c.​ 85 
+d.​ 70 
+e.​ 50 
+f.​ 25 
+ 
+89.​On which layer of the epidermis are fingerprints formed on? 
+ 
+ 
+ 
+90.​Calculate the Henry Classification for a record of ten-fingerprints made up of 8 loops 
+and 2 arches. 
+ 
+ 
+ 
+ 
+
+Section VIII: DNA 
+Traces of DNA were found on the "Ricksane-ium" baggie. Below are the results from the DNA 
+analysis test. 
+ 
+ 
+91.​Which suspect matches the sample found at the crime scene?   
+ 
+92.​What method of separation was used above? 
+ 
+93.​What is Column L typically called when analyzing DNA with this method? 
+ 
+ 
+94.​Fill in the blanks. The method above separates molecules by applying an 
+______________________________________ current to a gel matrix to separate them based on 
+______________________________________ and ______________________________________. 
+ 
+ 
+ 
+ 
+95.​What are the 4 DNA nucleotides? Which ones pair together? 
+ 
+ 
+ 
+
+96.​What are the 3 main components of a nucleotide? 
+ 
+ 
+ 
+ 
+ 
+ 
+97.​What are the 3 stages of PCR? What temperature does each roughly occur at? 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+98.​If you start with 3 double strands of DNA, how many copies will you have after 7 PCR 
+cycles? 
+ 
+ 
+ 
+99.​If you start with 2 double stands of DNA, how many single strands will you have 
+after 9 PCR cycles? 
+ 
+ 
+ 
+100.​
+DNA found in an abandoned getaway car turned positive for the DNA markers  
+FGA 24,24, TH01 6,8, and D16S539 11,12. If the respective frequencies of these DNA 
+markers in a normal population are 3.6%, 6.8%, and 8.9%, how many people in a 
+population of 3,000,000 people could match this profile? 
+ 
+ 
+ 
+
+Section IX: Glass Analysis 
+Upon further inspection, small bits of glass were found at the bottom of the punch bowl. 
+Investigators analyzed one of the bits of glass using light and found the results shown 
+below. 
+ 
+ 
+101.​
+Based on the results above, what is the refractive index of the glass sample?  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+102.​
+Based on the refractive index of the glass sample, what is the identity of the glass 
+sample? 
+a.​ Fused silica glass 
+b.​ Borosilicate glass 
+c.​ Soda-lime glass 
+d.​ Lead glass 
+e.​ Flint glass 
+ 
+ 
+
+103.​
+Based on the identity of the glass sample, who may this glass evidence 
+incriminate? 
+ 
+ 
+ 
+ 
+104.​
+Based on the refractive index of the glass sample calculated in Question 101, 
+what is the speed of light inside the glass sample? 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+105.​
+What is the speed of green light in a vacuum? 
+ 
+ 
+ 
+ 
+106.​
+What is the composition of soda-lime glass?  __________% silica, __________% soda, 
+__________% lime, and __________% other materials such as MgO or Al2O3. 
+ 
+ 
+ 
+ 
+107.​
+What is the chemical formula for the component in borosilicate glass that makes 
+it resistant to thermal shock? 
+ 
+ 
+108.​
+What is the 3R Rule? 
+ 
+ 
+ 
+
+Section X: Ballistics 
+Upon further inspection of the crime scene, a bullet was found in a dusty corner near the 
+refreshments table. Although no one heard any shots fired on the night of the Rave'N, the 
+investigators still took the bullet in as evidence. 
+ 
+The investigators found guns that could fire the same type of bullet in 3 of our 5 suspects' 
+belongings. The picture below shows a sample of the striations from the test bullets from 
+the guns belonging to (A) Enid, (B) Tyler, and (C) Wednesday. 
+ 
+ 
+109.​
+Which suspect's gun matches the bullet from the Crime Scene? 
+a.​ Wednesday Addams 
+b.​ Enid Sinclair 
+c.​ Xavier Thorpe 
+d.​ Bianca Barclay 
+e.​ Tyler Galpin 
+f.​ None of the above 
+ 
+110.​
+What is the name of the United States's national forensic database relating to 
+ballistics that is used by law enforcement? 
+a.​ United States Guns and Bullets Repository 
+b.​ National Integrated Ballistics Information Network 
+c.​ National Striations and Casing Database 
+d.​ NIST Ballistics Toolmark Database 
+ 
+
+111.​
+The database above is managed by which agency? 
+a.​ NIH 
+b.​ NIJ 
+c.​ ATF  
+d.​ DEA 
+e.​ FWS 
+f.​ FBI 
+ 
+ 
+ 
+
+Section XI: Blood 
+Upon further inspection of the Academy Kitchen, a minute speck of blood was found on the 
+side of a table. The results of the test on that sample are shown below. 
+ 
+ 
+112.​
+What is the ABO-Rh blood type of the evidence sample? 
+ 
+113.​
+Which suspect do you think the speck of blood in the Academy Kitchen came 
+from?  
+a.​ Wednesday Addams 
+b.​ Enid Sinclair 
+c.​ Xavier Thorpe 
+d.​ Bianca Barclay 
+e.​ Tyler Galpin  
+f.​ None 
+ 
+114.​
+A blood stain found not at the crime scene has a width of 2.13 cm and a length of 
+2.32 cm. What is the angle of impact in degrees to the nearest whole number?  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+115.​
+Consider the blood stain in Question 120. If the horizontal distance from the 
+source point to the impact site was 1 meter, how high above the ground was the 
+source point in meters? Assume the blood droplet traveled in a straight line. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+116.​
+If a blood donor has type A+, can their blood be safely given to someone with 
+type B-? 
+a.​ Yes 
+b.​ No 
+ 
+117.​
+If a blood donor has type O-, can their blood be safely given to someone with 
+type AB-? 
+a.​ Yes  
+b.​ No 
+ 
+118.​
+What is the medical term for the condition that occurs when a person receives an 
+incompatible blood type during a transfusion? 
+ 
+ 
+ 
+119.​
+The parents of a child have the blood types A- and B-. What blood types can that 
+child NOT have? 
+ 
+ 
+ 
+ 
+120.​
+How does the Kastle Meyer test work?  
+The iron found in the ______________________________ of red blood cells catalyzes the 
+______________________________ reaction between ______________________________ and 
+______________________________. This creates a ______________________________ product, 
+indicating the possible presence of blood. 
+ 
+121.​
+What type of evidence is blood type? Select all that apply. 
+a.​ Class  
+b.​ Individual 
+c.​ Trace 
+d.​ Biological 
+e.​ Expert 
+f.​ Circumstantial 
+ 
+ 
+
+Section XII: Analysis Write-Up 
+Now, it's time to figure out who is guilty! 
+ 
+122.​
+TIEBREAKER #1 Address all the pieces of evidence that you've been given. Using 
+the identification results done in previous sections, which suspect(s) does each 
+specific piece of evidence point towards as guilty? Explain connections between 
+specific evidence and suspects. Is that evidence admissible? Is it individual or class 
+evidence? Discuss motives and where each piece of evidence was collected from. 
+Finally, claim who you believe without a doubt killed Principal Larissa Weems. Make 
+sure to discuss why that suspect is guilty and why all others are innocent. 
+ 
+*Reminder: Assume that all evidence from the Academy Kitchen has been cleared 
+from belonging to any member of the Academy Staff. 
+ 
+ 
+ 
+
+Additional Analysis Space
+ 
+ 
+
+Additional Analysis Space 
+ 

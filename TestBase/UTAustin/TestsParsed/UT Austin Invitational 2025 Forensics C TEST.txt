@@ -1,0 +1,509 @@
+EVENT: Forensics
+SOURCE: UT Austin Invitational 2025 (Div. C)
+FORMAT: Multiple sections with qualitative analysis, polymers, fibers, chromatography, spectroscopy, and crime scene analysis
+TOTAL POINTS: 292
+
+---QUESTION 1---
+ID: 1
+POINTS: 5.00
+FORMAT: Identification
+TOPIC: Qualitative Analysis | Powder identification
+DIFFICULTY: Medium
+QUESTION: Using the samples provided, fill out each powder's respective chemical formula, name, and one applicable connection between this powder and the story. (Powder 1)
+
+---QUESTION 2---
+ID: 2
+POINTS: 5.00
+FORMAT: Identification
+TOPIC: Qualitative Analysis | Powder identification
+DIFFICULTY: Medium
+QUESTION: Using the samples provided, fill out each powder's respective chemical formula, name, and one applicable connection between this powder and the story. (Powder 2)
+
+---QUESTION 3---
+ID: 3
+POINTS: 5.00
+FORMAT: Identification
+TOPIC: Qualitative Analysis | Powder identification
+DIFFICULTY: Medium
+QUESTION: Using the samples provided, fill out each powder's respective chemical formula, name, and one applicable connection between this powder and the story. (Powder 3)
+
+---QUESTION 4---
+ID: 4
+POINTS: 5.00
+FORMAT: Identification
+TOPIC: Qualitative Analysis | Powder identification
+DIFFICULTY: Medium
+QUESTION: Using the samples provided, fill out each powder's respective chemical formula, name, and one applicable connection between this powder and the story. (Powder 4)
+
+---QUESTION 5---
+ID: 5
+POINTS: 5.00
+FORMAT: Identification
+TOPIC: Qualitative Analysis | Powder identification
+DIFFICULTY: Medium
+QUESTION: Using the samples provided, fill out each powder's respective chemical formula, name, and one applicable connection between this powder and the story. (Powder 5)
+
+---QUESTION 6---
+ID: 6
+POINTS: 5.00
+FORMAT: Identification
+TOPIC: Qualitative Analysis | Powder identification
+DIFFICULTY: Medium
+QUESTION: Using the samples provided, fill out each powder's respective chemical formula, name, and one applicable connection between this powder and the story. (Powder 6)
+
+---QUESTION 7---
+ID: 7
+POINTS: 5.00
+FORMAT: Identification
+TOPIC: Qualitative Analysis | Powder identification
+DIFFICULTY: Medium
+QUESTION: Using the samples provided, fill out each powder's respective chemical formula, name, and one applicable connection between this powder and the story. (Powder 7)
+
+---QUESTION 8---
+ID: 8
+POINTS: 5.00
+FORMAT: Identification
+TOPIC: Qualitative Analysis | Powder identification
+DIFFICULTY: Medium
+QUESTION: Using the samples provided, fill out each powder's respective chemical formula, name, and one applicable connection between this powder and the story. (Powder 8)
+
+---QUESTION 9---
+ID: 9
+POINTS: 5.00
+FORMAT: Identification
+TOPIC: Qualitative Analysis | Powder identification
+DIFFICULTY: Medium
+QUESTION: Using the samples provided, fill out each powder's respective chemical formula, name, and one applicable connection between this powder and the story. (Powder 9)
+
+---QUESTION 10---
+ID: 10
+POINTS: 5.00
+FORMAT: Identification
+TOPIC: Qualitative Analysis | Powder identification
+DIFFICULTY: Medium
+QUESTION: Using the samples provided, fill out each powder's respective chemical formula, name, and one applicable connection between this powder and the story. (Powder 10)
+
+---QUESTION 11---
+ID: 11
+POINTS: 5.00
+FORMAT: Identification
+TOPIC: Qualitative Analysis | Powder identification
+DIFFICULTY: Medium
+QUESTION: Using the samples provided, fill out each powder's respective chemical formula, name, and one applicable connection between this powder and the story. (Powder 11)
+
+---QUESTION 12---
+ID: 12
+POINTS: 5.00
+FORMAT: Identification
+TOPIC: Qualitative Analysis | Powder identification
+DIFFICULTY: Medium
+QUESTION: Using the samples provided, fill out each powder's respective chemical formula, name, and one applicable connection between this powder and the story. (Powder 12)
+
+---QUESTION 13---
+ID: 13
+POINTS: 5.00
+FORMAT: Identification
+TOPIC: Qualitative Analysis | Powder identification
+DIFFICULTY: Medium
+QUESTION: Using the samples provided, fill out each powder's respective chemical formula, name, and one applicable connection between this powder and the story. (Powder 13)
+
+---QUESTION 14---
+ID: 14
+POINTS: 5.00
+FORMAT: Identification
+TOPIC: Qualitative Analysis | Powder identification
+DIFFICULTY: Medium
+QUESTION: Using the samples provided, fill out each powder's respective chemical formula, name, and one applicable connection between this powder and the story. (Powder 14)
+
+---QUESTION 15---
+ID: 15
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Qualitative Analysis | Chemical reactions | Powder 14 and sodium hydroxide
+DIFFICULTY: Medium
+QUESTION: Write the complete, balanced chemical reaction between powder 14 and sodium hydroxide. Include states of matter.
+
+---QUESTION 16---
+ID: 16
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Qualitative Analysis | Acids | Weak acids
+DIFFICULTY: Medium
+QUESTION: Why is acetic acid (CH3COOH) considered a weak acid?
+
+---QUESTION 17---
+ID: 17
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Qualitative Analysis | Solubility | Surface area
+DIFFICULTY: Medium
+QUESTION: Why does a solute dissolve faster in a solvent when it is ground into smaller pieces?
+
+---QUESTION 18---
+ID: 18
+POINTS: 1.00
+FORMAT: Fill-in
+TOPIC: Qualitative Analysis | Soap | Function
+DIFFICULTY: Easy
+QUESTION: Soap molecules _________ oils and dirt, allowing them to be removed from surfaces.
+
+---QUESTION 19---
+ID: 19
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Qualitative Analysis | Chemical reactions | Metal carbonates and acids
+DIFFICULTY: Medium
+QUESTION: What happens when a metal carbonate reacts with an acid?
+
+---QUESTION 20---
+ID: 20
+POINTS: 2.00
+FORMAT: Fill-in
+TOPIC: Qualitative Analysis | Luminol | Chemiluminescence
+DIFFICULTY: Medium
+QUESTION: Luminol is commonly used in forensic science because it reacts with _________ in blood to produce a _________ during chemiluminescence.
+
+---QUESTION 21---
+ID: 21
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Qualitative Analysis | Metals | Silver conductivity
+DIFFICULTY: Medium
+QUESTION: Explain why silver is considered the best conductor of electricity among metals.
+
+---QUESTION 22---
+ID: 22
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Qualitative Analysis | Fermentation | Byproducts
+DIFFICULTY: Medium
+QUESTION: Fermentation is an anaerobic process that converts glucose into energy and other products. Identify one common byproduct of fermentation in muscle cells and one in yeast.
+
+---QUESTION 23---
+ID: 23
+POINTS: 2.00
+FORMAT: Fill-in
+TOPIC: Qualitative Analysis | Nitrogen cycle | Nitrification
+DIFFICULTY: Medium
+QUESTION: The process of _________ involves the conversion of ammonia into nitrites and then nitrates by bacteria, making nitrogen available for plant uptake.
+
+---QUESTION 24---
+ID: 24
+POINTS: 4.00
+FORMAT: Identification
+TOPIC: Polymers | Plastic identification
+DIFFICULTY: Medium
+QUESTION: Using the information found in your image sheet, fill out the table with each plastic's respective information. *Hint* Plastic 2 is more recyclable than Plastic 6. (Plastic 1)
+
+---QUESTION 25---
+ID: 25
+POINTS: 4.00
+FORMAT: Identification
+TOPIC: Polymers | Plastic identification
+DIFFICULTY: Medium
+QUESTION: Using the information found in your image sheet, fill out the table with each plastic's respective information. *Hint* Plastic 2 is more recyclable than Plastic 6. (Plastic 2)
+
+---QUESTION 26---
+ID: 26
+POINTS: 4.00
+FORMAT: Identification
+TOPIC: Polymers | Plastic identification
+DIFFICULTY: Medium
+QUESTION: Using the information found in your image sheet, fill out the table with each plastic's respective information. *Hint* Plastic 2 is more recyclable than Plastic 6. (Plastic 3)
+
+---QUESTION 27---
+ID: 27
+POINTS: 4.00
+FORMAT: Identification
+TOPIC: Polymers | Plastic identification
+DIFFICULTY: Medium
+QUESTION: Using the information found in your image sheet, fill out the table with each plastic's respective information. *Hint* Plastic 2 is more recyclable than Plastic 6. (Plastic 4)
+
+---QUESTION 28---
+ID: 28
+POINTS: 4.00
+FORMAT: Identification
+TOPIC: Polymers | Plastic identification
+DIFFICULTY: Medium
+QUESTION: Using the information found in your image sheet, fill out the table with each plastic's respective information. *Hint* Plastic 2 is more recyclable than Plastic 6. (Plastic 5)
+
+---QUESTION 29---
+ID: 29
+POINTS: 4.00
+FORMAT: Identification
+TOPIC: Polymers | Plastic identification
+DIFFICULTY: Medium
+QUESTION: Using the information found in your image sheet, fill out the table with each plastic's respective information. *Hint* Plastic 2 is more recyclable than Plastic 6. (Plastic 6)
+
+---QUESTION 30---
+ID: 30
+POINTS: 4.00
+FORMAT: Identification
+TOPIC: Polymers | Plastic identification
+DIFFICULTY: Medium
+QUESTION: Using the information found in your image sheet, fill out the table with each plastic's respective information. *Hint* Plastic 2 is more recyclable than Plastic 6. (Plastic 7)
+
+---QUESTION 31---
+ID: 31
+POINTS: 4.00
+FORMAT: Identification
+TOPIC: Polymers | Plastic identification
+DIFFICULTY: Medium
+QUESTION: Using the information found in your image sheet, fill out the table with each plastic's respective information. *Hint* Plastic 2 is more recyclable than Plastic 6. (Plastic 8)
+
+---QUESTION 32---
+ID: 32
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Polymers | Polypropylene vs Polyethylene
+DIFFICULTY: Medium
+QUESTION: Polypropylene (PP) and Polyethylene (PE) are both thermoplastics. Give one reason why PP might be chosen over PE for certain applications.
+
+---QUESTION 33---
+ID: 33
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Polymers | Thermoset vs thermoplastic | Applications
+DIFFICULTY: Medium
+QUESTION: Explain why thermoset plastics are often used for electrical insulation, whereas thermoplastics are more common in packaging. Categorize plastics 1-8 based on their thermal properties.
+
+---QUESTION 34---
+ID: 34
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Polymers | Recycling codes | Categories
+DIFFICULTY: Medium
+QUESTION: What do the numbers 1-7 inside the recycling symbol on plastic products represent? How does category 7 differ from categories 1-6?
+
+---QUESTION 35---
+ID: 35
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Polymers | Flame tests | Polyethylene vs Polystyrene
+DIFFICULTY: Medium
+QUESTION: Polyethylene (PE) and Polystyrene (PS) produce different flame colours when burned. Identify each flame colour and explain the reason for the difference.
+
+---QUESTION 36---
+ID: 36
+POINTS: 1.00
+FORMAT: Fill-in
+TOPIC: Polymers | Flame tests | Halogen-containing plastics
+DIFFICULTY: Medium
+QUESTION: In a flame test, plastics containing halogen atoms, such as chlorine or bromine, often produce a _________ and incomplete _________ due to the halogen interfering with the burning process.
+
+---QUESTION 37---
+ID: 37
+POINTS: 5.00
+FORMAT: Identification
+TOPIC: Fibers | Fiber identification
+DIFFICULTY: Medium
+QUESTION: Using the information found in your image sheet, fill out each fiber's name, whether it is organic or synthetic, and one applicable connection between this fiber and the story. (Fiber 1)
+
+---QUESTION 38---
+ID: 38
+POINTS: 5.00
+FORMAT: Identification
+TOPIC: Fibers | Fiber identification
+DIFFICULTY: Medium
+QUESTION: Using the information found in your image sheet, fill out each fiber's name, whether it is organic or synthetic, and one applicable connection between this fiber and the story. (Fiber 2)
+
+---QUESTION 39---
+ID: 39
+POINTS: 5.00
+FORMAT: Identification
+TOPIC: Fibers | Fiber identification
+DIFFICULTY: Medium
+QUESTION: Using the information found in your image sheet, fill out each fiber's name, whether it is organic or synthetic, and one applicable connection between this fiber and the story. (Fiber 3)
+
+---QUESTION 40---
+ID: 40
+POINTS: 5.00
+FORMAT: Identification
+TOPIC: Fibers | Fiber identification
+DIFFICULTY: Medium
+QUESTION: Using the information found in your image sheet, fill out each fiber's name, whether it is organic or synthetic, and one applicable connection between this fiber and the story. (Fiber 4)
+
+---QUESTION 41---
+ID: 41
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Fibers | Organic fibers | Categorization
+DIFFICULTY: Medium
+QUESTION: If fibers 1–4 are organic, categorize them as either animal-based or plant-based.
+
+---QUESTION 42---
+ID: 42
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Fibers | Animal vs plant fibers | Key difference
+DIFFICULTY: Medium
+QUESTION: What is the key difference between animal-based and plant-based fibers?
+
+---QUESTION 43---
+ID: 43
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Fibers | Synthetic vs natural | Advantages and disadvantages
+DIFFICULTY: Medium
+QUESTION: Give one advantage and one disadvantage of synthetic fibers compared to natural fibers.
+
+---QUESTION 44---
+ID: 44
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Hair | Medulla | Human, bat, and cow
+DIFFICULTY: Medium
+QUESTION: Describe the differences between human, bat, and cow hair medulla.
+
+---QUESTION 45---
+ID: 45
+POINTS: 2.00
+FORMAT: Fill-in
+TOPIC: Hair | Development | Order
+DIFFICULTY: Medium
+QUESTION: Hair development occurs in a(n) _________ order. In order, list the order of structure development.
+
+---QUESTION 46---
+ID: 46
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Hair | Dermal papilla | Role
+DIFFICULTY: Medium
+QUESTION: What is the role of the dermal papilla in the hair cycle?
+
+---QUESTION 47---
+ID: 47
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Hair | Bleaching | Effects
+DIFFICULTY: Medium
+QUESTION: What effect does repeated bleaching have on hair structure, and which bond type is most affected?
+
+---QUESTION 48---
+ID: 48
+POINTS: 10.00
+FORMAT: Practical
+TOPIC: Chromatography | Blood (ink) analysis
+DIFFICULTY: Medium
+QUESTION: Faker has discovered 6 suspicious smudges of blood (ink) near the site of the missing cannon minion. Help him determine which champion's ink matches the culprit! Use the provided samples to create 6 chromatography sheets. Staple these to the FRONT of your final exam. Label each sheet clearly with your team number in pencil.
+
+---QUESTION 49---
+ID: 49
+POINTS: 3.00
+FORMAT: Calculation
+TOPIC: Chromatography | Rf calculation
+DIFFICULTY: Medium
+QUESTION: Calculate the Rf of each chromatogram. Show work and label each chromatogram Rf.
+
+---QUESTION 50---
+ID: 50
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Chromatography | Comparison | Suspect identification
+DIFFICULTY: Medium
+QUESTION: Compare the chromatograms collected with our knowns. Who might these indicate?
+
+---QUESTION 51---
+ID: 51
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Chromatography | Methods | Resolution ranking
+DIFFICULTY: Medium
+QUESTION: TLC, GC, and HPLC, are three forms of chromatography used for different purposes. Rank, in order from least to greatest resolution, these three chromatography methods.
+
+---QUESTION 52---
+ID: 52
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Chromatography | TLC | Solvent polarity
+DIFFICULTY: Medium
+QUESTION: In TLC, how does the polarity of the solvent system affect the separation of a mixture of compounds such as benzene, toluene, and ethyl acetate? List the compounds in increasing order of polarity.
+
+---QUESTION 53---
+ID: 53
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Chromatography | Polarity comparison | Acetone vs dimethyl ether
+DIFFICULTY: Medium
+QUESTION: Compare the polarity of acetone and dimethyl ether.
+
+---QUESTION 54---
+ID: 54
+POINTS: 5.00
+FORMAT: Identification
+TOPIC: Crime Scene | Fingerprints | Ten-print card
+DIFFICULTY: Medium
+QUESTION: Faker compiled some fingerprints found at the nexus into a ten-print card. Label each of these fingerprints using their type and NCIC FPC Codes. The ten-print card can be found as Figure 1 in your image sheet. Some terms may or may not repeat. (RT, RI, RM, RR, RL, LT, LI, LM, LR, LL)
+
+---QUESTION 55---
+ID: 55
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Crime Scene | Fingerprints | Primary classification
+DIFFICULTY: Medium
+QUESTION: Write the primary classification number of the suspect.
+
+---QUESTION 56---
+ID: 56
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Crime Scene | Fingerprints | NCIC FPC
+DIFFICULTY: Medium
+QUESTION: Write the NCIC FPC of the suspect.
+
+---QUESTION 57---
+ID: 57
+POINTS: 5.00
+FORMAT: Short Answer
+TOPIC: Crime Scene | Fingerprints | Development techniques
+DIFFICULTY: Medium
+QUESTION: Why are fingerprint development techniques designed for porous surfaces not effective on non-porous surfaces? List two examples of each type of technique and what they react/adhere to.
+
+---QUESTION 58---
+ID: 58
+POINTS: 5.00
+FORMAT: Short Answer
+TOPIC: Crime Scene | DNA | Sequence identification
+DIFFICULTY: Medium
+QUESTION: Faker has found some traces of DNA around the crime scene, but needs help identifying them! Using Figures 2 - 6, write down each DNA sequence. Each sequence may vary in length. Assume the right and left sides of the diagram correspond to 5' and 3', respectively. *Key* A:Green, T:Red, G:Black, C:Blue
+
+---QUESTION 59---
+ID: 59
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Crime Scene | DNA | PAGE gel sequence
+DIFFICULTY: Medium
+QUESTION: Faker and Keria discovered a trace of DNA near the missing cannon minion. Use Figure 7 to write out the DNA sequence shown on this PAGE gel. Be sure to label the 5' and 3' ends.
+
+---QUESTION 60---
+ID: 60
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Crime Scene | DNA | Electropherogram and consensus sequence
+DIFFICULTY: Medium
+QUESTION: What is an electropherogram and a consensus sequence? What is the difference between the two?
+
+---QUESTION 61---
+ID: 61
+POINTS: 3.00
+FORMAT: Short Answer
+TOPIC: Crime Scene | DNA | Polyacrylamide gel | Polymerization
+DIFFICULTY: Medium
+QUESTION: What are the chemical components involved in the polymerization of a polyacrylamide gel, and how do they function?
+
+---QUESTION 62---
+ID: 62
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Crime Scene | DNA | Gel types | Polyacrylamide vs agarose
+DIFFICULTY: Medium
+QUESTION: What is the difference between polyacrylamide and agarose gels when used for DNA electrophoresis?
+
+---QUESTION 63---
+ID: 63
+POINTS: 100.00
+FORMAT: Essay
+TOPIC: Analysis | Crime solution | Suspect identification
+DIFFICULTY: High
+QUESTION: Who committed the crime? Include all relevant information. Cite motives and alibis for each suspect. [TB]
+

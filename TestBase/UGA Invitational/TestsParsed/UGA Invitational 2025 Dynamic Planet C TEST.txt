@@ -1,0 +1,325 @@
+EVENT: Dynamic Planet
+SOURCE: UGA Invitational 2025 (Div. C)
+FORMAT: 40 questions (MC, Matching, True/False, Labeling, Short Answer)
+TOTAL POINTS: 100
+
+---SECTION 1: Multiple Choice (3 pts. each)---
+
+---QUESTION 1---
+ID: 1 | POINTS: 3.00 | FORMAT: MC | Image Analysis
+TOPIC: Oceanography | Topographic Features | Seafloor Features | Mid-Ocean Ridge
+DIFFICULTY: Medium
+QUESTION: What topographic feature is identified by the area within the red circle on this image below?
+OPTIONS:
+A) Trench
+B) Continental Shelf
+C) Mid-Ocean Ridge
+D) Seamount
+
+---QUESTION 2---
+ID: 2 | POINTS: 3.00 | FORMAT: MC
+TOPIC: Plate Tectonics | Mid-Atlantic Ridge | Spreading Rate | Plate Movement
+DIFFICULTY: Medium
+QUESTION: At what rate are the plates of the Mid-Atlantic Ridge moving apart?
+OPTIONS:
+A) 2.0 cm per year
+B) 2.5 cm per year
+C) 3.0 cm per year
+D) 3.5 cm per year
+
+---QUESTION 3---
+ID: 3 | POINTS: 3.00 | FORMAT: MC
+TOPIC: Sedimentology | Turbidites | Turbidity Currents | Sediment Deposition
+DIFFICULTY: High
+QUESTION: Which of the following statements about turbidites is false?
+OPTIONS:
+A) Sediments are transported and deposited by frictional flow, not by density or tractional flow.
+B) Turbidite deposits typically occur in foreland basins.
+C) Coarser sediments are usually deposited at the bottom, while finer sediments are deposited at the top.
+D) Turbidity currents are often caused by slope failures.
+
+---QUESTION 4---
+ID: 4 | POINTS: 3.00 | FORMAT: MC
+TOPIC: Plate Tectonics | Fracture Zones | Transform Faults | Mid-Ocean Ridges
+DIFFICULTY: Medium
+QUESTION: The fracture zone is an area of transverse faults around what features?
+OPTIONS:
+A) Deep ocean trenches
+B) Hot spots
+C) Mid-Ocean ridges
+D) Atolls
+E) Guyots
+
+---QUESTION 5---
+ID: 5 | POINTS: 3.00 | FORMAT: MC
+TOPIC: Oceanography | Downwelling | Wind Patterns | Ekman Transport | Coastal Upwelling
+DIFFICULTY: High
+QUESTION: When the wind is travelling north, on which of these coasts does downwelling occur?
+OPTIONS:
+A) The east coast of Fiji
+B) The west coast of South Africa
+C) The west coast of Mexico
+D) The east coast of Mozambique
+
+---QUESTION 6---
+ID: 6 | POINTS: 3.00 | FORMAT: MC
+TOPIC: Coastal Processes | Sea Walls | Beach Erosion | Coastal Engineering
+DIFFICULTY: Medium
+QUESTION: What effect do sea walls have on adjacent beaches?
+OPTIONS:
+A) Have no effect on erosion
+B) Increase erosion
+C) Decrease erosion
+D) None of the above
+
+---QUESTION 7---
+ID: 7 | POINTS: 3.00 | FORMAT: MC
+TOPIC: Oceanography | Thermocline | Polar Regions | Temperature Stratification
+DIFFICULTY: Medium
+QUESTION: At the poles, thermocline is:
+OPTIONS:
+A) More or less vertical/nonexistent
+B) Extremely shallow
+C) Moderately steep
+D) None of the above
+
+---QUESTION 8---
+ID: 8 | POINTS: 3.00 | FORMAT: MC
+TOPIC: Coastal Processes | Longshore Current | Rip Current | Beach Currents
+DIFFICULTY: Medium
+QUESTION: A group of students are studying ocean currents at a beach. They notice that the waves are approaching the shore at an angle, moving sand and swimmers steadily along the beach. Later, they observe a strong, narrow current pulling water rapidly away from the shore through a break in the sandbar. Which of the following best matches the two types of currents the students observed?
+OPTIONS:
+A) The first current is a longshore current, and the second is a rip current.
+B) The first current is a rip current, and the second is a longshore current.
+C) Both currents are examples of longshore drift.
+D) Both currents are examples of rip currents.
+
+---QUESTION 9---
+ID: 9 | POINTS: 3.00 | FORMAT: MC | Calculation
+TOPIC: Tides | Tidal Period | High Tide | Tidal Cycle
+DIFFICULTY: Medium
+QUESTION: If high tide in Ocean City occurs at 12:15 pm, the next high tide will be at:
+OPTIONS:
+A) 12:40 pm the same day
+B) 12:40 am that night
+C) 12:40 pm the next day
+D) 1:05 pm the next day
+
+---QUESTION 10---
+ID: 10 | POINTS: 3.00 | FORMAT: MC
+TOPIC: Plate Tectonics | Seafloor Spreading | Magnetic Stripes | Evidence
+DIFFICULTY: Medium
+QUESTION: Which piece of evidence best supports the theory of seafloor spreading?
+OPTIONS:
+A) Fossils of the same species found on different continents
+B) Earthquakes occurring along transform boundaries
+C) The presence of folded mountain ranges along continental margins
+D) Magnetic stripes on the ocean floor that are symmetrical on either side of mid-ocean ridges
+
+---SECTION 2: Matching (2 pts. each)---
+
+---QUESTIONS 11-15 (SHARED CONTEXT)---
+ID: 11-15 | POINTS: 2.00 each | FORMAT: Matching | Image Analysis
+TOPIC: Coastal Landforms | Depositional Features | Spit | Barrier Island | Lagoon | Tombolo | Sand Dune
+CONTEXT: Match the following photos to the correct depositional landform: a) Spit, b) Barrier Island, c) Lagoon, d) Tombolo, e) Sand Dune
+
+---QUESTION 11---
+ID: 11 | POINTS: 2.00 | FORMAT: Matching | Image Analysis
+TOPIC: Coastal Landforms | Depositional Features | Image Identification
+DIFFICULTY: Medium
+QUESTION: Match photo 11 to the correct depositional landform.
+
+---QUESTION 12---
+ID: 12 | POINTS: 2.00 | FORMAT: Matching | Image Analysis
+TOPIC: Coastal Landforms | Depositional Features | Image Identification
+DIFFICULTY: Medium
+QUESTION: Match photo 12 to the correct depositional landform.
+
+---QUESTION 13---
+ID: 13 | POINTS: 2.00 | FORMAT: Matching | Image Analysis
+TOPIC: Coastal Landforms | Depositional Features | Image Identification
+DIFFICULTY: Medium
+QUESTION: Match photo 13 to the correct depositional landform.
+
+---QUESTION 14---
+ID: 14 | POINTS: 2.00 | FORMAT: Matching | Image Analysis
+TOPIC: Coastal Landforms | Depositional Features | Image Identification
+DIFFICULTY: Medium
+QUESTION: Match photo 14 to the correct depositional landform.
+
+---QUESTION 15---
+ID: 15 | POINTS: 2.00 | FORMAT: Matching | Image Analysis
+TOPIC: Coastal Landforms | Depositional Features | Image Identification
+DIFFICULTY: Medium
+QUESTION: Match photo 15 to the correct depositional landform.
+
+---SECTION 3: True/False (1 pt. each)---
+
+---QUESTION 16---
+ID: 16 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Oceanography | Marcet's Principle | Residence Time | Mixing Time
+DIFFICULTY: Medium
+QUESTION: Marcet's Principle holds when residence time is lower than mixing time.
+
+---QUESTION 17---
+ID: 17 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Oceanography | Waves | Capillary Waves | Surface Tension | Restoring Force
+DIFFICULTY: Medium
+QUESTION: The dominant restoring force for a capillary wave is surface tension.
+
+---QUESTION 18---
+ID: 18 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Hydrology | Water Distribution | Soil Water | Atmospheric Water
+DIFFICULTY: Easy
+QUESTION: Soil contains a greater amount of water than the atmosphere on Earth.
+
+---QUESTION 19---
+ID: 19 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Estuaries | Biodiversity | Salinity | Environmental Conditions
+DIFFICULTY: Medium
+QUESTION: Estuaries usually have very high biodiversity because their stable salinity makes it easy for most organisms to survive.
+
+---QUESTION 20---
+ID: 20 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Oceanography | Thermohaline Circulation | Greenland Ice Sheet | Climate Change | Salinity
+DIFFICULTY: High
+QUESTION: If the Greenland ice sheet melts significantly, it could slow down thermohaline circulation by freshening the North Atlantic surface waters.
+
+---SECTION 4: Labeling (2 pts. each)---
+
+---QUESTIONS 21-32 (SHARED CONTEXT)---
+ID: 21-32 | POINTS: 2.00 each | FORMAT: Labeling | Image Analysis
+TOPIC: Oceanography | Oceanic Zones | Seafloor Features | Bathymetry
+CONTEXT: Label the oceanic zones and seafloor features.
+
+---QUESTION 21---
+ID: 21 | POINTS: 2.00 | FORMAT: Labeling | Image Analysis
+TOPIC: Oceanography | Oceanic Zones | Seafloor Features
+DIFFICULTY: Medium
+QUESTION: Label feature 21 of the oceanic zones and seafloor features diagram.
+
+---QUESTION 22---
+ID: 22 | POINTS: 2.00 | FORMAT: Labeling | Image Analysis
+TOPIC: Oceanography | Oceanic Zones | Seafloor Features
+DIFFICULTY: Medium
+QUESTION: Label feature 22 of the oceanic zones and seafloor features diagram.
+
+---QUESTION 23---
+ID: 23 | POINTS: 2.00 | FORMAT: Labeling | Image Analysis
+TOPIC: Oceanography | Oceanic Zones | Seafloor Features
+DIFFICULTY: Medium
+QUESTION: Label feature 23 of the oceanic zones and seafloor features diagram.
+
+---QUESTION 24---
+ID: 24 | POINTS: 2.00 | FORMAT: Labeling | Image Analysis
+TOPIC: Oceanography | Oceanic Zones | Seafloor Features
+DIFFICULTY: Medium
+QUESTION: Label feature 24 of the oceanic zones and seafloor features diagram.
+
+---QUESTION 25---
+ID: 25 | POINTS: 2.00 | FORMAT: Labeling | Image Analysis
+TOPIC: Oceanography | Oceanic Zones | Seafloor Features
+DIFFICULTY: Medium
+QUESTION: Label feature 25 of the oceanic zones and seafloor features diagram.
+
+---QUESTION 26---
+ID: 26 | POINTS: 2.00 | FORMAT: Labeling | Image Analysis
+TOPIC: Oceanography | Oceanic Zones | Seafloor Features
+DIFFICULTY: Medium
+QUESTION: Label feature 26 of the oceanic zones and seafloor features diagram.
+
+---QUESTION 27---
+ID: 27 | POINTS: 2.00 | FORMAT: Labeling | Image Analysis
+TOPIC: Oceanography | Oceanic Zones | Seafloor Features
+DIFFICULTY: Medium
+QUESTION: Label feature 27 of the oceanic zones and seafloor features diagram.
+
+---QUESTION 28---
+ID: 28 | POINTS: 2.00 | FORMAT: Labeling | Image Analysis
+TOPIC: Oceanography | Oceanic Zones | Seafloor Features
+DIFFICULTY: Medium
+QUESTION: Label feature 28 of the oceanic zones and seafloor features diagram.
+
+---QUESTION 29---
+ID: 29 | POINTS: 2.00 | FORMAT: Labeling | Image Analysis
+TOPIC: Oceanography | Oceanic Zones | Seafloor Features
+DIFFICULTY: Medium
+QUESTION: Label feature 29 of the oceanic zones and seafloor features diagram.
+
+---QUESTION 30---
+ID: 30 | POINTS: 2.00 | FORMAT: Labeling | Image Analysis
+TOPIC: Oceanography | Oceanic Zones | Seafloor Features
+DIFFICULTY: Medium
+QUESTION: Label feature 30 of the oceanic zones and seafloor features diagram.
+
+---QUESTION 31---
+ID: 31 | POINTS: 2.00 | FORMAT: Labeling | Image Analysis
+TOPIC: Oceanography | Oceanic Zones | Seafloor Features
+DIFFICULTY: Medium
+QUESTION: Label feature 31 of the oceanic zones and seafloor features diagram.
+
+---QUESTION 32---
+ID: 32 | POINTS: 2.00 | FORMAT: Labeling | Image Analysis
+TOPIC: Oceanography | Oceanic Zones | Seafloor Features
+DIFFICULTY: Medium
+QUESTION: Label feature 32 of the oceanic zones and seafloor features diagram.
+
+---QUESTIONS 33-35 (SHARED CONTEXT)---
+ID: 33-35 | POINTS: 2.00 each | FORMAT: Labeling | Image Analysis
+TOPIC: Coastal Landforms | Geomorphic Features | Landform Identification
+CONTEXT: Label the landforms pictured below.
+
+---QUESTION 33---
+ID: 33 | POINTS: 2.00 | FORMAT: Labeling | Image Analysis
+TOPIC: Coastal Landforms | Geomorphic Features | Landform Identification
+DIFFICULTY: Medium
+QUESTION: Label landform 33.
+
+---QUESTION 34---
+ID: 34 | POINTS: 2.00 | FORMAT: Labeling | Image Analysis
+TOPIC: Coastal Landforms | Geomorphic Features | Landform Identification
+DIFFICULTY: Medium
+QUESTION: Label landform 34.
+
+---QUESTION 35---
+ID: 35 | POINTS: 2.00 | FORMAT: Labeling | Image Analysis
+TOPIC: Coastal Landforms | Geomorphic Features | Landform Identification
+DIFFICULTY: Medium
+QUESTION: Label landform 35.
+
+---SECTION 5: Short Answer (5 pts. each)---
+
+---QUESTION 36---
+ID: 36 | POINTS: 5.00 | FORMAT: Free Response (5 parts) | Image Analysis
+TOPIC: Plate Tectonics | Seafloor Spreading | Magnetic Stripes | Age of Seafloor | Plate Boundaries
+DIFFICULTY: Medium
+QUESTION: Use the above image for the following questions. (Each part is worth 1 point).
+a) Which color strip represents the oldest sea floor?
+b) Which color strip represents the youngest sea floor?
+c) Around which ocean floor feature would you find strips like this?
+d) What causes the formation of these strips?
+e) What plate boundary would create this phenomenon?
+
+---QUESTION 37---
+ID: 37 | POINTS: 5.00 | FORMAT: Free Response
+TOPIC: Oceanography | Ekman Upwelling | Dissolved Oxygen | Ocean Circulation | Nutrient Cycling
+DIFFICULTY: High
+QUESTION: Explain how Ekman upwelling helps regulate the amount of dissolved oxygen within a few kilometers of the surface.
+
+---QUESTION 38---
+ID: 38 | POINTS: 5.00 | FORMAT: Free Response
+TOPIC: Oceanography | Upwelling | Fisheries | Fish Catch | Productivity
+DIFFICULTY: Medium
+QUESTION: How much do upwelling regions contribute to the world's total fish catch? Give a percentage.
+
+---QUESTION 39---
+ID: 39 | POINTS: 5.00 | FORMAT: Free Response | Image Analysis
+TOPIC: Oceanography | Events | Map Interpretation | Historical Events
+DIFFICULTY: Medium
+QUESTION: What event is the map pictured above describing?
+
+---QUESTION 40---
+ID: 40 | POINTS: 5.00 | FORMAT: Free Response
+TOPIC: Geography | Barrier Islands | University of Georgia | Marine Institute | Sapelo Island
+DIFFICULTY: Easy
+QUESTION: What is the name of the barrier island where the University of Georgia Marine Institute is located?

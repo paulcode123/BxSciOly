@@ -1,0 +1,231 @@
+EVENT: Water Quality
+SOURCE: MVSO Invite 2025 (Div. C)
+FORMAT: 55 questions (Fill-in-blank, MC, free response, calculations, organism identification)
+TOTAL POINTS: ~130
+
+GUIDELINES: Auto-graded fill-in-blank requires exact spelling and no extra spaces; bullet points acceptable for free response
+
+---QUESTIONS 1-3: IMAGE ANALYSIS---
+
+---QUESTION 1--- ID: 1 | POINTS: 3.00 | FORMAT: Fill-in-blank | TOPIC: Water quality measurement
+QUESTION: Fill blanks A, B, C from water quality image
+
+---QUESTION 2--- ID: 2 | POINTS: 3.00 | FORMAT: Fill-in-blank | TOPIC: Water testing
+QUESTION: Fill blanks D, E, F from water quality data
+
+---QUESTION 3--- ID: 3 | POINTS: 1.00 | FORMAT: Fill-in-blank | TOPIC: Water parameters
+QUESTION: Fill blank G [specific water quality parameter]
+
+---QUESTIONS 4-6: WATER PROPERTIES AND EUTROPHICATION---
+
+---QUESTION 4--- ID: 4 | POINTS: 3.00 | FORMAT: Free Response | TOPIC: Water properties
+QUESTION: Name and describe 3 unique water properties
+ANSWER: High specific heat capacity, polar molecule/hydrogen bonding, high surface tension
+
+---QUESTION 5--- ID: 5 | POINTS: 4.00 | FORMAT: Free Response | TOPIC: Eutrophication | Nutrient cycling
+QUESTION: How fertilizer causes eutrophication and its effects
+ANSWER: Nutrient runoff → algal blooms → decomposition → hypoxia/dead zones
+
+---QUESTION 6--- ID: 6 | POINTS: 2.00 | FORMAT: Free Response | TOPIC: Lake turnover | Thermal stratification
+QUESTION: Explain lake turnover and impact on water quality
+ANSWER: Temperature inversion causes mixing; oxygen redistribution; potential release of anaerobic gases
+
+---QUESTIONS 7-10: FLUID DYNAMICS AND TREATMENT---
+
+---QUESTION 7--- ID: 7 | POINTS: 1.00 | FORMAT: MC | TOPIC: Reynolds number
+QUESTION: Reynolds number?
+OPTIONS: A) Biodiversity measure, B) Laminar/turbulent flow indicator, C) Heat transfer, D) Surface tension ratio
+CORRECT_ANSWER: B
+
+---QUESTION 8--- ID: 8 | POINTS: 1.00 | FORMAT: Free Response | TOPIC: Estuary plants | Adaptations
+QUESTION: Plant adaptations for estuary survival
+ANSWER: Halophytes, salt tolerance, root systems, osmoregulation
+
+---QUESTION 9--- ID: 9 | POINTS: 2.00 | FORMAT: Free Response | TOPIC: Estuary animals | Adaptations
+QUESTION: Animal adaptations for estuary survival
+ANSWER: Osmoregulation, euryhaline tolerance, migratory patterns
+
+---QUESTION 10--- ID: 10 | POINTS: 1.50 | FORMAT: MC (multi-select) | TOPIC: Wastewater treatment | Legal requirements
+QUESTION: Required by law for US municipal wastewater treatment plants?
+OPTIONS: A) Primary, B) Secondary, C) Tertiary, D) Quaternary
+CORRECT_ANSWERS: A, B
+
+---QUESTIONS 11-15: WATER TREATMENT PROCESSES---
+
+---QUESTION 11--- ID: 11 | POINTS: 2.00 | FORMAT: Free Response | TOPIC: Treatment methods
+QUESTION: Difference between screening, filtration, grit removal, backwashing
+ANSWER: Screening - large solids removal; Filtration - fine particles; Grit - sand/sediment; Backwashing - filter cleaning
+
+---QUESTION 12--- ID: 12 | POINTS: 1.50 | FORMAT: MC (multi-select) | TOPIC: Greywater
+QUESTION: Water falling under greywater category?
+OPTIONS: A) Showers/tubs, B) Drinking water, C) Sinks, D) Washing machines, E) Toilets
+CORRECT_ANSWERS: A, C, D
+
+---QUESTION 13--- ID: 13 | POINTS: 1.00 | FORMAT: MC | TOPIC: Treatment order
+QUESTION: Correct treatment order?
+OPTIONS: A) Filtration→Flocculation→Disinfection→Coagulation, B) Coagulation→Sedimentation→Filtration→Disinfection, C) Disinfection→Filtration→Coagulation→Sedimentation, D) Aeration→Filtration→Coagulation→Disinfection, E) Flocculation→Coagulation→Fluoridation→Disinfection
+CORRECT_ANSWER: B
+
+---QUESTION 14--- ID: 14 | POINTS: 1.50 | FORMAT: MC (multi-select) | TOPIC: Coagulation chemicals
+QUESTION: Chemicals for coagulation/flocculation?
+OPTIONS: A) Aluminum sulfate, B) Ferric chloride, C) NaCl, D) CaCO₃, E) NH₃
+CORRECT_ANSWERS: A, B
+
+---QUESTION 15--- ID: 15 | POINTS: 1.00 | FORMAT: MC | TOPIC: Drinking water turbidity
+QUESTION: Drinking water turbidity limit?
+OPTIONS: A) 0.5 NTU, B) 1 NTU, C) 3 NTU, D) 5 NTU, E) 10 NTU, F) 50 NTU
+CORRECT_ANSWER: A
+
+---QUESTIONS 16-20: WATER CHEMISTRY AND ANALYSIS---
+
+---QUESTION 16--- ID: 16 | POINTS: 2.00 | FORMAT: MC (multi-select) | TOPIC: Flocculation enhancers | Cations
+QUESTION: Cations enhancing flocculation?
+OPTIONS: A) Ca²⁺, B) Cu²⁺, C) Al³⁺, D) Fe³⁺, E) Mg²⁺, F) Na⁺
+CORRECT_ANSWERS: A, C, D, E
+
+---QUESTION 17--- ID: 17 | POINTS: 1.00 | FORMAT: MC | TOPIC: Activated sludge | Microorganisms
+QUESTION: Activated sludge?
+OPTIONS: A) Chlorinated sludge, B) Active microorganism sludge, C) Anaerobic digestion product, D) Industrial residue
+CORRECT_ANSWER: B
+
+---QUESTION 18--- ID: 18 | POINTS: 1.00 | FORMAT: True/False | TOPIC: Trophic levels | Species occupation
+QUESTION: Species can only occupy one trophic level at a time
+ANSWER: FALSE
+
+---QUESTION 19--- ID: 19 | POINTS: 1.00 | FORMAT: Calculation | TOPIC: Energy transfer | Food chain
+QUESTION: Algae (100kJ) → mysis → finescale dace → lake trout. Trout energy? (Answer in joules, no units)
+CALCULATION: Energy lost ~90% per trophic level = 100 × 0.1 × 0.1 × 0.1 = 100J
+
+---QUESTION 20--- ID: 20 | POINTS: 1.00 | FORMAT: Free Response | TOPIC: Bioaccumulation vs biomagnification
+QUESTION: Difference between bioaccumulation and biomagnification
+ANSWER: Bioaccumulation - organism accumulates pollutants; Biomagnification - concentration increases up food chain
+
+---QUESTIONS 21-32: AQUATIC ORGANISMS AND ECOLOGY---
+
+---QUESTION 21--- ID: 21 | POINTS: 4.00 | FORMAT: Free Response | TOPIC: TEK | Anthropogenic impacts
+QUESTION: How TEK used to analyze anthropogenic impacts on aquatic ecosystems
+ANSWER: Historical knowledge, long-term observations, ecosystem baseline understanding
+
+---QUESTION 22-30--- ID: 22-30 | POINTS: 1.00 each | FORMAT: Organism identification | TOPIC: Aquatic macroinvertebrates
+QUESTION: Identify organisms from water quality images
+
+---QUESTION 31--- ID: 31 | POINTS: 1.00 | FORMAT: Free Response | TOPIC: Metamorphosis | Adult feeding
+QUESTION: Why many insects stop eating as adults
+ANSWER: Focus on reproduction; energy from larval stage sufficient; shortened adult lifespan
+
+---QUESTION 32--- ID: 32 | POINTS: 3.00 | FORMAT: Free Response | TOPIC: Complete vs incomplete metamorphosis
+QUESTION: Difference between complete and incomplete metamorphosis
+ANSWER: Complete - egg→larva→pupa→adult (distinct stages); Incomplete - egg→nymph→adult (gradual development)
+
+---QUESTIONS 33-40: SPECIFIC ORGANISMS---
+
+---QUESTION 33--- ID: 33 | POINTS: 1.00 | FORMAT: MC | TOPIC: Flatworms | Reproduction
+QUESTION: Flatworms reproduce through?
+OPTIONS: A) Sexual, B) Asexual, C) Neither, D) Both
+CORRECT_ANSWER: D
+
+---QUESTION 34--- ID: 34 | POINTS: 1.00 | FORMAT: MC | TOPIC: Leeches | Annelids | Characteristics
+QUESTION: Leeches (annelids) have?
+OPTIONS: A) Bilateral symmetry, B) Lack spine, C) Parasitic, D) Segmented bodies
+CORRECT_ANSWER: D
+
+---QUESTION 35--- ID: 35 | POINTS: 2.00 | FORMAT: Free Response | TOPIC: Bloodmidge | Coloration
+QUESTION: Why blood midges have distinct red color
+ANSWER: Hemoglobin/oxygen-binding protein for low oxygen environments
+
+---QUESTION 36--- ID: 36 | POINTS: 1.00 | FORMAT: MC | TOPIC: Water striders | Buoyancy
+QUESTION: Property allowing water striders float?
+OPTIONS: A) High water density, B) Surface tension, C) Capillary action, D) Cohesion
+CORRECT_ANSWER: B
+
+---QUESTION 37--- ID: 37 | POINTS: 1.00 | FORMAT: MC | TOPIC: Water boatman | Breathing
+QUESTION: Water boatman breathing underwater?
+OPTIONS: A) Skin pockets, B) Air bubble carry, C) Rise to surface, D) Air filters
+CORRECT_ANSWER: B
+
+---QUESTION 38--- ID: 38 | POINTS: 1.50 | FORMAT: MC (multi-select) | TOPIC: Hemiptera | Aquatic insects
+QUESTION: Hemiptera order members?
+OPTIONS: A) Blackfly, B) Back swimmer, C) Dragonfly, D) Mayfly
+CORRECT_ANSWERS: B
+
+---QUESTION 39--- ID: 39 | POINTS: 1.00 | FORMAT: MC | TOPIC: Dobsonfly | Mandibles | Identification
+QUESTION: Species with long mandibles?
+OPTIONS: A) Water scorpion, B) Diving beetle, C) Dobsonfly, D) Mayfly
+CORRECT_ANSWER: C
+
+---QUESTION 40--- ID: 40 | POINTS: 3.00 | FORMAT: Free Response | TOPIC: Sediment pollution | Waterways
+QUESTION: Two ways sediments pollute waterways
+ANSWER: Turbidity (light reduction), smothering habitat, nutrient carrying, bank erosion
+
+---QUESTIONS 41-55: WATER CHEMISTRY AND TESTING---
+
+---QUESTION 41--- ID: 41 | POINTS: 1.50 | FORMAT: MC (multi-select) | TOPIC: Sedimentation benefits
+QUESTION: Positive impacts moderate sedimentation?
+OPTIONS: A) Nutrient input, B) Improved quality, C) Runoff, D) Lake succession
+CORRECT_ANSWERS: A, D
+
+---QUESTION 42--- ID: 42 | POINTS: 1.50 | FORMAT: MC | TOPIC: River pH | Normal range
+QUESTION: Normal river pH range?
+OPTIONS: A) 5.5-6.5, B) 6.5-7.5, C) 7.5-8.5, D) 8.5-9.5
+CORRECT_ANSWER: B
+
+---QUESTION 43--- ID: 43 | POINTS: 1.50 | FORMAT: Fill-in-blank | TOPIC: Alkalinity | Lake treatment
+QUESTION: Common substance to increase lake alkalinity?
+ANSWER: limestone (or CaCO₃/calcium carbonate)
+
+---QUESTION 44--- ID: 44 | POINTS: 1.00 | FORMAT: MC | TOPIC: Turbidity measurement | Right angle scattering
+QUESTION: Measuring turbidity by scattered light at 90°?
+OPTIONS: A) ISO 7027-1, B) Jackson Candle, C) Secchi Disk, D) Not real
+CORRECT_ANSWER: A
+
+---QUESTION 45--- ID: 45 | POINTS: 1.00 | FORMAT: MC | TOPIC: Supersaturation | Gas
+QUESTION: NOT cause/effect of supersaturation?
+OPTIONS: A) Photosynthesis, B) Hypoxia, C) Block blood flow, D) Decompression sickness
+CORRECT_ANSWER: B
+
+---QUESTION 46--- ID: 46 | POINTS: 1.00 | FORMAT: MC | TOPIC: Thermal enrichment
+QUESTION: Thermal enrichment example?
+OPTIONS: A) Trout warmth preference, B) Manatees using power plants, C) Bass nutrient response, D) Duckweed growth
+CORRECT_ANSWER: B
+
+---QUESTION 47--- ID: 47 | POINTS: 1.50 | FORMAT: MC (multi-select) | TOPIC: Fecal coliform diseases
+QUESTION: Diseases linked with fecal coliform?
+OPTIONS: A) Cholera, B) Salmonella, C) Dysentery, D) Hepatitis, E) Typhoid
+CORRECT_ANSWERS: A, B, C, E
+
+---QUESTION 48--- ID: 48 | POINTS: 1.50 | FORMAT: MC (multi-select) | TOPIC: TDS measurement
+QUESTION: Two ways measure TDS?
+OPTIONS: A) Titration, B) Gravimetric, C) Temperature, D) Conductivity
+CORRECT_ANSWERS: B, D
+
+---QUESTION 49--- ID: 49 | POINTS: 1.00 | FORMAT: True/False | TOPIC: TSS/TDS | Pollutant classification
+QUESTION: TSS not conventional pollutant; TDS is
+ANSWER: FALSE (TSS is conventional pollutant)
+
+---QUESTION 50--- ID: 50 | POINTS: 5.00 | FORMAT: Calculation | TOPIC: BOD₅ | Oxygen depletion
+QUESTION: Calculate BOD₅ from dissolved oxygen measurements (Day 0 vs Day 5)
+[Initial DO blank ~8.1, Final DO sample ~3.2]
+CALCULATION: BOD = (DO_blank_initial - DO_blank_final) - (DO_sample_initial - DO_sample_final) / (mL_sample / 300)
+
+---QUESTION 51--- ID: 51 | POINTS: 3.00 | FORMAT: Free Response | TOPIC: Temperature effects
+QUESTION: Temperature increase effects on: 1) Dissolved oxygen 2) Total solids 3) Phosphates
+ANSWER: 1) Decrease (less soluble), 2) No effect (dry weight), 3) No effect (chemical property)
+
+---QUESTION 52--- ID: 52 | POINTS: 1.00 | FORMAT: MC | TOPIC: Winkler Method | Water quality
+QUESTION: Winkler Method uses what to determine what?
+OPTIONS: A) Redox, BOD, B) Redox, DO, C) Titration, BOD, D) Titration, DO
+CORRECT_ANSWER: B
+
+---QUESTION 53--- ID: 53 | POINTS: 1.00 | FORMAT: MC | TOPIC: Phosphorus sources
+QUESTION: NOT source of phosphorus?
+OPTIONS: A) Pesticides, B) Cleaning compounds, C) Wastewater, D) Erosion, E) Mining, F) Gas exchange
+CORRECT_ANSWER: F
+
+---QUESTION 54--- ID: 54 | POINTS: 1.00 | FORMAT: MC | TOPIC: Phosphorus forms | Bioavailability
+QUESTION: Readily available phosphorus form?
+OPTIONS: A) Phosphates, B) Orthophosphates, C) Polyphosphates, D) Biphosphorus
+CORRECT_ANSWER: B
+
+---QUESTION 55--- ID: 55 | POINTS: 4.50 | FORMAT: Calculation | TOPIC: pH | Hydrogen ion concentration
+QUESTION: pH equation; calculate pH with [H⁺] = 4×10⁻⁸ M
+CALCULATION: pH = -log[H⁺] = -log(4×10⁻⁸) ≈ 7.4

@@ -1,0 +1,451 @@
+1. (3.00 pts)
+Iron is a very important trace element in your body, notably used in the production of hemoglobin. However, it must be regulated closely to prevent conditions like hemochromatosi
+from occurring. Imagine in a system where intestinal cells have a genetic regulatory system that codes for ferritin and transferrin. Transferrin transports iron to cells in the body and
+ferritin sequesters iron and gets eventually lost in the intestine. Assume all mRNAs for these proteins have the iron regulatory sequence which is bound to by the iron response
+protein. This protein is deactivated by binding of iron. Use your discretion for regulatory mechanisms. Select all of the following that would make evolutionary sense. (or just select
+what is true)
+   A)
+The transferrin IRE is located on the 5’ end of the transcript, allowing low iron to promote transcription.
+   B)
+In an IRE knockout strain in high iron conditions, transferrin would be mostly produced.
+   C)
+In an IRE knockout strain in low iron conditions, ferritin would be mostly produced.
+   D)
+In an IRE knockout and a hyperactive IRP in low iron conditions, transferrin would be mostly produced.
+   E)
+In a strain of mice with a hypomorph IRE, they would have a higher risk of hemochromatosis.
+Designer Genes C - Designer Genes - Rickards Invitational Div. C SATELLITE - 11-01-2025
+Student Answer Sheet (/rickards/ES/AnswerSheet?tid=000G7Z)
+Instructions (shown before students start the test)
+Welcome to RSOI 2026! Please remember that you are allotted:
+1 8.5" x 11" physical double-sided cheatsheet
+2 Class II calculators
+Remember that event supervisors are busy and will most likely not be able to respond to questions. We apologize in advance for that
+Good luck!
+Written by: Eric Liu @ WMHS
+Introduction (shown after students start the test)
+Welcome to RSOI 2026!  Please remember that you are allotted:
+1 8.5" x 11" physical double-sided cheatsheet
+2 Class II calculators
+Remember that event supervisors are busy and will most likely not be able to respond to questions.  We apologize in advance for that
+Good luck!
+﻿Sponsored by:
+(Mark ALL correct answers)
+12/3/25, 2:37 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000G7Z
+https://scilympiad.com/rickards/Es/PrevTest?tid=000G7Z
+1/18
+
+2. (3.00 pts)
+DNA replication and transcription in eukaryotes and prokaryotes have some major differences. Select all of the following that are true.
+   A)
+In prokaryotes, the primosome produces a primer made out of RNA and DNA, unlike the eukaryotic primosome which only makes a primer out of RNA.
+   B)
+DNA ligase in prokaryotes is powered by ATP, while in eukaryotes and archaea, it is powered by NADPH.
+   C)
+To remove Okazaki fragments, eukaryotes use DNA polymerase epsilon on the lagging strand to push off the primers and cut it with flap endonuclease.
+   D)
+To remove Okazaki fragments, prokaryotes use DNA polymerase I to cut in the 3’ to 5’ direction and remove the Okazaki fragment, then replicating over the gap in DNA.
+   E)
+RNA polymerase in prokaryotes and eukaryotes both use the beta subunits for catalytic activity, while the other subunits are for other functions.
+3. (3.00 pts)
+Nothing in biology makes sense except in the light of evolution. Everything (most stuff), from plasmalogens in heart tissue to sustain it under heavy oxidative stress to the fine
+structure of a neuron has been shaped through evolution. Plasmids, which I hope you know by now, will also make sense in the light of evolution. Select all of the following that are
+true. (this question will make sense in the light of evolution)
+   A)
+F factors promote their own genes by containing genes that allow for their own replication and transmission into other bacteria, allowing their genes to be passed on through
+generations.
+   B)
+Col plasmids kill all other bacteria around them including other col plasmid containing bacteria to make sure their host is able to proliferate and survive.
+   C)
+Virulence plasmids turn their host pathogenic so they can outcompete and spread themselves.
+   D)
+R plasmids provide antibiotic resistance to their bacterial host so they can become pathogenic and kill their host organism.
+   E)
+Transposons are similar to plasmids in which they both may provide some benefit to their host, but as a side effect of making it so they are not selected against.
+4. (3.00 pts)
+At the oriC of a bacterial chromosome, there are three important sequences, being the 5 DnaA boxes, GATC methylation sites, and the AT rich region. Select all of the statements
+that are true.
+   A)
+The DnaA boxes need to bind to GTP bound DnaA proteins.
+   B)
+The GATC methylation sites are required to be unmethylated for replication to occur to prevent excessive replication.
+   C)
+In a mutant bacteria which has the AT rich region deviate from the consensus region, the time it takes for it to replicate decreases due to decreased attractions.
+   D)
+Because S adenosyl methyltransferase has an electrophilic methyl group due to a positive sulfur, cytosine requires activation by DNA methyltransferase to act as a nucleophile.
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+12/3/25, 2:37 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000G7Z
+https://scilympiad.com/rickards/Es/PrevTest?tid=000G7Z
+2/18
+
+   E)
+DnaA recruits a helicase to assist with unwinding the DNA strands.
+5. (3.00 pts)
+The lactose operon is really funny. Zen Keng thinks he knows the lactose operon. Select all of the statements that are true.
+   A)
+When glucose metabolizing enzymes are shut down in a bacteria, the lactose operon will be active when exposed to lactose.
+   B)
+If an adenylyl cyclase inhibitor is added to a bacterial medium, the lactose operon will transcribe with low affinity.
+   C)
+If a merozygote lacI+/- strain with lacY- and lacI- on the main chromosome had their genetic material combined with a strain with lacP-, the lactose operon will be active.
+   D)
+The affinity for the repressor to the operator site is higher in low glucose concentrations than high glucose concentrations.
+   E)
+The repressor binds to all three operator sites, and removal of any will decrease the effect of inhibition.
+6. (2.00 pts)
+Tautomerization is pretty bad. Select all of the following that are true.
+   A)
+Tautomerization involves the shifting of a double bond and a methyl group.
+   B)
+One favorable tautomerization is a keto to enol group, forming a stable enol.
+   C)
+Tautomeric base pairing rules are AG and TC.
+   D)
+Tautomerization must happen during replication to cause mutations.
+7. (1.00 pts)
+What is the structure of a zinc finger motif?
+8. (1.00 pts)
+What part of a DNA helix does the zinc finger motif recognize?
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+12/3/25, 2:37 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000G7Z
+https://scilympiad.com/rickards/Es/PrevTest?tid=000G7Z
+3/18
+
+9. (1.00 pts)
+What is the main role of leucine zippers in protein interactions?
+10. (2.00 pts)
+How does cAMP cause change in gene regulation? Be specific about protein protein interactions and the normal state vs the activated state.
+11. (2.00 pts)
+Histones are pretty cool. Select all of the following that are true.
+   A)
+H1.0 is a histone involved in histone compaction and gene repression.
+   B)
+H2A.Z and H3 are the core histones found near transcriptional start sites.
+   C)
+spH2B is the core histone in sperm cell DNA.
+   D)
+macroH2A is found in X chromosomes.
+   E)
+H3.3 is involved in gene repression.
+12. (2.00 pts)
+Describe how CpG methylation decreases transcription.
+13. (2.00 pts)
+Oh no! You accidentally knock out the CAF1 protein in a mouse. Ignoring all the questions that raises, including how, why, and why isn’t this mouse dead, explain how this is
+detrimental to the mouse for gene expression.
+(Mark ALL correct answers)
+12/3/25, 2:37 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000G7Z
+https://scilympiad.com/rickards/Es/PrevTest?tid=000G7Z
+4/18
+
+14. (5.00 pts)
+DNA pol III has a couple subunits. List the functions of the following subunits: alpha, epsilon, theta, beta, gamma.
+15. (1.00 pts)
+You observe a mouse with increased DNA catenanes and you wonder why this is occurring. You find out that Zeng Ken knocked out a random gene in the mouse. What did this
+gene code?
+16. (2.00 pts)
+What determines the origin of replication in animals (generally) and what determines the origin of replication in bacteria?
+17. (3.00 pts)
+What does the origin replication complex do?
+Codons are pretty cool. Note the following IUPAC ambiguity codes might be useful for this section. N = any base (A, U, G, or C), Y = a pyrimidine, U = a purine
+12/3/25, 2:37 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000G7Z
+https://scilympiad.com/rickards/Es/PrevTest?tid=000G7Z
+5/18
+
+18. (2.00 pts)
+Why does mutation at the third codon position often result in changes that do not affect protein structure?
+19. (2.00 pts)
+If a mutation changes a codon from NUN to NCN, will the protein remain functional as normal? Assume that the change occurs at the 2nd position only.
+20. (3.00 pts)
+Which codon position will cause the most “radical” changes when mutated? Justify your answer with data from the figures.
+21. (5.00 pts)
+Consider the following 2 amino acids: amino acid A is encoded by YUR/CUN and amino acid B is encoded by UCN/AGY. For each base position, determine the amino acid that is
+the most resistant to mutation (say equal they’re very similar/the same), and briefly justify your answer for each. Also, determine which amino acids A and B actually correspond to.
+12/3/25, 2:37 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000G7Z
+https://scilympiad.com/rickards/Es/PrevTest?tid=000G7Z
+6/18
+
+22. (3.00 pts)
+In terms of the graph with the hydropathy index, how might codons become biased in an organism that lives in very high temperatures? Explain.
+23. (3.00 pts)
+Mutations at which codon positions can cause charge reversal of the amino acid encoded?
+   A)
+1st
+   B)
+2nd
+   C)
+3rd
+   D)
+More than one of the above
+   E)
+None of the above
+24. (3.00 pts)
+Assume that as a certain species is evolving, a single nucleotide base substitution in a codon occurs with equal probability in each codon. If the average molar volume difference
+between adjacent codons is 15, and across the entire cube it is 50, calculate the fraction of mutations that are conservative. A conservative mutation will be defined as having a
+molar volume change of ≤ 20.
+25. (3.00 pts)
+Using the same situation as before, how much does this code reduce mutation compared to one that is random?
+26. (5.00 pts)
+12/3/25, 2:37 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000G7Z
+https://scilympiad.com/rickards/Es/PrevTest?tid=000G7Z
+7/18
+
+When crossing different strains of mice, you achieve the following table of phenotypes. There are 4 genes that control color. Based on the data, select all of the statements that are
+true.
+   A)
+There is one synthetic pathway for the pigment.
+   B)
+When all genes are functional, the only pigment produced is blue.
+   C)
+Yellow is dominant to red.
+   D)
+If you did a heterozygous cross, the chance of obtaining a yellow mouse is 15/64.
+   E)
+The probability of obtaining a white mouse in a heterozygous cross is ¼
+27. (5.00 pts)
+Zen Keng is doing restriction digests on an unknown plasmid with restriction enzymes ihateIV and microbemissionVII. When run on the gel with a restriction enzyme with only one
+cutting site, Zen gets a band at 8.1kB. When run with ihateIV only, he gets two bands, one at 6.3kB and one at 0.9kB. When run with microbemissionVII, three bands appear at
+5.6kB, 2.2kB, and 0.3kB. When cut with both, he gets a gel with one band at 3.3kB, one band at 2.2kB, one band at 0.9kB, one band at 0.3kB, and one band at 0.5kB. Select all th
+following statements that are true.
+   A)
+There are 2 ihateIV cut sites.
+   B)
+There are 3 microbemissionVII cut sites.
+   C)
+Only one of the ihateIV segments is cut by microbemissionVII
+   D)
+These results are consistent with an error in the data.
+28. (5.00 pts)
+Describe the plasmid by explaining the relative orientations of each cut site.
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+12/3/25, 2:37 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000G7Z
+https://scilympiad.com/rickards/Es/PrevTest?tid=000G7Z
+8/18
+
+29. (3.00 pts)
+A researcher investigates the chromosomal arrangement of four loci—A, B, C, and D—in Neurospora crassa, a model fungus. They perform the cross a b c d × A B C D.
+From 500 dissected asci, the loci A and B recombination data is collected. It is evident that 52% have only undergone one crossover. For the rest of the asci, ¼ of them have no
+parental combinations. From separate pairwise crosses, the following recombination frequencies are observed:
+● A–C = 25%
+● B–C = 15%
+   A)
+ A and B are genetically linked.
+   B)
+The recombination frequency between A and B is between 26% and 36%.
+,
+   C)
+The pairwise differences aren’t consistent with the ordering A–C–B due to slight discrepancies in recombination frequencies.
+   D)
+The meiotic divisions undergone by the spores of N. crassa cannot be inferred by their spatial positions relative to other spores, as N. crassa asci are arranged circularly.
+   E)
+Consider locus A and locus D. A 2-strand double crossover tends to produce an ascus with no PD, a 3-strand double crossover tends to produce an ascus with 4 PD, and a 4-
+strand double crossover tends to produce an ascus with all PD.
+30. (3.00 pts)
+Which of the following are characteristics of the centromeres on chromosomes?
+   A)
+Bacteria contains many modified histones on their centromeres of chromosomes
+   B)
+ Histones are acetylated with lysine at centromeres.
+   C)
+Centromeres are associated with coding DNA.
+   D)
+H3 Histones are replaced by CENP-A at centromeres.
+   E)
+Centromeres are destroyed via nuclease activity to trigger the apoptotic cascade.
+31. (3.00 pts)
+What are the 4 properties of genetic material that allow it to serve its function?
+(Mark ALL correct answers)
+12/3/25, 2:37 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000G7Z
+https://scilympiad.com/rickards/Es/PrevTest?tid=000G7Z
+9/18
+
+32. (3.00 pts)
+What type of bond is formed between nucleotide bases and its sugar called?
+33. (3.00 pts)
+Describe the structure of B and Z DNA and list the conditions where Z DNA formation would be favorable.
+34. (1.00 pts)
+What are the pairing rules for triplex bonding (AT and GC)?
+35. (1.00 pts)
+Describe the general mechanisms by which topoisomerases relax supercoiling.
+36. (2.00 pts)
+Describe the difference between topoisomerase IA/IB and IIA in terms of function and mechanism of action.
+37. (1.00 pts)
+What is the difference between point and regional centromeres?
+12/3/25, 2:37 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000G7Z
+https://scilympiad.com/rickards/Es/PrevTest?tid=000G7Z
+10/18
+
+38. (2.00 pts)
+What is the difference between the solenoid and zigzag packing model for histones?
+39. (2.00 pts)
+How do RNA primers get removed in eukaryotes and how is this different from the RNA primer removal in prokaryotes? What if RNA primers are very long in eukaryotes?
+40. (2.00 pts)
+What does MCM helicase do?
+41. (2.00 pts)
+What happens during polymerase switch and would you expect this to happen on the leading or the lagging strand?
+42. (2.00 pts)
+Describe the functions of each subunit in prokaryotic RNA polymerase.
+43. (2.00 pts)
+What RNA polymerase subunit recognizes promoter sequences and what motif allows it to?
+12/3/25, 2:37 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000G7Z
+https://scilympiad.com/rickards/Es/PrevTest?tid=000G7Z
+11/18
+
+44. (3.00 pts)
+Describe the difference between rho dependent termination and rho independent termination and the different DNA sequences that they rely on.
+45. (2.00 pts)
+What is the difference between the three main eukaryotic polymerases in terms of what they transcribe, and which is the most active?
+46. (2.00 pts)
+What is the order of transcription factor binding to the promoter and what is the function of each one?
+47. (2.00 pts)
+How does the mediator protein affect RNA polymerase, and how does this differ between enhancers and silences?
+48. (2.00 pts)
+Define processing of RNA and give two examples of it.
+49. (3.00 pts)
+Define polyA tailing of RNA, how it happens in eukaryotes, and when it occurs in bacteria.
+12/3/25, 2:37 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000G7Z
+https://scilympiad.com/rickards/Es/PrevTest?tid=000G7Z
+12/18
+
+50. (3.00 pts)
+Describe the mechanisms of action of group I and II introns and describe the role of maturases in this type of splicing.
+51. (3.00 pts)
+How many subunits are in the spliceosome? What is the function of each one, and which ones do the catalytic processing that splices the RNA?
+52. (3.00 pts)
+Describe the process of capping of RNA. Give ALL valid examples of this happening.
+53. (1.00 pts)
+What is the start codon and what amino acid can it also code for?
+54. (1.00 pts)
+What two codons code for selenocysteine and pyrrolysine respectively? How do ribosomes know when to insert selenocysteine?
+55. (2.00 pts)
+Cade Cunningham is investigating the cis regulation of a gene, which would inhibit it. He creates a merozygote, where the plasmid has the cis regulatory element and the genome
+has the knockout version. He finds out that the gene is not expressed. Is this consistent with the type of regulation and why?
+12/3/25, 2:37 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000G7Z
+https://scilympiad.com/rickards/Es/PrevTest?tid=000G7Z
+13/18
+
+56. (3.00 pts)
+Cade Cunningham then decides to synthesize the protein product of this gene with cell free protein synthesis. Name 3 materials other than ribosomes, mRNA, and excess tRNA
+(with amino acids attached) that are needed for this system to function correctly.
+57. (3.00 pts)
+His mRNA is 963 nucleotides long. How much GTP is needed to translate this protein fully from start to finish?
+58. (1.00 pts)
+Give an example of an organic chemical used to extract DNA from samples.
+59. (2.00 pts)
+Provide two advantages and two disadvantages of using organic chemicals in extraction of DNA from samples compared to other extraction methods.
+60. (3.00 pts)
+What is the protocol for northern blotting? Give general steps, answers CAN vary.
+61. (2.00 pts)
+Why is northern blotting no longer used?
+12/3/25, 2:37 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000G7Z
+https://scilympiad.com/rickards/Es/PrevTest?tid=000G7Z
+14/18
+
+62. (2.00 pts)
+How does RNA degradation differ from DNA degradation and what functional group explains this phenomenon?
+63. (2.00 pts)
+Select ALL the following that are true regarding DNA sequencing technology
+   A)
+Sanger sequencing produces longer reads than Illumina
+   B)
+Capillary electrophoresis in Sanger sequencing is unable to distinguish between DNA molecules at the single-nucleotide resolution
+   C)
+Sanger sequencing uses Taq Polymerase
+   D)
+Sanger sequencing is more suitable for smaller DNA fragments than Illumina
+64. (2.00 pts)
+Explain how the structure of ddNTPs allow them to function as “chain-terminating nucleotides” in Sanger sequencing.
+65. (3.00 pts)
+The following chromatogram is obtained from a failed Sanger sequencing run. Based on the image, what is the cause of this failure? What tells you this?
+(Mark ALL correct answers)
+12/3/25, 2:37 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000G7Z
+https://scilympiad.com/rickards/Es/PrevTest?tid=000G7Z
+15/18
+
+66. (3.00 pts)
+Yo croski, we fam in the 6ix, but answer my mans biotechnology question, bruv, or you a gerbert, my word. Which one of the following experimental questions can PCR or a PCR-
+utilizing technique NOT answer:
+   A)
+What is the change in expression of the Crodie gene after exposure to ethanol?
+   B)
+What miRNAs regulate expression of the Crodie gene?
+   C)
+What miRNAs are present in cancer cells after Crodie knockout?
+   D)
+What is the methylation level of the Crodie gene in hepatocytes?
+67. (3.00 pts)
+Order the following steps of illumina sequencing in order using numbers 1-5:
+DNA denaturation
+Laser recording and emission detection
+Bridge amplification
+Addition of dNTPs and fluorophore
+Adaptor attachment
+68. (3.00 pts)
+Explain the technique of tagmentation to generation DNA libraries for Next-Generation sequencing. What advantage does it have over traditional sonication?
+69. (3.00 pts)
+John wants to know the change in expression of the gene SSBSG in a line of HeLa cells after treatment with the drug Employmentone. Therefore, he decides to run a RT-qPCR.
+When he looks at his results graph on his samples, he sees that his Ct value is above 30. Select all the following that could NOT have caused this result.
+   A)
+John used SYBR Green in the probe, which can bind to primer-dimers
+   B)
+John forgot to add DMSO
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+12/3/25, 2:37 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000G7Z
+https://scilympiad.com/rickards/Es/PrevTest?tid=000G7Z
+16/18
+
+   C)
+John forgot to add DNase to his mixture
+   D)
+Too high dNTPs levels
+70. (2.00 pts)
+John reads a little more about PCR and RT-qPCR in order to troubleshoot. Which of the following is (are) correct statements regarding RT-qPCR and PCR in general.
+   A)
+PCR utilizes single-stranded DNA primers complementary to the 5’ ends
+   B)
+The RT in RT-qPCR stands for reverse-transcriptase.
+   C)
+Pfu DNA polymerase is advantageous because it has 3’->5’ exonuclease activity
+   D)
+Taqman probe quencher activity increases as more DNA synthesis happens
+71. (2.00 pts)
+John reruns his samples using RT-qPCR and gets the following graph. The green represents the relative fluorescence units (RFU) from HeLa cells without treatment of
+Employmentone. The black represents the RFU of a housekeeping gene. The red represents the RFU from HeLa cells with treatment of Employmentone.
+What is the purpose of the housekeeping gene in this study?
+(Mark ALL correct answers)
+12/3/25, 2:37 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000G7Z
+https://scilympiad.com/rickards/Es/PrevTest?tid=000G7Z
+17/18
+
+72. (2.00 pts)
+Using the ∆∆Ct method, find the change in gene expression in RFU. Show all work for full credit.
+73. (2.00 pts)
+Conclude whether Employmentone increases or decreases expression of SSBSG and justify using your answer to the previous question.
+Congratulations for finishing!  Good luck with your other events!
+© 2025 - powered by Scilympiad (https://scilympiad.com) | Tournaments (/rickards/Home/Subscribers?sort=t) | Support Us (/rickards/Give)
+Terms of Use (/ToS.html) | Privacy (/Privacy.html) | Cookie Policy (/CookiePolicy.html) | Support (/rickards/Support) | Contact (/rickards/Home/Contact)
+12/3/25, 2:37 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000G7Z
+https://scilympiad.com/rickards/Es/PrevTest?tid=000G7Z
+18/18

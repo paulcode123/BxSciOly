@@ -1,0 +1,423 @@
+EVENT: Rocks and Minerals
+SOURCE: Rickards Invitational 2025 (Div. C)
+FORMAT: 56 questions (MC, Free Response, Image Analysis)
+TOTAL POINTS: 181
+
+---SECTION 1: Relative Dating (29 points)---
+
+---QUESTION 1---
+ID: 1 | POINTS: 13.00 | FORMAT: Free Response / Image Analysis
+TOPIC: Relative Dating | Stratigraphy | Ordering | Oldest to youngest | Letters B through L
+DIFFICULTY: High
+QUESTION: Place all the letters B through L in order from oldest to youngest. (Hint - Your list should start with B and end with L; some letters will not be used)
+
+---QUESTION 2---
+ID: 2 | POINTS: 3.00 | FORMAT: Free Response / Image Analysis
+TOPIC: Unconformities | Types | Features J | R | N | Classification
+DIFFICULTY: Medium
+QUESTION: Classify Features J, R, and N respectively as their type of unconformity.
+
+---QUESTION 3---
+ID: 3 | POINTS: 1.50 | FORMAT: Free Response / Image Analysis
+TOPIC: Geology | Object type | Smaller portion of B | Specific term
+DIFFICULTY: Medium
+QUESTION: What type of object is the smaller portion of B known as? (Be specific)
+
+---QUESTION 4---
+ID: 4 | POINTS: 1.00 | FORMAT: Free Response / Image Analysis
+TOPIC: Rocks | Layer A | Rock type
+DIFFICULTY: Easy
+QUESTION: What type of rock is Layer A made out of?
+
+---QUESTION 5---
+ID: 5 | POINTS: 1.00 | FORMAT: Free Response / Image Analysis
+TOPIC: Faults | Feature K | Fault type
+DIFFICULTY: Medium
+QUESTION: What type of fault is represented by Feature K?
+
+---QUESTION 6---
+ID: 6 | POINTS: 1.00 | FORMAT: Free Response / Image Analysis
+TOPIC: Stratigraphy | Principles | Relative dating | C older than F
+DIFFICULTY: Medium
+QUESTION: Which stratigraphic principle allows us to conclude C is older than F?
+
+---QUESTION 7---
+ID: 7 | POINTS: 7.50 | FORMAT: Free Response
+TOPIC: Steno's Principles | Superposition | Original Horizontality | Lateral Continuity | Cross-cutting relations | Inclusions | Description | Strata
+DIFFICULTY: Medium
+QUESTION: For each of Steno's principles listed, describe it and what it tells us about strata
+a. Superposition
+b. Original Horizontality
+c. Lateral Continuity
+d. Cross-cutting relations
+e. Inclusions
+
+---QUESTION 8---
+ID: 8 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Relative Dating | Principles | Additional principle | Not listed
+DIFFICULTY: Easy
+QUESTION: Name an additional relative dating principle not listed in the previous question
+
+---SECTION 2: Phase Geochemistry (28 points)---
+
+---QUESTION 9---
+ID: 9 | POINTS: 2.00 | FORMAT: Free Response / Image Analysis
+TOPIC: Phase Diagrams | Type | General mineral | Image 2
+DIFFICULTY: Medium
+QUESTION: Which type of phase diagram is shown in Image 2? Which GENERAL mineral is plotted on this diagram?
+
+---QUESTION 10---
+ID: 10 | POINTS: 2.00 | FORMAT: Free Response / Image Analysis
+TOPIC: Phase Diagrams | Minerals | Left side | Right side | Names | Identification
+DIFFICULTY: Medium
+QUESTION: Identify the two minerals on the left and right sides of the phase diagram by NAME, respectively.
+
+---QUESTION 11---
+ID: 11 | POINTS: 3.00 | FORMAT: Free Response
+TOPIC: Minerals | Environment of formation | Typical environments | Both minerals
+DIFFICULTY: Medium
+QUESTION: Describe a typical environment of formation for each of these minerals.
+
+---QUESTION 12---
+ID: 12 | POINTS: 1.00 | FORMAT: Free Response / Image Analysis
+TOPIC: Phase Diagrams | Solidus | Two-phase field | Line blocked out | Opposed to solidus
+DIFFICULTY: Medium
+QUESTION: Opposed to the solidus, which line is blocked out above the two-phase field?
+
+---QUESTION 13---
+ID: 13 | POINTS: 3.00 | FORMAT: Free Response
+TOPIC: Substitution | Type | Mineral list | Other minerals | Identification
+DIFFICULTY: Medium
+QUESTION: Which type of substitution is occurring in this diagram? Identify one other mineral on the list that also exhibits this type of substitution.
+
+---QUESTION 14---
+ID: 14 | POINTS: 3.00 | FORMAT: Free Response
+TOPIC: Substitution | Characteristics | Similar characteristics | More important | Two characteristics
+DIFFICULTY: Medium
+QUESTION: Which TWO characteristics must be similar for substitution to occur? Which one is more important here?
+
+---QUESTION 15---
+ID: 15 | POINTS: 14.00 | FORMAT: Calculation / Free Response / Image Analysis
+TOPIC: Phase Diagrams | Crystallization | Melt composition A | Phase composition | Proportion | Temperature B | Temperature C | Midpoint BC | N endmember | C endmember
+DIFFICULTY: Very High
+QUESTION: Consider the melt with composition A. As A crystallizes, find the composition and proportion of all present phases at the following temperatures. Express your answers in terms of N (the left endmember) and C (the right endmember):
+a. Right before reaching temperature B
+b. Right after passing temperature C
+c. The temperature at the midpoint of BC.
+
+---SECTION 3: Quick ID (34 points)---
+
+---QUESTION 16---
+ID: 16 | POINTS: 2.00 | FORMAT: Image Analysis / Free Response
+TOPIC: Mineral Identification | Specimen 3A | Property | Identification
+DIFFICULTY: Medium
+QUESTION: Identify Specimen A and the property that it is exhibiting.
+
+---QUESTION 17---
+ID: 17 | POINTS: 3.00 | FORMAT: Free Response
+TOPIC: Minerals | Economic use | Etymology | Specimen 3A
+DIFFICULTY: Medium
+QUESTION: Describe one economic use for Specimen A, as well as the etymology of its name.
+
+---QUESTION 18---
+ID: 18 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Minerals | Colors | Natural appearance | Specimen 3A | Impurities | One color | 2-3 colors | 3+ colors
+DIFFICULTY: Medium
+QUESTION: Ignoring impurities, which of the following correctly describes Specimen A?
+OPTIONS:
+a. Only appears naturally with one color
+b. Appears naturally with 2-3 colors
+c. Appears naturally with 3+ colors
+
+---QUESTION 19---
+ID: 19 | POINTS: 3.00 | FORMAT: Free Response
+TOPIC: Minerals | Characteristic | Term | Crystal structure | Property | Specimen 3A
+DIFFICULTY: Medium
+QUESTION: What is the term for the characteristic selected in the previous question, and what about Specimen A's crystal structure allows this property to exist?
+
+---QUESTION 20---
+ID: 20 | POINTS: 2.00 | FORMAT: Image Analysis / Free Response
+TOPIC: Mineral Identification | Specimen 3B | Variety | Specific variety
+DIFFICULTY: Medium
+QUESTION: Identify Specimen B and the specific variety shown in the image.
+
+---QUESTION 21---
+ID: 21 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Mineral Groups | Specimen 3B | Sulfate | Sulfide | Silicate | Phosphate | Gypsum | Galena | Quartz | Turquoise
+DIFFICULTY: Easy
+QUESTION: This mineral is in the ___ group, meaning that it is in the same group as ____.
+OPTIONS:
+a. Sulfate, Gypsum
+b. Sulfide, Galena
+c. Silicate, Quartz
+d. Phosphate, Turquoise
+
+---QUESTION 22---
+ID: 22 | POINTS: 2.00 | FORMAT: Image Analysis / Free Response
+TOPIC: Mineral Identification | Specimen 3C | Mohs hardness | 3 to 3.5 | Common nickname
+DIFFICULTY: Medium
+QUESTION: With a Mohs hardness of 3 to 3.5, identify Specimen C and its common nickname.
+
+---QUESTION 23---
+ID: 23 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Minerals | Streak | Density | Specimen 3C
+DIFFICULTY: Medium
+QUESTION: What are the streak and density of Specimen C?
+
+---QUESTION 24---
+ID: 24 | POINTS: 18.00 | FORMAT: Image Analysis / Free Response
+TOPIC: Mineral Identification | Rock Identification | Specimens D-L | Chemical composition | Two most common minerals
+DIFFICULTY: High
+QUESTION: Identify Specimens D-L. If a mineral is shown, give its chemical composition. If a rock is shown, list the two most common minerals in the rock.
+
+---SECTION 4: Metamorphic Grade (30 points)---
+
+---QUESTION 25---
+ID: 25 | POINTS: 1.00 | FORMAT: Free Response / Image Analysis
+TOPIC: Metamorphism | Colored zones | Image 4 | Representation
+DIFFICULTY: Easy
+QUESTION: What do the colored zones in Image 4 represent?
+
+---QUESTION 26---
+ID: 26 | POINTS: 2.00 | FORMAT: Free Response / Image Analysis
+TOPIC: Metamorphism | Zone 9 | Geologic setting | Formation | Rarity | Why rare
+DIFFICULTY: Medium
+QUESTION: Describe the geologic setting needed to form rocks in zone 9, and why are those rocks so rare?
+
+---QUESTION 27---
+ID: 27 | POINTS: 1.50 | FORMAT: Free Response / Image Analysis
+TOPIC: Metamorphism | Regional metamorphic gradient | Numbered zones | Sequence | Average gradient
+DIFFICULTY: Medium
+QUESTION: List the sequence of numbered zones that corresponds to the average regional metamorphic gradient
+
+---QUESTION 28---
+ID: 28 | POINTS: 1.50 | FORMAT: Free Response / Image Analysis
+TOPIC: Metamorphism | Subduction zone | Metamorphic gradient | Numbered zones | Sequence | Average gradient
+DIFFICULTY: Medium
+QUESTION: List the sequence of numbered zones that corresponds to the average metamorphic gradient associated with a subduction zone
+
+---QUESTION 29---
+ID: 29 | POINTS: 6.00 | FORMAT: Image Analysis / Free Response
+TOPIC: Mineral Identification | Metamorphic minerals | 4A-4F | Identification
+DIFFICULTY: Medium
+QUESTION: Identify Minerals 4A-4F
+
+---QUESTION 30---
+ID: 30 | POINTS: 3.00 | FORMAT: Free Response
+TOPIC: Metamorphism | Metamorphic grade | Increasing grade | Order | Minerals 4A-4F
+DIFFICULTY: Medium
+QUESTION: Place Minerals 4A-4F in order of increasing metamorphic grade
+
+---QUESTION 31---
+ID: 31 | POINTS: 3.00 | FORMAT: Image Analysis / Free Response
+TOPIC: Rock Identification | Metamorphic rocks | 4G-4I | Identification
+DIFFICULTY: Medium
+QUESTION: Identify Rocks 4G-4I
+
+---QUESTION 32---
+ID: 32 | POINTS: 1.50 | FORMAT: Free Response
+TOPIC: Metamorphism | Metamorphic grade | Increasing grade | Order | Rocks 4G-4I
+DIFFICULTY: Medium
+QUESTION: Place Rocks 4G-4I in order of increasing metamorphic grade
+
+---QUESTION 33---
+ID: 33 | POINTS: 1.50 | FORMAT: Free Response / Image Analysis
+TOPIC: Metamorphism | Numbered zones | Rocks 4G-4I | Expected zones | Respectively
+DIFFICULTY: Medium
+QUESTION: Which numbered zone in Image 4 would you expect to find Rocks 4G-4I in, respectively?
+
+---QUESTION 34---
+ID: 34 | POINTS: 2.00 | FORMAT: MC / Image Analysis
+TOPIC: Metamorphism | Temperature | Pressure | Conditions | Rock 4G | Minerals 4A-4F | Matching
+DIFFICULTY: Medium
+QUESTION: Which of Minerals 4A-4F would you expect to find in a rock formed in the same temperature and pressure conditions at Rock 4G?
+OPTIONS:
+a. 4A
+b. 4B
+c. 4C
+d. 4D
+e. 4E
+f. 4F
+
+---QUESTION 35---
+ID: 35 | POINTS: 2.00 | FORMAT: MC / Image Analysis
+TOPIC: Metamorphism | Temperature | Pressure | Conditions | Rock 4H | Minerals 4A-4F | Matching
+DIFFICULTY: Medium
+QUESTION: Which of Minerals 4A-4F would you expect to find in a rock formed in the same temperature and pressure conditions at Rock 4H?
+OPTIONS:
+a. 4A
+b. 4B
+c. 4C
+d. 4D
+e. 4E
+f. 4F
+
+---QUESTION 36---
+ID: 36 | POINTS: 2.00 | FORMAT: MC / Image Analysis
+TOPIC: Metamorphism | Temperature | Pressure | Conditions | Rock 4I | Minerals 4A-4F | Matching
+DIFFICULTY: Medium
+QUESTION: Which of Minerals 4A-4F would you expect to find in a rock formed in the same temperature and pressure conditions at Rock 4I?
+OPTIONS:
+a. 4A
+b. 4B
+c. 4C
+d. 4D
+e. 4E
+f. 4F
+
+---QUESTION 37---
+ID: 37 | POINTS: 2.00 | FORMAT: Free Response / Image Analysis
+TOPIC: Mineral Habits | Mineral 4B | Habit | Phenomenon | Shape | Explanation
+DIFFICULTY: Medium
+QUESTION: Mineral 4B typically does not occur in the particular habit shown in the image. State the name of the phenomenon, and explain why this particular specimen has that shape.
+
+---QUESTION 38---
+ID: 38 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Metamorphism | Partial melting | Recrystallization | Metamorphic rock | Name
+DIFFICULTY: Medium
+QUESTION: What name is given to a metamorphic rock that undergoes partial melting and recrystallization?
+
+---SECTION 5: WYSIWYG (30 points)---
+
+---QUESTION 39---
+ID: 39 | POINTS: 13.50 | FORMAT: Image Analysis / Free Response
+TOPIC: Mineral Identification | Habits | Minerals 5A-5I | Identification | Habits
+DIFFICULTY: High
+QUESTION: Identify Minerals 5A-5I and their habits
+
+---QUESTION 40---
+ID: 40 | POINTS: 4.50 | FORMAT: Image Analysis / Free Response
+TOPIC: Mineral Identification | Optical phenomena | Minerals 5J-5L | Identification | Optical phenomena
+DIFFICULTY: High
+QUESTION: Identify Minerals 5J-5L and the optical phenomena shown:
+
+---QUESTION 41---
+ID: 41 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Optical Phenomena | Mineral 5J | Cause | Explanation
+DIFFICULTY: Medium
+QUESTION: Explain what causes the optical phenomenon exhibited by Mineral 5J
+
+---QUESTION 42---
+ID: 42 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Optical Phenomena | Mineral 5K | Cause | Explanation
+DIFFICULTY: Medium
+QUESTION: Explain what causes the optical phenomenon exhibited by Mineral 5K
+
+---QUESTION 43---
+ID: 43 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Optical Phenomena | Mineral 5L | Cause | Explanation
+DIFFICULTY: Medium
+QUESTION: Explain what causes the optical phenomenon exhibited by Mineral 5L
+
+---QUESTION 44---
+ID: 44 | POINTS: 2.00 | FORMAT: MC (multi-select)
+TOPIC: Minerals | Colors | Iron impurities | Samples 5B | 5D | 5E | 5F | 5J | 5L
+DIFFICULTY: Medium
+QUESTION: Which of the following samples have colors that primarily result from iron impurities?
+OPTIONS:
+a. 5B
+b. 5D
+c. 5E
+d. 5F
+e. 5J
+f. 5L
+
+---QUESTION 45---
+ID: 45 | POINTS: 2.00 | FORMAT: MC (multi-select)
+TOPIC: Minerals | Birefringence | Minerals 5A-5I | Birefringent
+DIFFICULTY: Medium
+QUESTION: Which of Minerals 5A-5I are birefringent?
+OPTIONS:
+a. 5A
+b. 5B
+c. 5C
+d. 5D
+e. 5E
+f. 5F
+g. 5G
+h. 5H
+i. 5I
+
+---QUESTION 46---
+ID: 46 | POINTS: 2.00 | FORMAT: MC (multi-select)
+TOPIC: Minerals | UV Fluorescence | Minerals 5A-5I | Fluorescence
+DIFFICULTY: Medium
+QUESTION: Which of Minerals 5A-5I exhibit UV fluorescence?
+OPTIONS:
+a. 5A
+b. 5B
+c. 5C
+d. 5D
+e. 5E
+f. 5F
+g. 5G
+h. 5H
+i. 5I
+
+---SECTION 6: Compositional Study (30 points)---
+
+---QUESTION 47---
+ID: 47 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Geochemistry | Rare Earth Elements | REE | Incompatible elements | Meaning | Why
+DIFFICULTY: Medium
+QUESTION: In geology, rare earth elements (REE) are often considered 'incompatible elements.' What does this statement mean, and why is this the case?
+
+---QUESTION 48---
+ID: 48 | POINTS: 2.00 | FORMAT: Free Response / Image Analysis
+TOPIC: Geochemistry | Layer B | Anorthite | Europium | Anomalously high concentration | Explanation
+DIFFICULTY: Medium
+QUESTION: Given that Layer B contains high amounts of anorthite, explain why the rock contains an anomalously high concentration of Europium
+
+---QUESTION 49---
+ID: 49 | POINTS: 3.00 | FORMAT: Free Response / Image Analysis
+TOPIC: Geochemistry | Layers | Formation order | Which formed first | Data | Image 6 | Justification
+DIFFICULTY: Medium
+QUESTION: Which of the two layers formed first? Justify your answer using the data given in Image 6.
+
+---QUESTION 50---
+ID: 50 | POINTS: 7.50 | FORMAT: Image Analysis / Free Response
+TOPIC: Rock Identification | Textures | Rocks 6A-6E | Identification | Textures
+DIFFICULTY: High
+QUESTION: Identify Rocks 6A-6E and their textures:
+
+---QUESTION 51---
+ID: 51 | POINTS: 1.50 | FORMAT: MC / Image Analysis
+TOPIC: Geochemistry | REE concentration | Layer A | Rocks 6A-6E | Most similar | Matching
+DIFFICULTY: Medium
+QUESTION: Which of Rocks 6A-6E is likely to be most similar in REE concentration to Layer A?
+OPTIONS:
+a. 6A
+b. 6B
+c. 6C
+d. 6D
+e. 6E
+
+---QUESTION 52---
+ID: 52 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Igneous Rocks | Cooling time | Increasing cooling time | Order | Rocks 6A-6E
+DIFFICULTY: Medium
+QUESTION: Place Rocks 6A-6E in order of increasing cooling time
+
+---QUESTION 53---
+ID: 53 | POINTS: 4.50 | FORMAT: Image Analysis / Free Response
+TOPIC: Silicate Structures | Identification | Structures 6F-6K | Identification
+DIFFICULTY: Medium
+QUESTION: Identify silicate structures 6F-6K
+
+---QUESTION 54---
+ID: 54 | POINTS: 4.50 | FORMAT: Free Response / Image Analysis
+TOPIC: Silicate Structures | Minerals | Matching | Minerals 6L-6Q | Structures 6F-6K | Match
+DIFFICULTY: Medium
+QUESTION: Match minerals 6L-6Q with silicate structures 6F-6K
+
+---QUESTION 55---
+ID: 55 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Silicate Structures | Formation order | Melt cooling | Order | Structures 6F-6K
+DIFFICULTY: Medium
+QUESTION: Place silicate structures 6F-6K in the order in which they'd form as melt cools
+
+---QUESTION 56---
+ID: 56 | POINTS: 2.00 | FORMAT: Free Response / Image Analysis
+TOPIC: Minerals | Cleavage | Structure influence | Mineral 6N | Cleavage pattern | How structure influences
+DIFFICULTY: Medium
+QUESTION: How does Mineral 6N's structure influence its cleavage pattern?

@@ -1,0 +1,564 @@
+EVENT: Remote Sensing
+SOURCE: UGA Invitational 2025 (Div. C)
+FORMAT: 51 questions (46 MC, 5 Free Response)
+TOTAL POINTS: 71
+
+---SECTION 1: Multiple Choice (46 questions; 1 point each)---
+
+---QUESTION 1---
+ID: 1 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Remote Sensing | Sensors | Active Sensors | Passive Sensors | Weather Satellites
+DIFFICULTY: Easy
+QUESTION: A weather satellite that uses sunlight reflected off clouds and the Earth's surface to create images during the daytime is an example of what type of sensor?
+OPTIONS:
+A) Active Sensor
+B) Passive Sensor
+C) Refractive Sensor
+D) Gravimetric Sensor
+
+---QUESTION 2---
+ID: 2 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Climate Science | Radiative Balance | Equilibrium Temperature | Model Errors | Greenhouse Gases
+DIFFICULTY: Medium
+QUESTION: Which scenario would most likely lead to an underestimate of Earth's equilibrium temperature in a simple radiative balance model?
+OPTIONS:
+A) Neglecting greenhouse gas concentrations
+B) Using a lower solar constant than actual
+C) Assuming uniform surface albedo across the globe
+D) All of the above
+
+---QUESTION 3---
+ID: 3 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Climate Science | Climate Feedbacks | Cirrus Clouds | Positive Feedback | Negative Feedback
+DIFFICULTY: Medium
+QUESTION: Recent satellite studies show that in some tropical areas, there are more high-altitude cirrus clouds than before. Which type of climate feedback does this most directly represent?
+OPTIONS:
+A) A positive feedback, because these thin clouds trap more heat (longwave radiation) in the atmosphere.
+B) A negative feedback, because more clouds reflect sunlight and cool Earth's surface.
+C) A neutral feedback, caused by random aerosol–cloud interactions.
+D) A feedback related to ocean circulation, where less heat moves through the oceans.
+
+---QUESTION 4---
+ID: 4 | POINTS: 1.00 | FORMAT: MC | Image Analysis
+TOPIC: Remote Sensing | MODIS | Wildfires | Volcanoes | Image Interpretation
+DIFFICULTY: Medium
+QUESTION: Satellites such as MODIS and similar units are commonly used to monitor events and places that may be of potential concern. What is the point of interest circled in red here? See the image to the right.
+OPTIONS:
+A) Volcano seen from above
+B) Wildfire burning
+C) Cloud system forming
+D) Mining operation pollution
+
+---QUESTION 5---
+ID: 5 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Climate Science | Solar Activity | Solar Cycles | Climate Influence | Temperature Changes
+DIFFICULTY: Medium
+QUESTION: Which of the following best describes how solar activity influences Earth's climate?
+OPTIONS:
+A) Increased solar activity increases stratospheric ozone formation.
+B) Solar cycles cause significant long-term temperature changes (>2°C).
+C) Small changes in the Sun's energy slightly affect global temperatures over about 10-year periods.
+D) Solar activity directly affects ocean salinity.
+
+---QUESTION 6---
+ID: 6 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Climate Science | Climate Feedbacks | Positive Feedback | Ice-Albedo Feedback | Feedback Mechanisms
+DIFFICULTY: Medium
+QUESTION: In climate feedback loops, which combination of factors represents a positive feedback mechanism?
+OPTIONS:
+A) Increased clouds → more reflection → cooling
+B) Ice melt → lower albedo → more absorption → warming
+C) Increased aerosols → more scattering → cooling
+D) Ocean heat uptake → slower warming → negative radiative forcing
+
+---QUESTION 7---
+ID: 7 | POINTS: 1.00 | FORMAT: MC | Image Analysis
+TOPIC: Remote Sensing | NASA Satellites | MODIS | SMAP | GRACE-FO | ICESat-2 | Image Sources
+DIFFICULTY: Medium
+QUESTION: Which of these NASA satellites is capable of producing the image shown above?
+OPTIONS:
+A) SMAP
+B) MODIS
+C) Grace-FO
+D) IceSat-2
+
+---QUESTION 8---
+ID: 8 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Climate Science | Land Use Change | Carbon Cycle | Nitrogen Cycle | Deforestation | Agriculture
+DIFFICULTY: High
+QUESTION: Changing from a tropical forest to a cropland affects both the carbon and nitrogen cycles. Which combination of effects is most accurate?
+OPTIONS:
+A) Increased carbon sequestration and increased nitrogen fixation
+B) Decreased soil nitrogen availability and increased methane uptake
+C) Increased atmospheric CO₂ and N₂O emissions
+D) Decreased CO₂ emissions but increased denitrification rates
+
+---QUESTION 9---
+ID: 9 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Optics | Reflection | Refraction | Scattering | Absorption | Light Behavior
+DIFFICULTY: Easy
+QUESTION: The process where light bounces off a smooth surface, like a calm lake, is called:
+OPTIONS:
+A) Refraction
+B) Scattering
+C) Absorption
+D) Reflection
+
+---QUESTION 10---
+ID: 10 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Astrophysics | Wien's Law | Blackbody Radiation | Temperature | Wavelength | Peak Emission
+DIFFICULTY: Medium
+QUESTION: According to Wien's Law, if Star A has a surface temperature of 6,000 K and Star B has a surface temperature of 3,000 K, which star emits its peak radiation at a longer wavelength?
+OPTIONS:
+A) Star A
+B) Star B
+C) They both peak at the same wavelength.
+D) It is impossible to tell with this information.
+
+---QUESTION 11---
+ID: 11 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Climate Science | Aerosols | Stratospheric Aerosols | Cooling | Albedo | Climate Forcing
+DIFFICULTY: Medium
+QUESTION: A sudden injection of aerosols into the stratosphere can temporarily cool the planet. This is because:
+OPTIONS:
+A) Aerosols increase outgoing infrared radiation
+B) Aerosols increase the Earth's albedo, reflecting incoming solar radiation
+C) Aerosols enhance the Stefan-Boltzmann emission of the Earth
+D) Aerosols decrease the greenhouse effect
+
+---QUESTION 12---
+ID: 12 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Remote Sensing | NDVI | Vegetation Health | Global Warming | High Latitudes | Growing Seasons
+DIFFICULTY: Medium
+QUESTION: Satellites use NDVI (Normalized Difference Vegetation Index) to monitor vegetation health. Which trend has been linked to global warming?
+OPTIONS:
+A) Vegetation at high latitudes exhibits higher NDVI due to longer growing seasons.
+B) Global NDVI has declined uniformly because warming causes widespread vegetation loss.
+C) Tropical forests show the largest NDVI increases specifically due to reduced rainfall.
+D) NDVI values have remained approximately constant worldwide, indicating no temperature response.
+
+---QUESTION 13---
+ID: 13 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Remote Sensing | Spatial Resolution | Ground Sample Distance | IFOV | FOV | Pixel Size
+DIFFICULTY: Easy
+QUESTION: The actual size of a single pixel in a satellite image on the ground (e.g., 10 meters x 10 meters) is referred to as the:
+OPTIONS:
+A) Ground Sample Distance (GSD)
+B) Instantaneous Field of View (IFOV)
+C) Field of View (FOV)
+D) Revisit Period
+
+---QUESTIONS 14-15 (SHARED CONTEXT)---
+ID: 14-15 | POINTS: 1.00, 1.00 | FORMAT: MC | Image Analysis, MC | Image Analysis
+TOPIC: Remote Sensing | NDVI | Vegetation | Spain | Image Interpretation
+CONTEXT: Q14 & Q15 both refer to the image above
+
+---QUESTION 14---
+ID: 14 | POINTS: 1.00 | FORMAT: MC | Image Analysis
+TOPIC: Remote Sensing | NDVI | Acronym | Normalized Difference Vegetation Index
+DIFFICULTY: Easy
+QUESTION: What does NDVI stand for?
+OPTIONS:
+A) Near-Infrared Derived Vegetation Image
+B) National Digital Vegetation Inventory
+C) Normalized Difference Vegetation Index
+D) Normalized Density of Vegetation Instrument
+
+---QUESTION 15---
+ID: 15 | POINTS: 1.00 | FORMAT: MC | Image Analysis
+TOPIC: Remote Sensing | NDVI | Vegetation | Spain | Regional Patterns | Image Interpretation
+DIFFICULTY: Medium
+QUESTION: What does the above graph reveal about vegetation in Spain?
+OPTIONS:
+A) Vegetation is denser in the South, though present in the North as well.
+B) Vegetation is healthier and greener in the South than it is in the North.
+C) Vegetation is denser in the North, though present in the South as well.
+D) Spain is a complete desert in parts of the South, with no vegetation at all in areas.
+
+---QUESTION 16---
+ID: 16 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Remote Sensing | False Color Composite | FCC | Image Processing | Acronyms
+DIFFICULTY: Easy
+QUESTION: What does FCC stand for?
+OPTIONS:
+A) False color composite
+B) Fake color co-banded
+C) False carbon composite
+D) False carbon co-banded
+
+---QUESTION 17---
+ID: 17 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Spectroscopy | Emission Spectrum | Absorption Spectrum | Continuous Spectrum | Hot Gas Clouds
+DIFFICULTY: Easy
+QUESTION: A hot, low-density cloud of gas in space produces a spectrum that appears as bright lines of color on a dark background. This is called a(n):
+OPTIONS:
+A) Continuous Spectrum
+B) Absorption Spectrum
+C) Emission Spectrum
+D) Blackbody Spectrum
+
+---QUESTION 18---
+ID: 18 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Climate Science | Ice-Albedo Feedback | Positive Feedback | Polar Ice | Albedo | Warming
+DIFFICULTY: Medium
+QUESTION: Ice and snow surfaces have high albedo. If polar ice melts due to warming, which feedback mechanism is primarily responsible for accelerating temperature rise?
+OPTIONS:
+A) Negative feedback
+B) Positive feedback
+C) Radiative damping
+D) Radiative forcing neutralization
+
+---QUESTION 19---
+ID: 19 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Climate Science | Carbon Cycle | Seasonal Variation | Vegetation | CO2 Concentration | AIRS
+DIFFICULTY: High
+QUESTION: Satellite data from AIRS shows a fluctuation in atmospheric CO₂ concentration at northern latitudes during certain seasons. Which of the following best explains this pattern?
+OPTIONS:
+A) Oceanic CO₂ absorption peaks in northern winter, reducing atmospheric CO₂.
+B) Northern Hemisphere vegetation uptake during summer decreases atmospheric CO₂, creating a seasonal low.
+C) Increased soil respiration during summer increases atmospheric CO₂, creating a seasonal high.
+D) Anthropogenic emissions predominantly cause seasonal variation, independent of vegetation cycles.
+
+---QUESTION 20---
+ID: 20 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Optics | Refraction | Rainbows | Light Dispersion | Scattering | Reflection
+DIFFICULTY: Easy
+QUESTION: When light passes through a rain droplet and separates into a rainbow of colors, this is primarily due to:
+OPTIONS:
+A) Scattering
+B) Reflection
+C) Refraction
+D) Attenuation
+
+---QUESTIONS 21-22 (SHARED CONTEXT)---
+ID: 21-22 | POINTS: 1.00, 1.00 | FORMAT: MC | Image Analysis, MC | Image Analysis
+TOPIC: Remote Sensing | Surface Temperature | Landsat | ICESat-2 | OCO-2 | GOES-18 | Satellite Identification
+CONTEXT: Q21 & Q22 both refer to the image above
+
+---QUESTION 21---
+ID: 21 | POINTS: 1.00 | FORMAT: MC | Image Analysis
+TOPIC: Remote Sensing | Surface Temperature | Color Gradient | Image Interpretation
+DIFFICULTY: Medium
+QUESTION: In the above image, what does the color gradient represent?
+OPTIONS:
+A) Radio activity
+B) Surface Temperature
+C) Population Density
+D) Temperature Variation
+
+---QUESTION 22---
+ID: 22 | POINTS: 1.00 | FORMAT: MC | Image Analysis
+TOPIC: Remote Sensing | Satellites | Landsat 8 | ICESat-2 | OCO-2 | GOES-18 | Temperature Measurement
+DIFFICULTY: Medium
+QUESTION: Which of these satellites most likely collected the above data?
+OPTIONS:
+A) Landsat 8
+B) ICESat-2
+C) OCO-2
+D) GOES-18
+
+---QUESTION 23---
+ID: 23 | POINTS: 1.00 | FORMAT: MC | Calculation
+TOPIC: Physics | Stefan-Boltzmann Law | Temperature | Energy Radiation | Power Law
+DIFFICULTY: Medium
+QUESTION: According to the Stefan-Boltzmann Law, if the Earth's surface temperature increases by 10%, the amount of energy it radiates increases by approximately:
+OPTIONS:
+A) 46%
+B) 21%
+C) 92%
+D) 100%
+
+---QUESTION 24---
+ID: 24 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Satellites | Orbital Mechanics | Orbital Period | Revisit Period | Revolution
+DIFFICULTY: Easy
+QUESTION: The time it takes for a satellite to complete one full revolution around the Earth is its:
+OPTIONS:
+A) Revisit Period
+B) Framerate
+C) Orbital Period
+D) Swath Time
+
+---QUESTIONS 25-26 (SHARED CONTEXT)---
+ID: 25-26 | POINTS: 1.00, 1.00 | FORMAT: MC | Image Analysis, MC | Image Analysis
+TOPIC: Remote Sensing | Albedo | Surface Reflectance | Grass | Asphalt | Surface Properties
+CONTEXT: Q25 & Q26 both refer to the image above
+
+---QUESTION 25---
+ID: 25 | POINTS: 1.00 | FORMAT: MC | Image Analysis
+TOPIC: Remote Sensing | Albedo | Surface Reflectance | Surface Properties
+DIFFICULTY: Easy
+QUESTION: The table above shows a table of values associated with different surfaces. What are those values?
+OPTIONS:
+A) Surface Porosity
+B) Red-light reflectance
+C) Albedo
+D) None of the above
+
+---QUESTION 26---
+ID: 26 | POINTS: 1.00 | FORMAT: MC | Image Analysis
+TOPIC: Remote Sensing | Albedo | Surface Properties | Color | Roughness | Density
+DIFFICULTY: Easy
+QUESTION: What leads to a difference between the values for grass and asphalt?
+OPTIONS:
+A) Asphalt is darker
+B) Asphalt is rougher
+C) Asphalt is denser
+D) Asphalt is flatter
+
+---QUESTION 27---
+ID: 27 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Remote Sensing | Sea Level Rise | Ice Sheets | Gravity Field | GRACE | Mass Change
+DIFFICULTY: Medium
+QUESTION: Scientists use satellites to study changes in Earth's oceans and ice sheets. Which of the following measurements provides the most direct evidence of melting land ice contributing to sea level rise?
+OPTIONS:
+A) Satellite observations of ocean surface temperature
+B) Satellite measurements of cloud cover changes over the poles
+C) Satellite tracking of changes in Earth's gravity field caused by shifting mass from ice to ocean
+D) Satellite data showing increased carbon dioxide near the poles
+
+---QUESTION 28---
+ID: 28 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Remote Sensing | Field of View | Swath Width | GSD | FOV | Sensor Coverage
+DIFFICULTY: Easy
+QUESTION: The total geographic area that a satellite sensor can see in a single instant is called its:
+OPTIONS:
+A) Ground Sample Distance (GSD)
+B) Revisit Period
+C) Field of View (FOV) or Swath Width
+D) Orbital Period
+
+---QUESTION 29---
+ID: 29 | POINTS: 1.00 | FORMAT: MC | Image Analysis
+TOPIC: Remote Sensing | Sea Ice | Arctic | Antarctic | False Color Composite | Image Interpretation
+DIFFICULTY: Medium
+QUESTION: What is being graphed in the FCC to the right?
+OPTIONS:
+A) Arctic sea ice
+B) Antarctic sea ice
+C) Antarctic land ice
+D) Water temperatures
+
+---QUESTION 30---
+ID: 30 | POINTS: 1.00 | FORMAT: MC | Image Analysis
+TOPIC: Climate Change | Sea Ice | Seasonal Variation | Climate Change | Ice Loss
+DIFFICULTY: Easy
+QUESTION: What is the most primary and direct cause of the change displayed to the right?
+OPTIONS:
+A) Climate change
+B) Ice mining
+C) Changing seasons
+D) Polar Bear Migration
+
+---QUESTION 31---
+ID: 31 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Remote Sensing | LIDAR | Active Sensors | Passive Sensors | Laser | Terrain Mapping
+DIFFICULTY: Easy
+QUESTION: The LIDAR instrument on an airplane sends out laser pulses and measures their return time to map the terrain. LIDAR is classified as what type of sensor?
+OPTIONS:
+A) Passive Sensor
+B) Spectroscopic Sensor
+C) Active Sensor
+D) Radiometric Sensor
+
+---QUESTION 32---
+ID: 32 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Remote Sensing | Modeling | Exponential Functions | Heating | Cooling Rates | Volcanic Ash
+DIFFICULTY: High
+QUESTION: Considering linear, piecewise-linear, and exponential functions for modeling heating/cooling rates, which scenario is best modeled by an exponential function?
+OPTIONS:
+A) Diurnal temperature change on a clear day
+B) Gradual warming due to seasonal changes
+C) Cooling of a volcanic ash layer over time due to radiative loss
+D) Stepwise temperature change from moving between different climate zones
+
+---QUESTION 33---
+ID: 33 | POINTS: 1.00 | FORMAT: MC | Image Analysis
+TOPIC: Remote Sensing | Satellites | Landsat | MODIS | Aqua | CALIPSO | Image Sources
+DIFFICULTY: Medium
+QUESTION: Which satellite (system) likely took the measurements for the imaging to the right?
+OPTIONS:
+A) Landsat
+B) MODIS
+C) Aqua
+D) CALIPSO
+
+---QUESTION 34---
+ID: 34 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Climate Science | Equilibrium Temperature | Greenhouse Gases | Solar Constant | Albedo | Cloud Cover
+DIFFICULTY: Medium
+QUESTION: When modeling Earth's equilibrium temperature, which factor would not directly increase the equilibrium temperature?
+OPTIONS:
+A) Higher greenhouse gas concentrations
+B) Increased solar constant
+C) Increased surface albedo
+D) Reduced cloud cover
+
+---QUESTION 35---
+ID: 35 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Satellites | Orbital Types | Sun-Synchronous Orbit | Geosynchronous | Polar Orbit | Shadow Consistency
+DIFFICULTY: Medium
+QUESTION: A mapping satellite is in a polar orbit that is designed so it always passes over the equator at 10:00 AM local time. This ensures consistent shadows for its images. This is an example of a:
+OPTIONS:
+A) Geosynchronous Orbit
+B) Highly Elliptical Orbit (HEO)
+C) Medium Earth Orbit (MEO)
+D) Sun-Synchronous Orbit (SSO)
+
+---QUESTION 36---
+ID: 36 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Climate Science | Nitrogen Deposition | Carbon Cycle | Climate Warming | Ecosystem Productivity | N2O Emissions
+DIFFICULTY: High
+QUESTION: Anthropogenic nitrogen deposition can indirectly amplify climate warming via its effects on the carbon cycle and terrestrial ecosystem productivity. Which statement best explains this?
+OPTIONS:
+A) It consistently boosts plant growth, leading to long-term increases in carbon storage and net cooling.
+B) It causes nutrient imbalances and soil acidification that reduce long-term plant carbon uptake, while stimulating microbial decomposition and increasing N₂O emissions, resulting in net warming.
+C) It brightens leaf surfaces, raising land albedo and reflecting more sunlight, which cools the climate.
+D) It primarily alters ocean salinity, weakening the biological pump and increasing atmospheric CO₂.
+
+---QUESTIONS 37-38 (SHARED CONTEXT)---
+ID: 37-38 | POINTS: 1.00, 1.00 | FORMAT: MC | Image Analysis, MC | Image Analysis
+TOPIC: Climate Science | Keeling Curve | Mauna Loa | CO2 | Atmospheric Monitoring | Historical Data
+CONTEXT: Q37 & Q38 both refer to the image above
+
+---QUESTION 37---
+ID: 37 | POINTS: 1.00 | FORMAT: MC | Image Analysis
+TOPIC: Climate Science | Keeling Curve | CO2 | Graph Interpretation | Atmospheric Monitoring
+DIFFICULTY: Easy
+QUESTION: What is an appropriate title for the graph above?
+OPTIONS:
+A) Ocean temperature over time
+B) Surface temperature over time
+C) Carbon dioxide PPM over time
+D) Atmospheric Radiation over time
+
+---QUESTION 38---
+ID: 38 | POINTS: 1.00 | FORMAT: MC | Image Analysis
+TOPIC: Climate Science | Keeling Curve | Mauna Loa | Data Collection | Historical Monitoring
+DIFFICULTY: Easy
+QUESTION: The above graph is VERY famous, the most famous of its type and a pioneering example of remote climate sensing. Where was this data collected?
+OPTIONS:
+A) Hiroshima, Japan
+B) Mauna Loa, Hawaii
+C) Amundsen-Scott South Pole Station
+D) Concordia Station
+
+---QUESTION 39---
+ID: 39 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Orbital Mechanics | Kepler's Third Law | Orbital Period | Semi-Major Axis | Satellite Orbits
+DIFFICULTY: Medium
+QUESTION: Kepler's Third Law (Law of Periods) describes the relationship between a satellite's orbital period and its:
+OPTIONS:
+A) Mass
+B) Angular Resolution
+C) Semi-major axis
+D) Ground Sample Distance
+
+---QUESTION 40---
+ID: 40 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Climate Science | Wildfire Smoke | Aerosols | Clouds | Energy Balance | Satellite Observations
+DIFFICULTY: High
+QUESTION: Satellites detect large areas of wildfire smoke spreading across the Pacific. How does wildfire smoke mainly affect clouds and Earth's energy balance, and how do satellites observe these effects?
+OPTIONS:
+A) Smoke adds aerosols that help clouds form more, smaller droplets, making the clouds brighter and longer-lasting, while the dark smoke absorbs sunlight and warms the air; smoke layer height and reflected sunlight can be used to measure these effects.
+B) Smoke removes water from clouds, making them disappear; this is measured with ocean altimeters.
+C) Smoke does not affect clouds or sunlight, only local air quality; satellites cannot detect this.
+D) Smoke clears the air, increasing sunlight at the surface; this is measured with GRACE gravity satellites.
+
+---QUESTION 41---
+ID: 41 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Remote Sensing | Radiometers | Soil Moisture | Microwave Radiation | SMAP | Instrument Types
+DIFFICULTY: Medium
+QUESTION: An instrument that measures the intensity of natural microwave radiation emitted by the Earth's surface to determine soil moisture is a:
+OPTIONS:
+A) Radar Altimeter
+B) Radiometer
+C) Precipitation Radar
+D) LIDAR
+
+---QUESTION 42---
+ID: 42 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Spectroscopy | Absorption Spectrum | Stellar Composition | Dark Lines | Continuous Spectrum
+DIFFICULTY: Easy
+QUESTION: Scientists can determine the composition of a distant star's atmosphere by analyzing the dark lines that appear in its otherwise continuous spectrum. These dark lines form a(n):
+OPTIONS:
+A) Emission Spectrum
+B) Continuous Spectrum
+C) Scattering Spectrum
+D) Absorption Spectrum
+
+---QUESTION 43---
+ID: 43 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Climate Science | Clouds | Aerosols | Radiative Forcing | Climate Effects | Scattering | Trapping
+DIFFICULTY: Medium
+QUESTION: Clouds and aerosols can influence Earth's climate by affecting radiative forcing. Which of the following best describes their effect?
+OPTIONS:
+A) Both increase outgoing longwave radiation, cooling the planet
+B) Both increase incoming solar radiation, warming the planet
+C) Clouds both reflect sunlight and trap infrared radiation; aerosols primarily scatter sunlight
+D) Aerosols always warm the climate by absorbing sunlight
+
+---QUESTION 44---
+ID: 44 | POINTS: 1.00 | FORMAT: MC | Calculation
+TOPIC: Physics | Stefan-Boltzmann Law | Temperature | Energy Radiation | Power Law | Doubling Temperature
+DIFFICULTY: Medium
+QUESTION: The Stefan-Boltzmann Law tells us that if the absolute temperature of a star doubles, the total energy it radiates per second:
+OPTIONS:
+A) Doubles
+B) Quadruples
+C) Increases by a factor of 8
+D) Increases by a factor of 16
+
+---QUESTION 45---
+ID: 45 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Climate Science | Albedo | Equilibrium Temperature | Climate Models | Reflection | Absorption
+DIFFICULTY: Medium
+QUESTION: If Earth's average albedo increased from 0.3 to 0.4, assuming all else equal, the equilibrium temperature would:
+OPTIONS:
+A) Increase, because more sunlight is absorbed
+B) Decrease, because more sunlight is reflected
+C) Remain the same, because albedo does not affect outgoing longwave radiation
+D) Increase, due to enhanced greenhouse feedback
+
+---QUESTION 46---
+ID: 46 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Satellites | Orbital Types | Geostationary Orbit | LEO | Polar Orbit | SSO
+DIFFICULTY: Easy
+QUESTION: A satellite that appears to stay fixed over the same spot on the Earth's equator is in which type of orbit?
+OPTIONS:
+A) Low Earth Orbit (LEO)
+B) Polar Orbit
+C) Geostationary Orbit
+D) Sun-Synchronous Orbit
+
+---SECTION 2: Free Response Questions---
+
+---QUESTION 47---
+ID: 47 | POINTS: 3.00 | FORMAT: Free Response | Image Analysis
+TOPIC: Remote Sensing | Sensing Types | Weather Events | Climate Events | Monitoring Methods
+DIFFICULTY: Medium
+QUESTION: Weather and climate events can have profound effects on the environment. Name three types of sensing that could be used to monitor the event depicted above.
+
+---QUESTION 48---
+ID: 48 | POINTS: 3.00 | FORMAT: Free Response | Image Analysis
+TOPIC: Remote Sensing | Urban Heat Island | Surface Temperature | Cities | Color Gradient | Image Interpretation
+DIFFICULTY: Medium
+QUESTION: Shown above is a satellite-derived map of two southern European cities. Explain the color gradient and what causes the centers of the cities to be more red.
+
+---QUESTION 49---
+ID: 49 | POINTS: 5.00 | FORMAT: Free Response
+TOPIC: Climate Science | Volcanic Eruptions | Radiation Balance | Aerosols | Cooling | Warming | Satellite Sensors
+DIFFICULTY: High
+QUESTION: Explain two opposite effects that a large volcanic eruption can have on how Earth absorbs and reflects energy (its radiation balance). Name the main satellite sensors used to monitor volcanic aerosols.
+
+---QUESTION 50---
+ID: 50 | POINTS: 8.00 | FORMAT: Free Response | Image Analysis
+TOPIC: Climate Science | ENSO | El Niño | La Niña | Precipitation | Temperature | Climate Connections
+DIFFICULTY: High
+QUESTION: Identify the phase of ENSO shown. Based on knowledge of global climate connections, predict how this phase would influence precipitation and temperature anomalies in the western United States and Indonesia and explain why.
+
+---QUESTION 51---
+ID: 51 | POINTS: 6.00 | FORMAT: Free Response
+TOPIC: Remote Sensing | Modeling | Linear Functions | Piecewise-Linear Functions | Exponential Functions | Heating | Cooling Rates
+DIFFICULTY: High
+QUESTION: Explain how linear, piecewise-linear, and exponential functions can be used to model changes in heating and cooling rates over time. Provide an example scenario for each.

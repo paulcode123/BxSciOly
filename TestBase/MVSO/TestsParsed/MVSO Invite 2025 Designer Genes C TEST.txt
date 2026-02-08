@@ -1,0 +1,326 @@
+EVENT: Designer Genes
+SOURCE: MVSO Invite 2025 (Div. C)
+FORMAT: 42 questions (Multiple choice, fill-in-blank, true/false, and free response sections)
+TOTAL POINTS: ~60
+
+SECTION 1: MENDELIAN GENETICS
+
+---QUESTION 1---
+ID: 1 | POINTS: 1.00 | FORMAT: Fill-in-blank
+TOPIC: Genetics | Mendel's laws | Segregation | Alleles
+DIFFICULTY: Easy
+QUESTION: Mendel's Law of ______ states that every individual organism contains two alleles for each trait and they separate during meiosis
+ANSWER: Segregation
+
+---QUESTION 2---
+ID: 2 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Genetics | Dihybrid cross | Mendelian ratios | Independent assortment
+DIFFICULTY: Medium
+QUESTION: During Mendel's experiments, in a dihybrid cross, he found a ratio of:
+OPTIONS: A) 3:1, B) 1:1:1:1, C) 3:1:1:3, D) 9:3:3:1
+CORRECT_ANSWER: D
+
+---QUESTION 3---
+ID: 3 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Genetics | Dihybrid cross | Epistasis | Phenotypic ratios | Labrador coat color
+DIFFICULTY: High
+QUESTION: Labrador retrievers with genes B (pigment color) and E (pigment deposition). BbEe × BbEe expected phenotypic ratio?
+OPTIONS: A) 9 black: 3 brown: 4 yellow, B) 12 black: 3 brown: 1 yellow, C) 9 brown: 3 yellow: 4 black, D) 15 black: 1 yellow
+CORRECT_ANSWER: A
+
+---QUESTION 4---
+ID: 4 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Genetics | Gene interaction | Epistasis | Mendelian ratios
+DIFFICULTY: High
+QUESTION: Which statement best describes the implication of epistasis for genetic studies?
+OPTIONS: A) Supports segregation but not independent assortment, B) Traits controlled by environmental factors, C) Genes interact in pathways, modifying Mendelian ratios, D) Only dominant alleles expressed
+CORRECT_ANSWER: C
+
+SECTION 2: CELL DIVISION
+
+---QUESTION 5---
+ID: 5 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Cell division | Meiosis | Genetic identity | Gamete production
+DIFFICULTY: Medium
+QUESTION: The main purpose of meiosis is to produce genetically identical cells
+ANSWER: False
+
+---QUESTION 6---
+ID: 6 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Cell division | Meiosis | Crossing over | Prophase I
+DIFFICULTY: Easy
+QUESTION: Crossing over occurs during prophase I of meiosis
+ANSWER: True
+
+---QUESTION 7---
+ID: 7 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Cell division | Spindle fibers | Meiosis | Mitosis
+DIFFICULTY: Easy
+QUESTION: Spindle fibers are unique to meiosis
+ANSWER: False
+
+---QUESTION 8---
+ID: 8 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Cell division | Nondisjunction | Meiosis I | Aneuploidy
+DIFFICULTY: High
+QUESTION: If nondisjunction occurs during Meiosis I, what happens?
+OPTIONS: A) Two gametes normal, two abnormal, B) All gametes abnormal, C) No effect, D) Results in polyploidy
+CORRECT_ANSWER: A
+
+---QUESTION 9---
+ID: 9 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Cell division | Mitosis vs Meiosis | Sister chromatids | Homologous chromosomes
+DIFFICULTY: High
+QUESTION: Which event occurs in both mitosis and meiosis II?
+OPTIONS: A) Separation of homologous chromosomes, B) Separation of sister chromatids, C) Crossing over, D) Synapsis
+CORRECT_ANSWER: B
+
+---QUESTION 10---
+ID: 10 | POINTS: 3.00 | FORMAT: Free response
+TOPIC: Cell division | Aneuploidy | Down syndrome | Karyotype | Nondisjunction
+DIFFICULTY: Very High
+QUESTION: Karyotype shows 47 chromosomes with three copies of chromosome 21. (a) Explain meiotic error, (b) Identify condition and effects on chromosome number, (c) Compare to mitotic mutation
+
+SECTION 3: DNA STRUCTURE
+
+---QUESTION 11---
+ID: 11 | POINTS: 1.00 | FORMAT: MC
+TOPIC: DNA structure | Sugar chemistry | Ribose vs deoxyribose | Functional groups
+DIFFICULTY: Medium
+QUESTION: The sugar in DNA lacks which functional group found in RNA?
+OPTIONS: A) 3'-OH, B) 2'-OH, C) 5'-OH, D) Carbonyl Group
+CORRECT_ANSWER: B
+
+---QUESTION 12---
+ID: 12 | POINTS: 1.00 | FORMAT: MC
+TOPIC: DNA structure | 5' end | Free phosphate | Strand polarity
+DIFFICULTY: Medium
+QUESTION: The 5' end of a DNA strand is characterized by a:
+OPTIONS: A) Free hydroxyl on C3', B) Free phosphate on C5', C) Nitrogenous base, D) Deoxyribose
+CORRECT_ANSWER: B
+
+---QUESTION 13---
+ID: 13 | POINTS: 2.00 | FORMAT: Free response
+TOPIC: DNA structure | Phosphodiester bonds | Chemical bonding | Nucleotide linking
+DIFFICULTY: Medium
+QUESTION: Explain the formation of Phosphodiester bonds
+
+---QUESTION 14---
+ID: 14 | POINTS: 1.00 | FORMAT: MC
+TOPIC: DNA structure | Chromatin organization | Euchromatin | Gene expression | Transcriptional activity
+DIFFICULTY: Medium
+QUESTION: Which level of DNA organization is the loosest and most transcriptionally active?
+OPTIONS: A) Chromosome, B) Heterochromatin, C) Euchromatin, D) Nucleosome
+CORRECT_ANSWER: C
+
+---QUESTION 15---
+ID: 15 | POINTS: 1.00 | FORMAT: MC
+TOPIC: DNA structure | Nucleosomes | Histones | Histone octamer
+DIFFICULTY: Easy
+QUESTION: DNA in nucleosomes is wrapped around:
+OPTIONS: A) Histone octamers, B) Actin filaments, C) RNA particles, D) Ribosomes
+CORRECT_ANSWER: A
+
+SECTION 4: MUTATIONS AND DNA REPAIR
+
+---QUESTION 16---
+ID: 16 | POINTS: 1.00 | FORMAT: Fill-in-blank
+TOPIC: Mutations | Point mutations | Silent mutations | Wobble base pairing
+DIFFICULTY: Medium
+QUESTION: A point mutation changing A→G in third codon position coding for same amino acid is a ____ mutation
+ANSWER: Silent
+
+---QUESTION 17---
+ID: 17 | POINTS: 1.00 | FORMAT: Fill-in-blank
+TOPIC: Mutations | Nonsense mutations | Stop codon | Premature termination
+DIFFICULTY: Medium
+QUESTION: A mutation converting amino acid codon into stop codon is a ___ mutation
+ANSWER: Nonsense
+
+---QUESTION 18---
+ID: 18 | POINTS: 2.00 | FORMAT: Free response
+TOPIC: Mutations | Nonsense mutations | Truncated proteins | Disease effects
+DIFFICULTY: High
+QUESTION: Why is the nonsense mutation so harmful? What's an example of its effect?
+
+---QUESTION 19---
+ID: 19 | POINTS: 1.00 | FORMAT: MC
+TOPIC: DNA damage | Mutagens | Radiation | Chemical exposure
+DIFFICULTY: Easy
+QUESTION: Which can cause DNA damage?
+OPTIONS: A) X-rays, B) Gamma rays, C) Chemical exposures, D) All of the above
+CORRECT_ANSWER: D
+
+---QUESTION 20---
+ID: 20 | POINTS: 2.00 | FORMAT: MC
+TOPIC: DNA damage | Pyrimidine dimers | UV radiation | DNA damage types
+DIFFICULTY: Medium
+QUESTION: Pyrimidine Dimers is a type of DNA damage caused by:
+OPTIONS: A) Bacterial toxins, B) UV radiation, C) Errors in replication during S phase, D) Ionization
+CORRECT_ANSWER: B
+
+---QUESTION 21---
+ID: 21 | POINTS: 1.00 | FORMAT: MC
+TOPIC: DNA repair | Mismatch repair | Proofreading errors | Replication mistakes
+DIFFICULTY: High
+QUESTION: Which DNA repair mechanism specifically removes incorrectly paired bases escaping proofreading?
+OPTIONS: A) NER, B) MMR, C) BER, D) HR
+CORRECT_ANSWER: B
+
+---QUESTION 22---
+ID: 22 | POINTS: 1.00 | FORMAT: MC
+TOPIC: DNA repair | Nucleotide excision repair | Thymine dimers | UV damage
+DIFFICULTY: High
+QUESTION: NER primarily fixes which type of DNA damage?
+OPTIONS: A) Double-stranded breaks, B) Thymine dimers, C) Depurination, D) Mispairs
+CORRECT_ANSWER: B
+
+---QUESTION 23---
+ID: 23 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: DNA replication | DNA polymerase directionality | 5'→3' synthesis
+DIFFICULTY: Easy
+QUESTION: DNA polymerase can synthesize new DNA strands in both 5'→3' and 3'→5' directions
+ANSWER: False
+
+---QUESTION 24---
+ID: 24 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: DNA structure | Hydrogen bonding | Base pairing | Double helix stability
+DIFFICULTY: Easy
+QUESTION: Hydrogen bonds between complementary bases stabilize the DNA double helix
+ANSWER: True
+
+SECTION 5: PROKARYOTIC GENE EXPRESSION
+
+---QUESTION 25---
+ID: 25 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Gene expression | Prokaryotes | Transcription | RNA polymerase
+DIFFICULTY: Easy
+QUESTION: Which enzyme catalyzes transcription in prokaryotes?
+OPTIONS: A) DNA polymerase III, B) RNA polymerase, C) Ligase, D) Reverse transcriptase
+CORRECT_ANSWER: B
+
+---QUESTION 26---
+ID: 26 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Gene expression | Bacterial RNA polymerase | Sigma factor | Promoter recognition
+DIFFICULTY: High
+QUESTION: The σ (sigma) factor in bacterial RNA polymerase is responsible for:
+OPTIONS: A) Elongation, B) Termination, C) Ribosome binding, D) Promoter recognition and initiation
+CORRECT_ANSWER: D
+
+---QUESTION 27---
+ID: 27 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Gene regulation | Lac operon | Allolactose | Glucose effects
+DIFFICULTY: Medium
+QUESTION: The lac operon is activated when lactose is present and glucose is low
+ANSWER: True
+
+---QUESTION 28---
+ID: 28 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Gene regulation | Trp operon | Repression | Tryptophan as corepressor
+DIFFICULTY: Medium
+QUESTION: In the trp operon, tryptophan acts as an inducer
+ANSWER: False
+
+---QUESTION 29---
+ID: 29 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Gene expression | Prokaryotes | Coupled transcription-translation | Polycistronic mRNA
+DIFFICULTY: Medium
+QUESTION: In prokaryotes, transcription and translation can occur simultaneously
+ANSWER: True
+
+---QUESTION 30---
+ID: 30 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Gene regulation | Riboswitches | RNA-mediated regulation | Metabolite binding
+DIFFICULTY: Medium
+QUESTION: Riboswitches are regulatory RNA segments that can bind metabolites and alter gene expression
+ANSWER: True
+
+---QUESTION 31---
+ID: 31 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Gene expression | Shine-Dalgarno sequence | Translation initiation | 5' end
+DIFFICULTY: Medium
+QUESTION: The Shine-Dalgarno sequence is found on the 3' end of mRNA
+ANSWER: False
+
+---QUESTION 32---
+ID: 32 | POINTS: 2.00 | FORMAT: Fill-in-blank (multiple)
+TOPIC: Gene expression | Start codon | Translation initiation | Methionine
+DIFFICULTY: Medium
+QUESTION: The codon that signals start of translation is usually __________, which codes for amino acid __________
+ANSWERS: AUG, Methionine
+
+---QUESTION 33---
+ID: 33 | POINTS: 1.00 | FORMAT: Fill-in-blank
+TOPIC: Gene expression | Ribosome binding site | Prokaryotic translation | Shine-Dalgarno sequence
+DIFFICULTY: Medium
+QUESTION: The sequence on bacterial mRNA that helps ribosome identify correct start codon is the __________ sequence
+ANSWER: Shine-Dalgarno
+
+---QUESTION 34---
+ID: 34 | POINTS: 1.00 | FORMAT: Fill-in-blank
+TOPIC: Gene regulation | Operator | Operon regulation | Repressor binding site
+DIFFICULTY: Easy
+QUESTION: The DNA sequence where a repressor binds to block transcription in an operon is called the __________
+ANSWER: Operator
+
+---QUESTION 35---
+ID: 35 | POINTS: 3.00 | FORMAT: Free response
+TOPIC: Gene regulation | Lac operon | LacI repressor | CAP-cAMP | Glucose-lactose interaction
+DIFFICULTY: Very High
+QUESTION: (a) Describe roles of lac repressor (LacI) and CAP-cAMP in regulating lac operon. (b) What happens when lactose present but glucose high? (c) Predict effect of operator deletion mutation
+
+SECTION 6: BIOTECHNOLOGY TECHNIQUES
+
+---QUESTION 36---
+ID: 36 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Biotechnology | PCR | DNA denaturation | Hydrogen bonds
+DIFFICULTY: Easy
+QUESTION: During PCR denaturation step, which bonds are broken?
+OPTIONS: A) Covalent bonds between sugars/phosphates, B) Hydrogen bonds between bases, C) Disulfide bonds, D) Peptide bonds
+CORRECT_ANSWER: B
+
+---QUESTION 37---
+ID: 37 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Biotechnology | PCR | Temperature control | Denaturation temperature
+DIFFICULTY: Easy
+QUESTION: What is typical temperature range for PCR denaturation step?
+OPTIONS: A) 40-50°C, B) 94-98°C, C) 25-30°C, D) 55-65°C
+CORRECT_ANSWER: B
+
+---QUESTION 38---
+ID: 38 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Biotechnology | PCR | Taq polymerase | Heat-stable enzyme
+DIFFICULTY: Easy
+QUESTION: Which enzyme is used in PCR due to its heat stability?
+OPTIONS: A) DNA polymerase III, B) RNA polymerase, C) Taq polymerase, D) Ligase
+CORRECT_ANSWER: C
+
+---QUESTION 39---
+ID: 39 | POINTS: 1.00 | FORMAT: Fill-in-blank
+TOPIC: Biotechnology | Taq polymerase | Source | Thermus aquaticus
+DIFFICULTY: Medium
+QUESTION: Where does Taq polymerase come from?
+ANSWER: Thermus aquaticus (thermophilic bacterium)
+
+---QUESTION 40---
+ID: 40 | POINTS: 3.00 | FORMAT: Free response
+TOPIC: Biotechnology | PCR | Sanger sequencing | Temperature effects | ddNTP | Applications
+DIFFICULTY: Very High
+QUESTION: (a) Describe role of temperature in PCR cycle steps. (b) Explain how Sanger sequencing uses modified nucleotides. (c) Identify biological questions answerable by PCR and Sanger sequencing
+
+---QUESTION 41---
+ID: 41 | POINTS: 1.00 | FORMAT: Numerical answer
+TOPIC: Biotechnology | PCR | Exponential amplification | Cycle calculation
+DIFFICULTY: Medium
+QUESTION: How many copies of DNA theoretically produced after 5 PCR cycles starting from 1 molecule?
+ANSWER: 32 (or 2^5)
+
+---QUESTION 42---
+ID: 42 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Biotechnology | PCR applications | DNA detection | Forensics | Cloning | Mutation analysis
+DIFFICULTY: Easy
+QUESTION: PCR is commonly used to:
+OPTIONS: A) Detect pathogens, B) Amplify DNA for cloning, C) Analyze genetic mutations, D) All of the above
+CORRECT_ANSWER: D
+
+

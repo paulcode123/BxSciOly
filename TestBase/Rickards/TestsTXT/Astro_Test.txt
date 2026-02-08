@@ -1,0 +1,155 @@
+Astronomy C - Rickards Astronomy 2025 - Rickards Invitational Div. C SATELLITE
+Instructions
+You have 50 minutes to take this exam once you begin. As per the rules, you are allowed to use either physical or digital
+notes, as well as calculators for the exam. Out of browser time will not be tracked, but using the internet/generative AI is
+NOT allowed at any point in the exam. Any discovered violations will receive no points for that answer, and repeated
+incidents will result in disqualification.
+Section 1: DSOs
+Use the following image to answer question 1: 
+12/3/25, 12:51 AM
+scilympiad.com/rickards/Es/TestToPdf?tid=000GJ3
+https://scilympiad.com/rickards/Es/TestToPdf?tid=000GJ3
+1/10
+
+1. (7.00 pts)
+a. What is the name of this DSO? (1)
+b. Which observatory was this image taken at? (1)
+c. The bright red region in the middle left of the image is a(n) _______, and composed primarily of ________. (2)
+d. Would you expect the gas in this region to be primarily ionized or neutral? Why? (3)
+Use the following image to answer question 2: 
+12/3/25, 12:51 AM
+scilympiad.com/rickards/Es/TestToPdf?tid=000GJ3
+https://scilympiad.com/rickards/Es/TestToPdf?tid=000GJ3
+2/10
+
+2. (8.00 pts)
+a. What is the name of the DSO shown in this image? (1)
+b. This diagram shows the presence of which compound? Why is it significant? (4)
+c. What type of star is this DSO? Be specific! (2)
+d. True/False: This DSO is a type of pulsating variable star. (1)
+Use the following image to answer question 3: 
+12/3/25, 12:51 AM
+scilympiad.com/rickards/Es/TestToPdf?tid=000GJ3
+https://scilympiad.com/rickards/Es/TestToPdf?tid=000GJ3
+3/10
+
+3. (8.00 pts)
+a. These graphs represent which DSO? (1)
+b. What is unique about this particular DSO? (2)
+c. This DSO “violates” a well-known astrophysics principle. What is this principle and how is a violation possible? (4)
+d. When was this DSO first detected? (1)
+Use the following image to answer question 4:
+12/3/25, 12:51 AM
+scilympiad.com/rickards/Es/TestToPdf?tid=000GJ3
+https://scilympiad.com/rickards/Es/TestToPdf?tid=000GJ3
+4/10
+
+4. (9.00 pts)
+a. What is the name of the DSO shown in the image? (1)
+b. What section of the EM spectrum was this image taken in? What is this image showing (3)?
+c. True/False: this image is a composite taken over the course of 5 years. (1)
+d. This DSO had an unusual element detected in it. Which element was this and why was that significant? (3)
+e. This DSO emits radiation most prominently in ______ wavelengths. (1)
+5. (8.00 pts)
+a. Provide 2 names for the DSO shown in the image. (2)
+b. This DSO is primarily observed in which wavelengths? These wavelengths correspond to which colors in the image?
+(2)
+c. This DSO has recently been observed to be interacting with another object. What is this object? (official designations
+are not needed) (2)
+d. This image uses data from two different telescopes. What are they? (2)
+Use the following image to answer question 5: 
+Use the following image to answer question 6:
+12/3/25, 12:51 AM
+scilympiad.com/rickards/Es/TestToPdf?tid=000GJ3
+https://scilympiad.com/rickards/Es/TestToPdf?tid=000GJ3
+5/10
+
+6. (6.00 pts)
+a. What is the DSO shown by the light curve in the image? (1)
+b. This DSO is the first of its kind found to contain what structures? Briefly describe them and name the most probable
+mechanism of their formation. (3)
+c. True/False: this DSO is confirmed to have two planets orbiting it. (1)
+d. This DSO is relatively famous, with a popularized (if dramatic) name being given to it in pop culture. What is this name?
+(1)
+7. (3.00 pts)
+What kind of variable stars are RR Lyrae variables classified as? What is the name of the leading hypothesis of RR Lyrae
+periodicity? 
+8. (4.00 pts)
+Which phenomenon is responsible for the Instability Strip on the HR diagram (and many other types of variability in
+stars)? Briefly explain how it works.
+Section 2: Theory
+12/3/25, 12:51 AM
+scilympiad.com/rickards/Es/TestToPdf?tid=000GJ3
+https://scilympiad.com/rickards/Es/TestToPdf?tid=000GJ3
+6/10
+
+9. (2.00 pts)
+Assume you are observing a variable star which is very red in color, has a pulsation period of about 125 days, and is a
+late-stage giant. What type of variable is this? 
+10. (4.00 pts)
+This image shows two types of variable stars. Which types of variable stars do these graphs show? Be sure to note which
+one is which in your answer.
+11. (2.00 pts)
+Are Wolf-Rayet stars classified as Population I or II? Explain.
+12. (1.00 pts)
+Globular clusters are mostly composed of Population I stars.
+13. (5.00 pts)
+What technique is used to dissect signals into their constituent frequencies? What other uses does it have in radio
+astronomy?
+14. (2.00 pts)
+Which wavelengths would be best used to image a neutron star? 
+15. (1.00 pts)
+Most Type II supernovae do not occur in elliptical galaxies.
+A) True   B) False
+A) True   B) False
+Section 3: Astrophysics
+12/3/25, 12:51 AM
+scilympiad.com/rickards/Es/TestToPdf?tid=000GJ3
+https://scilympiad.com/rickards/Es/TestToPdf?tid=000GJ3
+7/10
+
+16. (36.00 pts)
+This is the radial velocity graph of a system of two white dwarves. 
+    a. Given that the total mass of the system is 1.5 M , what is the period of the white dwarves? (4)
+    b. What is the total orbital energy of this system? (2)
+    c. Due to general relativity, this energy is lost to gravitational radiation at a rate of
+-32/5 G c r (M M ) (M +M ).
+        What is the rate of orbital decay of the two white dwarfs? (5)
+    d. How long will it take these two white dwarves to merge? (6)
+    e. What type of supernova will this collision result in? (1)
+17. (12.00 pts)
+⊙
+4 -5 -5
+a
+b 2
+a
+b
+12/3/25, 12:51 AM
+scilympiad.com/rickards/Es/TestToPdf?tid=000GJ3
+https://scilympiad.com/rickards/Es/TestToPdf?tid=000GJ3
+8/10
+
+a. This will be the spectrum of the supernova. How fast is the system moving from Earth? (4)
+b. The parallax of the white dwarves is 0.005". Is the value from (a.) reasonable? (2)
+18. (46.00 pts)
+12/3/25, 12:51 AM
+scilympiad.com/rickards/Es/TestToPdf?tid=000GJ3
+https://scilympiad.com/rickards/Es/TestToPdf?tid=000GJ3
+9/10
+
+This is the current light spectrum of the system referenced in #16 and #17.
+a. What is the temperature of the white dwarfs? (2)
+b. Light is absorbed as it passes through the ISM through a process known as extinction. In the milky way galaxy,
+extinction is about 1.8 magnitudes/kpc. What is the apparent magnitude of the system? (Use the nonrelativistic equations
+for this problem). (6)
+c. A planet exists in this system. How would it orbit the white dwarves? (2)
+d. The transit depth if all three members of the system were to line up with the planet in front is 0.6. Provide a simplified
+expression for the inclination of the planet in terms of its orbital distance. (5)
+e. What will be the temperature of the white dwarfs at the time of collision? You may use t=10
+s if you did not obtain a
+value for merger time. (8)
+30
+12/3/25, 12:51 AM
+scilympiad.com/rickards/Es/TestToPdf?tid=000GJ3
+https://scilympiad.com/rickards/Es/TestToPdf?tid=000GJ3
+10/10

@@ -1,0 +1,552 @@
+EVENT: Astronomy
+SOURCE: Hawk&Hornet Invitational 2026 (Div. C)
+FORMAT: 88 questions (15 MC @ 1pt, 5 FR @ 2-2.5pts, 30 FR @ 1pt, 6 FR @ 1.5pts, 1 FR @ 2pts, 19 FR @ 1-3pts, 12 image identification @ 0.5pts)
+TOTAL POINTS: 88
+
+---SECTION A: GENERAL---
+
+---QUESTION 1---
+ID: 1 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Observational Astronomy | Distance Measurement | Standard Candles
+DIFFICULTY: Easy
+QUESTION: What are standard candles?
+OPTIONS:
+A) Objects with a varying apparent magnitude
+B) Objects with a varying absolute magnitude
+C) Objects with a known apparent magnitude
+D) Objects with a known absolute magnitude
+
+---QUESTION 2---
+ID: 2 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Orbital Mechanics | Kepler's Laws | Derivation
+DIFFICULTY: Medium
+QUESTION: Kepler's Third Law is derived by equating what two forces?
+OPTIONS:
+A) Gravitational Force and Centrifugal Force
+B) Gravitational Force and Orbital Velocity
+C) Gravitational Force and Tidal Force
+D) Centrifugal Force and Tidal Force
+
+---QUESTION 3---
+ID: 3 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Stellar Astrophysics | Variable Stars | Period-Luminosity Relation
+DIFFICULTY: Easy
+QUESTION: Cepheids and RR Lyrae variable stars follow what relation?
+OPTIONS:
+A) Mass-Radius Relationship
+B) Mass-Luminosity Relationship
+C) Period-Mass Relationship
+D) Period-Luminosity Relationship
+
+---QUESTION 4---
+ID: 4 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Stellar Astrophysics | Variable Stars | Pulsation Mechanism
+DIFFICULTY: Medium
+QUESTION: Cepheid and RR Lyrae variable stars pulsate due to what element in their stellar atmospheres?
+OPTIONS:
+A) Hydrogen
+B) Carbon
+C) Helium
+D) Oxygen
+
+---QUESTION 5---
+ID: 5 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Stellar Astrophysics | Variable Stars | Opacity Mechanism
+DIFFICULTY: Medium
+QUESTION: If the said element above is more ionized, it is then more opaque, allowing less radiation to escape and absorbing more.
+ANSWER: TRUE
+
+---QUESTION 6---
+ID: 6 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Stellar Classification | HR Diagram | Luminosity Classes
+DIFFICULTY: Easy
+QUESTION: A stellar classification of V denotes what classification?
+OPTIONS:
+A) Giants
+B) Main Sequence
+C) Supergiants
+D) Cepheids
+
+---QUESTION 7---
+ID: 7 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Stellar Evolution | HR Diagram | Blue Loop
+DIFFICULTY: Medium
+QUESTION: The blue loop in stellar evolution occurs after what stage of evolution?
+OPTIONS:
+A) Main Sequence
+B) Planetary Nebula Phase
+C) Subgiant Branch
+D) Horizontal Branch
+
+---QUESTION 8---
+ID: 8 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Stellar Populations | Stellar Classification | Population I Stars
+DIFFICULTY: Easy
+QUESTION: What are Population I stars?
+OPTIONS:
+A) Metal-Rich, Younger Stars
+B) Metal-Rich, Older Stars
+C) High-Mass, Old Stars
+D) Metal-Poor, Younger Stars
+
+---QUESTION 9---
+ID: 9 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Stellar Evolution | HR Diagram | Horizontal Branch
+DIFFICULTY: Medium
+QUESTION: What happens directly before the horizontal branch of an HR diagram?
+OPTIONS:
+A) Helium Flash
+B) Ignition of Hydrogen Fusion
+C) Type Ia Supernova
+D) Roche-Lobe Overflow
+
+---QUESTION 10---
+ID: 10 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Stellar Evolution | White Dwarfs | HR Diagram Position
+DIFFICULTY: Easy
+QUESTION: Where are white dwarfs found on the Hertzsprung-Russell Diagram?
+OPTIONS:
+A) Center
+B) Top right
+C) Lower Right
+D) Lower Left
+
+---QUESTION 11---
+ID: 11 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Stellar Evolution | Carbon Stars | Asymptotic Giant Branch
+DIFFICULTY: Medium
+QUESTION: Carbon Stars are a type of star with an abundance of carbon in the atmosphere. This is a result of what stage of stellar evolution?
+OPTIONS:
+A) Main Sequence
+B) T-Tauri Stage
+C) Red Giant Branch
+D) Asymptotic Giant Branch
+
+---QUESTION 12---
+ID: 12 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Orbital Mechanics | Kepler's Third Law | Period-Radius Relation
+DIFFICULTY: Medium
+QUESTION: If a planet had its orbital period doubled, by what factor would its orbital radius increase?
+OPTIONS:
+A) √2
+B) ∛4
+C) 2
+D) ∛2
+
+---QUESTION 13---
+ID: 13 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Orbital Mechanics | Kepler's Laws | Derivation
+DIFFICULTY: Medium
+QUESTION: Kepler's 2nd Law is derived from which law?
+OPTIONS:
+A) Law of Conservation of Momentum
+B) Kepler's 1st Law
+C) Newton's Law of Gravitation
+D) Newton's Third Law
+
+---QUESTION 14---
+ID: 14 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Observational Astronomy | Distance Measurement | Standard Candles
+DIFFICULTY: Easy
+QUESTION: Why are standard candles so important?
+OPTIONS:
+A) Can help determine average brightness of certain stars
+B) Can help determine distance to objects in space
+C) Not important in Astronomy
+D) Determines age of stars
+
+---QUESTION 15---
+ID: 15 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Stellar Evolution | Stellar End States | Mass-Dependent Outcomes
+DIFFICULTY: Medium
+QUESTION: What are the end states of stars after nuclear fusion from lowest mass to highest mass.
+OPTIONS:
+A) Black Hole, Neutron Star, White Dwarf
+B) Red Giant, Neutron Star, Black Hole, White Dwarf
+C) Red Giant, White Dwarf, Neutron Star, Black Hole
+D) White Dwarf, Neutron Star, Black Hole
+
+---QUESTION 16---
+ID: 16 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Stellar Astrophysics | Novae | Classical Novae
+DIFFICULTY: Medium
+QUESTION: What is a classical novae?
+
+---QUESTION 17---
+ID: 17 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Stellar Evolution | Helium Flash | Stellar Structure
+DIFFICULTY: High
+QUESTION: When a Helium Flash occurs, why does the overall radius of the star actually decrease?
+
+---QUESTION 18---
+ID: 18 | POINTS: 2.50 | FORMAT: Free Response
+TOPIC: General Relativity | Black Holes | Schwarzschild Radius
+DIFFICULTY: High
+QUESTION: How was the Schwarzschild Radius derived?
+
+---QUESTION 19---
+ID: 19 | POINTS: 2.50 | FORMAT: Free Response
+TOPIC: Stellar Formation | Protostars | Pre-Main Sequence Evolution
+DIFFICULTY: Medium
+QUESTION: Why are protostars generally brighter than their main-sequence counterparts?
+
+---QUESTION 20---
+ID: 20 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Stellar Evolution | Nuclear Fusion | Iron Fusion
+DIFFICULTY: Medium
+QUESTION: Why can no star fuse Iron?
+
+---SECTION B: DSOs---
+
+---QUESTIONS 1a-1f (SHARED CONTEXT)---
+ID: 1a-1f | POINTS: 1.00 each | FORMAT: Free Response / DSO Identification
+TOPIC: Deep Sky Objects | Binary Stars | Sirius System
+CONTEXT: Questions relate to a binary star system (Sirius A and Sirius B)
+
+---QUESTION 1a---
+ID: 1a | POINTS: 1.00 | FORMAT: Free Response / DSO Identification
+TOPIC: Deep Sky Objects | Binary Stars | Sirius System
+DIFFICULTY: Easy
+QUESTION: What DSO is shown on the right?
+
+---QUESTION 1b---
+ID: 1b | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Deep Sky Objects | Binary Stars | Sirius System
+DIFFICULTY: Easy
+QUESTION: Which objects are the primary and secondary stars respectively?
+
+---QUESTION 1c---
+ID: 1c | POINTS: 1.00 | FORMAT: Free Response / Calculation
+TOPIC: Deep Sky Objects | Binary Stars | Angular Separation
+DIFFICULTY: Medium
+QUESTION: In 1995, the Hubble Space Telescope successfully resolved this system. What was the angular separation then?
+
+---QUESTION 1d---
+ID: 1d | POINTS: 1.00 | FORMAT: Free Response / Calculation
+TOPIC: Deep Sky Objects | Binary Stars | Physical Separation
+DIFFICULTY: Medium
+QUESTION: What was the physical separation then?
+
+---QUESTION 1e---
+ID: 1e | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Deep Sky Objects | Binary Stars | Planetary Systems
+DIFFICULTY: Medium
+QUESTION: In 2007, what was discovered around the secondary star?
+
+---QUESTION 1f---
+ID: 1f | POINTS: 1.00 | FORMAT: Free Response / Calculation
+TOPIC: Deep Sky Objects | Binary Stars | Stellar Radius
+DIFFICULTY: Medium
+QUESTION: What is the average radius of the primary in R☉?
+
+---QUESTIONS 2a-2f (SHARED CONTEXT)---
+ID: 2a-2f | POINTS: 1.00 each | FORMAT: Free Response
+TOPIC: Deep Sky Objects | HII Regions | Sharpless Catalog
+CONTEXT: Questions relate to Sharpless 29
+
+---QUESTION 2a---
+ID: 2a | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Deep Sky Objects | HII Regions | Sharpless Catalog
+DIFFICULTY: Easy
+QUESTION: What is the Sharpless Catalog?
+
+---QUESTION 2b---
+ID: 2b | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Deep Sky Objects | HII Regions | Emission Mechanisms
+DIFFICULTY: Medium
+QUESTION: What causes the red glow of Sharpless 29?
+
+---QUESTION 2c---
+ID: 2c | POINTS: 1.00 | FORMAT: Free Response / Calculation
+TOPIC: Deep Sky Objects | HII Regions | Distance Measurement
+DIFFICULTY: Medium
+QUESTION: What is the approximate distance to Sharpless 29?
+
+---QUESTION 2d---
+ID: 2d | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Deep Sky Objects | HII Regions | Sharpless Catalog
+DIFFICULTY: Medium
+QUESTION: Sharpless 29 is located nearby two other bright HII regions. What are these regions?
+
+---QUESTION 2e---
+ID: 2e | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Deep Sky Objects | HII Regions | Discovery History
+DIFFICULTY: Medium
+QUESTION: Who discovered Sharpless 29 and when?
+
+---QUESTION 2f---
+ID: 2f | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Deep Sky Objects | HII Regions | Alternative Names
+DIFFICULTY: Medium
+QUESTION: What is the more unique and more peculiar name to Sharpless 29?
+
+---QUESTIONS 3a-3f (SHARED CONTEXT)---
+ID: 3a-3f | POINTS: 1.00 each | FORMAT: Free Response
+TOPIC: Stellar Clusters | Runaway Stars | Ophion Star Family
+CONTEXT: Questions relate to the Ophion Star Family
+
+---QUESTION 3a---
+ID: 3a | POINTS: 1.00 | FORMAT: Free Response / Calculation
+TOPIC: Stellar Clusters | Age Determination | Ophion Star Family
+DIFFICULTY: Medium
+QUESTION: How old is the Ophion Star Family?
+
+---QUESTION 3b---
+ID: 3b | POINTS: 1.00 | FORMAT: Free Response / Calculation
+TOPIC: Stellar Clusters | Main Sequence Turnoff | Mass Limits
+DIFFICULTY: High
+QUESTION: Knowing the age, what is the maximum possible mass for a main sequence star in this cluster in M☉?
+
+---QUESTION 3c---
+ID: 3c | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Stellar Clusters | Location | Ophion Star Family
+DIFFICULTY: Easy
+QUESTION: Roughly what distance and constellation is Ophion located in?
+
+---QUESTION 3d---
+ID: 3d | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Stellar Clusters | Runaway Stars | Formation Mechanisms
+DIFFICULTY: Medium
+QUESTION: What is a usual explanation for the cause of runaway stars?
+
+---QUESTION 3e---
+ID: 3e | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Stellar Clusters | Astrometry | Gaia Data Release
+DIFFICULTY: Medium
+QUESTION: What did astronomers analyze compared to Gaia Data Release 3 to discover the Ophion Star Family?
+
+---QUESTION 3f---
+ID: 3f | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Stellar Clusters | Runaway Stars | Velocity Anomalies
+DIFFICULTY: High
+QUESTION: What is the leading hypothesis for the large average velocity of this cluster relative to nearby stars?
+
+---QUESTIONS 4a-4f (SHARED CONTEXT)---
+ID: 4a-4f | POINTS: 1.00 each (4c: 1.50) | FORMAT: Free Response / Calculation
+TOPIC: Binary Systems | White Dwarfs | Type Ia Supernovae | WDJ181058.67+311940.94
+CONTEXT: Questions relate to the binary white dwarf system WDJ181058.67+311940.94
+
+---QUESTION 4a---
+ID: 4a | POINTS: 1.00 | FORMAT: Free Response / Calculation
+TOPIC: Binary Systems | Mass Determination | White Dwarf Binaries
+DIFFICULTY: Medium
+QUESTION: What is the total mass of this system?
+
+---QUESTION 4b---
+ID: 4b | POINTS: 1.00 | FORMAT: Free Response / Calculation
+TOPIC: Binary Systems | Orbital Mechanics | Orbital Radius
+DIFFICULTY: Medium
+QUESTION: At their current orbital period, what is the combined orbital radius in Earth radii?
+
+---QUESTION 4c---
+ID: 4c | POINTS: 1.50 | FORMAT: Free Response / Calculation
+TOPIC: Binary Systems | Orbital Mechanics | Orbital Decay
+DIFFICULTY: High
+QUESTION: Before collision, the stars will be simulating to orbit in just 30 seconds. What would be the orbital radius in Earth radii?
+
+---QUESTION 4d---
+ID: 4d | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Stellar Evolution | White Dwarfs | Mass-Radius Relation
+DIFFICULTY: Medium
+QUESTION: Does a higher mass white dwarf have a higher radius? Why or why not?
+
+---QUESTION 4e---
+ID: 4e | POINTS: 1.00 | FORMAT: Free Response / Calculation
+TOPIC: Stellar Evolution | Type Ia Supernovae | Apparent Magnitude
+DIFFICULTY: High
+QUESTION: When a Type Ia supernovae does occur in this system, it is estimated to be 200,000 times brighter than Jupiter. Knowing the apparent magnitude of Jupiter to be -2.94 (at min), what is the apparent magnitude of WDJ181058.67+311940.94 at supernovae?
+
+---QUESTION 4f---
+ID: 4f | POINTS: 1.00 | FORMAT: Free Response / Calculation
+TOPIC: Binary Systems | Orbital Decay | Type Ia Supernovae Timing
+DIFFICULTY: High
+QUESTION: When will the Type Ia supernovae of WDJ181058.67+311940.94 occur?
+
+---QUESTIONS 5a-5f (SHARED CONTEXT)---
+ID: 5a-5f | POINTS: 1.00 each | FORMAT: Free Response / Image Analysis
+TOPIC: Deep Sky Objects | Stellar Clusters | Trapezium Cluster
+CONTEXT: Questions relate to an imaged DSO (Trapezium Cluster in Orion Nebula)
+
+---QUESTION 5a---
+ID: 5a | POINTS: 1.00 | FORMAT: Free Response / Image Analysis
+TOPIC: Deep Sky Objects | Stellar Clusters | Trapezium Cluster
+DIFFICULTY: Easy
+QUESTION: What DSO is imaged on the right?
+
+---QUESTION 5b---
+ID: 5b | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Observational Astronomy | Wavelengths | Imaging Techniques
+DIFFICULTY: Medium
+QUESTION: What wavelength was the image captured in?
+
+---QUESTION 5c---
+ID: 5c | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Deep Sky Objects | Energy Sources | Stellar Clusters
+DIFFICULTY: Medium
+QUESTION: What is the energy source for this DSO?
+
+---QUESTION 5d---
+ID: 5d | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Deep Sky Objects | Energy Sources | Stellar Clusters
+DIFFICULTY: Medium
+QUESTION: What is the name for this energy source?
+
+---QUESTION 5e---
+ID: 5e | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Deep Sky Objects | Nebulae Types | Reflection Nebulae
+DIFFICULTY: Medium
+QUESTION: What type of nebulae surrounds this DSO?
+
+---QUESTION 5f---
+ID: 5f | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Deep Sky Objects | Stellar Clusters | Trapezium Stars
+DIFFICULTY: Medium
+QUESTION: Name the three bright stars in the center of the nebulae
+
+---QUESTIONS 6-17 (IMAGE IDENTIFICATION)---
+ID: 6-17 | POINTS: 0.50 each | FORMAT: Image Analysis / DSO Identification
+TOPIC: Deep Sky Objects | DSO Identification | Various Objects
+DIFFICULTY: Easy
+QUESTION: Write the name of the DSO in the space provided above the images (0.5 each)
+
+---SECTION C: ASTROPHYSICS---
+
+---QUESTIONS 1a-1h (SHARED CONTEXT)---
+ID: 1a-1h | POINTS: Variable (1-3pts) | FORMAT: Calculation / Orbital Mechanics
+TOPIC: Solar System | Comets | Orbital Mechanics | 1861 Comet
+CONTEXT: Questions relate to a comet that passed near Earth in 1861 with semi-major axis 55.1 AU and orbital eccentricity 0.985
+
+---QUESTION 1a---
+ID: 1a | POINTS: 1.00 | FORMAT: Calculation / Orbital Period
+TOPIC: Solar System | Comets | Orbital Mechanics | Perihelion Timing
+DIFFICULTY: Medium
+QUESTION: In 1861, a comet passed near Earth and was visible to the naked eye for 3 months. The semi-major axis is 55.1 AU and orbital eccentricity is 0.985. To the nearest year, when is the next perihelion?
+CALCULATION: Use Kepler's Third Law: T² = a³ (in years and AU). Calculate period, then add to 1861.
+
+---QUESTION 1b---
+ID: 1b | POINTS: 1.00 | FORMAT: Calculation / Orbital Velocity
+TOPIC: Solar System | Comets | Orbital Mechanics | Perihelion Velocity
+DIFFICULTY: Medium
+QUESTION: What is the orbital velocity in km/s at perihelion?
+CALCULATION: Use vis-viva equation: v = √(GM(2/r - 1/a)) at perihelion distance r = a(1-e)
+
+---QUESTION 1c---
+ID: 1c | POINTS: 1.00 | FORMAT: Calculation / Orbital Velocity
+TOPIC: Solar System | Comets | Orbital Mechanics | Aphelion Velocity
+DIFFICULTY: Medium
+QUESTION: What is the orbital velocity in km/s at aphelion?
+CALCULATION: Use vis-viva equation: v = √(GM(2/r - 1/a)) at aphelion distance r = a(1+e)
+
+---QUESTION 1d---
+ID: 1d | POINTS: 2.00 | FORMAT: Calculation / Apparent Magnitude
+TOPIC: Solar System | Comets | Observational Astronomy | Solar Apparent Magnitude
+DIFFICULTY: High
+QUESTION: What is the apparent magnitude of the Sun at aphelion?
+CALCULATION: Use distance modulus and inverse square law for brightness
+
+---QUESTION 1e---
+ID: 1e | POINTS: 1.00 | FORMAT: Calculation / Escape Velocity
+TOPIC: Solar System | Comets | Orbital Mechanics | Escape Velocity
+DIFFICULTY: Medium
+QUESTION: What is the escape velocity of the comet at perihelion in km/s?
+CALCULATION: v_esc = √(2GM/r) at perihelion distance
+
+---QUESTION 1f---
+ID: 1f | POINTS: 2.00 | FORMAT: Calculation / Orbital Energy
+TOPIC: Solar System | Comets | Orbital Mechanics | Orbital Energy
+DIFFICULTY: High
+QUESTION: Assume the comet has a mass of 10¹⁴ kg. What is the orbital energy (J) of the comet at any point in its orbit?
+CALCULATION: E = -GMm/(2a) for elliptical orbits
+
+---QUESTION 1g---
+ID: 1g | POINTS: 2.00 | FORMAT: Calculation / Escape Energy
+TOPIC: Solar System | Comets | Orbital Mechanics | Escape Energy
+DIFFICULTY: High
+QUESTION: To achieve escape velocity, what would be the energy (J) that would have to be added to the comet?
+CALCULATION: Additional energy needed = |E_orbital| to reach zero total energy
+
+---QUESTION 1h---
+ID: 1h | POINTS: 3.00 | FORMAT: Calculation / Rocket Propulsion
+TOPIC: Solar System | Comets | Orbital Mechanics | Rocket Propulsion
+DIFFICULTY: Very High
+QUESTION: The comet's position is at perihelion. Assume we wanted to fire a rocket engine for 30 minutes to achieve the comet's escape velocity. What would be the force of the rocket engine in kilonewtons, assuming it is constant?
+CALCULATION: Use impulse-momentum theorem: FΔt = mΔv, where Δv is the velocity change needed
+
+---QUESTIONS 2a-2k (SHARED CONTEXT)---
+ID: 2a-2k | POINTS: Variable (1-2pts) | FORMAT: Calculation / Stellar Astrophysics
+TOPIC: Stellar Astrophysics | Mass-Radius Relation | Main Sequence Stars | Alpha Centauri
+CONTEXT: Questions relate to deriving Mass-Radius relation for main sequence stars using observational data
+
+---QUESTION 2a---
+ID: 2a | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Observational Astronomy | Parallax | Distance Limits
+DIFFICULTY: Easy
+QUESTION: Generally, at what distance [pc] does stellar parallax become unreliable?
+
+---QUESTION 2b---
+ID: 2b | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Observational Astronomy | Parallax | Dataset Limitations
+DIFFICULTY: Medium
+QUESTION: When stellar parallax becomes unreliable, what does this mean for our dataset?
+
+---QUESTION 2c---
+ID: 2c | POINTS: 1.00 | FORMAT: Calculation / Stellar Radius
+TOPIC: Observational Astronomy | Interferometry | Angular Diameter
+DIFFICULTY: Medium
+QUESTION: Interferometry data shows that Alpha Centauri B has an angular diameter of 6 mas. Knowing that the stellar parallax of the system is 0.75", what is the radius of Alpha Centauri B in R☉?
+CALCULATION: Use small angle approximation: θ = d/D, where d is diameter and D is distance from parallax
+
+---QUESTION 2d---
+ID: 2d | POINTS: 1.00 | FORMAT: Calculation / Binary Mass
+TOPIC: Binary Systems | Mass Determination | Kepler's Third Law
+DIFFICULTY: Medium
+QUESTION: ɑ Centauri A and ɑ Centauri B are observed to have a period of 79 years and an observed average angular separation of 17". Calculate the combined mass of the system in M☉?
+CALCULATION: Use Kepler's Third Law with angular separation converted to physical distance
+
+---QUESTION 2e---
+ID: 2e | POINTS: 2.00 | FORMAT: Calculation / Binary Masses
+TOPIC: Binary Systems | Center of Mass | Individual Masses
+DIFFICULTY: High
+QUESTION: ɑ Centauri A is observed at an average distance of 7.2147" from the center of mass. Determine the mass of each star in M☉. Note: the COM equation might be useful.
+CALCULATION: Use center of mass relation: m₁r₁ = m₂r₂ and total mass from previous question
+
+---QUESTION 2f---
+ID: 2f | POINTS: 1.00 | FORMAT: Calculation / Data Analysis
+TOPIC: Stellar Astrophysics | Mass-Radius Relation | Logarithmic Fitting
+DIFFICULTY: Medium
+QUESTION: Draw a line of best fit (ON THE ANSWER SHEET) and calculate the slope of the line. The line must pass through (0,0). A range of answers will be accepted.
+CALCULATION: Plot log(R/R☉) vs log(M/M☉) and determine slope
+
+---QUESTION 2g---
+ID: 2g | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Stellar Astrophysics | Data Analysis | Logarithmic Scaling
+DIFFICULTY: Medium
+QUESTION: Why is the scale a logarithmic plot?
+
+---QUESTION 2h---
+ID: 2h | POINTS: 2.00 | FORMAT: Calculation / Power Law Exponent
+TOPIC: Stellar Astrophysics | Mass-Radius Relation | Power Law Fitting
+DIFFICULTY: High
+QUESTION: For R/R☉ = (M/M☉)^α, determine the value of α in the Mass-Radius Relationship.
+CALCULATION: α is the slope from the logarithmic plot
+
+---QUESTION 2i---
+ID: 2i | POINTS: 1.00 | FORMAT: Calculation / Stellar Radius Prediction
+TOPIC: Stellar Astrophysics | Mass-Radius Relation | Model Application
+DIFFICULTY: Medium
+QUESTION: What is the estimated radius of Vega (α Lyrae) according to our model if it has a mass of 2.15 M☉? A range of answers will be accepted.
+CALCULATION: Use R/R☉ = (M/M☉)^α with determined α value
+
+---QUESTION 2j---
+ID: 2j | POINTS: 1.00 | FORMAT: Free Response / Derivation
+TOPIC: Stellar Astrophysics | Luminosity-Radius Relation | Main Sequence Relations
+DIFFICULTY: High
+QUESTION: Establish a Luminosity-Radius relation for the main sequence in R☉ and L☉, with α = 0.7
+CALCULATION: Combine L ∝ M^3.5 and R ∝ M^α to get L ∝ R^β
+
+---QUESTION 2k---
+ID: 2k | POINTS: 1.00 | FORMAT: Calculation / Error Analysis
+TOPIC: Stellar Astrophysics | Mass-Radius Relation | Model Validation
+DIFFICULTY: High
+QUESTION: Proxima Centauri has a point of (-0.913, -0.812). What is the percent error of our model's prediction of Proxima Centauri's radius, with α = 0.9?
+CALCULATION: Calculate predicted radius, compare to actual, determine percent error

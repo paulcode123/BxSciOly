@@ -1,0 +1,499 @@
+2025 UT Invitational
+October 25th, 2025
+Designer Genes C Exam
+Parameters
+• Each participant may bring 1 note sheet per team, and a scientific calculator.
+• National level rules will be tested.
+Directions
+• You will have 50 minutes to complete this exam - do not begin until instructed to do so!
+• All answers must be indicated on your answer document. DO NOT WRITE ON THIS EXAM!
+• Point values are indicated for all questions & all 5 tiebreakers are indicated in test booklets. The
+number of tiebreakers correctly answered indicates your tie order.
+• The maximum number of points you can score on this exam is 135 points.
+• You may take apart the test to split the work, but make sure to staple it back together at the end of
+the event.
+Author: Jinyoung Jeong, University of Michigan, Neuroscience ’26
+(any questions after the conclusion of this event may be emailed to jinjeong@umich.edu)
+
+2025 UT Invitational
+Page 1 of 15
+Designer Genes C Answer Sheet
+Multiple Choice (50 questions)
+Questions 1-4 refer to the following image.
+Image from:
+https://www.youtube.com/watch?v=9xhCbstatLA
+1. (1) Which figure shows the form of the DNA helix under normal physiological conditions?
+A. Figure 1
+B. Figure 2
+C. Figure 3
+D. None of the above
+2. (1) Which of the following sequences might be an example of a segment of dsDNA that forms Figure 3?
+(Select all that apply.)
+A. ACTCTGAC
+B. ATATATAT
+C. AACCTTCC
+D. GCTAGCGC
+E. None of the above
+3. (1) Which figure(s) show right-handed helices? (Select all that apply.)
+A. Figure 1
+B. Figure 2
+C. Figure 3
+D. All of the above
+E. None of the above
+4. (1) TIEBREAKER Which figure shows a helix that can be an RNA-DNA hybrid?
+A. Figure 1
+B. Figure 2
+C. Figure 3
+D. None of the above
+Team Number:
+Points earned:
+/4
+
+2025 UT Invitational
+Page 2 of 15
+Designer Genes C Answer Sheet
+5. (1) The following template strands are exposed to primers, excess nucleotides, and DNA polymerase in
+buffer at approx. 60°C. The resulting strands of dsDNA are then incubated at increasing temperatures for
+30 minutes. Which primer’s corresponding dsDNA segment would likely require the highest denaturing
+temperature?
+A. AATACGCTA
+B. GATGCTCTA
+C. TTACTAGTA
+D. CTACGCCAG
+6. (1) Why does the dsDNA strand you chose in the previous question have the highest denaturing tem-
+perature?
+A. There is a high percentage of A-T bonds, which have less hydrogen bonds to break.
+B. There is a high percentage of G-C bonds, which have more hydrogen bonds to break.
+C. There is a high percentage of G-C bonds, which have more hydrogen bonds and π-stacking
+interactions to break.
+D. There is a high percentage of A-T bonds, which have more hydrogen bonds and π-stacking
+interactions to break.
+7. (1) What type of bond links together nucleotides in the phosphate backbones of DNA and RNA?
+A. Disulfide bridges
+B. Hydrogen bonds
+C. Phosphodiester bonds
+D. Peptide bonds
+8. (1) The bonds in the previous question form between:
+A. The phosphate group on the 3’ carbon and the hydroxyl group on the 5’ carbon
+B. The phosphate group on the 5’ carbon and the hydroxyl group on the 3’ carbon
+C. C’ and the amino group
+D. The bases of each nucleotide
+E. The active site of DNA polymerase and the major groove
+9. (1) Sanger sequencing relies on the incorporation of
+into the DNA chain being elongated.
+A. dNTPs
+B. ddNTPs
+C. NTPs
+D. AMP
+10. (1) Which of the following does not correctly describe one of Mendel’s Laws of Inheritance?
+A. During meiosis, homologous chromosome pairs line up at the equator of the cell. Each pair’s
+place in the order is not influenced by any other pair’s place in the order.
+B. A brown-haired person with attached earlobes has children with a red-haired person who has
+free earlobes. Their children all have brown hair and dimples.
+C. During meiosis, chromosome pairs remain together through metaphase. Pairs of alleles are
+separated during anaphase and end up in different gametes.
+D. A professional arm wrestler develops huge arm muscles on his right, dominant arm. His children
+all have larger right arms at birth.
+Team Number:
+Points earned:
+/6
+
+2025 UT Invitational
+Page 3 of 15
+Designer Genes C Answer Sheet
+11. (1) Which of the following describes a deviance from Mendel’s Laws of Inheritance?
+A. A flood kills most individuals of a species of birds living on a remote island. The survivors all
+have waterproof feathers and a tendency to nest on treetops.
+B. A giraffe stretches its neck to reach increasingly high branches of leaves over the course of its
+life. Its offspring have slightly longer necks than their parents.
+C. A right-handed parent and a left-handed parent have children. Three of their four children are
+right-handed.
+D. A red flowering plant and a white flowering plant can be crossbred to produce pink flowered
+offspring.
+12. (1) In a certain species of spiny crabs, the allele for spiked claws (S) is dominant over the allele for
+smooth claws (s). Expression of another gene, Smh1, prevents spiny crabs’ claws from developing. The
+effect that Smh1 has on claw spikiness is called:
+A. epigenetics
+B. epistasis
+C. epinephrine
+D. hypostasis
+13. (1) Cells are
+at the beginning of mitosis, and
+after cytokinesis.
+A. 2n, 2n
+B. 4n, n
+C. 4n, 2n
+D. 2n, n
+14. (1) TIEBREAKER Immunoglobulin class switching:
+A. affects antigen specificity.
+B. changes the constant region of the antibody heavy chain.
+C. does not affect interactions with effector molecules.
+D. changes the variable region of the antibody heavy chain.
+15. (1) Which of the following is not a correct assumption of the Hardy-Weinburg equilibrium?
+A. Free genetic flow
+B. No mutations
+C. Large population
+D. Random mating
+16. (1) Cells at the beginning of meiosis I are
+, and cells at the beginning of meiosis II are
+.
+A. diploid, haploid
+B. 4n, n
+C. 2n, n
+D. 2n, 2n
+Team Number:
+Points earned:
+/6
+
+2025 UT Invitational
+Page 4 of 15
+Designer Genes C Answer Sheet
+17. (1) In a tropical storm, a small population of lemurs is swept out to a remote island. They reproduce
+and begin to populate the island. After a few generations, the island lemurs tend to be smaller on
+average than the mainland lemurs. This is an example of:
+A. Mutation
+B. Gene flow
+C. Bottleneck
+D. Founder effect
+18. (1) On the same island, another tropical storm drowns most of the island lemurs. The remaining lemurs
+repopulate the island. After a few generations, the lemur population now tends to have shorter fur that
+dries faster. This is an example of:
+A. Mutation
+B. Gene flow
+C. Bottleneck
+D. Founder effect
+19. (1) Scientists want to study a certain protein that is known to have a critical role in the cell cycle, and
+has recently been implicated in cancer. Overexpression of this protein is hypothesized to contribute to
+irregular cell cycle entry. What experimental technique is best suited to testing the hypothesis?
+A. Overexpression
+B. Knockout
+C. Knockdown
+D. Knockin
+20. (1) Which is not an appropriate situation to use RNA-seq?
+A. Measuring expression levels of multiple genes
+B. Identifying localization of expressed genes
+C. Detecting rare variants of a specific gene
+D. Identifying coregulated genes
+21. (1) A scientist suspects that a gene that encodes mouse ear shape (Esh5) is linked to a gene that controls
+fur length (Fuzz1). Esh5 is known to be localized to chromosome 3q21. What technique should the
+scientist use in order to determine how close the locus of Fuzz1 is to the locus of Esh5 on chromosome
+3?
+A. Hi-C
+B. Minute Maid
+C. scRNA-seq
+D. ChIP-seq
+22. (1) During bacterial transformation, what is the purpose of heat shock?
+A. To perforate the nuclear membrane of the bacteria.
+B. To give the bacteria mutations that will be studied in the cloned organism.
+C. To make the bacteria take up a recombinant plasmid.
+D. To disinfect the bacteria and make it noninfectious.
+Team Number:
+Points earned:
+/6
+
+2025 UT Invitational
+Page 5 of 15
+Designer Genes C Answer Sheet
+23. (1) What is an accurate comparison between next-generation and third-generation sequencing?
+A. NGS has higher error rates than TGS.
+B. NGS allows short reads, while TGS allows longer reads.
+C. NGS is more expensive than TGS.
+D. NGS is ideal for haplotype phasing, while TGS struggles with complex regions.
+24. (1) At the end of PCR, amplified segments are usually refined using:
+A. Western blot
+B. Size-exclusion chromatography
+C. Gel electrophoresis
+D. SDS-PAGE
+25. (1) Which of the following is not true of additive alleles?
+A. They contribute to polygenic traits.
+B. They can be affected by epistasis.
+C. Each allele’s contribution to the trait they encode is independent to the other alleles.
+D. They contribute to a continuous range of variation.
+26. (1) Two segments of DNA that are in two different species but share a common ancestor are:
+A. Homologs
+B. Paralogs
+C. Analogs
+D. Orthologs
+Exam continues on next page.
+Team Number:
+Points earned:
+/4
+
+2025 UT Invitational
+Page 6 of 15
+Designer Genes C Answer Sheet
+Questions 27-28 pertain to the below figure.
+Image from:
+https://evolution.berkeley.edu/evolution-101/the-history-of-life-looking-at-the-patterns/using-the-tree-for-classification/
+27. (1) Which species have the most recent common ancestor?
+A. Snakes and iguanian lizards
+B. Geckos and snakes
+C. Crocodiles and non-avian dinosaurs
+D. Turtles and crocodiles
+28. (1) Which species likely has the least DNA in common with the others?
+A. Turtles
+B. Crocodiles
+C. Birds
+D. Geckos
+29. (1) A mutation that changes the protein expressed by a certain gene from Met-Ala-His-Pro-Ser to Met-
+Gly-Ile-His is most likely:
+A. nonsense
+B. missense
+C. frameshift
+D. silent
+Team Number:
+Points earned:
+/3
+
+2025 UT Invitational
+Page 7 of 15
+Designer Genes C Answer Sheet
+30. (1) The mutation in the previous question was likely caused by:
+A. single base insertion
+B. single base deletion
+C. single base substitution
+D. chromosomal rearrangement
+31. (1) Which of the following correctly matches the class of RNA to its function? (Select all that apply.)
+A. tRNA: brings amino acids to ribosomes during translation
+B. mRNA: transports genetic information to cytoplasm for protein synthesis
+C. miRNA: regulates expression of mitochondrial DNA
+D. rRNA: regulates gene expression in the nucleus
+32. (1) During plasmid transformation, GFP and genes encoding antibiotic resistance are often added to
+the plasmid in order to:
+A. Select plasmids that were properly transformed.
+B. Differentiate cloned organisms from control organisms.
+C. Have fun :)
+D. Have an epistatic effect on the gene being studied.
+33. (1) Which of the following types of mutations is potentially the most deleterious?
+A. Missense in gene encoding protein integral to cell cycle regulation
+B. Frameshift in gene encoding protein integral to cell cycle regulation
+C. Nonsense in noncoding segment of DNA
+D. Silent in gene encoding protein involved in embryonic development
+34. (1) Which statement about DNA replication is not true?
+A. The leading strand is synthesized 5’ to 3’ towards the replication fork.
+B. Replication occurs during the S phase of the cell cycle, and results in a diploid cell.
+C. DNA polymerase I synthesizes most of the new DNA.
+D. Helicase and topoisomerase make the replication fork accessible to the involved proteins.
+35. (1) A missense mutation in topoisomerase approximately 500bp following its active site would likely
+result in:
+A. A nonfunctional topoisomerase
+B. A functional topoisomerase with slightly altered folding
+C. A truncated topoisomerase that is still functional
+D. A normal, functional topoisomerase
+36. (1) Mistakes made during DNA replication are corrected by:
+A. The endonuclease action of ligase
+B. The endonuclease action of DNA pol III
+C. The exonuclease action of DNA pol I
+D. The exonuclease action of DNA pol III
+Team Number:
+Points earned:
+/7
+
+2025 UT Invitational
+Page 8 of 15
+Designer Genes C Answer Sheet
+37. (1) What is the correct order of DNA organization, from smallest to largest?
+A. Chromosome →Chromatid →Chromatin →Nucleosome →Double helix
+B. Chromatid →Heterochromatin →Euchromatin →Chromosome →Double helix
+C. Double helix →Nucleosome →Chromatin →Chromatid →Chromosome
+D. Double helix →Heterochromatin →Euchromatin →Chromosome
+38. (1) DNA damage caused by deamination would be repaired using:
+A. Non-homologous end joining
+B. Homologous recombination
+C. Base excision repair
+D. Nucleotide excision repair
+39. (1) What are two reasons why transcription is necessary to the central dogma? Why not simply syn-
+thesize proteins directly from DNA?
+A. Transcribing genetic information to RNA creates less errors.
+B. Synthesized proteins cannot be transported out of the nucleus, where DNA lives.
+C. Gene expression is regulated at the start of transcription.
+D. We need to keep mRNA employed to help the economy.
+40. (1) Which kind of RNA is not involved in the elongation step of translation?
+A. tRNA
+B. mRNA
+C. rRNA
+D. miRNA
+41. (1) In the presence of lactose, a lac operon:
+A. is activated by allolactose inactivating the repressor
+B. is activated by allolactose activating the operator
+C. is deactivated by allolactose activating the repressor
+D. is deactivated by allolactose inactivating the operator
+42. (1) TIEBREAKER Which of the following statements is incorrect?
+A. The Sec system secretes unfolded proteins, while the Tat system secretes folded proteins.
+B. Proteins being exported through the Sec pathway are transported through SecYEG translocase.
+C. The Sec system is primarily used by prokaryotes, while the Tat system is primarily used by
+eukaryotes.
+D. Gram-negative bacteria can secrete proteins into the periplasm or extracellularly with the Tat
+system.
+43. (1) Which of the following statements is true?
+A. Euchromatin is more dense than heterochromatin.
+B. Heterochromatin is stabilized by DNA methylation.
+C. Euchromatin has hypoacetylated histones.
+D. Heterochromatin has acetylated histones.
+Team Number:
+Points earned:
+/7
+
+2025 UT Invitational
+Page 9 of 15
+Designer Genes C Answer Sheet
+44. (1) Which of the following situations does not violate the Hardy-Weinberg assumptions?
+A. A colony of bacteria in a lab are given excess resources so that they can reproduce indefinitely.
+B. A herd of zebra migrate across a river; their new territory gives them access to another herd
+of zebra.
+C. A royal family practices strict arranged marriages for their offspring to other noble families.
+D. A farmer thins out their rows of corn so that only the tallest stalks can grow.
+45. (1) In order to affect many target genes on different chromosomes, you should activate:
+A. A promoter
+B. An enhancer
+C. A silencer
+D. A transcription factor
+46. (1) TIEBREAKER Which of the following mechanisms can cause frameshift mutations? (Select all
+that apply.)
+A. Depurination
+B. UV light damage
+C. Ionizing radiation
+D. Mutagenic chemicals
+47. (1) A trp operon is inactivated when:
+A. a lack of tryptophan prevents the activator from being activated.
+B. excess tryptophan binds to the repressor, causing it to block the operator site.
+C. excess tryptophan inactivates the activator.
+D. a lack of tryptophan allows the repressor to bind to and block the operator site.
+48. (1) Is the following nitrogenous base found in RNA or DNA?
+Image from: georganics.com
+A. DNA
+B. RNA
+C. Both
+D. Neither
+Team Number:
+Points earned:
+/5
+
+2025 UT Invitational
+Page 10 of 15
+Designer Genes C Answer Sheet
+49. (1) Sequence-specific protein-DNA interactions happen in the:
+A. Major groove
+B. Minor groove
+C. Phosphate backbone
+D. All of the above
+50. (1) Which of the following are wobble pairs? (Select all that apply.)
+A. G-U
+B. A-C
+C. T-C
+D. A-G
+Team Number:
+Points earned:
+/2
+
+2025 UT Invitational
+Page 11 of 15
+Designer Genes C Answer Sheet
+Short Response (7 questions)
+51. In mice, the agouti gene controls variations in color. There are 17 alleles of the agouti gene. One of the
+alleles, lethal yellow (Ay), is dominant over the nonagouti allele (a) and causes the mouse to have yellow
+fur and obesity. Homozygous lethal yellow is lethal early in development.
+(a) (8) A mature female mouse with lethal yellow coloring is crossed with a non-agouti (wildtype) male
+mouse. Fill in the Punnett square below to show the possible genotypes for the resulting offspring.
+Image from: https://www.kamiapp.com/library/resources/66k6uGj1GVby-punnett-square
+(b) (3) If there are three pups in the litter, what is the probability that all three are heterozygous?
+Show all work.
+(c) (3) Lethal yellow offspring can be rescued in utero by feeding the dam a diet supplemented with
+methyl group-rich compounds. How is this possible?
+(d) (4) Suppose a scientist wants to study the process described in the previous question that allows
+for lethal yellow mice’s offspring to display the wildtype phenotype. What would be the best way
+to precisely knockout a heterozygous offspring’s Ay allele? Briefly explain why you chose this
+technique.
+Team Number:
+Points earned:
+/18
+
+2025 UT Invitational
+Page 12 of 15
+Designer Genes C Answer Sheet
+52. A certain breed of dog is prized for having curly fur. A mated pair and their offspring were observed for
+three generations, as shown in the following pedigree.
+Image from: Khan Academy; Pedigrees
+(a) (4) Fill out the pedigree using the following information:
+1. Parent I-2 has curly fur.
+2. Offspring II-2 has curly fur.
+3. Offspring II-3 has curly fur.
+4. Offspring III-5 has curly fur.
+(b) (6) Mark confirmed carriers with an X.
+(c) (2) What pattern of inheritance does the curly fur gene follow?
+Team Number:
+Points earned:
+/12
+
+2025 UT Invitational
+Page 13 of 15
+Designer Genes C Answer Sheet
+53. Subject 1 has a child, Subject 2, who has presented with Down Syndrome. Subject 1 and Subject 2’s
+other parent both present as phenotypically normal. Below is a karyotype of a sample taken from Subject
+1:
+Image from: https://www.researchgate.net/publication/321366246 Cytogenetic study is not essential in patients with aplastic anemia
+(a) (5) Based on the karyotype and the given background for Subject 1, determine the most likely
+genetic anomaly.
+(b) (1) True or false: All of this individual (Subject 1)’s cells must display the same chromosomal
+anomaly.
+A. True
+B. False
+(c) (5) What was the likely mechanism of inheritance of Down Syndrome in Subject 2?
+Team Number:
+Points earned:
+/11
+
+2025 UT Invitational
+Page 14 of 15
+Designer Genes C Answer Sheet
+54. Refer to the figure below.
+Image from: https://eriqande.github.io/eca-bioinf-handbook/dna-sequences-and-sequencing.html
+(a) (2) What type of laboratory technique produced the results shown in the figure?
+(b) (2) These readings represent the output of which method of DNA sequencing?
+(c) (5) Interpret the results in the figure. (Hint: you should get a 5’ to 3’ DNA sequence.)
+(d) (5) Convert the results to the corresponding mRNA strand that would be produced from transcrip-
+tion. (Write your answer 5’ to 3’.)
+55. Suppose you are interested in measuring recombination frequency between the following two genes in
+Drosophila:
+snoot, with a dominant st+ allele that encodes long proboscis and the recessive st that encodes
+truncated proboscis.
+bzz2, with a dominant bz+ allele that encodes normal wings and a recessive bz allele that encodes
+vestigial wings.
+(a) (6) Describe the two crosses you would need to perform in order to observe recombination events.
+(b) (5) Four phenotypes were observed in the offspring: long proboscis and normal wings, long proboscis
+and vestigial wings, short proboscis and normal wings, and short proboscis and vestigial wings. The
+following table shows the number of offspring with each phenotype:
+Table 1: Frequency of phenotypes in recombinant Drosophila offspring
+st+ bz+
+st bz
+st+ bz
+st bz+
+Frequency
+1339
+1195
+151
+154
+Calculate the recombination frequency betwen the snoot and bzz2 genes. Show all work.
+Team Number:
+Points earned:
+/14
+
+2025 UT Invitational
+Page 15 of 15
+Designer Genes C Answer Sheet
+(c) (3) TIEBREAKER Suppose we want to compare snoot and bzz2 to reb1, a gene which specifies
+whether Drosophila eyes are red or black. Given the following recombination frequencies and the
+RF between snoot and bzz2 you calculated in part b), determine the order of the genes on the
+chromosome.
+RF(snoot-reb1) = 9.1%
+RF(bzz2-reb1) = 19.8%
+56. Two inbred lines of peas were intercrossed; the variance in pod length among F1 was 2mm. The F1
+offspring were intercrossed; the variance in pod length in F2 was 7mm.
+(a) (5) Calculate the broad-sense heritability of pod length in the F2 population of peas.
+(b) (4) Interpret the h2 you calculated in the previous part.
+57. In a local population of sea lions, two coat patterns can be observed. Cc and CC animals have
+spotted coats, while cc animals have solid coats. The C allele has a frequency of 0.3, while the c allele
+has a frequency of 0.7. Predict the genotype frequencies in this population of sea lions.
+Team Number:
+Points earned:
+/23

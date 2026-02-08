@@ -1,0 +1,421 @@
+2025 Div C. Tournament - Univ. of Georgia 
+Remote Sensing - MCQ 
+TEST PACKET 
+ 
+ 
+Written by: Alan Bartlett, Shevane Subramaniam, and Kyra DeLoach 
+ 
+Instructions:  
+●​ Write all answers on the Answer Sheet. DO NOT WRITE on the Test 
+Packet. 
+●​ All multiple choice questions are worth one point, short answer questions 
+have point values written by them. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+1. A weather satellite that uses sunlight reflected off clouds and the Earth's surface to create 
+images during the daytime is an example of what type of sensor?  
+A. Active Sensor  
+B. Passive Sensor  
+C. Refractive Sensor  
+D. Gravimetric Sensor  
+2. Which scenario would most likely lead to an underestimate of Earth’s equilibrium temperature 
+in a simple radiative balance model?​
+ A. Neglecting greenhouse gas concentrations​
+ B. Using a lower solar constant than actual​
+ C. Assuming uniform surface albedo across the globe​
+ D. All of the above 
+3. Recent satellite studies show that in some tropical areas, there are more high-altitude cirrus 
+clouds than before. Which type of climate feedback does this most directly represent? 
+A. A positive feedback, because these thin clouds trap more heat (longwave radiation) in the 
+atmosphere.​
+B. A negative feedback, because more clouds reflect sunlight and cool Earth’s surface.​
+C. A neutral feedback, caused by random aerosol–cloud interactions.​
+D. A feedback related to ocean circulation, where less heat moves through the oceans. 
+ 
+ 
+ 
+4. Satellites such as MODIS and similar units are commonly used to monitor events and places 
+that may be of potential concern. What is the point of interest circled in red here? See the image 
+to the right.  
+A. Volcano seen from above 
+B. Wildfire burning  
+
+C. Cloud system forming 
+D. Mining operation pollution 
+ 
+ 
+ 
+5. Which of the following best describes how solar activity influences Earth’s climate? 
+A. Increased solar activity increases stratospheric ozone formation. 
+B. Solar cycles cause significant long-term temperature changes (>2°C). 
+C. Small changes in the Sun’s energy slightly affect global temperatures over about 10-year 
+periods. 
+D. Solar activity directly affects ocean salinity. 
+6. In climate feedback loops, which combination of factors represents a positive feedback 
+mechanism?​
+ A. Increased clouds → more reflection → cooling​
+ B. Ice melt → lower albedo → more absorption → warming​
+ C. Increased aerosols → more scattering → cooling​
+ D. Ocean heat uptake → slower warming → negative radiative forcing 
+ 
+7. Which of these NASA satellites is capable of producing the image shown above?  
+A. SMAP 
+B. MODIS  
+C. Grace-FO 
+D. IceSat-2 
+ 
+8. Changing from a tropical forest to a cropland affects both the carbon and nitrogen cycles. 
+Which combination of effects is most accurate? 
+A. Increased carbon sequestration and increased nitrogen fixation​
+B. Decreased soil nitrogen availability and increased methane uptake​
+C. Increased atmospheric CO₂ and N₂O emissions 
+D. Decreased CO₂ emissions but increased denitrification rates 
+ 
+
+ 
+ 
+ 
+ 
+9. The process where light bounces off a smooth surface, like a calm lake, is called:  
+A. Refraction  
+B. Scattering  
+C. Absorption  
+D. Reflection  
+ 
+10. According to Wien's Law, if Star A has a surface temperature of 6,000 K and Star B has a 
+surface temperature of 3,000 K, which star emits its peak radiation at a longer wavelength?  
+A. Star A  
+B. Star B  
+C. They both peak at the same wavelength.  
+D. It is impossible to tell with this information.  
+11. A sudden injection of aerosols into the stratosphere can temporarily cool the planet. This is 
+because:​
+ A. Aerosols increase outgoing infrared radiation​
+ B. Aerosols increase the Earth’s albedo, reflecting incoming solar radiation​
+ C. Aerosols enhance the Stefan-Boltzmann emission of the Earth​
+ D. Aerosols decrease the greenhouse effect 
+12. Satellites use NDVI (Normalized Difference Vegetation Index) to monitor vegetation health. 
+Which trend has been linked to global warming? 
+A. Vegetation at high latitudes exhibits higher NDVI due to longer growing seasons.​
+B. Global NDVI has declined uniformly because warming causes widespread vegetation loss.​
+C. Tropical forests show the largest NDVI increases specifically due to reduced rainfall.​
+D. NDVI values have remained approximately constant worldwide, indicating no temperature 
+response. 
+ 
+13. The actual size of a single pixel in a satellite image on the ground (e.g., 10 meters x 10 
+meters) is referred to as the:  
+A. Ground Sample Distance (GSD)  
+B. Instantaneous Field of View (IFOV)  
+C. Field of View (FOV) 
+D. Revisit Period  
+ 
+ 
+ 
+
+ 
+Q14 & Q15 both refer to the image above 
+ 
+14. What does NDVI stand for?  
+A. Near-Infrared Derived Vegetation Image 
+B. National Digital Vegetation Inventory 
+C. Normalized Difference Vegetation Index 
+D. Normalized Density of Vegetation Instrument 
+ 
+15. What does the above graph reveal about vegetation in Spain? 
+A. Vegetation is denser in the South, though present in the North as well. 
+B. Vegetation is healthier and greener in the South than it is in the North. 
+C. Vegetation is denser in the North , though present in the South as well. 
+D. Spain is a complete desert in parts of the South, with no vegetation at all in areas. 
+ 
+16. What does FCC stand for? 
+A. False color composite  
+B. Fake color co-banded 
+C. False carbon composite 
+D. False carbon co-banded 
+ 
+17. A hot, low-density cloud of gas in space produces a spectrum that appears as bright lines of 
+color on a dark background. This is called a(n):  
+A. Continuous Spectrum  
+B. Absorption Spectrum  
+C. Emission Spectrum  
+D. Blackbody Spectrum  
+18. Ice and snow surfaces have high albedo. If polar ice melts due to warming, which feedback 
+mechanism is primarily responsible for accelerating temperature rise?​
+ A. Negative feedback​
+ B. Positive feedback​
+ C. Radiative damping​
+ D. Radiative forcing neutralization 
+
+19. Satellite data from AIRS shows a fluctuation in atmospheric CO₂ concentration at northern 
+latitudes during certain seasons. Which of the following best explains this pattern? 
+A. Oceanic CO₂ absorption peaks in northern winter, reducing atmospheric CO₂.​
+B. Northern Hemisphere vegetation uptake during summer decreases atmospheric CO₂, creating 
+a seasonal low.​
+C. Increased soil respiration during summer increases atmospheric CO₂, creating a seasonal high.​
+D. Anthropogenic emissions predominantly cause seasonal variation, independent of vegetation 
+cycles. 
+ 
+20. When light passes through a rain droplet and separates into a rainbow of colors, this is 
+primarily due to:  
+A. Scattering  
+B. Reflection  
+C. Refraction  
+D. Attenuation  
+ 
+ 
+Q21 & Q22 both refer to the image above 
+ 
+21. In the above image, what does the color gradient represent?  
+A. Radio activity 
+B. Surface Temperature  
+C. Population Density 
+D.Temperature Variation​
+ 
+22. Which of these satellites most likely collected the above data?  
+A. Landsat 8  
+B. ICESat-2 
+C. OCO-2 
+D. GOES-18 
+ 
+ 
+ 
+
+23. According to the Stefan-Boltzmann Law, if the Earth’s surface temperature increases by 
+10%, the amount of energy it radiates increases by approximately:​
+ A. 46%​
+ B. 21%​
+ C. 92%​
+ D. 100% 
+24. The time it takes for a satellite to complete one full revolution around the Earth is its:  
+A. Revisit Period  
+B. Framerate  
+C. Orbital Period  
+D. Swath Time  
+ 
+Q25 & Q26 both refer to the image above 
+ 
+25. The table above shows a table of values associated with different surfaces. What are those 
+values?  
+A. Surface Porosity 
+B. Red-light reflectance 
+C. Albedo  
+D. None of the above 
+ 
+26. What leads to a difference between the values for grass and asphalt?  
+A. Asphalt is darker  
+B. Asphalt is rougher 
+C. Asphalt is denser 
+D. Asphalt is flatter 
+ 
+ 
+ 
+ 
+
+27. Scientists use satellites to study changes in Earth’s oceans and ice sheets. Which of the 
+following measurements provides the most direct evidence of melting land ice contributing to 
+sea level rise? 
+A. Satellite observations of ocean surface temperature​
+B. Satellite measurements of cloud cover changes over the poles​
+C. Satellite tracking of changes in Earth’s gravity field caused by shifting mass from ice to ocean​
+D. Satellite data showing increased carbon dioxide near the poles 
+ 
+28. The total geographic area that a satellite sensor can see in a single instant is called its:  
+A. Ground Sample Distance (GSD)  
+B. Revisit Period  
+C. Field of View (FOV) or Swath Width  
+D. Orbital Period  
+ 
+29. What is being graphed in the FCC to the right?  
+A. Arctic sea ice 
+B. Antarctic sea ice 
+C. Antarctic land ice 
+D. Water temperatures 
+ 
+30. What is the most primary and direct cause of the change displayed 
+to the right?  
+A. Climate change 
+B. Ice mining 
+C. Changing seasons  
+D. Polar Bear Migration 
+ 
+ 
+31. The LIDAR instrument on an airplane sends out laser pulses and measures their return time 
+to map the terrain. LIDAR is classified as what type of sensor?  
+A. Passive Sensor  
+B. Spectroscopic Sensor  
+C. Active Sensor  
+D. Radiometric Sensor  
+32. Considering linear, piecewise-linear, and exponential functions for modeling heating/cooling 
+rates, which scenario is best modeled by an exponential function?​
+ A. Diurnal temperature change on a clear day​
+ B. Gradual warming due to seasonal changes​
+ C. Cooling of a volcanic ash layer over time due to radiative loss​
+ D. Stepwise temperature change from moving between different climate zones 
+
+ 
+33. Which satellite (system) likely took the measurements for the imaging to the right?  
+A. Landsat  
+B. MODIS 
+C. Aqua 
+D. CALIPSO 
+34. When modeling Earth’s equilibrium temperature, which factor would not directly increase 
+the equilibrium temperature?​
+ A. Higher greenhouse gas concentrations​
+ B. Increased solar constant​
+ C. Increased surface albedo​
+ D. Reduced cloud cover 
+35. A mapping satellite is in a polar orbit that is designed so it always passes over the equator at 
+10:00 AM local time. This ensures consistent shadows for its images. This is an example of a: A. 
+Geosynchronous Orbit  
+B. Highly Elliptical Orbit (HEO)  
+C. Medium Earth Orbit (MEO)  
+D. Sun-Synchronous Orbit (SSO) 
+ 
+36. Anthropogenic nitrogen deposition can indirectly amplify climate warming via its effects on 
+the carbon cycle and terrestrial ecosystem productivity. Which statement best explains this? 
+A. It consistently boosts plant growth, leading to long-term increases in carbon storage and net 
+cooling. 
+B. It causes nutrient imbalances and soil acidification that reduce long-term plant carbon uptake, 
+while stimulating microbial decomposition and increasing N₂O emissions, resulting in net 
+warming.​
+C. It brightens leaf surfaces, raising land albedo and reflecting more sunlight, which cools the 
+climate.​
+D. It primarily alters ocean salinity, weakening the biological pump and increasing atmospheric 
+CO₂. 
+ 
+ 
+
+ 
+Q37 & Q38 both refer to the image above 
+ 
+37. What is an appropriate title for the graph above? 
+A. Ocean temperature over time 
+B. Surface temperature over time 
+C. Carbon dioxide PPM over time  
+D. Atmospheric Radiation over time 
+ 
+38. The above graph is VERY famous, the most famous of its type and a pioneering example of 
+remote climate sensing. Where was this data collected? 
+A. Hiroshima, Japan 
+B. Mauna Loa, Hawaii  
+C. Amundsen-Scott South Pole Station 
+D. Concordia Station 
+ 
+39. Kepler's Third Law (Law of Periods) describes the relationship between a satellite's orbital 
+period and its:  
+A. Mass  
+B. Angular Resolution  
+C. Semi-major axis  
+D. Ground Sample Distance  
+ 
+40. Satellites detect large areas of wildfire smoke spreading across the Pacific. How does 
+wildfire smoke mainly affect clouds and Earth’s energy balance, and how do satellites observe 
+these effects? 
+A. Smoke adds aerosols that help clouds form more, smaller droplets, making the clouds brighter 
+and longer-lasting, while the dark smoke absorbs sunlight and warms the air; smoke layer height 
+and reflected sunlight can be used to measure these effects.​
+B. Smoke removes water from clouds, making them disappear; this is measured with ocean 
+altimeters.​
+C. Smoke does not affect clouds or sunlight, only local air quality; satellites cannot detect this.​
+D. Smoke clears the air, increasing sunlight at the surface; this is measured with GRACE gravity 
+satellites. 
+
+41. An instrument that measures the intensity of natural microwave radiation emitted by the 
+Earth's surface to determine soil moisture is a:  
+A. Radar Altimeter  
+B. Radiometer  
+C. Precipitation Radar  
+D. LIDAR 
+ 
+42. Scientists can determine the composition of a distant star's atmosphere by analyzing the dark 
+lines that appear in its otherwise continuous spectrum. These dark lines form a(n):  
+A. Emission Spectrum  
+B. Continuous Spectrum  
+C. Scattering Spectrum  
+D. Absorption Spectrum  
+43. Clouds and aerosols can influence Earth’s climate by affecting radiative forcing. Which of 
+the following best describes their effect?​
+ A. Both increase outgoing longwave radiation, cooling the planet​
+ B. Both increase incoming solar radiation, warming the planet​
+ C. Clouds both reflect sunlight and trap infrared radiation; aerosols primarily scatter sunlight​
+ D. Aerosols always warm the climate by absorbing sunlight 
+44. The Stefan-Boltzmann Law tells us that if the absolute temperature of a star doubles, the total 
+energy it radiates per second:  
+A. Doubles  
+B. Quadruples  
+C. Increases by a factor of 8  
+D. Increases by a factor of 16  
+45. If Earth’s average albedo increased from 0.3 to 0.4, assuming all else equal, the equilibrium 
+temperature would:​
+ A. Increase, because more sunlight is absorbed​
+ B. Decrease, because more sunlight is reflected​
+ C. Remain the same, because albedo does not affect outgoing longwave radiation​
+ D. Increase, due to enhanced greenhouse feedback 
+46. A satellite that appears to stay fixed over the same spot on the Earth's equator is in which 
+type of orbit?  
+A. Low Earth Orbit (LEO)  
+B. Polar Orbit  
+C. Geostationary Orbit  
+D. Sun-Synchronous Orbit  
+ 
+
+2025 State Tournament - Div C -Georgia 
+Remote Sensing - FRQ 
+ 
+ 
+Written by: Alan Bartlett, Shevane Subramaniam, and Kyra DeLoach 
+ 
+Instructions:  
+●​ Write all answers on the Answer Sheet. DO NOT WRITE on the Test 
+Packet. 
+●​ All multiple choice questions are worth one point, short answer questions 
+have point values written by them. 
+●​ Q51, Q50, and Q49 are tiebreakers #1, #2, and #3. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+47. Weather and climate events can have profound effects on the environment. Name three types 
+of sensing that could be used to monitor the event depicted above. (3 pts) 
+ 
+ 
+48. Shown above is a satellite-derived map of two southern European cities. Explain the color 
+gradient and what causes the centers of the cities to be more red. (3 pts) 
+ 
+49. Explain two opposite effects that a large volcanic eruption can have on how Earth absorbs 
+and reflects energy (its radiation balance). Name the main satellite sensors used to monitor 
+volcanic aerosols. *TIEBREAKER #3* (5 pts) 
+ 
+50. Identify the phase of ENSO shown. Based on knowledge of global climate connections, 
+predict how this phase would influence precipitation and temperature anomalies in the western 
+United States and Indonesia and explain why. *TIEBREAKER #2* (8 pts) 
+ 
+ 
+ 
+51. Explain how linear, piecewise-linear, and exponential functions can be used to model 
+changes in heating and cooling rates over time. Provide an example scenario for each. 
+*TIEBREAKER #1* (6pts) 
+ 
+
+ 

@@ -1,0 +1,629 @@
+ 
+ 
+Hawk and Hornet – Chemistry Lab 
+ 
+ 
+ 
+DO NOT WRITE ON THIS BOOKLET!!!!! 
+(or else your orbitals will be permanently hybridized)  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+Part 1: Multiple Choice = 30 points 
+1. The Earth’s crust/mantle consists of numerous inorganic minerals with widely varying 
+physical and chemical properties. One such mineral, perovskite (CaTiO3), is an important 
+electronic component in solar cells and batteries. What is the formal scientific name of 
+perovskite?  
+ 
+A. Titanium calcite 
+B. Titanium calcate 
+C. Calcium titanite 
+D. Calcium titanate 
+ 
+2. Building on question 1, what is the charge of Ti in perovskite? 
+ 
+A. +1 
+B. +2 
+C. +3 
+D. +4 
+ 
+3. Which of the following has the least number of molecules? 
+A. 16 g of H2O 
+B. 21 g of C3H6 
+C. 84 g of CH4 
+D. 47 g of N2O 
+ 
+4. How many oxygen atoms are there in 15.0 grams of barium acetate? 
+A. 1.42×1023 oxygen atoms  
+B. 3.55×1023 oxygen atoms 
+C. 7.10×1023 oxygen atoms 
+D. 1.06×1024 oxygen atoms.  
+ 
+5. The following is what type of reaction:  
+[Fe(C5H5)2]BF4 + NaB(C6F5)4 → [Fe(C5H5)2]B(C6F5)4 + NaBF4 
+A. Single displacement 
+B. Double displacement 
+C. Decomposition 
+D. Synthesis 
+ 
+ 
+ 
+ 
+ 
+
+6. Water decomposes into oxygen and hydrogen gas. How many liters of oxygen gas at STP can be made 
+from decomposing 14.5 mL of liquid water (assume the density of water is 1.00 g/ml)? 
+A. 9.02 L 
+B. 18.0 L 
+C. 22.4 L 
+D. 29.0 L 
+ 
+7. A student mixes 15.0 mL of 0.56 M sodium phosphate with 50.0 mL of 0.32 M barium nitrate. How 
+many grams of precipitate will be formed? 
+A. 2.5 g 
+B. 3.2 g 
+C. 6.0 g 
+D. 7.2 g 
+ 
+8. Which of the following equations is correctly balanced? 
+ 
+A. 2 Al (s) + 3 H2SO4(aq) ⟶ Al2(SO4)3(s) + 3 H2(g) 
+B. Sc2O3(s) + SO3(l) → Sc2(SO4)3(s) + O2(g) 
+C. Ca3(PO4)2(aq) + 6 H3PO4(aq) → 4 Ca(H2PO4)2(aq) 
+D. TiCl4(s) + H2O(g) → TiO2(s) + 2 HCl(g) 
+ 
+ 
+9. The reaction pictured above occurs, which of the following is correct? (select all that apply)  
+ 
+A. 2.0 moles of XY3 are produced.  
+B. 3.0 moles of XY3 are produced.  
+C. 2.0 moles of X2 remain unreacted 
+D. 1.5 moles of X2 remain unreacted 
+ 
+ 
+ 
+ 
+ 
+ 
+
+10. What volume of 0.906 M hydrochloric acid solution can be prepared from the HCl 
+produced by the reaction of 7.3 g of NaCl with excess sulfuric acid?  
+ 
+NaCl(s) + H2SO4(l) ⟶ HCl(g) + NaHSO4(s) 
+ 
+A. 138 mL 
+B. 1380 mL 
+C. 69 mL 
+D. 250 mL 
+ 
+11. A 0.748 g sample of diprotic acid H2A (MW 100.8 g/mol) is titrated with 28.2 mL of a NaOH 
+solution. What is the concentration of the NaOH solution?  
+ 
+A. 0.526 M 
+B. 0.263 M 
+C. 1.05 M 
+D. 0.742 M 
+ 
+12. How many phosphate ions are in a sample of hydroxyapatite [Ca5(PO4)3OH] that contains 
+6.74 mg of oxygen?  
+ 
+A. 2.48 x 1019 phosphate ions 
+B. 5.85 x 1019 phosphate ions 
+C. 1.52 x 1019 phosphate ions 
+D. 3.25 x 1019 phosphate ions 
+ 
+ 
+13. Based on the mechanism below, what is the initial rate law for the reaction? 
+A. Rate = k’[Cl2][CH4] 
+B. Rate = k’[Cl2]2[CH4] 
+C. Rate = k’[CH4][Cl]2 
+D. Rate = k’[Cl2]1/2[CH4] 
+ 
+ 
+ 
+14. Which of the following correctly represents k’ given the reactions above?  
+a. k’ = (k1/k-1)*k2 
+b. k’ = (k1/k-1)1/2 *k2 
+c. k’ = (k-1/k1)*k2 
+d. k’ = (k-1/k1)1/2 *k2 
+ 
+ 
+
+15. A reaction is first order with respect to X and second order with respect to Y. What happens to the rate when 
+[X] is doubled, and [Y] is halved? 
+A. The rate doubles 
+B. The rate is cut in half 
+C. The rate increases by a factor of 2 
+D. The rate remains the same 
+ 
+Suppose you’re monitoring the decomposition of N2O5 and make the following observations: 
+ 
+ 
+ 
+16. What is the average rate of disappearance of N2O5 between 25 and 50 minutes? (1pt) 
+A. 4.82 x 10-3 atm/min 
+B. 9.64 x 10-3 atm/min 
+C. 1.20 x 10-3 atm/min 
+D. 10.0 x 10-3 atm/min 
+ 
+17. At 75 minutes into the reaction, what percentage of products will have been generated? 
+ 
+A. 85.5 % 
+B. 78.1% 
+C. 95.4% 
+D. 93.5% 
+ 
+ 
+18. A catalyst is _______.  
+A. An agent that lowers the free energy of activation without being consumed 
+B. An agent that lowers the free energy of activation while being consumed in the 
+     process 
+C. An agent that lowers the free energy of the reaction product without being 
+     consumed 
+D. An agent that lowers the free energy of the reaction product while being 
+      consumed in the process 
+ 
+ 
+ 
+ 
+ 
+ 
+
+Use the graph below to answer questions 19-21.  
+ 
+19. If the concentration of X drops from 1.0 M to 0.25 M in 7 seconds, what is the approximate value of k? 
+A. 0.10 s−1 
+B. 0.20 s−1 
+C. 0.30 s−1 
+D. 0.40 s−1 
+ 
+20. Which of the following is the correct rate law for this reaction? 
+A. Rate=k[X]  
+B. Rate=k[X]2  
+C. Rate=k  
+D. Rate=k[X]−1 
+ 
+21. What is the half-life of chemical X?  
+A. 1.73 seconds 
+B. 3.47 seconds 
+C. 6.93 seconds 
+D. 12.50 seconds 
+ 
+ 
+     Rate=k[A]4[B]2[C]1 
+ 
+22. What is the correct unit of the rate constant, k, for this rate law?  
+A. L6 / (mol6 *sec) 
+B. L7 / (mol7 *sec) 
+C. L5 / (mol5 *sec) 
+D. mol-6 *sec-1 * L-6 
+ 
+ 
+
+Use the reaction below to answer questions 23 and 24.  
+ 
+2Fe (s)  +  3CuSO4 (aq)  à   Fe2(SO4)3 (aq)  +  3 Cu (s) 
+23.  A student places a 5.0-gram iron nail into a cup containing 100. mL of 0.35 M CuSO4 solution. After the reaction 
+has gone to completion, how many more grams of iron are left at the end of the reaction than grams of copper 
+produced?  
+A. 0.9 g  
+B. 1.2 g  
+C. 2.0 g  
+D. 3.0 g 
+ 
+24. If the student wanted to fully react the nail, how many mL of CuSO4 would be needed to complete the reaction?  
+A. 270 mL 
+ 
+B. 310 mL 
+ 
+C. 380 mL 
+ 
+D. 510 mL 
+ 
+ 
+Use the reaction below for questions 25-27.  
+The reaction below is the thermal decomposition of hydrogen peroxide. When this reaction is done mixed 
+with soap, many people call it the “elephant toothpaste” demonstration because it looks like the 
+toothpaste used to clean elephant tusks- probably not- that makes no sense- whatever moving on. 
+ 
+ 
+ 
+ 
+ 
+2H2O2 (l)  à  2H2O (l)  +  O2 (g)  
+25. The density of 90% hydrogen peroxide can be estimated as 1.29 g/mL. How many liters of oxygen gas can be 
+generated by decomposing 100.0 mL of 90% hydrogen peroxide at a pressure of 741.5 Torr and a temperature of 
+23.1oC?  
+A. 21.3 L  
+b. 31.8 L  
+c. 47.3 L  
+d. 56.4 L  
+ 
+26. The decomposition of H₂O₂ is first order with respect to H₂O₂. If the concentration of H₂O₂ is doubled, 
+what happens to the rate? 
+A. It doubles  
+B. It triples 
+ 
+c. It is halved  
+d. It does not change 
+ 
+ 
+27. Why does the decomposition of H₂O₂ occur faster at higher temperatures? 
+A. Higher temperature decreases activation energy. 
+B. Higher temperature increases the number of molecules with sufficient energy to overcome activation 
+energy. 
+C. Higher temperature changes the stoichiometry of the reaction. 
+D. Higher temperature decreases the frequency of collisions. 
+ 
+ 
+
+28. 10.0 mL of 0.10 M sodium sulfate is mixed with 15.0 mL of 0.85 M barium nitrate. Which option below 
+lists the ions in the final solution from greatest to least molarity? 
+ 
+A. NO₃⁻ > Na1⁺ > Ba²⁺ > SO4-2 
+B. NO₃⁻ > Ba²⁺ > Na1⁺ > SO4-2 
+C. NO₃⁻ > Na⁺ > SO4-2 > Ba²⁺ 
+D. Na⁺ > SO4-2 > Ba²⁺ > NO₃⁻ 
+ 
+ 
+Use the graphs below for question 29 and 30.  
+29. The plots above are for the reaction:  NO2 à 2NO + O2  . The rate constant for this reaction is most closely…  
+A. k=0.025  L mol−1s− 
+B. k=0.25 L mol−1s− 
+C. k=2.5  L mol−1s− 
+D. k=25  L mol−1s− 
+ 
+30. Does this reaction occur in 1 elementary step?  
+A. Yes- there is only one reactant.  
+B. Yes- the rate law is second order 
+C. No – the rate law does not match the reaction stoichiometry 
+D. Impossible to determine 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+Part 2: Written Response = 40 points 
+All calculations must be shown including starting equations, clear dimensional analysis with 
+units, and your final answers must be boxed in with the correct units and significant digits.  
+1. Gold is a precious metal with a density of 19.32 g/cm3 and is prized for its use in jewelry because it is 
+chemically inert. Gold is often measured in karats with 18 karat gold being made of 75.0% pure gold. As 
+of November 2025, the price of 18 K gold is $91.84 per gram.  
+a. (7 pts) If you have a tennis ball with a diameter of 6.54 cm made of solid 18 K gold, how many 
+gold atoms would exist in the tennis ball? 
+b. (3 pts) How much would the tennis ball cost if it were to be made entirely of solid 18 K gold?  
+During World War II, chemist George de Hevesy dissolved the Nobel Prize medals of German physicists 
+Max von Laue and James Franck in aqua regia to hide them from the Nazis. After the war, he recovered 
+the gold from the solution and the medals were recast by the Nobel Foundation. The reaction for aqua 
+regia is shown below.  
+ 
+Au (s) + 3HCl (aq) + HNO3 (aq) → AuCl4− (aq) + NO (g) + 2H2O (l)  
+ 
+ 
+c. (7 pts) Aqua regia is typically made from a solution which mixes concentrated 12 M 1HCl and 
+16 M HNO3. What would the total volume of aqua regia solution that would be needed to 
+completely react the solid 18 K gold tennis ball?  
+ 
+ 
+ 
+2. A student wants to determine the mass percent of potassium carbonate (K2CO3) in an antacid tablet, 
+which contains potassium carbonate as well as several other soluble fillers.  They do so by dissolving the 
+tablet in water, and then reacting the contents with an excess of 0.50 M strontium chloride solution 
+according to the reaction below.  
+SrCl2 (aq)   + K2CO3 (aq)  à SrCO3 (s)  + 2KCl (aq) 
+Data is taken and collected in the table below.  
+Mass of tablet (g) 
+3.90 g 
+Mass of filter paper (g) 
+1.22 g 
+Mass of filter paper + precipitate (g)  
+2.81 g 
+Volume of SrCl2 (mL) 
+35.00 mL 
+ 
+(8 pts) Calculate the mass percent of potassium carbonate in the original tablet.  
+
+3. The net ionic equation below shows the process by which iodine can be generated in the laboratory 
+through the reaction of hydrogen peroxide in an acidified solution of potassium iodide.  
+ 
+A 20.00 mL sample of 0.40 M KI reacts completely with excess hydrogen peroxide. The iodine produced is 
+collected and measured. 
+a. (3 pts) Calculate the number of moles of I⁻ (aq) present in the reaction vessel before the reaction occurs. 
+b. (3 pts) Calculate the number of moles of I₂ (aq) produced after the reaction takes place. 
+ 
+c. (4 pts) Using the information in the table, determine the order of the reaction with respect to each of 
+the following. Justify your answers with math or words. 
+i. I⁻ 
+ii. H₂O₂ 
+d. In a separate experiment, it is determined that the reaction is first order with respect to H⁺ in addition 
+to your results from di and dii. Using this information and your answers to part e above, complete the 
+following: 
+i. (2 pts) Write the rate law for the reaction. 
+ 
+ii. (3 pts) Calculate the value of the rate constant, k, for the reaction including the appropriate 
+units. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+Student Names: _____________________________________________ Team Name/Number: ____________________________ 
+ 
+All calculations must be shown including starting equations, clear dimensional analysis with units, 
+and your final answers must be boxed in with the correct units and significant digits.  
+1a. (7 pts) 
+ 
+ 
+ 
+ 
+ 
+ 
+1b. (3 pts)  
+ 
+ 
+ 
+1c (7 pts) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+2a. (8 pts) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+3a (3 pts) 
+ 
+ 
+ 
+3b (3 pts) 
+ 
+ 
+ 
+3ci (2 pts) 
+ 
+ 
+ 
+ 
+ 
+3cii (2 pts) 
+ 
+ 
+ 
+ 
+ 
+3di.  (2pts) 
+ 
+ 
+3dii (3 pts) 
+ 
+ 
+ 
+
+Hawk & Hornet Chem Lab  
+ 
+ 
+ 
+ 
+ 
+ 
+_________/ 15 points 
+ 
+Student Names: _____________________________________________ Team Name/Number: ____________________________ 
+ 
+Overview: In this lab we will react green food coloring with sodium hypochlorite (bleach – NaClO). We 
+will make the bleach an excess reactant so that its concentration remains relatively constant throughout 
+the experiment so we can determine the order of the reaction with respect to the green food coloring.  
+ 
+ 
+ Reaction:    C37H34N2O10S3Na2  +  NaClO  à Products that are colorless 
+ 
+ 
+ 
+ 
+ 
+^ Green food coloring 
+ 
+Procedure: 
+1.  Confirm that the spectrophotometer is set for a wavelength of 635 nm. Zero the instrument using the 
+correct procedure as outlined on the direction sheet.  
+2.  Measure 50. mL of food coloring and water solution into your beaker.  
+3.  Measure 3 mL of bleach using the 10 mL graduated cylinder. 
+READ ALL OF THE NEXT DIRECTIONS BEFORE PROCEEDING.  
+4.  Make sure you are organized to collect the absorbance every 10 seconds.   
+5. When ready, add the bleach to the water/food coloring mixture. Stir it so the bleach gets distributed.   
+6. Quickly add some of the solution to the cuvette and place the cuvette into the spectrophotometer with 
+the cloudy side facing you and the clear side facing left to right without the lid.  Begin to collect data 
+immediately. 
+ 
+Data: (3 pts)   
+Time 
+(sec) 
+Abs 
+ln(abs) 
+1/Abs 
+Time 
+(sec) 
+Abs 
+ln(abs) 
+1/Abs 
+5.00 
+ 
+ 
+ 
+90.00 
+ 
+ 
+ 
+10.00  
+ 
+ 
+100.00 
+ 
+ 
+ 
+20.00  
+ 
+ 
+110.00 
+ 
+ 
+ 
+30.00  
+ 
+ 
+120.00 
+ 
+ 
+ 
+40.00  
+ 
+ 
+130.00 
+ 
+ 
+ 
+50.00  
+ 
+ 
+140.00 
+ 
+ 
+ 
+60.00  
+ 
+ 
+150.00 
+ 
+ 
+ 
+70.00  
+ 
+ 
+160.00 
+ 
+ 
+ 
+80.00  
+ 
+ 
+170.00 
+ 
+ 
+ 
+
+The following questions should be answered below.   
+1. (2 pts) Identify the order of reaction and write the rate law that best fits the data. 
+ 
+ 
+ 
+ 
+ 
+ 
+2. (4 pts) Determine the value of k, and the units for k. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+3. (2 pts) Determine the half-life for this reaction.  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+4. (2 pts) Given a starting food coloring concentration of 0.50 M, determine the food coloring 
+concentration after 1 minute 11 seconds have passed. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+5. (2 pts) ________ A student repeats the experiment but uses a wavelength greater than the 
+wavelength of maximum absorbance does this cause the data to be…  
+a. Too high  
+ 
+b. Too Low 
+ 
+c. Not impacted 
+ 
+ 
+
+Multiple Choice KEY 
+ 
+1. D 
+2. D 
+3. B 
+4. A 
+5. B 
+6. A 
+7. A 
+8. A 
+9. A & C 
+10. A 
+11. A 
+12. B 
+13. D 
+14. B 
+15. B 
+16. B 
+17. D 
+18. A 
+19. B 
+20. A 
+21. B 
+22. A 
+23. A 
+24. C 
+25. C 
+26. A 
+27. B 
+28. A 
+29. C 
+30. C 
+ 
+ 
+ 
+ 
+ 
+ 

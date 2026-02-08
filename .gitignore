@@ -1,6 +1,9 @@
 # ignore service_key.json
 service_key3.json
 
+# Offline Wikipedia QA artifacts (large)
+astronomy_search_store/
+
 
 
 

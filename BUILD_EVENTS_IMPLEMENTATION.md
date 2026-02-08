@@ -195,7 +195,7 @@ Each build meeting follows standard Meeting structure:
   id: "auto-generated",
   eventName: "Boomilever", // or other build event
   date: timestamp,         // Tuesday, Wednesday, or Thursday
-  code: "XYZAB",          // 5-letter code
+  code: "XYZ",            // 3-letter code
   block: "1",             // or "2"
   room: "",               // optional
   attended: ["memberId1", "memberId2", ...]

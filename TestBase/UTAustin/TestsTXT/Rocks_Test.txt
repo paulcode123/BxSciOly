@@ -1,0 +1,411 @@
+Station 1 – Building A Mineral   (18 points) 
+1. To build a mineral, we need to be able to understand what exactly a mineral is. On your answer sheet, list 
+four characteristics an object needs to meet before we can formally declare it a mineral.  (2) 
+2. Given a list of 5 objects, classify them as either a mineral or not a mineral. (5) 
+a) Opal  
+b) Ice  
+c) Sulfur  
+d) Gold  
+e) Amber  
+3. One of the minerals on the list is halite, which has a cubic crystal habit. The following parts of question 3 
+guide you through to understanding halite’s cubic crystalline structure.   
+a) What is the chemical formula for halite? (1) 
+b) Examine the diagram below and answer the following questions.  
+ 
+i) 
+Based on the diagram, how many Cl- ions is Na+ bonded with? (Make sure to visualize it in 3D 
+for the correct answer!) (1) 
+ii) 
+What is name of the polyhedral shape based on the arrangement of Na+ and Cl-? (think: 
+tetrahedral, cubic, linear... etc) (1) 
+c) Now think about the reverse: what is the coordination number between Na+ and Cl-? What information 
+does this tell us about the bonding structure of Na and Cl? (2) 
+Crystals are made up of smaller objects referred to as “unit cells”. There are three main types of unit cells: 
+primitive, body-centered-cubic (BCC), and face-centered cubic (FCC), which build up to make a larger 
+structure referred to as a crystal lattice by the same name. 
+d) 
+ 
+i) 
+Based on the diagram, which type of unit cell best represents halite? (1) 
+ii) 
+Using the diagram, count how many Cl- atoms are fully owned by a singular unit cell. Do the 
+same for Na+. Show your work! (4) 
+4. Question 3 illustrates a key concept that is important in understanding crystal lattices. What is the name of 
+the law that states that the angles within the various faces of a crystal remain unchanged throughout its 
+growth called?  (1) 
+
+Station 2 (16 points)  
+ 
+A                                                      B                                                 C 
+ 
+D                                                               E                                                         F 
+1. Identify the minerals A-F. (6) 
+2. The following questions will be about the chemical composition of the minerals above.  
+a. Which 2 specimens have the same chemical composition? (2) 
+b. What term is used to describe elements that can take on 2 or more different physical 
+forms?  (1) 
+c. What difference in bonding structure makes these 2 specimens so different in 
+morphology? (2) 
+3. The following questions will be about ores.  
+a. Which three specimens have been used as coinage metals? (1) 
+b. What chemical property allows these minerals to exist in their pure elemental form?(1) 
+a) Low reactivity  
+b) Electronegativity  
+c) Stable Crystal Structure  
+d) Diaphaneity 
+c. Out of the three, which is commonly found in households for wiring? (1) 
+d. What mineral on the list is confused with specimen A for its similarity in color and as a 
+result, has a nickname that refers to its trickery? (1) 
+4. While other minerals have different color variations, Specimen F is known for its bright lemon-
+yellow color and can be easily identified by this distinction. How do electrons contribute to 
+Specimen F’s color? (1) 
+a) Their orbitals correspond to different wavelengths on the electromagnetic spectrum  
+b) They change the hardness and the specific gravity of the mineral  
+c) They absorb all colors and reflect yellow 
+d) Its birefringence and symmetry contribute to its yellow color  
+
+Station 3  (8 points) 
+ 
+A                               B                                C                                           D 
+ 
+ 
+                                                                                 E                                      F 
+1. The term describing all 6 of these specimens is known as what? (1) 
+2. Two of the specimens at this station are the same mineral, just in different forms. What specimens are 
+they? (2) 
+3. What element gives Specimen A its unique pink/red color? (1) 
+a) Aluminum  
+b) Chromium 
+c) Magnesium  
+d) Iron 
+4. Specimen C is known to have other specimens with the same color, but not the same quality. What 
+chemical difference makes Specimen C a deep green compared to pale green specimens? Answer with the 
+chemical element’s name and NOT the chemical symbol.  (1) 
+5. Most of these minerals are known for their hardness on the Mohs scale. The following parts will help you 
+explain what makes these minerals so high on the scale.  
+a. What is the hardness of Specimen B? (The answer is a whole number) (1) 
+b. Look at the following image:  
+ 
+This image is an image of a structure in Specimen B referred to as close packing. There are two types of 
+close packing for minerals: cubic and hexagonal close packing. Based on what you know about 
+Specimen B, what kind of close packing do you think is shown in the diagram?  (1) 
+c. However, when you look at the diagram, it does not look like it is a true closely packed structure due to 
+the octahedral sites being occupied by _________________ ions.  (1) 
+ 
+
+Station 4 (18 points)  
+1. The following questions will be able fracture and cleavage. 
+a) Define fracture and cleavage on your answer sheet. (2) 
+b) Given a set of minerals, circle either poor, fair, good/perfect, or no cleavage. (5) 
+i) 
+Mica   
+ii) 
+Talc   
+iii) 
+Diamond   
+iv) 
+Halite   
+v) 
+Quartz   
+ 
+c) Which of the minerals in part B has no cleavage? In its atomic structure, what makes 
+this mineral not be able to form any cleavage planes? (2) 
+d) Cleavage is often determined by the atomic structure of the mineral. For example, 
+when you break halite, you find perfect cubes after breaking it. Given this information, 
+at what angle are the planes of weakness oriented in? (1) 
+ 
+2. The following questions will be about more mineral properties. 
+a) Define luster and streak.  (2) 
+ 
+b) If I were to perform a streak test on a mineral with a hardness greater than 7, will it 
+produce a streak? Why or why not? (2) 
+ 
+c) Bob finds an unknown mineral and uses apatite to scratch the surface of the mineral 
+and finds out that it scratches the surface of the mineral. He then uses feldspar to 
+scratch the surface and finds that it does not scratch the surface of the mineral.  
+The hardness of the unknown mineral is between _____ and _____.  (1) 
+ 
+3. Specimens of orthoclase have perfect cleavage on {001} and a good cleavage on {010}. 
+Mark the diagram where these planes occur. Make sure to label your axes and show how 
+you were able to determine which faces correspond to the Miller indices.  (3) 
+ 
+ 
+ 
+ 
+
+Station 5 (17 points) 
+ 
+ 
+ 
+A                                                          B                                                                    C 
+ 
+ 
+ 
+                               D                                                    E                                                                               F 
+1. Identify the specimens. (6) 
+2. What is the general formula for these types of minerals? (1) 
+3. However, depending on the type of mineral, this formula will be altered. Why does the formula 
+change depending on the group (or type of mineral)?  (1) 
+4. The following questions will be about Specimen C.  
+a) Specimen C is also known as a polymorph. What does this mean?  (1) 
+b) What environmental changes create Specimen C’s polymorphs? (2) 
+5. Match the following structures to the minerals at this station. (3) 
+ 
+ 
+ 
+            Structure 1          Structure 2         Structure 3  
+ 
+6. Specimen A makes up what rock that makes up the majority of Earth’s upper mantle?  (1) 
+7. Specimen E is often found in what types of igneous rocks? (1)  
+8. In comparison, specimen F can be found in what types of igneous rocks? (1) 
+ 
+
+Station 6 (12 points)  
+ 
+ 
+ 
+                                          A                                                                    B                                                                   C 
+1. Identify the specimens at this station. (3) 
+2. Which of the specimens can be found in igneous rocks? (1) 
+3. Which of these specimens is used for K-Ar dating? (1) 
+4. Which of these specimens was used as a cheaper alternative to glass during the 16th 
+century? (1) 
+5. Specimen C has weak pleochromism. What does this mean? (1) 
+6. The following question will be split into parts regarding the diagram below. 
+ 
+ 
+ 
+a) Which of the specimens at this station most likely has this structure? (1) 
+b) This structure is referred to as dioctahedral. Using your knowledge of mineralogy, 
+define what dioctahedral means. (2) 
+c) Which two sites make this mineral dioctahedral? (2) 
+ 
+
+Station 7 (15 points) 
+ 
+ 
+ 
+ 
+                        A                                                          B                                                     C                                               D 
+1. Identify all the specimens at this station. (4) 
+2. What is the difference between a conglomerate and Specimen C? (2) 
+3. Select all of the following environments where a conglomerate can form: (3) 
+a) River delta  
+b) Aeolian environment  
+c) Outwash plain  
+d) Dry plain  
+e) Beach  
+4. Which of the following specimens will most likely contain fossils? (1) 
+5. Which of the following specimens at this station would most likely have the structure shown 
+below?  (1) 
+ 
+6. Usually, these specimens will not have the structure shown in question 5. However, list one 
+environmental change that will allow this structure to form. (2) 
+7. Which of the following specimens is the primary source of gallium?  (1) 
+8. Which of the following environments can specimen D be found in? (1) 
+a) Desert  
+b) Continental shelf  
+c) Swamp 
+d) Beach  
+ 
+ 
+ 
+ 
+
+Station 8  (14 points) 
+ 
+                                                  A                                                       B                                                             C 
+1. Identify all the specimens at this station. (3) 
+2. Rank these specimens from the most foliated to the least foliated.  (1) 
+3. Select all of the following conditions in which foliation is possible: (2) 
+a) High heat, high pressure  
+b) Low heat, low pressure 
+c) Low heat, high pressure  
+d) High heat, low pressure  
+4. Which of the following minerals could you expect in Specimen A? (1) 
+a) Kyanite  
+b) Muscovite  
+c) Biotite  
+d) Hornblende  
+5. What is the parent rock of Specimen B? (1) 
+ 
+6. The following questions will use the diagram above.  
+a) What is the name of this kind of diagram? (1) 
+b) Name the rock that will form at low pressure and high temperature.  (1) 
+c) On your answer sheet, you have the same diagram. Mark the region where you believe that 
+Barrovian metamorphism will occur.  (2)  
+d) Mark the region on the diagram which rocks will be found at subduction zones. (2) 
+
+Station 9  (13 points) 
+ 
+ 
+ 
+ 
+                           A                                                B                                                  C                                                     D 
+1. Identify the specimens at this station. (4) 
+2. Classify the specimens into intrusive and extrusive specimens. (2) 
+3. When Specimen A is pink colored, it indicates the presence of what mineral? (1) 
+4. Which of these make up the majority of continental crust? (1) 
+5. In what case would we use the TAS system instead of QAPF? (2) 
+ 
+ 
+6. Given the diagram above, answer the following questions.  
+a) What is the name of this gap (aka the region of white space)? (1) 
+b) Propose a reason why this gap might exist. (Hint: it has something to do with stability)  
+(2) 
+ 
+ 
+ 
+ 
+ 
+ 
+
+Station 10 (13 points)  
+ 
+ 
+ 
+                                   A                                                         B                                                                           C 
+1. Identify the following specimens. (3) 
+2. Which of the following specimens at this station go through the process of twinning?(1) 
+3. Which of these specimens is most likely will form simple contact twins? (1) 
+4. Which of these specimens is most likely will form complex contact twins referred to as polysynthetic 
+twins? (1)  
+5. The following question will pertain to Miller indices as well twinning.  
+a) Miller indices are a notation for how we describe lattice planes in minerals. How might this 
+relate to the process described in question 2?  (1) 
+b) Before we start working in a 3D plane, we’ll work slowly and start drawing these indexes in 2D, 
+where the z plane does not exist. Given the following indices, sketch a vector from the point 
+marked {000} when you start drawing each vector. (3) 
+i) 
+[100] 
+ii) 
+[210] 
+iii) 
+[1-10] 
+c) Let’s try it in 3D. Specimen B is known for its twins on the {031} plane and the {231} plane. On 
+your answer sheet there will be a diagram in which you will draw the {031} plane, provided with 
+the axes. Make sure to show how you got there—hint: there is something that needs to be done 
+with the numbers in order for the plane to be correctly plotted!  (3) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+Station 11 (12 points) 
+1) Select all of the following minerals that have the 
+same crystal habit:  
+a) Halite  
+b) Pyrite  
+c) Sphalerite  
+d) Magnetite  
+e) Garnet / Almandine  
+2) Which of the following environments would you 
+NOT expect sandstone to form in?  
+a) Desert  
+b) Aeolian  
+c) Deltas  
+d) Deep Lake  
+3) Which of the following minerals is the primary ore 
+of iron?  
+a) Hematite  
+b) Corundum  
+c) Pyrite  
+d) Stibnite  
+4) Which of the following minerals has the nickname 
+“Peacock ore”? 
+a) Willemite  
+b) Bornite  
+c) Copper  
+d) Labradorite 
+5) If I find a piece of chalcedony, and I notice that it 
+has black and white banding, it is referred to as 
+what name?  
+a) Moss agate  
+b) Chalcedony  
+c) Onyx  
+d) Jasper 
+6) Which of the following minerals is NOT  a 
+nesosilicate?  
+a) Augite  
+b) Almandine  
+c) Grossular  
+d) Topaz  
+7) What is the difference between the discontinuous 
+and the continuous branch of Bowen’s Reaction 
+series?  
+a) Discontinuous branch shows the formation of 
+feldspars while the continuous branch shows 
+the formation of mafic minerals  
+b) Continuous describes the evolution of 
+compositions, while discontinuous 
+represents distinct minerals  
+c) Discontinuous branch shows the formation of 
+metamorphic facies while the continuous 
+branch shows the formation of igneous facies  
+d) Discontinuous branch shows the formation of 
+silicates, while the continuous branch shows 
+the formation of oxides 
+8) Which of the following is a pair of pseudomorphs 
+referred as to as a  paramorph? 
+a) Hematite and magnetite 
+b) Corundum and pyrite  
+c) Calcite and aragonite  
+d) Turquoise and Amazonite  
+9) Given an unknown metamorphic facies, what rock 
+would you expect to form under extremely high 
+pressure and high heat?  
+a) Serpentine  
+b) Mica schist  
+c) Blueschist  
+d) Eclogite  
+10)  If I had an unknown rock, but I knew that it went 
+under high heat and pressure and transformed 
+into a metamorphic rock, what type of rock would 
+I expect my parent rock to be?  
+a) Metamorphic  
+b) Igneous  
+c) Sedimentary  
+d) Porphyritic  
+e) Can not be determined  
+11)  What kind of metamorphism is associated with 
+convergent boundaries?  
+a) Regional  
+b) Contact  
+c) Shear 
+d) Dynamic  
+12) Which rocks would I most likely find at a faulting 
+zone?  
+a) Granite  
+b) Shale  
+c) Siltstone  
+d) Rock Salt  
+e) None of the Above  
+
+ 
+Station 12  - Speed ID  (12 points)  
+ 
+ 
+ 
+                        A 
+ 
+ 
+ 
+ 
+B                                                          C 
+ 
+ 
+ 
+                             D                                                                     E                                                                    F  
+ 
+ 
+ 
+                      G                                                                 H                                                                             I  
+ 
+ 
+ 
+                             J                                                                     K                                                                           L 

@@ -1,0 +1,1121 @@
+EVENT: Anatomy and Physiology
+SOURCE: Rickards Invitational 2025 (Div. C)
+FORMAT: 105 questions (MC, MC multi-select, True/False, Fill-in-blank, Free Response)
+TOTAL POINTS: 329
+
+---SECTION 1: Nervous System - General Knowledge---
+
+---QUESTION 1---
+ID: 1 | POINTS: 1.50 | FORMAT: True/False (3 parts)
+TOPIC: Neuroanatomy | CNS and PNS | Cranial nerves
+DIFFICULTY: Easy
+QUESTION: 
+a) The CNS includes the brain and its associated cranial nerves.
+b) Axon soma are clustered into ganglia in the CNS and nuclei in the PNS.
+c) Pseudounipolar axons originate with two processes that converge during early embryonic development.
+
+---QUESTION 2---
+ID: 2 | POINTS: 1.50 | FORMAT: True/False (3 parts)
+TOPIC: Neuroanatomy | Supporting cells | Glial cells
+DIFFICULTY: Medium
+QUESTION:
+a) Most supporting cells of the nervous system are derived from the same embryonic tissue layer that makes neurons.
+b) Ependymal cells are found in both the brain and spinal cord.
+c) Microglia derive from cells produced in the embryonic yolk sac and then migrate to the developing neural tube.
+
+---QUESTION 3---
+ID: 3 | POINTS: 1.50 | FORMAT: Image Analysis / Multiple Choice (3 parts)
+TOPIC: Neuroanatomy | Blood-brain barrier | Capillary structure
+DIFFICULTY: Medium
+QUESTION: [Refer to image]
+a) Select the capillary type most likely to be present at the blood-brain barrier. A = left; B = middle; C = right.
+b) Select the most common junction within capillaries at the blood-brain barrier. A = left; B = middle; C = right.
+c) Select the method by which alcohol and barbiturates will pass through the blood-brain barrier. Type 5 if none of these are correct.
+
+---QUESTION 4---
+ID: 4 | POINTS: 1.50 | FORMAT: Image Analysis / True/False (3 parts)
+TOPIC: Neurochemistry | Neurotransmitters | Molecular identification
+DIFFICULTY: Medium
+QUESTION: [Refer to image showing three molecules]
+a) The molecule on the right is histidine.
+b) The molecule in the middle is acetylcholine, and it stimulates muscle contraction.
+c) The molecule on the left is typically associated with long-term potentiation (LTP).
+
+---QUESTION 5---
+ID: 5 | POINTS: 3.00 | FORMAT: True/False (3 parts)
+TOPIC: Neuroscience | Memory | Memory classification
+DIFFICULTY: Medium
+QUESTION: Determine the type of memory being described. Options: A – Short-term memory, B – Semantic memory, C – Implicit memory, D – Priming memory, E – Procedural memory, F – Declarative memory, G – Episodic memory, H – Long-term memory, I – Explicit memory, J - Liuan Memory
+a) From least to most specific, both H > C > E and H > I > G are valid rankings. (T/F)
+b) D and E are both considered unconscious memory. (T/F)
+c) The total loss of A will result in the loss of I but not G. (T/F)
+
+---QUESTION 6---
+ID: 6 | POINTS: 3.00 | FORMAT: Multiple Choice (3 parts)
+TOPIC: Neuroscience | Memory | Memory types
+DIFFICULTY: Medium
+QUESTION:
+a) Remembering how to tie shoe laces is what type of memory? Select the second most specific category.
+b) You remember how traumatic this exam was after taking it. Select the most specific category.
+c) You know that grass is in fact green, how to solve x = 20x - 5, and what a mammal is.
+
+---QUESTION 7---
+ID: 7 | POINTS: 3.00 | FORMAT: MC (multi-select) / Fill-in-blank (3 parts)
+TOPIC: Neuroscience | Memory | Epigenetics | Synaptic plasticity
+DIFFICULTY: High
+QUESTION:
+a) METH is known to exert its toxic effects, in part, by causing oxidative stress. Oxidative stress can increase the expression of ER resident chaperones, such as BiP/GRP-78, P58IPK, and heat shock proteins (HSPs) that are important regulators of aberrant protein folding. METH exposure significantly affected the expression of 146 transcription factors (TFs) and 31 epigenetic modification factors (Epi-Modifier), which could initiate epigenetic remodeling of chromatin and further regulate target gene expression. Which type of memory does METH likely affect? Select all that can apply. Do not include spaces between letters, and put them in alphabetical order. Put "N" if none apply.
+b) Hippocampal place cells are thought to be important for which type of memory?
+c) What is the process of converting a memory into a more stable long-term one? It involves the activation of genes, the production of new proteins, and the formation of new synapses. Hint: it's two words (all lowercase).
+
+---QUESTION 8---
+ID: 8 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Neurochemistry | Neurotransmitters | Neurohormones
+DIFFICULTY: Medium
+QUESTION: Questions 9-12: Guess the neurotransmitter! Identify the neurotransmitter/neurohormone based on a short description.
+I am secreted by the small intestine, but I'm also released from neurons. I may promote feelings of satiety in the brain following meals.
+OPTIONS:
+A) Cholecystokinin
+B) Leptin
+C) Ghrelin
+D) More than one of the above
+E) None of the above
+
+---QUESTION 9---
+ID: 9 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Neurochemistry | Neuropeptides
+DIFFICULTY: Medium
+QUESTION: I am the most abundant neuropeptide in the brain.
+OPTIONS:
+A) Substance P
+B) Neuropeptide Y
+C) Somatostatin
+D) Enkephalin
+E) Serotonin
+
+---QUESTION 10---
+ID: 10 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Neurochemistry | Neurotransmitters | Raphe nuclei
+DIFFICULTY: Medium
+QUESTION: I am used as a neurotransmitter by neurons with cell bodies in raphe nuclei located along the midline of the brainstem. Consuming lots of milk and turkey affects my levels.
+OPTIONS:
+A) Dopamine
+B) Histamine
+C) Epinephrine
+D) 5-hydroxytryptamine
+E) Glutamate
+
+---QUESTION 11---
+ID: 11 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Neurochemistry | Lipid neurotransmitters | Endocannabinoids
+DIFFICULTY: Medium
+QUESTION: I am a short lipid and easily pass through the cell membrane.
+OPTIONS:
+A) Anandamide
+B) Glycosphingolipids
+C) 2-arachidonoyl glycerol
+D) Galactocerebroside
+E) More than one of the above
+F) None of the above
+
+---QUESTION 12---
+ID: 12 | POINTS: 1.00 | FORMAT: Fill-in-blank
+TOPIC: Neuroanatomy | Cerebral cortex | Sensory integration
+DIFFICULTY: Easy
+QUESTION: Which part of the cerebral cortex is implicated in receiving olfactory, gustatory, auditory, and somatosensory information? Say just the name (don't include "lobe" in your answer).
+
+---QUESTION 13---
+ID: 13 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Clinical Neuroscience | Seizures | First aid
+DIFFICULTY: Easy
+QUESTION: Which of the following is not correct first aid for a seizure?
+OPTIONS:
+A) Cushion the person's head
+B) Lay the person on the ground
+C) Loosen tight clothing
+D) Attempt to give water
+E) Note the length of the seizure
+F) More than one of the above are incorrect first aid for a seizure
+
+---QUESTION 14---
+ID: 14 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Neuroscience | Sleep | EEG patterns
+DIFFICULTY: Medium
+QUESTION: A patient's EEG shows bursts of spindles followed by K-complexes. Which of the following statements is the most accurate about this patient?
+OPTIONS:
+A) Their suprachiasmatic nucleus is damaged
+B) Their basal forebrain is damaged
+C) They are in Stage N2 sleep
+D) They are about to enter REM sleep
+E) They are in Stage N4 sleep
+F) More than one of the above
+
+---QUESTION 15---
+ID: 15 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Neuroanatomy | Axonal transport | Retrograde transport
+DIFFICULTY: Medium
+QUESTION: Which of the following are not transported via retrograde axonal transport?
+OPTIONS:
+A) Autophagosomes
+B) Amyloid Precursor Protein
+C) Tetanus bacteria
+D) Growth factors
+E) Lysosome
+
+---QUESTION 16---
+ID: 16 | POINTS: 2.00 | FORMAT: Fill-in-blank / Image Analysis
+TOPIC: Neuroanatomy | Histology | Staining techniques
+DIFFICULTY: Medium
+QUESTION: Questions 16-17: Refer to the following image.
+Name the type of stain used in this image. Put just the name in lowercase. Do not include "stain" after the name. All lowercase.
+
+---QUESTION 17---
+ID: 17 | POINTS: 1.00 | FORMAT: MC / Image Analysis
+TOPIC: Neuroanatomy | Neuron types | Histology
+DIFFICULTY: Medium
+QUESTION: What type of neuron is this?
+OPTIONS:
+A) Purkinje
+B) Bipolar
+C) Pyramidal
+D) Unipolar
+
+---QUESTION 18---
+ID: 18 | POINTS: 1.00 | FORMAT: Fill-in-blank / Image Analysis
+TOPIC: Neuroanatomy | Brain development | Primitive vesicles
+DIFFICULTY: Medium
+QUESTION: Question 18-20: Refer to the following diagram.
+List the three primitive vesicles (A-C) in order. All lowercase.
+
+---QUESTION 19---
+ID: 19 | POINTS: 1.00 | FORMAT: MC (multi-select) / Image Analysis
+TOPIC: Neuroanatomy | Brain development | Diencephalon
+DIFFICULTY: Medium
+QUESTION: Select all that B will give rise to.
+OPTIONS:
+A) Epithalamus
+B) Globus pallidus externus
+C) Temporal lobe
+D) Tectum
+E) Third ventricle
+
+---QUESTION 20---
+ID: 20 | POINTS: 1.00 | FORMAT: MC (multi-select) / Image Analysis
+TOPIC: Neuroanatomy | Vascular supply | Cerebral arteries
+DIFFICULTY: High
+QUESTION: Select all that do not supply blood to both I and J.
+OPTIONS:
+A) Basilar artery
+B) ACA
+C) AICA
+D) Internal carotid
+E) Anterior spinal artery
+
+---SECTION 2: Nervous System - Multiple-True False---
+
+---QUESTION 21---
+ID: 21 | POINTS: 3.00 | FORMAT: MC (multi-select)
+TOPIC: Neuroscience | Synaptic plasticity | Hebbian learning
+DIFFICULTY: Very High
+QUESTION: The figure shown below is a schematic illustration of Hebb's rule for instructing wiring. A prominent mechanism by which neuronal activity influences wiring is by implementing Hebb's rule. The following equation can describe Hebbian theory. where wi j is the weight of the connection from neuron j to neuron i, p is the number of training patterns, and xik the k-th input for neuron i. This is learning by epoch, with weights updated after all the training examples are presented, and is the last term applicable to both discrete and continuous training sets. Connections wi j are set to zero if i=j (no reflexive connections). Select all the statements that are true pertaining to Hebbian learning.
+OPTIONS:
+A) Neurons that "fire together wire together" according to Hebb's rules.
+B) If two presynaptic neurons fire perfectly in a perfectly anti-correlated manner (i.e., when one is active, the other is silent), Hebbian learning will strengthen their synaptic weights because each neuron is still active during the training set.
+C) Hebbian learning allows a target neuron to selectively strengthen connections from multiple unrelated input populations if all populations fire at equal average rates.
+D) Suppose neuron i has input activity values xi=[2,0,1] across three training patterns, and neuron j has activity values xj=[1,0,0]. The synaptic weight will be 1 after training
+E) An axon that is stimulated to grow in a Hebbian system might have higher netrins, semaphorins, ephrins, and oligodendrocyte myelin glycoprotein (OMgp).
+F) None of the above
+
+---QUESTION 22---
+ID: 22 | POINTS: 3.00 | FORMAT: MC (multi-select) / Image Analysis
+TOPIC: Clinical Neuroscience | Seizures | EEG patterns
+DIFFICULTY: Very High
+QUESTION: The following figure shows EEG and action potential data for two types of seizures. Answer the following questions regarding this figure.
+OPTIONS:
+A) Drugs that are effective against sustained firing in vitro are effective against the left seizures, but not the right seizures, in humans because neurons neither exhibit sustained depolarization or produce sustained repetitive firing of action potentials in the spike phase
+B) In the right seizure, thalamic relay (TR) neurons exhibit spike-wave discharges that result from activation of P-type calcium ion channels.
+C) The seizure on the right is an absence seizure.
+D) Voltage-gated sodium channel blockers are widely used anti-seizure drugs; they will prolong the absolute refractory period.
+E) Both recordings show the ictal phase of the seizures.
+
+---QUESTION 23---
+ID: 23 | POINTS: 3.00 | FORMAT: MC (multi-select)
+TOPIC: Neuroscience | Action potentials | GHK equation | Membrane potential
+DIFFICULTY: Very High
+QUESTION: During an action potential, the membrane potential of a neuron changes rapidly due to changes in channel permeability. Using the GHK equation, you are able to calculate the exact equilibrium potential and simulate the change in membrane potential with changing conditions. In a typical neuronal cell, the intracellular concentration of Na+, K+, and Cl- are 15 mmM, 7 mmM, and 150 mmM respectively, and the extracellular concentration of these ions are 145 mmM, 100 mmM, and 5 mmM respectively. Assume the relative permeabilities of K+, Na+, and Cl- are 1:0.04:0.45. Select all statements that are true.
+OPTIONS:
+A) Movement of ions has a greater effect on membrane potential compared to changes in membrane permeability.
+B) During an action potential, sodium permeability has to triple to reach threshold potential.
+C) During repolarization, potassium permeability increases over its normal permeability, and brings the membrane potential to slightly above the normal resting potential.
+D) Normally, chloride has a small effect on neuronal membrane potential. However, increasing chloride permeability has the counterintuitive effect of increasing membrane potential.
+E) In a hypothetical situation, ionized sulfur has become an important ion in membrane potential. If the extracellular concentration is 27 mmM and the intracellular concentration is 55 mmM, then the resting membrane potential is about -20 mV.
+
+---QUESTION 24---
+ID: 24 | POINTS: 3.00 | FORMAT: MC (multi-select) / Image Analysis
+TOPIC: Neuroscience | Synaptic plasticity | NMDA receptors | LTP
+DIFFICULTY: Very High
+QUESTION: [3] The SSBSG is a group of gooners who want to improve their retention of biology textbooks. However, they are tired of sitting in VC all day and want to genetically engineer Chinese clones to take the USABO for them. To improve their performance, Zen Keng decides to modify NMDA channels to increase LTP in hopes of making their memorization skills better. When testing, he obtains the following results.
+OPTIONS:
+A) Given D125 binds to Mg2+, a missense mutation from D125->S125 would result in increased Mg2+ affinity.
+B) In the NMDA mutant, the interruptions are shorter, and the conduction magnitude is the same.
+C) The NMDA mutant has a lower affinity for magnesium ions, as shown by the decreased need for magnesium to achieve the same voltage.
+D) At magnesium concentrations below 10^1 in WT strains, resting neurons will still be unable to conduct calcium ions efficiently.
+E) Mutants will be more susceptible to the effects of excitotoxicity.
+F) None of the above
+
+---QUESTION 25---
+ID: 25 | POINTS: 3.00 | FORMAT: MC (multi-select)
+TOPIC: Neurochemistry | Ion pumps | P-type ATPases | Vanadate inhibition
+DIFFICULTY: Very High
+QUESTION: [3] Instead of studying for USABO, Zeng Ken decided his AP Chem class was more important. Since this is unacceptable in the SSBSG, I poisoned him with vanadate, an inhibitor of P-type ATPases. The structure of vanadate is given below. Which of the following statements are true about vanadate and its effects?
+OPTIONS:
+A) Vanadate inhibits the phosphorylation of P-type ATPases.
+B) Vanadate is likely a transition-state analog of adenosine.
+C) When poisoned with vanadate, neuronal function will degenerate after a few action potentials.
+D) Given that vanadate is NOT a suicide inhibitor, the Vmax (the maximum rate of an enzyme-catalyzed reaction) and the Km (the substrate concentration at which an enzyme-catalyzed reaction is proceeding at ½ Vmax) of ATPase activity decrease at a constant ratio.
+E) Given that vanadate is NOT a suicide inhibitor, in a theoretical cell poisoned with vanadate, adding enough ATP will restore P-type ATPase function.
+F) None of the above
+
+---QUESTION 26---
+ID: 26 | POINTS: 3.00 | FORMAT: MC (multi-select)
+TOPIC: Neuropharmacology | MAO inhibitors | Antidepressants
+DIFFICULTY: High
+QUESTION: After failing to get into a dual MIT-Harvard MD-PHD program while enrolling in law school, you fail to make your parents proud and feel down. You visit a therapist, and instead of listening to their advice and ignoring your parents, you decide to take antidepressants. While studying for your upcoming applied chemical engineering in neurological pharmacology, you read about MAO inhibitors' role as an antidepressant and decide to take some. Select all of the following statements that are true.
+OPTIONS:
+A) MAO inhibitors are a norepinephrine-specific reuptake inhibitor.
+B) Due to your peanut allergy, you also carry an EPIPen with you. You should increase the amount of epinephrine per dosage to prevent a hypotensive crisis during an allergic reaction
+C) You might competitive MAO inhibitors to have a conjugated aromatic ring with a hydroxyl/hydride group.
+D) Deciding that this drug is not working fast enough, you combine it with SSRIs. This increases the risk of a hypotensive crisis.
+E) The use of MAO inhibitors could also be helpful when treating patients with Parkinson's disease.
+F) None of the above
+
+---QUESTION 27---
+ID: 27 | POINTS: 3.00 | FORMAT: MC (multi-select) / Image Analysis
+TOPIC: Neuroscience | Sensory systems | Lateral inhibition
+DIFFICULTY: Very High
+QUESTION: [3] Hsina is investigating the effects of lateral inhibition on different sensory stimuli. Using electrodes implanted onto three somatosensory neurons and three nociceptors with receptor field overlap, he measures the action potential frequency of each neuron. He is also curious about the neurotransmitter used in this process. He suspects the neurotransmitter C-Caine is involved, and generates -/- C-Caine receptor mice strains. Select all of the following statements that are true. Figures 1 and 2 show the lateral inhibition of mechanoreceptor neurons and nociceptor neurons, respectively.
+OPTIONS:
+A) -/- C-Caine strains would have significantly more difficulty pinpointing a blunt point on their skin than WT.
+B) -/- C-Caine strains would have significantly more difficulty pinpointing painful stimuli on their body than WT.
+C) If neuron B is blocked, its stimulation will not inhibit neurons A and C, causing their action potential frequency to decrease. The drug C-Caine will also build up in the synaptic clefts between A, C, and B.
+D) Sensory acuity is very important for different senses. You would expect deep pressure mechanoreceptors and temperature receptors to have high lateral inhibition.
+E) Sensory acuity is very important for different senses. You would expect deep pressure mechanoreceptors and temperature receptors to have high lateral inhibition.
+F) None of the above
+
+---QUESTION 28---
+ID: 28 | POINTS: 3.00 | FORMAT: MC (multi-select) / Image Analysis
+TOPIC: Neuroscience | Neural circuits | Inhibition | Feedforward and feedback
+DIFFICULTY: Very High
+QUESTION: [3] Refer to the following figure to help you answer this question.
+OPTIONS:
+A) The circuit in figure A enables postsynaptic neurons to respond selectively to features not solely or explicitly present in any of the presynaptic neurons.
+B) Feedforward inhibition acts more rapidly than feedback inhibition. Both feedforward and feedback inhibition will prevent extremely inhibited or excited states.
+C) An example of circuit C is in photoreceptor neurons in the retina. It selects information to be propagated to downstream circuits by amplifying differences in activity between series pathways.
+D) Circuit D will not be used in locomotion but can be used to regulate the sleep-wake cycle.
+E) A molecule that blocks GABA_A receptors is administered to the brain. The result would be higher excitability of the pyramidal neuron in feedforward inhibition and a loss of discriminatory power in lateral inhibition.
+F) None of the above
+
+---QUESTION 29---
+ID: 29 | POINTS: 3.00 | FORMAT: MC (multi-select) / Image Analysis
+TOPIC: Neuroscience | Neuroimaging | BOLD fMRI | Cerebral blood flow
+DIFFICULTY: Very High
+QUESTION: [3] In healthy brain tissue, functional activation of neurons leads to increased oxygen consumption (cerebral metabolic rate of oxygen, CMRO2), which is tightly coupled to a larger increase in cerebral blood flow (CBF ↑). This overcompensation causes a decrease in deoxyhemoglobin (deoxy-Hb) buildup. It is this principle that is foundational for the BOLD (blood-oxygenation-level–dependent) signal in fMRI and NIRS (near-infrared spectroscopy) signals. The following figure is taken from Lindauer et al. (2010). Select all of the following statements that are true about this data.
+OPTIONS:
+A) Repeating the experiment with a COX-2 (a cyclooxygenase that produces prostaglandin H2) inhibitor would cause an increase in deoxy-Hb during stimulation.
+B) Vasodilation is preserved under hyperbaric conditions.
+C) The reduced change in deoxy-Hb under hyperoxia is due to a difference in the baseline hemoglobin saturation, so there is less of an effect on BOLD fMRI. Therefore, the actual neuronal oxygen usage remains unchanged.
+D) The deoxy-Hb response is abolished during hyperbaric hyperoxia despite preserved CBF increases because baseline hemoglobin is minimally saturated, reducing the gradient for oxygen unloading.
+E) The small change in oxy-Hb hyperbaric hyperoxia compared to normal conditions indicates that oxygen delivery is impaired.
+F) None of the above
+
+---QUESTION 30---
+ID: 30 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Neuroscience | Membrane potential | Ion concentrations
+DIFFICULTY: Medium
+QUESTION: [1] A neuron's membrane becomes more positive when the extracellular potassium concentration is doubled. Which of the following modifications will most likely return the membrane potential to its original value?
+OPTIONS:
+A) Double extracellular sodium concentration
+B) Halve the intracellular potassium concentration
+C) Increase sodium permeability across the membrane
+D) Decrease potassium permeability across the membrane
+E) More than one of the above is incorrect
+F) None of the above are correct
+
+---QUESTION 31---
+ID: 31 | POINTS: 4.00 | FORMAT: Calculation
+TOPIC: Neuroscience | Synaptic integration | Temporal summation | EPSPs
+DIFFICULTY: High
+QUESTION: [4] You turn friend 1 into a neuron and friends 2 and 3 into ESPSs. Suppose friends 2 and 3 arrive at friend 1 5 ms apart, and both friend 2 and friend 3 provide + 5 mV. Friend 1 has a time constant of 15 ms. What is the combined depolarization from the resting potential after friend 3 arrives? Round to 3 decimal places if necessary. Do not include units.
+
+---QUESTION 32---
+ID: 32 | POINTS: 2.00 | FORMAT: MC (multi-select)
+TOPIC: Neuroanatomy | Limbic system | Papez circuit
+DIFFICULTY: Medium
+QUESTION: [2] Select all that are true of the Papez circuit.
+OPTIONS:
+A) It is a closed circuit between the limbic system, thalamus, hypothalamus.
+B) The fornix connects the hippocampus to the mammillary bodies of the hypothalamus, which in turn project to the anterior nuclei of the thalamus
+C) Thalamic nuclei send fibers to the cingulate gyrus, which then completes the circuit by sending fibers to the hypothalamus.
+D) The conductance speed of actual potentials will decrease
+E) The Papez circuit controls emotions.
+F) None of the above
+
+---QUESTION 33---
+ID: 33 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Neuroscience | Memory | Sleep | Memory consolidation
+DIFFICULTY: Medium
+QUESTION: [2] Eric is a rat that has not had REM sleep in 48 hours due to being locked in for the USNCO. Eric is able to one-tap enemies on the first-person shooter game Valorant fine, but he can not seem to remember the Me-Me dihedral angle for anti-periplanar butane (on everyones soul its anticlinal 180 (i did remember this actually)) (which he learned about recently during the sleep-deprivation period). What type of memory has been affected?
+
+---SECTION 3: Nervous System - Logic/Application---
+
+---QUESTION 34---
+ID: 34 | POINTS: 1.00 | FORMAT: MC (multi-select)
+TOPIC: Neuroendocrinology | Hypothalamic-pituitary axis | Posterior pituitary
+DIFFICULTY: Medium
+QUESTION: Aryan is interested in the hypothalamic-pituitary connection, so in multiple rats, he implants electrodes on the supraoptic nucleus (SON) and periventricular nucleus (PVN) while microdialysis probes are inserted into the neurophysis (posterior pituitary) and medial eminence.
+OPTIONS:
+A) Colchicine is known to inhibit microtubule polymerization. Colchicine treatment will prevent an increase in ADH secretion in response to SON depolarization.
+B) High-frequency stimulation of PVN neurons will enhance both oxytocin and ADH release via exocytosis.
+C) Electrical stimulation of the medial eminence will increase ACTH levels.
+D)
+
+---QUESTION 35---
+ID: 35 | POINTS: 2.00 | FORMAT: MC (multi-select)
+TOPIC: Neuropharmacology | Neurotoxins | Poisons
+DIFFICULTY: High
+QUESTION: [2] Eric gets mad because his stupid laptop won't open files, so he takes his anger out on Ken and kidnaps him, planning to test various poisons on him to make him feel better. Select all of the following statements that are true.
+OPTIONS:
+A) Anatoxin-a poisoning has the same potency in the CNS and the PNS, resulting in spastic paralysis and various mental symptoms.
+B) Anatoxin-a would not result in reduced epinephrine release from the adrenal medulla.
+C) Tetrodotoxin is similar to anatoxin-a and kills you by causing spastic paralysis, eventually leading to respiratory failure.
+D) Curare likely has an acetyl group homolog that allows it to mimic acetylcholine.
+E) Some botulism toxins destroy the SNAP25 proteins. These proteins are necessary for vesicle formation and without them, neurons cannot release ACh.
+F) None of the above are true
+
+---QUESTION 36---
+ID: 36 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Clinical Neuroscience | Midbrain disorders | Parkinson's disease
+DIFFICULTY: Medium
+QUESTION: [2] John Doe has been struggling with heroin. To prevent himself from getting Cushing's, John Doe takes heroin. John Doe is brought to the hospital, and an MRI shows destruction in the midbrain. Select the true statement about this disorder.
+OPTIONS:
+A) The treatment for this disease needs to be metabolized before becoming effective.
+B) An intention tremor is characteristic of this disorder.
+C) Deficient carboxylase would prevent effective treatment.
+D) This disorder was caused by heroin's negative effect on the nervous system.
+E) This disorder has similar symptoms to the destruction of the corticospinal tract destruction, both causing large body movement disorders.
+
+---QUESTION 37---
+ID: 37 | POINTS: 3.00 | FORMAT: Free Response
+TOPIC: Neuroscience | Cellular respiration | Action potentials | Cyanide poisoning
+DIFFICULTY: High
+QUESTION: [3] You poison a neuron with cyanide. Cyanide disrupts cellular respiration by binding to the iron in cytochrome c oxidase, a key enzyme in the mitochondrial electron transport chain. Based on the given mechanism for cyanide, how will this affect action potential generation?
+
+---QUESTION 38---
+ID: 38 | POINTS: 11.00 | FORMAT: Free Response (3 parts)
+TOPIC: Clinical Neuroscience | Lateral medullary syndrome | Cranial nerves | Spinal tracts
+DIFFICULTY: Very High
+QUESTION: [16] Adapted from Medbullets. A 59-year-old male presents with sensory changes on the right side of his face, left side of his body, and dizziness. He also reports some trouble with swallowing, and his wife noticed that his voice sounds hoarse. Past medical history is significant for hypertension and type 2 diabetes mellitus. On physical examination, there is a right-sided Horner's syndrome. Uvula is deviated towards the left. There is right-sided vocal cord paralysis and absence of elevation of the right palate during phonation. There is loss of pain sensation on the right-sided face and left-sided trunk and limbs. (Lateral medullary syndrome)
+a) [4] What structures are involved with loss of pain and temperature on the right side of the face. Include which cranial nerve(s). Support your answers.
+b) [4] Which spinal tract is involved with loss of pain and temperature on the side of the left body? Support your answers.
+c) [3] Which cranial nerve(s) are involved in dysphagia, hoarseness, uvula deviation to left, right vocal cord paralysis? Support your answers.
+
+---QUESTION 39---
+ID: 39 | POINTS: 1.00 | FORMAT: Fill-in-blank / Image Analysis
+TOPIC: Clinical Neuroscience | Lateral medullary syndrome | Vascular supply
+DIFFICULTY: Medium
+QUESTION: d) [1] Which artery is affected in the scenario? Put NA if it is not labelled (exactly how it's shown).
+
+---QUESTION 40---
+ID: 40 | POINTS: 3.00 | FORMAT: Fill-in-blank / Image Analysis
+TOPIC: Neuroanatomy | Brainstem anatomy | Image identification
+DIFFICULTY: Medium
+QUESTION: e) [2] Identify B, C, and D respectively. All lowercase.
+
+---QUESTION 41---
+ID: 41 | POINTS: 2.00 | FORMAT: Fill-in-blank
+TOPIC: Clinical Neuroscience | Spinal cord | Vascular supply
+DIFFICULTY: Medium
+QUESTION: [2] Another patient presents with lower extremity weakness and sensory loss. Which artery would most likely be affected in this scenario? All lowercase. (this question is no longer pertaining to the image)
+
+---QUESTION 42---
+ID: 42 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Clinical Neuroscience | Vascular procedures | Catheter routes
+DIFFICULTY: High
+QUESTION: [2] A 3-month-old infant is brought to the emergency department with apnea, hypotonia, and a weak cry. Imaging shows an acute infarction in the superior cerebellum and midbrain extending to the pons and midbrain. Magnetic resonance angiography is performed and reveals stenosis in the left superior cerebellar artery. The preoperative plan calls for a balloon angioplasty and stenting of the left SCA. Which of the following routes is the most direct and safe approach for the balloon catheter to follow?
+OPTIONS:
+A) Right femoral artery, abdominal aorta, left subclavian artery, left vertebral artery, basilar artery, left SCA.
+B) Right femoral vein, right atrium, superior vena cava, pulmonary artery, left internal carotid, left SCA.
+C) Left femoral artery, abdominal aorta, right subclavian artery, right vertebral artery, basilar artery, left SCA.
+D) Left external carotid artery, posterior meningeal artery, SCA.
+E) None of the above are logical
+F) There are at least 2 options that provide equally valid routes
+
+---QUESTION 43---
+ID: 43 | POINTS: 2.00 | FORMAT: Fill-in-blank
+TOPIC: Neuroscience | Electrical models | Hodgkin-Huxley model
+DIFFICULTY: Medium
+QUESTION: [2] In the physical neuron, what represents the capacitor?
+
+---QUESTION 44---
+ID: 44 | POINTS: 5.00 | FORMAT: MC / Free Response (3 parts) / Image Analysis
+TOPIC: Neuroscience | Action potentials | Hodgkin-Huxley model | Giant squid axon
+DIFFICULTY: High
+QUESTION: [5] Let's review the basics about action potentials. The figure shows an action potential of a giant squid axon.
+a) [1] How long might a calcium-based action potential last?
+OPTIONS:
+A. 2-5 ms
+B. 100 ms
+C. 70-80 ms
+D. 5-10 ms
+b) [2] Why did researchers of the Hodgkin-Huxley model choose this animal's axon?
+c) [2] Describe the feedback that's initiated at point A. If there's another feedback loop represented, describe it too.
+
+---SECTION 4: Nervous System - What you didn't Sign Up for---
+
+---QUESTION 45---
+ID: 45 | POINTS: 2.00 | FORMAT: Calculation
+TOPIC: Neuroscience | Equilibrium potential | Nernst equation | Sodium ions
+DIFFICULTY: High
+QUESTION: [2] The two key factors that determine ion flow rate are the number of open channels and the driving force of that ion. An ion's driving force is governed by diffusion (a stochastic process) and electrical forces. Given that the intracellular concentration of sodium ions is 15 mM and the extracellular concentration is 150 mM, determine the equilibrium potential for sodium ions in volts. Put only the number in your answer (no units), rounded to the nearest thousandth if necessary.
+
+---QUESTION 46---
+ID: 46 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Neuroscience | Ion channels | Conductance
+DIFFICULTY: Medium
+QUESTION: [1] We can express the current flow through open channels for an ion with the following equation, where gion is conductance. Which of the following best describes what gion is in this equation?
+I. How many channels are open for that ion
+II. The resistance of the channel for that ion
+III. How easily ions flow through that ion's channel
+OPTIONS:
+A) I and II only
+B) I, II, and III
+C) II only
+D) I and III only
+E) II and III only
+F) None of the above
+
+---QUESTION 47---
+ID: 47 | POINTS: 3.00 | FORMAT: Calculation / Derivation
+TOPIC: Neuroscience | Ion channels | Gate kinetics | Differential equations
+DIFFICULTY: Very High
+QUESTION: [3] Consider a channel protein with charged portions called gates that move in response to the electrical field across the membrane. Each such gate can exist in one of two states: permissive and non-permissive. The ability of a channel to allow ion flow depends on whether all the gates are in the correct permissive state. Let x be the probability of finding a single gate in the permissive state. Given that there exist only 2 possible states for a gate, let α be the rate of non-permissive gate opening and β be the rate of closing for a permissive gate. Derive a differential equation for x representing how fast the number of permissive gates changes. (i.e., find an equation for dx/dt).
+
+---QUESTION 48---
+ID: 48 | POINTS: 3.00 | FORMAT: Free Response / Image Analysis
+TOPIC: Neuroscience | Ion channels | Conductance | Graph interpretation
+DIFFICULTY: Very High
+QUESTION: [3] Individual ion-specific channel proteins transition between two discrete states: open and closed (note that there do exist multiple closed conformations, but we can sweep that under the rug). An ion-specific conductance is the combined conductance of all open channel proteins of the same type. Thus, a conductance can vary continuously between zero and a maximum value (all channels open). Does this graph model ion-specific conductance? Why or why not? If not, what does it model?
+
+---QUESTION 49---
+ID: 49 | POINTS: 1.00 | FORMAT: MC / Image Analysis
+TOPIC: Neuroscience | Ion channels | Gate kinetics | Voltage dependence
+DIFFICULTY: Medium
+QUESTION: [1] Which of the following graphs best models how the rate of gate opening varies with membrane voltage?
+OPTIONS:
+A) A
+B) B
+C) C
+D) D
+E) More than one of the above
+F) None of the above
+
+---QUESTION 50---
+ID: 50 | POINTS: 2.00 | FORMAT: Fill-in-blank / Image Analysis
+TOPIC: Neuroscience | Electrical models | Hodgkin-Huxley circuit
+DIFFICULTY: Medium
+QUESTION: [2] This is an electric circuit of the single-compartment Hodgkin-Huxley model. Think back to the electrical concepts we introduced earlier. What A, B, C, and Cm in the physical neuron (0.5 each)?
+
+---QUESTION 51---
+ID: 51 | POINTS: 9.00 | FORMAT: Free Response (4 parts) / Image Analysis
+TOPIC: Neuroscience | Ion channels | K2P channels | TREK-1 | Mirror neurons
+DIFFICULTY: Very High
+QUESTION: [9] A certain drug is known to target two-pore domain K+ (K2P) channels. The K2P channel family contributes 15 genes encoding proteins notable for their unique subunit architecture, biophysical properties, and role in maintaining cell membrane potential. K2P channel subunits have a distinct body plan- each has four transmembrane domains (TMD), two re-entrant pore (P)-forming loops, and intracellular amino- and carboxy-termini. Notably, the open probability of K2P channels is largely independent of changes in the voltage difference across the plasma membrane under physiological conditions. TREK-1, a certain K2P, is shown in the image. The hypothetical drug in question, CHET4, is a very strong allosteric activator of TREK-1.
+a) [3] K2P channels constitute what type of channel on the neuronal membrane? What leads you to think this? If this channel is represented by the circuit diagram, state what symbolizes it.
+b) [3] How would CHET4 likely affect the resting membrane potential and the neurons ability to fire an action potential? Include reasoning in terms of the circuit diagram too.
+c) [2] Suppose CHET4 localizes to mirror neurons. Describe how 1 everyday function might be affected by CHET4.
+d) [1] List the aliases for KCNK18.
+
+---QUESTION 52---
+ID: 52 | POINTS: 4.00 | FORMAT: Free Response
+TOPIC: Neuroscience | Action potentials | Hodgkin-Huxley model | Sodium gating variables
+DIFFICULTY: High
+QUESTION: [4] Interpret how m and h affect the action potential.
+
+---QUESTION 53---
+ID: 53 | POINTS: 1.00 | FORMAT: MC / Image Analysis
+TOPIC: Neuroscience | Action potentials | Sodium activation | Voltage dependence
+DIFFICULTY: Medium
+QUESTION: [1] Select the graph that likely models the sodium activation variable, m, against membrane voltage.
+OPTIONS:
+A) A
+B) B
+C) C
+D) D
+E) More than one of the above
+F) None of the above
+
+---QUESTION 54---
+ID: 54 | POINTS: 1.00 | FORMAT: MC / Image Analysis
+TOPIC: Neuroscience | Action potentials | Sodium inactivation | Voltage dependence
+DIFFICULTY: Medium
+QUESTION: [1] Select the graph that most likely models the sodium activation variable, h, against membrane voltage.
+OPTIONS:
+A) A
+B) B
+C) C
+D) D
+E) More than one of the above
+F) None of the above
+
+---QUESTION 55---
+ID: 55 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Neuroscience | Action potentials | Potassium conductance | Gating variables
+DIFFICULTY: Medium
+QUESTION: [2] Potassium conductance only depends on a single conductance variable, n(V, t), n ∈ [0, 1]. How will n change throughout the course of the action potential?
+
+---QUESTION 56---
+ID: 56 | POINTS: 6.00 | FORMAT: Free Response (3 parts)
+TOPIC: Clinical Neuroscience | Syncope | Transient loss of consciousness
+DIFFICULTY: High
+QUESTION: Kanish Unapperedy, a 23-year-old man, comes into the clinic after he fell down while losing consciousness while on a fast. He tells you that he only lost consciousness for a few seconds and regained muscle function in a similar time frame. You ask him for his past medical history, and he tells you that he has been taking immunosuppressants after getting transcatheter aortic valve replacement (TAVR!!). He also tells you that he has had no past history of seizures, alcohol use, or illicit drugs.
+a) [2] What specific SUBTYPE of this disorder is this, and what are the dead giveaways for its classification?
+b) [2] What factors could have caused this?
+d) [2] When trying to diagnose the specific cause of this disorder, what are the two tests you should conduct to evaluate Kanish?
+
+---QUESTION 57---
+ID: 57 | POINTS: 8.00 | FORMAT: Free Response (3 parts)
+TOPIC: Neuroscience | Mathematical models | FitzHugh-Nagumo model | Hodgkin-Huxley model
+DIFFICULTY: Very High
+QUESTION: [8] The FitzHugh–Nagumo (FHN) model is a simplified 2D version of the Hodgkin–Huxley model which models in a detailed manner activation and deactivation dynamics of a spiking neuron. where I is the magnitude of the stimulus current.
+a) [2] What do V and W represent physiologically (hint: observe how they change)?
+b) [4] How can such a simple model preserve the key physiological aspects of neuron excitability? Describe what parts of this equation conserve key concepts similar to the HH-model.
+c) [2] List 3 disadvantages of this model compared to the traditional Hodgkin-Huxley.
+
+---SECTION 5: Sense Organs - General Knowledge---
+
+---QUESTION 58---
+ID: 58 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Vision | Eye anatomy | Retina | Macular sparing
+DIFFICULTY: Medium
+QUESTION: [1] Nobody loves sensory, but it is a separate system from nervous. However, reading comprehension is the #1 skill in Scioly, so you decide to investigate the inner workings of the eye, since you seem to always miss the important words in a reading passage. Which of the following is true?
+OPTIONS:
+A) Macular sparing occurs when you cut the optic nerve close enough to the retina.
+B) In disorders similar to albinism, where some pigments cannot be synthesized, vision would not be affected because the pigments in the eye are synthesized from vitamin A, not tyrosine/phenylalanine.
+C) The double oxidation of vitamin A produces retinol, the photopigment in rods.
+D) The anatomy of the eye is not what you would expect, with nervous tissue protruding backwards into the retina and blood vessels in front of the cones and rods, using Muller cells to bypass the cells.
+E) None of the above is true.
+
+---QUESTION 59---
+ID: 59 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Hearing | Auditory system | Hair cells | Endolymph
+DIFFICULTY: Medium
+QUESTION: [1] While listening to Spotify all day, Eric wonders about the mechanisms of hearing, and decides to read Vanders chapter 7 instead of slacking off. Which of the following is true?
+OPTIONS:
+A) The reason hair cells in the ear are surrounded by endolymph is because of its high Na+ content, so when stimulated, Na+ can flood in and depolarize the cell.
+B) The inner hair cells are integral in adjusting the frequency of the sound that the outer hair cells respond to.
+C) Very low frequency sounds pass through the helicotrema instead of traveling through the basilar membrane and stimulating hair cells, which is why they are not heard.
+D) A and B are true
+E) None of the above
+
+---QUESTION 60---
+ID: 60 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Hearing | Auditory pathway | Vestibulocochlear nerve
+DIFFICULTY: Medium
+QUESTION: [1] Even more curious about hearing, he investigates the workings of the ear. Which of the following is true?
+OPTIONS:
+A) The vestibulocochlear nerve passes through the brainstem and thalamus before entering the temporal lobe.
+B) The vestibulocochlear nerve, once in the auditory cortex, partitions itself into different sections based on the amplitude of sound the neuron carries.
+C) Hair cells have motile stereocilia, which allow them to detect vibrations of the basilar membrane.
+D) All of the above are true.
+E) None of the above is true.
+
+---QUESTION 61---
+ID: 61 | POINTS: 1.00 | FORMAT: MC (multi-select)
+TOPIC: Neuroanatomy | Motor pathways | Sensory pathways | Spinal cord
+DIFFICULTY: High
+QUESTION: [1] Kain kidnaps Erk and starts experimenting on him after Erk did not follow the treaty. He decides to screw Erk's descending and ascending pathways. Select all of the following that are true.
+OPTIONS:
+A) When Kain destroys Erk's corticobulbar pathway, Erk will no longer be able to speak his blasphemous words.
+B) When Kain destroys Erk's brainstem pathway, Erk's ability to type "No, I'm Erk" will be severely diminished.
+C) When Kain destroys Erk's corticospinal pathway, Erk will still be able to fist-bump Kain and say "Turkey!"
+D) Kain uses UV irradiation to give Erk cancer on the left side of his spinal cord. Now, Erk is immune to pain on his left side below the tumor and can get whipped by a nametag without problem.
+E) The aforementioned tumor also makes his left side numb to pressure sensation, allowing him to sit through a lecture on freshwater mussels.
+
+---QUESTION 62---
+ID: 62 | POINTS: 2.00 | FORMAT: Fill-in-blank (2 blanks)
+TOPIC: Vestibular system | Endolymph | Membranous labyrinth
+DIFFICULTY: Medium
+QUESTION: [2] The membranous labyrinth contains endolymph, an extracellular fluid unique in that it has high concentrations of (?). This makes it so that depolarization of mechanoreceptors in the labyrinth is caused by passive inflow (?). Fill in the blanks.
+
+---QUESTION 63---
+ID: 63 | POINTS: 1.00 | FORMAT: MC (multi-select)
+TOPIC: Vision | Optic chiasm | Visual pathways
+DIFFICULTY: Medium
+QUESTION: [1] I have decided to split Anish's optical chiasm down the sagittal plane just for fun. Which of the following is true about Anish's current state.
+OPTIONS:
+A) Both nasal retinas will not perceive light.
+B) Both temporal retinas will not perceive light.
+C) The nasal retina and temporal retina of the left and right eye respectively will not work.
+D) The nasal retina and temporal retina of the right and left eye respectively will not work.
+E) Anish will still have fully functional vision.
+
+---QUESTION 64---
+ID: 64 | POINTS: 1.00 | FORMAT: MC / Image Analysis
+TOPIC: Vision | Color blindness | Inheritance patterns
+DIFFICULTY: Medium
+QUESTION: Questions 7-9: Use the following image. [1] Which of the following diseases most likely exhibits the inheritance pattern shown above (choose the most common type)? Hint: Females are less commonly affected because they would need to inherit a defective gene
+OPTIONS:
+A) Protanopia
+B) Deuteranomaly
+C) Monochromacy
+D) Protanomaly
+
+---QUESTION 65---
+ID: 65 | POINTS: 2.00 | FORMAT: Fill-in-blank / Image Analysis
+TOPIC: Vision | Color blindness | Color spectrum
+DIFFICULTY: Medium
+QUESTION: [2] Hopefully you aren't color blind. Pick the color spectrum (1-8, starting from the top) that most likely matches the answer you picked in the question before.
+
+---QUESTION 66---
+ID: 66 | POINTS: 2.00 | FORMAT: Fill-in-blank
+TOPIC: Vision | Color blindness | Genetics
+DIFFICULTY: Medium
+QUESTION: [2] List the gene(s) mutated in the disease from the aforementioned question in alphabetical order. All uppercase.
+
+---QUESTION 67---
+ID: 67 | POINTS: 2.00 | FORMAT: MC (select 2)
+TOPIC: Olfaction | Olfactory epithelium | Odorant processing
+DIFFICULTY: Medium
+QUESTION: [2] Supporting olfactory epithelial cells contain enzymes that can oxidize volatile chemicals, making them less lipid soluble. Select two reasons why the epithelium does this.
+OPTIONS:
+A) It clears receptors, allowing olfactory sensory neurons to quickly be able to detect new smells.
+B) It breaks odorants down so they can be recognized by the olfactory receptors.
+C) It helps odorants cross the cell membranes so they can affect the cells internally.
+D) It protects the cells by making dangerous odorants unable to cross the membrane.
+E) It allows for utilization of organic compounds in the odorants for cellular machinery.
+
+---QUESTION 68---
+ID: 68 | POINTS: 1.00 | FORMAT: MC / Image Analysis
+TOPIC: Vestibular system | Semicircular canals | Histology
+DIFFICULTY: Medium
+QUESTION: Questions 11-12: Use this histological slide. [2] What is the function of the structure being pictured?
+OPTIONS:
+A) Interpretation of equilibrium
+B) Sense angular acceleration and deceleration
+C) Detect rotation in the sagittal plane
+D) Detect rotation in the coronal plane
+
+---QUESTION 69---
+ID: 69 | POINTS: 1.00 | FORMAT: MC / Image Analysis
+TOPIC: Histology | Microscopy | Magnification
+DIFFICULTY: Easy
+QUESTION: [1] What magnification was this slide most likely taken at?
+OPTIONS:
+A) 4x
+B) 10x
+C) 40x
+D) 100x
+E) 1000x
+
+---QUESTION 70---
+ID: 70 | POINTS: 3.00 | FORMAT: MC (multi-select) / Image Analysis
+TOPIC: Vestibular system | Balance | Gravity | Otoliths
+DIFFICULTY: Very High
+QUESTION: [3] In a study done by Arntz AI et al., researchers examined how the vestibular drive to standing balance changes when the sensory cues of gravity are manipulated. In experiments 1 and 2 (shown below) subjects stood on a force plate and were strapped to a board that limited sway into the sagittal place. Stochastic vestibular stimulation (0-25 Hz) was applied over the mastoid process. In experiment 1, additional load was added by increasing tension in springs under constant gravity. In experiment 2, subjects underwent parabolic flight maneuvers that resulted in hypergravity phases while spring tension was adjusted to maintain the vertical load. The researchers quantified vestibular drive by analyzing the coherence and cumulant density between the EVS (electric vestibular stimulation) and EMG activity of the medial gastrocnemius and soleus muscles. Note: 1F = normal body weight and 2F = 2x body weight. Select all the statements that are true.
+OPTIONS:
+A) In the first experiment, increasing load from 1F to 2F at a constant 1G decreases the relative contribution of the vestibular system.
+B) In the second experiment, comparing 0G-1F to 1G-2F isolates the effects of tonic otoliths while maintaining somatosensory load.
+C) In the second experiment, comparing 1.8G-1.8F to 1G-2F keeps otolith activity constant while also maintaining the somatosensory load.
+D) EVS responses are almost fully otolithic because the head is in a fixed position.
+E) This particular experimental setup will allow the researchers to determine the particular source(s) of gravitational info (i.e., vestibular or somatosensory).
+F) None of the above are true
+
+---SECTION 6: Sense Organs - Multiple-True/False---
+
+---QUESTION 71---
+ID: 71 | POINTS: 3.00 | FORMAT: MC (multi-select) / Image Analysis
+TOPIC: Vision | Visual pathways | Optic nerve | Visual field defects
+DIFFICULTY: Very High
+QUESTION: [3] Ken Zeng is acting up once again, so Eric decides to clone him and use him as an experiment to test vision loss. He purposely injured Ken in various parts of his optical nerve and collected data on the loss of his visual field. Which of the following is true about his study?
+OPTIONS:
+A) Data collected on the third row was collected by severing the optical nerve in the occipital lobe.
+B) Data collected in the first image could be caused by a tumor pressing down on the optic chiasm.
+C) The lateral geniculate nucleus is important for keeping rod and cone information separated, allowing for visual acuity.
+D) You can eliminate the zone of monocular vision with a singular cut.
+E) The least amount of cuts needed to cause complete blindness in one eye while sparing half the vision in the other eye is 4.
+
+---QUESTION 72---
+ID: 72 | POINTS: 3.00 | FORMAT: True/False (5 parts)
+TOPIC: Vestibular system | Semicircular canals | Head movements
+DIFFICULTY: High
+QUESTION: [3] Select if each of the following statements is true or false.
+A) If you tip your head forward and roll it towards the right, the right anterior canal will excite more than the left anterior canal.
+B) Because the anterior canals are oriented at 45 degrees to the sagittal plane, they will not fire equally when pitching your head forward or back.
+C) Moving your left ear closer to your left shoulder inhibits the firing of your right posterior canal.
+D) Horizontal canals would play a key role in detecting movements such as rolling your head right to left.
+E) Shaking your head is an example of yaw.
+F) None of the above
+
+---QUESTION 73---
+ID: 73 | POINTS: 3.00 | FORMAT: True/False (5 parts)
+TOPIC: Hearing | Auditory system | Ear anatomy
+DIFFICULTY: Medium
+QUESTION: [3] Select if each of the following statements is true or false.
+A) Nerves that carry audio signals also signal for taste due to nerves merging.
+B) A 100 decibel is ten times louder than a 10 decibel.
+C) The eustachian tube is normally open to allow the pressure within the inner ear and outside environment to equalize.
+D) The stapes are attached to the oval window.
+E) The round window helps relieve pressure within the inner ear.
+F) None of the above
+
+---QUESTION 74---
+ID: 74 | POINTS: 3.00 | FORMAT: True/False (5 parts)
+TOPIC: Vision | Phototransduction | Rod cells | Retinal biochemistry
+DIFFICULTY: High
+QUESTION: [3] For each of the following statements regarding vertebrate phototransduction, mark whether it is True or False:
+A) In darkness, rod outer segments maintain a depolarized state due to open cyclic nucleotide–gated (CNG) channels allowing Na+ influx.
+B) Light exposure activates transducin, which in turn stimulates guanylyl cyclase to increase cGMP concentration.
+C) The closure of CNG channels upon light stimulation reduces glutamate release from the photoreceptor terminal.
+D) All-trans-retinal must be enzymatically converted back to 11-cis-retinal in the retinal pigment epithelium before rods can fully recover sensitivity.
+E) The rod cell hyperpolarizes with light because intracellular Ca2+ levels fall, leading to opening of more K+ channels in the plasma membrane.
+
+---QUESTION 75---
+ID: 75 | POINTS: 3.00 | FORMAT: True/False (4 parts)
+TOPIC: Olfaction | Olfactory bulb | Lateral inhibition | GABA
+DIFFICULTY: High
+QUESTION: [3] You kidnap Kelvin Quan to study the olfactory apparatus. In order to study the relationship between interneurons and mitral and tufted cells, you alter the interneurons(periglomerular and granule cells) so they do not release GABA. This makes it so mitral and tufted cells cannot have reciprocal inhibition. Select if each of the following statements are true or false.
+A) Kelvin would be able to differentiate smells more easily due to no interneuron interference.
+B) The stimulation of one glomeruli would not cause less firing in other glomeruli.
+C) When you stimulate Kelvin's tufted cells, they will become desensitized more easily.
+D) Overstimulation occurs less often as there is less inhibition of neurons.
+E) None of the above
+
+---QUESTION 76---
+ID: 76 | POINTS: 3.00 | FORMAT: True/False (5 parts)
+TOPIC: Vestibular system | Otoliths | Otolith membrane | Saccule
+DIFFICULTY: High
+QUESTION: [3] Select if each of the following statements is true or false
+A) Moving forwards causes the otolith membrane to push the stereocilia in the opposite direction.
+B) The structure of otolith membranes makes it so they minimize inertia so they point in the direction of movement.
+C) The saccule macula is oriented in the sagittal plane so it can detect vertical motion.
+D) Gravity affects the otolith membranes more than it affects the cupula.
+E) The otolith membrane has similar density compared to the endolymph, allowing for smooth movements with the endolymph.
+
+---QUESTION 77---
+ID: 77 | POINTS: 6.00 | FORMAT: Free Response (2 parts) / Image Analysis
+TOPIC: Vision | Rhodopsin | Hydropathy plots | Protein structure | Membrane proteins
+DIFFICULTY: Very High
+QUESTION: [22] The following image and description are taken from Molecular Biology of the Cell by Bruce Alberts. Hydropathy plots can be used to localize potential alpha-helical membrane-spanning segments in a polypeptide chain. The free energy needed to transfer successive segments of polypeptide chain from a nonpolar solvent to water is calculated from the amino acid composition of each segment using data obtained from model compounds. This calculation is made for segments of a fixed size (usually around 10–20 amino acids), beginning with each successive amino acid in the chain. The hydropathy index of the segment is plotted on the Y axis as a function of its location in the chain. A positive value indicates that free energy is required for transfer to water (that is, the segment is hydrophobic), and the value assigned is an index of the amount of energy needed. You obtain the following hydropathy plot for some unknown protein. We'll refer to this as protein X for this mini-section.
+a) [2] Observe the pattern of the hydropathy plot. Name a protein common in the eyes that would have a similar hydropathy plot.
+b) [4] Daniel infers that the polypeptide sequence for this protein might have the transfer sequence: H₂N–start, start, stop, start, stop, start, stop–COOH. Is this correct? Explain how the transfer sequence might be derived. TBII
+c) [3] Consider the following isomerization reaction (hint hint). Using the hydropathy plot, predict which regions of protein X will undergo conformational change upon forward progression of isomerization. Briefly explain how you reached your answer.
+d) [4] Referring to the process above again, imagine we drive the reaction forward extremely quickly and suddenly. How does protein X adapt to this? What is this phenomenon known as in physiology?
+
+---SECTION 7: Sense Organs - Case Studies---
+
+---QUESTION 78---
+ID: 78 | POINTS: 7.00 | FORMAT: Free Response (2 parts) / Image Analysis
+TOPIC: Vision | Rhodopsin | Evolution | Cetacean vision | Deep-sea adaptation
+DIFFICULTY: Very High
+QUESTION: [7] In 2022, Dungan and Chang presented a resurrected ancestral cetacean (whales, dolphins and porpoises) version of protein X. They obtained the following data, shown in the figures. Whippomorpha is a suborder of artiodactyls that contains all living cetaceans (whales, dolphins, and porpoises) and the hippopotamids. (A) Dark and light-activated absorption spectra. The indicated λmax values are the means (±SEs) of estimates calculated for separately eluted samples of each pigment (where n is the number of elutions per pigment). Light-activated spectral peaks are 380 nm, which is the characteristic signature of the light-activated intermediate, and insets show dark-light difference spectra. (https://doi.org/10.1073/pnas.2118145119)
+f) [4] The figure shows a blue shift (i.e., shorter wavelengths corresponding to higher intensity) in the ancestral Cetacea protein X compared to Whippomorph. For reference, human have a peak at about 498 nm. Explain why a shift from 500 nm to 486.1 nm would be advantageous to deep-diving marine animals. How can the λmax (lambda max) be tuned?
+g) [3] Baljeet and Joe are partners for the Science Olympiad. Joe won't study, so, reasonably, Baljeet takes Joe 800 meters deep in the ocean. How will the usability of their protein X differ from that of an animal adapted to live at this depth?
+
+---QUESTION 79---
+ID: 79 | POINTS: 8.00 | FORMAT: Free Response (4 parts)
+TOPIC: Clinical Medicine | Eye disorders | Conjunctivitis | Keratitis
+DIFFICULTY: High
+QUESTION: [8] A 32-year-old male caucasian comes into your clinic with alpha wolf eyes. Like the proper medical intern you are, you take his history. He tells you he has been on a one-week Kai Cenat subathon while playing Valorant, and he came into the clinic because his eyes suddenly had excessive discharge, despite his attempts at removing it to keep watching the stream. He has been eating off of unwashed copper plates and has had sexual relationships prior to the clinical visit. He has been previously diagnosed with gonorrhea and herpes. He is prescribed prednisone (corticosteroid) but refuses to take it. Using this information, answer the following questions.
+a) [2] Do NOT list the disorder name; diagnose him with the specific subtype of this disorder.
+b) [2] What treatment (if any) would be the typical path any competent doctor would take (if naming medicines, do NOT say antibiotics/antivirals)?
+c) [2] Since your brain lacks plasticity, you wonder about the pathophysiology behind this disorder. Which of his multitude of problems could have caused this disorder, and how?
+d) [2] What two parts of the patient's history allowed you to diagnose this disorder?
+
+---QUESTION 80---
+ID: 80 | POINTS: 4.00 | FORMAT: Free Response
+TOPIC: Vision | Optics | Accommodation
+DIFFICULTY: Medium
+QUESTION: [4] What is optical infinity? Where is it typically?
+
+---QUESTION 81---
+ID: 81 | POINTS: 13.00 | FORMAT: Free Response (4 parts) / Image Analysis
+TOPIC: Vision | Cornea | Cranial nerves | Tear film | Refraction
+DIFFICULTY: Very High
+QUESTION: [13] Figure 1 illustrates how a puff of air momentarily deforms the cornea. The cornea flattens (first applanation), bends inward to a maximum concavity, then returns to its original shape (second applanation). The motion is recorded at high speed.
+a) [2] Which cranial nerve carries sensory information from this mechanical deformation?
+b) [4] During this experiment, the cornea bends inward before quickly bouncing back to shape. Which part of the cornea mainly accounts for this elasticity and toughness? How would vision quality be affected if this structure was impaired.
+c) [4] Repeated puffs of air in rapid succession may alter the tear film coating the cornea. How will this disrupt the perception of sensory info?
+d) [3] Say the curvature of the cornea becomes flatter after repeated testing, how will this affect they way light focuses on to the retina?
+
+---QUESTION 82---
+ID: 82 | POINTS: 2.00 | FORMAT: MC (select 2)
+TOPIC: Vestibular system | Hair cells | Stereocilia | Kinocilium
+DIFFICULTY: Medium
+QUESTION: [2] When the stereocilia bend (?) the kinocilium, it causes the cell to (?). Select two right answers.
+OPTIONS:
+A) Away from; inhibit
+B) Away from; stimulate
+C) Away from; have no change
+D) Towards; inhibit
+E) Towards; stimulate
+F) Towards; have no changes
+
+---QUESTION 83---
+ID: 83 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Vestibular system | Labyrinth | Endolymph | Perilymph
+DIFFICULTY: Medium
+QUESTION: [2] Which of the following is true
+OPTIONS:
+A) The membranous labyrinth is held in place by connective tissues that suspend it with string-like structures.
+B) The endolymph is in contact with the bony labyrinth.
+C) The membranous labyrinth is suspended in perilymph.
+D) The fluid contained within the otolith organs and semicircular canals are different.
+
+---QUESTION 84---
+ID: 84 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Hearing | Auditory pathway | Brainstem nuclei
+DIFFICULTY: Medium
+QUESTION: [2] Which of the following describes the correct order of the auditory pathway?
+OPTIONS:
+A) Cochlear nucleus → superior olivary nucleus → inferior colliculus → medial genicular nucleus
+B) Cochlear nucleus → inferior colliculus → superior olivary nucleus → medial genicular nucleus
+C) Cochlear nucleus → superior olivary nucleus → medial genicular nucleus → inferior colliculus
+D) Cochlear nucleus → medial genicular nucleus → inferior colliculus → superior olivary nucleus
+
+---QUESTION 85---
+ID: 85 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Hearing | Hearing loss | Conductive hearing loss
+DIFFICULTY: Easy
+QUESTION: [2] Anish has suffered an injury, resulting in deafness. However, his doctors said that this form of deafness was easy to treat. Which type of hearing loss is most likely the one Anish suffered from?
+OPTIONS:
+A) Mixed hearing loss
+B) Semiorineural hearing loss
+C) Drum hearing loss
+D) Conductive hearing loss
+E) None of the above
+
+---SECTION 8: Endocrine System - General Knowledge---
+
+---QUESTION 86---
+ID: 86 | POINTS: 2.00 | FORMAT: MC (multi-select)
+TOPIC: Endocrinology | Thyroid | Thyroid hormone synthesis
+DIFFICULTY: Medium
+QUESTION: [2] The endocrine system has a lot of synthesis pathways, one being the steroid hormone synthesis pathway. However this is irrelevant to the question and you wasted time reading flavortext. Select all of the following that are true.
+OPTIONS:
+A) Thyroid peroxidase turns atomic iodine into an electrophile, allowing it to undergo an electrophilic addition to the aromatic ring of tyrosine.
+B) One byproduct of thyroid hormone synthesis is the amino acid glycine, which is not chiral.
+C) The combination of two residues is a simple fischer esterification, which forms an ester bond between the two.
+D) Both hypothyroidism and hyperthyroidism share some similar symptoms, the main three being fatigue, hair loss, and insomnia.
+E) During Hashimoto's thyroiditis, the thyroid gland will swell in size.
+
+---QUESTION 87---
+ID: 87 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Endocrinology | Cortisol | Stress response | Circadian rhythm
+DIFFICULTY: Medium
+QUESTION: [1] One of the critical functions of the endocrine system is to control reproductive function. The endocrine system controls the fluctuations of reproductive hormones, timing of reproductive events, and development of your reproductive system. Which of the following are true?
+OPTIONS:
+A) Cortisol increases during infection, making sure the inflammatory and immune responses are sufficient for the protection of the body.
+B) During a stress response, cortisol triggers the release of insulin to mobilize energy stores and make sure the body has sufficient energy.
+C) Cytokines trigger the release of cortisol, creating a positive feedback loop.
+D) Addison's disease is similar to congenital adrenal hyperplasia where both disorders cannot produce enough of all steroid hormones, one of which is cortisol.
+E) The release of cortisol is timed with the circadian clock, increasing in the morning and decreasing when you go to bed.
+
+---QUESTION 88---
+ID: 88 | POINTS: 9.00 | FORMAT: Free Response (4 parts) / Image Analysis
+TOPIC: Endocrinology | Pituitary gland | Histology | Staining
+DIFFICULTY: High
+QUESTION: [9] The hypothalamus and the pituitary gland are the master endocrine regulators of the body. Below is the histology of a gland. Answer the following questions.
+a) [2] What macromolecule is being stained in this picture?
+b) [2] What stain is being used in this picture (hint: there a chemistry youtube channel with the same name)?
+c) [3] What hormones are produced by this section of the gland?
+d) [2] Damage to this section of the gland will result in what symptoms?
+
+---QUESTION 89---
+ID: 89 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Endocrinology | Growth hormone | Growth | IGF | Growth plates
+DIFFICULTY: Medium
+QUESTION: [1] The endocrine system is very important for regulating growth. Lawrence Sun, the resident 5' 1" wants to learn how to make himself taller. In his research, he stumbles upon a list of statements. Which of the following is true?
+OPTIONS:
+A) Growth hormone effect is not dependent on thyroid hormone.
+B) Testosterone is the main stimulation for growth plate proliferation, and decreased testosterone at the end of puberty causes growth plate closure.
+C) Growth hormone causes release of IGF2 from chondrocytes, which act as an autocrine and paracrine effector molecule, causing more growth.
+D) A and C are both true.
+E) None of the above are true.
+
+---QUESTION 90---
+ID: 90 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Endocrinology | Hormone interactions | Synergistic effects | Permissive effects
+DIFFICULTY: Medium
+QUESTION: [1] The endocrine system has many complex interactions between hormones. Someone writing this test doesn't remember all of them, and is given a list of statements. Which of the following is true?
+OPTIONS:
+A) Cortisol and epinephrine have a synergistic effect on vasoconstriction through the upregulation of alpha1 adrenergic receptors.
+B) Thyroid hormone has a permissive effect on epinephrine's ability to cause lipolysis in adipocytes by decreasing the amount of beta adrenergic receptors (which sequester epinephrine by activating the wrong downstream pathway) and increasing alpha adrenergic receptors.
+C) Estrogen-prolactin feedback loop is similar to the feedback loop used by voltage gated K+ channels in neurons.
+D) A and B are true.
+E) None of the above are true.
+
+---QUESTION 91---
+ID: 91 | POINTS: 2.00 | FORMAT: MC (multi-select)
+TOPIC: Endocrinology | Steroid hormone synthesis | Adrenal cortex | Enzymes
+DIFFICULTY: High
+QUESTION: [2] Steroid hormone synthesis has numerous steps and alternate pathways that allow the body to regulate the production of each hormone in tandem. Select all of the following that are true.
+OPTIONS:
+A) A patient presents with elevated estrone levels, low estradiol levels, and low testosterone levels. A possible explanation for this would be excessive aromatase activity.
+B) A patient presents with Addison's disease and has a lack of androgens despite functional cholesterol side chain cleavage enzyme activity. When tested, it is found that the patient has elevated progesterone levels. One possible explanation is dysfunction of hydroxylase enzymes.
+C) Fluorescent in-situ hybridization of aldosterone synthase results in a high concentration in the smooth endoplasmic reticulum.
+D) 3 beta hydroxysteroid dehydrogenase is both an oxidizing agent (turning an OH group into an O), and isomerase (changes the position of a carbon double bond).
+E) In the adrenal cortex, you would find large amounts of rough endoplasmic reticulum, which facilitates steroid hormone synthesis.
+
+---QUESTION 92---
+ID: 92 | POINTS: 2.00 | FORMAT: MC (select 2)
+TOPIC: Endocrinology | Pancreas | Islets of Langerhans | Insulin | Glucagon
+DIFFICULTY: Medium
+QUESTION: [2] Select two of the following that are true about the pancreas.
+OPTIONS:
+A) The islet of Langerhans is mainly composed of alpha cells with negligible amounts of beta cells.
+B) The beta cells of the pancreas produce insulin after meals.
+C) Alpha cells are more active during 'fight or flight'
+D) Beta cells have internal cyclin-mediated clocks that release one half of stored insulin, then another half later in a biphasic pattern.
+E) Delta cells are essential to the function of alpha and beta cells, stimulating them.
+
+---QUESTION 93---
+ID: 93 | POINTS: 2.00 | FORMAT: MC (select false statements)
+TOPIC: Endocrinology | Thyroid | Colloid | Thyroglobulin | T3 | T4
+DIFFICULTY: Medium
+QUESTION: [1] The thyroid is a unique gland responsible for regulating many bodily functions. Choose all the false statements.
+OPTIONS:
+A) The thyroid is unique in that it is the only endocrine gland that stores large amounts of its hormone precursor in colloid.
+B) Colloid is stored intracellularly in specialized large vacuoles reminiscent of those in plant cells.
+C) The thyroid gland is functionally dependent on TSH because it regulates iodine uptake, thyroglobulin production, and colloid endocytosis.
+D) T4 is the prohormone of T3 and is converted to T3 in target organs.
+E) rT3(reverse T3) is T3 but with a different arrangement of iodine atoms, so it is still functional with a relatively high affinity.
+
+---QUESTION 94---
+ID: 94 | POINTS: 2.00 | FORMAT: MC / Image Analysis
+TOPIC: Endocrinology | Thyroid hormone | Metamorphosis | TR receptors | Xenopus
+DIFFICULTY: Very High
+QUESTION: [2] In Xenopus tropicalis (western clawed frog), thyroid hormone (T3) binds to thyroid hormone receptors (TRs), which regulate essential genes for metamorphosis. TRa is expressed before T3 is present in cells and plays a role both in repressing metamorphic genes when unbound and activating them when bound. TALEN (transcription activator-like effector nuclease)-mediated knockout of TR$a has allowed the super sigma biology studying group (SSBSG) to study its function in vivo. A member of the SSBSG performs a TALEN knockout of TRa in fertilized X. tropicalis eggs and raises WT heterozygous and homozygous siblings identically. They then track tadpole development. Which of the following statements about TRa function and T3 signaling is false?
+OPTIONS:
+A) TRα knockout leads to an earlier decrease of T3-induced genes even in the absence of T3.
+B) TRα knockout reduces the tadpole's ability to respond to both endogenous and exogenous T3.
+C) Unbound TRα acts as an activator of genes promoting premature metamorphosis before stage 54.
+D) All of the above statements are true.
+
+---QUESTION 95---
+ID: 95 | POINTS: 2.00 | FORMAT: MC / Image Analysis
+TOPIC: Endocrinology | Thyroid hormone | TR receptors | Tissue-specific effects
+DIFFICULTY: Very High
+QUESTION: [2] Following the previous study, the SSBSG created a transgenic mutant line of X. tropicalis that expresses a ubiquitous promoter of TRβ. When TRα homozygotes were crossed with this line, the resulting mutants were exposed to exogenous T3. Compared to T3α homozygotes alone, the transgenic line showed full intestinal remodeling but delays in tail resorption. What is the most likely explanation for their observation?
+OPTIONS:
+A) TRβ can not bind to the same T3 response elements as in TRα in tail tissues
+B) TRβ inhibits tail resorption
+C) Intestinal tissue is more sensitive to the non-genomic effects of T3
+D) Both A and B
+E) Both A and C
+F) None of the above
+
+---QUESTION 96---
+ID: 96 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Endocrinology | Parathyroid glands | Anatomy
+DIFFICULTY: Easy
+QUESTION: [1] The parathyroid glands are located on the _____ surface of the thyroid and there are normally ____ of them.
+OPTIONS:
+A) Posterior; six
+B) Anterior; four
+C) Posterior; four
+D) Anterior; six
+E) Posterior; two
+F) Anterior; two
+
+---SECTION 9: Endocrine System - Case Studies---
+
+---QUESTION 97---
+ID: 97 | POINTS: 11.00 | FORMAT: Free Response (3 parts)
+TOPIC: Clinical Endocrinology | Acromegaly | Growth hormone | Sleep apnea
+DIFFICULTY: Very High
+QUESTION: [11] Cade Cunningham walks in with joint pain. He explains that he had visited 10 different doctors and they have all prescribed him with oxycontin and told him to go away. You decide to diagnose him properly. He tells you that he has been experiencing fatigue during the day and his wife kicked him onto the couch for snoring too much. Further examination of his retina shows bulging.
+a) [3] Is Cade Cunningham cooked? Diagnose him and explain the etiology of this specific case and how you can tell.
+b) [6] What caused his symptoms? Explain each one.
+c) [2] Explain the logical course of action to treat him (besides obviously providing him with copious amounts of opioids)
+
+---QUESTION 98---
+ID: 98 | POINTS: 9.00 | FORMAT: Free Response (4 parts)
+TOPIC: Clinical Endocrinology | Myxedema coma | Hypothyroidism | Coma
+DIFFICULTY: Very High
+QUESTION: [9] Cade Cunningham comes in next week, who had divorced after your previous diagnosis. He comes with his wife, who has been struggling with drug issues and addiction. She has been in a coma for 2 days, and he has run out of food stamps to keep feeding her. He admits they have been sharing the opioids that you prescribed him last visit. As the great doctor you are, you decide to take this case on yourself. He tells you that before the coma, she had been constantly tired, but unable to sleep despite shooting up on meth every hour. Her hair and teeth are decaying, but you brush this off as typical addict behavior.
+a) [2] What is wrong with Cade Cunningham's new wife?
+b) [2] What do you think the triggering cause is?
+c) [3] What symptoms are consistent with the underlying cause?
+d) [2] Surprised that she has survived this long, what is the immediate short term care you should provide for Cade's wife before she inevitably dies (probably from an opioid overdose?)
+
+---QUESTION 99---
+ID: 99 | POINTS: 7.00 | FORMAT: Free Response (3 parts) / Image Analysis
+TOPIC: Clinical Endocrinology | Pheochromocytoma | Catecholamines | EKG
+DIFFICULTY: Very High
+QUESTION: [9] Cade Cunningham, after going through opioids anonymous, is now clean. However, he comes back after suffering a manic episode where he tries to strangle the counselor after he says that Cade is making progress. After restraining him to the bed with handcuffs, you decide to run some tests. When you return to the room, his EKG shows the following figure. His heart rate is elevated, and his respiratory rate is also extremely elevated. His pupils are dilated. You check his blood report and see an abnormally high peptide C level.
+a) [3] What is wrong with him now?
+b) [2] Explain each of his symptoms and his blood test.
+c) [2] How would you treat Cade's immediate symptoms and how would you treat his disorder in general?
+
+---QUESTION 100---
+ID: 100 | POINTS: 9.00 | FORMAT: Free Response (3 parts)
+TOPIC: Clinical Endocrinology | Hyperaldosteronism | Conn syndrome | Hypertension
+DIFFICULTY: Very High
+QUESTION: [9] Finally someone who isn't Cade Cunningham! Swajay Adjacent comes into the clinic with his son who is having a hypertensive crisis. After treating him with the typical run of opioids and beta blockers, you decide to take a closer look at what is happening. As you listen to his heartbeat, you hear the hallmark "Tennessee" heartbeat. He is also complaining about muscle cramps, palpitations, and weakness.
+a) [2] You decide to run a blood test after giving him a low dose of diuretics. What are you looking for?
+b) [4] You discover using pulldown assays that his son has an abnormal fused protein. Explain how this causes his symptoms.
+c) [2] How can you treat him?
+
+---QUESTION 101---
+ID: 101 | POINTS: 9.00 | FORMAT: Free Response (3 parts)
+TOPIC: Clinical Endocrinology | Hyperparathyroidism | PTH | Bone disease | Lung cancer
+DIFFICULTY: High
+QUESTION: [5] Eric is tired of writing. He wants to get out. Patient presents with broken leg. Reports fatigue, weakness, bone pain (even before breaking it!), and nausea.
+a) [2] What disorder does this patient have?
+b) [1] You discover that he has small lung cancer. Does this have any association with his disorder?
+c) [2] Based on your previous two answers, what do you think is the cause of his symptoms?
+
+---SECTION 10: Endocrine System - Logic/Application---
+
+---QUESTION 102---
+ID: 102 | POINTS: 5.00 | FORMAT: MC (multi-select) / Image Analysis
+TOPIC: Endocrinology | Steroid hormone receptors | Nuclear import | Ecdysone | EcR
+DIFFICULTY: Very High
+QUESTION: [5] Ecdysone and its active form 20-hydroxyecdysone (20E) regulate gene expression by binding to the nuclear ecdysone receptor (EcR), which forms a heterodimer with ultraspiracle (USP), the invertebrate analog of the retinoic X receptor. Binding of EcR to its ligand induces a conformational change that activates a bipartate nuclear localization signal (NLS), allowing for karyopherin α/β import. However, vertebrate steroid hormone receptors differ in their structure and transport dynamics. The SSBSG's number 1 goon, Eric is studying the nuclear import of EcR in Drosophila S2 cells under the effect of 3 compounds (1, 2, and 3, shown below). He then constructs the following experiment. S2 cells are transfected with a fluorescent EcR. The cells are then individually treated with compounds 1, 2, or 3 and fluorescence microscopy is used to track EcR location and determine a nuclear/cytoplasmic fluorescence ratio. This is then repeated under 3 more conditions: an RNAi-mediated importin-β knockout, an EcR mutant with a point mutation in the suspected NLS, and a mutant that lacks a ligand binding domain entirely. Based on Eric's results and the chemical structures shown, mark all of the statements that are supported.
+OPTIONS:
+A) Compound B is most likely compound 1.
+B) Compound A has an effect that is analogous to that of compound 2's primary precursor's on androgen receptors.
+C) The similar N/C ratios for all compounds under Importin-β RNAi implies that passive diffusion is sufficient for nuclear entry of EcR.
+D) There might exist a secondary import pathway for EcR, based on the data shown.
+E) Compound C is compound 2 and mimics the effects of a vertebrate steroid hormone that recognizes EcR's ligand-binding domain but doesn't induce the proper conformational change.
+
+---QUESTION 103---
+ID: 103 | POINTS: 11.00 | FORMAT: Free Response (3 parts)
+TOPIC: Endocrinology | Endocrine disruptors | BPA | Estrogen receptors | Pregnancy
+DIFFICULTY: Very High
+QUESTION: [11] BPA (bisphenol A) is a synthetic chemical commonly used in plastics, food containers, receipts, and other consumer products. Studies have shown that BPA is an endocrine-disrupting chemical(EDC) because it can mimic the body's hormones, especially estrogens.
+a) [3] Estradiol's structure consists of 4 fused rings, one of which is the aromatic ring. This aromatic ring is called a phenolic A-ring. Examine the structures of both estradiol and BPA. Why do you think BPA would have an affinity for estrogen receptors?
+b) [4] When you eat, chemicals pass through the gut, portal vein, the liver, and then into systemic circulation. The liver will break down a majority of BPA. Using the given information, would dermal absorption or oral ingestion of BPA be more toxic and why?
+c) [4] Studies have shown that it is best to avoid plastics during pregnancy as they contain BPA, which is harmful to the infant. When pregnant individuals are exposed to high amounts of BPA, there are devastating effects. Why would the fetus and mother be greatly affected?
+
+---QUESTION 104---
+ID: 104 | POINTS: 12.00 | FORMAT: Free Response (5 parts) / Image Analysis
+TOPIC: Endocrinology | Pancreas | FFAR1 | Diabetes | G-protein coupled receptors
+DIFFICULTY: Very High
+QUESTION: [12] Free fatty acids have numerous roles in the human body, including energy storage, insulation and as building blocks for various compounds. Free Fatty Acid Receptor 1 (FFAR1) is a G-Protein coupled receptor which senses medium-long chain free fatty acids (C6>). This receptor expressed in pancreatic ꞵ-cells and pancreatic α-cells. FFAR1 is also expressed in the central nervous system. Using your knowledge on the pancreatic ꞵ-cell and the image below, answer the following questions. Primary FFAR1 signaling pathways (https://doi.org/10.3390/ijms25147853): (PLC: Phospholipase C, i: Increased cytosolic, AC: Adenylyl cyclase)
+a) [2] What is the primary function of FFAR1 in the pancreatic islet? Are there any secondary functions in the islet?
+b) [4] Breaking Bob, age 25, has entered SSBSG medical center with plasma hyperglycemia, glycosuria and fatigue. Using your knowledge, diagnose Breaking Bob and describe a method to target FFAR1 in order to treat this disorder.
+c) [2] Since any targeting of FFAR1 would relate to fatty acids, describe one potential side effect of the method of targeting FFAR1 you stated in part b.
+d) [1] What would be different about this signalling pathway if FFAR1 was activated by a medium-chain fatty acid?
+e) [3] Knowing FFAR1 is important for nutrient sensing and pancreatic function, propose another area of the body where FFAR1 could be expressed WITH a functional role in that tissue.
+
+---QUESTION 105---
+ID: 105 | POINTS: 12.00 | FORMAT: Free Response (5 parts) / Image Analysis
+TOPIC: Endocrinology | Pancreas | FFAR1 | Diabetes | G-protein coupled receptors
+DIFFICULTY: Very High
+QUESTION: [12] Free fatty acids have numerous roles in the human body, including energy storage, insulation and as building blocks for various compounds. Free Fatty Acid Receptor 1 (FFAR1) is a G-Protein coupled receptor which senses medium-long chain free fatty acids (C6>). This receptor expressed in pancreatic ꞵ-cells and pancreatic α-cells. FFAR1 is also expressed in the central nervous system. Using your knowledge on the pancreatic ꞵ-cell and the image below, answer the following questions. Primary FFAR1 signaling pathways (https://doi.org/10.3390/ijms25147853): (PLC: Phospholipase C, i: Increased cytosolic, AC: Adenylyl cyclase)
+a) [2] What is the primary function of FFAR1 in the pancreatic islet? Are there any secondary functions in the islet?
+b) [4] Breaking Bob, age 25, has entered SSBSG medical center with plasma hyperglycemia, glycosuria and fatigue. Using your knowledge, diagnose Breaking Bob and describe a method to target FFAR1 in order to treat this disorder.
+c) [2] Since any targeting of FFAR1 would relate to fatty acids, describe one potential side effect of the method of targeting FFAR1 you stated in part b.
+d) [1] What would be different about this signalling pathway if FFAR1 was activated by a medium-chain fatty acid?
+e) [3] Knowing FFAR1 is important for nutrient sensing and pancreatic function, propose another area of the body where FFAR1 could be expressed WITH a functional role in that tissue.

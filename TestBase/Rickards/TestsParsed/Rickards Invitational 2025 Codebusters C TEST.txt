@@ -1,0 +1,249 @@
+EVENT: Codebusters
+SOURCE: Rickards Invitational 2025 (Div. C)
+FORMAT: 33 questions (1 Timed + 32 Regular) - Various cipher types
+TOTAL POINTS: 9657
+
+---TIMED QUESTION---
+
+---QUESTION TQ---
+ID: TQ | POINTS: 250.00 | FORMAT: Timed Question | Aristocrat
+TOPIC: Cryptography | Substitution ciphers | Timed bonus
+DIFFICULTY: High
+QUESTION: Timed Question. [250 Points] Solve this Aristocrat. When you have finished, watch this Youtube Video so your answer can be checked and time recorded.
+CIPHERTEXT: K MHU YSHY DXTI JHBW UHM ZHPPKCJ RW, PKOW H RHJCWY YX RWYHP, VWRHCVKCJ YSHY UW RXNW YXJWYSWI, MPXUPD.
+
+---SECTION 1: Regular Questions---
+
+---QUESTION 1---
+ID: 1 | POINTS: 363.00 | FORMAT: K2 Xenocrypt
+TOPIC: Cryptography | K2 cipher | Xenocrypt | Spanish
+DIFFICULTY: High
+QUESTION: Solve this K2 Xenocrypt about triumph.
+CIPHERTEXT: WY GOJUJ JU MYUZJ, WY JLQHRJ JR VQJGY. ZYWRJ GJ ZQJ, ZYCÑOJ BPYCB FYVQJWAB OWB DBRBUUB JZQFB.
+
+---QUESTION 2---
+ID: 2 | POINTS: 282.00 | FORMAT: K2 Aristocrat
+TOPIC: Cryptography | K2 cipher | Aristocrat | Spelling irregularities
+DIFFICULTY: Medium
+QUESTION: Solve this K2 Aristocrat Cypher that has some spelling irregularities.
+CIPHERTEXT: AJERSCDLWEU J VRRDSL JLRCEQ BVS JEESGS RT BVS BVWLBH-NBRLSH NYHNMLJOSL BRRY JSREN BR AJNBSL.
+
+---QUESTION 3---
+ID: 3 | POINTS: 238.00 | FORMAT: Aristocrat
+TOPIC: Cryptography | Substitution cipher | Aristocrat | Betrayal
+DIFFICULTY: Medium
+QUESTION: Solve this Aristocrat about betrayal.
+CIPHERTEXT: SRSJ VM PWEUS KCASJX, UEVSEJS NZGN A NCYUNSX, EJS QZE UZGCSX VM DCSGX, ZGU NYCJSX GIGAJUN VS.
+
+---QUESTION 4---
+ID: 4 | POINTS: 259.00 | FORMAT: Complete Columnar
+TOPIC: Cryptography | Complete Columnar cipher | Transposition
+DIFFICULTY: Medium
+QUESTION: Decode this phrase that was encoded using the Complete Columnar cipher. You are told that the plaintext contains ETIDI.
+CIPHERTEXT: EDCIO TALLS DRAXT SBQDT RDYOI EBXHU EUNOE WDAET ATOEM TDKHR NEIAE X
+
+---QUESTION 5---
+ID: 5 | POINTS: 223.00 | FORMAT: Porta
+TOPIC: Cryptography | Porta cipher | Keyword cipher
+DIFFICULTY: Medium
+QUESTION: Decode this phrase that was encoded using the Porta cipher with a keyword of SEVEN.
+CIPHERTEXT: JASLA QTMWX NNXLW GCXJY FCJWX OXLTO EDSIV QPDRX FUIFV YTID
+
+---QUESTION 6---
+ID: 6 | POINTS: 473.00 | FORMAT: K1 Patristocrat
+TOPIC: Cryptography | K1 cipher | Patristocrat | Taking the first step
+DIFFICULTY: Very High
+QUESTION: Solve this K1 Patristocrat about taking the first step.
+CIPHERTEXT: AWUIB KUIAM JJFWC VIIOK AAWUI WVIDR WRMAP CJJNW VPKOI VNIKV FWCBR IVUMF HIJKP IDKJJ HIIMA KIZ
+
+---QUESTION 7---
+ID: 7 | POINTS: 274.00 | FORMAT: Hill
+TOPIC: Cryptography | Hill cipher | Matrix encryption | Encoding key
+DIFFICULTY: High
+QUESTION: Decode this phrase that was encoded using the Hill cipher and the encoding key HEARTBEAT.
+ENCODING KEY MATRIX: [7 4 0; 17 19 1; 4 0 19]
+DECODING KEY MATRIX: [25 18 10; 15 1 15; 18 14 13]
+CIPHERTEXT: YVUWAOGNYWUWQLIVDYOWMCGHDVGIFN
+
+---QUESTION 8---
+ID: 8 | POINTS: 253.00 | FORMAT: Porta
+TOPIC: Cryptography | Porta cipher | Keyword cipher
+DIFFICULTY: Medium
+QUESTION: Decode this phrase that was encoded using the Porta cipher. You are told the plaintext ends with LLY.
+CIPHERTEXT: VKHDX VTBBY XXJQX GJAQG NPRWW CODAV RVVKH UWEXK BDTOQ H
+
+---QUESTION 9---
+ID: 9 | POINTS: 211.00 | FORMAT: Baconian
+TOPIC: Cryptography | Baconian cipher | Binary encoding
+DIFFICULTY: Medium
+QUESTION: Decode this phrase that was encoded using the Baconian cipher.
+CIPHERTEXT: ABYZABYAZBAYZBYZABABYAZYBABZAYBAZBABAYBABZAYBZABAYBAZBA BYAZYBZYZAYBAZBYAZYBABABZYABZYZABYAZBAYBABZYZAYZBYZABAY BAZBABYABABZAYBAZYBZYABZYABZABYAZBABYABABZAYBAZBYABZABY AZYBABZYAZYBZABAYBZYABZAB
+
+---QUESTION 10---
+ID: 10 | POINTS: 256.00 | FORMAT: Aristocrat
+TOPIC: Cryptography | Substitution cipher | Aristocrat | Patience
+DIFFICULTY: Medium
+QUESTION: Solve this Aristocrat about having patience.
+CIPHERTEXT: QW IPLOIQI LEVIOMBSI GEO KFJMNNEFBLQIBL FJ QMLSTIK EBVW YW LTI KIMVIO'J FBMYFVFLW LE ZFDI QI GMSI SMOKJ.
+
+---QUESTION 11---
+ID: 11 | POINTS: 274.00 | FORMAT: K2 Aristocrat
+TOPIC: Cryptography | K2 cipher | Aristocrat | Keyword identification
+DIFFICULTY: High
+QUESTION: Solve this K2 Aristocrat. You are told that the keyword used is 6 letters long. What is the keyword? Box your final answer.
+CIPHERTEXT: YZ XGKKLA OZC RXGWW EZS XGE MLLW, EZSA HLPYN PR PAALQWGILGHWL, G QALRLYIL KOGK IGYYZK HL IZQPLJ ZA RSHRKPKSKLJ.
+
+---QUESTION 12---
+ID: 12 | POINTS: 519.00 | FORMAT: K2 Patristocrat
+TOPIC: Cryptography | K2 cipher | Patristocrat | Average introvert
+DIFFICULTY: Very High
+QUESTION: Solve this K2 Patristocrat about an average introvert.
+CIPHERTEXT: HXTER TPCAE JTFKP GGRPF TSEUH EEHXS ERHEF GPCSS PFVCT GGQIH CEHXY CWHTF FYUYT SXYNA YVTHP AVYCW HEKEN TC
+
+---QUESTION 13---
+ID: 13 | POINTS: 264.00 | FORMAT: Nihilist Substitution
+TOPIC: Cryptography | Nihilist Substitution cipher | Polybius square | Keywords
+DIFFICULTY: High
+QUESTION: Decode this phrase that was encoded using the Nihilist Substitution cipher with a keyword of ENGLISH and a polybius key of TEACHER.
+CIPHERTEXT: 43 59 36 48 62 88 57 / 24 56 69 74 66 75 59 / 33 66 39 48 42 59 27 / 47 46 40 45 52 56 46 / 56 70 66 47 46 57 50 / 26 47 56 58 72 66 36 / 53 67 37
+
+---QUESTION 14---
+ID: 14 | POINTS: 251.00 | FORMAT: Cryptarithm | Special Bonus
+TOPIC: Cryptography | Cryptarithm | Base 10 addition | Special bonus
+DIFFICULTY: High
+QUESTION: Solve this cryptarithm for 902154 635. Write out your final answer and box it. ⋆This question is a special bonus question.
+Base 10 Addition
+Answer: 902154 635 (two words)
+DISTANCE
++ ISOLATION
+-------------
+DISTASTES
+
+---QUESTION 15---
+ID: 15 | POINTS: 486.00 | FORMAT: Nihilist Substitution
+TOPIC: Cryptography | Nihilist Substitution cipher | Keyword identification
+DIFFICULTY: Very High
+QUESTION: Decode this phrase that was encoded using the Nihilist Substitution cipher. You are told that the keyword used to encode it is between 3 and 7 letters long and the plaintext ends with YOU'RE ALIVE.
+CIPHERTEXT: 37 23 70 86 68 64 66 46 78 66 24 44 58 86 75 48 / 34 57 66 45 65 54 58 86 76 36 53 60 55 49 65 45 / 60 68 56 47 34 58 56 46 28 64 49 68 57 35 47 88 / 68
+
+---QUESTION 16---
+ID: 16 | POINTS: 294.00 | FORMAT: K1 Aristocrat
+TOPIC: Cryptography | K1 cipher | Aristocrat | Keyword identification
+DIFFICULTY: High
+QUESTION: Solve this K1 Aristocrat. You are told that the keyword used is 5 letters long. What is the keyword? Box your final answer.
+CIPHERTEXT: SXTPNCPO FSCI KDAKVP BPADW, CIP MJXJXJ NAPJCDAPB MPNYWP QAPXHSPO JXO SXOPBCADNCSMVP.
+
+---QUESTION 17---
+ID: 17 | POINTS: 308.00 | FORMAT: Checkerboard | Special Bonus
+TOPIC: Cryptography | Checkerboard cipher | Polybius square | Special bonus
+DIFFICULTY: High
+QUESTION: Decode this phrase that was encoded using the Checkerboard cipher. You are told that the plaintext ends with EACH OTHER. ⋆This question is a special bonus question.
+CIPHERTEXT: DY AN DW RW RD RY OW DD AD AY RI AI AN DY RW RY AN RD AY RY RD RY RD DD RD SD DW SW AY AI OW AY RN OY OW DD RD RN AW DW DD RD OW OY AN DW DY AN RD DD
+
+---QUESTION 18---
+ID: 18 | POINTS: 332.00 | FORMAT: K3 Aristocrat
+TOPIC: Cryptography | K3 cipher | Aristocrat | Keyword identification
+DIFFICULTY: Very High
+QUESTION: Solve this K3 Aristocrat. You are told that the keyword used is 8 letters long. What is the keyword? Box your final answer.
+CIPHERTEXT: TQB'P RUP MQIW TWUXAF SUP PQQ OXW XVUXT QO MQI. FPXMGBS GB PVU CWUFUBP GF XF GACQWPXBP OQW FIZZUFF XF MQIW SQXRF.
+
+---QUESTION 19---
+ID: 19 | POINTS: 216.00 | FORMAT: Aristocrat
+TOPIC: Cryptography | Substitution cipher | Aristocrat | Mesmerizing gaze
+DIFFICULTY: Medium
+QUESTION: Solve this Aristocrat about a mesmerizing gaze.
+CIPHERTEXT: AQJLAFA HAOCJP VOCUAU JBA SBITA CZKXALUA JI UJIY OZN UJOLA GIL O SBKTA, HCJ IZTP IZA SKTT HA JBA TCVEP FOZ.
+
+---QUESTION 20---
+ID: 20 | POINTS: 268.00 | FORMAT: Aristocrat
+TOPIC: Cryptography | Substitution cipher | Aristocrat | Tragedy
+DIFFICULTY: Medium
+QUESTION: Solve this Aristocrat about a tragedy.
+CIPHERTEXT: UGYMQZHA YFKN OHVJV JGUUAM TGHVMV GZ UPUMQ-JTFK BGSMQ XPQNV PKN VMKN MXG-ZQFMKNAD UAPVJFX RPOV NQFZJFKO.
+
+---QUESTION 21---
+ID: 21 | POINTS: 229.00 | FORMAT: Aristocrat
+TOPIC: Cryptography | Substitution cipher | Aristocrat | Limitations
+DIFFICULTY: Medium
+QUESTION: Solve this Aristocrat about limitations.
+CIPHERTEXT: GUMMHNY NG MBCWNUDIVNP VT UMTMUKMH GNU CMNCWM SVIJNFI GDYVWVDW HFIVMT JNWHVPE IJMY ODRX.
+
+---QUESTION 22---
+ID: 22 | POINTS: 344.00 | FORMAT: K1 Xenocrypt
+TOPIC: Cryptography | K1 cipher | Xenocrypt | Spanish
+DIFFICULTY: Very High
+QUESTION: Solve this K1 Xenocrypt that was taken straight from the soul.
+CIPHERTEXT: WÑ XLJÑQ QK XL PIHÑEIM KNJÑN KM KW MIXOHK QK ZMÑ PLZQÑQ YZK KN WÑ PÑGLJÑNW QK ZMÑ MÑPLIM LMNZWÑNH.
+
+---QUESTION 23---
+ID: 23 | POINTS: 368.00 | FORMAT: Cryptarithm | Special Bonus
+TOPIC: Cryptography | Cryptarithm | Complex number multiplication | Special bonus
+DIFFICULTY: Very High
+QUESTION: Solve this cryptarithm for 307154 2968. Write out your final answer and box it. ⋆This question is a special bonus question.
+Base 10 Complex Number Multiplication
+Answer: 307154 2968 (two words)
+(WA − Ti)(E + Ri) = WA · E + (WA · R)i − (T · E)i + T · R = LY E + LRY i − WHi + CR = CHI + LLY i
+
+---QUESTION 24---
+ID: 24 | POINTS: 202.00 | FORMAT: Aristocrat
+TOPIC: Cryptography | Substitution cipher | Aristocrat | Legendary night
+DIFFICULTY: Medium
+QUESTION: Solve this Aristocrat about a legendary night.
+CIPHERTEXT: IF EYMG LDEJLCB FMHYE, ICX NDEEBJ OMBB FIE TJDGJ CFEMB OJ TDETY D HBMQZGJ IL EYJ RDOF'G XDVG.
+
+---QUESTION 25---
+ID: 25 | POINTS: 248.00 | FORMAT: Hill
+TOPIC: Cryptography | Hill cipher | Matrix encryption | Encoding key
+DIFFICULTY: High
+QUESTION: Decode this phrase that was encoded using the Hill cipher and the encoding key TOUR.
+ENCODING KEY MATRIX: [19 14; 20 17]
+CIPHERTEXT: QTYCLPWRENUXQCHYSQSAWVMCJY
+
+---QUESTION 26---
+ID: 26 | POINTS: 267.00 | FORMAT: Complete Columnar
+TOPIC: Cryptography | Complete Columnar cipher | Transposition
+DIFFICULTY: Medium
+QUESTION: Decode this phrase that was encoded using the Complete Columnar cipher. You are told that the plaintext contains OTHRO.
+CIPHERTEXT: GRTUI OIBGA EAOHE HEIOP REHDT EYAHH GOASW DAURO NHHRN GNRST NGTTI O
+
+---QUESTION 27---
+ID: 27 | POINTS: 267.00 | FORMAT: Checkerboard
+TOPIC: Cryptography | Checkerboard cipher | Polybius square | Keyword
+DIFFICULTY: Medium
+QUESTION: Decode this phrase that was encoded using the Checkerboard cipher with a polybius keyword of SATURDAY.
+CIPHERTEXT: IO EE TE TY IY / TO IM ME TO EO / EE EN IM IN TO / IN IO TO EN IM / SN IY EM EM MN / TO SO IY EM EE / TN TM EE MM MM / TE EN TN EE EN / ME MO MN TN
+
+---QUESTION 28---
+ID: 28 | POINTS: 458.00 | FORMAT: K2 Patristocrat
+TOPIC: Cryptography | K2 cipher | Patristocrat | Keyword identification
+DIFFICULTY: Very High
+QUESTION: Solve this K2 Patristocrat. You are told that the plaintext contains the word DIABETES.
+CIPHERTEXT: SJMOF IROMO VSJNJ LVRES EIEBO ODDSJ DESOB JEKID SDSOT ZERXT ZJZND SONTJ KODOE JDDSO EJYOD TYO
+
+---QUESTION 29---
+ID: 29 | POINTS: 332.00 | FORMAT: Fractionated Morse
+TOPIC: Cryptography | Fractionated Morse cipher | Morse code | Transposition
+DIFFICULTY: Very High
+QUESTION: Decode this phrase that was encoded using the Fractionated Morse cipher. You are told the plaintext begins with SHE IN.
+CIPHERTEXT: RQUEUHOBARTFZQUEDBSBNQMLYKULRYHCHNTP
+
+---QUESTION 30---
+ID: 30 | POINTS: 244.00 | FORMAT: Baconian
+TOPIC: Cryptography | Baconian cipher | Binary encoding
+DIFFICULTY: Medium
+QUESTION: Decode this phrase that was encoded using the Baconian cipher.
+CIPHERTEXT: CGUOBLRINGSOBLEINCURGOSBECLIURNSGEOCBLUINGRSEOCBLINURGO BSLIENCGOBLURINGOSEBLCINGUOBLRINGOBSLIECNGUOBRLINGSOECB LURSINECGUROSBLINEGOCBLINGOUBRSLIECNUGROSBLEINCUGROSEBC LUIRN
+
+---QUESTION 31---
+ID: 31 | POINTS: 361.00 | FORMAT: Fractionated Morse
+TOPIC: Cryptography | Fractionated Morse cipher | Morse code | Transposition
+DIFFICULTY: Very High
+QUESTION: Decode this phrase that was encoded using the Fractionated Morse cipher. You are told the plaintext ends with SCREEN and 1 Xs of padding at the very end.
+CIPHERTEXT: KGOBSPRVKVBH LACYBSQCQRS TDLVSTBCCSS HIYKPBCUQCT RBUH
+
+---QUESTION 32---
+ID: 32 | POINTS: 293.00 | FORMAT: Baconian | Special Bonus
+TOPIC: Cryptography | Baconian cipher | Binary encoding | Special bonus
+DIFFICULTY: High
+QUESTION: Solve the following Baconian cipher. You are told that the plaintext ends with NAME. ⋆This question is a special bonus question.
+CIPHERTEXT: ROAST ALBUM HIMBO DUMPY RELAY WEARY ROAST ILEUM CREEK DAILY ENTER SAVVY CUTER IDLED SUETS FLUKY YANKS VIBES MILER ATOLL TEALS EDEMA PERDU MACER QUEUE ENJOY ECLAT UDDER RULED WRAPS DEBUG MOVIE ASSAI BILGY BOOZE UNARM FONTS MAHUA

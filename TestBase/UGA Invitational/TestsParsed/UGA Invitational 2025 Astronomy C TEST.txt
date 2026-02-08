@@ -1,0 +1,455 @@
+EVENT: Astronomy
+SOURCE: UGA Invitational 2025 (Div. C)
+FORMAT: 41 questions (41 MC @ 1pt each)
+TOTAL POINTS: 41
+
+---QUESTION 1---
+ID: 1 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Stellar Physics | Luminosity | Stefan-Boltzmann Law
+DIFFICULTY: Medium
+QUESTION: Which of the following best describes the relationship between a star's luminosity L, radius R, and surface temperature T as according to the Stefan-Boltzmann law?
+OPTIONS:
+A) L∝ R^2T
+B) L ∝ RT^2
+C) L ∝ R^2T^4
+D) L ∝ R^3T^2
+
+---QUESTION 2---
+ID: 2 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Stellar Evolution | Main-sequence stars | Stellar life cycle
+DIFFICULTY: Easy
+QUESTION: Which of the following correctly lists the evolutionary sequence for a sun-like star?
+OPTIONS:
+A) Main Sequence → Protostar → Red Giant → Planetary Nebula → White Dwarf
+B) Protostar → Main Sequence → Planetary Nebula → Red Giant → White Dwarf
+C) Protostar → Red Giant → Main Sequence → Planetary Nebula → White Dwarf
+D) Protostar → Main Sequence → Red Giant → Planetary Nebula → White Dwarf
+
+---QUESTION 3---
+ID: 3 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Variable Stars | RR Lyrae | Standard candles | Properties
+DIFFICULTY: Medium
+QUESTION: Which of the following statements about RR Lyrae variables is false?
+OPTIONS:
+A) They are found mainly in globular clusters
+B) Their pulsation periods are typically less than 1 day
+C) They are used as standard candles for measuring extragalactic distances
+D) They have roughly the same absolute magnitude
+
+---QUESTION 4---
+ID: 4 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Star Formation | Molecular clouds | Gravitational collapse | Orion Molecular Cloud
+DIFFICULTY: Medium
+QUESTION: The Orion Molecular Cloud Complex (OMC) is one of the most active and well-studied star-forming regions in our cosmic neighborhood, where protostars and young stellar objects are actively forming. Which of the following statements best explains why this region is an ideal site for star formation?
+OPTIONS:
+A) The OMC consists primarily of hot ionized gas, which enhances magnetic turbulence and triggers core collapse
+B) The OMC's high density of heavy elements leads to spontaneous nuclear fusion in interstellar gas clouds
+C) The OMC is located far from any supernova remnants, preventing external shock waves from disturbing the gas cloud
+D) The OMC contains vast quantities of cold and dense gas such as hydrogen and carbon monoxide, which allows gravity to overcome the outward push of thermal pressure and initiate gravitational collapse.
+
+---QUESTION 5---
+ID: 5 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Stellar Objects | White dwarfs | Janus star | Recent discoveries
+DIFFICULTY: High
+QUESTION: Janus (ZTF J203349.8+322901.1) was discovered in 2023. What type of star is it?
+OPTIONS:
+A) A single white dwarf with two distinct hemispheres—one hydrogen-dominated and one helium-dominated
+B) A pulsating variable star with alternating helium- and hydrogen-dominated atmospheres
+C) A binary neutron star system emitting strong gravitational waves
+D) A rapidly rotating protostar surrounded by a bipolar protoplanetary disk
+
+---QUESTION 6---
+ID: 6 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Variable Stars | Mira variables | Long-period variables | Red giants
+DIFFICULTY: Medium
+QUESTION: Mira variables are important objects in studying stellar evolution. Which of the following best describes Mira variables?
+OPTIONS:
+A) Hot, young main-sequence stars that vary in brightness due to magnetic activity cycles
+B) Red supergiants nearing core collapse and Type II supernova explosion
+C) Long-period pulsating red giant stars that are nearing the end of their stellar lives, characterized by significant, regular changes in their brightness and size
+D) White dwarfs in binary systems that periodically undergo nova outbursts
+
+---QUESTION 7---
+ID: 7 | POINTS: 1.00 | FORMAT: MC | Calculation
+TOPIC: Orbital Mechanics | Kepler's laws | Orbital period | Binary systems
+DIFFICULTY: Medium
+QUESTION: A planet orbits a star with a mass of 2M⊙ at a distance of 5 AU. What is the orbital period of the planet? *TIEBREAKER #3*
+OPTIONS:
+A) 5 years
+B) 11.2 years
+C) 7.9 years
+D) 15.8 years
+
+---QUESTION 8---
+ID: 8 | POINTS: 1.00 | FORMAT: MC | Calculation
+TOPIC: Distance Measurement | Distance modulus | RR Lyrae | Parallax
+DIFFICULTY: Medium
+QUESTION: An RR Lyrae star has an apparent magnitude of m=12.3 and an absolute magnitude of M=0.75. Using the distance modulus, calculate the approximate distance to the star in parsecs. *TIEBREAKER #2*
+OPTIONS:
+A) 1,050 pc
+B) 11,550 pc
+C) 204 pc
+D) 2,040 pc
+
+---QUESTION 9---
+ID: 9 | POINTS: 1.00 | FORMAT: MC | Calculation
+TOPIC: Compact Objects | Neutron stars | Density | Stellar remnants
+DIFFICULTY: High
+QUESTION: A solar mass (1M⊙) is approximately 1.989 x 10^30 kg. Assume a certain neutron star is a perfect sphere, has a mass of 1.4 M⊙, and has a radius of 10 km. What is the approximate density of the neutron star? *TIEBREAKER #1*
+OPTIONS:
+A) 4.74 x 10^17 kg/m^3
+B) 4.74 x 10^16 kg/m^3
+C) 6.65 x 10^16 kg/m^3
+D) 6.65 x 10^17 kg/m^3
+
+---QUESTION 10---
+ID: 10 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Stellar Evolution | Pre-main-sequence | T Tauri stars | Protostars
+DIFFICULTY: Medium
+QUESTION: A young star is observed in a nearby molecular cloud. It has a mass similar to the Sun, is contracting toward the main sequence, shows strong irregular light variations, and is surrounded by powerful stellar winds. Based on these characteristics, what stage of stellar evolution is this star in?
+OPTIONS:
+A) Protostar
+B) T Tauri
+C) Main-sequence star
+D) Nebula
+
+---QUESTION 11---
+ID: 11 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Stellar Classification | HR Diagram | Luminosity | Temperature
+DIFFICULTY: Easy
+QUESTION: On a Hertzsprung-Russell diagram, what are the two main things being plotted?
+OPTIONS:
+A) Mass and radius
+B) Luminosity (or absolute magnitude) and temperature (or spectral class)
+C) Distance and apparent brightness
+D) Age and chemical composition
+
+---QUESTION 12---
+ID: 12 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Stellar Classification | Spectral classes | Temperature sequence | OBAFGKM
+DIFFICULTY: Easy
+QUESTION: Which spectral class has the hottest main sequence stars?
+OPTIONS:
+A) M
+B) G
+C) A
+D) O
+
+---QUESTION 13---
+ID: 13 | POINTS: 1.00 | FORMAT: MC | Calculation
+TOPIC: Stellar Physics | Stefan-Boltzmann Law | Luminosity | Radius
+DIFFICULTY: Medium
+QUESTION: A star has a surface temperature of 6000 K and a radius of 2 R☉. If another star has the same temperature but a radius of 4 R☉, how much more luminous is the second star? Use Stefan-Boltzmann's Law.
+OPTIONS:
+A) 2x
+B) 4x
+C) 8x
+D) 16x
+
+---QUESTION 14---
+ID: 14 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Deep Sky Objects | Supernova remnants | Cassiopeia A | Radio sources
+DIFFICULTY: Medium
+QUESTION: The Cassiopeia A (Cas A) Nebula is one of the brightest radio sources in the sky. What kind of object is it?
+OPTIONS:
+A) Planetary nebula
+B) Supernova remnant
+C) Reflection nebula
+D) Dark nebula
+
+---QUESTION 15---
+ID: 15 | POINTS: 1.00 | FORMAT: MC | Calculation
+TOPIC: Distance Measurement | Cepheid variables | Period-luminosity relation | Leavitt's Law
+DIFFICULTY: Medium
+QUESTION: A Cepheid variable has a period of 10 days and an apparent magnitude of m = 14. If its absolute magnitude is M = -4. Using Leavitt's law, calculate the distance to this star in parsecs.
+OPTIONS:
+A) 4,000 pc
+B) 1,000 pc
+C) 40,000 pc
+D) 10,000 pc
+
+---QUESTION 16---
+ID: 16 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Supernovae | Type Ia supernovae | Standard candles | Distance measurement
+DIFFICULTY: Medium
+QUESTION: Why are Type Ia supernovae so helpful for measuring really far distances?
+OPTIONS:
+A) They happen all the time in every galaxy
+B) They always reach about the same brightness at their peak, so we can use them as distance markers
+C) They mostly give off radio waves
+D) They only happen in globular clusters
+
+---QUESTION 17---
+ID: 17 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Compact Objects | White dwarfs | Chandrasekhar limit | Mass limits
+DIFFICULTY: Medium
+QUESTION: Which type of dead star has a mass limit of about 1.4 solar masses (the Chandrasekhar limit)?
+OPTIONS:
+A) Neutron star
+B) Black hole
+C) White dwarf
+D) Red giant
+
+---QUESTION 18---
+ID: 18 | POINTS: 1.00 | FORMAT: MC | Calculation
+TOPIC: Stellar Physics | Stefan-Boltzmann Law | Temperature | Luminosity
+DIFFICULTY: Medium
+QUESTION: Two stars have the same radius. Star A has a temperature of 5000 K and Star B has a temperature of 10,000 K. How many times more luminous is Star B compared to Star A?
+OPTIONS:
+A) 2x
+B) 4x
+C) 8x
+D) 16x
+
+---QUESTION 19---
+ID: 19 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Stellar Composition | Spectroscopy | Solar composition | Hydrogen
+DIFFICULTY: Easy
+QUESTION: If you look at a star's spectrum, you can figure out what it's made of. Which element shows up the strongest in the Sun's spectrum?
+OPTIONS:
+A) Helium
+B) Hydrogen
+C) Iron
+D) Carbon
+
+---QUESTION 20---
+ID: 20 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Deep Sky Objects | Planetary nebulae | Helix Nebula | NGC 7293
+DIFFICULTY: Medium
+QUESTION: The Helix Nebula (NGC 7293) is what kind of object?
+OPTIONS:
+A) Supernova remnant
+B) Planetary nebula
+C) Reflection nebula
+D) Molecular cloud
+
+---QUESTION 21---
+ID: 21 | POINTS: 1.00 | FORMAT: MC | Calculation
+TOPIC: Orbital Mechanics | Kepler's third law | Binary systems | Orbital period
+DIFFICULTY: Medium
+QUESTION: A binary star system has a total mass of 3 M☉ and an orbital separation of 2 AU. What's the orbital period of this system? Use Kepler's third law of planetary motion.
+OPTIONS:
+A) 1.63 years
+B) 1.15 years
+C) 2.31 years
+D) 3.27 years
+
+---QUESTION 22---
+ID: 22 | POINTS: 1.00 | FORMAT: MC | Calculation
+TOPIC: Orbital Mechanics | Kepler's third law | Planetary motion | Period-distance relation
+DIFFICULTY: Medium
+QUESTION: Suppose Planet A orbits a star at 9 AU with a period of 27 years. If Planet B orbits the same star at 4 AU, what will its period be?
+OPTIONS:
+A) 4 years
+B) 8 years
+C) 12 years
+D) 16 years
+
+---QUESTION 23---
+ID: 23 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Deep Sky Objects | Galactic center | Filaments | G359.13
+DIFFICULTY: High
+QUESTION: What exactly is The Bone (G359.13)?
+OPTIONS:
+A) A galactic center filament
+B) A dark cloud of gas and dust where stars might form someday
+C) A binary white dwarf system
+D) An active galactic nucleus
+
+---QUESTION 24---
+ID: 24 | POINTS: 1.00 | FORMAT: MC | Calculation
+TOPIC: Compact Objects | White dwarfs | Density | Stellar remnants
+DIFFICULTY: Medium
+QUESTION: A white dwarf has a mass of 0.6 M☉ (1.19 × 10³⁰ kg) and a radius of 6,000 km. What's its approximate average density?
+OPTIONS:
+A) 1.05 × 10⁹ kg/m³
+B) 1.32 × 10⁸ kg/m³
+C) 1.32 × 10⁹ kg/m³
+D) 1.05 × 10⁸ kg/m³
+
+---QUESTION 25---
+ID: 25 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Distance Measurement | Spectroscopic parallax | Distance determination | Spectral classification
+DIFFICULTY: Medium
+QUESTION: Spectroscopic parallax is a way to figure out how far away stars are. How does it work?
+OPTIONS:
+A) You measure how much a star shifts against background stars
+B) You figure out the star's spectral type and use that to estimate its actual brightness, then calculate distance
+C) You watch the Doppler shift in binary systems
+D) You measure gravitational lensing
+
+---QUESTION 26---
+ID: 26 | POINTS: 1.00 | FORMAT: MC | Calculation
+TOPIC: Distance Measurement | Distance modulus | Magnitude | Leavitt's Law
+DIFFICULTY: Medium
+QUESTION: A star has an apparent magnitude of 6 and is located 100 parsecs away. What's its absolute magnitude? Use Leavitt's Law to determine this.
+OPTIONS:
+A) 1
+B) 11
+C) -4
+D) 16
+
+---QUESTION 27---
+ID: 27 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Binary Systems | Center of mass | Mass ratio | Orbital mechanics
+DIFFICULTY: Medium
+QUESTION: In a binary star system, if Star A is twice as massive as Star B, how do their distances from the center of mass compare?
+OPTIONS:
+A) Star A orbits twice as far out as Star B
+B) Star B orbits twice as far out as Star A
+C) They both orbit at the same distance
+D) Star A orbits four times as far out as Star B
+
+---QUESTION 28---
+ID: 28 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Star Formation | Nebulae | NGC 6559 | Ophiuchus Star Family
+DIFFICULTY: Medium
+QUESTION: What are the contents of the Ophiuchus Star Family region (NGC 6559)?
+OPTIONS:
+A) Only old stars that are dying
+B) A mix of emission nebula, reflection nebula, and dark nebula where new stars are forming
+C) Just planetary nebulae
+D) A packed cluster of white dwarfs
+
+---QUESTION 29---
+ID: 29 | POINTS: 1.00 | FORMAT: MC | Calculation
+TOPIC: Distance Measurement | Parallax | Trigonometric parallax | Distance calculation
+DIFFICULTY: Easy
+QUESTION: A star is measured to have a parallax angle of 0.05 arcseconds. How far away is it?
+OPTIONS:
+A) 5 pc
+B) 10 pc
+C) 20 pc
+D) 50 pc
+
+---QUESTION 30---
+ID: 30 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Variable Stars | Cepheid variables | Period-luminosity relation | Brightness comparison
+DIFFICULTY: Medium
+QUESTION: If you're using the period-luminosity relationship for Cepheids, and Cepheid X has a period that's twice as long as Cepheid Y, what does that tell you?
+OPTIONS:
+A) Cepheid X is brighter than Cepheid Y
+B) Cepheid Y is brighter than Cepheid X
+C) They're equally bright
+D) Not enough information
+
+---QUESTION 31---
+ID: 31 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Compact Objects | Neutron stars | Properties | Pulsars
+DIFFICULTY: Medium
+QUESTION: Which of the following statements about neutron stars is false?
+OPTIONS:
+A) They can emit regular pulses of electromagnetic radiation if their magnetic axis is misaligned with their rotational axis.
+B) Their typical radii are comparable to Earth's radius.
+C) They are supported against further collapse by neutron degeneracy pressure.
+D) They are often formed in Type II supernova explosions.
+
+---QUESTION 32---
+ID: 32 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Stellar Evolution | Main-sequence lifetime | Mass-luminosity relation | Fuel consumption
+DIFFICULTY: Medium
+QUESTION: Which of the following best explains why massive stars have shorter main-sequence lifetimes than low-mass stars?
+OPTIONS:
+A) They burn hydrogen less efficiently.
+B) They have less hydrogen to fuse.
+C) They radiate energy at a much higher rate, consuming fuel faster.
+D) Their outer layers expand and cool rapidly.
+
+---QUESTION 33---
+ID: 33 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Binary Systems | Eclipsing binaries | Light curves | Binary classification
+DIFFICULTY: Medium
+QUESTION: An astronomer observes a binary star system where one star periodically dims by 40% when the other passes in front. What type of binary is this system?
+OPTIONS:
+A) Visual binary
+B) Eclipsing binary
+C) Spectroscopic binary
+D) Optical double
+
+---QUESTION 34---
+ID: 34 | POINTS: 1.00 | FORMAT: MC | Calculation
+TOPIC: Stellar Physics | Stefan-Boltzmann Law | White dwarfs | Radius estimation
+DIFFICULTY: High
+QUESTION: A white dwarf has a luminosity that is 0.001 L⊙ and an effective temperature of 10,000 K. Using the Stefan–Boltzmann law, estimate its radius relative to the Sun.
+OPTIONS:
+A) 0.01R⊙
+B) 0.1R⊙
+C) 0.001R⊙
+D) 0.0001R⊙
+
+---QUESTION 35---
+ID: 35 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Compact Objects | Black holes | Accretion disks | X-ray binaries
+DIFFICULTY: High
+QUESTION: Which of the following stellar phenomena provides evidence for the existence of black holes in binary systems?
+OPTIONS:
+A) Continuous gamma-ray bursts
+B) Rapid, periodic X-ray emissions from accretion disks
+C) Stable hydrogen absorption lines
+D) Gravitational lensing by foreground stars
+
+---QUESTION 36---
+ID: 36 | POINTS: 1.00 | FORMAT: MC | Calculation
+TOPIC: Supernovae | Type II supernovae | Remnant expansion | Age estimation
+DIFFICULTY: High
+QUESTION: A Type II supernova remnant is expanding at 1000 km/s. If the remnant's current radius is measured to be 10 parsecs, estimate its age in years. (1 pc = 3.09×10^13 km)
+OPTIONS:
+A) 2,000 years
+B) 18,000 years
+C) 9,800 years
+D) 30,700 years
+
+---QUESTION 37---
+ID: 37 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Stellar Clusters | HR Diagram | Turnoff point | Cluster age
+DIFFICULTY: High
+QUESTION: A star cluster's turnoff point on the Hertzsprung-Russell diagram lies at spectral class A0. What does this indicate about the cluster's age relative to other clusters?
+OPTIONS:
+A) It is younger than a cluster with a turnoff at class F.
+B) It is older than a cluster with a turnoff at class G.
+C) It has no main-sequence stars remaining.
+D) It must be less than 1 million years old.
+
+---QUESTION 38---
+ID: 38 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Deep Sky Objects | Pulsar wind nebulae | Crab Nebula | Neutron stars
+DIFFICULTY: High
+QUESTION: Which of the following Deep Sky Objects is an example of a pulsar wind nebula powered by a rapidly rotating neutron star?
+OPTIONS:
+A) Cassiopeia A (Cas A)
+B) The Crab Nebula (M1)
+C) The Bone (G359.13)
+D) Helix Nebula (NGC 7293)
+
+---QUESTION 39---
+ID: 39 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Variable Stars | Mira variables | AGB stars | Stellar evolution
+DIFFICULTY: Medium
+QUESTION: Which of the following accurately describes the evolutionary stage of Mira (Omicron Ceti)?
+OPTIONS:
+A) Main-sequence red dwarf near hydrogen exhaustion
+B) White dwarf accreting material from a companion
+C) Pulsating asymptotic giant branch (AGB) star
+D) Protostar still contracting toward the main sequence
+
+---QUESTION 40---
+ID: 40 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Binary Systems | White dwarf binaries | Gravitational waves | Type Ia supernovae
+DIFFICULTY: High
+QUESTION: The binary system WDJ181058.67+311940.94 consists of two white dwarfs orbiting each other every few hours. What will most likely occur over astronomical timescales due to gravitational wave emission?
+OPTIONS:
+A) The system will merge, potentially producing a Type Ia supernova.
+B) Both stars will cool independently into neutron stars.
+C) They will spiral outward and separate.
+D) The orbit will remain stable indefinitely.
+
+---QUESTION 41---
+ID: 41 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Deep Sky Objects | Planetary nebulae | Supernova remnants | Classification
+DIFFICULTY: Medium
+QUESTION: Which of the following observations would best distinguish a planetary nebula from a supernova remnant?
+OPTIONS:
+A) Presence of strong hydrogen-alpha emission lines
+B) Central compact object such as a neutron star
+C) Expanding shell velocity less than 50 km/s
+D) Non-thermal X-ray emission from shock heating

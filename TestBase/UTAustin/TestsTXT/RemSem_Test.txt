@@ -1,0 +1,414 @@
+2025 ATX Invitational
+October 25, 2025
+Remote Sensing C Exam
+Parameters
+• Each participant may bring [number of notes], and [type of calculator].
+• Additional information here, such as lab / information specific to the event.
+Directions
+• You will have 50 minutes to complete this exam - do not begin until instructed to do so!
+• All answers must be indicated on your answer document. DO NOT WRITE ON THIS EXAM!
+• Point values are indicated for all questions & tiebreakers are indicated in test booklets. The number
+of tiebreakers correctly answered indicates your tie order.
+• The maximum number of obtainable points on this exam is [max points].
+• You may take apart the test to split the work, but make sure to staple it back together at the end of
+the event.
+Authors: Sriram Padmanabhan, UT Austin, Computer Science/Math ’2027, Rich Wang,
+MIT, Computer Science/Math ’2027
+(any questions after the conclusion of this event may be emailed to sriram.pad05@gmail.com)
+***CLASS SET: DO NOT WRITE ON THE EXAM***
+
+2025 ATX Invitational
+Page 1 of 12
+Remote Sensing C Exam
+1
+Section A: Multiple item (2 Points Each)
+1. Is Climate Change Real?
+(a) Yes
+(b) No
+(c) Maybe So
+(d) Who knows
+2. Which of the following is true about Planck’s Law and the Rayleigh-Jeans Law?
+(a) Planck’s Law is accurate for short wavelengths but highly inaccurate for larger wavelengths;
+Rayleigh-Jeans Law is a more accurate prediction of spectral radiance across all wavelengths.
+(b) Rayleigh-Jeans Law is accurate for short wavelengths but highly inaccurate for larger wavelengths;
+Planck’s Law is a more accurate prediction of spectral radiance across all wavelengths.
+(c) Planck’s Law is accurate for long wavelengths but highly inaccurate for shorter wavelengths;
+Rayleigh-Jeans Law is a more accurate prediction of spectral radiance across all wavelengths.
+(d) Rayleigh-Jeans Law is accurate for short wavelengths but highly inaccurate for larger wavelengths;
+Planck’s Law is a more accurate prediction of spectral radiance across all wavelengths.
+3. Which of the following greenhouse gases remains in the atmosphere the longest?
+(a) Carbon dioxide
+(b) Sulfur hexafluoride
+(c) Nitrous oxide
+(d) Water vapor
+4. Given that T represents temperature of an ideal blackbody, the total energy radiated per unit surface
+area is directly proportional to:
+(a) T 4
+(b) T 3
+(c) T 2
+(d) T
+5. One year, scientists notice a sizeable increase in atmospheric nitrous oxide. Which of the following is
+most likely the primary source of this nitrous oxide?
+(a) A large volcanic eruption
+(b) An increase in the combustion of fossil fuels
+(c) An increase in the usage of fertilizers
+(d) An increase in animal production
+6. Which of the following best distinguishes an active remote sensing system from a passive one?
+(a) Active sensors rely on solar radiation, while passive sensors generate their own signals.
+(b) Active sensors emit their own energy and measure reflections, while passive sensors detect natu-
+rally emitted or reflected energy.
+(c) Passive sensors are limited to microwave frequencies, while active sensors cover all wavelengths.
+***CLASS SET: DO NOT WRITE ON THE EXAM***
+
+2025 ATX Invitational
+Page 2 of 12
+Remote Sensing C Exam
+(d) Passive sensors can only operate at night, while active sensors only operate during the day.
+7. What is the main principle behind space-based gravimetry missions such as GRACE?
+(a) Measuring variations in Earth’s magnetic field strength with magnetometers.
+(b) Tracking the changes in distance between two satellites caused by local gravitational variations.
+(c) Using laser altimeters to map surface elevation changes over time.
+(d) Detecting subsurface density variations using seismic waves from earthquakes.
+8. Doppler radar is primarily used in meteorology because it can:
+(a) Detect only the temperature of atmospheric particles.
+(b) Measure the distance of storm clouds from the radar station.
+(c) Determine the velocity of precipitation particles relative to the radar.
+(d) Generate three-dimensional images of cloud structures.
+9. The wavelength at which a blackbody emits most strongly is:
+(a) Directly proportional to the absolute temperature
+(b) Inversely proportional to the absolute temperature
+(c) Independent of temperature
+(d) Equal to the Stefan–Boltzmann constant divided by temperature
+10. Kepler’s second law, the law of equal areas, states that:
+(a) Planets move in circular orbits with uniform speed.
+(b) The orbital period squared is proportional to the cube of the semi-major axis.
+(c) A line joining a planet and the Sun sweeps out equal areas in equal times.
+(d) The force between the Sun and a planet is inversely proportional to the square of their distance.
+11. The Coriolis effect causes moving air masses and ocean currents to be deflected due to Earth’s rotation.
+In the Northern Hemisphere, this deflection is
+(a) To the left of the motion
+(b) To the right of the motion
+(c) Toward the equator
+(d) Toward the poles
+Use the following image to answer the next two questions
+***CLASS SET: DO NOT WRITE ON THE EXAM***
+
+2025 ATX Invitational
+Page 3 of 12
+Remote Sensing C Exam
+12. What quantity is represented by the above image?
+(a) Ozone
+(b) Water Vapor
+(c) Nitrous Oxide
+(d) Carbon Dioxide
+13. What satellite took the above image?
+(a) OCO-2
+(b) GOES-16
+(c) MODIS
+(d) ECOSTRESS
+14. For which of the following materials would we expect the sum of its emissivity and reflectivity to be
+less than 1 in the visible region?
+(a) Obsidian
+(b) Ice
+(c) Glass
+(d) Silver
+15. Which of the following gases would have a net cooling effect on Earth’s climate?
+(a) Sulfur dioxide
+(b) Hydrofluorocarbons
+(c) Ozone
+(d) Water vapor
+16. Which of the following layers of the Earth’s atmosphere contain almost all greenhouse gases?
+(a) Thermosphere
+(b) Troposphere
+(c) Stratosphere
+***CLASS SET: DO NOT WRITE ON THE EXAM***
+
+2025 ATX Invitational
+Page 4 of 12
+Remote Sensing C Exam
+(d) Mesosphere
+17. Which of the following best describes the effects of modern climate change in different regions of the
+atmosphere?
+(a) Warming throughout the atmosphere
+(b) Warming in the lower atmosphere and no change in the upper atmosphere
+(c) Cooling in the lower atmosphere and warming in the upper atmosphere
+(d) Warming in the lower atmosphere and cooling in the upper atmosphere
+18. Which of the following instruments’ observations is not impeded by cloud cover?
+(a) ECOSTRESS
+(b) MODIS
+(c) ATMS
+(d) CrIS
+19. Which of the following correctly ranks the given atoms or ions in increasing order of the wavelengths
+of light emitted when an electron transitions from the principal quantum level n = 3 to n = 2?
+(a) Li2+, He+, H
+(b) H, He+, Li2+
+(c) He+, H, Li2+
+(d) Li2+, H, He+
+20. In which of the following environments would surface chlorophyll concentrations be the highest?
+(a) The Mediterranean Sea during summer
+(b) A section of a river downstream from an industrial farm
+(c) The Sargasso Sea
+(d) A large lake surrounded by granite
+21. (Select 1 or more) Which of the following satellite(s)/instrument(s) are in a sun-synchronous orbit
+around the Earth?
+(a) GOES-18
+(b) Suomi-NPP
+(c) Jason-3
+(d) ECOSTRESS
+(e) GPM
+(f) Aura
+(g) OCO-2
+22. A satellite is orbiting a planet R kilometers from the surface of the planet. The radius of the planet is
+R kilometers. Given that the satellite’s current velocity is v, what is the satellite’s new velocity if it
+moves to an orbit that is 2R kilometers from the surface of the planet?
+(a)
+1
+√
+2v
+(b)
+1
+2v
+***CLASS SET: DO NOT WRITE ON THE EXAM***
+
+2025 ATX Invitational
+Page 5 of 12
+Remote Sensing C Exam
+(c)
+2
+3v
+(d)
+q
+2
+3v
+23. A beam of light with wavelength 800 nm is shot through a tube consisting of particles whose radius is
+1 nm, and the intensity of the scattered light is I. If we instead shot a beam of light with wavelength
+400 nm, what is the new intensity of scattered light?
+(a)
+I
+2
+(b)
+I
+16
+(c)
+I
+4
+(d) 2I
+24. Which of the following types of instruments would be best to create a vertical profile of the Earth’s
+atmosphere?
+(a) Limb sounder
+(b) Nadir-viewing instrument
+(c) Occultation instrument
+(d) Cross-track scanner
+25. Which of the following satellites would be most effective in discovering underwater mass anomalies?
+(a) PACE
+(b) GRACE
+(c) JASON
+(d) SAGE
+2
+B: Short Answer (3 Points Each)
+Use the following scenario to answer the following three questions:
+Rich Wang, for reasons unbeknownst to us, transformed himself into an ideal blackbody! Although his
+internal body temperature has changed, bold scientist Sriram Padmanabhan notices that the frequency
+at which Rich emits the maximum amount of light is 300 THZ.
+26. What is the approximate temperature of Rich after his transformation?
+27. What is Rich’s emittance?
+28. Now let’s say that Rich failed to turn into an ideal blackbody and has instead become a graybody.
+How would this affect Rich’s emittance?
+Use the following list of greenhouse gases for the next two questions:
+CO2, N2O, SF6, CH4, CFC
+29. Rank the following greenhouse gases in increasing order of their Global Warming Potential
+30. Rank the following greenhouse gases in increasing order of their contributions to climate change
+31. Cirrus clouds have a [positive/negative] radiative forcing effect on Earth’s climate
+32. Stratocumulus clouds have a [positive/negative] radiative forcing effect on Earth’s climate
+***CLASS SET: DO NOT WRITE ON THE EXAM***
+
+2025 ATX Invitational
+Page 6 of 12
+Remote Sensing C Exam
+33. Light from a distant galaxy reaches the Earth with an observed frequency of 4.0×1014 Hz. Given that
+the galaxy is moving away from Earth with a velocity of 1.5 × 108 m/s, what is the source frequency
+of the light? Assume the speed of light is c = 3.00 × 108 m/s, and use the formula given below:
+f ′ = f
+s
+1 + v
+c
+1 −v
+c
+Use the given scenario for the next two questions: We have a hydrogen atom in a vacuum. This atom
+has a single electron with a principle quantum number of n = 3. This electron then drops to an energy
+level with principle quantum number n = 2.
+34. Using the Rydberg formula given below, calculate the wavelength of the photon in nanometers
+emitted by the electron’s energy transition:
+1
+λ = RH
+ 1
+n1
+−1
+n2
+
+,
+where RH = 1.097 × 107 m−1.
+35. What spectral series does this energy transition correspond to?
+3
+C: Who’s that Satellite!
+Use the given image to answer the following questions
+36. (2 Points) Briefly describe the natural event occurring in this image.
+***CLASS SET: DO NOT WRITE ON THE EXAM***
+
+2025 ATX Invitational
+Page 7 of 12
+Remote Sensing C Exam
+37. (2 Points) What satellite/instrument took this image?
+38. (1 Point) Is this satellite/instrument an example of an active or passive sensor?
+39. (3 Points) What bands on this satellite/instrument were responsible for producing this image?
+40. (4 Points) Would these bands still provide useful images if used at night? Explain why or why not
+41. (2 Points) What type of orbit does this satellite/instrument take around the Earth?
+4
+D: Ocean Temperatures
+Use the given image to answer the following questions
+42. (2 Points) What climate phenomena is shown in this image?
+43. (3 Points) How does this phenomena affect temperature and precipitation in the Pacific Northwest
+region of the United States during the winter months?
+44. (3 Points) How does this phenomena affect temperature and precipitation in Texas during the winter
+months?
+45. (3 Points) How does this phenomena affect precipitation in the Western Pacific during the winter
+months?
+46. (2 Points) How does this phenomena influence the number of hurricanes that appear during the standard
+Atlantic Hurricane Season?
+***CLASS SET: DO NOT WRITE ON THE EXAM***
+
+2025 ATX Invitational
+Page 8 of 12
+Remote Sensing C Exam
+5
+H-Town
+This satellite/instrument has multiple spectral bands, so for the following questions,
+assume the wavelength of light the above image was taken in is the average of the wave-
+lengths of the band centers.
+47. (2 points) What satellite/instrument took this image?
+48. (2 points) Identify the region of the electromagnetic spectrum that this satellite/instrument is sensitive
+to.
+49. (7 points) Determine the spectral radiance of the region in the green circle at the wavelength the image
+was taken in. Assume that this region is an ideal blackbody at this wavelength, and give your answer
+in terms of W/(sr · m3)
+50. (2 points) Given that the region in the green circle can be treated as an ideal blackbody, what would
+you expect its reflectance to be?
+51. (3 points) If this image were instead taken in the visible range, would you expect the reflectance of the
+region in the green circle to be higher or lower? Briefly explain.
+***CLASS SET: DO NOT WRITE ON THE EXAM***
+
+2025 ATX Invitational
+Page 9 of 12
+Remote Sensing C Exam
+6
+Coastal California
+52. (2 points) What satellite/instrument took this photo?
+53. (2 points) What orbit is this satellite/instrument in?
+54. (2 points) What quantity is represented by the false colors off of the western US coast?
+55. (4 points) Would you expect the quantity represented in this image to be higher, lower, or roughly the
+same in the middle of the Pacific Ocean? Briefly explain your answer.
+56. (3 points) How would you expect local temperatures beneath the sea surface to change if the quantity
+represented in the image were to increase? Briefly explain your answer.
+7
+False Colors
+57. (2 points) Why are false color composites used to analyze surface reflectance?
+Consider the following two images:
+58. (2 points) What do the three band numbers represent in the second (false color) image?
+59. (2 points) How can you identify vegetation in the second image, and why is it that color/shade?
+60. (3 points) How can you distinguish clouds from bright soil in the image?
+61. (3 points) What might cause some regions to appear darker in both images?
+62. (2 points) How does the near-infrared band help identify vegetation health/density?
+63. (3 points) How would you use the data from these images to estimate vegetation indices (in particular,
+NDVI)?
+64. (3 points) What is one way that the lack of atmospheric correction might affect these images?
+***CLASS SET: DO NOT WRITE ON THE EXAM***
+
+2025 ATX Invitational
+Page 10 of 12
+Remote Sensing C Exam
+Figure 1: MODIS NIR and a false color images of the same region, over Alabama, Mississippi and Florida.
+The second image uses bands 2, 1, and 1 (NIR, red, red).
+Figure 2: A diagram displaying the energy flow in a two layer atmosphere model.
+***CLASS SET: DO NOT WRITE ON THE EXAM***
+
+2025 ATX Invitational
+Page 11 of 12
+Remote Sensing C Exam
+8
+Planet Habituation
+For this problem, assume in general that albedos are not 1 and emissivities are not 0.
+65. (3 points) How does infrared radiation from the surface interact with each of the two atmospheric
+layers? Give equations if necessary to support your answer.
+66. (3 points) If each atmospheric layer is opaque to infrared radiation, what happens to the energy emitted
+upward from the lower layer?
+67. (4 points) Why is the surface temperature higher than that of either atmospheric layer in this model?
+68. (8 points) Write the energy balance equations for the surface, lower atmospheric layer, and upper
+atmospheric layer.
+Use Ts, TA, TB for surface, layer A, and layer B temperatures and for εA, εB
+emissivities. Use α for the albedo of the ground. Use σ for the Stefan-Boltzman constant. Use S for
+the solar constant.
+69. (4 points) How does adding a second absorbing layer affect the planet’s effective surface temperature
+compared to a single-layer model?
+9
+Light from a Binary Star
+For this question, some answers rely on answers to previous questions. If you’re unable to solve an
+earlier question, you can assume a result from a previous question holds true without proof.
+You observe a nearby binary system with a 1m class telescope equipped with a low-resolution spectro-
+graph and a broad-band imager. The primary is sun-like, and the secondary is fainter. Over months
+you collect measurements of total flux, mreasurements of parallax shift, a radial-velocity time series of
+the primary, and a high-cadence eclipse light curve (brightness vs time). Use 1.989 × 1030kg for the
+mass of the sun and 6.957 × 108m for its radius.
+Your calibrated (bolometric) total flux of the system comes out to F = 1.30 × 10−8W/m2.
+Your
+measurements of the parallax shift come out to ω = 50.0 milliarcseconds.
+70. (3 seconds) Convert the parallax shift to a distance d. Give your answer in parsecs, and also give your
+answer in meters.
+71. (3 points) Estimate the Luminosity of the binary star system, using the formula F =
+L
+4πd2 .
+72. (5 points) The broadband spectrometer measures the flux used to compute the luminosity L in the
+previous question. What are two properties of this instrument that control the uncertainty in L?
+On the sky you identify a tiny wobble of the primary with semi-major axis α1 = 0.40 milliarcseconds
+relative to the system photocenter. The primary has mass m1 and the secondary has mass m2.
+73. (4 points) Convert α1 to a physical semi-major axis a1 in meters using d.
+74. (4 points) Given that a2 is the physical semi-major axis of the secondary, show that m1a1 = m2a2 and
+that the semi-major axis of the relative orbit a equals a1 + a2. Hint: In a binary star system, the two
+stars orbit around a stationary center-of-mass point, and are always exactly on opposite sides of this
+point.
+75. (4 points) Explain why angular precision (astrometry) is a radiometric measurement problem.
+From spectroscopy, you measure the orbital period to be P = 40.0 days and small eccentricity e = 0.10.
+76. (2 points) What does Kepler’s third law tell your about this system? (Give an equation)
+Your radial-velocity time series graph satisfies the equation
+vr,1(t) = K[cos(ν + ω) + e cos(w)],
+K = 22.0km
+s
+***CLASS SET: DO NOT WRITE ON THE EXAM***
+
+2025 ATX Invitational
+Page 12 of 12
+Remote Sensing C Exam
+77. (1 points) Given the general radial velocity equation for an object in an elliptical Keplerian orbit,
+projected onto the line of sight for orbital tilt i and orientation w satisfies vr,1(t) = na1 sin i
+√
+1−e2 [cos(ν +
+ω) + e cos ω], for general eccentricity, show that
+K = 2πa1 sin i
+P
+√
+1 −e2 .
+78. (1 points) Rearrange your expression to express a1 sin i in terms of K, P, and e.
+79. (5 points) what spectral resolution R = λ/∆λ is needed to measure K at 1% precision?
+Now combining Kepler’s law, a1 = (m2/M)a (from momentum balance), and your expression for
+a1 sin i, we can derive the following equation:
+fm ≡
+m3
+2 sin3 i
+(m1 + m2)2 = K3P
+2πG (1 −e2)3/2.
+We’ve just constructed an equation for the spectroscopic mass function entirely from observables in
+the radial velocity curve!
+80. (4 points) List the observables on the right and where they come from: each is a remote measurement.
+81. (4 points) Which quantities dominate the uncertainty in fm?
+82. (4 points) How is this identical in spirit to terrestrial remote sensing (e.g., retrieving geophysical
+parameters from radiance via a forward model and inversion)?
+***CLASS SET: DO NOT WRITE ON THE EXAM***

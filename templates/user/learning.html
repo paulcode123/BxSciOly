@@ -37,10 +37,36 @@
                     </div>
                 </section>
 
+            <!-- TopicSpace Section -->
+            <section class="resource-section">
+                <div class="section-header">
+                    <h3><i class="fas fa-sitemap"></i> TopicSpace</h3>
+                    <a href="{{ url_for('user_learning_topicspace') }}" class="btn-primary btn-sm">
+                        <i class="fas fa-external-link-alt"></i> Open TopicSpace
+                    </a>
+                </div>
+                <div class="topicspace-preview">
+                    <p>Explore comprehensive topic coverage with linked questions from real tests. Click "Open TopicSpace" to view the full interactive topic tree with AI-powered practice features.</p>
+                </div>
+            </section>
+
+            <!-- Offline Wikipedia Q&A Section -->
+            <section class="resource-section">
+                <div class="section-header">
+                    <h3><i class="fas fa-search"></i> Offline Astronomy Wikipedia Q&amp;A</h3>
+                    <a href="{{ url_for('wikiqa_routes.user_wikiqa') }}" class="btn-primary btn-sm">
+                        <i class="fas fa-external-link-alt"></i> Open Wiki Q&amp;A
+                    </a>
+                </div>
+                <div class="topicspace-preview">
+                    <p>Search an offline corpus of astronomy Wikipedia pages (no internet required after indexing). Ask natural questions and jump directly to the most relevant passages.</p>
+                </div>
+            </section>
+
             <!-- Topics Section -->
             <section class="resource-section">
                 <div class="section-header">
-                    <h3><i class="fas fa-sitemap"></i> Topics</h3>
+                    <h3><i class="fas fa-edit"></i> Custom Topics Notes</h3>
                     <button id="saveTopicsBtn" class="btn-primary btn-sm"><i class="fas fa-save"></i> Save</button>
                 </div>
                 <div class="topics-editor-container">
@@ -758,6 +784,20 @@
     .note-card:hover .note-card-actions { opacity: 1; }
     .note-card-actions button { padding: 6px 10px; background: transparent; border: 1px solid #e2e8f0; border-radius: 6px; cursor: pointer; color: #666; transition: all 0.2s ease; font-size: 0.85rem; }
     .note-card-actions button:hover { background: var(--primary-color); color: #fff; border-color: var(--primary-color); transform: scale(1.05); }
+
+    /* TopicSpace Preview */
+    .topicspace-preview {
+        padding: 20px;
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        border-radius: 12px;
+        border-left: 4px solid var(--primary-color);
+    }
+
+    .topicspace-preview p {
+        margin: 0;
+        color: #4b5563;
+        line-height: 1.6;
+    }
 
     /* Edit Panel Styles (Slide-in) */
     .edit-panel { position: fixed; top: 0; right: -450px; width: 450px; height: 100vh; background: #fff; box-shadow: -5px 0 25px rgba(0,0,0,0.15); z-index: 1000; transition: right 0.3s ease; overflow-y: auto; }

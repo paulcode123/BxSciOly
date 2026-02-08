@@ -1,0 +1,348 @@
+EVENT: Water Quality
+SOURCE: UGA Invitational 2025 (Div. C)
+FORMAT: 41 questions (MC, Free Response, Matching, Fill-in-blank, Calculations)
+TOTAL POINTS: 86
+
+---PART 1---
+
+---QUESTION 1---
+ID: 1 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Hydrology | Water Cycle | Hydrologic Cycle | Water Movement
+DIFFICULTY: Easy
+QUESTION: Which of the following best describes what is broadly referred to as the water cycle?
+OPTIONS:
+A) Movement of water between solid, liquid, and vapor states throughout the atmosphere and Earth.
+B) The cycle of liquid water throughout a given environment with respect to the organisms within it.
+C) The different ways in which an organism can utilize water chemically
+D) The cycle includes hydroxylation of an alkyl chain to form hydroxy compounds, which are used in organisms.
+
+---QUESTION 2---
+ID: 2 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Hydrology | Percolation | Environmental Effects | Water Movement | Groundwater
+DIFFICULTY: Medium
+QUESTION: Percolation can have all of the following environmental effects except which one?
+OPTIONS:
+A) Hypermineralization of a body of water
+B) Pollution of a nitrate into a body of water
+C) Increased runoff
+D) Algal bloom
+
+---QUESTION 3---
+ID: 3 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Water Chemistry | Water Properties | Amphoteric | Hydrophobic | Nonpolar | Amphipathic
+DIFFICULTY: Easy
+QUESTION: Water possesses which of the following qualities?
+OPTIONS:
+A) Hydrophobic
+B) Nonpolar
+C) Amphoteric
+D) Amphipathic
+
+---QUESTION 4---
+ID: 4 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Water Chemistry | Bicarbonate Buffer System | Coral Reefs | Carbon Dioxide | pH | Ocean Acidification
+DIFFICULTY: Medium
+QUESTION: With regards to the bicarbonate buffer system in aquatic ecosystems, notably coral reefs, what would be expected if atmospheric carbon dioxide levels increased?
+OPTIONS:
+A) Higher levels of bicarbonate lead to higher acidity in the water
+B) Higher levels of carbon dioxide are solvated and have no effect
+C) There are lower levels of dissolved carbon dioxide, creating a basic environment
+D) Higher levels of produced carbonic acid yield a lower pH
+
+---QUESTION 5---
+ID: 5 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Water Treatment | Potable Water | Treatment Steps | Coagulation | Flocculation | Sedimentation | Filtration
+DIFFICULTY: Easy
+QUESTION: Which is not a step of potable water treatment?
+OPTIONS:
+A) Coagulation
+B) Flocculation
+C) Sedimentation
+D) Nitration
+E) Filtration
+
+---QUESTION 6---
+ID: 6 | POINTS: 1.00 | FORMAT: Fill-in-blank
+TOPIC: Water Chemistry | Self-Ionization | Kw | Ion Product of Water | STP
+DIFFICULTY: Easy
+QUESTION: What is the self-ionization constant of water at STP?
+
+---QUESTION 7---
+ID: 7 | POINTS: 4.00 | FORMAT: Matching
+TOPIC: Nitrogen Cycle | Denitrification | Nitrification | Ammonification | Nitrogen Fixation | N2 | NH3 | NO3-
+DIFFICULTY: Medium
+QUESTION: Match the following terms with their corresponding steps in the Nitrogen Cycle (4 pts)
+a) Denitrification: ______
+b) Nitrification: ______
+c) Ammonification: ______
+d) Nitrogen Fixation: ______
+1. Conversion of N2 to NH3
+2. Conversion of NO3- to N2
+3. Conversion of N to NH3
+4. Conversion of NH3 to NO3-
+
+---QUESTION 8---
+ID: 8 | POINTS: 4.00 | FORMAT: MC (multi-select)
+TOPIC: Water Pollution | Sewage Waste | Harmful Organisms | Pathogens | Water Contamination
+DIFFICULTY: Medium
+QUESTION: Sewage waste, if released untreated, can introduce numerous harmful organisms into water bodies causing significant pollution. From the list below select all the types of organisms emitted from sewage waste that are known to cause water pollution.
+OPTIONS:
+A) Algae
+B) Plastics
+C) Bacteria
+D) Helminths
+E) Insects
+F) Protozoa
+G) Plankton
+H) Fungi
+
+---QUESTION 9---
+ID: 9 | POINTS: 4.00 | FORMAT: Free Response
+TOPIC: Watersheds | Land Use Change | Deforestation | Nutrient Cycling | Macroinvertebrates | Sedimentation | Aquatic Ecosystems
+DIFFICULTY: High
+QUESTION: An upstream watershed has experienced deforestation to create farmland for a nearby town. How would this land usage change impact the aquatic ecosystem downstream? Include nutrient cycling, macroinvertebrate diversity, and sedimentation in your answer.
+
+---QUESTION 10---
+ID: 10 | POINTS: 3.00 | FORMAT: Free Response
+TOPIC: Watersheds | Riparian Buffers | Stream Protection | Erosion Control | Water Quality
+DIFFICULTY: Medium
+QUESTION: Define the term riparian buffer and include two examples of how riparian buffers help protect watersheds. Be specific in your examples.
+
+---QUESTION 11---
+ID: 11 | POINTS: 3.00 | FORMAT: Free Response
+TOPIC: Water Chemistry | Acid Rain | Acidification | Granite | Limestone | Buffering Capacity | Bedrock
+DIFFICULTY: Medium
+QUESTION: Two lakes receive the same amount of acid rain. Lake A lies on granite bedrock, while Lake B lies on limestone bedrock. Which lake is more vulnerable to acidification and why? Explain why the other lake is more resistant.
+
+---QUESTION 12---
+ID: 12 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Water Treatment | Wastewater Treatment | Sedimentation | Gravity Separation | Suspended Solids
+DIFFICULTY: Medium
+QUESTION: Within the multistage sequence of wastewater treatment, what is the unique role performed by the sedimentation process?
+OPTIONS:
+A) It is a chemical process that neutralizes the electrical charge of suspended particles allowing them to aggregate before being physically mixed.
+B) It is a process that uses gravity to separate and remove large, dense suspended solids.
+C) It is a process that removes dissolved organic compounds that interfere with the final disinfection stage, making the process more efficient.
+D) It is a biological process where microorganisms consume organic matter and settle.
+
+---QUESTION 13---
+ID: 13 | POINTS: 4.00 | FORMAT: Free Response
+TOPIC: Water Quality | Eutrophication | Nutrients | Algae | Decomposition | Oxygen | Hypoxia | Aquatic Ecosystems
+DIFFICULTY: Medium
+QUESTION: Define the process of eutrophication and explain how it impacts an aquatic ecosystem. Be sure to include nutrients(types), algae, decomposition, oxygen, and hypoxia in your answer.
+
+---QUESTION 14---
+ID: 14 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Aquatic Ecology | Food Webs | Phytoplankton | Primary Producers | Marine Ecosystems | Foundation Species
+DIFFICULTY: Medium
+QUESTION: In a typical aquatic food web, what is the crucial role of phytoplankton and why are they considered the foundation of most marine ecosystems?
+
+---QUESTION 15---
+ID: 15 | POINTS: 2.00 | FORMAT: Fill-in-blank
+TOPIC: Ocean Chemistry | Ocean Acidification | CO2 | pH | Calcifying Organisms | Aragonite | Calcite | Saturation State | Biomineralization
+DIFFICULTY: High
+QUESTION: Fill in the blank: Increased atmospheric CO2 directly ____________ (increases or decreases) oceanic pH, resulting in a critical challenge for calcifying organisms is the resulting decrease in the mineral's saturation state. This is especially affecting calcifying organisms that use the metastable polymorph of calcium carbonate which is known as _______________. This makes the biomineralization process thermodynamically ____________ (favorable or unfavorable), hindering shell formation long before the water becomes corrosive enough to cause _________________.
+
+---PART 2---
+
+---QUESTION 16---
+ID: 16 | POINTS: 1.00 | FORMAT: Free Response | Image Analysis
+TOPIC: Macroinvertebrates | Species Identification | Common Name | Image Analysis
+DIFFICULTY: Medium
+QUESTION: Identify the following species by common name:
+
+---QUESTION 17---
+ID: 17 | POINTS: 1.00 | FORMAT: Free Response | Image Analysis
+TOPIC: Macroinvertebrates | Species Identification | Common Name | Image Analysis
+DIFFICULTY: Medium
+QUESTION: Identify the following species by common name:
+
+---QUESTION 18---
+ID: 18 | POINTS: 1.00 | FORMAT: Free Response | Image Analysis
+TOPIC: Macroinvertebrates | Species Identification | Common Name | Image Analysis
+DIFFICULTY: Medium
+QUESTION: Identify the following species by common name:
+
+---QUESTION 19---
+ID: 19 | POINTS: 1.00 | FORMAT: Free Response | Image Analysis
+TOPIC: Macroinvertebrates | Species Identification | Common Name | Image Analysis
+DIFFICULTY: Medium
+QUESTION: Identify the following species by common name:
+
+---QUESTION 20---
+ID: 20 | POINTS: 1.00 | FORMAT: Free Response | Image Analysis
+TOPIC: Macroinvertebrates | Species Identification | Common Name | Image Analysis
+DIFFICULTY: Medium
+QUESTION: Identify the following species by common name:
+
+---QUESTION 21---
+ID: 21 | POINTS: 7.00 | FORMAT: Matching
+TOPIC: Macroinvertebrates | Pollution Tolerance | Classification | Crane Fly | Water Boatman | Stonefly | Gilled Snails | Flatworm | Tubifex | Scuds
+DIFFICULTY: Medium
+QUESTION: Match the organism to the correct class (there might be more than one organism to each class):
+a) Crane Fly
+b) Water Boatman
+c) Stonefly
+d) Gilled Snails
+e) Flatworm
+f) Tubifex
+g) Scuds
+Pollution Sensitive (c and d)
+Moderately Tolerant (e)
+Air Breathing (b)
+Pollution Tolerant (f)
+Moderately Sensitive (a and g)
+
+---QUESTION 22---
+ID: 22 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Macroinvertebrates | Leeches | Diet | Feeding Habits
+DIFFICULTY: Easy
+QUESTION: What is the proper diet for leeches?
+
+---QUESTION 23---
+ID: 23 | POINTS: 3.00 | FORMAT: Free Response
+TOPIC: Macroinvertebrates | Bioindicators | Mayfly | Caddisfly | Stonefly | Water Quality | Pollution Sensitivity
+DIFFICULTY: Medium
+QUESTION: Explain why Mayfly, Caddisfly, and Stonefly are reliable bioindicators for water quality?
+
+---QUESTION 24---
+ID: 24 | POINTS: 3.00 | FORMAT: Free Response
+TOPIC: Macroinvertebrates | Zebra Mussel | Invasive Species | Ecological Consequences | Freshwater Ecosystems
+DIFFICULTY: Medium
+QUESTION: The zebra mussel can be classified as what type of animal? Describe an ecological consequence of introducing the zebra mussel into a new freshwater ecosystem. Be specific in your answer.
+
+---QUESTION 25---
+ID: 25 | POINTS: 4.00 | FORMAT: MC (multi-select)
+TOPIC: Macroinvertebrates | Predators | Larval Stages | Dragonfly | Mayfly | Water Boatman | Predacious Diving Beetle | Water Strider | Damselfly
+DIFFICULTY: Medium
+QUESTION: Which of the following macroinvertebrates are predators during their aquatic larval stages? Select all that apply:
+OPTIONS:
+A) Dragonfly
+B) Mayfly
+C) Water Boatman
+D) Predacious Diving Beetle
+E) Water strider
+F) Damselfly
+
+---QUESTION 26---
+ID: 26 | POINTS: 2.00 | FORMAT: Fill-in-blank
+TOPIC: Macroinvertebrates | Metamorphosis | Stoneflies | Incomplete Metamorphosis | Wings
+DIFFICULTY: Medium
+QUESTION: Unlike the complete metamorphosis of insects like mosquitoes, stoneflies undergo ______________________ metamorphosis, where the immature aquatic stages resemble the adult form without developing functional ______________.
+
+---QUESTION 27---
+ID: 27 | POINTS: 2.00 | FORMAT: Fill-in-blank
+TOPIC: Macroinvertebrates | Asian Carp | Invasive Species | Filter Feeding | Competition | Plankton
+DIFFICULTY: Medium
+QUESTION: Asian carp, an ______________ ____________ (two words) species, are especially problematic because their filter feeding habit allows them to outcompete native species by removing large quantities of ______________ from the water.
+
+---QUESTION 28---
+ID: 28 | POINTS: 3.00 | FORMAT: MC (multi-select)
+TOPIC: Macroinvertebrates | Sedimentation | Benthic Oxygen | Pollution Tolerance | Mayfly | Tubifex | Blood Midge | Stonefly | Aquatic Sowbug | Deer/Horse Fly Larva
+DIFFICULTY: Medium
+QUESTION: Which organisms are likely to increase in abundance when sedimentation rates rise and benthic oxygen levels fall? Select all that apply:
+OPTIONS:
+A) Mayfly
+B) Tubifex worm
+C) Blood midge
+D) Stonefly
+E) Aquatic sowbug
+F) Deer/Horse fly larva
+
+---QUESTION 29---
+ID: 29 | POINTS: 4.00 | FORMAT: Free Response
+TOPIC: Macroinvertebrates | Class 1 | Class 4 | Development Time | Reproductive Output | Habitat Needs | Disturbed Habitats | Colonization
+DIFFICULTY: High
+QUESTION: Compare the development time, reproductive output, and habitat needs of Class 1 organisms with Class 4 organisms. How do these traits relate to their ability to colonize disturbed habitats?
+
+---QUESTION 30---
+ID: 30 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Macroinvertebrates | Gilled Snails | Air-Breathing Snails | Dissolved Oxygen | Stream Environment | Oxygen Fluctuation
+DIFFICULTY: Medium
+QUESTION: A sample from a single spot in a slow-moving densely vegetated stream reveals a healthy population of Gilled Snails living alongside a large population of air-breathing snails. What does the presence of both organisms reveal about the stream's environment?
+OPTIONS:
+A) The water has consistently high levels of dissolved oxygen.
+B) The stream is heavily polluted with toxic chemicals.
+C) The dissolved oxygen levels likely fluctuate dramatically, dropping very low at night.
+D) The gilled snails are more recent, invasive species, displacing the native air breathing snails.
+
+---PART 3---
+
+---QUESTION 31---
+ID: 31 | POINTS: 1.00 | FORMAT: Calculation
+TOPIC: Water Chemistry | pH | Hydrogen Ion Concentration | pH Calculation
+DIFFICULTY: Easy
+QUESTION: The hydrogen ion concentration for a given solution is [H+] = 1.73 * 10^3 M. What is the pH?
+
+---QUESTION 32---
+ID: 32 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Water Quality Testing | Phosphates | Measurement | Analytical Methods
+DIFFICULTY: Medium
+QUESTION: Why are phosphates hard to measure? Name one common method of measuring it.
+
+---QUESTION 33---
+ID: 33 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Water Quality Testing | BOD | Biochemical Oxygen Demand | Measurements | Test Frequency
+DIFFICULTY: Medium
+QUESTION: How many measurements are taken to assess biological oxygen demand? If less than 5 measurements, at what frequency are the tests typically spaced out?
+
+---QUESTION 34---
+ID: 34 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Water Quality | Turbidity | Dissolved Oxygen | Normal Levels | Units
+DIFFICULTY: Easy
+QUESTION: What is an approximate normal level for turbidity dissolved O2 (with units)?
+
+---QUESTION 35---
+ID: 35 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Water Quality | BOD | Dissolved Oxygen | Wastewater Treatment | Water Pollution | Organic Matter
+DIFFICULTY: Medium
+QUESTION: A water sample taken downstream from a wastewater treatment plant shows a Biochemical Oxygen Demand (BOD) of 50mg/L and a Dissolved Oxygen (DO) level of 2mg/L. A sample taken upstream showed a BOD of 3mg/L and a DO of 8mg/L. What is the most direct conclusion from the given data?
+OPTIONS:
+A) The plant is discharging water with high levels of toxic metals
+B) The plant is likely releasing insufficiently treated sewage with high organic matter content.
+C) The water temperature has significantly increased, causing the drop in DO.
+D) The stream is experiencing a natural algal bloom unrelated to the treatment plant.
+
+---QUESTION 36---
+ID: 36 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Water Quality | Salinity | Storms | Runoff | Turbidity | Nitrates | Fecal Coliform | pH | Dissolved Oxygen
+DIFFICULTY: Medium
+QUESTION: A coastal monitoring station detects a sudden drop in salinity after a major storm. Which of the following would you expect to see a sharp increase in?
+OPTIONS:
+A) Fecal Coliform and pH
+B) Water temperature only
+C) pH and dissolved oxygen
+D) Turbidity and Nitrates
+
+---QUESTION 37---
+ID: 37 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Water Quality | pH | Acidification | Environmental Concerns | Low pH | Aquatic Life
+DIFFICULTY: Easy
+QUESTION: A water quality report lists a pH of 4.5 for a lake. What is the primary environmental concern associated with this pH level?
+
+---QUESTION 38---
+ID: 38 | POINTS: 4.00 | FORMAT: Free Response (3 parts)
+TOPIC: Water Quality Testing | BOD | Biochemical Oxygen Demand | Calculation | Equation | Units | Water Quality Significance
+DIFFICULTY: Medium
+QUESTION: A standard Biochemical Oxygen (BOD) test is performed on a water sample:
+a) Write the simple mathematical equation used to calculate the BOD values from the test measurements: (1 pt)
+b) Define what each term stands for in your equation (MUST HAVE UNITS): (2 pt)
+c) Explain what a high BOD value signifies about the water quality: (1 pt)
+
+---QUESTION 39---
+ID: 39 | POINTS: 1.00 | FORMAT: Calculation
+TOPIC: Water Quality Testing | Fecal Coliform | Dilution | Colony Count | Calculation
+DIFFICULTY: Medium
+QUESTION: To measure fecal coliform, a lab technician must dilute a water sample. They mix 1mL of sample with 99mL of sterile water. They then plate 1mL of this diluted mixture and count 32 colonies after incubation. What is the reported fecal coliform count for the original, undiluted sample?
+
+---QUESTION 40---
+ID: 40 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Water Quality | Temperature | Dissolved Oxygen | Metabolic Rate | Oxygen Demand | Trout | Stream Temperature
+DIFFICULTY: Medium
+QUESTION: A stream with a population of trout experiences a temperature increase from 15°C to 25°C due to the removal of stream side vegetation. How does this change affect the dissolved oxygen (DO) and the metabolic rate and oxygen demand of the trout?
+
+---QUESTION 41---
+ID: 41 | POINTS: 1.00 | FORMAT: Calculation
+TOPIC: Water Quality Testing | Chloride | Titration | AgNO3 | Concentration | mg/L
+DIFFICULTY: Medium
+QUESTION: A 100 mL water sample requires 3.50 mL of 0.0141 N AgNO₃ in a chloride titration. What is the chloride concentration in mg/L?

@@ -1,0 +1,231 @@
+EVENT: Remote Sensing
+SOURCE: MVSO Invite 2025 (Div. C)
+FORMAT: 61 questions (MC, image analysis, calculations, free response)
+TOTAL POINTS: ~150
+
+ALLOWED MATERIALS: 1 binder, 2 protractors, 2 rulers, 2 class II calculators
+
+---QUESTIONS 1-27: REMOTE SENSING CONCEPTS---
+
+---QUESTION 1--- ID: 1 | POINTS: 1.00 | FORMAT: MC | TOPIC: Active vs Passive sensing
+QUESTION: Primary distinction between active and passive remote sensing?
+OPTIONS: A) Passive transmits energy, B) Active relies on solar, C) Passive uses radar, D) Active emits energy and detects
+CORRECT_ANSWER: D
+
+---QUESTION 2--- ID: 2 | POINTS: 1.00 | FORMAT: MC | TOPIC: LIDAR | Measurement
+QUESTION: LIDAR measures surface elevation via?
+OPTIONS: A) Beam angle, B) Return time of light pulse, C) Photons scattered, D) Laser power
+CORRECT_ANSWER: B
+
+---QUESTION 3--- ID: 3 | POINTS: 1.00 | FORMAT: MC | TOPIC: Radar altimetry
+QUESTION: Radar altimetry best for observing?
+OPTIONS: A) Agartha, B) Ocean surface height, C) Vegetation index, D) Soil texture
+CORRECT_ANSWER: B
+
+---QUESTION 4--- ID: 4 | POINTS: 1.00 | FORMAT: MC | TOPIC: Doppler radar
+QUESTION: Doppler radar observing?
+OPTIONS: A) Motion of precipitation, B) Temperature, C) Surface albedo, D) Color
+CORRECT_ANSWER: A
+
+---QUESTION 5--- ID: 5 | POINTS: 1.00 | FORMAT: MC | TOPIC: Atmospheric attenuation
+QUESTION: Attenuation cause?
+OPTIONS: A) Earth's rotation, B) Magnetic flux, C) Surface reflection, D) Scattering/absorption
+CORRECT_ANSWER: D
+
+---QUESTION 6--- ID: 6 | POINTS: 1.00 | FORMAT: MC | TOPIC: Refractive index | Atmosphere
+QUESTION: Refractive index affects?
+OPTIONS: A) Air temperature, B) Energy flux, C) Light bending, D) Cloud cover
+CORRECT_ANSWER: C
+
+---QUESTION 7--- ID: 7 | POINTS: 1.00 | FORMAT: MC | TOPIC: Spectroscopy
+QUESTION: Spectroscopy tells us?
+OPTIONS: A) Cloud reflectivity, B) Orbital altitude, C) Wavelength patterns, D) Magnetic anomalies
+CORRECT_ANSWER: C
+
+---QUESTION 8--- ID: 8 | POINTS: 1.00 | FORMAT: MC | TOPIC: Emission spectrum
+QUESTION: Emission spectrum shows?
+OPTIONS: A) Bright lines, B) Continuous rainbow, C) Only reflected, D) Dark bands
+CORRECT_ANSWER: A
+
+---QUESTION 9--- ID: 9 | POINTS: 1.00 | FORMAT: MC | TOPIC: Absorption feature
+QUESTION: Absorption in spectrum indicates?
+OPTIONS: A) Enhanced emission, B) Energy loss at wavelengths, C) Detector error, D) None
+CORRECT_ANSWER: B
+
+---QUESTION 10--- ID: 10 | POINTS: 1.00 | FORMAT: MC | TOPIC: Rayleigh scattering | Sky color
+QUESTION: Scattering causing blue sky?
+OPTIONS: A) Brillouin, B) Debye, C) Raman, D) Oppenheimer, E) None
+CORRECT_ANSWER: C (or E - actually Rayleigh, not listed)
+
+---QUESTION 11--- ID: 11 | POINTS: 1.00 | FORMAT: MC | TOPIC: LEO satellite lifetime
+QUESTION: Factor limiting LEO lifetime?
+OPTIONS: A) Orbital resonance, B) Solar radiation pressure, C) Atmospheric drag, D) Magnetic field
+CORRECT_ANSWER: C
+
+---QUESTION 12--- ID: 12 | POINTS: 1.00 | FORMAT: MC | TOPIC: Geosynchronous satellite
+QUESTION: Geosynchronous non-geostationary characteristic?
+OPTIONS: A) Altitude change daily, B) Zero inclination, C) Polar pass, D) North-south oscillation
+CORRECT_ANSWER: D
+
+---QUESTION 13--- ID: 13 | POINTS: 1.00 | FORMAT: MC | TOPIC: LEO imaging advantages
+QUESTION: LEO favored for imaging because?
+OPTIONS: A) Constant ground track, B) Higher spatial resolution, C) Minimal decay, D) No drag
+CORRECT_ANSWER: B
+
+---QUESTION 14--- ID: 14 | POINTS: 1.00 | FORMAT: MC | TOPIC: Polar orbit | Earth coverage
+QUESTION: Property allowing polar orbits view entire Earth?
+OPTIONS: A) Earth rotation, B) Large radius, C) Eccentricity, D) Angular velocity
+CORRECT_ANSWER: A
+
+---QUESTION 15--- ID: 15 | POINTS: 1.00 | FORMAT: MC | TOPIC: Radar altimeter | Cloud penetration
+QUESTION: Radar altimeter property?
+OPTIONS: A) Requires sunlight, B) Penetrates clouds, C) Clear-sky only, D) Visible wavelengths
+CORRECT_ANSWER: B
+
+---QUESTION 16--- ID: 16 | POINTS: 1.00 | FORMAT: MC | TOPIC: GOES-R ABI | Band grouping
+QUESTION: GOES-R ABI spectral bands grouping?
+OPTIONS: A) 1-6 visible/NIR; 7-16 IR, B) 1-3 IR; 4-10 visible; 11-16 NIR, C) 1-10 thermal; 11-16 shortwave, D) 1-8 visible/NIR; 9-16 IR
+CORRECT_ANSWER: A
+
+---QUESTION 17--- ID: 17 | POINTS: 1.00 | FORMAT: MC | TOPIC: GOES-R ABI | Aerosol/dust detection
+QUESTION: GOES-R band for aerosol/dust detection?
+OPTIONS: A) Band 2, B) Band 4, C) Band 7, D) Band 11
+CORRECT_ANSWER: C
+
+---QUESTION 18--- ID: 18 | POINTS: 1.00 | FORMAT: MC | TOPIC: GOES ABI | Scanning strategy
+QUESTION: Scanning enabling hemispheric and regional coverage?
+OPTIONS: A) Push-broom, B) Step-stare imaging, C) Flex-mode scanning, D) Time-delay integration
+CORRECT_ANSWER: C
+
+---QUESTION 19--- ID: 19 | POINTS: 1.00 | FORMAT: MC | TOPIC: MODIS | Aqua orbit
+QUESTION: MODIS (Aqua) orbit and observation timing?
+OPTIONS: A) Geostationary; continuous, B) Sun-synchronous; consistent local time, C) Polar; variable times, D) MEO; 12h revisit
+CORRECT_ANSWER: B
+
+---QUESTION 20--- ID: 20 | POINTS: 1.00 | FORMAT: MC | TOPIC: MODIS | Spatial resolution | Swath width
+QUESTION: MODIS using multiple resolutions (250m, 500m, 1km) primarily for?
+OPTIONS: A) Match Landsat, B) Radiometric sensitivity vs swath, C) Radar fusion, D) Storage
+CORRECT_ANSWER: B
+
+---QUESTION 21--- ID: 21 | POINTS: 1.00 | FORMAT: MC | TOPIC: MODIS | Cloud properties | Bands
+QUESTION: MODIS bands for cloud optical thickness and droplet size?
+OPTIONS: A) 0.65 and 2.1 µm, B) 1.38 and 11 µm, C) 3.9 and 6.7 µm, D) 0.47 and 1.24 µm
+CORRECT_ANSWER: A
+
+---QUESTION 22--- ID: 22 | POINTS: 1.00 | FORMAT: MC | TOPIC: Nitrogen cycle | Anthropogenic disruption
+QUESTION: Activity disrupting nitrogen cycle?
+OPTIONS: A) Deforestation, B) Haber-Bosch, C) Groundwater pumping, D) Heat island
+CORRECT_ANSWER: B
+
+---QUESTION 23--- ID: 23 | POINTS: 1.00 | FORMAT: MC | TOPIC: JASON | Dual-band altimetry
+QUESTION: Why JASON uses Ku-band and C-band?
+OPTIONS: A) Resolution, B) Ionospheric correction, C) Reduce speckle, D) Sea ice edges
+CORRECT_ANSWER: B
+
+---QUESTION 24--- ID: 24 | POINTS: 1.00 | FORMAT: MC | TOPIC: El Niño | Western South America
+QUESTION: Typical El Niño impact western South America?
+OPTIONS: A) Cold water, B) Increased rainfall, C) Reduced flow, D) Stronger winds
+CORRECT_ANSWER: B
+
+---QUESTION 25--- ID: 25 | POINTS: 1.00 | FORMAT: MC | TOPIC: El Niño | Ecosystem disruption
+QUESTION: El Niño disrupts marine ecosystems via?
+OPTIONS: A) Increased O₂, B) Increased upwelling, C) Reduced nutrients, D) Cooling
+CORRECT_ANSWER: C
+
+---QUESTION 26--- ID: 26 | POINTS: 1.00 | FORMAT: MC | TOPIC: ENSO | Teleconnections
+QUESTION: ENSO affects regions via?
+OPTIONS: A) Kelvin waves only, B) Atmospheric teleconnections, C) Local convection, D) Monsoon winds
+CORRECT_ANSWER: B
+
+---QUESTION 27--- ID: 27 | POINTS: 1.00 | FORMAT: MC | TOPIC: ENSO monitoring | Ocean region
+QUESTION: Critical oceanic region for ENSO monitoring?
+OPTIONS: A) North Pacific, B) Central equatorial Pacific, C) Southern Ocean, D) Arabian Sea
+CORRECT_ANSWER: B
+
+---QUESTIONS 28-40: XCO₂ AND IMAGE ANALYSIS---
+
+---QUESTION 28--- ID: 28 | POINTS: 1.00 | FORMAT: MC | TOPIC: CO₂ measurement | Column-averaged
+QUESTION: XCO₂ represents?
+OPTIONS: A) Surface average, B) Tropospheric average, C) Column-averaged, D) Overall concentration
+CORRECT_ANSWER: C
+
+---QUESTION 29--- ID: 29 | POINTS: 1.00 | FORMAT: MC | TOPIC: Satellite data | CO₂
+QUESTION: Satellite collecting XCO₂ data?
+OPTIONS: A) MODIS, B) OCO-2, C) Aqua, D) JASON
+CORRECT_ANSWER: B
+
+---QUESTION 30--- ID: 30 | POINTS: 1.00 | FORMAT: MC | TOPIC: XCO₂ | Hemispheric distribution
+QUESTION: Higher XCO₂ levels Jan-Mar 2016?
+OPTIONS: A) Northern, B) Southern, C) Equatorial only, D) Need info
+CORRECT_ANSWER: A
+
+---QUESTION 31--- ID: 31 | POINTS: 1.00 | FORMAT: MC | TOPIC: XCO₂ trend | Seasonal change
+QUESTION: Oct 2015-Mar 2016 XCO₂ trend?
+OPTIONS: A) Decrease, B) Increase, C) Fluctuation, D) Sharp drop Feb
+CORRECT_ANSWER: B
+
+---QUESTION 32--- ID: 32 | POINTS: 1.00 | FORMAT: MC | TOPIC: CO₂ seasonality | Northern winter
+QUESTION: Northern winter seasonal CO₂ change due to?
+OPTIONS: A) Ocean absorption, B) Photosynthesis increase, C) Photosynthesis reduced, D) Volcanic
+CORRECT_ANSWER: C
+
+---QUESTION 33--- ID: 33 | POINTS: 1.00 | FORMAT: MC | TOPIC: Image measurement | Top image
+QUESTION: Top image measuring?
+OPTIONS: A) Reflected energy, B) Outgoing energy, C) Cooling areas, D) Warming areas
+CORRECT_ANSWER: B
+
+---QUESTION 34--- ID: 34 | POINTS: 1.00 | FORMAT: MC | TOPIC: Image measurement | Bottom image
+QUESTION: Bottom image measuring?
+OPTIONS: A) Reflected energy, B) Outgoing energy, C) Cooling, D) Warming
+CORRECT_ANSWER: C (or D)
+
+---QUESTION 35--- ID: 35 | POINTS: 1.00 | FORMAT: MC | TOPIC: Spectrum used | Bottom images
+QUESTION: Spectrum part used for bottom images?
+OPTIONS: A) Visible, B) Infrared, C) Microwave, D) Radio
+CORRECT_ANSWER: B
+
+---QUESTION 36--- ID: 36 | POINTS: 1.00 | FORMAT: MC | TOPIC: Instrument identification
+QUESTION: Instrument taking image?
+OPTIONS: A) MODIS, B) ATMS, C) CERES, D) CrIS
+CORRECT_ANSWER: B
+
+---QUESTION 37--- ID: 37 | POINTS: 1.00 | FORMAT: MC | TOPIC: Scanner type
+QUESTION: Type of scanner?
+OPTIONS: A) Across-track, B) Along-track, C) Rotating Azimuth Plane, D) All
+CORRECT_ANSWER: A
+
+---QUESTION 38--- ID: 38 | POINTS: 2.00 | FORMAT: Free Response | TOPIC: GOES-16 imaging time
+QUESTION: GOES-16 Band 4 image captured day/night/both? Why?
+ANSWER: Both - Band 4 operates in 10.3-11.3 µm (thermal IR), works day and night
+
+---QUESTION 39--- ID: 39 | POINTS: 1.00 | FORMAT: MC | TOPIC: Greenhouse gases | Prevalence
+QUESTION: Most prevalent greenhouse gas?
+OPTIONS: A) CO₂, B) H₂O vapor, C) CH₄, D) O₃
+CORRECT_ANSWER: B
+
+---QUESTION 40--- ID: 40 | POINTS: 1.00 | FORMAT: MC | TOPIC: Albedo | Surface vs atmosphere
+QUESTION: Earth+atmosphere combined albedo higher than surface (4%) due to?
+OPTIONS: A) High cloud, low water, B) High cloud, high water, C) Low cloud, low water, D) Low cloud, high water
+CORRECT_ANSWER: B
+
+---QUESTIONS 41-61: ADVANCED ANALYSIS AND CALCULATIONS---
+
+[Questions 41-61 contain image analysis, aerosol identification, carbon cycle calculations, and energy balance climate model calculations - abbreviated here due to length]
+
+---QUESTION 52--- ID: 52 | POINTS: 1.00 | FORMAT: Calculation | TOPIC: LIDAR | Distance calculation
+QUESTION: LIDAR pulse to mountain and back = 0.0005s at 80km altitude (c=3×10⁵ km/s). Mountain height?
+CALCULATION: distance = speed × time / 2
+
+---QUESTION 53--- ID: 53 | POINTS: 4.00 | FORMAT: Calculation | TOPIC: Orbital mechanics | Kepler's third law
+QUESTION: Geostationary at 6R altitude; calculate period of satellite at 2.5R altitude
+CALCULATION: T² proportional to r³
+
+---QUESTION 59--- ID: 59 | POINTS: 4.00 | FORMAT: Calculation | TOPIC: Energy balance | Climate model
+QUESTION: Temperature increase by 6K. Calculate new radiation intensity absorbed by Earth's surface
+CALCULATION: Stefan-Boltzmann law: L = σAT⁴
+
+---QUESTION 60--- ID: 60 | POINTS: 4.00 | FORMAT: Calculation | TOPIC: Energy balance | Surface temperature
+QUESTION: Calculate temperature increase on Earth's surface given atmospheric temp increase
+
+---QUESTION 61--- ID: 61 | POINTS: 3.00 | FORMAT: Calculation | TOPIC: Carbon cycle | Carbon reservoir
+QUESTION: 500 GtC released; 30% atmosphere, 27% vegetation, remainder ocean. Calculate final values

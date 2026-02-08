@@ -1,0 +1,583 @@
+1 
+2025 UT Austin Invitational Tournament 
+October 25, 2025 
+ 
+DISEASE DETECTIVES 
+Division C Exam 
+Anaya Bawiskar, Biomedical Engineering, ‘27 (anabaw@tamu.edu) 
+Suhani Goswami, Computer Science & Biology, ‘27 (suhanigoswami@utexas.edu) 
+ 
+TEAM NAME:  
+TEAM NUMBER:  
+PARTICIPANT NAMES: 
+ 
+Instructions: 
+1.​ You should have this exam packet and a blank answer sheet. All answers must be recorded on 
+the answer sheet to be graded. Anything written on this exam will not be graded. Be mindful of 
+which section you are writing your answers in! 
+2.​ You will have 50 minutes to complete this exam. 
+3.​ A non-programmable, non-graphing calculator is permitted for this exam. Round all answers to 
+the nearest hundredth. 
+4.​ You may take apart the documents, but all documents must be stapled together at the end. 
+5.​ There are a total of 240 points on this exam.  
+6.​ In the case of a tie, the team with a greater score on Case Study #1 and Case Study #2 will win 
+the tie. 
+ 
+
+2 
+Ever since you were 4, working at the CDC has been your dream career.  
+Yesterday, you received a call that could make that dream come true: an interview for a  
+field epidemiologist position!  
+ 
+Vocabulary (1 pt each, 25 total) 
+Match the words in the table with their definitions below.  
+Write the LETTER on the answer sheet.  
+ 
+A: Sporadic 
+B: Endemic 
+C: Virulence 
+D: Random 
+Error 
+E: Primary Case 
+F: Area Map 
+G: Environment 
+H: Systematic 
+Error 
+I: Placebo Effect 
+J: Spot Map 
+K: Iatrogenic 
+L: Secondary 
+Case 
+M: 
+Hyperendemic 
+N: Cluster 
+O: Herd 
+Immunity 
+P: Double-Blind 
+Q: Confounding 
+Error 
+R: Morbidity 
+S: 
+Pathogenicity 
+T: Mortality 
+U: Fomite 
+V: Index Case 
+W: Host 
+X: Infectivity 
+Y: Agent 
+Z: Outbreak 
+AB: Vector 
+AC: Epidemic 
+AD: Nosocomial 
+AE: Pandemic 
+ 
+1.​ A disease that occurs infrequently and irregularly. 
+2.​ The constant presence of a disease or infectious agent within a given geographic area 
+or population group; may also refer to the usual prevalence of a given disease within 
+such area or group. 
+3.​ A disease that is constantly present at a high incidence and/or prevalence rate. 
+4.​ The occurrence of more cases of disease than expected in a given area or among a 
+specific group of people over a particular period of time. 
+5.​ An aggregation of cases of a disease or other health-related condition, particularly 
+cancer and birth defects, which are closely grouped in time and place. 
+6.​ An epidemic occurring over a very wide area (several countries or continents) and 
+usually affecting a large proportion of the population. 
+7.​ A beneficial health outcome resulting from a person’s anticipation that an intervention 
+will help. 
+8.​ A type of clinical trial in which neither the participants nor the researcher knows which 
+treatment or intervention participants are receiving until the clinical trial is over 
+9.​ An inanimate object that may be contaminated with microorganisms and serves in their 
+transmission. 
+10.​Relating to an illness acquired in a hospital. 
+11.​Relating to illness caused by medical examination or treatment. 
+
+3 
+12.​A factor, such as a microorganism, chemical substance, or form of radiation, whose 
+presence, excessive presence, or (in deficiency diseases) relative absence is essential for 
+the occurrence of a disease. 
+13.​An extrinsic factor (geology, climate, insects, sanitation, health services, etc.) which 
+affects the agent and the opportunity for exposure.  
+14.​A person or other living organism that can be infected by an infectious agent under 
+natural conditions. 
+15.​The first person who acquires the disease from exposure. 
+16.​The first case brought to the attention of professionals. 
+17.​Occurs when there is a difference between the true value and the observed value. 
+18.​The result of fluctuations around a true value due to sampling variability and can occur 
+with data collection, coding, transfer, or analysis of data. 
+19.​Occurs when the effects of two risk factors are mixed in the occurrence of the 
+health-related event under study. 
+20.​A map that indicates the location of each case of a rare disease or outbreak by a place 
+that is potentially relevant to the health event being investigated, such as where each 
+case lived or worked. 
+21.​The resistance of a group to invasion and spread of an infectious agent, based on the 
+resistance to infection of a high proportion of individual members of the group. 
+22.​Any departure, subjective or objective, from a state of physiological or psychological 
+well-being. 
+23.​The proportion of persons with clinical disease who, after becoming infected, become 
+severely ill or die. 
+24.​The proportion of persons infected, after exposure to a causative agent, who then 
+develop clinical disease. 
+25.​The proportion of persons exposed to a causative agent who become infected by an 
+infectious disease. 
+ 
+ 
+Acronyms (2 pts each, 8 total) 
+Write the full form of the following acronyms: 
+ 
+1.​ NHANES: 
+2.​ CDC: 
+3.​ SHEA: 
+4.​ NCHS: 
+ 
+
+4 
+Epidemiological History (1 pt each, 14 total) 
+Match the following pandemics to the year they happened: 
+ 
+A: 1347 - 1351​
+B: 1817-1923​​
+C: 1855​
+D: 2009 
+E: 2014 - 2016​
+F: 2002 - 2004​
+G: 1889 - 1890 
+ 
+1.​ Russian Flu:  
+2.​ Cholera:  
+3.​ Ebola:  
+4.​ SARS:  
+5.​ Bubonic Plague:  
+6.​ Swine Flu:  
+7.​ The Third Plague:  
+ 
+Choose the correct answer: 
+ 
+8.​ Who is the current director of the CDC? 
+a.​ Rochelle P. Walensky 
+b.​ Jim O’Neil 
+c.​ Susan Monarez 
+d.​ Robert R. Redfield 
+9.​ Who was the first person to publicly and successfully demonstrate the use of ether 
+anesthesia for surgery? 
+a.​ Kiyoshi Shiga 
+b.​ Anton van Leeuwenhoek 
+c.​ John Graunt 
+d.​ William T. G. Morton 
+10.​ Who is the father of epidemiology? 
+a.​ John Graunt 
+b.​ John Dalton 
+c.​ John Snow 
+d.​ John Gordon 
+11.​ Which of the following was the first antibiotic created in 1928? 
+a.​ Amoxicillin 
+b.​ Oxacillin 
+c.​ Ampicillin 
+d.​ Penicillin 
+
+5 
+12.​ Who is considered the father of surveillance for his work in the collection and analysis 
+of Britain’s mortality data? 
+a.​ Louis Pasteur 
+b.​ John Graunt 
+c.​ William Farr 
+d.​ Joseph Goldberger 
+13.​The first formal, large-scale human experiment was a trial for which vaccine? 
+a.​ Polio 
+b.​ Smallpox 
+c.​ Rabies 
+d.​ Typhoid 
+14.​Which of the following diseases was the CDC established to combat the spread of? 
+a.​ Tuberculosis 
+b.​ Malaria 
+c.​ Polio 
+d.​ Salmonella 
+ 
+ 
+ 
+ 
+ 
+Koch’s Postulates (3 pts each, 9 total) 
+1.​ Explain the significance of the postulate “ The cultured microorganism should cause 
+disease when introduced into a healthy organism” in 1-2 sentences. 
+2.​ A team of researchers is investigating the outbreak of a respiratory illness in a town. 
+They find an unknown bacterium present in the individuals who have the disease, but 
+do not find it in healthy individuals in the town. However, the scientists are unable to 
+grow this bacterium in the lab. Write the complete postulate that is not being satisfied 
+in this investigation. 
+3.​ An epidemiologist is studying Salmonella, related to an outbreak at a new restaurant in 
+town. They were able to isolate the Salmonella from the food that was eaten by a 
+majority of the diseased individuals. Write 2-3 sentences on the next steps the 
+epidemiologist should take to fulfill the remaining postulates. 
+ 
+ 
+ 
+ 
+
+6 
+Surveillance (2 pts each, 18 total) 
+1.​ Write the steps in order in the Public Health Surveillance Process. 
+2.​ In 1-2 sentences, describe the purpose of Surveillance. 
+Identify the type of Surveillance being described in the following scenarios: 
+3.​ Following a hazardous chemical spill, workers in the affected area were monitored for 
+72 hours for any symptoms of chemical exposure. 
+4.​ A hospital's laboratory automatically forwards all positive test results for COVID-19 to 
+the state health agency. This is part of the state's routine reporting requirements. 
+5.​ After identifying a case of a new, highly contagious flu strain, health department 
+officials call all hospitals and clinics daily for one week to ask specifically about patients 
+with similar symptoms. 
+6.​ A public health official receives an alert when a hospital's emergency room reports a 
+spike in the number of patients reporting respiratory symptoms, a pattern that doesn't 
+align with the usual seasonal flu trends. 
+7.​ A person who was in contact with a confirmed case of a communicable disease checks 
+their temperature daily and reports any symptoms to a nurse for two weeks. 
+8.​ A group of large hospitals has been chosen by health officials to conduct annual 
+surveys to analyze the prevalence of a disease in their areas. These hospitals provide 
+data that is used for public health policies, even though they only represent a fraction of 
+hospitals in their state. 
+9.​ A system that monitors pharmacy sales reports an unusual increase in the purchase of 
+over-the-counter cough and cold medication, prompting an investigation into a 
+potential outbreak. 
+ 
+Natural History of Disease (1 pt each, 4 total) 
+Fill in the missing parts of the timeline: 
+ 
+
+7 
+Hill’s Criteria (2 pts each, 30 total) 
+Scenario 
+Hill’s Criteria 
+1. The association is replicated in different 
+settings and using different methods. 
+A.​ Strength 
+2. The cause and effect have a 1:1 
+relationship. 
+B.​ Coherence 
+3. An increasing amount of exposure to the 
+agent increases disease risk. 
+C.​ Analogy 
+4. Exposure always precedes effect. 
+D.​ Consistency 
+5. Similar relationships have been observed 
+in other contexts. 
+E.​ Specificity 
+6. The relationship is consistent with 
+biological principles. 
+F.​ Plausibility 
+7. The condition can be prevented or induced 
+by controlling conditions. 
+G.​ Experiment 
+8. The relationship is compatible with current 
+theory and practice. 
+H.​ Biological Gradient 
+9. There is high correlation between 
+variables. 
+J.    Temporality 
+ 
+Match the scenarios below with what aspect of Hill’s Criteria they are describing using the 
+letters from the table above. 
+ 
+10. People who smoke cigarettes more often are significantly more likely to develop cancer. 
+11. The death rate from lung cancer rises linearly with the number of cigarettes smoked daily. 
+12. A retrospective and prospective study on smoking produce similar results. 
+13. Mesothelioma is almost exclusively caused by asbestos exposure, and rarely by any other 
+factor. 
+14. Lung cancer develops later in life for someone who smoked for years as a teenager. 
+15. Carcinogens in tobacco smoke can damage DNA, causing mutations that may lead to 
+cancer. 
+ 
+ 
+
+8 
+Bias (2 pts each, 18 total) 
+Name the specific type of bias described in the following scenarios: 
+ 
+1. In a 10-year weight loss trial, participants who fail to lose weight are more likely to drop out. 
+2. A study comparing factory workers to the general population finds workers have lower 
+overall mortality, partly because only relatively healthy people can maintain employment. 
+3. A treatment appears more effective overall, but when results are broken down by age group, 
+the treatment is less effective in both younger and older patients. 
+4. Parents of children with leukemia are more likely to remember pesticide exposure in the 
+home than parents of healthy children. 
+5. When asked about alcohol consumption in a survey, college students underreport drinking 
+because they want to appear more responsible. 
+6. A study finds an association between coffee drinking and heart disease, but the true risk 
+factor is smoking, which is more common among coffee drinkers. 
+7. A cancer screening test appears to improve survival time, but patients only seem to live 
+longer because their disease is diagnosed earlier, not because they actually survive longer. 
+8. A cancer screening program detects more slow-growing tumors than fast-growing ones, 
+making it seem as if screened patients have better outcomes, even if screening does not 
+improve mortality. 
+9. Researchers conduct a study on exercise habits and heart disease but recruit participants 
+only from a local fitness club. 
+ 
+Epidemic Patterns (2 pts each, 18 total) 
+Name the specific epidemic pattern described by each of the following statements. 
+1. A group of persons are all exposed to an infectious agent or a toxin from the same source. 
+2. A group is exposed over a relatively brief period and becomes ill within one incubation 
+period. 
+3. Patients are exposed to an infectious agent over a period of time, resulting in a flat and wide 
+epi-curve. 
+4. Transmission between patients occurs, resulting in more than one incubation period with 
+multiple peaks on an epi-curve. 
+5. The level of exposure to an agent naturally fluctuates, resulting in multiple, irregular waves 
+in cases on an epi-curve. 
+6. A pattern that has characteristics of both common-source and propagated epidemics. 
+ 
+ 
+ 
+
+9 
+Name the epidemic pattern shown in each epi-curve. 
+7.  
+ 
+8.  
+ 
+9. 
+ 
+ 
+Types of Studies (2 pts each, 12 total) 
+Name the type of study being described. 
+1.​ Randomly assigns participants to an experimental group or a control group. 
+2.​ Enrollment into the study is based on the presence or absence of disease. 
+3.​ Looks backwards and examines exposures to suspected risk or protection factors in 
+relation to an outcome that is established at the start of the study.  
+4.​ Follows over time groups of individuals who are alike in many ways but differ by a 
+certain characteristic. 
+5.​ Situations where nature is allowed to take its course. 
+6.​ A group of people is observed, or certain information is collected, at a single point in 
+time or over a short period of time. 
+ 
+ 
+ 
+ 
+ 
+
+10 
+Screening Test (3 points each, 18 total) 
+178 people consume sashimi at a restaurant and are tested for a new disease called Anahani. 
+49 people have positive results, and of these, 11 are false positives. Out of the negative 
+results, 102 are true negatives.  
+Based on this information, answer the following questions. 
+1.​ Calculate the sensitivity and explain what these results mean in 1 sentence. Provide 
+your answer as a percent. 
+2.​ Calculate the specificity and explain what these results mean in 1 sentence. Provide 
+your answer as a percent. 
+3.​ Calculate the positive predictive value and explain what these results mean in 1 
+sentence. Provide your answer as a percent. 
+4.​ Calculate the negative predictive value and explain what these results mean in 1 
+sentence. Provide your answer as a percent. 
+5.​ Calculate the prevalence of disease. Provide your answer as a percent. 
+6.​ In 1 sentence each, define false positives and false negatives. 
+ 
+Case Study #1 (Points defined by each question, 36 total) 
+Remember that interview from the beginning of the test? You aced it! Your interviewer was 
+impressed with your in-depth knowledge and attention to detail. The director wants to meet 
+with you personally, so a train ticket from your hometown of Boston is sent to your email, and 
+you depart early the next day for Washington DC. 
+ 
+You have a nice lunch on the train, watching the sights and enjoying the ride, drinking your 
+matcha, listening to Clairo, your tote bag with your Labubu clipped on sitting on the seat 
+beside you. :p 
+ 
+Mysteriously, around 2 hours after lunch at 2:30 pm on September 29th, 2025, fellow 
+passengers started raising concerns about nausea, vomiting, headache, and dizziness! Oh no! 
+ 
+1.​ Write a case definition for this outbreak. (3 points) 
+ 
+You interview people about the foods they consume, including people who feel sick and those 
+who don’t. With all your information jotted in your notes app, you head back to your seat and 
+create the following table. 
+ 
+ 
+
+11 
+Lunch Item 
+Sick 
+Not Sick 
+Burger 
+6 
+11 
+Salad 
+3 
+20 
+Pasta 
+16 
+15 
+Wrap 
+7 
+19 
+Baked Potato 
+3 
+13 
+ 
+2.​ What type of study is this? (1 point) 
+3.​ Name two benefits and two drawbacks of this type of study. (4 points) 
+4.​ Is calculating an odds ratio or a relative risk more appropriate for this study? Explain in 
+1 sentence. (2 points) 
+5.​ Based on your answer to number 3, calculate the appropriate measure for each food in 
+the table. Show your work for full credit. (10 points) 
+6.​ Calculate the Chi-Square Test Statistic for the Burger and Pasta data. Show your work 
+for full credit. (8 points) 
+7.​ What food has most likely caused this outbreak? Explain in 1 sentence. (1 point) 
+8.​ What type of bias most likely influenced this study? (1 point) 
+9.​ [Division C Only] Name 3 strategies to prevent future infections. (6 points) 
+ 
+ 
+
+12 
+Case Study #2 (Points defined by each question, 30 points total) 
+ 
+After the news of your great work on the train case, you have officially been hired as a field 
+epidemiologist for the CDC! In fact, your first case starts tomorrow!  
+You travel to Austin, TX, to investigate reports from urgent care facilities of patients 
+experiencing cough, fever, nausea, and congestion. 
+You review the profiles of 10 cases that checked into Bevo Urgent Care in the last month. 
+ 
+Label 
+Date of 
+Onset 
+Age 
+Gen
+der 
+Location of 
+Residence 
+Symptoms 
+Lab Result 
+a. 
+09/30/2025 
+30 
+M 
+Round Rock, 
+TX 
+Cough, Fever, 
+Headache, 
+Congestion, 
+Vomiting 
+Negative 
+b. 
+10/12/2025 
+43 
+F 
+Round Rock, 
+TX 
+Cough, Fever, 
+Nausea, 
+Congestion 
+ 
+Pending 
+c. 
+10/12/2025 
+23 
+F 
+Austin, TX 
+Cough, Fever, 
+Nausea, 
+Congestion, 
+Hearing Loss 
+ 
+Positive 
+d. 
+10/13/2025 
+26 
+M 
+Buda, TX 
+Cough, Nausea, 
+Cramps, Fever, 
+Headache, 
+Hearing Loss 
+ 
+Pending 
+e. 
+10/15/2025 
+56 
+F 
+Austin, TX 
+Fever, Nausea, 
+Diarrhea 
+ 
+Negative 
+f. 
+10/16/2025 
+34 
+M 
+Pflugerville, 
+TX 
+Cough, Fever, 
+Constipation 
+ 
+N/A 
+g. 
+10/20/2025 
+19 
+M 
+Round Rock, 
+Cough, Fever, 
+N/A 
+
+13 
+TX 
+Nausea, 
+Headache, 
+Congestion 
+ 
+h. 
+10/21/2025 
+31 
+M 
+Buda, TX 
+Cough, Fever, 
+Nausea, 
+Congestion, 
+Hearing Loss 
+ 
+Positive 
+i. 
+10/22/2025 
+22 
+F 
+Austin, TX 
+Cough, Fever, 
+Nausea, 
+Headache, Loss 
+of Taste 
+ 
+Pending 
+j. 
+10/22/2025 
+47 
+F 
+Manor, TX 
+Fever, 
+Headache, 
+Fatigue 
+ 
+N/A 
+ 
+1.​ What type of chart is shown above? (1 point) 
+2.​ What information would be needed to consider this an outbreak? (2 points) 
+3.​ What type of surveillance was used? (2 points) 
+4.​ Write a case definition for this scenario. (3 points) 
+5.​ What is the next step for an outbreak investigation, assuming the previous steps were 
+completed? Include both the step number and name. (2 points) 
+6.​ Label each case as Confirmed, Probable, Suspected, or Not a Case. (0.5 points per 
+question, 5 pts total) 
+ 
+After receiving test results from many of the cases, you find that the outbreak resulted from 
+Hookem virus, a disease that is transmitted by close proximity to infected people who are 
+coughing, sneezing, or talking.  
+ 
+7.​ What is the most likely mode of transmission of Hookem virus? (2 points) 
+8.​ Define the Basic Reproduction Number (R0). (2 points) 
+9.​ Define herd immunity. (2 points) 
+10.​Assume a Basic Reproduction Number of 4. What is the herd immunity threshold? 
+Express your answer as a decimal to two places. (3 points). 
+
+14 
+11.​If the proportion of the population that is immune is 0.50, what is the effective 
+reproductive number? (3 points) 
+12.​Assuming that vaccination is 90% effective, calculate the adjusted herd immunity 
+threshold. Express your answer as a decimal to two places. (3 points) 
+ 
+ 
+ 
+Congratulations on finishing the test! Happy Halloween :D 

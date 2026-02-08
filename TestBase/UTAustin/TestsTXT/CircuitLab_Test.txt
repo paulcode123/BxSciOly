@@ -1,0 +1,189 @@
+Science Olympiad
+Circuit Lab B/C Test (CLASS SET)
+UT Invitational
+Written by: Darsh Shah, darshs1008@gmail.com
+Directions:
+• This test is a class set. Please do not write any answers on this paper.
+• This was made using lastlegume’s Scioly Test Template and Answer Sheet Generator. Thanks for the
+help! (If you’re a test writer, I highly recommend checking it out: it’s pretty cool)
+• Write all answers on the answer sheets; any marks elsewhere will not be scored. If additional space is
+needed on a question, clearly mark the question number and your team number on the top
+left of the page and attach to your test.
+• There is no penalty for wrong answers. Answer as many questions as possible, even if you aren’t sure
+if you’re correct. Additionally, try to answer parts of questions even if you are unable to answer the
+previous part: partial credit will be awarded for answers on the ”right track”.
+• Points for each question are roughly indicative of intended question difficulty and of intended answer
+length (ie, easy questions with short answers are generally worth fewer points than difficult questions
+that require explanation).
+• Units are required whenever giving a numerical answer. Don’t worry about significant figures/decimal
+places unless the question states otherwise.
+• Good luck on the test!
+For grading use only
+Question:
+1
+2
+3
+4
+Total
+Points:
+63
+31
+27
+11
+132
+
+Circuit Lab B/C
+UT Invitational
+Class Set Test
+Section A: Resistor Dividers as Sensing
+Use your knowledge of circuits to answer the following questions. Partial credit will be awarded
+for partial responses to FRQs, especially for neat work that is close to the right answer.
+Figure 1: The image shows a generic resistor divider with R1 as a fixed resistor and R2 as a variable resistor.
+The green dashed line indicates physical separation between components.
+1.
+(a) The following subparts refer to the circuit as it is drawn in the image. The voltages across the
+resistors are defined numerically (V1, V2 for resistors R1, R2 respectively)
+i. (1 point) Write an equation that relates V1 and V2 to Vin
+ii. (2 points) Write an equation for V2 in terms of the resistances (R1, R2) and input voltage (Vin)
+iii. (3 points) Sketch a graph for V2 as a function of R1. Include the limiting cases (0, ∞) and
+general shape.
+iv. (3 points) Sketch a graph for V2 as a function of R2. Include the limiting cases (0, ∞) and
+general shape.
+v. (3 points) Sketch a graph for V2 as a function of Vin. Include the limiting cases (0, ∞) and
+general shape.
+vi. (2 points) Calculate the power dissipated by this resistor divider in terms of Vin, R1, and R2.
+vii. (3 points) A common maximum value that microcontrollers can sense is 3.3V. Given that Vin
+is 5V, what ratio of R1 to R2 is best suited for to measure V2 with this ADC? (Hint: ADC
+resolution is fixed by the number of bits and the voltage range it senses. Try ensure that V2
+fills the entire range)
+viii. (1 point) Does this circuit for work AC input voltages? (Y/N)
+ix. Using only the standard list of resistors below, make the following divider ratios using the fewest
+resistors possible resistors and the lowest DC currents (in that order).
+• 1kΩ, 3.3kΩ, 10kΩ, 22kΩ, 51kΩ, 100kΩ.
+α) (1 point) ≈1 : 50
+β) (1 point) ≈1 : 100
+γ) (1 point) ≈1 : 10
+δ) (1 point) ≈1 : 3
+(b) Consider the case where R2 is a thermistor with a positive temperature coefficient (ie, the resistance
+of the device increases as the temperature increases). For this particular thermistor, assume that
+the temperature in Kelvin (T) and resistance(R) follow R = AT + B where A and B are constants.
+i. (2 points) What value would V2 approach as the temperature increases?
+ii. (2 points) What value would V2 approach as the temperature decreases?
+iii. (2 points) Write an expression for V2 in terms of Vin, R1, and T.
+Page 1 of 4
+
+Circuit Lab B/C
+UT Invitational
+Class Set Test
+(c) Consider the case where R2 is a potentiometer that is being varied mechanically such that its
+resistance is given by the figure below for the following subparts.
+Figure 2: Left: Graph of resistance of potentiometer vs time. Right: Diagram of potentiometer internals.
+The resistance is set by the location of the middle wiper around a resistive loop.
+The position of the
+potentiometer is defined as x = 0 on the left end of the loop and x = L at the right end. Note that the
+resistance of an object with length L, area A, and resistivity ρ is given by R = ρL/A.
+i. (1 point) Assuming Rmin is the smallest resistance between nodes 1 and 2, which location on
+the potentiometer corresponds to a resistance of Rmin between nodes 1 and 2?
+ii. (1 point) Assuming Rmax is the largest resistance between nodes 1 and 2, which location on
+the potentiometer corresponds to a resistance of Rmax between nodes 1 and 2?
+iii. (3 points) In what wiper position is the potentiometer most likely to thermally fail assuming
+that voltage across the potentiometer is constant? (ie, when is the thermal density the highest?)
+iv. (3 points) Using the equation given in the caption of the figure, write an expression for the
+resistance of the potentiometer as a function of the position around the loop.
+v. (4 points) Graph the position of the wiper vs time that would needed to generate the resistance
+vs time graph in the figure above.
+vi. The following subsubparts are about trying to use this circuit to generate AC across V1. Note
+that it is beneficial if the AC signal generated in this process has the largest amplitude possible.
+α) (1 point) What does AC stand for?
+β) (2 points) What must be true about the value of Rmin compared to R1 for the amplitude
+to be maximized?
+γ) (2 points) What must be true about the value of Rmax compared to R1 for the amplitude
+to be maximized?
+δ) (2 points) What is the period of V1 with this changing resistance (in terms of t1 and
+t2)? What would this period have to be in order to generate an AC signal with the same
+frequency as the American grid?
+ϵ) (3 points) Sketch the graph of V1 for this changing resistance. Be sure to show how the
+shape is the same or different as the resistance graph.
+ζ) (1 point) Is this a good AC source? (Y/N)
+vii. Generally, these sort of mechanical motions are generated using motors. This motor can mod-
+eled as a rotating permanent magnet in a loop of wire.
+α) (4 points) At what points in the magnet’s rotation is the magnetic flux through the plane
+of the loop the largest? The smallest?
+β) (2 points) Since the magnetic flux is changing, an opposing current is induced in the wires.
+What law defines this behavior?
+γ) (3 points) If the number of poles in the permanent, rotating magnet are increased, what
+happens to the peak flux seen through the loop?
+δ) (3 points) Can there ever be an odd number of poles present in the rotating magnet?
+(Y/N). Which of Maxwell’s equations confirm this thinking?
+Page 2 of 4
+
+Circuit Lab B/C
+UT Invitational
+Class Set Test
+Section B: PCB Planes and Capacitance
+Use the parameters and your understanding of capacitance to answer the following questions.
+Figure 3: Diagram of a PCB with four relevant copper planes labeled vDD, vsig1, vsig2, and GND on either
+the top and bottom layers of the PCB. Note that the material used to separate the layers has thickness (d)
+of 1.5mm and relative dielectric constant (ϵr) of 4.5. The area of vsig1 with vsig2 beneath it is 20mm2. The
+area of vsig1 with GND beneath it is 10mm2. The area of vDD with vsig2 beneath it is 2mm2. The area of
+vDD with GND beneath it is 40mm2.
+2. In calculations for capacitance, assume that there are no fringing fields between the planes.
+(a) (2 points) What is the coupled capacitance between vsig1 and vsig2?
+(b) (2 points) What is the coupled capacitance between vsig1 and GND?
+(c) (2 points) What is the coupled capacitance between vDD and GND?
+(d) (2 points) Give an equality in terms of ϵr for two different materials that illustrates one reason the
+coupled capacitance between vsig2 and GND is very small.
+(e) (1 point) Is vsig1 or vDD able to carry more current?
+(f) (3 points) Where, in relation to the planes, would there actually be large fringing fields in this
+figure?
+(g) Assume that vsig1 is a clock signal (ie, a square wave with sharp edges that can be modeled as
+though vsig1 started at 0V and then quickly steps to vDD)
+i. (1 point) Sketch the clock edge described in the statement above.
+ii. (3 points) Given that any connection between two points using metal will have resistance, what
+type of circuit can model the shape of the clock edge including both the resistive and capacitive
+parameters?
+iii. (4 points) Using your answer to the previous question (and assuming that the combined resis-
+tance seen by vsig1 is 50mΩ), what is the time constant to GND for this modeling circuit?
+iv. (4 points) Given that a system generally stabilizes within 4τ, what is the maximum frequency
+that the clock can change at before the edges don’t resolve before switching?
+v. (2 points) Since vsig1 is a high speed node (ie, the voltage of the node changes quickly), there
+is current generated in vsig2 according to ic = C∆V/∆t. Would this current be larger for a
+faster signal? (Y/N)
+vi. (2 points) Is this resulting current a larger problem for the accuracy of vsig2 if vsig2 is large in
+amplitude or small in amplitude?
+vii. (3 points) VDD is generally considered to be a constant supply voltage. Will the capacitance
+between VDD and GND generate any currents as in the previous subparts? Write an equation
+to support your answer.
+Page 3 of 4
+
+Circuit Lab B/C
+UT Invitational
+Class Set Test
+Section C: Magic Boxes and Magistrates
+Use your understanding of circuits, historical discoveries, and general knowledge to answer
+the following questions.
+3. Use the figure below of a magic box to answer the following parts.
+Figure 4: In the figure above, the magic box has a couple of properties. 1) the inputs to the magic box (the
++ and −marked inputs) are high resistance (ie, no current flows into the inputs). 2) the output of the magic
+box labeled v0 is given by v0 = A(v+ −v−) where A is the gain of the box (a constant in this case). Note
+that the triangles are grounds (ie, 0V ).
+(a) (2 points) Use Kirchhoff’s Voltage Law (KVL) to express an equation for the voltages in this circuit
+(vin, va, and vx). Express each term in the loop explicitly.
+(b) (3 points) Write the current balance equation for node va using Kirchhoff’s Current Law (KCL) in
+terms of voltages only (vin, va, and vx).
+(c) (2 points) Write vx as a function of the voltages (vin, va, and vx).
+(d) (2 points) Combine (but don’t simplify yet) the two equations above to get a single equation with
+only va, vin, and system parameters (A, R1, R2).
+(e) (4 points) Solve the equation above for va in terms of vin and system parameters (A, R1, R2).
+(f) (3 points) For very large gains (ie, A →∞), what is va?
+(g) (4 points) Write and solve an equation for v0 in terms of vin and system parameters (A, R1, R2).
+(h) (3 points) For very large gains (ie, A →∞), what is vo?
+(i) (4 points) Using your understanding of this box, what would be a condition on the input voltages
+(v+ and v−) that could replace using the limit on A?
+4. Answer the following statements with the first letter of the scientist(s) from the rules ((A)mpere,
+(C)oulomb, (K)irchhoff, (V)olta, (O)hm, (T)esla, (F)araday) that satisfy the statement.
+(a) (1 point) The law directly named after them has a 1/r2 dependence.
+(b) (2 points) The law directly named after them has a 1/r dependence.
+(c) (5 points) The law named directly after them is useful in steady state (ie, has no time dependence).
+(d) (3 points) They did most of their work in France.
+Page 4 of 4

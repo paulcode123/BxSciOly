@@ -1,0 +1,329 @@
+EVENT: Machines
+SOURCE: Hawk&Hornet Invitational 2026 (Div. C)
+FORMAT: Multiple sections with various question types (MC, Free Response, Calculation, Matching, True/False)
+TOTAL POINTS: 80.5 (scaled to 50)
+
+---SECTION 1: GENERAL---
+
+---QUESTION 1---
+ID: 1 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Machines | Simple Machines | Definition
+DIFFICULTY: Easy
+QUESTION: Which of the following is the most comprehensive definition of a simple machine?
+OPTIONS:
+A) An elementary device that has a specific movement, which can be combined with other devices and movements to form a complicated machine.
+B) A non-electronic device created for the purpose of comparing weights of objects or make physical jobs easier, by changing the magnitude or direction of the force.
+C) Mechanical devices combined together to apply force to reduce the work needed in order to accomplish a task.
+D) A device that modifies motion and force to perform work
+
+---QUESTION 2---
+ID: 2 | POINTS: 3.00 | FORMAT: Free Response
+TOPIC: Machines | Simple Machines | Types | Work | Mechanical Advantage
+DIFFICULTY: Easy
+QUESTION: List five types of simple machines and for two, explain how each can make work easier (1 point for list five simple machines, 1 point per each of the two explanations).
+
+---QUESTION 3---
+ID: 3 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Physics | Units | Mass | SI Units | Fundamental Units
+DIFFICULTY: Easy
+QUESTION: Write the mass of a 10 kg box in terms of fundamental SI units.
+
+---QUESTION 4---
+ID: 4 | POINTS: 2.00 | FORMAT: MC (multi-select)
+TOPIC: Machines | Simple Machines | Single Machine Devices | Identification
+DIFFICULTY: Medium
+QUESTION: Which of the following are composed of a single simple machine (Mark all correct answers)?
+OPTIONS:
+A) Blade of a Pencil Sharpener
+B) Fishing Rod
+C) Nail Clipper
+D) Screwdriver
+E) Roller Coaster
+
+---QUESTIONS 5A-5C (SHARED CONTEXT)---
+ID: 5A-5C | POINTS: 1.00 each | FORMAT: Free Response
+TOPIC: Machines | Simple Machines | Device Identification | Types
+CONTEXT: Questions relate to identifying devices from descriptions and their simple machine types
+
+---QUESTION 5A---
+ID: 5A | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Machines | Winch | Wheel and Axle | Device Identification
+DIFFICULTY: Medium
+QUESTION: Write the name of this device based on its description and identify the type of simple machine it is: Consists of a horizontal cylinder (barrel), which is rotated by the turn of a crank or belt. A winch is affixed to one or both ends, and a cable or rope is wound around the winch, pulling a weight attached to the opposite end.
+
+---QUESTION 5B---
+ID: 5B | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Machines | Archimedes Screw | Screw | Water Lifting | Device Identification
+DIFFICULTY: Medium
+QUESTION: Write the name of this device based on its description and identify the type of simple machine it is: Used for lifting water from a low-lying body of water into irrigation ditches, it lifts water by turning a spiral-shaped surface inside a pipe.
+
+---QUESTION 5C---
+ID: 5C | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Machines | Chain Hoist | Pulley System | Device Identification
+DIFFICULTY: Medium
+QUESTION: Write the name of this device based on its description and identify the type of simple machine it is: This machine is operated by pulling upon the slack section of a continuous chain that wraps around two pulleys on a common shaft. (The two pulleys are joined together such that they rotate as a unit on the single shaft that they share.) It is used to manually lift very heavy objects like car engines.
+
+---QUESTION 6---
+ID: 6 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Physics | Dimensional Analysis | Energy | Dimensions
+DIFFICULTY: Easy
+QUESTION: Provide the dimensions of Energy.
+
+---QUESTION 7---
+ID: 7 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Physics | Dimensional Analysis | Momentum | Dimensions
+DIFFICULTY: Easy
+QUESTION: Provide the dimensions of Momentum.
+
+---QUESTION 8---
+ID: 8 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Machines | Dimensional Analysis | Efficiency | Dimensions | Dimensionless
+DIFFICULTY: Easy
+QUESTION: Provide the dimensions of Efficiency.
+
+---SECTION 2: NEWTON---
+
+---QUESTION 9---
+ID: 9 | POINTS: 4.00 | FORMAT: Calculation
+TOPIC: Physics | Friction | Coefficient of Friction | Inclined Plane | Work | Energy
+DIFFICULTY: High
+QUESTION: A 5 kg block of mass moves across a plane 2 meters long with an incline of 30° at 2 m/s. The first meter of the plane is a smooth, frictionless surface, while the second meter requires 20% more work due to friction for the object to maintain the same velocity. What is the coefficient of friction of the second half of the plane's surface?
+CALCULATION: Calculate work done on frictionless section, determine additional work needed on frictional section, then solve for coefficient of friction
+
+---QUESTIONS 10A-10C (SHARED CONTEXT)---
+ID: 10A-10C | POINTS: 1.00 each | FORMAT: Matching
+TOPIC: Physics | Newton's Laws | First Law | Second Law | Third Law | Applications
+CONTEXT: Match phenomena to Newton's first, second, or third law
+
+---QUESTION 10A---
+ID: 10A | POINTS: 1.00 | FORMAT: Matching
+TOPIC: Physics | Newton's Second Law | Force | Mass | Acceleration
+DIFFICULTY: Easy
+QUESTION: It takes more force to push a wagon with a child than an empty wagon.
+ANSWER: Newton's Second Law
+
+---QUESTION 10B---
+ID: 10B | POINTS: 1.00 | FORMAT: Matching
+TOPIC: Physics | Newton's First Law | Inertia | Motion | Bowling
+DIFFICULTY: Easy
+QUESTION: Pins hit by a bowling ball are knocked down.
+ANSWER: Newton's First Law
+
+---QUESTION 10C---
+ID: 10C | POINTS: 1.00 | FORMAT: Matching
+TOPIC: Physics | Newton's Third Law | Action-Reaction | Swimming | Force Pairs
+DIFFICULTY: Easy
+QUESTION: A swimmer's stroke pushes on the water and they move forward.
+ANSWER: Newton's Third Law
+
+---QUESTION 11---
+ID: 11 | POINTS: 4.00 | FORMAT: Calculation
+TOPIC: Physics | Conservation of Momentum | Projectile Motion | Recoil | Roller Skates
+DIFFICULTY: High
+QUESTION: You are standing at a roller rink with inline skates and are (dangerously) holding a bowling ball. You decide to throw the ball at 10.0 m/s at an angle of 15 degrees above the horizontal. If you are 65.0 kg and the ball has a mass of 4.54 kg, what is your speed after you throw the bowling ball (surface is frictionless)?
+CALCULATION: Use conservation of momentum in horizontal direction to find recoil velocity
+
+---QUESTION 12---
+ID: 12 | POINTS: 4.00 | FORMAT: Calculation
+TOPIC: Physics | Moment of Inertia | Parallel Axis Theorem | Square Wire | Thin Rod
+DIFFICULTY: Very High
+QUESTION: A wire is bent into a square, with a side length of 25 cm. If the wire's total mass is 3.1 g, find the moment of inertia about an axis through the center and perpendicular to the plane of the square. Please provide an answer in standard units. (note: The wire is a thin uniform rod; hint: Use parallel axis theorem)
+CALCULATION: Calculate moment of inertia for each side using parallel axis theorem, then sum for all four sides
+
+---QUESTIONS 13-15 (SHARED CONTEXT)---
+ID: 13-15 | POINTS: Variable (3+3+2) | FORMAT: Calculation / Image Analysis
+TOPIC: Machines | Inclined Plane | IMA | AMA | Work | Truck Ramp
+CONTEXT: Questions relate to truck ramp with length 5.36 feet, height 3.4 feet, friction constant 0.18
+
+---QUESTION 13---
+ID: 13 | POINTS: 3.00 | FORMAT: Calculation / Image Analysis
+TOPIC: Machines | Inclined Plane | IMA | Ideal Mechanical Advantage | Truck Ramp
+DIFFICULTY: Easy
+QUESTION: Calculate the IMA of a truck shown below (length 5.36 feet, height 3.4 feet).
+CALCULATION: IMA = length / height
+
+---QUESTION 14---
+ID: 14 | POINTS: 3.00 | FORMAT: Calculation / Image Analysis
+TOPIC: Machines | Inclined Plane | AMA | Actual Mechanical Advantage | Friction
+DIFFICULTY: Medium
+QUESTION: What is the AMA of the truck ramp from question 13 if the ramp has frictional constant of 0.18?
+CALCULATION: Account for friction in calculating AMA
+
+---QUESTION 15---
+ID: 15 | POINTS: 2.00 | FORMAT: Calculation / Image Analysis
+TOPIC: Physics | Work | Inclined Plane | Friction | Crate | Truck Ramp
+DIFFICULTY: Medium
+QUESTION: How much work is needed to push a crate of 83 kg up this truck ramp given friction still exists? (Note: 1 meter = 3.28 foot)
+CALCULATION: Calculate work against gravity and friction
+
+---QUESTION 16---
+ID: 16 | POINTS: 2.00 | FORMAT: Fill-in-blank (2 blanks)
+TOPIC: Machines | Inclined Plane | Mechanical Advantage | Length | Height
+DIFFICULTY: Easy
+QUESTION: The mechanical advantage of an inclined plane is the _________ of the slope divided by the ________ of the slope.
+
+---QUESTION 17---
+ID: 17 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Machines | Efficiency | Energy Loss | Friction | Heat | 100% Efficiency
+DIFFICULTY: Easy
+QUESTION: Why is the efficiency of a simple machine always less than 100%?
+
+---QUESTION 18---
+ID: 18 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Machines | AMA | IMA | Equality | Frictionless Conditions
+DIFFICULTY: Medium
+QUESTION: At what instance is the AMA equal to its IMA?
+
+---QUESTION 19---
+ID: 19 | POINTS: 4.00 | FORMAT: Calculation
+TOPIC: Physics | Friction | Inclined Plane | Kinematics | Stopping Distance | Multiverse Scenario
+DIFFICULTY: Very High
+QUESTION: A cube with equally distributed mass of 0.7 kg is placed in a parallel multiverse where smooth frictionless ramps exist. As it is traveling down at 0.8 m/s, suddenly, the cube is instantaneously transported to an equivalent ramps on earth where it continues sliding down, now, with a friction constant of 0.52. If the incline of the mountain is 27 degrees, how long will the block have traveled on the surface with friction until it comes to a stop?
+CALCULATION: Use kinematics and friction forces to determine stopping distance
+
+---QUESTION 20---
+ID: 20 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Physics | Friction | Inclined Plane | Stopping | Infinitely Long Plane
+DIFFICULTY: Medium
+QUESTION: A block's mass is 50 kg and it has been pushed down an inclined plane so that it is traveling at 100 m/s. If this inclined plane has the same friction constant, but is infinitely long, will the block still come to a stop? Explain why or why not.
+
+---SECTION 3: LEVERS---
+
+---QUESTION 21---
+ID: 21 | POINTS: 8.00 | FORMAT: Free Response (0.5 pts each)
+TOPIC: Machines | Levers | Lever Classes | First Class | Second Class | Third Class | Identification
+DIFFICULTY: Medium
+QUESTION: Identify which lever category each of the following objects are (0.5 points per correct object).
+A) Brake pedal of a car
+B) Crowbar
+C) Wheelbarrow
+D) Hammer
+E) Nutcracker
+F) Bottle Opener
+G) Scissors
+H) Pair of tweezers
+
+---QUESTION 22---
+ID: 22 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Machines | Levers | Efficiency | AMA | IMA | Calculation
+DIFFICULTY: Medium
+QUESTION: Given that the actual mechanical advantage of the lever is 4, calculate the efficiency.
+OPTIONS:
+A) 80%
+B) 75%
+C) 50%
+D) 40%
+E) 25%
+
+---QUESTION 23---
+ID: 23 | POINTS: 2.00 | FORMAT: MC / Calculation / Image Analysis
+TOPIC: Machines | Levers | Effort Force | Load | Weight Distribution | Calculation
+DIFFICULTY: Medium
+QUESTION: Given the weight, evenly distributed across the lever, is 1kg, calculate the effort force needed to support a load of 3 kg as it is depicted below.
+OPTIONS:
+A) 0.87 N
+B) 6.5 N
+C) 7.1 N
+D) 8.5 N
+E) 11.9 N
+
+---QUESTION 24---
+ID: 24 | POINTS: 2.00 | FORMAT: Fill-in-blank (2 blanks)
+TOPIC: Machines | Levers | Mechanical Advantage | Effort Arm | Resistance Arm
+DIFFICULTY: Easy
+QUESTION: The mechanical advantage of a lever is the length of the ________ arm divided by the length of the _______ arm.
+
+---QUESTION 25---
+ID: 25 | POINTS: 2.00 | FORMAT: MC / Image Analysis
+TOPIC: Machines | Levers | IMA | Ideal Mechanical Advantage | Comparison
+DIFFICULTY: Medium
+QUESTION: Of the five levers below, which has the highest IMA? Please circle the letter of the correct answer.
+
+---SECTION 4: WEDGES---
+
+---QUESTION 26---
+ID: 26 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Machines | Wedges | Friction | Surface Interaction
+DIFFICULTY: Medium
+QUESTION: True or False: Wedges depend on the friction between the outer surface and the region it is pushing against.
+ANSWER: FALSE
+
+---QUESTION 27---
+ID: 27 | POINTS: 3.00 | FORMAT: Calculation
+TOPIC: Physics | Force | Impulse | Momentum | Axe | Deceleration | Collision
+DIFFICULTY: Medium
+QUESTION: A lumberjack uses swings a 3-kg axe head at 15 m/s to split a log. If the axe head decelerates in 0.1 seconds during the collision, what force does the log impart on the axe?
+CALCULATION: Use F = Δp/Δt or F = ma with deceleration
+
+---QUESTION 28---
+ID: 28 | POINTS: 2.00 | FORMAT: Free Response / Image Analysis
+TOPIC: Machines | Wedges | Knife Design | Bread Knife | Chef's Knife | Sawing Motion | Slicing Motion
+DIFFICULTY: Medium
+QUESTION: Various kitchen knives are used around the household, including the bread knife (image on left) and the chef's knife (image on right). Though they are both wedges, they are shaped differently. Explain why the bread knife uses a back-and-forth sawing motion while the chef's knife uses a single slicing motion from the tip of the blade. (Note the toothed blade on the edge of the bread knife)
+
+---SECTION 5: SCREWS---
+
+---QUESTIONS 29A-29B (SHARED CONTEXT)---
+ID: 29A-29B | POINTS: Variable (1+2) | FORMAT: Free Response / Image Analysis
+TOPIC: Machines | Screws | Thread Specification | IMA | Pitch | Wrench Length
+CONTEXT: Questions relate to stainless steel socket head screw with pitch 0.8 mm
+
+---QUESTION 29A---
+ID: 29A | POINTS: 1.00 | FORMAT: Free Response / Image Analysis
+TOPIC: Machines | Screws | Thread Specification | M Size | Pitch | Socket Head Screw
+DIFFICULTY: Medium
+QUESTION: This screw is a M__ × ____ mm thread screw.
+
+---QUESTION 29B---
+ID: 29B | POINTS: 2.00 | FORMAT: Calculation / Image Analysis
+TOPIC: Machines | Screws | IMA | Ideal Mechanical Advantage | Wrench | Pitch
+DIFFICULTY: Medium
+QUESTION: What is the IMA of the screw if effort is applied by a 10 cm long wrench?
+CALCULATION: IMA = 2πr / pitch
+
+---QUESTION 30---
+ID: 30 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Machines | Screws | Back Driving | Efficiency | Self-Locking
+DIFFICULTY: Medium
+QUESTION: In screw assemblies, one must consider the possibility of back driving. Why might a greater efficiency lead to a greater tendency for the screw to back drive?
+
+---QUESTION 31---
+ID: 31 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Machines | Screws | Connection Strength | Thread Design | Diameter | Length
+DIFFICULTY: Medium
+QUESTION: What is something that will not strengthen the connection of a screw?
+OPTIONS:
+A) Wider diameter
+B) Longer screw length
+C) Heat treatment
+D) Coarser threads
+
+---QUESTIONS 32A-32B (SHARED CONTEXT)---
+ID: 32A-32B | POINTS: 1.00 each | FORMAT: Free Response / Image Analysis
+TOPIC: Machines | Screws | Lead | Pitch | Thread Terminology | Diagram Labeling
+CONTEXT: Questions relate to lead and pitch of screws
+
+---QUESTION 32A---
+ID: 32A | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Machines | Screws | Lead | Pitch | Definitions
+DIFFICULTY: Easy
+QUESTION: What is a lead and pitch of a screw?
+
+---QUESTION 32B---
+ID: 32B | POINTS: 1.00 | FORMAT: Free Response / Image Analysis
+TOPIC: Machines | Screws | Lead | Pitch | Diagram Labeling | Multiple Starts
+DIFFICULTY: Medium
+QUESTION: Label the lead and pitch of each of the starts on the diagram below.
+
+---SECTION 6: GEARS---
+
+---QUESTION 33---
+ID: 33 | POINTS: 2.50 | FORMAT: Matching / Image Analysis (0.5 pts each)
+TOPIC: Machines | Gears | Gear Types | Rack and Pinion | Helical Gear | Hypoid Gear | Worm Gear | Miter Gear | Use Cases
+DIFFICULTY: Medium
+QUESTION: Identify each of the gears and indicate if the following is a correct use case for the gear. There will be one remaining image. (0.5 points per correct match)
+A) Rack and Pinion
+B) Helical Gear
+C) Hypoid Gear
+D) Worm Gear
+E) Miter Gear

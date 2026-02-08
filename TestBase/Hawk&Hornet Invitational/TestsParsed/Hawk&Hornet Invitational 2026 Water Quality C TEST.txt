@@ -1,0 +1,729 @@
+EVENT: Water Quality
+SOURCE: Hawk&Hornet Invitational 2026 (Div. C)
+FORMAT: 62 questions (45 MC @ 1pt, 1 MC multi-select @ 6pts, 1 MC multi-select @ 4pts, 1 MC multi-select @ 2pts, 1 MC multi-select @ 2pts, 1 MC multi-select @ 2pts, 1 fill-in-blank @ 5pts, 1 identification @ 3pts, 1 identification @ 3pts, 1 identification @ 1pt)
+TOTAL POINTS: 90
+
+---PART 1: FRESHWATER ECOLOGY---
+
+---QUESTION 1---
+ID: 1 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Hydrology | Water Distribution | Freshwater Percentage
+DIFFICULTY: Easy
+QUESTION: What percent of the earth's water is freshwater?
+OPTIONS:
+A) 1%
+B) 3%
+C) 10%
+D) 30%
+CORRECT_ANSWER: B
+
+---QUESTION 2---
+ID: 2 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Hydrology | Water Distribution | Usable Water
+DIFFICULTY: Easy
+QUESTION: Some of the earth's freshwater is stored at the ice caps. How much of earth's water is usable by organisms as liquid water?
+OPTIONS:
+A) 1%
+B) 3%
+C) 10%
+D) 30%
+CORRECT_ANSWER: A
+
+---QUESTION 3---
+ID: 3 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Hydrology | Watersheds | Terminology
+DIFFICULTY: Easy
+QUESTION: A watershed is also called a
+OPTIONS:
+A) Water cycle
+B) Point source
+C) Hectare
+D) Drainage basin
+CORRECT_ANSWER: D
+
+---QUESTION 4---
+ID: 4 | POINTS: 6.00 | FORMAT: MC (multi-select - 6 parts)
+TOPIC: Hydrology | Urbanization Effects | Watershed Impacts
+DIFFICULTY: Medium
+QUESTION: Urbanization within a watershed (without mitigating Stormwater Best Management Practices) causes which of the following in downstream watercourses (circle one for each row):
+(a) An increase or decrease in the bankfull discharges?
+(b) An increase or decrease in flood volumes?
+(c) An increase or decrease in the time it takes for peak flow to occur?
+(d) An increase or decrease in flow velocity?
+(e) An increase or decrease in max particle size of eroded sediment?
+(f) An increase or decrease in flow temperature?
+ANSWER: (a) Increase, (b) Increase, (c) Decrease, (d) Increase, (e) Decrease, (f) Increase
+
+---QUESTION 5---
+ID: 5 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Hydrology | Bankfull Discharge | Frequency
+DIFFICULTY: Medium
+QUESTION: The bankfull discharge, which defines the shape of a natural stream, is the peak flow from a rain event that occurs how frequently on average?
+OPTIONS:
+A) Once every 6 months
+B) Once every 1.5 years
+C) Once every 5 years
+D) Once every 100 years
+CORRECT_ANSWER: B
+
+---QUESTION 6---
+ID: 6 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Hydrology | Watershed Management | Strategies
+DIFFICULTY: Easy
+QUESTION: Watershed management strategies include all of the following except:
+OPTIONS:
+A) Stormwater detention basins with outlets that control flood, bankfull, and/or first flush volumes
+B) Stormwater Pollution Prevention Plans
+C) Master Plans that incorporate land use and soil type data
+D) National Flood Insurance Program
+CORRECT_ANSWER: D
+
+---QUESTION 7---
+ID: 7 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Water Pollution | Point Source Pollution | Types
+DIFFICULTY: Easy
+QUESTION: Types of Point Source Pollution include all of the following EXCEPT:
+OPTIONS:
+A) Excess fertilizer from crops
+B) Effluent from power plants
+C) Industrial discharges
+D) Oil spills
+E) Stormwater drainage system outlet pipes
+CORRECT_ANSWER: A
+
+---QUESTION 8---
+ID: 8 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Water Pollution | Non-Point Source Pollution | Types
+DIFFICULTY: Easy
+QUESTION: Types of Non-Point Source Pollution include all of the following EXCEPT:
+OPTIONS:
+A) Acid rain
+B) Litter
+C) Septic systems
+D) Wastewater treatment plant discharges
+E) Atmospheric deposition of airborne contaminants
+CORRECT_ANSWER: D
+
+---QUESTION 9---
+ID: 9 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Water Quality | Sedimentation | Effects on Aquatic Life
+DIFFICULTY: Medium
+QUESTION: When eroded river bank and bed material settles out of suspension, the resulting sedimentation harms aquatic life through all of the following mechanisms EXCEPT:
+OPTIONS:
+A) Reduced photosynthesis
+B) Impaired visibility
+C) Increased dissolved oxygen levels
+D) Increased water temperature
+E) Pollutant transport
+F) Eutrophication
+CORRECT_ANSWER: C
+
+---QUESTION 10---
+ID: 10 | POINTS: 5.00 | FORMAT: Fill-in-blank (5 blanks)
+TOPIC: Hydrology | Water Cycle | Processes
+DIFFICULTY: Easy
+QUESTION: Identify the missing steps (#1-5) of the water cycle depicted below. (Hint: All five steps end in the suffix "tion".)
+ANSWER: (1) Evaporation, (2) Transpiration, (3) Condensation, (4) Precipitation, (5) Infiltration (or Runoff)
+
+---QUESTION 11---
+ID: 11 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Water Chemistry | Nitrogen Cycle | Nitrification
+DIFFICULTY: Medium
+QUESTION: The term "Nitrification" refers to
+OPTIONS:
+A) The biological oxidation of ammonia to nitrate
+B) Conversion of organic nitrogen to inorganic nitrogen by microorganisms
+C) The process by which free nitrogen is converted into ammonia
+D) the oxidation of nitrate into nitrite
+CORRECT_ANSWER: A
+
+---QUESTION 12---
+ID: 12 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Ecology | Limiting Factors | Liebig's Law
+DIFFICULTY: Easy
+QUESTION: Which law states that growth of a plant is not controlled by the total amount of resources available, but by the scarcest resource (limiting factor) available?
+OPTIONS:
+A) Sørenson's Law of Community
+B) Liebig's Law of the Minimum
+C) Jaccard's Law of Similarity
+D) Kolmogorov's Law of 1941
+CORRECT_ANSWER: B
+
+---QUESTION 13---
+ID: 13 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Ecology | Limiting Factors | Phosphorus
+DIFFICULTY: Easy
+QUESTION: Of all the elements recycled in the biosphere, this element is the scarcest and is usually the limiting factor in any ecological system:
+OPTIONS:
+A) Phosphorus
+B) Nitrogen
+C) Carbon
+D) Calcium
+CORRECT_ANSWER: A
+
+---QUESTION 14---
+ID: 14 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Water Chemistry | Redfield Ratio | Description
+DIFFICULTY: Medium
+QUESTION: The Redfield-Richards ratio for freshwater systems describes
+OPTIONS:
+A) the optimum ratio of carbon, nitrogen, and phosphate in freshwater
+B) the optimum ratio of dissolved oxygen, nitrogen, and carbon dioxide in freshwater
+C) the optimum ratio of plants, herbivore animals, and carnivore animals in a food chain
+D) the optimum ratio of plants, herbivore animals, and carnivore animals in a food web
+CORRECT_ANSWER: A
+
+---QUESTION 15---
+ID: 15 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Water Chemistry | Redfield Ratio | Values
+DIFFICULTY: Medium
+QUESTION: The Redfield-Richards ratio for freshwater systems is
+OPTIONS:
+A) 100:10:1
+B) 106:16:1
+C) 1:16:160
+D) 1:6:116
+CORRECT_ANSWER: B
+
+---QUESTION 16---
+ID: 16 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Water Treatment | Process Order | Water Treatment Plant
+DIFFICULTY: Medium
+QUESTION: In a typical water treatment plant, the correct order of processes is
+OPTIONS:
+A) Filtration, screening, coagulation and flocculation, disinfection, sedimentation, and distribution
+B) Disinfection, screening, sedimentation, coagulation and flocculation, filtration, and distribution
+C) Screening, coagulation and flocculation, sedimentation, filtration, disinfection, and distribution
+D) Screening, sedimentation, filtration, disinfection, coagulation and flocculation, and distribution
+CORRECT_ANSWER: C
+
+---QUESTION 17---
+ID: 17 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Wastewater Treatment | Activated Sludge | Return Activated Sludge
+DIFFICULTY: Medium
+QUESTION: In the wastewater treatment process, what is Return Activated Sludge?
+OPTIONS:
+A) The fraction of settled material that is reintroduced into the aeration tank to maintain the desired level of microorganisms to break down organic matter
+B) The fraction of settled material that is collected from the bottom of the secondary clarifier and dried out before being landfilled
+C) The fraction of settled material that is collected from the bottom of the aeration tank to be filtered through activated charcoal before being returned to the receiving waterbody
+D) The fraction of settled material that is dried out and used as fertilizer for agricultural crops
+CORRECT_ANSWER: A
+
+---QUESTION 18---
+ID: 18 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Water Treatment | Coagulation | Process
+DIFFICULTY: Medium
+QUESTION: What is involved in the coagulation process?
+OPTIONS:
+A) Filtering water through a sand or charcoal filter
+B) Stirring water in a circular tank to create a vortex that forces suspended solids to the center
+C) Adding chemical to dissolve suspended solids into the water
+D) Adding chemicals to water to neutralize the charge of suspended solids
+CORRECT_ANSWER: D
+
+---QUESTION 19---
+ID: 19 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Water Treatment | Flocculation | Process
+DIFFICULTY: Medium
+QUESTION: What is involved in the flocculation process?
+OPTIONS:
+A) Adding chemicals to water to increase the water's pH
+B) Adding chemicals to water to decrease the water's pH
+C) Adding chemicals to water to cause smaller particles to clump together
+D) Adding chemicals to water to break up large particles into smaller ones
+CORRECT_ANSWER: C
+
+---QUESTION 20---
+ID: 20 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Water Treatment | Flocculation | Floc Composition
+DIFFICULTY: Medium
+QUESTION: The "floc" used in flocculation is
+OPTIONS:
+A) Aluminum and magnesium
+B) Calcium and magnesium
+C) Lime and alum
+D) Activated sludge
+CORRECT_ANSWER: C
+
+---QUESTION 21---
+ID: 21 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Water Treatment | Coagulants | Types
+DIFFICULTY: Medium
+QUESTION: All of the following are coagulants used in water treatment except:
+OPTIONS:
+A) Aluminum sulfate
+B) Sodium sulfate
+C) Ferric chloride
+D) Ferric sulfate
+E) Sodium aluminate
+F) Polyaluminum chloride
+G) Ferrous sulfate
+CORRECT_ANSWER: B
+
+---PART 2: FRESHWATER MACROINVERTEBRATES & AQUATIC NUISANCE SPECIES---
+
+---QUESTION 22---
+ID: 22 | POINTS: 6.00 | FORMAT: MC (multi-select)
+TOPIC: Ecology | Benthic Macroinvertebrates | Indicator Species
+DIFFICULTY: Medium
+QUESTION: According to the EPA, benthic macroinvertebrates are reliable indicators of the biological condition of a freshwater waterbody because they
+OPTIONS:
+A) spend all or most of their lives in water
+B) are easy to collect
+C) respond to human disturbance in fairly predictable ways
+D) are highly tolerant of environmental pollutants
+E) are relatively easy to identify in the laboratory
+F) consume hydrocarbons
+G) often live for more than a year
+H) have limited mobility
+CORRECT_ANSWERS: A, B, C, E, G, H
+
+---QUESTION 23---
+ID: 23 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Ecology | Benthic Macroinvertebrates | Definition
+DIFFICULTY: Easy
+QUESTION: "Benthic" macroinvertebrates are those that
+OPTIONS:
+A) are bottom dwellers
+B) float on the water's surface
+C) have wings before their adult stage
+D) can both swim and fly
+CORRECT_ANSWER: A
+
+---QUESTION 24---
+ID: 24 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Ecology | Macroinvertebrates | Pollution Tolerance
+DIFFICULTY: Medium
+QUESTION: From Most Tolerance to Least Tolerant, the pollution tolerance level of the four macroinvertebrates listed below is:
+OPTIONS:
+A) Mayfly > Dragonfly > Blackfly > Horsefly
+B) Dragonfly > Mayfly > Horsefly > Blackfly
+C) Horsefly > Blackfly > Dragonfly > Mayfly
+D) Blackfly > Dragonfly > Mayfly > Horsefly
+CORRECT_ANSWER: C
+
+---QUESTION 25---
+ID: 25 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Ecology | EPT Index | Meaning
+DIFFICULTY: Easy
+QUESTION: What do the E, P, and T stand for in "EPT Index"?
+OPTIONS:
+A) Environmental Pollutant Total
+B) Environmental Pathology Test
+C) Ephemeroptera, Plecoptera, and Trichoptera
+D) Epidemiological, Phytospheric, and Tropospheric
+CORRECT_ANSWER: C
+
+---QUESTION 26---
+ID: 26 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Ecology | EPT Index | Interpretation
+DIFFICULTY: Medium
+QUESTION: A high EPT index for a waterbody indicates
+OPTIONS:
+A) a high level of pollution within a waterbody
+B) a high number of macroinvertebrates in the waterbody
+C) a high density of pollution-tolerant macroinvertebrates in the waterbody
+D) a high percentage of pollution-sensitive macroinvertebrates in the waterbody
+CORRECT_ANSWER: D
+
+---QUESTION 27---
+ID: 27 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Ecology | Mayflies | Adult Feeding
+DIFFICULTY: Easy
+QUESTION: What do adult mayflies eat primarily?
+OPTIONS:
+A) Green plant material that floats on top of the water's surface
+B) Decaying woody material at the bottom of rivers and lakebeds
+C) Almost anything (carbon-containing)
+D) Nothing
+CORRECT_ANSWER: D
+
+---QUESTION 28---
+ID: 28 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Ecology | Damselflies | Labium
+DIFFICULTY: Easy
+QUESTION: Damselfly larvae are aquatic predators in freshwater habitats that capture prey by shooting out their long, hinged lower lip called a
+OPTIONS:
+A) ring
+B) mask
+C) tongue
+D) whip
+CORRECT_ANSWER: B
+
+---QUESTION 29---
+ID: 29 | POINTS: 4.00 | FORMAT: MC (multi-select)
+TOPIC: Ecology | Macroinvertebrates | Pollution Sensitivity
+DIFFICULTY: Medium
+QUESTION: All of the following are Class 1 – Pollution Sensitive freshwater adult stage macroinvertebrates EXCEPT (Circle the exception):
+
+---QUESTION 30---
+ID: 30 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Ecology | Mosquito Control | Methods
+DIFFICULTY: Easy
+QUESTION: According to the EPA, one of the most effective ways to control the local mosquito population is to:
+OPTIONS:
+A) Burn citronella candles near lawns, within 15 feet of freshwater bodies
+B) Use skin repellents containing DEET
+C) Eliminate containers and debris that can hold rainwater from yards
+D) Add sodium bicarbonate (baking soda) to stormwater detention basins to lower pH
+CORRECT_ANSWER: C
+
+---QUESTION 31---
+ID: 31 | POINTS: 4.00 | FORMAT: Identification / Image Analysis
+TOPIC: Ecology | Mayfly Larvae | Identification
+DIFFICULTY: Medium
+QUESTION: Circle the image below that shows a mayfly larva.
+
+---QUESTION 32---
+ID: 32 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Ecology | Aquatic Nuisance Plants | Identification
+DIFFICULTY: Easy
+QUESTION: Aquatic nuisance plants include all of the following EXCEPT:
+OPTIONS:
+A) Pickerelweed
+B) Purple Loosestrife
+C) Eurasian Water Milfoil
+D) Water Hyacinth
+CORRECT_ANSWER: A
+
+---QUESTION 33---
+ID: 33 | POINTS: 3.00 | FORMAT: Identification / Image Analysis
+TOPIC: Ecology | Purple Loosestrife | Identification
+DIFFICULTY: Medium
+QUESTION: Circle the image below that shows Purple Loosestrife. (The other two images show Fireweed and Verbena Hastata, which are commonly mistaken for Purple Loosestrife.)
+
+---QUESTION 34---
+ID: 34 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Ecology | Aquatic Nuisance Species | Zebra Mussel Introduction
+DIFFICULTY: Easy
+QUESTION: Which of the following aquatic nuisance animals was first observed in the Canadian waters of Lake Erie in 1986?
+OPTIONS:
+A) Asian Carp
+B) Asian Tiger Mosquito
+C) Spiny Water Flea
+D) Zebra Mussel
+CORRECT_ANSWER: D
+
+---QUESTION 35---
+ID: 35 | POINTS: 3.00 | FORMAT: Identification / Image Analysis
+TOPIC: Ecology | Zebra Mussel | Identification
+DIFFICULTY: Medium
+QUESTION: Circle the image that shows a zebra mussel. (The other two images show a quagga mussel and a unionid clam, both native Michigan species.)
+
+---QUESTION 36---
+ID: 36 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Ecology | Zebra Mussel | Ecological Effects
+DIFFICULTY: Medium
+QUESTION: According to the International Institute for Sustainable Development, one effect of the increasing zebra mussel population within the Great Lakes has been that
+OPTIONS:
+A) the phytoplankton and zooplankton populations have increased
+B) the Secchi depth has decreased
+C) the water in the upper levels of the lakes has gotten colder
+D) Lake Trout have migrated to deeper waters
+CORRECT_ANSWER: A
+
+---PART 3: WATER MONITORING AND ANALYSIS---
+
+---QUESTION 37---
+ID: 37 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Water Chemistry | Salinity | Lake Michigan
+DIFFICULTY: Easy
+QUESTION: The salinity of Lake Michigan is between
+OPTIONS:
+A) 10 to 50 parts per billion
+B) 50 to 100 parts per billion
+C) 10 to 50 parts per million
+D) 50 to 500 parts per million
+CORRECT_ANSWER: C
+
+---QUESTION 38---
+ID: 38 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Water Chemistry | Units | Parts Per Million
+DIFFICULTY: Easy
+QUESTION: One part per million is equivalent to
+OPTIONS:
+A) 0.01 percent
+B) 0.001 percent
+C) 0.0001 percent
+D) 0.00001 percent
+CORRECT_ANSWER: C
+
+---QUESTION 39---
+ID: 39 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Water Chemistry | Dissolved Oxygen | Temperature Relationship
+DIFFICULTY: Easy
+QUESTION: Dissolved oxygen
+OPTIONS:
+A) Increases with increasing water temperature
+B) Decreases with increasing water temperature
+C) Is independent of water temperature
+D) Causes water temperature to increase
+CORRECT_ANSWER: B
+
+---QUESTION 40---
+ID: 40 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Water Chemistry | BOD | Stages
+DIFFICULTY: Medium
+QUESTION: The two stages of BOD are
+OPTIONS:
+A) Aerobic and anaerobic demand
+B) Chemical and biological demand
+C) Carbonaceous and nitrification demand
+D) Natural and artificial demand
+CORRECT_ANSWER: C
+
+---QUESTION 41---
+ID: 41 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Water Chemistry | BOD | Ultimate BOD Calculation
+DIFFICULTY: High
+QUESTION: Assuming k20 = 0.1 per day, if the 3-day BOD of a wastewater sample at 20 degrees C is 400 mg/l, then the ultimate BOD is
+OPTIONS:
+A) 398 mg/l
+B) 548 mg/l
+C) 802 mg/l
+D) 1202 mg/l
+CORRECT_ANSWER: D
+
+---QUESTION 42---
+ID: 42 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Water Chemistry | BOD | BOD5 Calculation
+DIFFICULTY: High
+QUESTION: Assuming k20 = 0.1 per day, if the 3-day BOD of a wastewater sample at 20 degrees C is 400 mg/l, then the BOD5 (at 20 degrees C) is
+OPTIONS:
+A) 398 mg/l
+B) 548 mg/l
+C) 802 mg/l
+D) 1202 mg/l
+CORRECT_ANSWER: B
+
+---QUESTION 43---
+ID: 43 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Water Quality | Turbidity | Definition
+DIFFICULTY: Easy
+QUESTION: Turbidity is a measure of
+OPTIONS:
+A) how acidic the water is
+B) how cloudy the water is
+C) how much dissolved oxygen the water holds
+D) the water's capacity to resist a change in pH
+CORRECT_ANSWER: B
+
+---QUESTION 44---
+ID: 44 | POINTS: 2.00 | FORMAT: MC (multi-select)
+TOPIC: Water Quality | Turbidity | Measurement Methods
+DIFFICULTY: Medium
+QUESTION: Turbidity can be measured using a
+OPTIONS:
+A) Salinometer
+B) Spectrophotometer
+C) Cone Penetrometer
+D) Secchi disk
+CORRECT_ANSWERS: B, D
+
+---QUESTION 45---
+ID: 45 | POINTS: 2.00 | FORMAT: MC (multi-select)
+TOPIC: Water Quality | Turbidity | Units
+DIFFICULTY: Easy
+QUESTION: Turbidity is measured in
+OPTIONS:
+A) Milligrams per liter (mg/l)
+B) Parts per million (ppm)
+C) Formazin Nephelometric Units (FNU)
+D) Nephelometric Turbidity Units (NTU)
+CORRECT_ANSWERS: C, D
+
+---QUESTION 46---
+ID: 46 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Water Chemistry | Phosphorus | Unit Conversion
+DIFFICULTY: Medium
+QUESTION: Phosphorus concentrations reported as PO4 can be converted to concentrations of P by
+OPTIONS:
+A) Multiplying by five
+B) Dividing by five
+C) Multiplying by three
+D) Dividing by three
+CORRECT_ANSWER: B
+
+---QUESTION 47---
+ID: 47 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Water Chemistry | Phosphorus | Ideal Concentrations
+DIFFICULTY: Medium
+QUESTION: The ideal (total) phosphorus concentration for freshwater systems is generally
+OPTIONS:
+A) Below 0.5 ppm
+B) Above 5 ppm
+C) Below 50 ppm
+D) Between 0.5 and 5 ppm
+CORRECT_ANSWER: A
+
+---QUESTION 48---
+ID: 48 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Water Chemistry | Phosphorus | Standard Curve Analysis
+DIFFICULTY: High
+QUESTION: A standard curve showing the concentration of absorbance and phosphate concentration (below) was developed. Your water sample has an absorbance of 0.2 AU. What is the estimated Phosphate concentration of your sample?
+OPTIONS:
+A) 3.5 mg/L Phosphate
+B) 3 ppm Total phosphorus
+C) 350 ppb Phosphate
+D) 3000 ppb Total phosphorus
+CORRECT_ANSWER: C
+
+---QUESTION 49---
+ID: 49 | POINTS: 2.00 | FORMAT: MC (multi-select)
+TOPIC: Water Chemistry | Dissolved Organic Carbon | Properties
+DIFFICULTY: Medium
+QUESTION: Dissolved organic carbon (DOC) is the fraction of organic carbon that:
+OPTIONS:
+A) can pass through a filter with a pore size between 0.22 and 0.7 micrometers
+B) can settle out of suspension within 24 hours
+C) does not contribute to turbidity due to its extremely small size
+D) attenuates light which can alter vertical temperature profiles
+CORRECT_ANSWERS: A, C, D
+
+---QUESTION 50---
+ID: 50 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Water Quality | Instrumentation | Spectrophotometer
+DIFFICULTY: Easy
+QUESTION: A spectrophotometer is a device that can be used to measure
+OPTIONS:
+A) acidity
+B) turbidity
+C) salinity
+D) dissolved oxygen
+CORRECT_ANSWER: B
+
+---QUESTION 51---
+ID: 51 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Water Quality | Pathogens | Indicator Organisms
+DIFFICULTY: Medium
+QUESTION: Although generally not pathogenic, the presence of which of the following indicates a pathway for human pathogens (ex. water borne Viruses, bacteria, protozoa) to enter the water source?
+OPTIONS:
+A) Nitrates
+B) Phosphates
+C) Salinity
+D) Fecal coliform
+CORRECT_ANSWER: D
+
+---QUESTION 52---
+ID: 52 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Water Chemistry | Dissolved Oxygen | Solubility at Temperature
+DIFFICULTY: Medium
+QUESTION: How much oxygen can water hold at 70 degrees Fahrenheit?
+OPTIONS:
+A) 8.9 mg/l
+B) 14.6 mg/l
+C) 21 mg/l
+D) 24.6 mg/l
+CORRECT_ANSWER: A
+
+---QUESTION 53---
+ID: 53 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Water Chemistry | Dissolved Oxygen | Depth Relationship
+DIFFICULTY: Medium
+QUESTION: Does dissolved oxygen (all other factors being equal) increase or decrease with increasing depths?
+OPTIONS:
+A) Increase
+B) Decrease
+CORRECT_ANSWER: B
+
+---QUESTION 54---
+ID: 54 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Water Chemistry | Dissolved Oxygen | Salinity Relationship
+DIFFICULTY: Medium
+QUESTION: Does dissolved oxygen (all other factors being equal) increase or decrease with increasing salinity?
+OPTIONS:
+A) Increase
+B) Decrease
+CORRECT_ANSWER: B
+
+---QUESTION 55---
+ID: 55 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Water Chemistry | Dissolved Oxygen | Altitude Relationship
+DIFFICULTY: Medium
+QUESTION: Does dissolved oxygen (all other factors being equal) increase or decrease with increasing altitude?
+OPTIONS:
+A) Increase
+B) Decrease
+CORRECT_ANSWER: A
+
+---QUESTION 56---
+ID: 56 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Water Chemistry | Dissolved Oxygen | Diurnal Variation
+DIFFICULTY: Medium
+QUESTION: Is dissolved oxygen (all other factors being equal) higher during the daytime or the nighttime?
+OPTIONS:
+A) Daytime
+B) Nighttime
+CORRECT_ANSWER: A
+
+---QUESTION 57---
+ID: 57 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Ecology | Fish Tolerance | Dissolved Oxygen Requirements
+DIFFICULTY: Medium
+QUESTION: Different species have varying levels of tolerance to low dissolved oxygen levels. Trout and carp have the following minimum requirements for dissolved oxygen levels, respectively:
+OPTIONS:
+A) 5 mg/l; 2 mg/l
+B) 3 mg/l; 5 mg/l
+C) 1 mg/l; 6 mg/l
+D) 6 mg/l; 0.5 mg/l
+CORRECT_ANSWER: A
+
+---QUESTION 58---
+ID: 58 | POINTS: 2.00 | FORMAT: MC (multi-select)
+TOPIC: Water Chemistry | Eutrophication | Nutrient Causes
+DIFFICULTY: Easy
+QUESTION: The nutrients primarily responsible for eutrophication are
+OPTIONS:
+A) Nitrogen
+B) Methane
+C) Sodium
+D) Phosphorus
+E) Hydrogen
+F) Fluoride
+CORRECT_ANSWERS: A, D
+
+---QUESTION 59---
+ID: 59 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Ecology | Wetlands | Fen Formation
+DIFFICULTY: Medium
+QUESTION: Which of the following develops on slopes, in depressions, or on flats as a result of sustained flows of mineral-rich groundwater in the root zone, which creates persistent anaerobic conditions that limit the decomposition of plant debris?
+OPTIONS:
+A) Fen
+B) Bog
+C) Cartesian well
+D) Aquifer
+CORRECT_ANSWER: A
+
+---QUESTION 60---
+ID: 60 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Ecology | Wetlands | Fen vs Bog
+DIFFICULTY: Medium
+QUESTION: If you took water samples from both a bog and a fen, which one would you expect to have the higher calcium concentration?
+OPTIONS:
+A) Fen
+B) Bog
+CORRECT_ANSWER: A
+
+---QUESTION 61---
+ID: 61 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Water Chemistry | Dissolved Oxygen | Percent Saturation
+DIFFICULTY: Easy
+QUESTION: Which of the following is often measured in "percent saturation"?
+OPTIONS:
+A) Salinity
+B) Dissolved oxygen
+C) Fecal coliform
+D) Turbidity
+CORRECT_ANSWER: B
+
+---QUESTION 62---
+ID: 62 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Water Chemistry | pH | Ideal Range for Aquatic Life
+DIFFICULTY: Easy
+QUESTION: The ideal pH range for freshwater aquatic life is
+OPTIONS:
+A) 3-5
+B) 5-6.5
+C) 6.5-8.5
+D) 8-10
+CORRECT_ANSWER: C

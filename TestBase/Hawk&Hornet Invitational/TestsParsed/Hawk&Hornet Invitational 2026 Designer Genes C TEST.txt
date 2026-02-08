@@ -1,0 +1,872 @@
+EVENT: Designer Genes
+SOURCE: Hawk&Hornet Invitational 2026 (Div. C)
+FORMAT: 92 questions (MC, True/False, Matching, Free Response, Labeling)
+TOTAL POINTS: 118
+
+---QUESTION 1---
+ID: 1 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Meiosis | Independent Assortment | Metaphase I | Anaphase I
+DIFFICULTY: Medium
+QUESTION: The chromosomal basis underlying Mendel's Law of Independent Assortment is based on meiosis events occurring in:
+OPTIONS:
+A) Metaphase I
+B) Metaphase II
+C) Anaphase I
+D) Anaphase II
+
+---QUESTION 2---
+ID: 2 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Meiosis | Chromosome Number | Telophase I | Ploidy
+DIFFICULTY: Medium
+QUESTION: A diploid germ cell with n = 16 chromosomes is undergoing meiosis. At the end of telophase of meiosis I, this cell will have split into:
+OPTIONS:
+A) Two 2x, 1n cells with n = 16
+B) Four 1x, 2n cells with n = 16
+C) Two 1x, 1n cells with n = 32
+D) Four 3x, 2n cells with n = 32
+
+---QUESTION 3---
+ID: 3 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Inheritance Patterns | Variable Expressivity | Polydactyly
+DIFFICULTY: Medium
+QUESTION: Some cats exhibiting polydactyly can have up to 28 toes while their identical twins can have a normal number of toes. This inheritance pattern can be best described as:
+OPTIONS:
+A) Incomplete penetrance
+B) Haplosufficiency
+C) Variable expressivity
+D) Dominant negative
+
+---QUESTION 4---
+ID: 4 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Inheritance Patterns | Dominance | Haplosufficiency | Albinism
+DIFFICULTY: Medium
+QUESTION: Albinism is only observable in individuals who are homozygous for the mutant tyr allele. Given this, the wild type Tyr allele can be described as:
+OPTIONS:
+A) Dominant to mutant tyr
+B) Recessive to mutant tyr
+C) Haplosufficient
+D) A and C
+
+---QUESTION 5---
+ID: 5 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Meiosis | Gamete Formation | Independent Assortment
+DIFFICULTY: Medium
+QUESTION: Given a germ cell with the genotype A/a;B/b undergoing meiosis, which of the following are possible genotypes for the gametes formed from this event?
+OPTIONS:
+A) Aa, Aa, Bb, Bb
+B) A, a, B, b
+C) Ab, Ab, aB, aB
+D) aa, AA, BB, bb
+
+---QUESTION 6---
+ID: 6 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Organelle Genetics | Heteroplasmy | Mitochondria | Chloroplasts
+DIFFICULTY: Medium
+QUESTION: Sometimes, more than one chloroplast or mitochondrial genotype can be found in a single organism. This phenomenon is known as:
+OPTIONS:
+A) Heteroplasmy
+B) Homoplasmy
+C) Hemizygy
+D) Heterozygy
+
+---QUESTION 7---
+ID: 7 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Chromatin Structure | Histones | Nucleosomes
+DIFFICULTY: Easy
+QUESTION: Chromosomal DNA is wrapped around proteins known as ________.
+OPTIONS:
+A) Chromatin
+B) Chaperones
+C) Nucleosomes
+D) Histones
+
+---QUESTION 8---
+ID: 8 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Inheritance Patterns | Maternal Effect | Maternal Inheritance | Beetle Color
+DIFFICULTY: Medium
+QUESTION: You breed a male green beetle with a female green beetle and find that all the offspring they produce are blue. Which of the following is a plausible explanation for this resulting phenotype?
+OPTIONS:
+A) Maternal effect
+B) Maternal inheritance
+C) Autosomal dominant mutation(s)
+D) All of the above
+
+---QUESTION 9---
+ID: 9 | POINTS: 1.00 | FORMAT: MC / Calculation
+TOPIC: DNA Structure | Chargaff's Rules | Base Composition | Adenine Percentage
+DIFFICULTY: Medium
+QUESTION: Assuming Chargaff's rules apply, what percentage of an organism's genome would be composed of adenine nucleotides if it is given that their genome is 18% cytosine?
+OPTIONS:
+A) 18%
+B) 36%
+C) 32%
+D) 64%
+
+---QUESTION 10---
+ID: 10 | POINTS: 1.00 | FORMAT: MC / Calculation
+TOPIC: Meiosis | Mitosis | Chromosome Number | Prophase
+DIFFICULTY: Medium
+QUESTION: If an organism has 10 chromosomes in prophase II of meiosis, how many chromosomes would it have in prophase of mitosis?
+OPTIONS:
+A) 5
+B) 10
+C) 20
+D) 40
+
+---QUESTION 11---
+ID: 11 | POINTS: 1.00 | FORMAT: MC / Image Analysis
+TOPIC: Inheritance Patterns | Pedigree Analysis | Autosomal vs X-linked
+DIFFICULTY: Medium
+QUESTION: The inheritance pattern shown above is best described as:
+OPTIONS:
+A) Autosomal dominant
+B) Autosomal recessive
+C) Mitochondrial
+D) X-linked dominant
+
+---QUESTION 12---
+ID: 12 | POINTS: 1.00 | FORMAT: MC / Calculation
+TOPIC: Mendelian Genetics | Dihybrid Cross | Probability | Dominant Phenotype
+DIFFICULTY: Medium
+QUESTION: In the cross AABbCCDdEe × AaBBCCDdEe, what proportion of offspring will express the dominant phenotype for all five traits?
+OPTIONS:
+A) 0.03
+B) 0.25
+C) 0.38
+D) 0.56
+
+---QUESTION 13---
+ID: 13 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Transcription | RNA Polymerase | Promoter Binding
+DIFFICULTY: Easy
+QUESTION: Which of the following structures does RNA polymerase bind to?
+OPTIONS:
+A) The promoter on DNA
+B) The promoter on RNA
+C) The start codon on DNA
+D) The start codon on RNA
+
+---QUESTION 14---
+ID: 14 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Mutations | Introns | Frameshift Mutations | Deletion Mutations
+DIFFICULTY: Medium
+QUESTION: A deletion of two nucleotides in the middle of an intron will most likely result in a(n):
+OPTIONS:
+A) Nonsense mutation
+B) Silent mutation
+C) Missense mutation
+D) Frameshift mutation
+
+---QUESTIONS 15-16 (SHARED CONTEXT)---
+ID: 15-16 | POINTS: 1.00 each | FORMAT: MC / Image Analysis
+TOPIC: DNA Structure | Nucleotides | Nucleosides | Nucleobases | Guanine
+CONTEXT: Questions relate to a structure shown in an image
+
+---QUESTION 15---
+ID: 15 | POINTS: 1.00 | FORMAT: MC / Image Analysis
+TOPIC: DNA Structure | Nucleotides | Nucleosides | Nucleobases
+DIFFICULTY: Easy
+QUESTION: The structure shown to the right is best described as a:
+OPTIONS:
+A) Nucleotide
+B) Nucleoside
+C) Nucleobase
+D) Nucleosome
+
+---QUESTION 16---
+ID: 16 | POINTS: 1.00 | FORMAT: MC / Image Analysis
+TOPIC: DNA Structure | Guanine | Base Identification
+DIFFICULTY: Easy
+QUESTION: What is the identity of the previous structure?
+OPTIONS:
+A) Adenine
+B) Thymine
+C) Guanine
+D) Cytosine
+
+---QUESTIONS 17-18 (SHARED CONTEXT)---
+ID: 17-18 | POINTS: 1.00 each | FORMAT: MC
+TOPIC: Mendelian Genetics | Testcross | Pumpkin Color | Dominance
+CONTEXT: Questions relate to crossing orange pumpkins (dominant) with white pumpkins (recessive)
+
+---QUESTION 17---
+ID: 17 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Mendelian Genetics | Testcross | Genotype Determination
+DIFFICULTY: Medium
+QUESTION: Assuming normal Mendelian inheritance, the orange pumpkin you used for the cross was most likely:
+OPTIONS:
+A) Homozygous
+B) Heterozygous
+C) Indeterminate
+
+---QUESTION 18---
+ID: 18 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Mendelian Genetics | Testcross | Cross Types
+DIFFICULTY: Easy
+QUESTION: The experiment you conducted is best described as a(n):
+OPTIONS:
+A) P intercross
+B) F1 intercross
+C) Backcross
+D) Testcross
+
+---QUESTION 19---
+ID: 19 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Gene Knockdown | RNA Interference | mRNA Targeting
+DIFFICULTY: Easy
+QUESTION: A gene knockdown involves targeting ________ sequences of interest.
+OPTIONS:
+A) DNA
+B) mRNA
+C) rRNA
+D) tRNA
+
+---QUESTION 20---
+ID: 20 | POINTS: 1.00 | FORMAT: MC
+TOPIC: DNA Damage | Pyrimidine Dimers | UV Radiation
+DIFFICULTY: Easy
+QUESTION: Pyrimidine dimer lesions are generally caused by which process?
+OPTIONS:
+A) Transposons
+B) Replication errors
+C) UV radiation
+D) Spontaneous mutations
+
+---QUESTION 21---
+ID: 21 | POINTS: 1.00 | FORMAT: MC
+TOPIC: DNA Repair | Error-Prone Repair | Non-Homologous End Joining
+DIFFICULTY: Medium
+QUESTION: Which of the following repair pathways is typically considered the most error prone?
+OPTIONS:
+A) Base excision repair
+B) Nucleotide excision repair
+C) Non-homologous end joining
+D) Mismatch repair
+
+---QUESTIONS 22-27 (SHARED CONTEXT)---
+ID: 22-27 | POINTS: 1.00 each | FORMAT: Matching
+TOPIC: PCR | Denaturation | Annealing | Extension | Steps
+CONTEXT: Match descriptions with PCR steps: (A) denaturation, (B) annealing, (C) extension
+
+---QUESTION 22---
+ID: 22 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: PCR | Extension | Taq Polymerase | Pfu Polymerase
+DIFFICULTY: Easy
+QUESTION: Involves extension by Taq or another heat-resistant polymerase such as Pfu.
+ANSWER: C (Extension)
+
+---QUESTION 23---
+ID: 23 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: PCR | Annealing | Melting Temperature | Primer Binding
+DIFFICULTY: Medium
+QUESTION: Occurs at roughly 3–5°C lower than the lowest melting temperature (Tm) of primers used.
+ANSWER: B (Annealing)
+
+---QUESTION 24---
+ID: 24 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: PCR | Denaturation | DNA Strand Separation
+DIFFICULTY: Easy
+QUESTION: Involves increasing solution temperature to separate double-stranded DNA into single strands.
+ANSWER: A (Denaturation)
+
+---QUESTION 25---
+ID: 25 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: PCR | Annealing | Primer Binding
+DIFFICULTY: Easy
+QUESTION: Involves binding of primers to regions which flank the target DNA.
+ANSWER: B (Annealing)
+
+---QUESTION 26---
+ID: 26 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: PCR | Annealing | Primer Specificity | Temperature
+DIFFICULTY: Medium
+QUESTION: Increasing the temperature of this step increases primer specificity.
+ANSWER: B (Annealing)
+
+---QUESTION 27---
+ID: 27 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: PCR | Denaturation | High Temperature
+DIFFICULTY: Easy
+QUESTION: Occurs at roughly 94–98°C.
+ANSWER: A (Denaturation)
+
+---QUESTION 28---
+ID: 28 | POINTS: 1.00 | FORMAT: MC / Image Analysis
+TOPIC: Inheritance Patterns | Pedigree Analysis | Maternal Inheritance
+DIFFICULTY: Medium
+QUESTION: Identify the mode of inheritance shown above.
+OPTIONS:
+A) Maternal
+B) Autosomal dominant
+C) X-linked dominant
+D) Y-linked recessive
+
+---QUESTIONS 29-33 (SHARED CONTEXT)---
+ID: 29-33 | POINTS: Variable | FORMAT: True/False | MC / Calculation
+TOPIC: Mendelian Genetics | Pea Plants | Flower Color | Testcross Analysis
+CONTEXT: Questions relate to crossing 40 violet-flowered peas with white-flowered peas, resulting in 5,200 violet offspring from 8,000 total seeds
+
+---QUESTION 29---
+ID: 29 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Mendelian Genetics | Homozygosity | White-Flowered Peas
+DIFFICULTY: Easy
+QUESTION: In this scenario, all of your white-flowered garden peas must be homozygous for flower color.
+ANSWER: TRUE
+
+---QUESTION 30---
+ID: 30 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Mendelian Genetics | Testcross | Probability | White Flowers
+DIFFICULTY: Easy
+QUESTION: When crossing a heterozygous violet-flowered pea plant with a white-flowered pea plant, what percentage of resulting offspring would you expect to have white flowers?
+OPTIONS:
+A) 25%
+B) 50%
+C) 75%
+D) Cannot determine based on the given information
+
+---QUESTION 31---
+ID: 31 | POINTS: 1.00 | FORMAT: MC / Calculation
+TOPIC: Mendelian Genetics | Total Seeds | Cross Analysis
+DIFFICULTY: Easy
+QUESTION: How many total seeds will you have planted?
+OPTIONS:
+A) 200
+B) 4,000
+C) 5,200
+D) 8,000
+
+---QUESTION 32---
+ID: 32 | POINTS: 1.00 | FORMAT: MC / Calculation
+TOPIC: Mendelian Genetics | Heterozygous Plants | Testcross Analysis
+DIFFICULTY: Medium
+QUESTION: How many of your original violet-flowered pea plants were heterozygous?
+OPTIONS:
+A) 14
+B) 26
+C) 28
+D) 36
+
+---QUESTION 33---
+ID: 33 | POINTS: 1.00 | FORMAT: MC / Calculation
+TOPIC: Mendelian Genetics | Homozygous Plants | Testcross Analysis
+DIFFICULTY: Medium
+QUESTION: How many of your original violet-flowered pea plants were homozygous?
+OPTIONS:
+A) 4
+B) 12
+C) 14
+D) 26
+
+---QUESTIONS 34-36 (SHARED CONTEXT)---
+ID: 34-36 | POINTS: 1.00 each | FORMAT: MC / Calculation
+TOPIC: Mendelian Genetics | Huntington's Disease | Autosomal Dominant | Probability
+CONTEXT: Questions relate to a couple both with Huntington's disease (autosomal dominant), each with one affected parent and one unaffected parent
+
+---QUESTION 34---
+ID: 34 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Mendelian Genetics | Genotype | Huntington's Disease | Autosomal Dominant
+DIFFICULTY: Medium
+QUESTION: What is the genotype of the woman's sibling?
+OPTIONS:
+A) Hh
+B) HH
+C) hh
+D) Hh/hH
+
+---QUESTION 35---
+ID: 35 | POINTS: 1.00 | FORMAT: MC / Calculation
+TOPIC: Mendelian Genetics | Probability | Three Children | Huntington's Disease
+DIFFICULTY: Medium
+QUESTION: What is the probability that this couple has three children in a row with Huntington's disease?
+OPTIONS:
+A) 0.0156
+B) 0.0938
+C) 0.1250
+D) 0.4219
+
+---QUESTION 36---
+ID: 36 | POINTS: 1.00 | FORMAT: MC / Calculation
+TOPIC: Mendelian Genetics | Probability | Multiple Outcomes | Huntington's Disease
+DIFFICULTY: High
+QUESTION: What is the probability that the first two children this couple has are a boy with the disease and a girl without, or two girls without the disease?
+OPTIONS:
+A) 0.0469
+B) 0.0625
+C) 0.1250
+D) 0.1406
+
+---QUESTIONS 37-39 (SHARED CONTEXT)---
+ID: 37-39 | POINTS: 1.00 each | FORMAT: Matching
+TOPIC: Mendelian Genetics | Laws of Inheritance | Dominance | Segregation | Independent Assortment
+CONTEXT: Match laws to descriptors: (A) Law of Dominance, (B) Law of Segregation, (C) Law of Independent Assortment
+
+---QUESTION 37---
+ID: 37 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: Mendelian Genetics | Law of Dominance
+DIFFICULTY: Easy
+QUESTION: Law of Dominance.
+ANSWER: A
+
+---QUESTION 38---
+ID: 38 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: Mendelian Genetics | Law of Independent Assortment
+DIFFICULTY: Easy
+QUESTION: Law of Independent Assortment.
+ANSWER: C
+
+---QUESTION 39---
+ID: 39 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: Mendelian Genetics | Law of Segregation
+DIFFICULTY: Easy
+QUESTION: Law of Segregation.
+ANSWER: B
+
+---QUESTIONS 40-43 (SHARED CONTEXT)---
+ID: 40-43 | POINTS: 1.00 each | FORMAT: MC / Calculation
+TOPIC: Quantitative Genetics | Polygenic Traits | Additive Effects | Trihybrid Cross
+CONTEXT: Questions relate to trihybrid cross: Plant A (x₀x₁;y₀y₁;z₀z₁) × Plant B (x₀x₁;y₀y₁;z₀z₁), where x₁=y₁=z₁ and x₀=y₀=z₀ contribute additively to height
+
+---QUESTION 40---
+ID: 40 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Quantitative Genetics | Polygenic Traits | Additive Effects | Epistasis
+DIFFICULTY: Medium
+QUESTION: In this model, height is best described as:
+OPTIONS:
+A) Pleiotropic only
+B) Epistatic only
+C) Additive and polygenetic
+D) Additive and epistatic
+
+---QUESTION 41---
+ID: 41 | POINTS: 1.00 | FORMAT: MC / Calculation
+TOPIC: Meiosis | Gamete Formation | Independent Assortment | Trihybrid Cross
+DIFFICULTY: Medium
+QUESTION: Assuming independent assortment, how many different gametes can be produced by Plant A?
+OPTIONS:
+A) 6
+B) 8
+C) 36
+D) 64
+
+---QUESTION 42---
+ID: 42 | POINTS: 1.00 | FORMAT: MC / Calculation
+TOPIC: Quantitative Genetics | Genotype Frequency | Phenotypic Value
+DIFFICULTY: High
+QUESTION: How many different resulting genotypes will result in a phenotypic value of 4?
+OPTIONS:
+A) 4
+B) 6
+C) 9
+D) 15
+
+---QUESTION 43---
+ID: 43 | POINTS: 1.00 | FORMAT: MC / Calculation
+TOPIC: Quantitative Genetics | Phenotypic Frequency | Trihybrid Cross
+DIFFICULTY: High
+QUESTION: What is the frequency of the phenotypic class with a value of 4?
+OPTIONS:
+A) 0.0625
+B) 0.0938
+C) 0.1406
+D) 0.2344
+
+---QUESTION 44---
+ID: 44 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Quantitative Genetics | Quantitative Traits | Single Gene vs Polygenic
+DIFFICULTY: Easy
+QUESTION: Quantitative traits are generally attributed to only one single gene.
+ANSWER: FALSE
+
+---QUESTION 45---
+ID: 45 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Population Genetics | Stabilizing Selection | Genetic Diversity
+DIFFICULTY: Medium
+QUESTION: Stabilizing selection results in increased genetic diversity.
+ANSWER: FALSE
+
+---QUESTION 46---
+ID: 46 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Population Genetics | Directional Selection | Allele Frequency
+DIFFICULTY: Easy
+QUESTION: Directional selection can result in changes in allele frequency.
+ANSWER: TRUE
+
+---QUESTION 47---
+ID: 47 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Linkage | Recombination Frequency | Genetic Linkage
+DIFFICULTY: Medium
+QUESTION: A recombination frequency of less than 50% at a certain loci in a population indicates that some degree of genetic linkage is present.
+ANSWER: TRUE
+
+---QUESTION 48---
+ID: 48 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Translation | Ribosomes | Eukaryotic vs Prokaryotic | Subunits
+DIFFICULTY: Medium
+QUESTION: Eukaryotic ribosomes consist of a small 30S subunit and a large 50S subunit.
+ANSWER: FALSE
+
+---QUESTION 49---
+ID: 49 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Chromatin | Euchromatin | Transcriptional Activity
+DIFFICULTY: Easy
+QUESTION: Euchromatin is considered transcriptionally active.
+ANSWER: TRUE
+
+---QUESTIONS 50-56 (SHARED CONTEXT)---
+ID: 50-56 | POINTS: 1.00 each | FORMAT: Matching
+TOPIC: DNA Replication | DNA Polymerases | Prokaryotic vs Eukaryotic | Leading Strand | Lagging Strand
+CONTEXT: Match functions with polymerases: (A) DNA pol I, (B) DNA pol II, (C) DNA pol III, (D) DNA pol δ, (E) DNA pol ε, (AB) DNA pol α
+
+---QUESTION 50---
+ID: 50 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: DNA Replication | DNA Polymerase ε | Leading Strand | Eukaryotes
+DIFFICULTY: Medium
+QUESTION: Is involved in leading strand synthesis in eukaryotes.
+ANSWER: E (DNA polymerase ε)
+
+---QUESTION 51---
+ID: 51 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: DNA Replication | DNA Polymerase δ | Lagging Strand | Okazaki Fragments | Eukaryotes
+DIFFICULTY: Medium
+QUESTION: Is involved in Okazaki fragment synthesis in eukaryotes.
+ANSWER: D (DNA polymerase δ)
+
+---QUESTION 52---
+ID: 52 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: DNA Replication | DNA Polymerase III | Prokaryotes | Replication Elongation
+DIFFICULTY: Easy
+QUESTION: The primary enzyme responsible for replication elongation at the 3' end, synthesis, and elongation in prokaryotes.
+ANSWER: C (DNA polymerase III)
+
+---QUESTION 53---
+ID: 53 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: DNA Replication | DNA Polymerase III | Okazaki Fragments | Prokaryotes
+DIFFICULTY: Medium
+QUESTION: Responsible for synthesizing Okazaki fragments in prokaryotes.
+ANSWER: C (DNA polymerase III)
+
+---QUESTION 54---
+ID: 54 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: DNA Replication | DNA Polymerase I | 5' to 3' Exonuclease | Primer Removal | Prokaryotes
+DIFFICULTY: Medium
+QUESTION: Present in prokaryotes. This protein has unique 5' to 3' exonuclease activity which allows it to assist in DNA repair, primer removal, and gap filling.
+ANSWER: A (DNA polymerase I)
+
+---QUESTION 55---
+ID: 55 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: DNA Replication | DNA Polymerase II | Backup Function | Prokaryotes
+DIFFICULTY: Medium
+QUESTION: Has a similar function to DNA polymerase III in prokaryotes and largely serves as a backup in repair and replication.
+ANSWER: B (DNA polymerase II)
+
+---QUESTION 56---
+ID: 56 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: DNA Replication | DNA Polymerase α | Primase Activity | DNA Synthesis Initiation | Eukaryotes
+DIFFICULTY: Medium
+QUESTION: Found in eukaryotes, this enzyme has primase activity and initiates DNA synthesis.
+ANSWER: AB (DNA polymerase α)
+
+---QUESTIONS 57-61 (SHARED CONTEXT)---
+ID: 57-61 | POINTS: 1.00 each | FORMAT: MC / Calculation
+TOPIC: Population Genetics | Hardy-Weinberg Equilibrium | Allele Frequencies | Genotype Frequencies
+CONTEXT: Questions relate to squirrel population genotyped at UOM locus with various genotypes
+
+---QUESTION 57---
+ID: 57 | POINTS: 1.00 | FORMAT: MC / Calculation
+TOPIC: Population Genetics | Allele Frequency | UomC Allele
+DIFFICULTY: Medium
+QUESTION: What is the frequency of the UomC allele?
+OPTIONS:
+A) 0.008
+B) 0.011
+C) 0.019
+D) 0.030
+
+---QUESTION 58---
+ID: 58 | POINTS: 1.00 | FORMAT: MC / Calculation
+TOPIC: Population Genetics | Allele Frequency | UomB Allele
+DIFFICULTY: Medium
+QUESTION: What is the frequency of the UomB allele?
+OPTIONS:
+A) 0.105
+B) 0.144
+C) 0.249
+D) 0.392
+
+---QUESTION 59---
+ID: 59 | POINTS: 1.00 | FORMAT: MC / Calculation
+TOPIC: Population Genetics | Allele Count | UomA Allele
+DIFFICULTY: Easy
+QUESTION: How many UomA alleles are present?
+OPTIONS:
+A) 400
+B) 250
+C) 650
+D) 1050
+
+---QUESTION 60---
+ID: 60 | POINTS: 1.00 | FORMAT: MC / Calculation
+TOPIC: Population Genetics | Hardy-Weinberg Equilibrium | Expected Genotype Frequency
+DIFFICULTY: Medium
+QUESTION: If this population is in Hardy-Weinberg Equilibrium, what is the expected frequency of the genotype UomA/UomB in the next generation?
+OPTIONS:
+A) 0.109
+B) 0.138
+C) 0.481
+D) 0.750
+
+---QUESTION 61---
+ID: 61 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Population Genetics | Hardy-Weinberg Equilibrium | Assumptions
+DIFFICULTY: Easy
+QUESTION: Which of the following is not an assumption necessary to apply Hardy-Weinberg equilibrium?
+OPTIONS:
+A) No mutations are present
+B) No migration or emigration from the population
+C) Nonrandom mating
+D) Large population size
+
+---QUESTIONS 62-64 (SHARED CONTEXT)---
+ID: 62-64 | POINTS: 1.00 each | FORMAT: Matching
+TOPIC: DNA Sequencing | Illumina Sequencing | Nanopore Sequencing | Applications
+CONTEXT: Identify whether Illumina (A) or Nanopore (B) sequencing is most appropriate
+
+---QUESTION 62---
+ID: 62 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: DNA Sequencing | Nanopore Sequencing | Long Reads | Long Transcripts
+DIFFICULTY: Medium
+QUESTION: Long transcripts (> 1000 kb).
+ANSWER: B (Nanopore sequencing)
+
+---QUESTION 63---
+ID: 63 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: DNA Sequencing | Illumina Sequencing | Error Rate | Accuracy
+DIFFICULTY: Medium
+QUESTION: Error rate must be minimized.
+ANSWER: A (Illumina sequencing)
+
+---QUESTION 64---
+ID: 64 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: DNA Sequencing | Nanopore Sequencing | Electric Current Detection
+DIFFICULTY: Medium
+QUESTION: A lab has existing infrastructure which allows for detection of electric current variation associated with specific nucleobases.
+ANSWER: B (Nanopore sequencing)
+
+---QUESTION 65---
+ID: 65 | POINTS: 1.00 | FORMAT: MC / Image Analysis
+TOPIC: Inheritance Patterns | Incomplete Dominance | Codominance | Epistasis
+DIFFICULTY: Medium
+QUESTION: Identify the method of inheritance shown.
+OPTIONS:
+A) Incomplete dominance
+B) Codominance
+C) Epistasis
+D) More than one of the above is possible
+
+---QUESTION 66---
+ID: 66 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Mendelian Genetics | Dihybrid Cross | Phenotypic Ratio | 9:3:3:1
+DIFFICULTY: Easy
+QUESTION: The 9:3:3:1 phenotypic ratio is indicative of a:
+OPTIONS:
+A) Heterozygous monohybrid cross
+B) Heterozygous dihybrid cross
+C) Heterozygous trihybrid cross
+D) Trihybrid test cross
+
+---QUESTIONS 67-68 (SHARED CONTEXT)---
+ID: 67-68 | POINTS: 2.00 each | FORMAT: Free Response
+TOPIC: Gene Regulation | Cis-Regulatory Elements | Promoters | Enhancers | Gene Expression
+CONTEXT: Questions relate to mutational analysis of cis-regulatory regions affecting GO and BLUE gene expression
+
+---QUESTION 67---
+ID: 67 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Gene Regulation | Promoters | Cis-Regulatory Elements
+DIFFICULTY: Medium
+QUESTION: Identify the region(s) above which are promoters.
+
+---QUESTION 68---
+ID: 68 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Gene Regulation | Enhancers | Cis-Regulatory Elements | Region 2 Function
+DIFFICULTY: Medium
+QUESTION: What is the most likely function of region 2?
+
+---QUESTIONS 69-70 (SHARED CONTEXT)---
+ID: 69-70 | POINTS: 4.00 each | FORMAT: Free Response
+TOPIC: Linkage | Recombination | Nondisjunction | Meiosis | Gamete Formation
+CONTEXT: Questions relate to cross between wingless (wg) mutant and yellow (y) mutant flies, both on same autosome
+
+---QUESTION 69---
+ID: 69 | POINTS: 4.00 | FORMAT: Free Response
+TOPIC: Linkage | Recombination | Gamete Formation | Parental vs Recombinant
+DIFFICULTY: High
+QUESTION: Assuming recombination occurs during the cross described, write the four haploid gametes produced by an F1 female. Identify which gametes are parental and which are recombinant with respect to the F1 female.
+
+---QUESTION 70---
+ID: 70 | POINTS: 4.00 | FORMAT: Free Response
+TOPIC: Meiosis | Nondisjunction | Meiosis II | Abnormal Gametes
+DIFFICULTY: High
+QUESTION: If a single nondisjunction event occurs in meiosis II of the cross producing the F1 generation, identify the two possible genotypes of the abnormal gametes produced by this cross.
+
+---QUESTION 71---
+ID: 71 | POINTS: 3.00 | FORMAT: Free Response
+TOPIC: Inheritance Patterns | Maternal Effect | Maternal Inheritance | Differentiation
+DIFFICULTY: Medium
+QUESTION: Briefly differentiate between maternal effect and maternal inheritance.
+
+---QUESTION 72---
+ID: 72 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Cell Cycle | Mitotic Cycle | Phases | Chronological Order
+DIFFICULTY: Easy
+QUESTION: Identify all components of the mitotic cycle in chronological order.
+
+---QUESTION 73---
+ID: 73 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Cell Cycle | Interphase | G1 | S | G2 | Mitotic Cycle
+DIFFICULTY: Easy
+QUESTION: Identify at least one phase present in the cell cycle but NOT in the mitotic cycle.
+
+---QUESTION 74---
+ID: 74 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Transcription | Steps | Initiation | Elongation | Termination
+DIFFICULTY: Easy
+QUESTION: In order, list the three steps of transcription.
+
+---QUESTIONS 75-79 (SHARED CONTEXT)---
+ID: 75-79 | POINTS: 1.00 each | FORMAT: Labeling / Image Analysis
+TOPIC: DNA Replication | Replication Fork | Components | Leading Strand | Lagging Strand | Okazaki Fragments
+CONTEXT: Questions relate to labeling components of replication fork diagram
+
+---QUESTION 75---
+ID: 75 | POINTS: 1.00 | FORMAT: Labeling / Image Analysis
+TOPIC: DNA Replication | Replication Fork | Component Labeling
+DIFFICULTY: Easy
+QUESTION: Label the following components of the replication fork shown.
+
+---QUESTION 76---
+ID: 76 | POINTS: 1.00 | FORMAT: Labeling / Image Analysis
+TOPIC: DNA Replication | Replication Fork | Component Labeling
+DIFFICULTY: Easy
+QUESTION: [Component 2]
+
+---QUESTION 77---
+ID: 77 | POINTS: 1.00 | FORMAT: Labeling / Image Analysis
+TOPIC: DNA Replication | Replication Fork | Component Labeling
+DIFFICULTY: Easy
+QUESTION: [Component 3]
+
+---QUESTION 78---
+ID: 78 | POINTS: 1.00 | FORMAT: Labeling / Image Analysis
+TOPIC: DNA Replication | Replication Fork | Component Labeling
+DIFFICULTY: Easy
+QUESTION: [Component 4]
+
+---QUESTION 79---
+ID: 79 | POINTS: 1.00 | FORMAT: Labeling / Image Analysis
+TOPIC: DNA Replication | Replication Fork | Component Labeling
+DIFFICULTY: Easy
+QUESTION: [Component 5]
+
+---QUESTION 80---
+ID: 80 | POINTS: 4.00 | FORMAT: Calculation
+TOPIC: Mendelian Genetics | Testcross Analysis | Heterozygous Determination | Zebrafish | Recessive Mutation
+DIFFICULTY: Medium
+QUESTION: Ten wild-type female zebrafish are crossed to ten male zebrafish which lack tails. This tailless phenotype is caused by a recessive mutation in the no tail (ntl) gene. Each female zebrafish only mates once and gives birth to 100 baby fish. Of the 1,000 total offspring, 200 lacked tails and 800 had tails. Given this, how many of the original female zebrafish were heterozygous?
+CALCULATION: Use testcross ratios to determine number of heterozygous females
+
+---QUESTIONS 81-88 (SHARED CONTEXT)---
+ID: 81-88 | POINTS: Variable | FORMAT: True/False | Matching | MC | Free Response
+TOPIC: Gene Regulation | Lac Operon | Blue-White Screening | Recombinant Cloning | IPTG | X-gal
+CONTEXT: Questions relate to blue-white screening technique using lac operon in E. coli
+
+---QUESTION 81---
+ID: 81 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Gene Regulation | Lac Operon | Inducible vs Repressible
+DIFFICULTY: Easy
+QUESTION: The Lac operon is considered a repressible operon.
+ANSWER: FALSE
+
+---QUESTIONS 82-85 (SHARED CONTEXT)---
+ID: 82-85 | POINTS: 1.00 each | FORMAT: Matching
+TOPIC: Gene Regulation | Lac Operon | Transcription Levels | Glucose | Lactose | cAMP
+CONTEXT: Match scenarios to transcription responses: (A) no transcription, (B) reduced transcription, (C) normal/high transcription
+
+---QUESTION 82---
+ID: 82 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: Gene Regulation | Lac Operon | High Glucose | Low Lactose | Catabolite Repression
+DIFFICULTY: Medium
+QUESTION: High glucose and low lactose conditions.
+ANSWER: A (No transcription)
+
+---QUESTION 83---
+ID: 83 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: Gene Regulation | Lac Operon | Low Glucose | High Lactose | Induction
+DIFFICULTY: Medium
+QUESTION: Low glucose and high lactose conditions.
+ANSWER: C (Normal/high transcription)
+
+---QUESTION 84---
+ID: 84 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: Gene Regulation | Lac Operon | High cAMP | Lactose Present
+DIFFICULTY: Medium
+QUESTION: cAMP is high in the cell as is lactose.
+ANSWER: C (Normal/high transcription)
+
+---QUESTION 85---
+ID: 85 | POINTS: 1.00 | FORMAT: Matching
+TOPIC: Gene Regulation | Lac Operon | Low cAMP | Repressor Bound
+DIFFICULTY: Medium
+QUESTION: cAMP is low and the Lac repressor is bound.
+ANSWER: A (No transcription)
+
+---QUESTION 86---
+ID: 86 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Molecular Biology | Blue-White Screening | Recombinant vs Non-Recombinant | Colony Color
+DIFFICULTY: Easy
+QUESTION: According to the description provided of blue-white screening, non-recombinant bacteria will appear as ________ as opposed to ________ colonies which are associated with recombinant bacteria.
+OPTIONS:
+A) Blue; white
+B) White; blue
+C) A mix of blue and white; white
+D) A mix of blue and white; blue
+
+---QUESTION 87---
+ID: 87 | POINTS: 4.00 | FORMAT: Free Response
+TOPIC: Molecular Biology | Blue-White Screening | Gene Expression | Colony Color
+DIFFICULTY: Medium
+QUESTION: If you were attempting to insert a gene of interest into E. coli with this blue-white screening method, what color would colonies be which are successfully expressing your gene of interest? Briefly explain.
+
+---QUESTION 88---
+ID: 88 | POINTS: 4.00 | FORMAT: Free Response
+TOPIC: Gene Regulation | Lac Operon | IPTG | Inducer | Blue-White Screening
+DIFFICULTY: Medium
+QUESTION: You accidentally plate your E. coli on agar which does not contain IPTG. Briefly explain the results you would expect, and why you would expect such.
+
+---QUESTIONS 89-92 (SHARED CONTEXT)---
+ID: 89-92 | POINTS: 2.00 each | FORMAT: Free Response / Image Analysis
+TOPIC: Evolution | Gene Duplication | Paralogous Genes | Orthologous Genes | Beta-Globin Family
+CONTEXT: Questions relate to evolutionary tree of beta-globin gene family showing gene duplication and divergence
+
+---QUESTION 89---
+ID: 89 | POINTS: 2.00 | FORMAT: Free Response / Image Analysis
+TOPIC: Evolution | Gene Duplication | Beta-Globin Family | Diagram Analysis
+DIFFICULTY: Medium
+QUESTION: On the diagram provided on your answer sheet, circle ONE region where gene duplication has occurred.
+
+---QUESTION 90---
+ID: 90 | POINTS: 2.00 | FORMAT: Free Response / Image Analysis
+TOPIC: Evolution | Paralogous Genes | Beta-Globin Family | Diagram Analysis
+DIFFICULTY: Medium
+QUESTION: On the diagram provided on your answer sheet, draw two rectangles around TWO genes which are paralogs.
+
+---QUESTION 91---
+ID: 91 | POINTS: 2.00 | FORMAT: Free Response / Image Analysis
+TOPIC: Evolution | Paralogous Genes | Beta-Globin Family | Diagram Analysis
+DIFFICULTY: Medium
+QUESTION: On the diagram provided on your answer sheet, draw stars next to TWO genes which are paralogs (same as above, different symbol to distinguish).
+
+---QUESTION 92---
+ID: 92 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Evolution | Orthologous Genes | Beta-Globin Family | Cross-Species Comparison
+DIFFICULTY: Medium
+QUESTION: List two genes which are orthologs.

@@ -1,0 +1,378 @@
+EVENT: Machines
+SOURCE: MVSO Invite 2025 (Div. C)
+FORMAT: 50 questions (MC, free response, calculations) + optional device testing
+TOTAL POINTS: ~200
+
+ASSUMPTIONS: g = 9.8 m/s², show work on all short answer questions
+
+---QUESTIONS 1-7: SIMPLE MACHINES IDENTIFICATION---
+
+---QUESTION 1---
+ID: 1 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Machines | Pulleys | Pulley types | Mechanical advantage
+DIFFICULTY: Medium
+QUESTION: What type of pulley is this? [diagram reference]
+OPTIONS: A) Gun Tackle, B) Gyn Tackle, C) Twofold Purchase, D) Threefold Purchase
+
+---QUESTION 2---
+ID: 2 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Machines | Single Luff Tackle | Mechanical advantage | Pulley systems
+DIFFICULTY: Easy
+QUESTION: Mechanical advantage of Single Luff Tackle pulley?
+OPTIONS: A) 1, B) 2, C) 3, D) 4
+CORRECT_ANSWER: C (3)
+
+---QUESTION 3---
+ID: 3 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Machines | Lever classes | Stapler | Load/effort/fulcrum position
+DIFFICULTY: Easy
+QUESTION: Stapler is ____ class lever
+OPTIONS: A) First, B) Second, C) Third
+CORRECT_ANSWER: B (Second - load between fulcrum and effort)
+
+---QUESTION 4---
+ID: 4 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Machines | Lever classes | Scissors | First class lever
+DIFFICULTY: Easy
+QUESTION: Scissors are ____ class lever
+OPTIONS: A) First, B) Second, C) Third
+CORRECT_ANSWER: A (First - fulcrum between load and effort)
+
+---QUESTION 5---
+ID: 5 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Machines | Gears | Gear types | Gear mechanics
+DIFFICULTY: Medium
+QUESTION: What type of gear is this? [diagram]
+OPTIONS: A) Miter Gear, B) Worm Gear, C) Helical Gear, D) Spur Gear
+
+---QUESTION 6---
+ID: 6 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Machines | Lever classes | Wheelbarrow | Second class lever
+DIFFICULTY: Easy
+QUESTION: Wheelbarrow is ___ class lever
+OPTIONS: A) First, B) Second, C) Third
+CORRECT_ANSWER: B (Second - load between fulcrum and effort)
+
+---QUESTION 7---
+ID: 7 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Machines | Lever classes | Nutcracker | First class lever
+DIFFICULTY: Easy
+QUESTION: Nutcracker is ____ class lever
+OPTIONS: A) First, B) Second, C) Third
+CORRECT_ANSWER: A (First - fulcrum between load and effort)
+
+---QUESTIONS 8-12: MECHANICAL ADVANTAGE CALCULATIONS---
+
+---QUESTION 8---
+ID: 8 | POINTS: 3.00 | FORMAT: MC
+TOPIC: Machines | Wedge | Mechanical advantage | Equilateral wedge calculation
+DIFFICULTY: High
+QUESTION: Mechanical advantage of equilateral wedge?
+OPTIONS: A) √3, B) 1/√3, C) √3/2, D) 2/√3
+CORRECT_ANSWER: A (√3)
+
+---QUESTION 9---
+ID: 9 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Machines | Compound machines | Series mechanical advantage | Multiplication
+DIFFICULTY: Medium
+QUESTION: Compound system 5 simple machines each MA=2. Total MA?
+OPTIONS: A) 2, B) 10, C) 25, D) 32
+CORRECT_ANSWER: D (2^5 = 32)
+
+---QUESTION 10---
+ID: 10 | POINTS: 3.00 | FORMAT: MC
+TOPIC: Machines | Gears | Gear ratios | Mechanical advantage
+DIFFICULTY: High
+QUESTION: Gears A,C have 8 teeth; B,D have 24 teeth. Mechanical advantage?
+OPTIONS: A) 3, B) 1/3, C) 9, D) 1/9, E) 24, F) 1/24
+CORRECT_ANSWER: C (9 = 3×3)
+
+---QUESTION 11---
+ID: 11 | POINTS: 3.00 | FORMAT: MC
+TOPIC: Machines | Screw | Lead and pitch | Screw geometry
+DIFFICULTY: High
+QUESTION: Double start screw with 6mm lead. Pitch length?
+OPTIONS: A) 2mm, B) 3mm, C) 6mm, D) 12mm
+CORRECT_ANSWER: B (3mm - lead divided by number of starts)
+
+---QUESTION 12---
+ID: 12 | POINTS: 3.00 | FORMAT: MC
+TOPIC: Machines | Lever | Bottle opener | Mechanical advantage
+DIFFICULTY: Medium
+QUESTION: Mechanical advantage of bottle opener? [diagram]
+OPTIONS: A) 1/3, B) 3, C) 4, D) 6
+
+---QUESTIONS 13-24: PULLEY AND LEVER PROBLEMS---
+
+---QUESTION 13---
+ID: 13 | POINTS: 3.00 | FORMAT: MC
+TOPIC: Physics | Pulley system | Kinematics | Acceleration calculation
+DIFFICULTY: High
+QUESTION: Find acceleration of blocks [diagram - massless/frictionless pulley]
+OPTIONS: A) 0.25g, B) 0.4g, C) 0.6g, D) 0.8g
+
+---QUESTION 14---
+ID: 14 | POINTS: 4.00 | FORMAT: MC
+TOPIC: Physics | Tension | Pulley system | Force calculation
+DIFFICULTY: High
+QUESTION: Find tension in string
+OPTIONS: A) 19.6N, B) 31.4N, C) 49.0N, D) 78.4N
+
+---QUESTION 15---
+ID: 15 | POINTS: 4.00 | FORMAT: Free Response / Calculation
+TOPIC: Physics | Inclined plane | Kinematics | Distance and time
+DIFFICULTY: High
+QUESTION: 8kg block 2.5m from bottom. Time to reach bottom? [frictionless ramp]
+
+---QUESTION 16---
+ID: 16 | POINTS: 5.00 | FORMAT: Free Response / Derivation
+TOPIC: Physics | Pulley system | Scale reading | Force derivation
+DIFFICULTY: Very High
+QUESTION: Derive scale reading expression for ma and mb with pulley system
+
+---QUESTION 17---
+ID: 17 | POINTS: 5.00 | FORMAT: Free Response / Derivation
+TOPIC: Physics | Compound pulley | Scale reading | Force expression
+DIFFICULTY: Very High
+QUESTION: Derive scale reading with compound pulley for ma, mb, mc
+
+---QUESTION 18---
+ID: 18 | POINTS: 3.00 | FORMAT: MC
+TOPIC: Machines | Pulley system | Minimum force | Mechanical advantage
+DIFFICULTY: Medium
+QUESTION: Minimum force to lift weight? [pulley system diagram]
+OPTIONS: A) 10N, B) 12N, C) 30N, D) 60N
+
+---QUESTION 19---
+ID: 19 | POINTS: 4.00 | FORMAT: MC
+TOPIC: Machines | Mechanical advantage | Pulley system | Compound system
+DIFFICULTY: High
+QUESTION: Mechanical advantage of pulley system?
+OPTIONS: A) 2, B) 4, C) 8, D) 16
+
+---QUESTION 20---
+ID: 20 | POINTS: 4.00 | FORMAT: MC
+TOPIC: Physics | Constant velocity | Pulley system | Force
+DIFFICULTY: High
+QUESTION: 21N weight pulled up at constant velocity. Minimum force?
+OPTIONS: A) 3N, B) 7N, C) 15N, D) 21N
+
+---QUESTION 21---
+ID: 21 | POINTS: 4.00 | FORMAT: MC
+TOPIC: Machines | Efficiency | Gyn tackle | Work ratio
+DIFFICULTY: Medium
+QUESTION: 200N load lifted with gyn tackle, 50N effort. Efficiency?
+OPTIONS: A) 25%, B) 40%, C) 80%, D) 100%
+CORRECT_ANSWER: C (80%)
+
+---QUESTION 22---
+ID: 22 | POINTS: 3.00 | FORMAT: MC
+TOPIC: Physics | Friction | Angle of repose | Stability
+DIFFICULTY: High
+QUESTION: Sand μ=0.4. Maximum angle for stable pile?
+OPTIONS: A) 18°, B) 22°, C) 24°, D) 28°
+CORRECT_ANSWER: B (arctan(0.4) ≈ 22°)
+
+---QUESTION 23---
+ID: 23 | POINTS: 3.00 | FORMAT: MC
+TOPIC: Machines | Compound machine | Lever and wedge | Combined MA
+DIFFICULTY: High
+QUESTION: Lever (0.9m load, 0.3m effort) + wedge (0.12m length, 0.04m thick). MA?
+OPTIONS: A) 1, B) 3, C) 4.5, D) 9
+CORRECT_ANSWER: D (9 = 3 × 3)
+
+---QUESTION 24---
+ID: 24 | POINTS: 3.00 | FORMAT: MC
+TOPIC: Physics | Lever efficiency | Work | Mechanical advantage vs actual
+DIFFICULTY: High
+QUESTION: Lever: fulcrum 0.5m from rock, 200N force 2m from fulcrum, 500N rock. Efficiency?
+OPTIONS: A) 25%, B) 50%, C) 62.5%, D) 80%
+CORRECT_ANSWER: C (62.5%)
+
+---QUESTIONS 25-29: ADVANCED MECHANICS---
+
+---QUESTION 25---
+ID: 25 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Machines | Class 3 lever | IMA | Mechanical disadvantage
+DIFFICULTY: Easy
+QUESTION: Class 3 lever always has IMA ____ than 1
+OPTIONS: A) greater, B) less
+CORRECT_ANSWER: B
+
+---QUESTION 26---
+ID: 26 | POINTS: 4.00 | FORMAT: Free Response / Calculation
+TOPIC: Machines | Compound lever | Mechanical advantage calculation
+DIFFICULTY: High
+QUESTION: Find MA of compound lever [diagram]
+
+---QUESTION 27---
+ID: 27 | POINTS: 4.00 | FORMAT: Calculation / Rotational Motion
+TOPIC: Physics | Rolling | Angular velocity | Energy conservation
+DIFFICULTY: Very High
+QUESTION: Sphere (I=2/5mR², 1kg, R=0.2m) rolls down 4m ramp. Angular velocity at bottom?
+
+---QUESTION 28---
+ID: 28 | POINTS: 5.00 | FORMAT: Calculation / Forces
+TOPIC: Physics | Normal force | Rolling sphere | Ramp
+DIFFICULTY: Very High
+QUESTION: Normal force between ramp and ground when sphere rolling?
+
+---QUESTION 29---
+ID: 29 | POINTS: 4.00 | FORMAT: Calculation / Kinematics
+TOPIC: Physics | Frictionless ramp | Sphere exit velocity | Energy
+DIFFICULTY: High
+QUESTION: Sphere on frictionless ramp (same dimensions). Exit velocity?
+
+---QUESTIONS 30-35: BANKED CURVES AND SCREWS---
+
+---QUESTION 30---
+ID: 30 | POINTS: 4.00 | FORMAT: Calculation
+TOPIC: Physics | Banked curve | Minimum velocity | Friction
+DIFFICULTY: Very High
+QUESTION: Car minimum velocity on banked curve (39°, R=50m, μ=0.2) to not slip?
+
+---QUESTION 31---
+ID: 31 | POINTS: 4.00 | FORMAT: Calculation
+TOPIC: Physics | Banked curve | Maximum velocity | Friction and banking
+DIFFICULTY: Very High
+QUESTION: Car maximum velocity on banked curve (39°, R=50m, μ=0.2) to not slip?
+
+---QUESTION 32---
+ID: 32 | POINTS: 4.00 | FORMAT: MC
+TOPIC: Machines | Screw | IMA | Lead angle | Handle radius
+DIFFICULTY: High
+QUESTION: Screw (r=2cm handle, R=20cm, lead angle 5°). IMA?
+OPTIONS: A) 20, B) 114, C) 229, D) 458
+CORRECT_ANSWER: C (229)
+
+---QUESTION 33---
+ID: 33 | POINTS: 4.00 | FORMAT: MC
+TOPIC: Machines | Differential windlass | IMA | Force calculation
+DIFFICULTY: High
+QUESTION: Differential windlass (R=0.10m, r=0.08m, handle=0.25m). Min force for load?
+OPTIONS: A) 1N, B) 2N, C) 4N, D) 10N
+
+---QUESTION 34---
+ID: 34 | POINTS: 4.00 | FORMAT: Free Response / Derivation
+TOPIC: Machines | Differential pulley | Force expression | Constant velocity
+DIFFICULTY: Very High
+QUESTION: Derive force expression for differential pulley lifting mass m at constant velocity (terms of R and r)
+
+---QUESTIONS 35-40: ADVANCED PHYSICS PROBLEMS---
+
+---QUESTION 35---
+ID: 35 | POINTS: 7.00 | FORMAT: Calculation / Kinematics
+TOPIC: Physics | Wedge mechanics | Incline | Newton's laws
+DIFFICULTY: Very High
+QUESTION: Block A (m=2kg) against wedge B (M=6kg, 30°). Displacement after t=1s?
+
+---QUESTION 36---
+ID: 36 | POINTS: 6.00 | FORMAT: Calculation / Energy
+TOPIC: Physics | Hemisphere | Energy conservation | Contact loss
+DIFFICULTY: Very High
+QUESTION: Block slides frictionless hemisphere (R=10m), leaves surface. Speed at separation?
+
+---QUESTION 37---
+ID: 37 | POINTS: 7.00 | FORMAT: Calculation / Equilibrium
+TOPIC: Physics | Friction | Static equilibrium | Ramp angle
+DIFFICULTY: Very High
+QUESTION: Rectangular block (M=5kg) between triangular ramps (m=1kg, μ=0.30). Max angle θ?
+
+---QUESTION 38---
+ID: 38 | POINTS: 7.00 | FORMAT: Calculation / Oscillation
+TOPIC: Physics | Spring oscillation | Friction | Maximum amplitude
+DIFFICULTY: Very High
+QUESTION: Blocks and spring on frictionless surface. Max amplitude before slip (friction 0.40)?
+
+---QUESTIONS 39-42: ROTATIONAL DYNAMICS---
+
+---QUESTION 39---
+ID: 39 | POINTS: 4.00 | FORMAT: Calculation / Rotational Force
+TOPIC: Physics | Hinge force | Rotation | Torque
+DIFFICULTY: Very High
+QUESTION: Hanging rod released from 9°. Normal force between blocks B and C?
+
+---QUESTION 40---
+ID: 40 | POINTS: 5.00 | FORMAT: MC
+TOPIC: Physics | Rotational dynamics | Angular acceleration | Torque
+DIFFICULTY: Very High
+QUESTION: Angular acceleration when rod released?
+OPTIONS: A) gsinθ/L, B) gsinθ/2L, C) 2gsinθ/L, D) 3gsinθ/2L
+CORRECT_ANSWER: D
+
+---QUESTION 41---
+ID: 41 | POINTS: 6.00 | FORMAT: Calculation / Hinge Force
+TOPIC: Physics | Reaction force | Hinge | Rotational motion
+DIFFICULTY: Very High
+QUESTION: Hinge force magnitude at release (express as fraction of Mg)?
+
+---QUESTION 42---
+ID: 42 | POINTS: 5.00 | FORMAT: MC
+TOPIC: Physics | Incline | Scale reading | Force components
+DIFFICULTY: High
+QUESTION: Masses on frictionless 55° ramp. Scale reading?
+OPTIONS: A) 0N, B) 80N, C) 100N, D) 160N
+
+---QUESTIONS 43-50: ROLLING AND ENERGY---
+
+---QUESTION 43---
+ID: 43 | POINTS: 3.00 | FORMAT: MC
+TOPIC: Physics | Rolling motion | Moment of inertia | Acceleration
+DIFFICULTY: High
+QUESTION: Sphere, cylinder, hoop (identical r and m) roll off ramp. Fastest?
+OPTIONS: A) Sphere, B) Cylinder, C) Hoop
+CORRECT_ANSWER: A (Sphere - lowest moment of inertia)
+
+---QUESTION 44---
+ID: 44 | POINTS: 6.00 | FORMAT: MC
+TOPIC: Physics | Ladder equilibrium | Friction | Statics
+DIFFICULTY: Very High
+QUESTION: Ladder against rough wall/floor (μ). Min angle for equilibrium?
+OPTIONS: A) arctan((1-μ²)/μ), B) arctan((1+μ²)/μ), C) arctan((1-μ²)/2μ), D) arctan((1+μ²)/2μ)
+CORRECT_ANSWER: C
+
+---QUESTION 45---
+ID: 45 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Machines | Screw jack | Self-locking | Lead angle
+DIFFICULTY: Medium
+QUESTION: Screw jack self-locking if:
+OPTIONS: A) sinλ<μ, B) cosλ<μ, C) tanλ<μ
+CORRECT_ANSWER: C
+
+---QUESTION 46---
+ID: 46 | POINTS: 5.00 | FORMAT: Calculation / Work-Energy
+TOPIC: Physics | Work-energy theorem | Variable force | Final velocity
+DIFFICULTY: High
+QUESTION: 1kg object acted on by variable force [graph: force vs displacement]. Final velocity?
+
+---QUESTION 47---
+ID: 47 | POINTS: 4.00 | FORMAT: MC
+TOPIC: Physics | Equilibrium | Potential energy | Stability types
+DIFFICULTY: High
+QUESTION: U vs x graph. Types of equilibrium at points A, B, C?
+OPTIONS: A) Stable, unstable, neutral, B) Stable, neutral, unstable, C) Unstable, neutral, stable, D) Unstable, stable, unstable
+CORRECT_ANSWER: B
+
+---QUESTION 48---
+ID: 48 | POINTS: 4.00 | FORMAT: MC
+TOPIC: Machines | Compound pulley | Friction loss | Effective MA
+DIFFICULTY: High
+QUESTION: Compound pulley with 5 rope segments, 5% friction each. Effective MA?
+OPTIONS: A) 3.75, B) 3.86, C) 4.75, D) 4.88
+CORRECT_ANSWER: B (5 × 0.95^4)
+
+---QUESTION 49---
+ID: 49 | POINTS: 5.00 | FORMAT: MC
+TOPIC: Machines | Ramp efficiency | Angle calculation | Work
+DIFFICULTY: High
+QUESTION: 300N box lifted on ramp, 100N effort, 75% efficient. Ramp angle?
+OPTIONS: A) arcsin(1/3), B) arcsin(1/4), C) arcsin(3/4), D) arcsin(4/9)
+CORRECT_ANSWER: A
+
+---QUESTION 50---
+ID: 50 | POINTS: 4.00 | FORMAT: MC
+TOPIC: Physics | Power | Work / Energy | Student comparison
+DIFFICULTY: Medium
+QUESTION: Student A lifts 10kg in 5s, B lifts 20kg in 10s. Ratio P_A/P_B?
+OPTIONS: A) 1/2, B) 1, C) 2, D) 4
+CORRECT_ANSWER: B (both same power)

@@ -13,10 +13,18 @@ except Exception:
     from routes.firebase_routes import db as firebase_db
 from firebase_admin import firestore
 from routes.test_parsing_routes import test_parsing_routes
+try:
+    from routes.wikiqa_routes import wikiqa_routes
+    WIKIQA_AVAILABLE = True
+except ImportError:
+    WIKIQA_AVAILABLE = False
+    wikiqa_routes = None
 
 app = Flask(__name__)
 app.register_blueprint(firebase_routes)
 app.register_blueprint(test_parsing_routes)
+if WIKIQA_AVAILABLE:
+    app.register_blueprint(wikiqa_routes)
 
 # Secret key configuration for signing tokens/cookies
 app.config['SECRET_KEY'] = os.environ.get('FLASK_SECRET_KEY') or os.environ.get('SECRET_KEY') or 'dev-secret-change-me'
@@ -228,6 +236,10 @@ def user_admin_attendance():
 def user_learning():
     return render_template('user/learning.html')
 
+@app.route('/user/learning/topicspace')
+def user_learning_topicspace():
+    return render_template('user/learning_topicspace.html')
+
 @app.route('/user/application')
 def user_application():
     return render_template('user/application.html')
@@ -235,6 +247,10 @@ def user_application():
 @app.route('/DiagResults')
 def diag_results():
     return render_template('user/diag_results.html')
+
+@app.route('/user/bungee-calculator')
+def bungee_calculator():
+    return render_template('bungee_drop_calculator.html')
 
 @app.route('/api/roster-status/<user_id>')
 def api_roster_status(user_id):
@@ -388,6 +404,87 @@ def api_diag_results(user_id):
         print(f"Error fetching diag results: {e}")
         return jsonify({'error': 'Internal server error'}), 500
 
+import bungee_utils
+
+# ----------------------- Bungee Calculator -----------------------
+# Single shared document for team-wide bungee data
+
+BUNGEE_DOC_ID = 'shared'  # Single document ID for all team data
+@app.route('/api/bungee/export', methods=['POST'])
+def export_bungee_model():
+    """Calculate the full bungee model based on calibration and damping"""
+    try:
+        data = request.get_json()
+        calibration_data = data.get('calibrationData', [])
+        method = data.get('interpolationMethod', 'linear')
+        gamma = float(data.get('gamma', 0.95))
+        bottle_height = float(data.get('bottleHeight', 30.0))
+        target_dist = float(data.get('targetDistance', 2.0))
+        
+        if not calibration_data:
+            return jsonify({'error': 'No calibration data provided'}), 400
+            
+        result = bungee_utils.generate_bungee_export(
+            calibration_data, method, gamma, bottle_height, target_dist
+        )
+        return jsonify(result), 200
+    except Exception as e:
+        print(f"Error generating bungee export: {e}")
+        import traceback
+        traceback.print_exc()
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/bungee/data', methods=['GET'])
+def get_bungee_data():
+    """Fetch the shared bungee data document"""
+    try:
+        doc_ref = firebase_db.collection('BungeeStrings').document(BUNGEE_DOC_ID)
+        doc = doc_ref.get()
+        
+        if doc.exists:
+            data = doc.to_dict()
+            data['id'] = doc.id
+            return jsonify(data), 200
+        else:
+            # Return empty structure if document doesn't exist
+            return jsonify({
+                'id': BUNGEE_DOC_ID,
+                'strings': [],
+                'notes': '',
+                'interpolationMethod': 'linear'
+            }), 200
+    except Exception as e:
+        print(f"Error fetching bungee data: {e}")
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/bungee/data', methods=['POST'])
+def save_bungee_data():
+    """Save the shared bungee data document"""
+    try:
+        data = request.get_json()
+        if not data:
+            return jsonify({'error': 'No data provided'}), 400
+        
+        # Ensure we always update the same document
+        data['updatedAt'] = firestore.SERVER_TIMESTAMP
+        
+        doc_ref = firebase_db.collection('BungeeStrings').document(BUNGEE_DOC_ID)
+        doc = doc_ref.get()
+        
+        if doc.exists:
+            # Update existing
+            doc_ref.update(data)
+        else:
+            # Create new with timestamp
+            data['createdAt'] = firestore.SERVER_TIMESTAMP
+            doc_ref.set(data)
+        
+        return jsonify({'id': BUNGEE_DOC_ID, 'message': 'Data saved successfully'}), 200
+            
+    except Exception as e:
+        print(f"Error saving bungee data: {e}")
+        return jsonify({'error': str(e)}), 500
+
 @app.route('/admin/login')
 def admin_login():
     return render_template('admin_login.html')
@@ -483,6 +580,283 @@ def serve_practice_test(filename):
 def serve_boomi_catastrophe():
     """Serve BoomiCatastrophe.mp4 video from Planning directory"""
     return send_from_directory('Planning', 'BoomiCatastrophe.mp4', mimetype='video/mp4')
+
+# ----------------------- TopicSpace Learning -----------------------
+
+@app.route('/api/topicspace/<event_name>')
+def api_topicspace(event_name):
+    """Get TopicSpace data for an event"""
+    import re
+    from pathlib import Path
+    
+    try:
+        # Map event names to TopicSpace files
+        topicspace_map = {
+            'anatomy and physiology': 'Anatomy_Physiology_TopicSpace.txt',
+            'anatomy & physiology': 'Anatomy_Physiology_TopicSpace.txt',
+            'anatomy': 'Anatomy_Physiology_TopicSpace.txt',
+        }
+        
+        event_lower = event_name.lower()
+        filename = topicspace_map.get(event_lower)
+        
+        if not filename:
+            return jsonify({'error': f'No TopicSpace found for event: {event_name}'}), 404
+        
+        topicspace_path = Path('TestBase/TopicSpace') / filename
+        
+        if not topicspace_path.exists():
+            return jsonify({'error': 'TopicSpace file not found'}), 404
+        
+        # Parse TopicSpace file
+        with open(topicspace_path, 'r', encoding='utf-8') as f:
+            lines = f.readlines()
+        
+        # Parse structure
+        topics = []
+        questions_by_topic = {}
+        current_topic = None
+        in_question_mapping = False
+        current_test = None
+        
+        i = 0
+        while i < len(lines):
+            line = lines[i].rstrip('\n')
+            line_stripped = line.strip()
+            
+            # Detect question mapping section FIRST (before skipping === lines)
+            if 'QUESTION-TO-TOPIC MAPPING' in line_stripped or 'QUESTION-TO-TOPIC' in line_stripped:
+                in_question_mapping = True
+                i += 1
+                continue
+            
+            # Skip empty lines and headers (but not question mapping section)
+            if not line_stripped or (line_stripped.startswith('===') and 'QUESTION-TO-TOPIC' not in line_stripped) or line_stripped.startswith('ANATOMY & PHYSIOLOGY COMPREHENSIVE') or 'Version' in line_stripped or 'Coverage:' in line_stripped or 'Total:' in line_stripped or 'This section links' in line_stripped:
+                i += 1
+                continue
+            
+            if in_question_mapping:
+                # Skip empty lines in question mapping section
+                if not line_stripped:
+                    i += 1
+                    continue
+                
+                # Detect test name
+                if any(x in line_stripped for x in ['HAWK & HORNET', 'UGA INVITATIONAL', 'RICKARDS', 'UT AUSTIN', 'MVSO']):
+                    current_test = line_stripped
+                    i += 1
+                    continue
+                
+                # Parse question mapping: Q1 [Description] → Topic I.A (Topic Name)
+                if line_stripped.startswith('Q'):
+                    # Handle multiple topic references: Q1 [Desc] → Topic I.A (Name), I.B (Name2)
+                    match = re.match(r'Q(\d+)(?:-Q(\d+))?\s+\[([^\]]+)\]\s*→\s*(.+)', line_stripped)
+                    if match:
+                        q_start = int(match.group(1))
+                        q_end = int(match.group(2)) if match.group(2) else q_start
+                        desc = match.group(3)
+                        topics_str = match.group(4).strip()
+                        
+                        # Parse multiple topic references - handle both "Topic I.A (Name)" and ", I.B (Name2)" formats
+                        # First, replace "Topic " at the start to make parsing consistent
+                        topics_str_normalized = topics_str.replace('Topic ', '', 1).strip()
+                        
+                        # Now find all patterns like "I.A (Name)" or ", I.B (Name2)"
+                        # Pattern: optional comma/space at start, then topic ref like I.A or II.B, then space and parentheses with name
+                        topic_matches = re.findall(r'(?:^|,\s*)([IVX]+\.[A-Z]+)\s*\(([^)]+)\)', topics_str_normalized)
+                        
+                        if not topic_matches:
+                            # Fallback: try to find topic refs without parentheses (less common)
+                            topic_matches = re.findall(r'(?:^|,\s*)([IVX]+\.[A-Z]+)', topics_str_normalized)
+                            topic_matches = [(ref, '') for ref in topic_matches]
+                        
+                        for topic_ref, topic_name in topic_matches:
+                            if topic_ref not in questions_by_topic:
+                                questions_by_topic[topic_ref] = []
+                            
+                            questions_by_topic[topic_ref].append({
+                                'test': current_test,
+                                'question_start': q_start,
+                                'question_end': q_end,
+                                'description': desc,
+                                'topic_ref': topic_ref,
+                                'topic_name': topic_name.strip() if topic_name else ''
+                            })
+                i += 1
+                continue
+            
+            if line_stripped.startswith('END OF COMPREHENSIVE TOPIC SPACE'):
+                break
+            
+            # Parse topic structure: I.A - Topic Name
+            topic_match = re.match(r'^([IVX]+\.[A-Z]+)\s*-\s*(.+)', line_stripped)
+            if topic_match:
+                topic_ref = topic_match.group(1)
+                topic_name = topic_match.group(2)
+                
+                current_topic = {
+                    'ref': topic_ref,
+                    'name': topic_name,
+                    'subtopics': [],
+                    'questions': []
+                }
+                topics.append(current_topic)
+                i += 1
+                continue
+            
+            # Parse subtopics (bullet points)
+            if current_topic and line_stripped.startswith('•'):
+                subtopic_text = line_stripped[1:].strip()
+                # Skip sub-bullets (indented with -)
+                if not subtopic_text.startswith('-'):
+                    current_topic['subtopics'].append(subtopic_text)
+            
+            i += 1
+        
+        # Attach questions to topics
+        for topic in topics:
+            topic['questions'] = questions_by_topic.get(topic['ref'], [])
+        
+        # Debug: Print some stats
+        total_questions = sum(len(q_list) for q_list in questions_by_topic.values())
+        topics_with_questions = sum(1 for topic in topics if len(topic['questions']) > 0)
+        
+        return jsonify({
+            'event': event_name,
+            'topics': topics,
+            'questions_by_topic': questions_by_topic,
+            'stats': {
+                'total_topics': len(topics),
+                'topics_with_questions': topics_with_questions,
+                'total_question_mappings': total_questions
+            }
+        }), 200
+        
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/topicspace/question/<test_name>/<int:question_id>')
+def api_topicspace_question(test_name, question_id):
+    """Get a specific question from a parsed test file"""
+    import re
+    from pathlib import Path
+    
+    try:
+        # Map test names to file paths
+        test_map = {
+            'HAWK & HORNET INVITATIONAL 2026 ANATOMY & PHYSIOLOGY': 'Hawk&Hornet Invitational/TestsParsed/Hawk&Hornet Invitational 2026 Anatomy and Physiology C TEST.txt',
+            'UGA INVITATIONAL 2025 ANATOMY & PHYSIOLOGY': 'UGA Invitational/TestsParsed/UGA Invitational 2025 Anatomy and Physiology C TEST.txt',
+            'RICKARDS INVITATIONAL 2025 ANATOMY & PHYSIOLOGY': 'Rickards/TestsParsed/Rickards Invitational 2025 Anatomy and Physiology C TEST.txt',
+            'UT AUSTIN INVITATIONAL 2025 ANATOMY & PHYSIOLOGY': 'UTAustin/TestsParsed/UT Austin Invitational 2025 Anatomy and Physiology C TEST.txt',
+            'MVSO INVITE 2025 ANATOMY & PHYSIOLOGY': 'MVSO/TestsParsed/MVSO Invite 2025 Anatomy and Physiology C TEST.txt',
+        }
+        
+        file_path = test_map.get(test_name.upper())
+        if not file_path:
+            return jsonify({'error': 'Test not found'}), 404
+        
+        full_path = Path('TestBase') / file_path
+        
+        if not full_path.exists():
+            return jsonify({'error': 'Test file not found'}), 404
+        
+        # Read and parse question
+        with open(full_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        # Find question
+        question_pattern = rf'---QUESTION {question_id}---(.*?)(?=---QUESTION \d+---|$)'
+        match = re.search(question_pattern, content, re.DOTALL)
+        
+        if not match:
+            return jsonify({'error': 'Question not found'}), 404
+        
+        question_text = match.group(1).strip()
+        
+        # Parse question details
+        question_data = {
+            'id': question_id,
+            'test': test_name,
+            'raw_text': question_text
+        }
+        
+        # Extract structured fields
+        for field in ['ID', 'POINTS', 'FORMAT', 'TOPIC', 'DIFFICULTY', 'QUESTION', 'OPTIONS', 'CORRECT_ANSWER', 'CORRECT_ANSWERS']:
+            pattern = rf'{field}:\s*(.+?)(?=\n[A-Z_]+:|$)'
+            field_match = re.search(pattern, question_text, re.DOTALL | re.IGNORECASE)
+            if field_match:
+                value = field_match.group(1).strip()
+                if field == 'OPTIONS':
+                    # Parse options
+                    options = []
+                    for opt_match in re.finditer(r'^([A-Z])\)\s*(.+?)(?=\n[A-Z]\)|$)', value, re.MULTILINE):
+                        options.append({
+                            'letter': opt_match.group(1),
+                            'text': opt_match.group(2).strip()
+                        })
+                    question_data['options'] = options
+                else:
+                    question_data[field.lower()] = value
+        
+        return jsonify(question_data), 200
+        
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/topicspace/pdf/<test_name>')
+def api_topicspace_pdf(test_name):
+    """Serve PDF for a test"""
+    from pathlib import Path
+    from urllib.parse import unquote
+    
+    try:
+        # Map test names to PDF paths
+        pdf_map = {
+            'HAWK & HORNET INVITATIONAL 2026 ANATOMY & PHYSIOLOGY': 'Hawk&Hornet Invitational/TestsPDF/A&P_Test.pdf',
+            'UGA INVITATIONAL 2025 ANATOMY & PHYSIOLOGY': 'UGA Invitational/TestsPDF/A&P_Test.pdf',
+            'RICKARDS INVITATIONAL 2025 ANATOMY & PHYSIOLOGY': 'Rickards/TestsPDF/A&P_Test.pdf',
+            'UT AUSTIN INVITATIONAL 2025 ANATOMY & PHYSIOLOGY': 'UTAustin/TestsPDF/A&P_Test.pdf',
+            'MVSO INVITE 2025 ANATOMY & PHYSIOLOGY': 'MVSO/TestsPDF/MVSO Invite 2025 Anatomy and Physiology C TEST.pdf',
+        }
+        
+        pdf_path = pdf_map.get(test_name.upper())
+        if not pdf_path:
+            return jsonify({'error': 'PDF not found'}), 404
+        
+        full_path = Path('TestBase') / pdf_path
+        
+        if not full_path.exists():
+            return jsonify({'error': 'PDF file not found'}), 404
+        
+        # Set headers to allow PDF.js and other viewers to work properly
+        response = send_from_directory(str(full_path.parent), full_path.name, mimetype='application/pdf')
+        response.headers['Access-Control-Allow-Origin'] = '*'
+        response.headers['X-Content-Type-Options'] = 'nosniff'
+        return response
+        
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/topicspace/pdf-page/<test_name>/<int:question_id>')
+def api_topicspace_pdf_page(test_name, question_id):
+    """Estimate PDF page number for a question"""
+    try:
+        # Rough estimation: ~2-3 questions per page on average
+        # This is a heuristic - actual page numbers would need to be stored in parsed files
+        estimated_page = max(1, int(question_id / 2.5))
+        
+        return jsonify({
+            'test': test_name,
+            'question_id': question_id,
+            'estimated_page': estimated_page,
+            'note': 'This is an estimate. Actual page numbers may vary.'
+        }), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 # ----------------------- Interest Meeting Attendance -----------------------
 

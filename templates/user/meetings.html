@@ -663,6 +663,120 @@
         font-size: 0.75rem;
         color: #6b7280;
     }
+    
+    /* Excused Absences Display Styles */
+    .absence-request-card {
+        background: white;
+        border-radius: 0.5rem;
+        padding: 1.25rem;
+        margin-bottom: 1rem;
+        border: 1px solid #e5e7eb;
+        transition: all 0.2s;
+    }
+    
+    .absence-request-card:hover {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .absence-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 0.75rem;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    .absence-event-date {
+        flex: 1;
+        min-width: 200px;
+    }
+    
+    .absence-event-name {
+        font-weight: 600;
+        color: #1f2937;
+        font-size: 1rem;
+        margin-bottom: 0.25rem;
+    }
+    
+    .absence-date {
+        color: #6b7280;
+        font-size: 0.9rem;
+    }
+    
+    .absence-status-badge {
+        display: inline-block;
+        padding: 0.375rem 0.75rem;
+        border-radius: 0.375rem;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: capitalize;
+    }
+    
+    .absence-status-badge.pending {
+        background-color: #fef3c7;
+        color: #92400e;
+    }
+    
+    .absence-status-badge.approved {
+        background-color: #d1fae5;
+        color: #065f46;
+    }
+    
+    .absence-status-badge.denied {
+        background-color: #fee2e2;
+        color: #991b1b;
+    }
+    
+    .absence-type-badge {
+        display: inline-block;
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.25rem;
+        font-size: 0.75rem;
+        background-color: #e5e7eb;
+        color: #374151;
+        margin-left: 0.5rem;
+    }
+    
+    .absence-reason {
+        color: #374151;
+        margin: 0.75rem 0;
+        padding: 0.75rem;
+        background-color: #f9fafb;
+        border-radius: 0.375rem;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    .absence-details {
+        margin-top: 0.75rem;
+        padding-top: 0.75rem;
+        border-top: 1px solid #e5e7eb;
+    }
+    
+    .absence-detail-item {
+        margin: 0.5rem 0;
+        font-size: 0.85rem;
+        color: #6b7280;
+    }
+    
+    .absence-detail-item strong {
+        color: #374151;
+        margin-right: 0.5rem;
+    }
+    
+    .absence-document-link {
+        color: #3b82f6;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+        margin-top: 0.5rem;
+    }
+    
+    .absence-document-link:hover {
+        text-decoration: underline;
+    }
 </style>
 {% endblock %}
 
@@ -683,7 +797,7 @@
                     id="meetingCode" 
                     class="code-input" 
                     placeholder="Enter code"
-                    maxlength="5"
+                    maxlength="3"
                     required
                 >
             </div>
@@ -809,6 +923,19 @@
         </div>
     </div>
     
+    <!-- Excused Absence Requests Section -->
+    <div class="section-title">
+        <i class="fas fa-list-alt"></i>
+        Your Excused Absence Requests
+    </div>
+    
+    <div class="chart-container" id="excusedAbsencesContainer">
+        <div class="empty-state">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Loading your absence requests...</p>
+        </div>
+    </div>
+    
     <!-- Attendance Stats Section -->
     <div class="section-title">
         <i class="fas fa-chart-line"></i>
@@ -872,6 +999,7 @@
             await loadAttendanceData();
             await loadBuildAttendance();
             await loadHouseCupLeaderboard();
+            await loadExcusedAbsences();
             setupCodeFormListener();
             setupAbsenceFormListener();
         } catch (error) {
@@ -1259,13 +1387,31 @@
                             : new Date(m.date);
                         return d >= wr.start && d <= wr.end;
                     });
+                    
+                    // Count unique meeting days (dates) in this week
+                    const meetingDays = new Set();
+                    buildMeetingsThisWeek.forEach(m => {
+                        const d = (m.date && typeof m.date === 'object' && m.date.seconds)
+                            ? new Date(m.date.seconds * 1000)
+                            : new Date(m.date);
+                        const dateKey = d.toISOString().slice(0, 10); // YYYY-MM-DD
+                        meetingDays.add(dateKey);
+                    });
+                    const meetingDaysCount = meetingDays.size;
+                    
+                    // Waive requirement if 0 or 1 meeting days
+                    const requirementWaived = meetingDaysCount <= 1;
+                    const effectiveRequiredBlocks = requirementWaived ? 0 : requiredBlocks;
+                    
                     const attendedCount = buildMeetingsThisWeek.filter(m => m.attended && m.attended.includes(currentUserId)).length;
 
                     if (isPastWeek) {
-                        if (attendedCount >= requiredBlocks) {
+                        if (requirementWaived || attendedCount >= effectiveRequiredBlocks) {
                             statusClass = 'attended';
                             statusIcon = '✓';
-                            statusText = `Requirement met: ${attendedCount}/${requiredBlocks} blocks`;
+                            statusText = requirementWaived 
+                                ? `Requirement waived (${meetingDaysCount} meeting day${meetingDaysCount !== 1 ? 's' : ''})`
+                                : `Requirement met: ${attendedCount}/${requiredBlocks} blocks`;
                         } else {
                             statusClass = 'missed';
                             statusIcon = '✗';
@@ -1275,7 +1421,9 @@
                         // Upcoming/current week
                         statusClass = 'future';
                         statusIcon = '○';
-                        statusText = `Progress: ${attendedCount}/${requiredBlocks} blocks`;
+                        statusText = requirementWaived
+                            ? `Requirement waived (${meetingDaysCount} meeting day${meetingDaysCount !== 1 ? 's' : ''})`
+                            : `Progress: ${attendedCount}/${requiredBlocks} blocks`;
                     }
                 } else {
                     // Non-build events: mark based on that event's meeting in the week
@@ -1417,15 +1565,30 @@
             Object.values(meetingsByWeek).forEach(weekData => {
                 // Only count weeks where the week end is in the past
                 if (weekData.end < oneDayAgo) {
+                    // Count unique meeting days (dates) in this week
+                    const meetingDays = new Set();
+                    weekData.meetings.forEach(m => {
+                        const d = (m.date && typeof m.date === 'object' && m.date.seconds)
+                            ? new Date(m.date.seconds * 1000)
+                            : new Date(m.date);
+                        const dateKey = d.toISOString().slice(0, 10); // YYYY-MM-DD
+                        meetingDays.add(dateKey);
+                    });
+                    const meetingDaysCount = meetingDays.size;
+                    
+                    // Waive requirement if 0 or 1 meeting days
+                    const requirementWaived = meetingDaysCount <= 1;
+                    const effectiveRequiredBlocks = requirementWaived ? 0 : requiredBlocks;
+                    
                     buildTotalWeeks++;
                     const weekAttended = weekData.meetings.filter(m => 
                         m.attended && m.attended.includes(currentUserId)
                     ).length;
-                    // Check if requirement was met
-                    if (weekAttended >= requiredBlocks) {
+                    // Check if requirement was met (or waived)
+                    if (requirementWaived || weekAttended >= effectiveRequiredBlocks) {
                         buildWeeksMet++;
                     }
-                    const blocksShort = Math.max(0, requiredBlocks - weekAttended);
+                    const blocksShort = requirementWaived ? 0 : Math.max(0, requiredBlocks - weekAttended);
                     sharedBuildUnexcusedAbsences += blocksShort;
                 }
             });
@@ -1589,6 +1752,161 @@
         document.getElementById('statsContent').innerHTML = html;
     }
     
+    // Load and display excused absence requests
+    async function loadExcusedAbsences() {
+        try {
+            const container = document.getElementById('excusedAbsencesContainer');
+            
+            if (!currentUserId) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <p>User not logged in</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            const response = await fetch(`/api/ExcusedAbsences/member/${currentUserId}`);
+            
+            if (!response.ok) {
+                let errorMsg = 'Failed to load excused absences';
+                try {
+                    const errorData = await response.json();
+                    errorMsg = errorData.error || errorMsg;
+                } catch (e) {
+                    errorMsg = `Server error (${response.status})`;
+                }
+                console.error('Error loading excused absences:', errorMsg, response.status);
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <p>Error loading absence requests: ${errorMsg}</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            const absences = await response.json();
+            
+            if (absences.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-calendar-check"></i>
+                        <p>You have no excused absence requests</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Sort by status (pending first) and then by date (newest first)
+            absences.sort((a, b) => {
+                const statusOrder = { 'pending': 0, 'approved': 1, 'denied': 2 };
+                const statusA = a.status || 'pending';
+                const statusB = b.status || 'pending';
+                if (statusOrder[statusA] !== statusOrder[statusB]) {
+                    return statusOrder[statusA] - statusOrder[statusB];
+                }
+                // Sort by date descending (newest first)
+                const dateA = a.dateOfAbsence ? (a.dateOfAbsence.seconds ? new Date(a.dateOfAbsence.seconds * 1000) : new Date(a.dateOfAbsence)) : new Date(0);
+                const dateB = b.dateOfAbsence ? (b.dateOfAbsence.seconds ? new Date(b.dateOfAbsence.seconds * 1000) : new Date(b.dateOfAbsence)) : new Date(0);
+                return dateB - dateA;
+            });
+            
+            let html = '';
+            
+            absences.forEach(absence => {
+                // Get event name
+                const event = userEvents.find(e => e.id === absence.eventId);
+                const eventName = event ? event.eventName : 'Unknown Event';
+                
+                // Format date
+                let dateStr = 'Unknown Date';
+                try {
+                    if (absence.dateOfAbsence) {
+                        let date;
+                        if (absence.dateOfAbsence.seconds) {
+                            date = new Date(absence.dateOfAbsence.seconds * 1000);
+                        } else if (absence.dateOfAbsence.toDate) {
+                            date = absence.dateOfAbsence.toDate();
+                        } else {
+                            date = new Date(absence.dateOfAbsence);
+                        }
+                        if (!isNaN(date.getTime())) {
+                            dateStr = date.toLocaleDateString('en-US', { 
+                                year: 'numeric', 
+                                month: 'long', 
+                                day: 'numeric',
+                                weekday: 'long'
+                            });
+                        }
+                    }
+                } catch (error) {
+                    console.warn('Error parsing date:', error);
+                }
+                
+                // Status badge
+                const status = absence.status || 'pending';
+                const statusClass = status === 'pending' ? 'pending' : 
+                                   status === 'approved' ? 'approved' : 'denied';
+                const statusText = status.charAt(0).toUpperCase() + status.slice(1);
+                
+                // Type badge
+                const typeText = absence.type === 'attendance_correction' ? 'Attendance Correction' : 'Excused Absence';
+                
+                html += `
+                    <div class="absence-request-card">
+                        <div class="absence-header">
+                            <div class="absence-event-date">
+                                <div class="absence-event-name">${eventName}</div>
+                                <div class="absence-date">${dateStr}</div>
+                            </div>
+                            <div>
+                                <span class="absence-status-badge ${statusClass}">${statusText}</span>
+                                <span class="absence-type-badge">${typeText}</span>
+                            </div>
+                        </div>
+                        <div class="absence-reason">
+                            <strong>Reason:</strong> ${absence.reason || 'No reason provided'}
+                        </div>
+                        <div class="absence-details">
+                            ${absence.adminComments ? `
+                                <div class="absence-detail-item">
+                                    <strong>Admin Comments:</strong> ${absence.adminComments}
+                                </div>
+                            ` : ''}
+                            ${absence.reviewedAt ? `
+                                <div class="absence-detail-item">
+                                    <strong>Reviewed:</strong> ${new Date(absence.reviewedAt.seconds ? absence.reviewedAt.seconds * 1000 : absence.reviewedAt).toLocaleDateString('en-US', { 
+                                        year: 'numeric', 
+                                        month: 'long', 
+                                        day: 'numeric',
+                                        hour: 'numeric',
+                                        minute: '2-digit'
+                                    })}
+                                </div>
+                            ` : ''}
+                            ${absence.documentationFileId ? `
+                                <a href="/api/ExcusedAbsences/download-documentation/${absence.documentationFileId}" 
+                                   class="absence-document-link" 
+                                   target="_blank">
+                                    <i class="fas fa-file-download"></i>
+                                    Download Documentation
+                                </a>
+                            ` : ''}
+                        </div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        } catch (error) {
+            console.error('Error loading excused absences:', error);
+            document.getElementById('excusedAbsencesContainer').innerHTML = 
+                '<div class="empty-state"><i class="fas fa-exclamation-circle"></i><p>Error loading absence requests</p></div>';
+        }
+    }
+    
     // Setup absence form listener
     function setupAbsenceFormListener() {
         const form = document.getElementById('absenceForm');
@@ -1723,6 +2041,9 @@
                         option.textContent = event.eventName;
                         eventSelect.appendChild(option);
                     });
+                    
+                    // Reload excused absences list
+                    await loadExcusedAbsences();
                 } else {
                     const errorData = await response.json().catch(() => ({}));
                     absenceMessage.textContent = `❌ ${errorData.error || 'Error submitting request. Please try again.'}`;
@@ -1885,24 +2206,39 @@
                 return meetingDate >= weekStart && meetingDate <= weekEnd;
             });
             
+            // Count unique meeting days (dates) in this week
+            const meetingDays = new Set();
+            thisWeekBuildMeetings.forEach(m => {
+                const d = (m.date && typeof m.date === 'object' && m.date.seconds)
+                    ? new Date(m.date.seconds * 1000)
+                    : new Date(m.date);
+                const dateKey = d.toISOString().slice(0, 10); // YYYY-MM-DD
+                meetingDays.add(dateKey);
+            });
+            const meetingDaysCount = meetingDays.size;
+            
+            // Waive requirement if 0 or 1 meeting days
+            const requirementWaived = meetingDaysCount <= 1;
+            const effectiveRequiredBlocks = requirementWaived ? 0 : requiredBlocks;
+            
             // Count blocks attended
             const attendedCount = thisWeekBuildMeetings.filter(m => 
                 m.attended && m.attended.includes(currentUserId)
             ).length;
             
             // Display build attendance
-            displayBuildAttendance(userBuildEvents, attendedCount, requiredBlocks, thisWeekBuildMeetings);
+            displayBuildAttendance(userBuildEvents, attendedCount, requiredBlocks, effectiveRequiredBlocks, requirementWaived, meetingDaysCount, thisWeekBuildMeetings);
             
         } catch (error) {
             console.error('Error loading build attendance:', error);
         }
     }
     
-    function displayBuildAttendance(buildEvents, attended, required, allBuildMeetings) {
+    function displayBuildAttendance(buildEvents, attended, required, effectiveRequired, requirementWaived, meetingDaysCount, allBuildMeetings) {
         const container = document.getElementById('buildAttendanceContainer');
         
-        const percentage = required > 0 ? Math.round((attended / required) * 100) : 0;
-        const status = attended >= required ? 'good' : attended >= required - 1 ? 'warning' : 'danger';
+        const percentage = effectiveRequired > 0 ? Math.round((attended / effectiveRequired) * 100) : 100;
+        const status = requirementWaived || attended >= effectiveRequired ? 'good' : attended >= effectiveRequired - 1 ? 'warning' : 'danger';
         
         const statusColors = {
             good: { bg: '#dcfce7', border: '#10b981', text: '#065f46' },
@@ -1923,10 +2259,11 @@
                                 You're in ${buildEvents.length} build event${buildEvents.length !== 1 ? 's' : ''}: 
                                 ${buildEvents.map(e => e.eventName).join(', ')}
                             </p>
+                            ${requirementWaived ? `<p style="margin: 0.5rem 0 0 0; color: ${color.text}; font-size: 0.85rem; font-style: italic;">Requirement waived (${meetingDaysCount} meeting day${meetingDaysCount !== 1 ? 's' : ''} this week)</p>` : ''}
                         </div>
                         <div style="text-align: center;">
                             <div style="font-size: 2.5rem; font-weight: bold; color: ${color.text};">
-                                ${attended}/${required}
+                                ${attended}/${requirementWaived ? '—' : required}
                             </div>
                             <div style="font-size: 0.85rem; color: ${color.text}; margin-top: 0.25rem;">
                                 blocks this week

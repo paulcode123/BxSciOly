@@ -1,0 +1,821 @@
+EVENT: Designer Genes
+SOURCE: UT Austin Invitational 2025 (Div. C)
+FORMAT: 50 Multiple Choice questions (1 pt each) + 7 Short Response questions with subparts
+TOTAL POINTS: 135
+
+---QUESTION 1---
+ID: 1
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: DNA Structure | DNA helix forms | B-DNA | A-DNA | Z-DNA | Physiological conditions | Normal conditions
+DIFFICULTY: Low
+QUESTION: Which figure shows the form of the DNA helix under normal physiological conditions?
+OPTIONS:
+A) Figure 1
+B) Figure 2
+C) Figure 3
+D) None of the above
+
+---QUESTION 2---
+ID: 2
+POINTS: 1.00
+FORMAT: Multiple Choice (multiple answers)
+TOPIC: DNA Structure | Z-DNA | Sequences | Alternating purine-pyrimidine | ATATATAT | GCGCGCGC
+DIFFICULTY: Medium
+QUESTION: Which of the following sequences might be an example of a segment of dsDNA that forms Figure 3? (Select all that apply.)
+OPTIONS:
+A) ACTCTGAC
+B) ATATATAT
+C) AACCTTCC
+D) GCTAGCGC
+E) None of the above
+
+---QUESTION 3---
+ID: 3
+POINTS: 1.00
+FORMAT: Multiple Choice (multiple answers)
+TOPIC: DNA Structure | Right-handed helix | B-DNA | A-DNA | Z-DNA | Helix handedness
+DIFFICULTY: Medium
+QUESTION: Which figure(s) show right-handed helices? (Select all that apply.)
+OPTIONS:
+A) Figure 1
+B) Figure 2
+C) Figure 3
+D) All of the above
+E) None of the above
+
+---QUESTION 4---
+ID: 4
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: DNA Structure | RNA-DNA hybrid | A-DNA | Hybrid helix | TIEBREAKER
+DIFFICULTY: Medium
+QUESTION: TIEBREAKER Which figure shows a helix that can be an RNA-DNA hybrid?
+OPTIONS:
+A) Figure 1
+B) Figure 2
+C) Figure 3
+D) None of the above
+
+---QUESTION 5---
+ID: 5
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: DNA Structure | Denaturation | Melting temperature | G-C content | A-T content | Primers | DNA polymerase
+DIFFICULTY: Medium
+QUESTION: The following template strands are exposed to primers, excess nucleotides, and DNA polymerase in buffer at approx. 60°C. The resulting strands of dsDNA are then incubated at increasing temperatures for 30 minutes. Which primer's corresponding dsDNA segment would likely require the highest denaturing temperature?
+OPTIONS:
+A) AATACGCTA
+B) GATGCTCTA
+C) TTACTAGTA
+D) CTACGCCAG
+
+---QUESTION 6---
+ID: 6
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: DNA Structure | Denaturation | G-C bonds | A-T bonds | Hydrogen bonds | π-stacking | Melting temperature
+DIFFICULTY: Medium
+QUESTION: Why does the dsDNA strand you chose in the previous question have the highest denaturing temperature?
+OPTIONS:
+A) There is a high percentage of A-T bonds, which have less hydrogen bonds to break.
+B) There is a high percentage of G-C bonds, which have more hydrogen bonds to break.
+C) There is a high percentage of G-C bonds, which have more hydrogen bonds and π-stacking interactions to break.
+D) There is a high percentage of A-T bonds, which have more hydrogen bonds and π-stacking interactions to break.
+
+---QUESTION 7---
+ID: 7
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: DNA Structure | Nucleotides | Phosphodiester bonds | Backbone | Linkage
+DIFFICULTY: Low
+QUESTION: What type of bond links together nucleotides in the phosphate backbones of DNA and RNA?
+OPTIONS:
+A) Disulfide bridges
+B) Hydrogen bonds
+C) Phosphodiester bonds
+D) Peptide bonds
+
+---QUESTION 8---
+ID: 8
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: DNA Structure | Phosphodiester bonds | 5' carbon | 3' carbon | Phosphate | Hydroxyl | Bond formation
+DIFFICULTY: Medium
+QUESTION: The bonds in the previous question form between:
+OPTIONS:
+A) The phosphate group on the 3' carbon and the hydroxyl group on the 5' carbon
+B) The phosphate group on the 5' carbon and the hydroxyl group on the 3' carbon
+C) C' and the amino group
+D) The bases of each nucleotide
+E) The active site of DNA polymerase and the major groove
+
+---QUESTION 9---
+ID: 9
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: DNA Sequencing | Sanger sequencing | ddNTPs | Chain termination | dNTPs | NTPs | AMP
+DIFFICULTY: Medium
+QUESTION: Sanger sequencing relies on the incorporation of _____ into the DNA chain being elongated.
+OPTIONS:
+A) dNTPs
+B) ddNTPs
+C) NTPs
+D) AMP
+
+---QUESTION 10---
+ID: 10
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: Genetics | Mendel's Laws | Law of Segregation | Law of Independent Assortment | Inheritance | Lamarckism
+DIFFICULTY: Medium
+QUESTION: Which of the following does not correctly describe one of Mendel's Laws of Inheritance?
+OPTIONS:
+A) During meiosis, homologous chromosome pairs line up at the equator of the cell. Each pair's place in the order is not influenced by any other pair's place in the order.
+B) A brown-haired person with attached earlobes has children with a red-haired person who has free earlobes. Their children all have brown hair and dimples.
+C) During meiosis, chromosome pairs remain together through metaphase. Pairs of alleles are separated during anaphase and end up in different gametes.
+D) A professional arm wrestler develops huge arm muscles on his right, dominant arm. His children all have larger right arms at birth.
+
+---QUESTION 11---
+ID: 11
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: Genetics | Mendel's Laws | Deviations | Incomplete dominance | Natural selection | Lamarckism | Genetic drift
+DIFFICULTY: Medium
+QUESTION: Which of the following describes a deviance from Mendel's Laws of Inheritance?
+OPTIONS:
+A) A flood kills most individuals of a species of birds living on a remote island. The survivors all have waterproof feathers and a tendency to nest on treetops.
+B) A giraffe stretches its neck to reach increasingly high branches of leaves over the course of its life. Its offspring have slightly longer necks than their parents.
+C) A right-handed parent and a left-handed parent have children. Three of their four children are right-handed.
+D) A red flowering plant and a white flowering plant can be crossbred to produce pink flowered offspring.
+
+---QUESTION 12---
+ID: 12
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: Genetics | Epistasis | Gene interactions | Epigenetics | Epinephrine | Hypostasis | Spiny crabs
+DIFFICULTY: Medium
+QUESTION: In a certain species of spiny crabs, the allele for spiked claws (S) is dominant over the allele for smooth claws (s). Expression of another gene, Smh1, prevents spiny crabs' claws from developing. The effect that Smh1 has on claw spikiness is called:
+OPTIONS:
+A) epigenetics
+B) epistasis
+C) epinephrine
+D) hypostasis
+
+---QUESTION 13---
+ID: 13
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: Cell Division | Mitosis | Ploidy | Chromosome number | 2n | 4n | Beginning | After cytokinesis
+DIFFICULTY: Low
+QUESTION: Cells are _____ at the beginning of mitosis, and _____ after cytokinesis.
+OPTIONS:
+A) 2n, 2n
+B) 4n, n
+C) 4n, 2n
+D) 2n, n
+
+---QUESTION 14---
+ID: 14
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: Immunology | Immunoglobulin class switching | Antibody | Constant region | Variable region | Antigen specificity | TIEBREAKER
+DIFFICULTY: High
+QUESTION: TIEBREAKER Immunoglobulin class switching:
+OPTIONS:
+A) affects antigen specificity.
+B) changes the constant region of the antibody heavy chain.
+C) does not affect interactions with effector molecules.
+D) changes the variable region of the antibody heavy chain.
+
+---QUESTION 15---
+ID: 15
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: Population Genetics | Hardy-Weinberg equilibrium | Assumptions | Free genetic flow | No mutations | Large population | Random mating
+DIFFICULTY: Medium
+QUESTION: Which of the following is not a correct assumption of the Hardy-Weinburg equilibrium?
+OPTIONS:
+A) Free genetic flow
+B) No mutations
+C) Large population
+D) Random mating
+
+---QUESTION 16---
+ID: 16
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: Cell Division | Meiosis | Ploidy | Meiosis I | Meiosis II | Diploid | Haploid | 2n | n
+DIFFICULTY: Low
+QUESTION: Cells at the beginning of meiosis I are _____, and cells at the beginning of meiosis II are _____.
+OPTIONS:
+A) diploid, haploid
+B) 4n, n
+C) 2n, n
+D) 2n, 2n
+
+---QUESTION 17---
+ID: 17
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: Population Genetics | Founder effect | Genetic drift | Small population | Island | Lemurs
+DIFFICULTY: Medium
+QUESTION: In a tropical storm, a small population of lemurs is swept out to a remote island. They reproduce and begin to populate the island. After a few generations, the island lemurs tend to be smaller on average than the mainland lemurs. This is an example of:
+OPTIONS:
+A) Mutation
+B) Gene flow
+C) Bottleneck
+D) Founder effect
+
+---QUESTION 18---
+ID: 18
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: Population Genetics | Bottleneck effect | Genetic drift | Population reduction | Natural selection | Lemurs
+DIFFICULTY: Medium
+QUESTION: On the same island, another tropical storm drowns most of the island lemurs. The remaining lemurs repopulate the island. After a few generations, the lemur population now tends to have shorter fur that dries faster. This is an example of:
+OPTIONS:
+A) Mutation
+B) Gene flow
+C) Bottleneck
+D) Founder effect
+
+---QUESTION 19---
+ID: 19
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: Molecular Biology | Experimental techniques | Overexpression | Knockout | Knockdown | Knockin | Cell cycle | Cancer
+DIFFICULTY: Medium
+QUESTION: Scientists want to study a certain protein that is known to have a critical role in the cell cycle, and has recently been implicated in cancer. Overexpression of this protein is hypothesized to contribute to irregular cell cycle entry. What experimental technique is best suited to testing the hypothesis?
+OPTIONS:
+A) Overexpression
+B) Knockout
+C) Knockdown
+D) Knockin
+
+---QUESTION 20---
+ID: 20
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: Molecular Biology | RNA-seq | Applications | Expression levels | Localization | Rare variants | Coregulated genes
+DIFFICULTY: Medium
+QUESTION: Which is not an appropriate situation to use RNA-seq?
+OPTIONS:
+A) Measuring expression levels of multiple genes
+B) Identifying localization of expressed genes
+C) Detecting rare variants of a specific gene
+D) Identifying coregulated genes
+
+---QUESTION 21---
+ID: 21
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: Molecular Biology | Techniques | Hi-C | Linkage mapping | Chromosome mapping | Gene localization | Esh5 | Fuzz1
+DIFFICULTY: Medium
+QUESTION: A scientist suspects that a gene that encodes mouse ear shape (Esh5) is linked to a gene that controls fur length (Fuzz1). Esh5 is known to be localized to chromosome 3q21. What technique should the scientist use in order to determine how close the locus of Fuzz1 is to the locus of Esh5 on chromosome 3?
+OPTIONS:
+A) Hi-C
+B) Minute Maid
+C) scRNA-seq
+D) ChIP-seq
+
+---QUESTION 22---
+ID: 22
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: Molecular Biology | Bacterial transformation | Heat shock | Plasmid uptake | Competent cells | Nuclear membrane
+DIFFICULTY: Medium
+QUESTION: During bacterial transformation, what is the purpose of heat shock?
+OPTIONS:
+A) To perforate the nuclear membrane of the bacteria.
+B) To give the bacteria mutations that will be studied in the cloned organism.
+C) To make the bacteria take up a recombinant plasmid.
+D) To disinfect the bacteria and make it noninfectious.
+
+---QUESTION 23---
+ID: 23
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: DNA Sequencing | Next-generation sequencing | NGS | Third-generation sequencing | TGS | Error rates | Read length | Cost | Haplotype phasing
+DIFFICULTY: Medium
+QUESTION: What is an accurate comparison between next-generation and third-generation sequencing?
+OPTIONS:
+A) NGS has higher error rates than TGS.
+B) NGS allows short reads, while TGS allows longer reads.
+C) NGS is more expensive than TGS.
+D) NGS is ideal for haplotype phasing, while TGS struggles with complex regions.
+
+---QUESTION 24---
+ID: 24
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: Molecular Biology | PCR | Gel electrophoresis | Western blot | Size-exclusion chromatography | SDS-PAGE | Refinement
+DIFFICULTY: Low
+QUESTION: At the end of PCR, amplified segments are usually refined using:
+OPTIONS:
+A) Western blot
+B) Size-exclusion chromatography
+C) Gel electrophoresis
+D) SDS-PAGE
+
+---QUESTION 25---
+ID: 25
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: Genetics | Additive alleles | Polygenic traits | Epistasis | Continuous variation | Independent contribution
+DIFFICULTY: Medium
+QUESTION: Which of the following is not true of additive alleles?
+OPTIONS:
+A) They contribute to polygenic traits.
+B) They can be affected by epistasis.
+C) Each allele's contribution to the trait they encode is independent to the other alleles.
+D) They contribute to a continuous range of variation.
+
+---QUESTION 26---
+ID: 26
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: Evolution | Homologs | Paralogs | Analogs | Orthologs | Common ancestor | Different species
+DIFFICULTY: Medium
+QUESTION: Two segments of DNA that are in two different species but share a common ancestor are:
+OPTIONS:
+A) Homologs
+B) Paralogs
+C) Analogs
+D) Orthologs
+
+---QUESTION 27---
+ID: 27
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: Evolution | Phylogenetics | Common ancestor | Most recent | Snakes | Iguanian lizards | Geckos | Crocodiles | Dinosaurs | Turtles | Birds
+DIFFICULTY: Medium
+QUESTION: Which species have the most recent common ancestor?
+OPTIONS:
+A) Snakes and iguanian lizards
+B) Geckos and snakes
+C) Crocodiles and non-avian dinosaurs
+D) Turtles and crocodiles
+
+---QUESTION 28---
+ID: 28
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: Evolution | Phylogenetics | DNA similarity | Common ancestor | Turtles | Crocodiles | Birds | Geckos
+DIFFICULTY: Medium
+QUESTION: Which species likely has the least DNA in common with the others?
+OPTIONS:
+A) Turtles
+B) Crocodiles
+C) Birds
+D) Geckos
+
+---QUESTION 29---
+ID: 29
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: Mutations | Types | Missense | Nonsense | Frameshift | Silent | Protein sequence | Met-Ala-His-Pro-Ser | Met-Gly-Ile-His
+DIFFICULTY: Medium
+QUESTION: A mutation that changes the protein expressed by a certain gene from Met-Ala-His-Pro-Ser to Met-Gly-Ile-His is most likely:
+OPTIONS:
+A) nonsense
+B) missense
+C) frameshift
+D) silent
+
+---QUESTION 30---
+ID: 30
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: Mutations | Causes | Single base insertion | Single base deletion | Single base substitution | Chromosomal rearrangement
+DIFFICULTY: Medium
+QUESTION: The mutation in the previous question was likely caused by:
+OPTIONS:
+A) single base insertion
+B) single base deletion
+C) single base substitution
+D) chromosomal rearrangement
+
+---QUESTION 31---
+ID: 31
+POINTS: 1.00
+FORMAT: Multiple Choice (multiple answers)
+TOPIC: RNA | Types | tRNA | mRNA | miRNA | rRNA | Functions | Translation | Gene expression | Mitochondrial DNA
+DIFFICULTY: Medium
+QUESTION: Which of the following correctly matches the class of RNA to its function? (Select all that apply.)
+OPTIONS:
+A) tRNA: brings amino acids to ribosomes during translation
+B) mRNA: transports genetic information to cytoplasm for protein synthesis
+C) miRNA: regulates expression of mitochondrial DNA
+D) rRNA: regulates gene expression in the nucleus
+
+---QUESTION 32---
+ID: 32
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: Molecular Biology | Plasmid transformation | GFP | Antibiotic resistance | Selection | Markers | Epistasis
+DIFFICULTY: Low
+QUESTION: During plasmid transformation, GFP and genes encoding antibiotic resistance are often added to the plasmid in order to:
+OPTIONS:
+A) Select plasmids that were properly transformed.
+B) Differentiate cloned organisms from control organisms.
+C) Have fun :)
+D) Have an epistatic effect on the gene being studied.
+
+---QUESTION 33---
+ID: 33
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: Mutations | Deleterious effects | Missense | Frameshift | Nonsense | Silent | Cell cycle | Noncoding | Embryonic development
+DIFFICULTY: Medium
+QUESTION: Which of the following types of mutations is potentially the most deleterious?
+OPTIONS:
+A) Missense in gene encoding protein integral to cell cycle regulation
+B) Frameshift in gene encoding protein integral to cell cycle regulation
+C) Nonsense in noncoding segment of DNA
+D) Silent in gene encoding protein involved in embryonic development
+
+---QUESTION 34---
+ID: 34
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: DNA Replication | Leading strand | S phase | DNA polymerase I | DNA polymerase III | Helicase | Topoisomerase | Replication fork
+DIFFICULTY: Medium
+QUESTION: Which statement about DNA replication is not true?
+OPTIONS:
+A) The leading strand is synthesized 5' to 3' towards the replication fork.
+B) Replication occurs during the S phase of the cell cycle, and results in a diploid cell.
+C) DNA polymerase I synthesizes most of the new DNA.
+D) Helicase and topoisomerase make the replication fork accessible to the involved proteins.
+
+---QUESTION 35---
+ID: 35
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: Mutations | Missense | Topoisomerase | Active site | Function | Folding | Truncation
+DIFFICULTY: Medium
+QUESTION: A missense mutation in topoisomerase approximately 500bp following its active site would likely result in:
+OPTIONS:
+A) A nonfunctional topoisomerase
+B) A functional topoisomerase with slightly altered folding
+C) A truncated topoisomerase that is still functional
+D) A normal, functional topoisomerase
+
+---QUESTION 36---
+ID: 36
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: DNA Replication | Proofreading | DNA polymerase | Exonuclease | Endonuclease | Ligase | Error correction
+DIFFICULTY: Medium
+QUESTION: Mistakes made during DNA replication are corrected by:
+OPTIONS:
+A) The endonuclease action of ligase
+B) The endonuclease action of DNA pol III
+C) The exonuclease action of DNA pol I
+D) The exonuclease action of DNA pol III
+
+---QUESTION 37---
+ID: 37
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: DNA Organization | Chromatin | Nucleosome | Chromosome | Chromatid | Double helix | Heterochromatin | Euchromatin | Order
+DIFFICULTY: Medium
+QUESTION: What is the correct order of DNA organization, from smallest to largest?
+OPTIONS:
+A) Chromosome →Chromatid →Chromatin →Nucleosome →Double helix
+B) Chromatid →Heterochromatin →Euchromatin →Chromosome →Double helix
+C) Double helix →Nucleosome →Chromatin →Chromatid →Chromosome
+D) Double helix →Heterochromatin →Euchromatin →Chromosome
+
+---QUESTION 38---
+ID: 38
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: DNA Repair | Deamination | Base excision repair | Nucleotide excision repair | Non-homologous end joining | Homologous recombination
+DIFFICULTY: Medium
+QUESTION: DNA damage caused by deamination would be repaired using:
+OPTIONS:
+A) Non-homologous end joining
+B) Homologous recombination
+C) Base excision repair
+D) Nucleotide excision repair
+
+---QUESTION 39---
+ID: 39
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: Central Dogma | Transcription | Necessity | Reasons | Error rate | Protein transport | Gene expression regulation | mRNA
+DIFFICULTY: Medium
+QUESTION: What are two reasons why transcription is necessary to the central dogma? Why not simply synthesize proteins directly from DNA?
+OPTIONS:
+A) Transcribing genetic information to RNA creates less errors.
+B) Synthesized proteins cannot be transported out of the nucleus, where DNA lives.
+C) Gene expression is regulated at the start of transcription.
+D) We need to keep mRNA employed to help the economy.
+
+---QUESTION 40---
+ID: 40
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: Translation | Elongation | RNA types | tRNA | mRNA | rRNA | miRNA | Ribosome
+DIFFICULTY: Medium
+QUESTION: Which kind of RNA is not involved in the elongation step of translation?
+OPTIONS:
+A) tRNA
+B) mRNA
+C) rRNA
+D) miRNA
+
+---QUESTION 41---
+ID: 41
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: Gene Regulation | Lac operon | Lactose | Allolactose | Repressor | Operator | Activation | Deactivation
+DIFFICULTY: Medium
+QUESTION: In the presence of lactose, a lac operon:
+OPTIONS:
+A) is activated by allolactose inactivating the repressor
+B) is activated by allolactose activating the operator
+C) is deactivated by allolactose activating the repressor
+D) is deactivated by allolactose inactivating the operator
+
+---QUESTION 42---
+ID: 42
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: Protein Secretion | Sec system | Tat system | Unfolded proteins | Folded proteins | SecYEG | Prokaryotes | Eukaryotes | Gram-negative bacteria | TIEBREAKER
+DIFFICULTY: High
+QUESTION: TIEBREAKER Which of the following statements is incorrect?
+OPTIONS:
+A) The Sec system secretes unfolded proteins, while the Tat system secretes folded proteins.
+B) Proteins being exported through the Sec pathway are transported through SecYEG translocase.
+C) The Sec system is primarily used by prokaryotes, while the Tat system is primarily used by eukaryotes.
+D) Gram-negative bacteria can secrete proteins into the periplasm or extracellularly with the Tat system.
+
+---QUESTION 43---
+ID: 43
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: Chromatin | Euchromatin | Heterochromatin | Density | DNA methylation | Histone acetylation | Hypoacetylation
+DIFFICULTY: Medium
+QUESTION: Which of the following statements is true?
+OPTIONS:
+A) Euchromatin is more dense than heterochromatin.
+B) Heterochromatin is stabilized by DNA methylation.
+C) Euchromatin has hypoacetylated histones.
+D) Heterochromatin has acetylated histones.
+
+---QUESTION 44---
+ID: 44
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: Population Genetics | Hardy-Weinberg | Assumptions | Violations | Genetic flow | Mutations | Large population | Random mating | Natural selection
+DIFFICULTY: Medium
+QUESTION: Which of the following situations does not violate the Hardy-Weinberg assumptions?
+OPTIONS:
+A) A colony of bacteria in a lab are given excess resources so that they can reproduce indefinitely.
+B) A herd of zebra migrate across a river; their new territory gives them access to another herd of zebra.
+C) A royal family practices strict arranged marriages for their offspring to other noble families.
+D) A farmer thins out their rows of corn so that only the tallest stalks can grow.
+
+---QUESTION 45---
+ID: 45
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: Gene Regulation | Promoter | Enhancer | Silencer | Transcription factor | Multiple chromosomes | Target genes
+DIFFICULTY: Medium
+QUESTION: In order to affect many target genes on different chromosomes, you should activate:
+OPTIONS:
+A) A promoter
+B) An enhancer
+C) A silencer
+D) A transcription factor
+
+---QUESTION 46---
+ID: 46
+POINTS: 1.00
+FORMAT: Multiple Choice (multiple answers)
+TOPIC: Mutations | Frameshift mutations | Causes | Depurination | UV light | Ionizing radiation | Mutagenic chemicals | TIEBREAKER
+DIFFICULTY: Medium
+QUESTION: TIEBREAKER Which of the following mechanisms can cause frameshift mutations? (Select all that apply.)
+OPTIONS:
+A) Depurination
+B) UV light damage
+C) Ionizing radiation
+D) Mutagenic chemicals
+
+---QUESTION 47---
+ID: 47
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: Gene Regulation | Trp operon | Tryptophan | Repressor | Activator | Operator | Inactivation | Activation
+DIFFICULTY: Medium
+QUESTION: A trp operon is inactivated when:
+OPTIONS:
+A) a lack of tryptophan prevents the activator from being activated.
+B) excess tryptophan binds to the repressor, causing it to block the operator site.
+C) excess tryptophan inactivates the activator.
+D) a lack of tryptophan allows the repressor to bind to and block the operator site.
+
+---QUESTION 48---
+ID: 48
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: DNA Structure | Nitrogenous bases | RNA | DNA | Both | Base identification | Image
+DIFFICULTY: Medium
+QUESTION: Is the following nitrogenous base found in RNA or DNA?
+OPTIONS:
+A) DNA
+B) RNA
+C) Both
+D) Neither
+
+---QUESTION 49---
+ID: 49
+POINTS: 1.00
+FORMAT: Multiple Choice (single answer)
+TOPIC: DNA Structure | Protein-DNA interactions | Major groove | Minor groove | Phosphate backbone | Sequence-specific
+DIFFICULTY: Medium
+QUESTION: Sequence-specific protein-DNA interactions happen in the:
+OPTIONS:
+A) Major groove
+B) Minor groove
+C) Phosphate backbone
+D) All of the above
+
+---QUESTION 50---
+ID: 50
+POINTS: 1.00
+FORMAT: Multiple Choice (multiple answers)
+TOPIC: Translation | Wobble pairs | Base pairing | G-U | A-C | T-C | A-G | Codon-anticodon
+DIFFICULTY: Medium
+QUESTION: Which of the following are wobble pairs? (Select all that apply.)
+OPTIONS:
+A) G-U
+B) A-C
+C) T-C
+D) A-G
+
+---QUESTION 51---
+ID: 51
+POINTS: 8.00
+FORMAT: Punnett Square
+TOPIC: Genetics | Agouti gene | Lethal yellow | Ay allele | Nonagouti | a allele | Punnett square | Genotypes | Offspring
+DIFFICULTY: Medium
+QUESTION: In mice, the agouti gene controls variations in color. There are 17 alleles of the agouti gene. One of the alleles, lethal yellow (Ay), is dominant over the nonagouti allele (a) and causes the mouse to have yellow fur and obesity. Homozygous lethal yellow is lethal early in development. A mature female mouse with lethal yellow coloring is crossed with a non-agouti (wildtype) male mouse. Fill in the Punnett square below to show the possible genotypes for the resulting offspring.
+
+---QUESTION 52---
+ID: 52
+POINTS: 3.00
+FORMAT: Calculation
+TOPIC: Genetics | Probability | Heterozygous | Three pups | Litter | Agouti gene | Lethal yellow
+DIFFICULTY: Medium
+QUESTION: If there are three pups in the litter, what is the probability that all three are heterozygous? Show all work.
+
+---QUESTION 53---
+ID: 53
+POINTS: 3.00
+FORMAT: Short Answer
+TOPIC: Genetics | Epigenetics | Methylation | Lethal yellow | Rescue | Methyl groups | Diet | In utero
+DIFFICULTY: High
+QUESTION: Lethal yellow offspring can be rescued in utero by feeding the dam a diet supplemented with methyl group-rich compounds. How is this possible?
+
+---QUESTION 54---
+ID: 54
+POINTS: 4.00
+FORMAT: Short Answer
+TOPIC: Molecular Biology | Gene editing | Knockout | CRISPR | Techniques | Ay allele | Precision | Heterozygous
+DIFFICULTY: High
+QUESTION: Suppose a scientist wants to study the process described in the previous question that allows for lethal yellow mice's offspring to display the wildtype phenotype. What would be the best way to precisely knockout a heterozygous offspring's Ay allele? Briefly explain why you chose this technique.
+
+---QUESTION 55---
+ID: 55
+POINTS: 4.00
+FORMAT: Pedigree
+TOPIC: Genetics | Pedigree | Curly fur | Dogs | Inheritance pattern | Three generations | Fill out
+DIFFICULTY: Medium
+QUESTION: A certain breed of dog is prized for having curly fur. A mated pair and their offspring were observed for three generations, as shown in the following pedigree. Fill out the pedigree using the following information: 1. Parent I-2 has curly fur. 2. Offspring II-2 has curly fur. 3. Offspring II-3 has curly fur. 4. Offspring III-5 has curly fur.
+
+---QUESTION 56---
+ID: 56
+POINTS: 6.00
+FORMAT: Pedigree
+TOPIC: Genetics | Pedigree | Carriers | Confirmed carriers | Mark with X | Curly fur
+DIFFICULTY: Medium
+QUESTION: Mark confirmed carriers with an X.
+
+---QUESTION 57---
+ID: 57
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Genetics | Inheritance patterns | Curly fur | Autosomal dominant | Autosomal recessive | X-linked | Pattern
+DIFFICULTY: Medium
+QUESTION: What pattern of inheritance does the curly fur gene follow?
+
+---QUESTION 58---
+ID: 58
+POINTS: 5.00
+FORMAT: Short Answer
+TOPIC: Genetics | Karyotype | Down Syndrome | Chromosomal anomaly | Subject 1 | Genetic anomaly | Translocation | Mosaicism
+DIFFICULTY: High
+QUESTION: Subject 1 has a child, Subject 2, who has presented with Down Syndrome. Subject 1 and Subject 2's other parent both present as phenotypically normal. Based on the karyotype and the given background for Subject 1, determine the most likely genetic anomaly.
+
+---QUESTION 59---
+ID: 59
+POINTS: 1.00
+FORMAT: True/False
+TOPIC: Genetics | Chromosomal anomalies | Mosaicism | All cells | Same anomaly | Subject 1
+DIFFICULTY: Medium
+QUESTION: True or false: All of this individual (Subject 1)'s cells must display the same chromosomal anomaly.
+OPTIONS:
+A) True
+B) False
+
+---QUESTION 60---
+ID: 60
+POINTS: 5.00
+FORMAT: Short Answer
+TOPIC: Genetics | Down Syndrome | Inheritance mechanism | Translocation | Nondisjunction | Meiosis | Subject 2
+DIFFICULTY: High
+QUESTION: What was the likely mechanism of inheritance of Down Syndrome in Subject 2?
+
+---QUESTION 61---
+ID: 61
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: DNA Sequencing | Laboratory technique | Gel electrophoresis | Sanger sequencing | Technique identification
+DIFFICULTY: Low
+QUESTION: What type of laboratory technique produced the results shown in the figure?
+
+---QUESTION 62---
+ID: 62
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: DNA Sequencing | Sanger sequencing | Method | Chain termination | ddNTPs
+DIFFICULTY: Low
+QUESTION: These readings represent the output of which method of DNA sequencing?
+
+---QUESTION 63---
+ID: 63
+POINTS: 5.00
+FORMAT: Short Answer
+TOPIC: DNA Sequencing | Interpretation | 5' to 3' | DNA sequence | Reading | Sanger sequencing
+DIFFICULTY: Medium
+QUESTION: Interpret the results in the figure. (Hint: you should get a 5' to 3' DNA sequence.)
+
+---QUESTION 64---
+ID: 64
+POINTS: 5.00
+FORMAT: Short Answer
+TOPIC: Transcription | mRNA | DNA to RNA | 5' to 3' | Sequence conversion | Transcription product
+DIFFICULTY: Medium
+QUESTION: Convert the results to the corresponding mRNA strand that would be produced from transcription. (Write your answer 5' to 3'.)
+
+---QUESTION 65---
+ID: 65
+POINTS: 6.00
+FORMAT: Short Answer
+TOPIC: Genetics | Recombination frequency | Linkage mapping | Crosses | Drosophila | snoot | bzz2 | Two crosses
+DIFFICULTY: High
+QUESTION: Suppose you are interested in measuring recombination frequency between the following two genes in Drosophila: snoot, with a dominant st+ allele that encodes long proboscis and the recessive st that encodes truncated proboscis. bzz2, with a dominant bz+ allele that encodes normal wings and a recessive bz allele that encodes vestigial wings. Describe the two crosses you would need to perform in order to observe recombination events.
+
+---QUESTION 66---
+ID: 66
+POINTS: 5.00
+FORMAT: Calculation
+TOPIC: Genetics | Recombination frequency | Calculation | Drosophila | snoot | bzz2 | Phenotypes | Data table
+DIFFICULTY: High
+QUESTION: Four phenotypes were observed in the offspring: long proboscis and normal wings, long proboscis and vestigial wings, short proboscis and normal wings, and short proboscis and vestigial wings. The following table shows the number of offspring with each phenotype: st+ bz+: 1339, st bz: 1195, st+ bz: 151, st bz+: 154. Calculate the recombination frequency between the snoot and bzz2 genes. Show all work.
+
+---QUESTION 67---
+ID: 67
+POINTS: 3.00
+FORMAT: Calculation
+TOPIC: Genetics | Linkage mapping | Gene order | Recombination frequencies | snoot | bzz2 | reb1 | Chromosome order | TIEBREAKER
+DIFFICULTY: High
+QUESTION: TIEBREAKER Suppose we want to compare snoot and bzz2 to reb1, a gene which specifies whether Drosophila eyes are red or black. Given the following recombination frequencies and the RF between snoot and bzz2 you calculated in part b), determine the order of the genes on the chromosome. RF(snoot-reb1) = 9.1%, RF(bzz2-reb1) = 19.8%
+
+---QUESTION 68---
+ID: 68
+POINTS: 5.00
+FORMAT: Calculation
+TOPIC: Population Genetics | Heritability | Broad-sense heritability | h^2 | Variance | F1 | F2 | Pod length | Peas
+DIFFICULTY: High
+QUESTION: Two inbred lines of peas were intercrossed; the variance in pod length among F1 was 2mm. The F1 offspring were intercrossed; the variance in pod length in F2 was 7mm. Calculate the broad-sense heritability of pod length in the F2 population of peas.
+
+---QUESTION 69---
+ID: 69
+POINTS: 4.00
+FORMAT: Short Answer
+TOPIC: Population Genetics | Heritability | Interpretation | h^2 | Broad-sense heritability | Meaning
+DIFFICULTY: Medium
+QUESTION: Interpret the h^2 you calculated in the previous part.
+
+---QUESTION 70---
+ID: 70
+POINTS: 3.00
+FORMAT: Calculation
+TOPIC: Population Genetics | Hardy-Weinberg | Genotype frequencies | Allele frequencies | C allele | c allele | Sea lions | Coat patterns
+DIFFICULTY: Medium
+QUESTION: In a local population of sea lions, two coat patterns can be observed. Cc and CC animals have spotted coats, while cc animals have solid coats. The C allele has a frequency of 0.3, while the c allele has a frequency of 0.7. Predict the genotype frequencies in this population of sea lions.
+

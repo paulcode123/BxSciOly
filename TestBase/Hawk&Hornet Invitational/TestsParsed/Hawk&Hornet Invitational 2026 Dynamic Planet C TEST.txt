@@ -1,0 +1,834 @@
+EVENT: Dynamic Planet
+SOURCE: Hawk&Hornet Invitational 2026 (Div. C)
+FORMAT: 85 questions (54 MC @ 1pt, 22 True/False @ 1pt, 9 FR @ variable points)
+TOTAL POINTS: 93
+
+---MULTIPLE CHOICE SECTION (54 points, 1 pt each)---
+
+---QUESTION 1---
+ID: 1 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Thermocline | Tropical Oceans | Water Column Stability
+DIFFICULTY: Medium
+QUESTION: The presence of a strong permanent thermocline in tropical oceans is a major factor that contributes to:
+OPTIONS:
+A) Deep water formation and global circulation.
+B) High rates of primary productivity due to nutrient mixing.
+C) The stability of the water column and poor nutrient transfer to the surface.
+D) Massive seasonal temperature fluctuations at the surface.
+
+---QUESTION 2---
+ID: 2 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Deep Ocean | Adiabatic Heating | Pressure Compression
+DIFFICULTY: Medium
+QUESTION: Below the main thermocline, the deep ocean temperature is set by conditions at polar formation sites, but it is also subject to adiabatic heating as the water sinks and moves. This heating is a result of:
+OPTIONS:
+A) Frictional energy dissipation from deep currents.
+B) Increased pressure compressing the water parcel.
+C) Absorption of residual infrared radiation from the surface.
+D) Geothermal heat flux from the seafloor.
+
+---QUESTION 3---
+ID: 3 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Surface Mixed Layer | Seasonal Thermocline | Winter Mixing
+DIFFICULTY: Medium
+QUESTION: What is the primary mechanism that causes the surface mixed layer to deepen and the seasonal thermocline to erode and disappear in temperate oceans during the winter months?
+OPTIONS:
+A) Increased tidal current velocities.
+B) Increased longwave (IR) radiation from space.
+C) Net surface cooling and wind-driven turbulent mixing.
+D) Submarine volcanic heating.
+
+---QUESTION 4---
+ID: 4 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Ocean Chemistry | Dissolved Ions | Origin | Volcanic Outgassing
+DIFFICULTY: Medium
+QUESTION: Although river runoff contributes a vast amount of dissolved ions, the primary origin of the major dissolved ions (like Cl⁻ and Na⁺) in the ocean is long-term:
+OPTIONS:
+A) Volcanic outgassing and chemical weathering of the lithosphere.
+B) Biological respiration and excretion in the deep ocean.
+C) Sublimation of water vapor from the atmosphere into the ocean.
+D) The continuous dissolution of NaCl from continental shelf evaporite deposits.
+
+---QUESTION 5---
+ID: 5 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Water Cycle | Evaporation | Salinity | Surface Processes
+DIFFICULTY: Easy
+QUESTION: In the water cycle, a high rate of evaporation at the ocean surface causes the local salinity to:
+OPTIONS:
+A) Increase, because the salt is left behind as water vapor escapes.
+B) Decrease, because the vapor takes some salt with it.
+C) Change only in coastal areas, not in the open ocean.
+D) Remain unchanged, as evaporation only affects surface temperature.
+
+---QUESTION 6---
+ID: 6 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Deep Layer | Density Homogeneity | Ocean Structure
+DIFFICULTY: Medium
+QUESTION: Why is the density of the Deep Layer (80% of ocean volume) often considered relatively homogeneous?
+OPTIONS:
+A) It is isolated from the extreme temperature and salinity changes occurring at the surface.
+B) Fast-moving currents stir the deep ocean violently.
+C) Biological activity constantly consumes dense plankton.
+D) The high pressure chemically alters the water to have a constant density.
+
+---QUESTION 7---
+ID: 7 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Surface Mixed Layer | Subtropical Gyres | Nutrient Depletion | Stratification
+DIFFICULTY: Medium
+QUESTION: Which process is primarily responsible for the low nutrient concentrations observed in the Surface Mixed Layer of the subtropical gyres?
+OPTIONS:
+A) High rates of upwelling bringing deep water to the surface.
+B) The rapid input of nutrients from rivers.
+C) Biological consumption and stratification preventing deep nutrient resupply.
+D) Chemical precipitation of nutrients onto the seafloor.
+
+---QUESTION 8---
+ID: 8 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Nutrient Cycling | Detritus | Decomposition | Deep Ocean
+DIFFICULTY: Medium
+QUESTION: What is the primary way that nutrients like nitrate (NO₃⁻) and phosphate (PO₄³⁻) are recycled from the surface back into the deep ocean?
+OPTIONS:
+A) Through upwelling and turbulent mixing.
+B) Absorption by clay minerals and sinking to the seafloor.
+C) Through volcanic eruptions at mid-ocean ridges.
+D) The sinking of detritus and subsequent decomposition at depth.
+
+---QUESTION 9---
+ID: 9 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Phytoplankton | Photosynthesis | pH | CO₂ Consumption
+DIFFICULTY: Medium
+QUESTION: During the day, phytoplankton photosynthesis in a coastal area consumes CO₂ dissolved in the water. This process causes the local water pH to:
+OPTIONS:
+A) Increase.
+B) Decrease.
+C) Fluctuate rapidly between 7.0 and 8.5.
+D) Remain unchanged due to the buffering capacity of the ocean.
+
+---QUESTION 10---
+ID: 10 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Phytoplankton Blooms | Spring Bloom | North Atlantic | Stratification
+DIFFICULTY: Medium
+QUESTION: The massive spring bloom of phytoplankton in the North Atlantic occurs when which two conditions change simultaneously?
+OPTIONS:
+A) Increased sunlight and the stabilization of the water column (stratification).
+B) Decreased salinity and extremely cold temperatures.
+C) Decreased wind speed and increased river runoff.
+D) Increased light intensity and increased nutrient input from upwelling.
+
+---QUESTION 11---
+ID: 11 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Deepwater Currents | Thermohaline Circulation | Temperature | Salinity
+DIFFICULTY: Easy
+QUESTION: Which of the following processes causes the movement of deepwater currents?
+OPTIONS:
+A) Prevailing winds
+B) The Coriolis Effect
+C) Differences in temperature and salinity
+D) The shape of the ocean basin
+
+---QUESTION 12---
+ID: 12 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | California Current | Climate Effects | Coastal Climate
+DIFFICULTY: Easy
+QUESTION: The California Current is a cool, slow-moving current that flows along the western coast of North America. What is its primary effect on the climate of the adjacent land?
+OPTIONS:
+A) It causes frequent tropical storms to form near the coast.
+B) It raises the average winter temperature, preventing snow and ice.
+C) It moderates the temperature, causing mild, often foggy conditions and low precipitation.
+D) It delivers high levels of moisture, causing heavy seasonal rainfall.
+
+---QUESTION 13---
+ID: 13 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Thermocline | Equator | Solar Energy | Coriolis Force
+DIFFICULTY: Medium
+QUESTION: The strong, stable, and permanent thermocline found at the Equator is maintained primarily by the constant input of solar energy and:
+OPTIONS:
+A) High surface salinity due to evaporation.
+B) Constant tidal energy dissipation.
+C) Deep-sea pressure effects which increase water density.
+D) The lack of strong Coriolis force to drive deep, large-scale current mixing.
+
+---QUESTION 14---
+ID: 14 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Surface Divergence | Upwelling | Nutrients
+DIFFICULTY: Easy
+QUESTION: Surface divergence in the ocean typically leads to which of the following processes?
+OPTIONS:
+A) Downwelling and warmer surface temperatures.
+B) Increased concentration of floating debris.
+C) Upwelling and increased nutrient concentration at the surface.
+D) A depression of the sea surface height.
+
+---QUESTION 15---
+ID: 15 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Surface Convergence | Plastic Debris | Accumulation
+DIFFICULTY: Medium
+QUESTION: A surface convergence zone is often a region where floating materials (like plastic debris) accumulate. This is because
+OPTIONS:
+A) The strong winds at a convergence zone blow the debris inward.
+B) Surface waters are flowing away from the central point.
+C) The horizontal water flow forces the materials to collect at the central point before being pushed down.
+D) The associated upwelling traps materials on the surface.
+
+---QUESTION 16---
+ID: 16 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Surface Divergence | Temperature | Upwelling | Cold Water
+DIFFICULTY: Medium
+QUESTION: Which statement correctly describes the water temperature in a typical open-ocean surface divergence zone?
+OPTIONS:
+A) The surface water is typically colder than the surrounding areas due to the upwelling of deep water.
+B) The temperature is highly variable but generally warmer than the coastal regions.
+C) The surface temperature is determined solely by the local air temperature, not the circulation.
+D) The surface water is typically warmer than the surrounding areas due to downwelling.
+
+---QUESTION 17---
+ID: 17 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Ekman Layer | Depth | Wind | Stratification
+DIFFICULTY: Medium
+QUESTION: The Ekman layer depth is shallowest in which of these locations?
+OPTIONS:
+A) In a calm, stratified coastal area near the equator.
+B) At the surface in the mid-latitude gyre center.
+C) In the open ocean at 60° North, during a summer storm.
+D) Near the pole during a persistent, strong wind event.
+
+---QUESTION 18---
+ID: 18 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Ekman Convergence | Subtropical Gyre | Sea Surface Height | Geostrophic Flow
+DIFFICULTY: Medium
+QUESTION: What is the primary consequence of Ekman convergence in the center of a subtropical gyre?
+OPTIONS:
+A) Strong upwelling of nutrient-rich water.
+B) A mound of surface water (a sea surface 'hill') that drives geostrophic flow.
+C) Intense vertical mixing that breaks down the pycnocline.
+D) The cessation of all current movement due to balanced forces.
+
+---QUESTION 19---
+ID: 19 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Mesoscale Eddies | Rings | Western Boundary Currents
+DIFFICULTY: Medium
+QUESTION: Which type of ocean current is primarily responsible for generating the largest, most energetic mesoscale eddies, often referred to as 'rings'?
+OPTIONS:
+A) Western boundary currents.
+B) Equatorial counter-currents.
+C) Deep, thermohaline-driven currents.
+D) Eastern boundary currents.
+
+---QUESTION 20---
+ID: 20 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Mesoscale Eddies | Detection | Satellite Altimeters
+DIFFICULTY: Easy
+QUESTION: Which of these oceanographic instruments is most commonly used to detect and track the movement of mesoscale eddies in the open ocean?
+OPTIONS:
+A) Niskin bottles for discrete water sampling.
+B) Seismographs on the ocean floor.
+C) Deep-diving submersibles for visual observation.
+D) Satellite altimeters to measure sea surface height anomalies.
+
+---QUESTION 21---
+ID: 21 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Heat Transport | Western Boundary Currents | Gulf Stream | Kuroshio
+DIFFICULTY: Easy
+QUESTION: Which pair of currents are the primary mechanisms for transporting significant amounts of heat energy from the tropics toward the poles?
+OPTIONS:
+A) The Deep Western Boundary Current and the Antarctic Circumpolar Current
+B) The California Current and the Humboldt Current
+C) The Gulf Stream and the Kuroshio Current
+D) Tidal currents and coastal upwelling
+
+---QUESTION 22---
+ID: 22 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Waves | Deep-Water vs Shallow-Water Waves | Wavelength | Depth
+DIFFICULTY: Medium
+QUESTION: What is the defining characteristic that determines when a deep-water wave becomes a shallow-water wave?
+OPTIONS:
+A) The wave period begins to decrease.
+B) The wave height reaches a maximum.
+C) The water depth is less than half the wave's wavelength.
+D) The wave's speed becomes equal to the wind speed.
+
+---QUESTION 23---
+ID: 23 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Waves | Shoaling | Wave Height | Wavelength | Speed
+DIFFICULTY: Medium
+QUESTION: As a wind wave approaches the shore and "feels bottom," its speed decreases, its wavelength decreases, and its height:
+OPTIONS:
+A) Decreases
+B) Remains constant
+C) Increases
+D) Becomes equal to its period
+
+---QUESTION 24---
+ID: 24 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Waves | Wave Base | Depth | Wavelength
+DIFFICULTY: Easy
+QUESTION: The theoretical depth to which a deep-water wave causes water motion is called the wave base, and is equal to:
+OPTIONS:
+A) The wave's height
+B) Twice the wave's period
+C) One-half the wave's wavelength
+D) The total depth of the ocean floor
+
+---QUESTION 25---
+ID: 25 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Tides | Semidiurnal Tide | Period | High to Low
+DIFFICULTY: Easy
+QUESTION: How long does it take for a semidiurnal tide to go from high to low?
+OPTIONS:
+A) 12 hours 25 min
+B) 3 hrs 14.5 min
+C) 24 hr 50 min
+D) 6 hrs 12.5 min
+
+---QUESTION 26---
+ID: 26 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Tides | High Tide | Opposite Side | Centrifugal Force | Earth-Moon System
+DIFFICULTY: Medium
+QUESTION: The side of the Earth opposite the Moon experiences a high tide because of:
+OPTIONS:
+A) The constructive interference of solar tides.
+B) The centrifugal force of the Earth-Moon system.
+C) The strong direct gravitational pull of the Moon.
+D) Deep ocean wave reflection.
+
+---QUESTION 27---
+ID: 27 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Tides | Spring Tide | Gravitational Forces | Moon | Sun
+DIFFICULTY: Easy
+QUESTION: During a spring tide, the gravitational forces of the Moon and Sun are:
+OPTIONS:
+A) Working against each other.
+B) Combining (in alignment) to create a maximum pull.
+C) Only pulling on the opposite side of Earth.
+D) Equal to the force of the Earth's rotation.
+
+---QUESTION 28---
+ID: 28 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Tides | Neap Tide | Gravitational Forces | Moon | Sun
+DIFFICULTY: Easy
+QUESTION: During a neap tide, the gravitational forces of the Moon and Sun are:
+OPTIONS:
+A) Working at right angles to each other (in opposition).
+B) Combining to create a maximum pull.
+C) Completely canceled out, resulting in no tide.
+D) Stronger than the Moon's pull alone.
+
+---QUESTION 29---
+ID: 29 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Tides | Spring Tide vs Neap Tide | Height Comparison
+DIFFICULTY: Easy
+QUESTION: When comparing a spring high tide and a neap high tide, the spring high tide will be:
+OPTIONS:
+A) Lower than the neap high tide.
+B) Higher than the neap high tide.
+C) Exactly the same height as the neap high tide.
+D) Longer in duration than the neap high tide.
+
+---QUESTION 30---
+ID: 30 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Tides | Tidal Resonance | Confined Basin | Amplification
+DIFFICULTY: Medium
+QUESTION: The primary effect of tidal resonance in a confined basin is to:
+OPTIONS:
+A) Eliminate the tides completely.
+B) Shift the timing of the tides by several hours.
+C) Amplify the tidal range (the difference between high and low tide).
+D) Change a semidiurnal tide into a diurnal tide.
+
+---QUESTION 31---
+ID: 31 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Estuaries | Definition | Freshwater | Saltwater Mixing
+DIFFICULTY: Easy
+QUESTION: An estuary is best defined as:
+OPTIONS:
+A) A large, deep lake that connects to the ocean via a small river.
+B) A semi-enclosed body of water where fresh water from a river mixes with salt water from the ocean.
+C) A stretch of coast where only salt water is present due to high evaporation.
+D) A coastal lagoon separated from the ocean by a coral reef.
+
+---QUESTION 32---
+ID: 32 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Estuaries | Environmental Stressors | Salinity | Temperature Fluctuations
+DIFFICULTY: Easy
+QUESTION: What is the primary environmental stressor for organisms living in an estuary?
+OPTIONS:
+A) Consistent, high salinity
+B) Lack of dissolved oxygen
+C) Fluctuating salinity and temperature
+D) High light levels and UV exposure
+
+---QUESTION 33---
+ID: 33 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Upwelling Zones | Productivity | Fisheries | Nutrients | Nitrates | Phosphates
+DIFFICULTY: Easy
+QUESTION: The high productivity and rich fisheries found in upwelling zones (like the coast of Peru or California) are directly attributable to the supply of:
+OPTIONS:
+A) Warm surface water.
+B) Nitrates and phosphates from deep water.
+C) Strong tidal currents.
+D) Low oxygen water.
+
+---QUESTION 34---
+ID: 34 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Seamounts | Guyots | Wave Erosion | Subsidence
+DIFFICULTY: Easy
+QUESTION: A seamount whose top has been eroded flat by wave action and has since subsided (sunk) below the surface is called a:
+OPTIONS:
+A) Sea stack
+B) Abyssal hill
+C) Mid-ocean ridge
+D) Guyot
+
+---QUESTION 35---
+ID: 35 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Sediments | Lithogenous | Terrigenous | Continental Sources
+DIFFICULTY: Easy
+QUESTION: Sediment derived from the breakdown of rocks on continents and transported to the ocean by rivers, wind, or glaciers is classified as
+OPTIONS:
+A) Hydrogenous sediment
+B) Biogenous sediment
+C) Cosmogenous sediment
+D) Lithogenous (Terrigenous) sediment
+
+---QUESTION 36---
+ID: 36 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | CCD | Calcium Carbonate Compensation Depth | Dissolution | Deposition
+DIFFICULTY: Medium
+QUESTION: The Calcium Carbonate Compensation Depth (CCD) is the depth below which
+OPTIONS:
+A) The rate of CaCO₃ dissolution exceeds the rate of CaCO₃ deposition.
+B) All deep-sea organisms die due to high pressure.
+C) Silica shells rapidly dissolve.
+D) The aphotic zone begins.
+
+---QUESTION 37---
+ID: 37 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Climate Change | Sea Level Rise | Saltwater Intrusion | Coastal Aquifers
+DIFFICULTY: Medium
+QUESTION: A major consequence of climate-driven sea level rise and increased storm intensity on coastal freshwater resources is:
+OPTIONS:
+A) Increased oxygenation of groundwater.
+B) A decrease in groundwater temperature.
+C) A rise in the water table, filling coastal aquifers.
+D) Saltwater intrusion into coastal aquifers.
+
+---QUESTION 38---
+ID: 38 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Sediment Cores | Proxies | Paleoceanography | Climate Reconstruction
+DIFFICULTY: Easy
+QUESTION: What is the collective term for the trace chemical or physical indicators preserved in sediment cores that are used to reconstruct past oceanographic or climatic conditions?
+OPTIONS:
+A) Proxies
+B) Clastic materials
+C) Lithification products
+D) Hydrogenous nodules
+
+---QUESTION 39---
+ID: 39 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | CTD | Salinity | Units | Practical Salinity Unit
+DIFFICULTY: Easy
+QUESTION: The calculated Salinity value derived from CTD measurements is reported in which unit?
+OPTIONS:
+A) Parts per thousand (ppt)
+B) Siemens per meter (S/m)
+C) Practical Salinity Unit (PSU)
+D) Grams per kilogram (g/kg)
+
+---QUESTION 40---
+ID: 40 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Geostrophic Currents | Isobars | Current Velocity
+DIFFICULTY: Medium
+QUESTION: In a geostrophic current, if the isobars are closely spaced, the current velocity is typically:
+OPTIONS:
+A) Zero
+B) Slow
+C) Fast
+D) Variable and unpredictable
+
+---QUESTION 41---
+ID: 41 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Climate Change | Species Migration | Warming Waters | Poleward Movement
+DIFFICULTY: Medium
+QUESTION: As ocean waters warm, many mobile marine species (like fish and plankton) are observed migrating:
+OPTIONS:
+A) Toward the equator and into deeper waters.
+B) Toward the poles and into deeper waters.
+C) Away from the poles and into shallower waters.
+D) Toward the equator and into shallower waters.
+
+---QUESTION 42---
+ID: 42 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Sediments | Oozes | Biogenous Sediment | Skeletal Remains
+DIFFICULTY: Easy
+QUESTION: Oozes, which are deep-sea sediments composed of at least 30% skeletal remains of microscopic marine organisms, are classified as
+OPTIONS:
+A) Biogenous sediment.
+B) Volcanogenous sediment.
+C) Hydrogenous sediment.
+D) Lithogenous sediment.
+
+---QUESTIONS 43-44 (SHARED CONTEXT)---
+ID: 43-44 | POINTS: 1.00 each | FORMAT: MC / Image Analysis
+TOPIC: Oceanography | El Niño | Pacific Ocean | Surface Currents | Climate Conditions
+CONTEXT: Questions relate to map showing normal and El Niño conditions in the Pacific Ocean
+
+---QUESTION 43---
+ID: 43 | POINTS: 1.00 | FORMAT: MC / Image Analysis
+TOPIC: Oceanography | Surface Currents | South America | Normal Conditions | Cool Water
+DIFFICULTY: Medium
+QUESTION: Under normal climate conditions, the characteristics of the surface ocean current that flows along most of the west coast of South America would be described as:
+OPTIONS:
+A) Cool water moving toward the equator
+B) Cool water moving away from the equator
+C) Warm water moving toward the equator
+D) Warm water moving away from the equator
+
+---QUESTION 44---
+ID: 44 | POINTS: 1.00 | FORMAT: MC / Image Analysis
+TOPIC: Oceanography | El Niño | Air Temperature | Precipitation | South America
+DIFFICULTY: Medium
+QUESTION: During El Niño conditions, air above the Pacific Ocean moving over the land on the equatorial west coast of South America is likely to be:
+OPTIONS:
+A) Cooler and drier than usual
+B) Cooler and wetter than usual
+C) Warmer and drier than usual
+D) Warmer and wetter than usual
+
+---QUESTIONS 45-47 (SHARED CONTEXT)---
+ID: 45-47 | POINTS: 1.00 each | FORMAT: MC / Image Analysis
+TOPIC: Oceanography | El Niño | Sea Surface Temperature | Trade Winds | Sea Level | ENSO
+CONTEXT: Questions relate to cross-sections showing Pacific Ocean and atmosphere during normal (A) and El Niño (B) conditions
+
+---QUESTION 45---
+ID: 45 | POINTS: 1.00 | FORMAT: MC / Image Analysis
+TOPIC: Oceanography | El Niño | Sea Surface Temperature | Trade Winds | South America
+DIFFICULTY: Medium
+QUESTION: Which statement correctly describes sea surface temperatures along the South American coast and Pacific trade winds during El Niño conditions?
+OPTIONS:
+A) The sea surface temperatures are warmer than normal and Pacific trade winds are from the west
+B) The sea surface temperatures are warmer than normal and Pacific trade winds are from the east
+C) The sea surface temperatures are cooler than normal and Pacific trade winds are from the west
+D) The sea surface temperatures are cooler than normal and Pacific trade winds are from the east
+
+---QUESTION 46---
+ID: 46 | POINTS: 1.00 | FORMAT: MC / Image Analysis
+TOPIC: Oceanography | El Niño | Sea Level | Australia | South America | Trade Wind Shift
+DIFFICULTY: Medium
+QUESTION: Compared to normal weather conditions, the shift of the trade winds caused sea levels during El Niño conditions to:
+OPTIONS:
+A) Decrease at both Australia and South America
+B) Decrease at Australia and increase at South America
+C) Increase at Australia and decrease at South America
+D) Increase at both Australia and South America
+
+---QUESTION 47---
+ID: 47 | POINTS: 1.00 | FORMAT: MC / Image Analysis
+TOPIC: Oceanography | El Niño | Global Effects | Precipitation Patterns | ENSO
+DIFFICULTY: Medium
+QUESTION: The development of El Niño conditions over this region of the Pacific Ocean has caused:
+OPTIONS:
+A) Changes in worldwide precipitation patterns
+B) The reversal of Earth's seasons
+C) Increased worldwide volcanic activity
+D) Decreased ozone levels in the atmosphere
+
+---QUESTION 48---
+ID: 48 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | La Niña | Cool Water | Tropical Pacific
+DIFFICULTY: Easy
+QUESTION: La Niña is caused by
+OPTIONS:
+A) A build up of warmer than normal waters in the tropical Pacific
+B) A build up of cooler than normal waters in the tropical Atlantic
+C) A build up of cooler than normal waters in the tropical Pacific
+D) A build up of cooler than normal waters in the tropical Atlantic
+
+---QUESTION 49---
+ID: 49 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Sediments | Cosmogenous | Metallic Spherules | Silicate Dust
+DIFFICULTY: Easy
+QUESTION: Sediment composed of tiny metallic spherules and silicate dust that enters the ocean from outer space is classified as:
+OPTIONS:
+A) Biogenous sediment
+B) Cosmogenous sediment
+C) Hydrogenous sediment
+D) Evaporite sediment
+
+---QUESTION 50---
+ID: 50 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Seafloor | Magma Type | Basaltic | Mid-Ocean Ridges
+DIFFICULTY: Easy
+QUESTION: What type of magma is the seafloor formed from?
+OPTIONS:
+A) Rhyolitic
+B) Basaltic
+C) Andesitic
+D) None of the above
+
+---QUESTION 51---
+ID: 51 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Coastal Upwelling | Ekman Transport | Thermocline | Shoaling
+DIFFICULTY: Medium
+QUESTION: Coastal upwelling, driven by offshore Ekman transport, impacts the local temperature profile by causing the thermocline to:
+OPTIONS:
+A) Shoal (move closer to the surface).
+B) Disappear entirely due to constant mixing.
+C) Deepen and become weaker (less gradient).
+D) Invert, with cold water on top of warm water.
+
+---QUESTION 52---
+ID: 52 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Longshore Current | Direction | Shoreline
+DIFFICULTY: Easy
+QUESTION: Which of the following best describes the direction of a longshore current?
+OPTIONS:
+A) Parallel to the shoreline.
+B) Perpendicular to the shoreline, flowing offshore.
+C) Perpendicular to the shoreline, flowing onshore.
+D) Rotational (circular) offshore.
+
+---QUESTION 53---
+ID: 53 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Coral Reefs | Barrier Reef | Lagoon | Structure
+DIFFICULTY: Easy
+QUESTION: A large, continuous coral reef structure separated from the mainland or island by a deep lagoon is known as a:
+OPTIONS:
+A) Fringing reef
+B) Barrier reef
+C) Guyot
+D) Atoll
+
+---QUESTION 54---
+ID: 54 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Tides | Tidal Currents | Slack Water | Tide Change
+DIFFICULTY: Easy
+QUESTION: The period when the tidal current ceases (stops moving) as the tide changes direction is called:
+OPTIONS:
+A) Tidal bore
+B) High current
+C) Slack water
+D) Mean tidal level
+
+---TRUE/FALSE SECTION (22 points, 1 pt each)---
+
+---QUESTION 55---
+ID: 55 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Oceanography | Deep Ocean | Temperature | Freezing Point | Pressure
+DIFFICULTY: Easy
+QUESTION: The deep ocean can reach temperatures under zero degrees celsius and remain in a liquid state.
+ANSWER: TRUE
+
+---QUESTION 56---
+ID: 56 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Oceanography | Coastal Protection | Groynes | Jetties | Erosion Prevention
+DIFFICULTY: Easy
+QUESTION: Coastal protection structures such as groynes and jetties are built to accelerate (increase) coastal erosion.
+ANSWER: FALSE
+
+---QUESTION 57---
+ID: 57 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Oceanography | Three-Layer Model | Intermediate Layer | Pycnocline
+DIFFICULTY: Easy
+QUESTION: The Intermediate Layer of the three-layer model is where the pycnocline is typically located.
+ANSWER: TRUE
+
+---QUESTION 58---
+ID: 58 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Oceanography | Coriolis Effect | Southern Hemisphere | Deflection
+DIFFICULTY: Easy
+QUESTION: Objects are deflected to the left in the southern hemisphere due to the Coriolis effect.
+ANSWER: TRUE
+
+---QUESTION 59---
+ID: 59 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Oceanography | Continental Shelf | Oceanic Crust | Continental Crust
+DIFFICULTY: Medium
+QUESTION: The continental shelf is part of the oceanic crust.
+ANSWER: FALSE
+
+---QUESTION 60---
+ID: 60 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Oceanography | Ekman Transport | Wind | Coastline | Convergence
+DIFFICULTY: Medium
+QUESTION: Because of Ekman transport, persistent winds blowing parallel to a coastline can cause convergence along the coast.
+ANSWER: TRUE
+
+---QUESTION 61---
+ID: 61 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Oceanography | Western Boundary Currents | Speed | Depth
+DIFFICULTY: Easy
+QUESTION: Generally the fastest and deepest ocean currents are the western boundaries.
+ANSWER: TRUE
+
+---QUESTION 62---
+ID: 62 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Oceanography | Coastal Upwelling | Fronts | Temperature Contrast
+DIFFICULTY: Easy
+QUESTION: Coastal upwelling fronts form when cold, deep water rises to the surface, creating a temperature contrast with warmer offshore surface water.
+ANSWER: TRUE
+
+---QUESTION 63---
+ID: 63 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Oceanography | Waves | Deep-Water Wave | Wavelength | Depth Classification
+DIFFICULTY: Medium
+QUESTION: A wave with a wavelength of 200 meters traveling in water 101 meters deep is classified as a deep-water wave.
+ANSWER: FALSE
+
+---QUESTION 64---
+ID: 64 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Oceanography | Continental Slope | Active vs Passive Margin | Width | Steepness
+DIFFICULTY: Medium
+QUESTION: The continental slope is generally wider and less steep along an active continental margin than a passive continental margin.
+ANSWER: FALSE
+
+---QUESTION 65---
+ID: 65 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Oceanography | Primary Productivity | Neritic Zone | High Productivity
+DIFFICULTY: Easy
+QUESTION: Primary productivity is high in the neritic zone.
+ANSWER: TRUE
+
+---QUESTION 66---
+ID: 66 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Oceanography | Groynes | Beach Erosion | Protection | Limitations
+DIFFICULTY: Medium
+QUESTION: Groynes successfully stop beach erosion along the entire stretch of coastline where they are built.
+ANSWER: FALSE
+
+---QUESTION 67---
+ID: 67 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Oceanography | Mid-Ocean Ridge | Volcanic | Life | Hydrothermal Vents
+DIFFICULTY: Easy
+QUESTION: The mid-ocean ridge is entirely volcanic and completely devoid of any form of life.
+ANSWER: FALSE
+
+---QUESTION 68---
+ID: 68 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Oceanography | Ocean Acidification | Calcifying Organisms | Non-Calcifying Organisms | Fish
+DIFFICULTY: Medium
+QUESTION: Ocean acidification primarily affects calcifying organisms and has no significant documented impact on non-calcifying organisms like fish.
+ANSWER: FALSE
+
+---QUESTION 69---
+ID: 69 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Oceanography | Sound Speed | Temperature | Salinity | Pressure
+DIFFICULTY: Easy
+QUESTION: The speed of sound in seawater is primarily a function of water temperature, salinity, and pressure.
+ANSWER: TRUE
+
+---QUESTION 70---
+ID: 70 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Oceanography | Equatorial Kelvin Waves | ENSO | El Niño-Southern Oscillation
+DIFFICULTY: Medium
+QUESTION: Equatorial Kelvin waves play a crucial role in the dynamics of the El Niño-Southern Oscillation (ENSO).
+ANSWER: TRUE
+
+---QUESTION 71---
+ID: 71 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Oceanography | Rossby Waves | Shallow Water Waves | Depth Independence
+DIFFICULTY: Medium
+QUESTION: Rossby waves are a type of shallow water wave whose speed is independent of the depth of the ocean.
+ANSWER: FALSE
+
+---QUESTION 72---
+ID: 72 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Oceanography | Continental Shelf | Active Margin | Pacific Coast | Width
+DIFFICULTY: Easy
+QUESTION: The continental shelf is relatively narrow along the active Pacific coast of North and South America.
+ANSWER: TRUE
+
+---QUESTION 73---
+ID: 73 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Oceanography | Rip Currents | Strength | Wave Size | Tide Level
+DIFFICULTY: Medium
+QUESTION: Rip currents are usually strongest when waves are small and the tide is low.
+ANSWER: FALSE
+
+---QUESTION 74---
+ID: 74 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Oceanography | Marine Terraces | Depositional Feature | Erosional Feature | Mud
+DIFFICULTY: Medium
+QUESTION: A marine terrace is a depositional feature composed of fine-grained mud from an estuary.
+ANSWER: FALSE
+
+---QUESTION 75---
+ID: 75 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Oceanography | Mixed Semidiurnal Tides | Tidal Currents | Maximum Velocity | Slack Water
+DIFFICULTY: Medium
+QUESTION: In an area with a mixed semidiurnal tidal pattern, the tidal currents will have four distinct periods of maximum velocity and four distinct periods of slack water during a lunar day.
+ANSWER: TRUE
+
+---QUESTION 76---
+ID: 76 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Oceanography | Estuaries | Wave Energy | Location | Fishing
+DIFFICULTY: Easy
+QUESTION: Estuaries are typically located in regions with high wave energy, making them ideal for coastal fishing.
+ANSWER: FALSE
+
+---SHORT ANSWER SECTION (17 points)---
+
+---QUESTION 77---
+ID: 77 | POINTS: 4.00 | FORMAT: Free Response / Drawing
+TOPIC: Oceanography | Temperature Profile | Depth Graph | Three-Layer Model
+DIFFICULTY: Easy
+QUESTION: Draw a temperature vs depth graph. Label the 3 parts.
+
+---QUESTION 78---
+ID: 78 | POINTS: 4.00 | FORMAT: Free Response
+TOPIC: Oceanography | Ocean Acidification | CO₂ | Chemical Reactions | Coral Growth | Carbonate Chemistry
+DIFFICULTY: High
+QUESTION: Use the following four chemical reactions to both explain how increasing levels of CO₂ relates to ocean acidification and identify how an overabundance of CO₂ leads to the stymieing of coral growth. H⁺ + CO₃²⁻ → HCO₃⁻; H₂CO₃ → H⁺ + HCO₃⁻; CO₃²⁻ + Ca²⁺ → CaCO₃; CO₂ + H₂O → H₂CO₃
+
+---QUESTIONS 79-80 (SHARED CONTEXT)---
+ID: 79-80 | POINTS: 2.00 each | FORMAT: Calculation / Image Analysis
+TOPIC: Oceanography | Density | Temperature | Salinity | T-S Diagram
+CONTEXT: Questions relate to T-S diagram showing temperature, salinity, and density relationships
+
+---QUESTION 79---
+ID: 79 | POINTS: 2.00 | FORMAT: Calculation / Image Analysis
+TOPIC: Oceanography | Density | Temperature | Salinity | T-S Diagram
+DIFFICULTY: Medium
+QUESTION: The temperature is 15℃ and the salinity is 35psu, so the density is ____.
+CALCULATION: Use T-S diagram to determine density from given temperature and salinity
+
+---QUESTION 80---
+ID: 80 | POINTS: 2.00 | FORMAT: Calculation / Image Analysis
+TOPIC: Oceanography | Density | Temperature | Salinity | T-S Diagram
+DIFFICULTY: Medium
+QUESTION: The temperature is ___ and the salinity is 36.1psu, so the density is 1.0290g/cm³.
+CALCULATION: Use T-S diagram to determine temperature from given salinity and density
+
+---QUESTIONS 81-85 (SHARED CONTEXT)---
+ID: 81-85 | POINTS: 1.00 each | FORMAT: Labeling / Image Analysis
+TOPIC: Oceanography | Diagram Labeling | Ocean Features | Components
+CONTEXT: Questions relate to labeling components of an oceanographic diagram
+
+---QUESTION 81---
+ID: 81 | POINTS: 1.00 | FORMAT: Labeling / Image Analysis
+TOPIC: Oceanography | Diagram Labeling | Component 1
+DIFFICULTY: Variable
+QUESTION: Label the diagram [Component 1]
+
+---QUESTION 82---
+ID: 82 | POINTS: 1.00 | FORMAT: Labeling / Image Analysis
+TOPIC: Oceanography | Diagram Labeling | Component 2
+DIFFICULTY: Variable
+QUESTION: Label the diagram [Component 2]
+
+---QUESTION 83---
+ID: 83 | POINTS: 1.00 | FORMAT: Labeling / Image Analysis
+TOPIC: Oceanography | Diagram Labeling | Component 3
+DIFFICULTY: Variable
+QUESTION: Label the diagram [Component 3]
+
+---QUESTION 84---
+ID: 84 | POINTS: 1.00 | FORMAT: Labeling / Image Analysis
+TOPIC: Oceanography | Diagram Labeling | Component 4
+DIFFICULTY: Variable
+QUESTION: Label the diagram [Component 4]
+
+---QUESTION 85---
+ID: 85 | POINTS: 1.00 | FORMAT: Labeling / Image Analysis
+TOPIC: Oceanography | Diagram Labeling | Component 5
+DIFFICULTY: Variable
+QUESTION: Label the diagram [Component 5]

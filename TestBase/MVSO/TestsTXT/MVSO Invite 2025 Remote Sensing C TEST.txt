@@ -1,0 +1,588 @@
+1. (1.00 pts)
+What is the primary distinction between active and passive remote sensing systems?
+   A)
+Passive sensors transmit energy to the target.
+   B)
+Active sensors rely on solar radiation.
+   C)
+Passive sensors use radar wavelengths.
+   D)
+Active sensors emit energy and detect its reflection.
+2. (1.00 pts)
+What does LIDAR technology measure to determine surface elevation?
+   A)
+The angle of the laser beam.
+   B)
+The return time of a light pulse.
+   C)
+The number of photons scattered
+   D)
+The laser’s power output.
+   E)
+All of the above
+   F)
+None of the above
+3. (1.00 pts)
+What is radar altimetry best for observing?
+   A)
+Agartha
+   B)
+Ocean surface height
+   C)
+Vegetation index.
+   D)
+Soil texture
+4. (1.00 pts)
+What is doppler radar used for observing?
+   A)
+The motion of precipitation.
+   B)
+Temperature of precipitation
+   C)
+Surface albedo
+   D)
+Color of precipitation
+Remote Sensing C - Remote Sensing C - Monta Vista Science Olympiad (Div. C) - 11-14-2025
+Student Answer Sheet (/monta-vista/SM/AnswerSheet?tid=000GFH)
+Instructions (shown before students start the test)
+This test is composed of three sections: Remote Sensing Concepts, Satellites and Images Interpretation, and Calculation Questions. Each team may bring one binder, two protractors
+two rulers, and two class II calculators. You will be penalized for out of browser time. 
+Good luck!
+Written by Bryan Fu
+Introduction (shown after students start the test)
+have fun
+12/13/25, 2:18 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GFH
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GFH
+1/14
+
+5. (1.00 pts)
+When electromagnetic radiation passes through the atmosphere, attenuation occurs due to:
+   A)
+The Earth’s rotation.
+   B)
+Magnetic flux.
+   C)
+Reflection at the surface
+   D)
+Scattering and absorption.
+6. (1.00 pts)
+What does the refractive index of the atmosphere affect?
+   A)
+Air temperature.
+   B)
+Energy flux.
+   C)
+Light bending.
+   D)
+Cloud cover.
+7. (1.00 pts)
+What can spectroscopy tell us?
+   A)
+Reflectivity of clouds
+   B)
+Orbital altitude
+   C)
+Wavelength patterns
+   D)
+Magnetic anomalies
+8. (1.00 pts)
+What does the emission spectrum of a gas show?
+   A)
+Bright lines at specific wavelengths.
+   B)
+A continuous rainbow of light.
+   C)
+Only reflected energy.
+   D)
+Dark absorption bands at specific wavelengths.
+9. (1.00 pts)
+An absorption feature in a spectral graph indicates:
+   A)
+Enhanced emission overall.
+   B)
+Energy loss at certain wavelengths.
+   C)
+Detector interference and inaccurate data.
+   D)
+None of the above
+10. (1.00 pts)
+What scattering mechanism is responsible for the sky’s blue color?
+   A)
+Brillouin
+   B)
+Debye
+   C)
+Raman
+   D)
+Oppenheimer
+   E)
+None of the above.
+12/13/25, 2:18 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GFH
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GFH
+2/14
+
+11. (1.00 pts)
+Which factor most limits low Earth orbit (LEO) satellite lifetime?
+   A)
+Orbital resonance 
+   B)
+Solar radiation pressure
+   C)
+Atmospheric drag
+   D)
+Earth’s magnetic field strength
+12. (1.00 pts)
+A geosynchronous satellite that is not geostationary has what distinguishing characteristic?
+   A)
+It changes altitude daily
+   B)
+It maintains zero inclination
+   C)
+It passes over the poles
+   D)
+It oscillates north and south in the sky each day
+13. (1.00 pts)
+Low Earth orbits are favored for imaging because:
+   A)
+They provide a constant ground track
+   B)
+They allow higher spatial resolution
+   C)
+ They minimize orbital decay
+   D)
+They are unaffected by drag
+14. (1.00 pts)
+Which property allows polar orbiting satellites to view the entire Earth surface over time?
+   A)
+The rotation of the Earth
+   B)
+Their large orbital radius
+   C)
+Eccentricity variations
+   D)
+Constant angular velocity
+15. (1.00 pts)
+Which of the following statements about radar altimeters is TRUE?
+   A)
+They require sunlight to operate
+   B)
+They can penetrate clouds 
+   C)
+They can only operate in clear-sky conditions
+   D)
+They are limited to visible wavelengths
+16. (1.00 pts)
+Which of the following combinations correctly groups GOES-R ABI spectral bands by function?
+   A)
+Bands 1–6: visible/NIR; Bands 7–16: IR
+   B)
+Bands 1–3: IR; Bands 4–10: visible; Bands 11–16: NIR
+   C)
+Bands 1–10: thermal; Bands 11–16: shortwave
+   D)
+Bands 1–8: visible/NIR; Bands 9–16: IR
+12/13/25, 2:18 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GFH
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GFH
+3/14
+
+17. (1.00 pts)
+Which GOES-R ABI band is specifically used for aerosol and dust detection?
+   A)
+Band 2
+   B)
+Band 4
+   C)
+Band 7
+   D)
+Band 11
+18. (1.00 pts)
+Which scanning strategy enables the GOES ABI to provide simultaneous coverage of both hemispheric and regional scenes?
+   A)
+Push-broom scanning with fixed mirrors
+   B)
+Step-stare imaging across two detectors
+   C)
+Flex-mode scanning and dynamic sector allocation
+   D)
+Time-delay integration scanning with two mirrors
+19. (1.00 pts)
+The MODIS instrument aboard Aqua operates in which type of orbit, and how does this affect observation timing?
+   A)
+Geostationary orbit; observes same region continuously
+   B)
+Sun-synchronous orbit; ensures consistent local solar time observations
+   C)
+Polar orbit; variable local times each pass
+   D)
+Medium Earth orbit; revisits every 12 hours
+20. (1.00 pts)
+MODIS uses multiple spatial resolutions (250 m, 500 m, and 1 km) for its spectral bands primarily to:
+   A)
+Match Landsat’s 30m resolution
+   B)
+Trade-offs between radiometric sensitivity and swath width
+   C)
+Allow fusion with radar data for elevation modeling
+   D)
+Minimize onboard storage requirements
+21. (1.00 pts)
+Which combination of MODIS bands is most useful for cloud optical thickness and droplet size retrievals?
+   A)
+0.65 µm and 2.1 µm
+   B)
+1.38 µm and 11 µm
+   C)
+3.9 µm and 6.7 µm
+   D)
+0.47 µm and 1.24 µm
+22. (1.00 pts)
+Which human activity most significantly disrupts the natural nitrogen cycle?
+   A)
+Logging and deforestation
+   B)
+Haber–Bosch process
+   C)
+Groundwater pumping
+   D)
+Urban heat island formation
+12/13/25, 2:18 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GFH
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GFH
+4/14
+
+23. (1.00 pts)
+Why does JASON use both Ku-band and C-band altimetry?
+   A)
+To improve spatial resolution
+   B)
+To correct for ionospheric delay
+   C)
+To reduce radar speckle
+   D)
+To detect sea ice edges
+24. (1.00 pts)
+Which of the following is a typical El Niño impact on western South America?
+   A)
+Cold coastal waters
+   B)
+Increased rainfall
+   C)
+Reduced river flow
+   D)
+Stronger trade winds
+25. (1.00 pts)
+El Niño disrupts marine ecosystems primarily by:
+   A)
+Increasing oxygen levels
+   B)
+Increasing upwelling intensity
+   C)
+Reducing nutrient availability
+   D)
+Cooling surface waters
+26. (1.00 pts)
+ENSO affects regions far from the Pacific through:
+   A)
+Oceanic Kelvin waves only
+   B)
+Atmospheric teleconnections
+   C)
+Local convection changes
+   D)
+Monsoon winds
+27. (1.00 pts)
+Which oceanic region is most critical for monitoring ENSO development?
+   A)
+North Pacific
+   B)
+Central equatorial Pacific
+   C)
+Southern Ocean
+   D)
+Arabian Sea
+Use the following figures to answer Questions 28 -32
+12/13/25, 2:18 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GFH
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GFH
+5/14
+
+28. (1.00 pts)
+What does “XCO₂” represent in these maps?
+   A)
+Surface average dry-air mole fraction of CO₂
+   B)
+Tropospheric average dry-air mole fraction of CO₂
+   C)
+Column-averaged dry-air mole fraction of CO₂
+   D)
+Overall atmospheric CO₂ concentrations
+29. (1.00 pts)
+Which satellite most likely collected the XCO₂ data shown in the figure?
+   A)
+MODIS
+   B)
+OCO-2
+   C)
+Aqua
+   D)
+JASON
+30. (1.00 pts)
+During January–March 2016, which hemisphere shows higher XCO₂ levels?
+   A)
+Northern Hemisphere
+   B)
+Southern Hemisphere
+   C)
+Equatorial zone only
+   D)
+Need more information
+31. (1.00 pts)
+Between October 2015 and March 2016, global mean XCO₂ values show what general trend?
+   A)
+Steady decrease
+   B)
+Steady increase
+   C)
+Fluctuation without trend
+   D)
+Sharp drop in February
+12/13/25, 2:18 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GFH
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GFH
+6/14
+
+32. (1.00 pts)
+The observed seasonal change of CO₂ in northern winter is mainly due to:
+   A)
+Oceanic absorption increase
+   B)
+Plant photosynthesis increase
+   C)
+Plant photosynthesis reduced
+   D)
+Volcanic emissions
+33. (1.00 pts)
+What is being measured in the top image?
+   A)
+amount of reflected energy
+   B)
+amount of outgoing energy
+   C)
+areas experiencing cooling
+   D)
+areas experiencing warming
+34. (1.00 pts)
+What is being measured in the bottom image?
+   A)
+amount of reflected energy
+   B)
+amount of outgoing energy
+Use the following images for Questions 33 - 37
+12/13/25, 2:18 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GFH
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GFH
+7/14
+
+   C)
+areas experiencing cooling
+   D)
+areas experiencing warming
+35. (1.00 pts)
+What part of the spectrum was used to form the bottom images?
+   A)
+Visible
+   B)
+Infrared
+   C)
+Microwave
+   D)
+Radio
+36. (1.00 pts)
+Which instrument took this image?
+   A)
+MODIS
+   B)
+ATMS
+   C)
+CERES
+   D)
+CrIS
+37. (1.00 pts)
+What type of scanner is this instrument?
+   A)
+across-track
+   B)
+along-track
+   C)
+Rotating Azumith Plane
+   D)
+all of the above
+38. (2.00 pts)
+The above image was captured by GOES-16 band 4. Was this image collected during the day, at night, or potentially both? Why?
+39. (1.00 pts)
+What is the most prevalent greenhouse gas in the earth’s atmosphere?
+12/13/25, 2:18 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GFH
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GFH
+8/14
+
+   A)
+Carbon Dioxide
+   B)
+Water Vapor
+   C)
+Methane
+   D)
+Ozone
+40. (1.00 pts)
+The albedo of the earth's surface is only about 4%, yet the combined albedo of the earth and the atmosphere is higher. Which set of conditions below best explains why this is so?
+   A)
+high albedo of clouds, low albedo of water
+   B)
+high albedo of clouds, high albedo of water
+   C)
+low albedo of clouds, low albedo of water
+   D)
+low albedo of clouds, high albedo of water
+41. (1.00 pts)
+What instrument took this image?
+42. (1.00 pts)
+What does this image represent?
+43. (2.00 pts)
+What do the blue areas towards the top of this image represent?
+44. (2.00 pts)
+What do the red colors in the image represent?
+Use the image below for Questions 41 - 45
+12/13/25, 2:18 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GFH
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GFH
+9/14
+
+45. (2.00 pts)
+What does the red circle in the image represent?
+46. (1.00 pts)
+What does the color red indicate in this image?
+   A)
+many small aerosols
+   B)
+few small aerosols
+   C)
+many large aerosols
+   D)
+few large aerosols
+47. (1.00 pts)
+What gas is often a secondary indicator of high aerosol concentration? (And can help scientists determine the source of aerosols.)
+   A)
+Water
+   B)
+Methane
+   C)
+Carbon Monoxide
+   D)
+Nitrogen
+48. (1.00 pts)
+What information could give also you a hint about the source of aerosols?
+   A)
+time of year
+   B)
+size of the particles
+Use the image below for Questions 46 - 51
+12/13/25, 2:18 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GFH
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GFH
+10/14
+
+   C)
+location of the particles
+   D)
+all of the above
+49. (1.00 pts)
+The source of aerosols in Africa in the image above is the burning of vegetation to clear new land for crop planting. In general, this practice can encompass what is referred to as
+slash-and-burn agriculture. Which of the following are negative consequences of this practice?
+   A)
+Desertification
+   B)
+drastically increased rainfall
+   C)
+decrease in soil nutrient content
+   D)
+a and b only
+50. (1.00 pts)
+Sulfur aerosols:
+   A)
+can result in global dimming
+   B)
+can result in global cooling
+   C)
+are only released into the atmosphere in large quantities by humans
+   D)
+a and b only
+51. (1.00 pts)
+Black carbon is an aerosol that can:
+   A)
+decrease the albedo of the atmosphere
+   B)
+decrease the albedo of ice
+   C)
+result in surface cooling
+   D)
+all of the above
+52. (1.00 pts)
+A pulse of light is sent down from a sensor (using lidar) toward Earth. The sensor is orbiting the earth from a distance of approximately 80 km. The pulse is intended to measure the
+height of a mountain. If the pulse takes .0005 seconds to reach the mountain and get back (to the sensor), how high is the mountain (take the speed of light to be 3 x 10^5 km/s)?
+53. (4.00 pts)
+A geostationary satellite is orbiting the earth at a height of 6R above the surface of the earth, R being the radius of the earth. Calculate the time period of another satellite at a heigh
+of 2.5R from the surface of earth.
+The figure below shows a satellite mapping geometry. A track from north to south is shown on the earth surface. Scan width, swath width, spatial resolution, the altitude of the
+satellite are all shown in the figure. Use this figure for questions 54 - 58.
+12/13/25, 2:18 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GFH
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GFH
+11/14
+
+54. (2.00 pts)
+Based on the above figure, what is the scanning configuration of the system?
+55. (2.00 pts)
+What type of orbit is the satellite most likely in?
+56. (2.00 pts)
+How many pixels does each scan line have?
+57. (2.00 pts)
+Calculate the sensor’s IFOV in mrad.
+12/13/25, 2:18 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GFH
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GFH
+12/14
+
+58. (2.00 pts)
+Calculate the sensor’s FOV in rad.
+59. (4.00 pts)
+Given that the temperature of the atmosphere increases by 6 K due to higher greenhouse gas concentrations, calculate the new radiation intensity absorbed by Earth's surface. 
+60. (4.00 pts)
+Calculate the increase in temperature on the Earth's surface.
+The figure below shows a simple energy balance climate model in which the atmosphere and the Earth’s surface are treated as two bodies. The Earth’s surface receives both solar
+radiation and radiation emitted from the atmosphere. Assume that the Earth's surface is a perfect blackbody. Use the figure to answer Questions 59 - 60
+The current data for this model can be read from the figure:
+- Current mean temperature of the atmosphere = 242 K
+- Current mean temperature of the Earth's surface = 288 K
+- Solar intensity per unit area at the top of the atmosphere = 344 Wm^-2
+- Emissivity of the atmosphere, e = 0.72
+- Albedo of the atmosphere, a = 0.28
+12/13/25, 2:18 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GFH
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GFH
+13/14
+
+61. (3.00 pts)
+The Earth's carbon cycle is illustrated in the figure below. If anthropogenic activity disturbs the carbon stored in the soils and 500 GtC is released into the atmosphere, calculate the
+final carbon values for atmosphere, vegetation and ocean sediments, respectively. Given that 30% is absorbed by the atmosphere, 27% by vegetation, and the remainder by ocean
+sediments.
+Thank you for completing the Remote Sensing Division C test! If you have any questions, please feel free to reach out to me at cobyfront@gmail.com. 
+© 2025 - powered by Scilympiad (https://scilympiad.com) | Tournaments (/monta-vista/Home/Subscribers?sort=t) | Support Us (/monta-vista/Give)
+Terms of Use (/ToS.html) | Privacy (/Privacy.html) | Cookie Policy (/CookiePolicy.html) | Support (/monta-vista/Support) | Contact (/monta-vista/Home/Contact)
+12/13/25, 2:18 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GFH
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GFH
+14/14

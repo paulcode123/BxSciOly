@@ -1,0 +1,1997 @@
+EVENT: Disease Detectives
+SOURCE: UT Austin Invitational 2025 (Div. C)
+FORMAT: Multiple sections with matching, multiple choice, short answer, and case studies
+TOTAL POINTS: 240
+
+---QUESTION 1---
+ID: 1
+POINTS: 1.00
+FORMAT: Matching
+TOPIC: Vocabulary | Disease terminology | Sporadic
+DIFFICULTY: Medium
+QUESTION: A disease that occurs infrequently and irregularly.
+OPTIONS:
+A) Sporadic
+B) Endemic
+C) Virulence
+D) Random Error
+E) Primary Case
+F) Area Map
+G) Environment
+H) Systematic Error
+I) Placebo Effect
+J) Spot Map
+K) Iatrogenic
+L) Secondary Case
+M) Hyperendemic
+N) Cluster
+O) Herd Immunity
+P) Double-Blind
+Q) Confounding Error
+R) Morbidity
+S) Pathogenicity
+T) Mortality
+U) Fomite
+V) Index Case
+W) Host
+X) Infectivity
+Y) Agent
+Z) Outbreak
+AB) Vector
+AC) Epidemic
+AD) Nosocomial
+AE) Pandemic
+
+---QUESTION 2---
+ID: 2
+POINTS: 1.00
+FORMAT: Matching
+TOPIC: Vocabulary | Disease terminology | Endemic
+DIFFICULTY: Medium
+QUESTION: The constant presence of a disease or infectious agent within a given geographic area or population group; may also refer to the usual prevalence of a given disease within such area or group.
+OPTIONS:
+A) Sporadic
+B) Endemic
+C) Virulence
+D) Random Error
+E) Primary Case
+F) Area Map
+G) Environment
+H) Systematic Error
+I) Placebo Effect
+J) Spot Map
+K) Iatrogenic
+L) Secondary Case
+M) Hyperendemic
+N) Cluster
+O) Herd Immunity
+P) Double-Blind
+Q) Confounding Error
+R) Morbidity
+S) Pathogenicity
+T) Mortality
+U) Fomite
+V) Index Case
+W) Host
+X) Infectivity
+Y) Agent
+Z) Outbreak
+AB) Vector
+AC) Epidemic
+AD) Nosocomial
+AE) Pandemic
+
+---QUESTION 3---
+ID: 3
+POINTS: 1.00
+FORMAT: Matching
+TOPIC: Vocabulary | Disease terminology | Hyperendemic
+DIFFICULTY: Medium
+QUESTION: A disease that is constantly present at a high incidence and/or prevalence rate.
+OPTIONS:
+A) Sporadic
+B) Endemic
+C) Virulence
+D) Random Error
+E) Primary Case
+F) Area Map
+G) Environment
+H) Systematic Error
+I) Placebo Effect
+J) Spot Map
+K) Iatrogenic
+L) Secondary Case
+M) Hyperendemic
+N) Cluster
+O) Herd Immunity
+P) Double-Blind
+Q) Confounding Error
+R) Morbidity
+S) Pathogenicity
+T) Mortality
+U) Fomite
+V) Index Case
+W) Host
+X) Infectivity
+Y) Agent
+Z) Outbreak
+AB) Vector
+AC) Epidemic
+AD) Nosocomial
+AE) Pandemic
+
+---QUESTION 4---
+ID: 4
+POINTS: 1.00
+FORMAT: Matching
+TOPIC: Vocabulary | Disease terminology | Outbreak
+DIFFICULTY: Medium
+QUESTION: The occurrence of more cases of disease than expected in a given area or among a specific group of people over a particular period of time.
+OPTIONS:
+A) Sporadic
+B) Endemic
+C) Virulence
+D) Random Error
+E) Primary Case
+F) Area Map
+G) Environment
+H) Systematic Error
+I) Placebo Effect
+J) Spot Map
+K) Iatrogenic
+L) Secondary Case
+M) Hyperendemic
+N) Cluster
+O) Herd Immunity
+P) Double-Blind
+Q) Confounding Error
+R) Morbidity
+S) Pathogenicity
+T) Mortality
+U) Fomite
+V) Index Case
+W) Host
+X) Infectivity
+Y) Agent
+Z) Outbreak
+AB) Vector
+AC) Epidemic
+AD) Nosocomial
+AE) Pandemic
+
+---QUESTION 5---
+ID: 5
+POINTS: 1.00
+FORMAT: Matching
+TOPIC: Vocabulary | Disease terminology | Cluster
+DIFFICULTY: Medium
+QUESTION: An aggregation of cases of a disease or other health-related condition, particularly cancer and birth defects, which are closely grouped in time and place.
+OPTIONS:
+A) Sporadic
+B) Endemic
+C) Virulence
+D) Random Error
+E) Primary Case
+F) Area Map
+G) Environment
+H) Systematic Error
+I) Placebo Effect
+J) Spot Map
+K) Iatrogenic
+L) Secondary Case
+M) Hyperendemic
+N) Cluster
+O) Herd Immunity
+P) Double-Blind
+Q) Confounding Error
+R) Morbidity
+S) Pathogenicity
+T) Mortality
+U) Fomite
+V) Index Case
+W) Host
+X) Infectivity
+Y) Agent
+Z) Outbreak
+AB) Vector
+AC) Epidemic
+AD) Nosocomial
+AE) Pandemic
+
+---QUESTION 6---
+ID: 6
+POINTS: 1.00
+FORMAT: Matching
+TOPIC: Vocabulary | Disease terminology | Pandemic
+DIFFICULTY: Medium
+QUESTION: An epidemic occurring over a very wide area (several countries or continents) and usually affecting a large proportion of the population.
+OPTIONS:
+A) Sporadic
+B) Endemic
+C) Virulence
+D) Random Error
+E) Primary Case
+F) Area Map
+G) Environment
+H) Systematic Error
+I) Placebo Effect
+J) Spot Map
+K) Iatrogenic
+L) Secondary Case
+M) Hyperendemic
+N) Cluster
+O) Herd Immunity
+P) Double-Blind
+Q) Confounding Error
+R) Morbidity
+S) Pathogenicity
+T) Mortality
+U) Fomite
+V) Index Case
+W) Host
+X) Infectivity
+Y) Agent
+Z) Outbreak
+AB) Vector
+AC) Epidemic
+AD) Nosocomial
+AE) Pandemic
+
+---QUESTION 7---
+ID: 7
+POINTS: 1.00
+FORMAT: Matching
+TOPIC: Vocabulary | Clinical trials | Placebo Effect
+DIFFICULTY: Medium
+QUESTION: A beneficial health outcome resulting from a person's anticipation that an intervention will help.
+OPTIONS:
+A) Sporadic
+B) Endemic
+C) Virulence
+D) Random Error
+E) Primary Case
+F) Area Map
+G) Environment
+H) Systematic Error
+I) Placebo Effect
+J) Spot Map
+K) Iatrogenic
+L) Secondary Case
+M) Hyperendemic
+N) Cluster
+O) Herd Immunity
+P) Double-Blind
+Q) Confounding Error
+R) Morbidity
+S) Pathogenicity
+T) Mortality
+U) Fomite
+V) Index Case
+W) Host
+X) Infectivity
+Y) Agent
+Z) Outbreak
+AB) Vector
+AC) Epidemic
+AD) Nosocomial
+AE) Pandemic
+
+---QUESTION 8---
+ID: 8
+POINTS: 1.00
+FORMAT: Matching
+TOPIC: Vocabulary | Clinical trials | Double-Blind
+DIFFICULTY: Medium
+QUESTION: A type of clinical trial in which neither the participants nor the researcher knows which treatment or intervention participants are receiving until the clinical trial is over
+OPTIONS:
+A) Sporadic
+B) Endemic
+C) Virulence
+D) Random Error
+E) Primary Case
+F) Area Map
+G) Environment
+H) Systematic Error
+I) Placebo Effect
+J) Spot Map
+K) Iatrogenic
+L) Secondary Case
+M) Hyperendemic
+N) Cluster
+O) Herd Immunity
+P) Double-Blind
+Q) Confounding Error
+R) Morbidity
+S) Pathogenicity
+T) Mortality
+U) Fomite
+V) Index Case
+W) Host
+X) Infectivity
+Y) Agent
+Z) Outbreak
+AB) Vector
+AC) Epidemic
+AD) Nosocomial
+AE) Pandemic
+
+---QUESTION 9---
+ID: 9
+POINTS: 1.00
+FORMAT: Matching
+TOPIC: Vocabulary | Transmission | Fomite
+DIFFICULTY: Medium
+QUESTION: An inanimate object that may be contaminated with microorganisms and serves in their transmission.
+OPTIONS:
+A) Sporadic
+B) Endemic
+C) Virulence
+D) Random Error
+E) Primary Case
+F) Area Map
+G) Environment
+H) Systematic Error
+I) Placebo Effect
+J) Spot Map
+K) Iatrogenic
+L) Secondary Case
+M) Hyperendemic
+N) Cluster
+O) Herd Immunity
+P) Double-Blind
+Q) Confounding Error
+R) Morbidity
+S) Pathogenicity
+T) Mortality
+U) Fomite
+V) Index Case
+W) Host
+X) Infectivity
+Y) Agent
+Z) Outbreak
+AB) Vector
+AC) Epidemic
+AD) Nosocomial
+AE) Pandemic
+
+---QUESTION 10---
+ID: 10
+POINTS: 1.00
+FORMAT: Matching
+TOPIC: Vocabulary | Healthcare-associated infections | Nosocomial
+DIFFICULTY: Medium
+QUESTION: Relating to an illness acquired in a hospital.
+OPTIONS:
+A) Sporadic
+B) Endemic
+C) Virulence
+D) Random Error
+E) Primary Case
+F) Area Map
+G) Environment
+H) Systematic Error
+I) Placebo Effect
+J) Spot Map
+K) Iatrogenic
+L) Secondary Case
+M) Hyperendemic
+N) Cluster
+O) Herd Immunity
+P) Double-Blind
+Q) Confounding Error
+R) Morbidity
+S) Pathogenicity
+T) Mortality
+U) Fomite
+V) Index Case
+W) Host
+X) Infectivity
+Y) Agent
+Z) Outbreak
+AB) Vector
+AC) Epidemic
+AD) Nosocomial
+AE) Pandemic
+
+---QUESTION 11---
+ID: 11
+POINTS: 1.00
+FORMAT: Matching
+TOPIC: Vocabulary | Healthcare-associated infections | Iatrogenic
+DIFFICULTY: Medium
+QUESTION: Relating to illness caused by medical examination or treatment.
+OPTIONS:
+A) Sporadic
+B) Endemic
+C) Virulence
+D) Random Error
+E) Primary Case
+F) Area Map
+G) Environment
+H) Systematic Error
+I) Placebo Effect
+J) Spot Map
+K) Iatrogenic
+L) Secondary Case
+M) Hyperendemic
+N) Cluster
+O) Herd Immunity
+P) Double-Blind
+Q) Confounding Error
+R) Morbidity
+S) Pathogenicity
+T) Mortality
+U) Fomite
+V) Index Case
+W) Host
+X) Infectivity
+Y) Agent
+Z) Outbreak
+AB) Vector
+AC) Epidemic
+AD) Nosocomial
+AE) Pandemic
+
+---QUESTION 12---
+ID: 12
+POINTS: 1.00
+FORMAT: Matching
+TOPIC: Vocabulary | Disease agent | Agent
+DIFFICULTY: Medium
+QUESTION: A factor, such as a microorganism, chemical substance, or form of radiation, whose presence, excessive presence, or (in deficiency diseases) relative absence is essential for the occurrence of a disease.
+OPTIONS:
+A) Sporadic
+B) Endemic
+C) Virulence
+D) Random Error
+E) Primary Case
+F) Area Map
+G) Environment
+H) Systematic Error
+I) Placebo Effect
+J) Spot Map
+K) Iatrogenic
+L) Secondary Case
+M) Hyperendemic
+N) Cluster
+O) Herd Immunity
+P) Double-Blind
+Q) Confounding Error
+R) Morbidity
+S) Pathogenicity
+T) Mortality
+U) Fomite
+V) Index Case
+W) Host
+X) Infectivity
+Y) Agent
+Z) Outbreak
+AB) Vector
+AC) Epidemic
+AD) Nosocomial
+AE) Pandemic
+
+---QUESTION 13---
+ID: 13
+POINTS: 1.00
+FORMAT: Matching
+TOPIC: Vocabulary | Disease ecology | Environment
+DIFFICULTY: Medium
+QUESTION: An extrinsic factor (geology, climate, insects, sanitation, health services, etc.) which affects the agent and the opportunity for exposure.
+OPTIONS:
+A) Sporadic
+B) Endemic
+C) Virulence
+D) Random Error
+E) Primary Case
+F) Area Map
+G) Environment
+H) Systematic Error
+I) Placebo Effect
+J) Spot Map
+K) Iatrogenic
+L) Secondary Case
+M) Hyperendemic
+N) Cluster
+O) Herd Immunity
+P) Double-Blind
+Q) Confounding Error
+R) Morbidity
+S) Pathogenicity
+T) Mortality
+U) Fomite
+V) Index Case
+W) Host
+X) Infectivity
+Y) Agent
+Z) Outbreak
+AB) Vector
+AC) Epidemic
+AD) Nosocomial
+AE) Pandemic
+
+---QUESTION 14---
+ID: 14
+POINTS: 1.00
+FORMAT: Matching
+TOPIC: Vocabulary | Disease ecology | Host
+DIFFICULTY: Medium
+QUESTION: A person or other living organism that can be infected by an infectious agent under natural conditions.
+OPTIONS:
+A) Sporadic
+B) Endemic
+C) Virulence
+D) Random Error
+E) Primary Case
+F) Area Map
+G) Environment
+H) Systematic Error
+I) Placebo Effect
+J) Spot Map
+K) Iatrogenic
+L) Secondary Case
+M) Hyperendemic
+N) Cluster
+O) Herd Immunity
+P) Double-Blind
+Q) Confounding Error
+R) Morbidity
+S) Pathogenicity
+T) Mortality
+U) Fomite
+V) Index Case
+W) Host
+X) Infectivity
+Y) Agent
+Z) Outbreak
+AB) Vector
+AC) Epidemic
+AD) Nosocomial
+AE) Pandemic
+
+---QUESTION 15---
+ID: 15
+POINTS: 1.00
+FORMAT: Matching
+TOPIC: Vocabulary | Case definitions | Primary Case
+DIFFICULTY: Medium
+QUESTION: The first person who acquires the disease from exposure.
+OPTIONS:
+A) Sporadic
+B) Endemic
+C) Virulence
+D) Random Error
+E) Primary Case
+F) Area Map
+G) Environment
+H) Systematic Error
+I) Placebo Effect
+J) Spot Map
+K) Iatrogenic
+L) Secondary Case
+M) Hyperendemic
+N) Cluster
+O) Herd Immunity
+P) Double-Blind
+Q) Confounding Error
+R) Morbidity
+S) Pathogenicity
+T) Mortality
+U) Fomite
+V) Index Case
+W) Host
+X) Infectivity
+Y) Agent
+Z) Outbreak
+AB) Vector
+AC) Epidemic
+AD) Nosocomial
+AE) Pandemic
+
+---QUESTION 16---
+ID: 16
+POINTS: 1.00
+FORMAT: Matching
+TOPIC: Vocabulary | Case definitions | Index Case
+DIFFICULTY: Medium
+QUESTION: The first case brought to the attention of professionals.
+OPTIONS:
+A) Sporadic
+B) Endemic
+C) Virulence
+D) Random Error
+E) Primary Case
+F) Area Map
+G) Environment
+H) Systematic Error
+I) Placebo Effect
+J) Spot Map
+K) Iatrogenic
+L) Secondary Case
+M) Hyperendemic
+N) Cluster
+O) Herd Immunity
+P) Double-Blind
+Q) Confounding Error
+R) Morbidity
+S) Pathogenicity
+T) Mortality
+U) Fomite
+V) Index Case
+W) Host
+X) Infectivity
+Y) Agent
+Z) Outbreak
+AB) Vector
+AC) Epidemic
+AD) Nosocomial
+AE) Pandemic
+
+---QUESTION 17---
+ID: 17
+POINTS: 1.00
+FORMAT: Matching
+TOPIC: Vocabulary | Error types | Systematic Error
+DIFFICULTY: Medium
+QUESTION: Occurs when there is a difference between the true value and the observed value.
+OPTIONS:
+A) Sporadic
+B) Endemic
+C) Virulence
+D) Random Error
+E) Primary Case
+F) Area Map
+G) Environment
+H) Systematic Error
+I) Placebo Effect
+J) Spot Map
+K) Iatrogenic
+L) Secondary Case
+M) Hyperendemic
+N) Cluster
+O) Herd Immunity
+P) Double-Blind
+Q) Confounding Error
+R) Morbidity
+S) Pathogenicity
+T) Mortality
+U) Fomite
+V) Index Case
+W) Host
+X) Infectivity
+Y) Agent
+Z) Outbreak
+AB) Vector
+AC) Epidemic
+AD) Nosocomial
+AE) Pandemic
+
+---QUESTION 18---
+ID: 18
+POINTS: 1.00
+FORMAT: Matching
+TOPIC: Vocabulary | Error types | Random Error
+DIFFICULTY: Medium
+QUESTION: The result of fluctuations around a true value due to sampling variability and can occur with data collection, coding, transfer, or analysis of data.
+OPTIONS:
+A) Sporadic
+B) Endemic
+C) Virulence
+D) Random Error
+E) Primary Case
+F) Area Map
+G) Environment
+H) Systematic Error
+I) Placebo Effect
+J) Spot Map
+K) Iatrogenic
+L) Secondary Case
+M) Hyperendemic
+N) Cluster
+O) Herd Immunity
+P) Double-Blind
+Q) Confounding Error
+R) Morbidity
+S) Pathogenicity
+T) Mortality
+U) Fomite
+V) Index Case
+W) Host
+X) Infectivity
+Y) Agent
+Z) Outbreak
+AB) Vector
+AC) Epidemic
+AD) Nosocomial
+AE) Pandemic
+
+---QUESTION 19---
+ID: 19
+POINTS: 1.00
+FORMAT: Matching
+TOPIC: Vocabulary | Error types | Confounding Error
+DIFFICULTY: Medium
+QUESTION: Occurs when the effects of two risk factors are mixed in the occurrence of the health-related event under study.
+OPTIONS:
+A) Sporadic
+B) Endemic
+C) Virulence
+D) Random Error
+E) Primary Case
+F) Area Map
+G) Environment
+H) Systematic Error
+I) Placebo Effect
+J) Spot Map
+K) Iatrogenic
+L) Secondary Case
+M) Hyperendemic
+N) Cluster
+O) Herd Immunity
+P) Double-Blind
+Q) Confounding Error
+R) Morbidity
+S) Pathogenicity
+T) Mortality
+U) Fomite
+V) Index Case
+W) Host
+X) Infectivity
+Y) Agent
+Z) Outbreak
+AB) Vector
+AC) Epidemic
+AD) Nosocomial
+AE) Pandemic
+
+---QUESTION 20---
+ID: 20
+POINTS: 1.00
+FORMAT: Matching
+TOPIC: Vocabulary | Mapping | Spot Map
+DIFFICULTY: Medium
+QUESTION: A map that indicates the location of each case of a rare disease or outbreak by a place that is potentially relevant to the health event being investigated, such as where each case lived or worked.
+OPTIONS:
+A) Sporadic
+B) Endemic
+C) Virulence
+D) Random Error
+E) Primary Case
+F) Area Map
+G) Environment
+H) Systematic Error
+I) Placebo Effect
+J) Spot Map
+K) Iatrogenic
+L) Secondary Case
+M) Hyperendemic
+N) Cluster
+O) Herd Immunity
+P) Double-Blind
+Q) Confounding Error
+R) Morbidity
+S) Pathogenicity
+T) Mortality
+U) Fomite
+V) Index Case
+W) Host
+X) Infectivity
+Y) Agent
+Z) Outbreak
+AB) Vector
+AC) Epidemic
+AD) Nosocomial
+AE) Pandemic
+
+---QUESTION 21---
+ID: 21
+POINTS: 1.00
+FORMAT: Matching
+TOPIC: Vocabulary | Immunity | Herd Immunity
+DIFFICULTY: Medium
+QUESTION: The resistance of a group to invasion and spread of an infectious agent, based on the resistance to infection of a high proportion of individual members of the group.
+OPTIONS:
+A) Sporadic
+B) Endemic
+C) Virulence
+D) Random Error
+E) Primary Case
+F) Area Map
+G) Environment
+H) Systematic Error
+I) Placebo Effect
+J) Spot Map
+K) Iatrogenic
+L) Secondary Case
+M) Hyperendemic
+N) Cluster
+O) Herd Immunity
+P) Double-Blind
+Q) Confounding Error
+R) Morbidity
+S) Pathogenicity
+T) Mortality
+U) Fomite
+V) Index Case
+W) Host
+X) Infectivity
+Y) Agent
+Z) Outbreak
+AB) Vector
+AC) Epidemic
+AD) Nosocomial
+AE) Pandemic
+
+---QUESTION 22---
+ID: 22
+POINTS: 1.00
+FORMAT: Matching
+TOPIC: Vocabulary | Disease outcomes | Morbidity
+DIFFICULTY: Medium
+QUESTION: Any departure, subjective or objective, from a state of physiological or psychological well-being.
+OPTIONS:
+A) Sporadic
+B) Endemic
+C) Virulence
+D) Random Error
+E) Primary Case
+F) Area Map
+G) Environment
+H) Systematic Error
+I) Placebo Effect
+J) Spot Map
+K) Iatrogenic
+L) Secondary Case
+M) Hyperendemic
+N) Cluster
+O) Herd Immunity
+P) Double-Blind
+Q) Confounding Error
+R) Morbidity
+S) Pathogenicity
+T) Mortality
+U) Fomite
+V) Index Case
+W) Host
+X) Infectivity
+Y) Agent
+Z) Outbreak
+AB) Vector
+AC) Epidemic
+AD) Nosocomial
+AE) Pandemic
+
+---QUESTION 23---
+ID: 23
+POINTS: 1.00
+FORMAT: Matching
+TOPIC: Vocabulary | Disease outcomes | Mortality
+DIFFICULTY: Medium
+QUESTION: The proportion of persons with clinical disease who, after becoming infected, become severely ill or die.
+OPTIONS:
+A) Sporadic
+B) Endemic
+C) Virulence
+D) Random Error
+E) Primary Case
+F) Area Map
+G) Environment
+H) Systematic Error
+I) Placebo Effect
+J) Spot Map
+K) Iatrogenic
+L) Secondary Case
+M) Hyperendemic
+N) Cluster
+O) Herd Immunity
+P) Double-Blind
+Q) Confounding Error
+R) Morbidity
+S) Pathogenicity
+T) Mortality
+U) Fomite
+V) Index Case
+W) Host
+X) Infectivity
+Y) Agent
+Z) Outbreak
+AB) Vector
+AC) Epidemic
+AD) Nosocomial
+AE) Pandemic
+
+---QUESTION 24---
+ID: 24
+POINTS: 1.00
+FORMAT: Matching
+TOPIC: Vocabulary | Disease outcomes | Pathogenicity
+DIFFICULTY: Medium
+QUESTION: The proportion of persons infected, after exposure to a causative agent, who then develop clinical disease.
+OPTIONS:
+A) Sporadic
+B) Endemic
+C) Virulence
+D) Random Error
+E) Primary Case
+F) Area Map
+G) Environment
+H) Systematic Error
+I) Placebo Effect
+J) Spot Map
+K) Iatrogenic
+L) Secondary Case
+M) Hyperendemic
+N) Cluster
+O) Herd Immunity
+P) Double-Blind
+Q) Confounding Error
+R) Morbidity
+S) Pathogenicity
+T) Mortality
+U) Fomite
+V) Index Case
+W) Host
+X) Infectivity
+Y) Agent
+Z) Outbreak
+AB) Vector
+AC) Epidemic
+AD) Nosocomial
+AE) Pandemic
+
+---QUESTION 25---
+ID: 25
+POINTS: 1.00
+FORMAT: Matching
+TOPIC: Vocabulary | Disease outcomes | Infectivity
+DIFFICULTY: Medium
+QUESTION: The proportion of persons exposed to a causative agent who become infected by an infectious disease.
+OPTIONS:
+A) Sporadic
+B) Endemic
+C) Virulence
+D) Random Error
+E) Primary Case
+F) Area Map
+G) Environment
+H) Systematic Error
+I) Placebo Effect
+J) Spot Map
+K) Iatrogenic
+L) Secondary Case
+M) Hyperendemic
+N) Cluster
+O) Herd Immunity
+P) Double-Blind
+Q) Confounding Error
+R) Morbidity
+S) Pathogenicity
+T) Mortality
+U) Fomite
+V) Index Case
+W) Host
+X) Infectivity
+Y) Agent
+Z) Outbreak
+AB) Vector
+AC) Epidemic
+AD) Nosocomial
+AE) Pandemic
+
+---QUESTION 26---
+ID: 26
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Acronyms | NHANES
+DIFFICULTY: Medium
+QUESTION: Write the full form of the following acronym: NHANES
+
+---QUESTION 27---
+ID: 27
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Acronyms | CDC
+DIFFICULTY: Medium
+QUESTION: Write the full form of the following acronym: CDC
+
+---QUESTION 28---
+ID: 28
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Acronyms | SHEA
+DIFFICULTY: Medium
+QUESTION: Write the full form of the following acronym: SHEA
+
+---QUESTION 29---
+ID: 29
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Acronyms | NCHS
+DIFFICULTY: Medium
+QUESTION: Write the full form of the following acronym: NCHS
+
+---QUESTION 30---
+ID: 30
+POINTS: 1.00
+FORMAT: Matching
+TOPIC: Epidemiological History | Pandemics | Russian Flu
+DIFFICULTY: Medium
+QUESTION: Match the following pandemic to the year it happened: Russian Flu
+OPTIONS:
+A) 1347 - 1351
+B) 1817-1923
+C) 1855
+D) 2009
+E) 2014 - 2016
+F) 2002 - 2004
+G) 1889 - 1890
+
+---QUESTION 31---
+ID: 31
+POINTS: 1.00
+FORMAT: Matching
+TOPIC: Epidemiological History | Pandemics | Cholera
+DIFFICULTY: Medium
+QUESTION: Match the following pandemic to the year it happened: Cholera
+OPTIONS:
+A) 1347 - 1351
+B) 1817-1923
+C) 1855
+D) 2009
+E) 2014 - 2016
+F) 2002 - 2004
+G) 1889 - 1890
+
+---QUESTION 32---
+ID: 32
+POINTS: 1.00
+FORMAT: Matching
+TOPIC: Epidemiological History | Pandemics | Ebola
+DIFFICULTY: Medium
+QUESTION: Match the following pandemic to the year it happened: Ebola
+OPTIONS:
+A) 1347 - 1351
+B) 1817-1923
+C) 1855
+D) 2009
+E) 2014 - 2016
+F) 2002 - 2004
+G) 1889 - 1890
+
+---QUESTION 33---
+ID: 33
+POINTS: 1.00
+FORMAT: Matching
+TOPIC: Epidemiological History | Pandemics | SARS
+DIFFICULTY: Medium
+QUESTION: Match the following pandemic to the year it happened: SARS
+OPTIONS:
+A) 1347 - 1351
+B) 1817-1923
+C) 1855
+D) 2009
+E) 2014 - 2016
+F) 2002 - 2004
+G) 1889 - 1890
+
+---QUESTION 34---
+ID: 34
+POINTS: 1.00
+FORMAT: Matching
+TOPIC: Epidemiological History | Pandemics | Bubonic Plague
+DIFFICULTY: Medium
+QUESTION: Match the following pandemic to the year it happened: Bubonic Plague
+OPTIONS:
+A) 1347 - 1351
+B) 1817-1923
+C) 1855
+D) 2009
+E) 2014 - 2016
+F) 2002 - 2004
+G) 1889 - 1890
+
+---QUESTION 35---
+ID: 35
+POINTS: 1.00
+FORMAT: Matching
+TOPIC: Epidemiological History | Pandemics | Swine Flu
+DIFFICULTY: Medium
+QUESTION: Match the following pandemic to the year it happened: Swine Flu
+OPTIONS:
+A) 1347 - 1351
+B) 1817-1923
+C) 1855
+D) 2009
+E) 2014 - 2016
+F) 2002 - 2004
+G) 1889 - 1890
+
+---QUESTION 36---
+ID: 36
+POINTS: 1.00
+FORMAT: Matching
+TOPIC: Epidemiological History | Pandemics | The Third Plague
+DIFFICULTY: Medium
+QUESTION: Match the following pandemic to the year it happened: The Third Plague
+OPTIONS:
+A) 1347 - 1351
+B) 1817-1923
+C) 1855
+D) 2009
+E) 2014 - 2016
+F) 2002 - 2004
+G) 1889 - 1890
+
+---QUESTION 37---
+ID: 37
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Epidemiological History | CDC Director
+DIFFICULTY: Medium
+QUESTION: Who is the current director of the CDC?
+OPTIONS:
+A) Rochelle P. Walensky
+B) Jim O'Neil
+C) Susan Monarez
+D) Robert R. Redfield
+
+---QUESTION 38---
+ID: 38
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Epidemiological History | Medical history | Ether anesthesia
+DIFFICULTY: Medium
+QUESTION: Who was the first person to publicly and successfully demonstrate the use of ether anesthesia for surgery?
+OPTIONS:
+A) Kiyoshi Shiga
+B) Anton van Leeuwenhoek
+C) John Graunt
+D) William T. G. Morton
+
+---QUESTION 39---
+ID: 39
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Epidemiological History | Father of epidemiology
+DIFFICULTY: Medium
+QUESTION: Who is the father of epidemiology?
+OPTIONS:
+A) John Graunt
+B) John Dalton
+C) John Snow
+D) John Gordon
+
+---QUESTION 40---
+ID: 40
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Epidemiological History | Medical history | Antibiotics
+DIFFICULTY: Medium
+QUESTION: Which of the following was the first antibiotic created in 1928?
+OPTIONS:
+A) Amoxicillin
+B) Oxacillin
+C) Ampicillin
+D) Penicillin
+
+---QUESTION 41---
+ID: 41
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Epidemiological History | Surveillance | John Graunt
+DIFFICULTY: Medium
+QUESTION: Who is considered the father of surveillance for his work in the collection and analysis of Britain's mortality data?
+OPTIONS:
+A) Louis Pasteur
+B) John Graunt
+C) William Farr
+D) Joseph Goldberger
+
+---QUESTION 42---
+ID: 42
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Epidemiological History | Vaccines | First formal trial
+DIFFICULTY: Medium
+QUESTION: The first formal, large-scale human experiment was a trial for which vaccine?
+OPTIONS:
+A) Polio
+B) Smallpox
+C) Rabies
+D) Typhoid
+
+---QUESTION 43---
+ID: 43
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Epidemiological History | CDC establishment
+DIFFICULTY: Medium
+QUESTION: Which of the following diseases was the CDC established to combat the spread of?
+OPTIONS:
+A) Tuberculosis
+B) Malaria
+C) Polio
+D) Salmonella
+
+---QUESTION 44---
+ID: 44
+POINTS: 3.00
+FORMAT: Short Answer
+TOPIC: Koch's Postulates | Significance
+DIFFICULTY: High
+QUESTION: Explain the significance of the postulate "The cultured microorganism should cause disease when introduced into a healthy organism" in 1-2 sentences.
+
+---QUESTION 45---
+ID: 45
+POINTS: 3.00
+FORMAT: Short Answer
+TOPIC: Koch's Postulates | Application
+DIFFICULTY: High
+QUESTION: A team of researchers is investigating the outbreak of a respiratory illness in a town. They find an unknown bacterium present in the individuals who have the disease, but do not find it in healthy individuals in the town. However, the scientists are unable to grow this bacterium in the lab. Write the complete postulate that is not being satisfied in this investigation.
+
+---QUESTION 46---
+ID: 46
+POINTS: 3.00
+FORMAT: Short Answer
+TOPIC: Koch's Postulates | Next steps
+DIFFICULTY: High
+QUESTION: An epidemiologist is studying Salmonella, related to an outbreak at a new restaurant in town. They were able to isolate the Salmonella from the food that was eaten by a majority of the diseased individuals. Write 2-3 sentences on the next steps the epidemiologist should take to fulfill the remaining postulates.
+
+---QUESTION 47---
+ID: 47
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Surveillance | Public Health Surveillance Process
+DIFFICULTY: Medium
+QUESTION: Write the steps in order in the Public Health Surveillance Process.
+
+---QUESTION 48---
+ID: 48
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Surveillance | Purpose
+DIFFICULTY: Medium
+QUESTION: In 1-2 sentences, describe the purpose of Surveillance.
+
+---QUESTION 49---
+ID: 49
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Surveillance | Types | Active surveillance
+DIFFICULTY: Medium
+QUESTION: Following a hazardous chemical spill, workers in the affected area were monitored for 72 hours for any symptoms of chemical exposure. Identify the type of Surveillance being described.
+
+---QUESTION 50---
+ID: 50
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Surveillance | Types | Passive surveillance
+DIFFICULTY: Medium
+QUESTION: A hospital's laboratory automatically forwards all positive test results for COVID-19 to the state health agency. This is part of the state's routine reporting requirements. Identify the type of Surveillance being described.
+
+---QUESTION 51---
+ID: 51
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Surveillance | Types | Active surveillance
+DIFFICULTY: Medium
+QUESTION: After identifying a case of a new, highly contagious flu strain, health department officials call all hospitals and clinics daily for one week to ask specifically about patients with similar symptoms. Identify the type of Surveillance being described.
+
+---QUESTION 52---
+ID: 52
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Surveillance | Types | Syndromic surveillance
+DIFFICULTY: Medium
+QUESTION: A public health official receives an alert when a hospital's emergency room reports a spike in the number of patients reporting respiratory symptoms, a pattern that doesn't align with the usual seasonal flu trends. Identify the type of Surveillance being described.
+
+---QUESTION 53---
+ID: 53
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Surveillance | Types | Active surveillance
+DIFFICULTY: Medium
+QUESTION: A person who was in contact with a confirmed case of a communicable disease checks their temperature daily and reports any symptoms to a nurse for two weeks. Identify the type of Surveillance being described.
+
+---QUESTION 54---
+ID: 54
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Surveillance | Types | Sentinel surveillance
+DIFFICULTY: Medium
+QUESTION: A group of large hospitals has been chosen by health officials to conduct annual surveys to analyze the prevalence of a disease in their areas. These hospitals provide data that is used for public health policies, even though they only represent a fraction of hospitals in their state. Identify the type of Surveillance being described.
+
+---QUESTION 55---
+ID: 55
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Surveillance | Types | Syndromic surveillance
+DIFFICULTY: Medium
+QUESTION: A system that monitors pharmacy sales reports an unusual increase in the purchase of over-the-counter cough and cold medication, prompting an investigation into a potential outbreak. Identify the type of Surveillance being described.
+
+---QUESTION 56---
+ID: 56
+POINTS: 1.00
+FORMAT: Fill-in
+TOPIC: Natural History of Disease | Timeline
+DIFFICULTY: Medium
+QUESTION: Fill in the missing parts of the timeline for the Natural History of Disease.
+
+---QUESTION 57---
+ID: 57
+POINTS: 2.00
+FORMAT: Matching
+TOPIC: Hill's Criteria | Consistency
+DIFFICULTY: Medium
+QUESTION: The association is replicated in different settings and using different methods.
+OPTIONS:
+A) Strength
+B) Coherence
+C) Analogy
+D) Consistency
+E) Specificity
+F) Plausibility
+G) Experiment
+H) Biological Gradient
+J) Temporality
+
+---QUESTION 58---
+ID: 58
+POINTS: 2.00
+FORMAT: Matching
+TOPIC: Hill's Criteria | Specificity
+DIFFICULTY: Medium
+QUESTION: The cause and effect have a 1:1 relationship.
+OPTIONS:
+A) Strength
+B) Coherence
+C) Analogy
+D) Consistency
+E) Specificity
+F) Plausibility
+G) Experiment
+H) Biological Gradient
+J) Temporality
+
+---QUESTION 59---
+ID: 59
+POINTS: 2.00
+FORMAT: Matching
+TOPIC: Hill's Criteria | Biological Gradient
+DIFFICULTY: Medium
+QUESTION: An increasing amount of exposure to the agent increases disease risk.
+OPTIONS:
+A) Strength
+B) Coherence
+C) Analogy
+D) Consistency
+E) Specificity
+F) Plausibility
+G) Experiment
+H) Biological Gradient
+J) Temporality
+
+---QUESTION 60---
+ID: 60
+POINTS: 2.00
+FORMAT: Matching
+TOPIC: Hill's Criteria | Temporality
+DIFFICULTY: Medium
+QUESTION: Exposure always precedes effect.
+OPTIONS:
+A) Strength
+B) Coherence
+C) Analogy
+D) Consistency
+E) Specificity
+F) Plausibility
+G) Experiment
+H) Biological Gradient
+J) Temporality
+
+---QUESTION 61---
+ID: 61
+POINTS: 2.00
+FORMAT: Matching
+TOPIC: Hill's Criteria | Analogy
+DIFFICULTY: Medium
+QUESTION: Similar relationships have been observed in other contexts.
+OPTIONS:
+A) Strength
+B) Coherence
+C) Analogy
+D) Consistency
+E) Specificity
+F) Plausibility
+G) Experiment
+H) Biological Gradient
+J) Temporality
+
+---QUESTION 62---
+ID: 62
+POINTS: 2.00
+FORMAT: Matching
+TOPIC: Hill's Criteria | Coherence
+DIFFICULTY: Medium
+QUESTION: The relationship is consistent with biological principles.
+OPTIONS:
+A) Strength
+B) Coherence
+C) Analogy
+D) Consistency
+E) Specificity
+F) Plausibility
+G) Experiment
+H) Biological Gradient
+J) Temporality
+
+---QUESTION 63---
+ID: 63
+POINTS: 2.00
+FORMAT: Matching
+TOPIC: Hill's Criteria | Experiment
+DIFFICULTY: Medium
+QUESTION: The condition can be prevented or induced by controlling conditions.
+OPTIONS:
+A) Strength
+B) Coherence
+C) Analogy
+D) Consistency
+E) Specificity
+F) Plausibility
+G) Experiment
+H) Biological Gradient
+J) Temporality
+
+---QUESTION 64---
+ID: 64
+POINTS: 2.00
+FORMAT: Matching
+TOPIC: Hill's Criteria | Plausibility
+DIFFICULTY: Medium
+QUESTION: The relationship is compatible with current theory and practice.
+OPTIONS:
+A) Strength
+B) Coherence
+C) Analogy
+D) Consistency
+E) Specificity
+F) Plausibility
+G) Experiment
+H) Biological Gradient
+J) Temporality
+
+---QUESTION 65---
+ID: 65
+POINTS: 2.00
+FORMAT: Matching
+TOPIC: Hill's Criteria | Strength
+DIFFICULTY: Medium
+QUESTION: There is high correlation between variables.
+OPTIONS:
+A) Strength
+B) Coherence
+C) Analogy
+D) Consistency
+E) Specificity
+F) Plausibility
+G) Experiment
+H) Biological Gradient
+J) Temporality
+
+---QUESTION 66---
+ID: 66
+POINTS: 2.00
+FORMAT: Matching
+TOPIC: Hill's Criteria | Biological Gradient
+DIFFICULTY: Medium
+QUESTION: People who smoke cigarettes more often are significantly more likely to develop cancer.
+OPTIONS:
+A) Strength
+B) Coherence
+C) Analogy
+D) Consistency
+E) Specificity
+F) Plausibility
+G) Experiment
+H) Biological Gradient
+J) Temporality
+
+---QUESTION 67---
+ID: 67
+POINTS: 2.00
+FORMAT: Matching
+TOPIC: Hill's Criteria | Biological Gradient
+DIFFICULTY: Medium
+QUESTION: The death rate from lung cancer rises linearly with the number of cigarettes smoked daily.
+OPTIONS:
+A) Strength
+B) Coherence
+C) Analogy
+D) Consistency
+E) Specificity
+F) Plausibility
+G) Experiment
+H) Biological Gradient
+J) Temporality
+
+---QUESTION 68---
+ID: 68
+POINTS: 2.00
+FORMAT: Matching
+TOPIC: Hill's Criteria | Consistency
+DIFFICULTY: Medium
+QUESTION: A retrospective and prospective study on smoking produce similar results.
+OPTIONS:
+A) Strength
+B) Coherence
+C) Analogy
+D) Consistency
+E) Specificity
+F) Plausibility
+G) Experiment
+H) Biological Gradient
+J) Temporality
+
+---QUESTION 69---
+ID: 69
+POINTS: 2.00
+FORMAT: Matching
+TOPIC: Hill's Criteria | Specificity
+DIFFICULTY: Medium
+QUESTION: Mesothelioma is almost exclusively caused by asbestos exposure, and rarely by any other factor.
+OPTIONS:
+A) Strength
+B) Coherence
+C) Analogy
+D) Consistency
+E) Specificity
+F) Plausibility
+G) Experiment
+H) Biological Gradient
+J) Temporality
+
+---QUESTION 70---
+ID: 70
+POINTS: 2.00
+FORMAT: Matching
+TOPIC: Hill's Criteria | Temporality
+DIFFICULTY: Medium
+QUESTION: Lung cancer develops later in life for someone who smoked for years as a teenager.
+OPTIONS:
+A) Strength
+B) Coherence
+C) Analogy
+D) Consistency
+E) Specificity
+F) Plausibility
+G) Experiment
+H) Biological Gradient
+J) Temporality
+
+---QUESTION 71---
+ID: 71
+POINTS: 2.00
+FORMAT: Matching
+TOPIC: Hill's Criteria | Plausibility
+DIFFICULTY: Medium
+QUESTION: Carcinogens in tobacco smoke can damage DNA, causing mutations that may lead to cancer.
+OPTIONS:
+A) Strength
+B) Coherence
+C) Analogy
+D) Consistency
+E) Specificity
+F) Plausibility
+G) Experiment
+H) Biological Gradient
+J) Temporality
+
+---QUESTION 72---
+ID: 72
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Bias | Attrition bias
+DIFFICULTY: Medium
+QUESTION: Name the specific type of bias described in the following scenario: In a 10-year weight loss trial, participants who fail to lose weight are more likely to drop out.
+
+---QUESTION 73---
+ID: 73
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Bias | Healthy worker effect
+DIFFICULTY: Medium
+QUESTION: Name the specific type of bias described in the following scenario: A study comparing factory workers to the general population finds workers have lower overall mortality, partly because only relatively healthy people can maintain employment.
+
+---QUESTION 74---
+ID: 74
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Bias | Simpson's paradox
+DIFFICULTY: Medium
+QUESTION: Name the specific type of bias described in the following scenario: A treatment appears more effective overall, but when results are broken down by age group, the treatment is less effective in both younger and older patients.
+
+---QUESTION 75---
+ID: 75
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Bias | Recall bias
+DIFFICULTY: Medium
+QUESTION: Name the specific type of bias described in the following scenario: Parents of children with leukemia are more likely to remember pesticide exposure in the home than parents of healthy children.
+
+---QUESTION 76---
+ID: 76
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Bias | Social desirability bias
+DIFFICULTY: Medium
+QUESTION: Name the specific type of bias described in the following scenario: When asked about alcohol consumption in a survey, college students underreport drinking because they want to appear more responsible.
+
+---QUESTION 77---
+ID: 77
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Bias | Confounding
+DIFFICULTY: Medium
+QUESTION: Name the specific type of bias described in the following scenario: A study finds an association between coffee drinking and heart disease, but the true risk factor is smoking, which is more common among coffee drinkers.
+
+---QUESTION 78---
+ID: 78
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Bias | Lead-time bias
+DIFFICULTY: Medium
+QUESTION: Name the specific type of bias described in the following scenario: A cancer screening test appears to improve survival time, but patients only seem to live longer because their disease is diagnosed earlier, not because they actually survive longer.
+
+---QUESTION 79---
+ID: 79
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Bias | Length-time bias
+DIFFICULTY: Medium
+QUESTION: Name the specific type of bias described in the following scenario: A cancer screening program detects more slow-growing tumors than fast-growing ones, making it seem as if screened patients have better outcomes, even if screening does not improve mortality.
+
+---QUESTION 80---
+ID: 80
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Bias | Selection bias
+DIFFICULTY: Medium
+QUESTION: Name the specific type of bias described in the following scenario: Researchers conduct a study on exercise habits and heart disease but recruit participants only from a local fitness club.
+
+---QUESTION 81---
+ID: 81
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Epidemic Patterns | Common-source epidemic
+DIFFICULTY: Medium
+QUESTION: Name the specific epidemic pattern described by the following statement: A group of persons are all exposed to an infectious agent or a toxin from the same source.
+
+---QUESTION 82---
+ID: 82
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Epidemic Patterns | Point-source epidemic
+DIFFICULTY: Medium
+QUESTION: Name the specific epidemic pattern described by the following statement: A group is exposed over a relatively brief period and becomes ill within one incubation period.
+
+---QUESTION 83---
+ID: 83
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Epidemic Patterns | Continuous common-source epidemic
+DIFFICULTY: Medium
+QUESTION: Name the specific epidemic pattern described by the following statement: Patients are exposed to an infectious agent over a period of time, resulting in a flat and wide epi-curve.
+
+---QUESTION 84---
+ID: 84
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Epidemic Patterns | Propagated epidemic
+DIFFICULTY: Medium
+QUESTION: Name the specific epidemic pattern described by the following statement: Transmission between patients occurs, resulting in more than one incubation period with multiple peaks on an epi-curve.
+
+---QUESTION 85---
+ID: 85
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Epidemic Patterns | Intermittent epidemic
+DIFFICULTY: Medium
+QUESTION: Name the specific epidemic pattern described by the following statement: The level of exposure to an agent naturally fluctuates, resulting in multiple, irregular waves in cases on an epi-curve.
+
+---QUESTION 86---
+ID: 86
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Epidemic Patterns | Mixed epidemic
+DIFFICULTY: Medium
+QUESTION: Name the specific epidemic pattern described by the following statement: A pattern that has characteristics of both common-source and propagated epidemics.
+
+---QUESTION 87---
+ID: 87
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Epidemic Patterns | Epi-curve identification
+DIFFICULTY: Medium
+QUESTION: Name the epidemic pattern shown in epi-curve 7.
+
+---QUESTION 88---
+ID: 88
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Epidemic Patterns | Epi-curve identification
+DIFFICULTY: Medium
+QUESTION: Name the epidemic pattern shown in epi-curve 8.
+
+---QUESTION 89---
+ID: 89
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Epidemic Patterns | Epi-curve identification
+DIFFICULTY: Medium
+QUESTION: Name the epidemic pattern shown in epi-curve 9.
+
+---QUESTION 90---
+ID: 90
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Types of Studies | Experimental study
+DIFFICULTY: Medium
+QUESTION: Name the type of study being described: Randomly assigns participants to an experimental group or a control group.
+
+---QUESTION 91---
+ID: 91
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Types of Studies | Case-control study
+DIFFICULTY: Medium
+QUESTION: Name the type of study being described: Enrollment into the study is based on the presence or absence of disease.
+
+---QUESTION 92---
+ID: 92
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Types of Studies | Case-control study
+DIFFICULTY: Medium
+QUESTION: Name the type of study being described: Looks backwards and examines exposures to suspected risk or protection factors in relation to an outcome that is established at the start of the study.
+
+---QUESTION 93---
+ID: 93
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Types of Studies | Cohort study
+DIFFICULTY: Medium
+QUESTION: Name the type of study being described: Follows over time groups of individuals who are alike in many ways but differ by a certain characteristic.
+
+---QUESTION 94---
+ID: 94
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Types of Studies | Natural experiment
+DIFFICULTY: Medium
+QUESTION: Name the type of study being described: Situations where nature is allowed to take its course.
+
+---QUESTION 95---
+ID: 95
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Types of Studies | Cross-sectional study
+DIFFICULTY: Medium
+QUESTION: Name the type of study being described: A group of people is observed, or certain information is collected, at a single point in time or over a short period of time.
+
+---QUESTION 96---
+ID: 96
+POINTS: 3.00
+FORMAT: Calculation
+TOPIC: Screening Test | Sensitivity
+DIFFICULTY: High
+QUESTION: 178 people consume sashimi at a restaurant and are tested for a new disease called Anahani. 49 people have positive results, and of these, 11 are false positives. Out of the negative results, 102 are true negatives. Calculate the sensitivity and explain what these results mean in 1 sentence. Provide your answer as a percent.
+
+---QUESTION 97---
+ID: 97
+POINTS: 3.00
+FORMAT: Calculation
+TOPIC: Screening Test | Specificity
+DIFFICULTY: High
+QUESTION: 178 people consume sashimi at a restaurant and are tested for a new disease called Anahani. 49 people have positive results, and of these, 11 are false positives. Out of the negative results, 102 are true negatives. Calculate the specificity and explain what these results mean in 1 sentence. Provide your answer as a percent.
+
+---QUESTION 98---
+ID: 98
+POINTS: 3.00
+FORMAT: Calculation
+TOPIC: Screening Test | Positive Predictive Value
+DIFFICULTY: High
+QUESTION: 178 people consume sashimi at a restaurant and are tested for a new disease called Anahani. 49 people have positive results, and of these, 11 are false positives. Out of the negative results, 102 are true negatives. Calculate the positive predictive value and explain what these results mean in 1 sentence. Provide your answer as a percent.
+
+---QUESTION 99---
+ID: 99
+POINTS: 3.00
+FORMAT: Calculation
+TOPIC: Screening Test | Negative Predictive Value
+DIFFICULTY: High
+QUESTION: 178 people consume sashimi at a restaurant and are tested for a new disease called Anahani. 49 people have positive results, and of these, 11 are false positives. Out of the negative results, 102 are true negatives. Calculate the negative predictive value and explain what these results mean in 1 sentence. Provide your answer as a percent.
+
+---QUESTION 100---
+ID: 100
+POINTS: 3.00
+FORMAT: Calculation
+TOPIC: Screening Test | Prevalence
+DIFFICULTY: High
+QUESTION: 178 people consume sashimi at a restaurant and are tested for a new disease called Anahani. 49 people have positive results, and of these, 11 are false positives. Out of the negative results, 102 are true negatives. Calculate the prevalence of disease. Provide your answer as a percent.
+
+---QUESTION 101---
+ID: 101
+POINTS: 3.00
+FORMAT: Short Answer
+TOPIC: Screening Test | False positives and false negatives
+DIFFICULTY: Medium
+QUESTION: In 1 sentence each, define false positives and false negatives.
+
+---QUESTION 102---
+ID: 102
+POINTS: 3.00
+FORMAT: Short Answer
+TOPIC: Case Study #1 | Case definition
+DIFFICULTY: High
+QUESTION: Write a case definition for this outbreak. (Scenario: Around 2 hours after lunch at 2:30 pm on September 29th, 2025, fellow passengers started raising concerns about nausea, vomiting, headache, and dizziness on a train.)
+
+---QUESTION 103---
+ID: 103
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Case Study #1 | Study type
+DIFFICULTY: Medium
+QUESTION: What type of study is this? (Scenario: Interviewing people about the foods they consume, including people who feel sick and those who don't.)
+
+---QUESTION 104---
+ID: 104
+POINTS: 4.00
+FORMAT: Short Answer
+TOPIC: Case Study #1 | Study benefits and drawbacks
+DIFFICULTY: Medium
+QUESTION: Name two benefits and two drawbacks of this type of study.
+
+---QUESTION 105---
+ID: 105
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Case Study #1 | Odds ratio vs relative risk
+DIFFICULTY: Medium
+QUESTION: Is calculating an odds ratio or a relative risk more appropriate for this study? Explain in 1 sentence.
+
+---QUESTION 106---
+ID: 106
+POINTS: 10.00
+FORMAT: Calculation
+TOPIC: Case Study #1 | Odds ratio calculation
+DIFFICULTY: High
+QUESTION: Based on your answer to number 3, calculate the appropriate measure for each food in the table. Show your work for full credit. (Table: Burger - Sick: 6, Not Sick: 11; Salad - Sick: 3, Not Sick: 20; Pasta - Sick: 16, Not Sick: 15; Wrap - Sick: 7, Not Sick: 19; Baked Potato - Sick: 3, Not Sick: 13)
+
+---QUESTION 107---
+ID: 107
+POINTS: 8.00
+FORMAT: Calculation
+TOPIC: Case Study #1 | Chi-Square Test Statistic
+DIFFICULTY: High
+QUESTION: Calculate the Chi-Square Test Statistic for the Burger and Pasta data. Show your work for full credit.
+
+---QUESTION 108---
+ID: 108
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Case Study #1 | Food source identification
+DIFFICULTY: Medium
+QUESTION: What food has most likely caused this outbreak? Explain in 1 sentence.
+
+---QUESTION 109---
+ID: 109
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Case Study #1 | Bias
+DIFFICULTY: Medium
+QUESTION: What type of bias most likely influenced this study?
+
+---QUESTION 110---
+ID: 110
+POINTS: 6.00
+FORMAT: Short Answer
+TOPIC: Case Study #1 | Prevention strategies
+DIFFICULTY: Medium
+QUESTION: [Division C Only] Name 3 strategies to prevent future infections.
+
+---QUESTION 111---
+ID: 111
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Case Study #2 | Chart type
+DIFFICULTY: Medium
+QUESTION: What type of chart is shown above? (Scenario: Reviewing profiles of 10 cases that checked into Bevo Urgent Care in the last month with date of onset, age, gender, location of residence, symptoms, and lab results.)
+
+---QUESTION 112---
+ID: 112
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Case Study #2 | Outbreak criteria
+DIFFICULTY: Medium
+QUESTION: What information would be needed to consider this an outbreak?
+
+---QUESTION 113---
+ID: 113
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Case Study #2 | Surveillance type
+DIFFICULTY: Medium
+QUESTION: What type of surveillance was used?
+
+---QUESTION 114---
+ID: 114
+POINTS: 3.00
+FORMAT: Short Answer
+TOPIC: Case Study #2 | Case definition
+DIFFICULTY: Medium
+QUESTION: Write a case definition for this scenario. (Scenario: Reports from urgent care facilities of patients experiencing cough, fever, nausea, and congestion in Austin, TX.)
+
+---QUESTION 115---
+ID: 115
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Case Study #2 | Outbreak investigation steps
+DIFFICULTY: Medium
+QUESTION: What is the next step for an outbreak investigation, assuming the previous steps were completed? Include both the step number and name.
+
+---QUESTION 116---
+ID: 116
+POINTS: 5.00
+FORMAT: Short Answer
+TOPIC: Case Study #2 | Case classification
+DIFFICULTY: Medium
+QUESTION: Label each case as Confirmed, Probable, Suspected, or Not a Case. (0.5 points per question, 5 pts total)
+
+---QUESTION 117---
+ID: 117
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Case Study #2 | Mode of transmission
+DIFFICULTY: Medium
+QUESTION: What is the most likely mode of transmission of Hookem virus? (Hookem virus is transmitted by close proximity to infected people who are coughing, sneezing, or talking.)
+
+---QUESTION 118---
+ID: 118
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Case Study #2 | Basic Reproduction Number
+DIFFICULTY: Medium
+QUESTION: Define the Basic Reproduction Number (R0).
+
+---QUESTION 119---
+ID: 119
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Case Study #2 | Herd immunity
+DIFFICULTY: Medium
+QUESTION: Define herd immunity.
+
+---QUESTION 120---
+ID: 120
+POINTS: 3.00
+FORMAT: Calculation
+TOPIC: Case Study #2 | Herd immunity threshold
+DIFFICULTY: High
+QUESTION: Assume a Basic Reproduction Number of 4. What is the herd immunity threshold? Express your answer as a decimal to two places.
+
+---QUESTION 121---
+ID: 121
+POINTS: 3.00
+FORMAT: Calculation
+TOPIC: Case Study #2 | Effective reproductive number
+DIFFICULTY: High
+QUESTION: If the proportion of the population that is immune is 0.50, what is the effective reproductive number?
+
+---QUESTION 122---
+ID: 122
+POINTS: 3.00
+FORMAT: Calculation
+TOPIC: Case Study #2 | Adjusted herd immunity threshold
+DIFFICULTY: High
+QUESTION: Assuming that vaccination is 90% effective, calculate the adjusted herd immunity threshold. Express your answer as a decimal to two places.
+

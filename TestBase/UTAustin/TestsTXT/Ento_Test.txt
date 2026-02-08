@@ -1,0 +1,872 @@
+​2025 UT Austin Invitational Tournament​
+​October 25, 2025​
+​Entomology B/C​
+​Exam​
+​Directions:​
+​●​ ​This examination will be run in nine (9) stations.​
+​●​ ​There will be five (5) minutes per station, with 30 seconds of transition time between stations.​
+​●​ ​Do NOT write on the stations. Please record all answers on this answer document.​
+​●​ ​There will be preserved specimens! Please be careful when handling them. Do not touch them.​
+​●​ ​All​​specimens​​should​​be​​identified​​to​​the​​lowest​​taxonomic​​classification​​as​​indicated​​by​​the​​2026​
+​National Entomology List. Additionally, please use the given scientific names.​
+​●​ ​Point values are denoted inside brackets next to each question.​
+​●​ ​Ties will be broken using station 9 and then questions denoted with [TB].​
+​●​ ​You​​may​​have​​one​​2”​​or​​smaller​​binder,​​as​​well​​as​​a​​commercially​​published​​field​​guide​​and​​a​​hand​
+​lens/magnifying glass. You may have an unannotated list outside the binder.​
+​●​ ​Nothing else should be removed from your binder at any point in time.​
+​●​ ​Good luck, and have fun!​
+​This test was written by Run Zhou [Texas A&M University ‘26]​
+
+​Station 1: Sleep tomorrow but tonight go crazy [17 pts]​
+​1)​ ​Identify specimen A to the lowest taxonomic classification present on the 2026 National Entomology List. [1 pt]​
+​2)​ ​Identify specimen B to the lowest taxonomic classification present on the 2026 National Entomology List. [1 pt]​
+​3)​ ​Identify specimen C to the lowest taxonomic classification present on the 2026 National Entomology List. [1 pt]​
+​4)​ ​Many nocturnal insects have an increased proportion of long-wavelength photoreceptors.​
+​a)​ ​Which specific part of the eye contains these photoreceptors? [1 pt]​
+​(A)​​Ommatidia​
+​(B)​​Rhodopsin​
+​(C)​​Retinula cells​
+​(D)​​Lamina​
+​(E)​​Corneal lens​
+​b)​ ​Which anatomical specialisation often accompanies this increase in long-wavelength sensitivity? [1 pt]​
+​(A)​​Wider rhabdoms​
+​(B)​​Narrower rhabdoms​
+​(C)​​Reduced facet lens diameter​
+​(D)​​Fewer inter-ommatidial connections​
+​c)​ ​Why might this increase in photoreceptors be advantageous for nocturnal insects? [1 pt]​
+​(A)​​It increases visual acuity in bright light​
+​(B)​​It improves photon capture in dim light​
+​(C)​​It detects light of higher wavelengths​
+​(D)​​It helps depth perception via visual field overlap​
+​(E)​​It improves colour discrimination under dim light​
+​(F)​​They’re useless; nocturnal insects don’t use vision​
+​d)​ ​Why might this same adaptation reduce performance during daylight? [1 pt]​
+​(A)​​It increases the risk of overheating in the eye​
+​(B)​​It decreases sensitivity to polarised light​
+​(C)​​It reduces ability to detect motion at high speed​
+​(D)​​It stops light from focusing, causing blurry vision​
+​(E)​​It reduces ability to regenerate photopigments​
+​(F)​​It leads to reduced temporal resolution​
+​(G)​​It increases vulnerability to UV damage​
+​(H)​​It risks receptor saturation in bright light​
+
+​Station 1: Sleep tomorrow but tonight go crazy (continued) [17 pts]​
+​5)​ ​Specimen A forages at night but broods eggs during the day.​
+​a)​ ​What is the PRIMARY reason for why it forages at night? [1 pt]​
+​(A)​​Food sources are available only during nighttime​
+​(B)​​Nighttime conditions reduce desiccation risk​
+​(C)​​Their vision capabilities decrease during the day​
+​(D)​​They need to avoid diurnal predators​
+​(E)​​Their metabolism requires cooler temperatures​
+​(F)​​They must be in sync with nocturnal pollinators​
+​b)​ ​Why does specimen A brood eggs/nymphs during the day? [1 pt]​
+​(A)​​Eggs need warmth from sunlight for development​
+​(B)​​Parents must protect eggs from diurnal predators​
+​(C)​​Nymphs are diurnal and need parental care​
+​(D)​​Hatching occurs during the daytime​
+​Figure B1 is adapted from a research paper (Okada & Toh, 1998). It depicts the relationship between the stop rate of specimen B (the rate at which​
+​specimen B stops moving) and light intensity. Deprived in this context means the structures were removed from that experimental group.​
+​6)​ ​In the figure, what does the sharp drop in stopping rate after ocelli deprivation in low-intensity light suggest? [1 pt]​
+​(A)​​Compound eyes enhance low-light detection​
+​(B)​​Compound eyes are suppressed at low light​
+​(C)​​Compound eyes are inactive below 0.1 lux​
+​(D)​​Ocelli enhance low-light detection​
+​(E)​​Ocelli suppress compound eye signals at low light​
+​(F)​​Ocelli are inactive below 0.1 lux​
+​7)​ ​If both compound eyes and ocelli are removed, why does the stop rate drop to near zero across all light intensities? [1 pt]​
+​(A)​​Their circadian rhythms stop functioning without visual input​
+​(B)​​The nervous system becomes overstimulated, preventing freezing behaviour​
+​(C)​​Reliance on tactile hairs and antennae in the absence of eyes suppresses freezing​
+​(D)​​Ocelli normally override compound eyes, so removing both cancels the stop response​
+​(E)​​They are completely unable to detect light intensity changes so they are not affected​
+​(F)​​Neural damage from the surgery prevents the motor system from producing freezing behaviour signals​
+​(G)​​They perceive every environment as dangerous since they can’t see and panic makes them keep moving​
+
+​Station 1: Sleep tomorrow but tonight go crazy (continued) [17 pts]​
+​8)​ ​Specimen B typically exhibits light-avoidance behaviours.​
+​a)​ ​What is the technical term for light avoidance behaviour? [2 pt]​
+​b)​ ​Which choice best describes the trend between the stop rate of the intact group in the figure vs intensity? [1 pt]​
+​(A)​​Stop rate increases with light intensity.​
+​(B)​​Stop rate decreases with light intensity.​
+​(C)​​Stop rate remains constant.​
+​(D)​​Stop rate peaks at intermediate intensity.​
+​(E)​​Stop rate fluctuates unpredictably.​
+​c)​ ​Which of these best explains this trend? [1 pt]​
+​(A)​​High light intensities damage photoreceptors, preventing them from stopping​
+​(B)​​Insects become more fatigued in bright light so they stop less to conserve energy​
+​(C)​​Specimen B is attracted to the light and thus tries to run towards it​
+​(D)​​They stop more at higher light intensities because they are disoriented​
+​(E)​​Bright light mimics daytime conditions, when they are naturally more active​
+​(F)​​They are actively trying to run away from the stronger light​
+​(G)​​Stop rate is unchanged; light intensity has no effect on movement​
+​(H)​​They stop more in bright light as movements would attract predators​
+​(I)​ ​Photoreceptors respond erratically to changing light levels, so they stop at random intensities​
+​(J)​ ​Darkness mimics their natural environment, causing more frequent pauses​
+​9)​ ​Select all common behavioural adaptations specimen C has to deter/avoid its nocturnal predators. [2 pt]​
+​(A)​​Emitting pheromones that repel predators​
+​(B)​​Blending in with nocturnal flora to hide from predators​
+​(C)​​Diving into water bodies to escape aerial predators​
+​(D)​​Biting or lashing out at their aerial predators​
+​(E)​​Producing ultrasonic clicks to confuse predators​
+​(F)​​Startle displays to scare off predators​
+​(G)​​Erratic flight maneuvers to evade predators​
+​(H)​​Sudden random jumping to evade predators​
+
+​Station 2: I swear that we'll be young forever [19 pts]​
+​1)​ ​Identify specimen A to the lowest taxonomic classification present on the 2026 National Entomology List. [1 pt]​
+​2)​ ​Identify specimen B to the lowest taxonomic classification present on the 2026 National Entomology List. [1 pt]​
+​3)​ ​Identify specimen C to the lowest taxonomic classification present on the 2026 National Entomology List. [1 pt]​
+​4)​ ​Specimen A exhibits… [1 pt]​
+​(A)​​Ametaboly​
+​(B)​​Hemimetaboly​
+​(C)​​Holometaboly​
+​5)​ ​Specimen B exhibits… [1 pt]​
+​(A)​​Ametaboly​
+​(B)​​Hemimetaboly​
+​(C)​​Holometaboly​
+​6)​ ​Specimen C exhibits… [1 pt]​
+​(A)​​Ametaboly​
+​(B)​​Hemimetaboly​
+​(C)​​Holometaboly​
+​7)​ ​Many insects live most of their lives as juveniles; juveniles need time to _________, while adults focus on _________ which requires less time. [2 pt]​
+​8)​ ​Would you expect hemimetabolous or holometabolous insects to exhibit a lower adult/juvenile lifespan ratio? [1 pt]​
+​(A)​​Hemimetabolous insects have a lower ratio​
+​(B)​​Holometabolous insects have a lower ratio​
+​9)​ ​Justify your reasoning to your answer in the above question. [1 pt]​
+​(A)​​Juveniles of this group undergo multiple instars which lengthens juvenile lifespan.​
+​(B)​​There is more time spent in the intermediate stage of this group rather than strictly juvenile or adult.​
+​(C)​​Adults and juveniles of this group share the same habitat, and competition shortens the adult lifespan.​
+​(D)​​Adults of this group lack the defence mechanisms that juveniles possess, making them an easier target for predators.​
+​(E)​​Adults and juveniles of this group have more distinct niche partitioning.​
+​(F)​​Juveniles of this group moult without major changes in body form.​
+​(G)​​Adults of this group can disperse more widely than juveniles, exposing them to more turbulent environmental conditions.​
+
+​Station 2: I swear that we'll be young forever (continued) [19 pts]​
+​10)​​Which of the following choices best explains the difference between semelparity and iteroparity? [1 pt]​
+​(A)​
+​Semelparous insects exhibit gradual changes from juvenile to adult while iteroparous insects have an immobile pupal stage​
+​(B)​
+​Semelparous insects have an immobile pupal stage while iteroparous insects exhibit gradual changes from juvenile to adult​
+​(C)​
+​Semelparous insects have an extended adult lifespan while iteroparous insects die soon after emergence​
+​(D)​
+​Semelparous insects die soon after emergence while iteroparous insects have an extended adult lifespan​
+​(E)​
+​Semelparous insects only have a few instar stages in their lifecycle while iteroparous insects have many​
+​(F)​
+​Semelparous insects have many instar stages in their lifecycle while iteroparous insects have only a few​
+​(G)​
+​Semelparous insects are r-selected while iteroparous insects are K-selected​
+​(H)​
+​Semelparous insects are K-selected while iteroparous insects are r-selected​
+​(I)​
+​Semelparous insects reproduce all at once while iteroparous insects reproduce multiple times during their life​
+​(J)​
+​Semelparous insects reproduce multiple times during their life while iteroparous insects reproduce all at once​
+​(K)​
+​Semelparous insects go through an annual inactive phase while iteroparous insects are active year-round​
+​(L)​
+​Semelparous insects are active year-round while iteroparous insects go through an annual inactive phase​
+​(M)​
+​Semelparous insects can reproduce asexually via parthenogenesis while iteroparous insects require sexual reproduction​
+​(N)​
+​Semelparous insects require sexual reproduction while iteroparous insects can reproduce asexually via parthenogenesis​
+​(O)​
+​Semelparous insects synchronise their adult emergence while iteroparous insects emerge whenever​
+​(P)​
+​Semelparous insects emerge whenever while iteroparous insects synchronise their adult emergence​
+​11)​​For each of the scenarios, choose which condition semelparity would most likely occur in.​
+​a)​ ​Environment [0.5 pt]​
+​(A)​​Stable with constant resource availability​
+​(B)​​Unstable with variable resource availability​
+​b)​ ​Relative survival among juveniles with reduced/no reproductive capability [0.5 pt]​
+​(A)​​Low relative juvenile survival rate​
+​(B)​​High relative juvenile survival rate​
+​c)​ ​Adult survival rate [0.5 pt]​
+​(A)​​Low adult survival rate​
+​(B)​​High adult survival rate​
+​d)​ ​Reproductive opportunity after emergence [0.5 pt]​
+​(A)​​Low reproductive opportunity​
+​(B)​​High reproductive opportunity​
+
+​Station 2: I swear that we'll be young forever (continued) [19 pts]​
+​12)​​Specimen A is known for having an unusual stage in their metamorphosis between their larval/nymphal form and their adult form.​
+​a)​ ​Give the technical term for this stage. [1 pt]​
+​b)​ ​Morphologically speaking, why might specimen A go through this stage rather than directly from juvenile to adult? [1 pt]​
+​(A)​​Their newly moulted wings need time to harden and mature before fully fledging​
+​(B)​​It allows them to grow additional body segments that are required for mating​
+​(C)​​It allows them to develop genitalia so they can immediately start mating upon becoming adults​
+​(D)​​It enables them to switch from aquatic respiration with gills to aerial respiration with spiracles​
+​c)​ ​How might this stage benefit the reproductive strategies of specimen A? [1 pt]​
+​(A)​​It extends their lifespan so they can reproduce multiple times throughout adulthood​
+​(B)​​It allows them to forage in terrestrial environments so they can build up enough energy for reproduction​
+​(C)​​It gives them time to establish territories or burrows before mating​
+​(D)​​It reduces competition between males and females by separating dispersal from reproduction into two different life stages​
+​(E)​​Males and females have different developmental timelines, so having the transition stage allows one sex to fully develop first​
+​(F)​​It allows them to reproduce before becoming adults, allowing them to produce more offspring before dying​
+​(G)​​They act as a predator buffer so that predators target this stage instead of breeding adults​
+​(H)​​It is the stage where mating/mate finding occurs, allowing the adult stage to be reserved for oviposition​
+​13)​​Certain species of taxon B are known to emerge in large quantities every few, often prime number of, years.​
+​a)​ ​Explain the evolutionary advantage of emerging in a prime number of years rather than one or two years. Select all that apply. [2 pt]​
+​(A)​​Ensures alignment with favourable weather patterns that occur in cycles such as El Nino/La Nina​
+​(B)​​Maximises pollination opportunities with flowering plants​
+​(C)​​Avoids synchronisation with predator life cycles​
+​(D)​​Aligns with cycles of food source availability such as oak tree masting years​
+​(E)​​Reduces overlap with other broods which lowers competition​
+​(F)​​Prime years guarantee longer adult lifespans​
+​b)​ ​From where do the juveniles of taxon B emerge from? [1 pt]​
+​(A)​​From the water​
+​(B)​​From tree bark​
+​(C)​​From the seeds of plants such as acorns​
+​(D)​​From underground​
+​(E)​​From the bodies of insect hosts​
+​(F)​​From the fecal matter of other animals​
+
+​Station 3: Only one queen in the jungle [22 pts]​
+​1)​ ​Identify this specimen to the lowest taxonomic classification present on the 2026 National Entomology List. [1 pt]​
+​2)​ ​What is the evolutionary advantage of having only a few females responsible for reproduction, rather than all females capable of reproduction?​
+​Nonreproducing females get to focus on __________. [1 pt]​
+​3)​ ​Observe figures 1 and 2, which were adapted from a research paper (Brent and Vargo, 2003). Figure 1 shows the relationship between juvenile​
+​hormone (JH) biosynthesis rate and incubation time. Figure 2 depicts the JH biosynthesis rate (circles) and whole-body JH content (triangles)​
+​over the first 25 days of isolation from inhibitory pheromones. Answer the following questions.​
+​a)​ ​Based on figure 1, explain why there would be an increase in JH release as incubation time increases. [1 pt]​
+​(A)​​JH is continuously produced regardless​
+​(B)​​JH release is triggered by oviposition​
+​(C)​​JH release is triggered by mating​
+​(D)​​JH levels increase as the queen intakes nutrients​
+​(E)​​Precursor molecules accumulate, forcing production​
+​(F)​​Inhibitory molecules stop suppressing corpora allata​
+​b)​ ​What do you notice about JH release levels near dealation? [1 pt]​
+​(A)​​JH must remain high throughout dealation​
+​(B)​​They become highly variable and unpredictable​
+​(C)​​JH levels spike a second time to create dealation​
+​(D)​​JH levels plateau to a threshold for dealation​
+​(E)​​Dealation occurs independently of JH fluctuations​
+​(F)​​It drops to zero before dealation begins​
+​(G)​​A prior peak in JH is sufficient to initiate dealation​
+​(H)​​JH suppresses dealation until its levels decline​
+​c)​ ​Explain the role of JH release levels for dealation. [1 pt]​
+​(A)​​Regulate sperm storage efficiency​
+​(B)​​Determine if the queen will remain worker-like​
+​(C)​​Maintain pheromone suppression after mating​
+​(D)​​Serve as a signal to initiate dealation​
+​(E)​​Control muscle contractions needed for dealation​
+​(F)​​Attract workers who help the queen dealate​
+​(G)​​They prime the ovaries which forces dealation​
+
+​Station 3: Only one queen in the jungle (continued) [22 pts]​
+​d)​ ​If for some reason a queen is unable to dealate, predict how her JH levels would be different. [1 pt]​
+​(A)​​They would increase​
+​(B)​​They would decrease​
+​(C)​​They would stay the same​
+​(D)​​They would oscillate rapidly​
+​(E)​​They would mimic the levels of a worker​
+​(F)​​Unable to determine​
+​e)​ ​If the corpora allata of virgin queens were prevented from producing JH during the first three days of post-isolation, what conclusions​
+​could you predict about dealation timing? [1 pt]​
+​(A)​​Dealation would occur earlier than normal​
+​(B)​​Dealation would happen normally​
+​(C)​​Dealation would be delayed or not happen​
+​(D)​​Dealation would be attempted but incomplete​
+​(E)​​Dealation would occur but oviposition wouldn’t​
+​(F)​​Oviposition would occur before dealation​
+​f)​ ​Explain why there is a temporal gap between dealation and oviposition. [1 pt]​
+​(A)​​JH directly suppresses oviposition for a few days first​
+​(B)​​Dealation is completed in stages that delay oviposition​
+​(C)​​Workers prevent oviposition until the queen is established​
+​(D)​​The queen needs to recover from the energy-intensive process of dealation​
+​(E)​​JH production must increase before oviposition, which takes time​
+​(F)​​Dealation damages the reproductive tract which takes time to heal​
+​(G)​​The queen needs to find males to mate with first before ovipositing​
+​4)​ ​After mating, queens store the sperm from the males she mates with in her body.​
+​a)​ ​Why might long-term sperm storage be advantageous for a queen? Select all that apply. [3 pt]​
+​(A)​​It ensures she can mate with multiple males over her lifetime to replenish sperm.​
+​(B)​​Stored sperm offers more nutrients for her offspring.​
+​(C)​​It allows sperm to fully mature in her body before they are used to fertilise eggs.​
+​(D)​​It guarantees all offspring will be female.​
+​(E)​​It prevents sperm from multiple males from mixing.​
+​(F)​​It allows the queen to control which sperm fertilises the eggs.​
+​(G)​​It allows her to continue laying fertilised eggs in the absence of males.​
+​(H)​​It ensures higher genetic diversity in each clutch of eggs.​
+​(I)​ ​It reduces the need to mate multiple times, saving energy.​
+
+​Station 3: Only one queen in the jungle (continued) [22 pts]​
+​b)​ ​How might storing sperm for long periods of time be risky? Select all that apply. [3 pt]​
+​(A)​​The queen eventually becomes sterile, making the stored sperm essentially useless.​
+​(B)​​Long term storage increases the risk of microbial infections.​
+​(C)​​Maintaining stored sperm is costly for the female.​
+​(D)​​Sperm from multiple males is incompatible with each other and they will compete to fertilise eggs.​
+​(E)​​Sperm gives off odours that attract predators.​
+​(F)​​Jealous males may resort to violent methods to rid the queen of sperm from other males.​
+​(G)​​Stored sperm may damage the queen’s reproductive organs.​
+​(H)​​Stored sperm may lose viability over time.​
+​(I)​ ​Storage organs start to fail over time so the queen ends up excreting the sperm out.​
+​5)​ ​Other females of this taxon still have egg-laying structures despite usually not laying eggs.​
+​a)​ ​What is the primary egg-laying external structure called? [1 pt]​
+​b)​ ​True or false: these structures serve an actual purpose for non-laying females. [1 pt]​
+​c)​ ​If you answered “true”, explain the purpose for nonbreeding females. If false, give the technical term for nonfunctional structures. [2 pt]​
+​d)​ ​In certain circumstances, these non-queen females can still lay eggs. Are these eggs able to hatch at all? If so, what do they hatch into? [1]​
+​(A)​​Yes; hatch into clones of the mother​
+​(B)​​Yes; hatch into genetically different females​
+​(C)​​Yes; hatch into males​
+​(D)​​Yes; hatch but are missing essential organs​
+​(E)​​Yes; hatch but will be sterile​
+​(F)​​Yes; hatch into queens​
+​(G)​​Yes; hatch into larvae that will never fully develop​
+​(H)​​No; they are infertile eggs​
+​(I)​ ​No; the fetus inside the eggs dies before hatching​
+​(J)​ ​No; workers simply just aren’t able to lay eggs at all​
+​e)​ ​Explain why the eggs hatch into the specific outcome or are not able to hatch at all. Select all that apply. [3 pt]​
+​(A)​​Workers mate with males normally​
+​(B)​​Workers are not able to mate​
+​(C)​​Eggs get fully fertilised​
+​(D)​​Eggs are not fertilised​
+​(E)​​Unfertilised eggs are inviable​
+​(F)​​They have genetic information from both parents​
+​(G)​​They have genetic information from mother only​
+​(H)​​Worker laid eggs are haploid​
+​(I)​ ​Worker laid eggs are diploid​
+​(J)​ ​Haploid individuals are females​
+​(K)​​Haploid individuals are males​
+​(L)​​Diploid individuals are females​
+​(M)​
+​Diploid individuals are males​
+​(N)​​Workers lack structures needed for viable embryos​
+​(O)​​Eggs fail because there is no yolk or nutrients​
+​(P)​​Queen pheromones suppress worker fertility​
+​(Q)​​Since the offspring aren’t from queens, they lack​
+​genetic information they can pass down​
+​(R)​​Incomplete fertilisation causes embryos to miss key​
+​developmental instructions​
+
+​Station 4: You find out that your gold's just plastic [17 pts]​
+​1)​ ​Identify specimen A to the lowest taxonomic classification present on the 2026 National Entomology List. [1 pt]​
+​2)​ ​Identify specimen B to the lowest taxonomic classification present on the 2026 National Entomology List. [1 pt]​
+​3)​ ​Of these two specimens, which is less welcome in human settlements? [1 pt]​
+​(A)​​Specimen A​
+​(B)​​Specimen B​
+​4)​ ​Why is this specimen not welcome in human settlements? [1 pt]​
+​(A)​​They are capable of stinging people and pets​
+​(B)​​They carry pathogens which are transmitted to humans​
+​(C)​​They suck blood from sleeping people, causing blood loss​
+​(D)​​They lay eggs inside human bodies​
+​(E)​​They are toxic and release irritants when touched​
+​(F)​​They eat leaves and roots of important crops​
+​(G)​​They suck sap and plant juices, killing the plant​
+​(H)​​They bore holes through wood, damaging wood products​
+​(I)​ ​They attract other pests​
+​(J)​ ​They damage household materials such as paper/fabric​
+​(K)​​Nests can get too heavy and damage manmade structures​
+​(L)​​Their droppings/exuviae can trigger allergic reactions​
+​5)​ ​This specimen might cause the damage that makes them dangerous, but how might the trait you identified in the question above be helpful? [2 pt]​
+​6)​ ​How is the other specimen beneficial to humans? [1 pt]​
+​(A)​​They pollinate most staple food crops grown by humans​
+​(B)​​They serve as pest control by preying on pest species​
+​(C)​​They are a source of materials that humans use/consume​
+​(D)​​They help recycle nutrients back into the environment​
+​(E)​​They are model organisms used in biological research​
+​(F)​​They are important food sources for people and livestock​
+​(G)​​They are used in medicine for cleaning wounds​
+​(H)​​They are important bioindicators for aquatic habitats​
+​(I)​ ​They are important in forensic entomology​
+​(J)​ ​They make people like me happy :)​
+
+​Station 4: You find out that your gold's just plastic (continued) [17 pts]​
+​The following questions explore a very interesting trait about specimen A. You can see how specimen A put its patterns all in the past now: sometimes it’s​
+​gonna be, gonna be golden but it can also become red, burning red form as shown in Figure A1. Figures A2 and A3 are adapted from Vigneron et al., 2007.​
+​7)​ ​The ability of specimen A to reversibly shift between the golden and red morphs as a response to the environment best exemplifies which​
+​biological principle? [1 pt]​
+​(A)​​Developmental plasticity​
+​(B)​​Genetic polymorphism​
+​(C)​​Phenotypic plasticity​
+​(D)​​Pleiotropy​
+​(E)​​Canalisation​
+​(F)​​Acclimatisation​
+​8)​ ​Which of the following most accurately describes what the RED colouration of specimen A is caused by? [0.5 pt]​
+​(A)​​Pigments​
+​(B)​​Structural colouration​
+​9)​ ​Which of the following most accurately describes what the GOLDEN colouration of specimen A is caused by? [0.5 pt]​
+​(A)​​Pigments​
+​(B)​​Structural colouration​
+​10)​​Based on what you know about the listed taxon specimen A belongs to, what advantage might this colour shift offer? [1 pt]​
+​(A)​​Attracting mates​
+​(B)​​Camouflage patterns in foliage​
+​(C)​​Attracting prey insects​
+​(D)​​Thermoregulation and UV protection​
+​(E)​​Aposematic warning signal​
+​(F)​​Helping recognise members of their own species​
+​(G)​​Territorial displays to defend mates/territory​
+​(H)​​No advantage; colouration is a physiological byproduct​
+​11)​​Figure 2 depicts a scanning electron microscope view of a severely damaged part of the cuticle of specimen A, showing channels running through​
+​the optical exocuticle. Based on this information, which is a plausible explanation for the mechanism behind specimen A’s colour change? [1 pt]​
+​(A)​​Special pigments are deposited into these channels, resulting in the colour change​
+​(B)​​Scales on different layers of the cuticle become lost or damaged, revealing the colour underneath​
+​(C)​​The cuticle thickens, causing differences in how light is reflected off the cuticular surface​
+​(D)​​Fluids are moved in and out of the channels, altering how light is reflected​
+​12)​​Figure 3 is a graph highlighting the relationship between the electrical resistance of an elytron from specimen A and time as it transitions from​
+​gold to red. Answer the following questions.​
+​a)​ ​What trend in electrical resistance is observed as specimen A transitions from gold to red? [1 pt]​
+​(A)​​Electrical resistance increases as specimen A transitions from gold to red​
+​(B)​​Electrical resistance decreases as specimen A transitions from gold to red​
+​(C)​​There is no significant change in resistance​
+​b)​ ​Based on figure 3, would you expect a pinned specimen at a museum to display golden or red colourations? Pinned specimens tend to be​
+​__________, which means they have a (lower) / (higher) resistance, corresponding to (golden) / (red) colourations. [3 pt][TB]​
+
+​Station 4: You find out that your gold's just plastic (continued) [17 pts]​
+​13)​​Consider the golden colouration of specimen B. Would you expect specimen B to be diurnal, nocturnal, or crepuscular? [1 pt]​
+​(A)​​Diurnal​
+​(B)​​Nocturnal​
+​(C)​​Crepuscular​
+​14)​​Why might having these beautiful golden colours actually backfire for the survival of these two specimens? [1 pt]​
+​(A)​​The colouration is caused by toxic chemical accumulation which slowly kills the insect​
+​(B)​​It lacks structural support proteins which happen to be dark in colour, making the exoskeleton very weak​
+​(C)​​It absorbs excess amounts of radiation which could overheat the insect​
+​(D)​​It does not absorb adequate amounts of radiation, making the insect too cold to properly function​
+​(E)​​It makes the insect stand out against its environment, rendering it an easy target for predators​
+​(F)​​The metabolic cost of producing pigments is too high, leaving fewer resources for other critical survival functions​
+​(G)​​The reflection of light off of the golden exoskeleton causes a form of self-induced blindness​
+
+​Station 5: Let’s kill this love [20 pts]​
+​1)​ ​Identify specimen A to the lowest taxonomic classification present on the 2026 National Entomology List. [1 pt]​
+​2)​ ​Identify specimen B to the lowest taxonomic classification present on the 2026 National Entomology List. [1 pt]​
+​3)​ ​Observe the physical similarity between the two specimens.​
+​a)​ ​Which of these is the lowest taxonomic classification shared by both specimens? [1 pt]​
+​(A)​​Kingdom​
+​(B)​​Phylum​
+​(C)​​Class​
+​(D)​​Subclass​
+​(E)​​Infraclass​
+​(F)​​Superorder​
+​(G)​​Order​
+​(H)​​Suborder​
+​(I)​ ​Infraorder​
+​(J)​ ​Superfamily​
+​(K)​​Family​
+​b)​ ​What is the name of the shared classification you identified in the previous question? [1 pt][TB]​
+​c)​ ​Which term best describes the physical similarity between the two specimens? [1 pt]​
+​(A)​​Mullerian mimicry​
+​(B)​​Batesian mimicry​
+​(C)​​Convergent evolution​
+​(D)​​Divergent evolution​
+​(E)​​Parallel evolution​
+​(F)​​Phenotypic plasticity​
+​(G)​​Homology​
+
+​Station 5: Let’s kill this love (continued) [20 pts]​
+​d)​ ​What advantage does this unique body shape offer in terms of their habitat? [1 pt]​
+​(A)​​Camouflage/crypsis in vegetated habitat​
+​(B)​​Thermoregulation by maximising surface area for heat exchange​
+​(C)​​Enhanced aerodynamic lift for better dispersal in open environments​
+​(D)​​Amplification of mating calls with organs in a noisy environment​
+​(E)​​Structural reinforcement for burrowing through soil​
+​(F)​​Pockets to store air for extended periods of time underwater​
+​(G)​​Water storage along the body length to survive arid environments​
+​e)​ ​What behaviours may both specimens exhibit to further enhance the advantage from the question above? Select all that apply. [2 pt]​
+​(A)​​Swaying gently to mimic foliage moving in wind​
+​(B)​​Basking in the sun to increase body temperature​
+​(C)​​Spreading limbs to slow descent when falling​
+​(D)​​Vibrating their bodies to amplify sound​
+​(E)​​Digging in the soil to avoid overheating​
+​(F)​​Remaining motionless or moving slowly​
+​(G)​​Using stored air bubbles to remain submerged​
+​(H)​​Raising limbs/wings to show warning colouration​
+​(I)​ ​Pumping water throughout their body​
+​(J)​ ​Closing spiracles to avoid excessive water loss​
+​(K)​​Taking advantage of warm air currents to soar​
+​(L)​​Seeking burrows from  subterranean animals​
+​These two specimens have different mating strategies. The following questions explore how they have to kill this love before it kills them too.​
+​4)​ ​What is the​​primary​​driving force behind intraspecific​​sexual conflict? [1 pt]​
+​(A)​​Males and females have similar reproductive strategies but lack proper communication​
+​(B)​​Males and females experience unequal gamete investment and parental costs​
+​(C)​​Environmental stress forces males and females to compete for the same resources​
+​(D)​​Hormonal imbalance causes aggression during the breeding season​
+​(E)​​It results from territorial disputes rather than reproductive interests​
+​(F)​​A lack of genetic diversity forces males and females compete for identical mates​
+​(G)​​Any sexual conflict is purely accidental and not related to natural selection​
+​5)​ ​As a result of sexual conflict, one of these specimens has adopted a mating strategy that contradicts the traditional male-female relationship, one​
+​that hurts males more.​
+​a)​ ​Name this type of mating strategy. [1 pt]​
+​b)​ ​Identify which of the two specimens this mating strategy applies to. [1 pt]​
+​(A)​​Specimen A​
+​(B)​​Specimen B​
+​(C)​​Both specimens​
+
+​Station 5: Let’s kill this love (continued) [20 pts]​
+​c)​ ​Which of these gives the​​evolutionary advantage​​for​​this behaviour? Select all that apply. [2 pt]​
+​(A)​​The male sacrifices himself to protect the female from predators.​
+​(B)​​It releases pheromones that attract more mates for the female.​
+​(C)​​It prevents males from mating with other females.​
+​(D)​​It ensures the female doesn’t mate with other males.​
+​(E)​​It provides the female with more nutrients needed for egg production.​
+​(F)​​It is a territorial display to warn others.​
+​(G)​​It helps females identify genetically compatible males.​
+​(H)​​It reduces the competition amongst males for mates.​
+​(I)​ ​It ensures only the most vigorous males can successfully mate.​
+​(J)​ ​The females are just really aggressive and hate males.​
+​d)​ ​Would you expect this behaviour to be more common, less common, or no different in environments that are female-biased compared to​
+​environments with an equal population of males and females? [1 pt]​
+​6)​ ​The other specimen exhibits something known as mate guarding.​
+​a)​ ​Who guards who/what during mate guarding? [1 pt]​
+​(A)​​The male guards the female from other males​
+​(B)​​The male guards the female from other females​
+​(C)​​The male guards the female from predators​
+​(D)​​The male guards the food source for the female​
+​(E)​​The male guards the eggs from predators​
+​(F)​​The female guards the male from other males​
+​(G)​​The female guards the male from other females​
+​(H)​​The female guards the male from predators​
+​(I)​ ​The female guards the food source from the male​
+​(J)​ ​The female guards the eggs from predators​
+​(K)​​Both sexes guard the eggs from predators​
+​(L)​​Both sexes guard the food source​
+​b)​ ​Why does this specimen exhibit this behaviour? [1 pt]​
+​(A)​​To ensure the male doesn’t mate with other females​
+​(B)​​To ensure eggs only have the male’s genetic material​
+​(C)​​To ensure the female can mate with the male later​
+​(D)​​To protect the eggs and ensure they survive/hatch​
+​(E)​​To ensure the protected female can lay eggs​
+​(F)​​To ensure there is enough food for the new family​
+​(G)​​To strengthen pair bonds for cooperative brood care​
+
+​Station 5: Let’s kill this love (continued) [20 pts]​
+​c)​ ​While at first it seems like the male benefits more than the female during mate guarding, it has benefits for the female too.​
+​i)​
+​Explain how this behaviour may benefit the female. [1 pt]​
+​(A)​​Nuptial gifts provided by the male give her nutrients needed to lay the eggs​
+​(B)​​It protects her eggs and allows them to hatch​
+​(C)​​The male invests more time in raising the eggs and nestbuilding​
+​(D)​​Egg development is expedited through prolonged copulation​
+​(E)​​Rival males stop harassing the female, allowing her to focus on oviposition​
+​(F)​​She feels very loved and protected by the male, giving her a sense of happiness​
+​ii)​
+​How might the female intentionally​​force​​the male​​to stay longer? [1 pt]​
+​(A)​​She attacks him if he tries to leave.​
+​(B)​​She releases pheromones to confuse him.​
+​(C)​​She tightens her abdomen to hold him.​
+​(D)​​She produces adhesives to glue him in place.​
+​(E)​​She wraps her legs around him to hold him.​
+​(F)​​She calls predators over if he tries to leave.​
+​(G)​​She slows the rate of sperm acceptance.​
+​iii)​
+​How do insects of this taxon exhibit sexual dimorphism in terms of size? Males are __________ females. [1 pt]​
+​(A)​​Larger than​
+​(B)​​Smaller than​
+​(C)​​Same size as​
+​iv)​
+​What is the explanation for this size difference in the context of mate guarding behaviours? [1 pt]​
+​(A)​​Better protect the partner from predators​
+​(B)​​Force the partner to mate with them​
+​(C)​​Avoid predation​
+​(D)​​Easier for the partner to move while mating​
+​(E)​​Better match each other when mating​
+
+​Station 6: Taste that pink venom [18 pts]​
+​1)​ ​Which choice best explains the difference between a venom and a poison? [1 pt]​
+​(A)​​Venom is always lethal while poison just causes irritation.​
+​(B)​​Venom just causes irritation while poison is always lethal.​
+​(C)​​Venom is organic while poison is inorganic toxin.​
+​(D)​​Venom is inorganic while poison is organic.​
+​(E)​​Venom is actively delivered, poison is passively absorbed.​
+​(F)​​Venom is passively absorbed, poison is actively delivered.​
+​(G)​​Venom is produced by animals, poison is plant-based.​
+​(H)​​Venom is plant-based, poison is produced by animals.​
+​(I)​ ​Venom is injected into bloodstream, poison only affects skin.​
+​(J)​ ​Venom only affects skin, poison is injected into bloodstream.​
+​(K)​​Venom can always be neutralised; poisons cannot.​
+​(L)​​Venom cannot be neutralised; poisons can always be.​
+​2)​ ​Identify this specimen to its family level. [1 pt]​
+​3)​ ​Based on what you know about this family, from where does this insect inject venom? [1 pt]​
+​(A)​​Specialised stinger at the end of its abdomen​
+​(B)​​Mandibles​
+​(C)​​Labium​
+​(D)​​Openings in their exoskeleton near their joints​
+​(E)​​Spines on its legs​
+​(F)​​Cerci at the end of its abdomen​
+​(G)​​The tips of its antennae​
+​(H)​​A bulb-shaped gland at the end of their abdomen​
+​4)​ ​When the venom comes in contact with humans (intentionally or not), it often results in an unpleasant reaction. How does the venom or mixture​
+​of venoms released by venomous members of this family PRIMARILY affect humans? Select all that apply. [2 pt]​
+​(A)​​Causes intense burning or pain at the site​
+​(B)​​Creates uncontrollable blood clotting​
+​(C)​​Causes uncontrollable blood thinning/anticoagulants​
+​(D)​​Produces necrotic lesions/blistering of the skin​
+​(E)​​Attacks the nervous system, causing paralysis​
+​(F)​​Suppresses digestive enzyme production​
+​(G)​​Causes acute respiratory failure​
+​(H)​​Disrupts cell ion balance leading to cardiac arrest​
+
+​Station 6: Taste that pink venom (continued) [18 pts]​
+​5)​ ​What is the PRIMARY purpose of this venom? [1 pt]​
+​(A)​​Defend against predators​
+​(B)​​Capture and subdue prey​
+​(C)​​Attract mates​
+​(D)​​Serve as a warning signal against competitors​
+​(E)​​Attach eggs to substrate such as bark​
+​(F)​​Provide colouration such as this specimen’s pink​
+​6)​ ​The process of using their venom for the purpose you identified in the question above is known as what? Give just the technical term. [2 pt]​
+​7)​ ​Besides having venom, which other common adaptations do these insects have to warn of their toxicity? Select all that apply. [2 pt]​
+​(A)​​Reflex bleeding​
+​(B)​​Sudden movements​
+​(C)​​Flashing their venom gland​
+​(D)​​Eye spots on wings​
+​(E)​​Living in large groups​
+​(F)​​Stridulation​
+​(G)​​Glowing in the dark​
+​(H)​​Bright colourations​
+​(I)​ ​Changing their colour to match surroundings​
+​(J)​ ​Puffing up their body to appear larger​
+​(K)​​Creating vibrations by drumming substrate​
+​8)​ ​Although this particular specimen is venomous, many others within the same family are not.​
+​a)​ ​How might the venom have become modified for nonvenomous species in this family? [2 pt]​
+​b)​ ​Are venomous or nonvenomous species of this family more harmful to humans? [1 pt]​
+​(A)​​Venomous species​
+​(B)​​Nonvenomous species​
+​c)​ ​What about their ecological niche makes them more harmful? [2 pt]​
+​9)​ ​Members of this family differ from other families within the same order in terms of their habitat and feeding ecology.​
+​a)​ ​What is unusual about their habitat preference compared to other members of this order with similar feeding habits? [1 pt]​
+​(A)​
+​This family lives on/in animal hosts while other families are free-living​
+​(B)​
+​This family is free-living while other families live on/in animal hosts​
+​(C)​
+​This family lives in arboreal environments while other families are ground-dwellers​
+​(D)​
+​This family is ground-dwelling while other families live in arboreal environments​
+​(E)​
+​This family is primarily terrestrial while other families are aquatic​
+​(F)​
+​This family is aquatic while other families are primarily terrestrial​
+​(G)​
+​This family thrives in salt water while other families live in fresh water​
+​(H)​
+​This family lives in fresh water while other families live in salt water​
+​(I)​
+​This family lives in areas of higher latitude and/or elevation while other families live in low latitude/elevation​
+​(J)​
+​This family lives in areas of lower latitude and/or elevation while other families live in high latitude/elevation​
+​(K)​
+​This family lives in dry and arid environments while other families live in moist conditions​
+​(L)​
+​This family lives in moist conditions while other families live in dry and arid environments​
+​(M)​
+​This family prefers darker environments while other families live in light conditions​
+​(N)​
+​This family lives in bright environments while other families prefer darker environments​
+
+​Station 6: Taste that pink venom (continued) [18 pts]​
+​b)​ ​Why is it unusual for this family to be associated with this type of habitat rather than what is common in the order? [1 pt]​
+​(A)​
+​The common habitat has less competition and more sources of food.​
+​(B)​
+​The common habitat has less predators.​
+​(C)​
+​The common habitat is where the common ancestor of this taxon originated.​
+​(D)​
+​The common habitat offers more protection against harsh conditions.​
+​(E)​
+​The common habitat allows for easier dispersal of adults.​
+​(F)​
+​The common habitat has more stable temperatures.​
+​(G)​
+​The common habitat reduces the risk of desiccation.​
+​(H)​
+​The common habitat offers a safer environment to reproduce.​
+​(I)​
+​The common habitat allows more oxygen intake which helps with growth.​
+​c)​ ​Which is an adaptation that allows this family to survive in its preferred environment as opposed to what other families prefer? [1 pt]​
+​(A)​
+​Tarsal claws that allow them to cling to host feathers, fur, or hair​
+​(B)​
+​Muscular forelegs well adapted to digging in the soil​
+​(C)​
+​Strong hindlegs to escape predators in tall grasses​
+​(D)​
+​Strong wings for helping them disperse across vast distances in an open environment​
+​(E)​
+​Earthly tones that help them blend in to soil and rotting logs​
+​(F)​
+​Camouflage that allows them to mimic floral patterns in foliage​
+​(G)​
+​Antifreeze chemicals in their haemolymph that prevent it from crystallising in cold conditions​
+​(H)​
+​The ability to generate enough heat through rapidly flapping their wings​
+​(I)​
+​An enlarged surface area to dispel more heat in hotter environments​
+​(J)​
+​Paddle-shaped legs adapted for swimming in the water​
+​(K)​
+​Gills that allow them to breathe underwater​
+​(L)​
+​Sophisticated filtration systems in their exoskeleton that remove salt out of ocean water​
+​(M)​
+​A soft exoskeleton for easy maneuverability in cluttered environments​
+​(N)​
+​A hard exoskeleton built for preventing water loss in dry environments​
+​(O)​
+​Large eyes that enable them to have better vision in dark environments​
+​(P)​
+​Enhanced touch receptors on their antennae that allow them to sense in environments where vision isn't helpful​
+
+​Station 7: So come up with me, run up, uh, jump [18 pts]​
+​1)​ ​Identify specimen A to the lowest taxonomic classification present on the 2026 National Entomology List. [1 pt]​
+​2)​ ​Identify specimen B to the lowest taxonomic classification present on the 2026 National Entomology List. [1 pt]​
+​3)​ ​Identify specimen C to the lowest taxonomic classification present on the 2026 National Entomology List. [1 pt]​
+​4)​ ​Which, if any, of these specimens are capable of strong flight? [1 pt]​
+​(A)​​Specimen A​
+​(B)​​Specimen B​
+​(C)​​Specimen C​
+​(D)​​Specimens A and B​
+​(E)​​Specimens A and C​
+​(F)​​Specimens B and C​
+​(G)​​All three specimens​
+​(H)​​None of them​
+​5)​ ​Which of the following is NOT a reason why jumping might offer an advantage over flight? [1 pt]​
+​(A)​​Jumping requires less energy​
+​(B)​​Jumping is better for open environments​
+​(C)​​Jumping is less predictable for predators​
+​(D)​​Jumping is better for short-distance travel​
+​(E)​​Jumping allows for precise targeting on landing​
+​(F)​​Jumping minimises exposure to aerial predators​
+​6)​ ​Jumping is most commonly found in terrestrial arthropods. Briefly explain why jumping is less commonly observed in aquatic species. [1 pt]​
+​(A)​​Aquatic insects lack the muscular development needed to power jumping legs.​
+​(B)​​Jumping requires wings to stabilise the body, and aquatic insects are usually either wingless or weak fliers.​
+​(C)​​Water currents interfere with the ability of legs to push off surfaces, making jumping unnecessary.​
+​(D)​​Water resists sudden bursts of movement, so rapid jumping is inefficient.​
+​(E)​​Aquatic surfaces are often too soft or unstable for insects to push off powerfully.​
+​(F)​​Jumping could expose insects to predators waiting to ambush them at the surface.​
+​(G)​​Streamlined bodies and oarlike legs just aren’t compatible with jumping mechanics.​
+​(H)​​The high density of aquatic plants in aquatic habitats make it too cluttered for jumping to be used effectively.​
+
+​Station 7: So come up with me, run up, uh, jump (continued) [18 pts]​
+​7)​ ​Despite these specimens having motions resembling “jumping”, one of these doesn’t actually “jump”.​
+​a)​ ​Identify which specimen the above statement describes. [1 pt]​
+​(A)​​Specimen A​
+​(B)​​Specimen B​
+​(C)​​Specimen C​
+​b)​ ​Which organ or structure is responsible for this upwards motion? [1 pt]​
+​c)​ ​Describe the actual mechanism behind the jumplike action (ie how the organ you identified in the previous question works). [1 pt]​
+​(A)​​It rapidly contracts this organ to push off from the ground.​
+​(B)​​The organ is held under tension and then released by snapping downward.​
+​(C)​​A spring made of special proteins releases stored energy inside the organ.​
+​(D)​​Hydraulic pressure enables the organ to extend.​
+​(E)​​The organ is swung downward to generate thrust to launch the specimen upwards.​
+​(F)​​The organ extends and starts flapping rapidly to generate lift in short bursts.​
+​d)​ ​Between the two specimens who actually jump, which is capable of jumping many times their body length in a single jump? [1 pt]​
+​(A)​​Specimen A​
+​(B)​​Specimen B​
+​(C)​​Specimen C​
+​e)​ ​What physiological feature/organ allows this specimen to jump farther than the other jumping specimen? [1 pt]​
+​(A)​​Direct muscle power from its robust hind legs​
+​(B)​​A snapping mechanism on the pronotum​
+​(C)​​Resilin pads store extra elastic energy​
+​(D)​​Wings provide extra lift and boost the jump​
+​(E)​​Coxal glands propel the body via fluid pressure​
+​(F)​​Abdominal compression releases elastic energy​
+​(G)​​Antennal flick launches the specimen upward​
+​f)​ ​True or false: this specimen is the best known jumper (relative to body size) of all known animals. [1 pt]​
+​8)​ ​How might the habitat of specimen A influence its jumping style compared to the other two specimens? [1 pt]​
+​(A)​​Living in tall grasses, it relies on long, arcing jumps to move efficiently between food sources​
+​(B)​​Dwelling on vertebrate hosts, it needs powerful, controlled leaps to land on animals for feeding​
+​(C)​​Living an arboreal lifestyle, its jumps provide a starting mechanism for gliding from branch to branch​
+​(D)​​Living in dense soil and leaf litter, it benefits from rapid escape jumps to confuse predators​
+​(E)​​Living in a dry, barren environment such as deserts, jumping provides a fast escape when there is little cover​
+​9)​ ​Which other taxonomic family on the 2026 National Entomology List is the most closely related to specimen B? [1 pt][TB]​
+​10)​​Why might specimen B being closely related to this other family challenge traditional taxonomic classification? [3 pt][TB]​
+​11)​​Under which circumstances does specimen B usually jump? [1 pt]​
+​(A)​​To escape predators​
+​(B)​​During courtship displays to demonstrate physical fitness​
+​(C)​​For random locomotion while feeding​
+​(D)​​During short-distance travel​
+​(E)​​To reach a passing host after pupation​
+​(F)​​During long-distance relocation and dispersal​
+​(G)​​It is their normal method of locomotion​
+
+​Station 8: Swim, swim, twin // You and I we drifted apart [19 pts]​
+​1)​ ​Identify specimen A to the lowest taxonomic classification present on the 2026 National Entomology List. [1 pt]​
+​2)​ ​Identify specimen B to the lowest taxonomic classification present on the 2026 National Entomology List. [1 pt]​
+​3)​ ​Identify specimen C to the lowest taxonomic classification present on the 2026 National Entomology List. [1 pt]​
+​4)​ ​Identify specimen D to the lowest taxonomic classification present on the 2026 National Entomology List. [1 pt]​
+​5)​ ​Which of these specimens are predators of other larvae in their larval stage? Select all that apply. [1 pt]​
+​(A)​​Specimen A​
+​(B)​​Specimen B​
+​(C)​​Specimen C​
+​(D)​​Specimen D​
+​6)​ ​Do any of these specimens remain aquatic for their adult stage? Select all that apply. [1 pt]​
+​(A)​​Specimen A​
+​(B)​​Specimen B​
+​(C)​​Specimen C​
+​(D)​​Specimen D​
+​(E)​​None of them​
+
+​Station 8: Swim, swim, twin // You and I we drifted apart (continued) [19 pts]​
+​These four specimens are all important indicators of water quality.​
+​7)​ ​Explain the relationship between water pollution and oxygen levels. [1 pt]​
+​(A)​​Water pollution increases oxygen levels because organic matter helps plants and algae grow.​
+​(B)​​Water pollution increases oxygen levels by killing off other insects, reducing the competition for oxygen.​
+​(C)​​Water pollution increases oxygen levels by increasing flow rate and improving oxygen circulation.​
+​(D)​​Water pollution increases oxygen levels because pollutants chemically release oxygen into the water.​
+​(E)​​Water pollution decreases oxygen levels by killing off plants that produce oxygen.​
+​(F)​​Water pollution decreases oxygen levels because organic matter stimulates microbial respiration.​
+​(G)​​Water pollution decreases oxygen levels by slowing down flow rate, resulting in less oxygen circulation.​
+​(H)​​Water pollution decreases oxygen levels because the chemicals in pollutants absorb dissolved oxygen.​
+​(I)​ ​Water pollution has no consistent effect on oxygen levels; they are independent of each other.​
+​8)​ ​One of the biggest challenges associated with having an aquatic lifestyle is the added difficulty in obtaining enough oxygen. To adapt, one of these​
+​specimens has a special protein that allows efficient oxygen transport and storage. Let’s call this protein “Protein X”.​
+​a)​ ​Which specimen has this particular protein? [1 pt]​
+​(A)​​Specimen A​
+​(B)​​Specimen B​
+​(C)​​Specimen C​
+​(D)​​Specimen D​
+​b)​ ​Give the name of this protein. [1 pt]​
+​Figure A1 is adapted from a research paper (Panis et al., 1996). It shows the median depth of where different taxa belonging to family A were found, the​
+​mean weight, and the concentration of protein X with standard deviation denoted in parentheses. N is the number of specimens sampled for each taxa.​
+​c)​ ​Based on the table, what relationship can you see between the concentration of protein X and median depth? [1 pt]​
+​(A)​​Direct​
+​(B)​​Inverse​
+​(C)​​No clear relationship​
+​d)​ ​Why would the presence of protein X influence the depth at which these specimens are found? [1 pt]​
+​(A)​​The deeper the water, the more oxygen there is, so there needs to be more protein X to take advantage of the extra oxygen.​
+​(B)​​The deeper the water, the more oxygen there is, so less protein X is required.​
+​(C)​​The deeper the water, the more oxygen there is, so more protein X is needed to release excess oxygen.​
+​(D)​​The deeper the water, the less oxygen there is, so specimen A needs more protein X to store what limited oxygen there is.​
+​(E)​​The deeper the water, the less oxygen there is, so there is effectively no oxygen to store making protein X useless.​
+​(F)​​The deeper the water, the higher the protein X concentration, since there is a lack of sunlight that would otherwise break it down.​
+​(G)​​The deeper the water, the lower the protein X concentration, because the lack of sunlight hinders its production.​
+​(H)​​The more protein X there is in an organism, the deeper they live, since protein X is denser than water.​
+​(I)​ ​Protein X increases buoyancy since it carries oxygen, making the specimen float closer to the surface.​
+​(J)​ ​There is no relationship between depth and protein X concentration.​
+
+​Station 8: Swim, swim, twin // You and I we drifted apart (continued) [19 pts]​
+​e)​ ​What is the relationship between mean body weight and concentration of protein X? [1 pt]​
+​(A)​​Direct​
+​(B)​​Inverse​
+​(C)​​No clear relationship​
+​f)​ ​Based on the table, does it seem like depth or body weight has more of an impact on concentration of protein X? [1 pt]​
+​(A)​​Depth​
+​(B)​​Body weight​
+​(C)​​Cannot determine​
+​9)​ ​Do water quality bioindicators tend to be benthic or pelagic? [1 pt]​
+​(A)​​Benthic​
+​(B)​​Pelagic​
+​10)​​What makes this category of specimens more useful than the other category? Select all that apply. [2 pt]​
+​(A)​​They are able to move throughout the water, sampling a wider area and giving a better overall picture of water quality.​
+​(B)​​They are more visible/easier to sample.​
+​(C)​​They live on/in the sediment at the bottom where contaminants often accumulate.​
+​(D)​​They respond more quickly to pollution, showing a better idea of short-term changes.​
+​(E)​​They tend to be more abundant in bodies of water.​
+​(F)​​They live at the surface, making them better for studying surface oxygen levels.​
+​(G)​​Their limited mobility reflects local conditions of the water quality.​
+​(H)​​They can leave the area if conditions are suboptimal, so their presence/absence is valuable.​
+​(I)​ ​They are less sensitive to environmental changes, so populations remain stable over time.​
+​(J)​ ​They are more sensitive than the other group of organisms.​
+​(K)​​They reproduce faster, allowing quick assessment of population changes.​
+​11)​​Rank the specimens in terms of increasing pollution tolerance. Use only the specimen letter. (Example: A < B < C < D; D is most tolerant). [2 pt]​
+​12)​​Dr. Rooni is trying to determine the water quality of a stream near her office. She takes a macroinvertebrate sample and finds that it contains 40%​
+​specimen A, 10% specimen B, 20% specimen C, and 30% specimen D. What does this suggest about the water quality of the stream? [1 pt]​
+​(A)​​Literally toxic; would kill her​
+​(B)​​Very poor​
+​(C)​​Moderate​
+​(D)​​Excellent​
+
+​Station 9: Get a taste before I go // Take a picture for the road [20 pts]​
+​Identify each of the specimens below to the lowest taxonomic classification present on the 2026 National Entomology List. 1 point each.​

@@ -1,0 +1,510 @@
+1. (2.00 pts)
+What is the work done by the 12 V battery in a circuit over a duration of 8.0 seconds, where the circuit only contains the battery and a 50Ω resistor?
+   A)
+4.2 J
+   B)
+12 J
+   C)
+23 J
+   D)
+34 J
+2. (2.00 pts)
+What is the electric potential of a system of 4 point charges with all charge 5.0 µC that are ordered in a way such that they form a regular tetrahedron with side length 15 cm? 
+   A)
+3.0 V
+   B)
+4.5 V
+   C)
+9.0 V
+   D)
+12 V
+3. (2.00 pts)
+Which of the following answer choices have correct quantity aligned with the SI unit?
+   A)
+Capacitance - F
+   B)
+Conductance - Ω
+   C)
+Impedance - Ω
+   D)
+Resistivity - ρ
+   E)
+Voltage - V
+Circuit Lab C - Circuit Lab - Monta Vista Science Olympiad (Div. C) - 11-14-2025
+Student Answer Sheet (/monta-vista/SM/AnswerSheet?tid=000GEZ)
+Instructions (shown before students start the test)
+Welcome to the MVSO Circuit Lab Test!!!
+The test will have 49 questions: 35 multiple choice, 5 fill in the blank, 3 explanation questions, and 6 free response calculation questions.
+For the free response calculation questions, all the answers should be in 3 significant figures. Please show all your work for the calculations (at least show the equations you are usin
+so we know what you want to do)
+Thank you and good luck!
+Introduction (shown after students start the test)
+Welcome to the MVSO Circuit Lab Test!!!
+The test will have 49 questions: 35 multiple choice, 5 fill in the blank, 3 explanation questions, and 6 free response calculation questions. Question 28 is missing a diagram and will 
+be counted into the final score.
+For the free response calculation questions, all the answers should be in 3 significant figures. Please show all your work for the calculations (at least show the equations you are using
+we know what you want to do)
+Thank you and good luck!
+(Mark ALL correct answers)
+12/13/25, 2:09 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEZ
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEZ
+1/13
+
+4. (2.00 pts)
+Consider two charged metal spheres as seen in the diagram below. The one on the left has radius 2 cm and charge of 15 C, while the one on the right has radius 6 cm and charge o
+5 C. If we connect the two spheres the orange wire as shown, what will the charge on the right sphere eventually become?
+   A)
+5 C
+   B)
+10 C
+   C)
+15 C
+   D)
+20 C
+5. (2.00 pts)
+According to this diagram, what direction will the magnetic field act towards the wire on the top?
+   A)
+Up
+   B)
+Down
+   C)
+Left
+   D)
+Right
+6. (2.00 pts)
+ What electrical component does this symbol represent?
+   A)
+AC Source
+   B)
+DC Source
+   C)
+RC Source
+   D)
+Battery
+7. (0.00 pts)
+[VOIDED] Which of the following diagrams correctly represent how charge is polarized in an insulator?
+12/13/25, 2:09 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEZ
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEZ
+2/13
+
+   A)
+A only
+   B)
+A and D only
+   C)
+C only
+   D)
+A, B, C and D
+8. (2.00 pts)
+Which of the following combinations of measurement devices and quantities are correct?
+   A)
+Ohmmeter - Reactance
+   B)
+Galvanometer - Voltage
+   C)
+Gaussmeter - magnetic flux density
+   D)
+Oscilloscope - Voltage
+9. (2.00 pts)
+Suppose we want to make the secondary voltage 4 times of the primary voltage. What should the ratio between the primary voltage to the secondary voltage be equal to?
+   A)
+0.25
+   B)
+0.5
+   C)
+2
+   D)
+4
+10. (2.00 pts)
+Suppose a dielectric medium with the dielectric constant of κ=2 fits in perfectly into an isolated charged capacitor. What factor does the electric field between the capacitors
+change by? 
+   A)
+0.25
+   B)
+0.5
+   C)
+2
+(Mark ALL correct answers)
+12/13/25, 2:09 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEZ
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEZ
+3/13
+
+   D)
+4
+11. (2.00 pts)
+For the following household components, select those which run on alternating current (AC).
+   A)
+LED lighting
+   B)
+Microwave
+   C)
+TV
+   D)
+Fridge
+   E)
+Air conditioning
+12. (2.00 pts)
+What is the electric field from a single, uniformly charged plate with charge of 4.0 mC over an area of 5.0 m^2?
+   A)
+3.0 * 10^7 N/C
+   B)
+4.5 * 10^8 N/C
+   C)
+9.0 * 10^8 N/C
+   D)
+9.0 * 10^9 N/C
+13. (2.00 pts)
+Which of the following type of relays have more flexibility by having two possible outputs from one input?
+   A)
+SPST - Single Pole Single Throw
+   B)
+DPST - Double Pole Single Throw
+   C)
+SPDT - Single Pole Double Throw
+   D)
+DPDT - Double Pole Double Throw
+14. (2.00 pts)
+Consider the following setup, with two point charges +q and -q positioned in an uniform electric field of 6400 N/C. The distance between the two charges is 0.40 m, with a dipole
+moment of 0.15 C·m. What torque acts on the dipole?
+   A)
+380 N·m
+   B)
+960 N·m
+   C)
+1280 N·m
+   D)
+2560 N·m
+15. (2.00 pts)
+An electron travels straight north at a velocity 5 m/s through an uniform magnetic and electric field. The magnetic field pointing east at 2T. What is the strength and direction of the
+electric field?
+(Mark ALL correct answers)
+12/13/25, 2:09 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEZ
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEZ
+4/13
+
+   A)
+2.5 N/C, west
+   B)
+5 N/C, north
+   C)
+10 N/C, up
+   D)
+10 N/C, down
+16. (2.00 pts)
+What is the common fuse rating at residential areas (general lighting/outlets)?
+   A)
+10 A
+   B)
+15 A
+   C)
+30 A
+   D)
+50 A
+17. (2.00 pts)
+What electrical component does these symbols represent?
+   A)
+Fuse
+   B)
+Resistor
+   C)
+Rheostat
+   D)
+Potentiometer
+18. (2.00 pts)
+Alessandro Volta is known for creating the first electrochemical cell. What was one major disadvantage with his original design?
+   A)
+The nitric acid used for the electrolyte was too dangerous
+   B)
+The zinc plate oxidized too quickly, so the battery was too short-lived
+   C)
+The copper plate was too expensive
+   D)
+The buildup of hydrogen gas formed a barrier increasing internal resistance
+19. (2.00 pts)
+Which of the following is the key difference in the operational principle between a synchronous motor and a non-synchronous motor (induction motor)?
+   A)
+A synchronous motor's rotor speed is always less than the stator's magnetic field speed, while an induction motor's rotor speed is always equal.
+   B)
+A synchronous motor does not have a rotor, while an induction motor does.
+   C)
+A synchronous motor requires a DC power supply for the stator, while an induction motor only uses an AC supply.
+   D)
+A synchronous motor's rotor speed is synchronized with the stator's magnetic field, while an induction motor's rotor rotates at a slightly slower speed.
+20. (2.00 pts)
+Which of the following scientists discovered a compass needle was deflected by an electric current, influencing Ampere’s developments of connecting electricity and magnetism?
+   A)
+Hans Christian Ørsted
+   B)
+John Hopkinson
+12/13/25, 2:09 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEZ
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEZ
+5/13
+
+   C)
+Hendrik Lorentz
+   D)
+Wilhelm Eduard Weber
+21. (2.00 pts)
+What electrical component does this symbol represent?
+   A)
+Diode
+   B)
+Capacitor
+   C)
+LED
+   D)
+Resistor
+22. (2.00 pts)
+The n side of a p-n junction contains what?
+   A)
+Free-moving electrons
+   B)
+Free-moving protons
+   C)
+Free-moving electron holes
+   D)
+Constrained electrons
+23. (2.00 pts)
+What was the prevailing scientific philosophy in Germany at the time that led to huge criticism over Georg Ohm’s work?
+   A)
+It should be made simple so everybody can understand it
+   B)
+Only experimental studies are needed
+   C)
+Scientific research is too expensive to be useful
+   D)
+Scientific truths may be deduced through reasoning alone
+24. (0.00 pts)
+[VOIDED] Suppose that at one point in a circuit with a capacitor of capacitance 2F and inductor of inductance 5H, the capacitor charge is 5 C and the current is 2 A. At the momen
+the current becomes 1A, what will the capacitor charge be?
+   A)
+2C
+   B)
+3C
+   C)
+6C
+   D)
+7C
+25. (2.00 pts)
+An arc flash is a dangerous event that is primarily caused by
+   A)
+The accidental or intentional release of stored energy in a battery.
+   B)
+A lightning strike on the building's electrical system.
+   C)
+A low-current arcing fault that slowly heats wiring.
+12/13/25, 2:09 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEZ
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEZ
+6/13
+
+   D)
+A low-impedance connection that bypasses normal circuit resistance, leading to a high-current arc.
+26. (2.00 pts)
+Earlier in the scientific community, it was generally agreed on that electric force was a non-contact force as seen through the Coulomb’s Law. Which scientist challenged this by
+being the first to propose that the electric force is a contact force through the concept of electric field? 
+   A)
+André-Marie Ampère
+   B)
+James Clerk Maxwell
+   C)
+Michael Faraday
+   D)
+Franz Ernst Neumann
+27. (2.00 pts)
+Which of the following are correct properties of ideal op-amps?
+   A)
+The Open Loop Gain is Infinite
+   B)
+The input impedance is 0
+   C)
+Bandwidth is Infinite
+   D)
+Offset Voltage is Infinite
+   E)
+Zero noise
+28. (0.00 pts)
+[VOIDED] The following circuit diagram shows what kind of operational amplifier?
+   A)
+Voltage follower
+   B)
+Inverting amplifier
+   C)
+Integrator amplifier
+   D)
+Differentiating amplifier
+29. (2.00 pts)
+Gas circuit breaker for high voltage electrical systems typically use what gas?
+   A)
+Carbon Dioxide
+   B)
+Chlorofluorocarbons
+   C)
+Ammonia
+   D)
+Sulfur Hexaflouride
+30. (2.00 pts)
+Which of the following elements added as an dopant to silicon will create a n-type semiconductor?
+   A)
+Boron
+   B)
+Phosphorus
+   C)
+Lithium
+   D)
+Antimony
+   E)
+Indium
+   F)
+Arsenic
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+12/13/25, 2:09 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEZ
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEZ
+7/13
+
+31. (2.00 pts)
+What semiconductor material is used often for blue LEDs?
+   A)
+AlInGaP - aluminum indium gallium phosphide
+   B)
+InGaN - indium gallium nitride
+   C)
+AlGaS - aluminum gallium arsenide
+   D)
+GaP - Gallium(III) phosphide
+32. (2.00 pts)
+Currents greater than 75 mA cause
+   A)
+electric burns
+   B)
+muscle paralysis
+   C)
+respiratory paralysis
+   D)
+ventricular fibrillation
+33. (2.00 pts)
+What is the typical range of the voltage drop across a red LED?
+   A)
+1.2 V < ΔV < 1.6 V
+   B)
+1.7 V < ΔV < 2.2 V
+   C)
+2.0 V < ΔV < 2.5 V
+   D)
+2.7 V < ΔV < 3.6 V
+34. (2.00 pts)
+James Maxwell developed a model to explain electromagnetic phenomena using something called the luminous aether (a theorized medium for the propagation of light), leading to
+the famous Maxwell equations. What property was the luminiferous aether thought to have?
+   A)
+It was a dense fluid that slowed down all objects passing through it.
+   B)
+It was thought to have a high density but zero resistance to objects moving through it.
+   C)
+It was composed of aether particles that could be detected with standard instruments.
+   D)
+It was considered to be a gaseous substance.
+35. (2.00 pts)
+A closed-loop op-amp circuit is configured as a non-inverting amplifier. What effect does the negative feedback have on the amplifier's input and output impedance?
+   A)
+Both the input and output impedance are increased.
+   B)
+The input impedance is increased, while the output impedance is decreased.
+   C)
+The input impedance is decreased, while the output impedance is increased.
+   D)
+Both the input and output impedance are decreased.
+36. (2.00 pts)
+What electrical device converts AC to DC?
+37. (2.00 pts)
+What electrical component is opposite to an LED (e.g. converts light to electric current)?
+    
+12/13/25, 2:09 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEZ
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEZ
+8/13
+
+38. (2.00 pts)
+What is the conducting connection between any electric conductor and any conducting material that is grounded or that may become grounded called?
+39. (2.00 pts)
+What is the name of the phenomenon that occurs in a superconducting material where all magnetic fields are expelled?
+40. (2.00 pts)
+What is the name of the condition where muscles stay contracted and do not relax due to electric shock from a low-frequency alternating current?
+41. (10.00 pts)
+Copy machines often use a process called Xerography. In this process, a selenium-coated aluminum drum is sprayed with positive charge. Given that selenium is a photoconducto
+(an insulator when in the dark and a conductor when exposed to light), how do you think this will help the copy machine print paper? Hint: the toner is negatively charged.
+42. (10.00 pts)
+There is a fun experiment where you drop a magnet down a copper tube. It is observed that the magnet seems to float (counteract gravity) and very slowly falls down. Why does th
+happen?
+43. (10.00 pts)
+There is a uniform magnetic force acting perpendicular to a copper plate as shown. 
+When there was current in the left direction, the voltmeter showed a higher electrical potential in the top side of the plate compared to the bottom side of the plate
+a. What is the reason why this happened?
+b. What is the significance of this phenomenon occurring?
+    
+    
+    
+    
+12/13/25, 2:09 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEZ
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEZ
+9/13
+
+44. (10.00 pts)
+Calculate the current across resistor R4 in this circuit:
+45. (10.00 pts)
+Consider the following circuit, where the battery is 9V, resistor R1 has resistance of 100. Ω, resistor R3 has resistance 200. Ω, resistor R2 is an adjustable resistor, and the resistanc
+of resistor Rx is unknown. Suppose that resistor R2 is adjusted in a way the voltmeter measures 0. If the resistance of R2 at this point is 150. Ω, then what is the resistance of
+resistor Rx?
+46. (10.00 pts)
+12/13/25, 2:09 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEZ
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEZ
+10/13
+
+Consider the following graph that shows the voltage across the resistor in a certain circuit. In this circuit, there are 3 components: a battery, a resistor, and an unknown electrical
+component.
+a. What electrical component is most likely to be in this circuit based from the graph?
+b. What is the voltage of the battery?
+c. Suppose that the voltage across the resistor at t=10s is 1.62 V. This is equal to 1/e^2 times the voltage across the resistor at t=0s. What is the circuit’s time constant?
+47. (10.00 pts)
+Calculate the voltage read from the multimeter in the following circuit:
+48. (15.00 pts)
+Consider the following circuit. Note that resistor R3 is a variable resistor. Hint: it may be helpful to set the potential at node G as 0.
+12/13/25, 2:09 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEZ
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEZ
+11/13
+
+The switch SW1 is open for the next two questions:
+a. When resistor R3 is 0, the current across diode D1 is also 0. Why is that the case?
+b. What is the minimum resistance of R3 such that there is current across diode D1?
+ Next, switch SW1 is closed.
+c. What is the minimum resistance of R3 such that there is current across diode D1 in this situation?
+49. (15.00 pts)
+Consider the following circuit.
+In the beginning, switch SW1 is closed
+a. After enough time has passed, find the charge and voltage across the capacitor C1 (the top capacitor).
+b. Find the sum of the energy stored by capacitors C1 and C2 (the top and middle capacitors)
+c. What is the joule heating done by resistor R1 (the top resistor) during this process?
+12/13/25, 2:09 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEZ
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEZ
+12/13
+
+Next, the switch SW1 is opened, then switch SW2 is closed.
+d. After enough time has passed, find the charge and voltage across capacitor C3 (the bottom capacitor)
+e. What is the joule heating done by resistor R3 (the bottom resistor) during this process?
+Congratulations for finishing the test! Good luck on your other events!
+© 2025 - powered by Scilympiad (https://scilympiad.com) | Tournaments (/monta-vista/Home/Subscribers?sort=t) | Support Us (/monta-vista/Give)
+Terms of Use (/ToS.html) | Privacy (/Privacy.html) | Cookie Policy (/CookiePolicy.html) | Support (/monta-vista/Support) | Contact (/monta-vista/Home/Contact)
+12/13/25, 2:09 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEZ
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEZ
+13/13

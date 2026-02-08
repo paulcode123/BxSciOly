@@ -807,7 +807,57 @@ Registration Opens: November 24, 2025
 Registration Closes: November 28, 2025 11:59pm
 Roster Released: December 1, 2025
 
-Results: Pending competition
+Team A Results:
+Anatomy and Physiology: 2
+Astronomy: 5
+Boomilever: 8
+Bungee Drop: 14
+Chemistry Lab: 1
+Circuit Lab: 4
+Codebusters: 7
+Designer Genes: 1
+Disease Detectives: 1
+Dynamic Planet: 4
+Electric Vehicle: 18
+Engineering CAD: 35
+Entomology: 7
+Experimental Design: 5
+Forensics: 1
+Helicopter: 6
+Hovercraft: 34
+Machines: 7
+Material Science: 17
+Remote Sensing: 2
+Robot Tour: 16
+Rocks and Minerals: 10
+Water Quality: 9
+Overall: 2nd out of 36 teams
+
+Team B Results:
+Anatomy and Physiology: 8
+Astronomy: 18
+Boomilever: 14
+Bungee Drop: 6
+Chemistry Lab: 7
+Circuit Lab: 13
+Codebusters: 8
+Designer Genes: 11
+Disease Detectives: 11
+Dynamic Planet: 2
+Electric Vehicle: 18
+Engineering CAD: 12
+Entomology: 18
+Experimental Design: 13
+Forensics: 8
+Helicopter: 35
+Hovercraft: 10
+Machines: 5
+Material Science: 10
+Remote Sensing: 1
+Robot Tour: 3
+Rocks and Minerals: 7
+Water Quality: 18
+Overall: 6th out of 36 teams
 
 ================================================================================
 
@@ -832,7 +882,83 @@ Registration Opens: January 5, 2026
 Registration Closes: January 12, 2026
 Roster Released: January 18, 2026
 
-Results: Pending competition
+Team A Results:
+Anatomy and Physiology: 2
+Astronomy: 5
+Boomilever: 2
+Bungee Drop: 4
+Chemistry Lab: 6
+Circuit Lab: 8
+Codebusters: 1
+Designer Genes: 1
+Disease Detectives: 3
+Dynamic Planet: 3
+Electric Vehicle: 11
+Entomology: 12
+Experimental Design: 3
+Forensics: 8
+Helicopter: 6
+Hovercraft: 5
+Machines: 5
+Materials Science: 5
+Remote Sensing: 3
+Robot Tour: 4
+Rocks and Minerals: 3
+Water Quality: 4
+Write It Do It: 3
+Overall: 2nd out of 34 teams
+
+Team B Results:
+Anatomy and Physiology: 1
+Astronomy: 8
+Boomilever: 3
+Bungee Drop: 8
+Chemistry Lab: 2
+Circuit Lab: 6
+Codebusters: 4
+Designer Genes: 2
+Disease Detectives: 4
+Dynamic Planet: 2
+Electric Vehicle: 8
+Entomology: 2
+Experimental Design: 2
+Forensics: 2
+Helicopter: 1
+Hovercraft: 3
+Machines: 4
+Materials Science: 2
+Remote Sensing: 4
+Robot Tour: 10
+Rocks and Minerals: 4
+Water Quality: 13
+Write It Do It: 12
+Overall: 1st out of 34 teams
+
+Team C Results:
+Anatomy and Physiology: 18
+Astronomy: 7
+Boomilever: 15
+Bungee Drop: 3
+Chemistry Lab: 1
+Circuit Lab: 5
+Codebusters: 6
+Designer Genes: 5
+Disease Detectives: 1
+Dynamic Planet: 8
+Electric Vehicle: 13
+Entomology: 6
+Experimental Design: 15
+Forensics: 13
+Helicopter: 5
+Hovercraft: 7
+Machines: 12
+Materials Science: 4
+Remote Sensing: 8
+Robot Tour: 5
+Rocks and Minerals: 8
+Water Quality: 7
+Write It Do It: 20
+Overall: 5th out of 34 teams
 
 ================================================================================
 

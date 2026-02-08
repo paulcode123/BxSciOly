@@ -1,0 +1,607 @@
+EVENT: Anatomy and Physiology
+SOURCE: UGA Invitational 2025 (Div. C)
+FORMAT: 65 questions (MC, Free Response, Fill-in-blank, Labeling, Calculations)
+TOTAL POINTS: 90
+
+---SECTION 1: Endocrine System---
+
+---QUESTION 1---
+ID: 1 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Endocrine System | Signaling mechanisms | Chemical signaling
+DIFFICULTY: Easy
+QUESTION: What is the signaling mechanism for the endocrine system?
+OPTIONS:
+A) Electrical
+B) Chemical
+C) Chemical and Electrical
+D) None of the above
+
+---QUESTION 2---
+ID: 2 | POINTS: 3.00 | FORMAT: Free Response
+TOPIC: Endocrine System | Glands | Endocrine organs
+DIFFICULTY: Easy
+QUESTION: Name 3 glands that make up the endocrine system
+
+---QUESTION 3---
+ID: 3 | POINTS: 4.00 | FORMAT: Free Response
+TOPIC: Endocrine System | Thyroid gland | Adrenal gland | Hormone secretion | Homeostasis
+DIFFICULTY: Medium
+QUESTION: From the previous question, choose any 2 glands and define what they secrete, what they control, and why it is important to keep the body in homeostasis.
+
+---QUESTION 4---
+ID: 4 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Cell Signaling | Second messengers | Signal transduction | IP3
+DIFFICULTY: Medium
+QUESTION: Which one of the following is a secondary messenger?
+OPTIONS:
+A) Ligand
+B) IP3
+C) Adenylyl cyclase
+D) Cyclic AMP
+E) None of the above
+
+---QUESTION 5---
+ID: 5 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Endocrine System | Hormone regulation | Feedback mechanisms
+DIFFICULTY: Medium
+QUESTION: How does the body regulate hormone secretion?
+
+---QUESTION 6---
+ID: 6 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Endocrine System | Insulin | Glucagon | Glucose metabolism
+DIFFICULTY: Medium
+QUESTION: A researcher treats cultured liver cells with insulin and measures the rate of glucose uptake. In the second experiment, cells are treated with glucagon. Based on endocrine physiology, which result is most likely?
+OPTIONS:
+A) Insulin increases glucose uptake; glucagon decreases it.
+B) Insulin decreases glucose uptake; glucagon increases it.
+C) Both hormones increase glucose uptake equally.
+D) Neither hormone affects glucose uptake.
+
+---QUESTION 7---
+ID: 7 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Endocrine Disorders | Diabetes insipidus | ADH | Water balance
+DIFFICULTY: High
+QUESTION: A patient presents with polyuria, polydipsia, and dilute urine. Plasma osmolality is high, but blood glucose is normal. A water deprivation test shows no increase in urine osmolality. Which is the most likely explanation?
+OPTIONS:
+A) Diabetes mellitus → high glucose → osmotic diuresis
+B) Central diabetes insipidus → ADH deficiency → inability to concentrate urine
+C) Nephrogenic diabetes insipidus → excessive insulin
+D) Hyperthyroidism → increased metabolism → polyuria
+
+---QUESTION 8---
+ID: 8 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Endocrine System | Glucagon | G-protein coupled receptors | Second messengers | cAMP
+DIFFICULTY: Medium
+QUESTION: A student measures the effect of different hormones on glucose levels. When cells are treated with glucagon, cAMP increases, leading to increased glycogen breakdown. Which type of hormone-receptor mechanism does glucagon use?
+OPTIONS:
+A) Steroid hormone → nuclear receptor
+B) Peptide hormone → G-protein coupled receptor → second messenger
+C) Thyroid hormone → nuclear receptor
+D) Cortisol → membrane receptor
+
+---QUESTION 9---
+ID: 9 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Endocrine System | Stress response | Cortisol | Epinephrine | Glucose regulation
+DIFFICULTY: Medium
+QUESTION: During stress, which combination of hormones would increase blood glucose most rapidly?
+OPTIONS:
+A) Cortisol + epinephrine → increase gluconeogenesis + glycogen breakdown
+B) Insulin + glucagon → decrease blood glucose
+C) PTH + calcitonin → regulate calcium, not glucose
+D) Melatonin + ADH → no effect on glucose
+
+---QUESTIONS 10-13 (SHARED CONTEXT)---
+ID: 10-13 | POINTS: 1.00, 1.00, 2.00, 2.00 | FORMAT: MC, Free Response, Free Response, Free Response
+TOPIC: Endocrine Disorders | Diabetes insipidus | ADH | Water balance
+CONTEXT: John, a 28-year-old man, reports frequent urination and extreme thirst. Blood glucose is normal. Urine is very diluted.
+
+---QUESTION 10---
+ID: 10 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Endocrine Disorders | Diabetes insipidus | Diabetes types
+DIFFICULTY: Medium
+QUESTION: Which type of diabetes is more likely?
+
+---QUESTION 11---
+ID: 11 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Endocrine Disorders | ADH | Hormone deficiency
+DIFFICULTY: Medium
+QUESTION: Which hormone is deficient or ineffective?
+
+---QUESTION 12---
+ID: 12 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Endocrine Disorders | Urine concentration | ADH function
+DIFFICULTY: Medium
+QUESTION: Explain why his urine is so diluted.
+
+---QUESTION 13---
+ID: 13 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Endocrine Disorders | Diabetes insipidus | Diabetes mellitus | Comparison
+DIFFICULTY: Medium
+QUESTION: How is this different from diabetes mellitus?
+
+---QUESTIONS 14-18 (SHARED CONTEXT)---
+ID: 14-18 | POINTS: 3.00, 4.00, 6.00, 6.00, 3.00 | FORMAT: Free Response, Free Response, Free Response, Free Response, Free Response
+TOPIC: Endocrine Disorders | Diabetes mellitus | Insulin | Glucose metabolism
+CONTEXT: Alex, a 32-year-old man, presents with excessive thirst, frequent urination, fatigue, and unexplained weight loss. Lab tests show: Fasting Blood Glucose 280 mg/dL (normal 70–100 mg/dL), Plasma Insulin Low (normal 5–20 µU/mL), HbA1c 9.5% (normal 4–5.6%), Urine Glucose High (normal Nondetectable). Further tests reveal that Alex's pancreas has significantly fewer beta cells than normal.
+
+---QUESTION 14---
+ID: 14 | POINTS: 3.00 | FORMAT: Free Response
+TOPIC: Endocrine Disorders | Diabetes mellitus | Diagnosis | Lab results
+DIFFICULTY: Medium
+QUESTION: Based on the scenario and lab data, identify the most likely endocrine disorder Alex has. Explain your reasoning using at least two lab results.
+
+---QUESTION 15---
+ID: 15 | POINTS: 4.00 | FORMAT: Free Response
+TOPIC: Endocrine System | Insulin | Glucose regulation | Pathophysiology
+DIFFICULTY: Medium
+QUESTION: Explain the role of insulin under normal conditions in regulating blood glucose and describe what goes wrong in Alex's case.
+
+---QUESTION 16---
+ID: 16 | POINTS: 6.00 | FORMAT: Free Response
+TOPIC: Endocrine Disorders | Diabetes mellitus | Metabolism | Glycogen | Fat | Protein
+DIFFICULTY: High
+QUESTION: Predict the effect of this disorder on glycogen, fat, and protein metabolism. Provide reasoning for each.
+
+---QUESTION 17---
+ID: 17 | POINTS: 6.00 | FORMAT: Free Response
+TOPIC: Endocrine Disorders | Diabetes mellitus | Treatment | Insulin therapy | Blood glucose | HbA1c
+DIFFICULTY: Medium
+QUESTION: Alex is treated with exogenous insulin. Predict how this treatment will affect the following and explain your reasoning:
+A) Blood glucose
+B) Urine glucose
+C) HbA1c
+
+---QUESTION 18---
+ID: 18 | POINTS: 3.00 | FORMAT: Free Response
+TOPIC: Endocrine Disorders | Diabetes mellitus | Pathophysiology | Treatment misconceptions
+DIFFICULTY: Medium
+QUESTION: A friend suggests Alex could "eat less sugar" to fix the problem. Critically evaluate this suggestion based on the pathophysiology of the disorder.
+
+---QUESTION 19---
+ID: 19 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Endocrine System | Hormone types | Peptide hormones | Steroid hormones | Gene expression
+DIFFICULTY: Medium
+QUESTION: A researcher wants to study the effect of peptide versus steroid hormones on gene expression. Which experiment would provide the clearest comparison?
+OPTIONS:
+A) Treat cultured cells with insulin and cortisol → measure nuclear transcription factor activity
+B) Treat cells with thyroid hormone only → measure cytoplasmic signaling
+C) Treat cells with melatonin → measure membrane receptor activity
+D) Treat cells with glucose → measure insulin production
+
+---QUESTION 20---
+ID: 20 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Endocrine Disorders | PCOS | Polycystic ovary syndrome | Androgens | Insulin resistance
+DIFFICULTY: Medium
+QUESTION: A patient with PCOS may have which combination of symptoms?
+OPTIONS:
+A) Low androgen, irregular periods
+B) High androgen, insulin resistance, irregular ovulation
+C) High thyroid hormone, weight loss
+D) Low cortisol, low blood pressure
+
+---SECTION 2: Central Nervous System---
+
+---QUESTION 21---
+ID: 21 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Neuroanatomy | Neurons | Motor neurons | Neuron types
+DIFFICULTY: Easy
+QUESTION: Which type of neuron sends commands from the brain to muscles to carry out functions?
+OPTIONS:
+A) Sensory Neuron
+B) Interneuron
+C) Motor Neuron
+D) Muscle Neuron
+
+---QUESTION 22---
+ID: 22 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Neuroanatomy | Brainstem | CNS | PNS
+DIFFICULTY: Easy
+QUESTION: Which system contains the brainstem?
+OPTIONS:
+A) Central Nervous System
+B) Peripheral Nervous System
+C) Skeletal System
+D) Digestive System
+
+---QUESTION 23---
+ID: 23 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Neuroanatomy | Neurons | Dendrites | Neuronal structure
+DIFFICULTY: Easy
+QUESTION: The main purpose of dendrites is to:
+OPTIONS:
+A) Send away information
+B) Receive information
+C) Stop a neural impulse
+D) Slow down impulses
+
+---QUESTION 24---
+ID: 24 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Neuroanatomy | Synapses | Synaptic transmission | Neuronal communication
+DIFFICULTY: Easy
+QUESTION: What is the name of the gap between neurons where signals are transferred?
+OPTIONS:
+A) Soma
+B) Synapse
+C) Dendrite
+D) Axon Terminal
+
+---QUESTION 25---
+ID: 25 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Neurological Disorders | Multiple Sclerosis | Myelin | Demyelination
+DIFFICULTY: Medium
+QUESTION: Which disorder is characterized by a destruction of myelin in the CNS?
+OPTIONS:
+A) Parkinson's
+B) Alzheimer's
+C) Multiple Sclerosis
+D) Schizophrenia
+
+---QUESTION 26---
+ID: 26 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Neuroanatomy | Hippocampus | Memory | Brain structures
+DIFFICULTY: Easy
+QUESTION: Which brain structure is memory formation most associated with?
+OPTIONS:
+A) Medulla
+B) Cerebellum
+C) Broca's Area
+D) Hippocampus
+
+---QUESTION 27---
+ID: 27 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Neurological Disorders | Parkinson's disease | Dopamine | Neurotransmitters
+DIFFICULTY: Medium
+QUESTION: Parkinson's disease is caused by the loss of neurons producing:
+OPTIONS:
+A) Serotonin
+B) Dopamine
+C) GABA
+D) Acetylcholine
+
+---QUESTION 28---
+ID: 28 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Neuroanatomy | Hypothalamus | Homeostasis | Brain functions
+DIFFICULTY: Easy
+QUESTION: What is the role of the hypothalamus?
+OPTIONS:
+A) Control reflexes
+B) Contract muscles
+C) Maintain homeostasis
+D) Control balance
+
+---QUESTION 29---
+ID: 29 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Neuroanatomy | Myelin | Nerve conduction | Action potential propagation
+DIFFICULTY: Easy
+QUESTION: How does myelin affect nerve conduction?
+OPTIONS:
+A) Produces neurotransmitters
+B) Slows down impulses
+C) Inhibiting synapses
+D) Speeding up impulses
+
+---QUESTION 30---
+ID: 30 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Neuroscience | Neuroplasticity | Brain adaptation | Neural reorganization
+DIFFICULTY: Medium
+QUESTION: What is Neuroplasticity?
+OPTIONS:
+A) Brain's ability to grow larger neurons
+B) The brain's ability to reorganize and adapt
+C) The replacement of neurons with glial cells
+D) The formation of scar tissue after brain injury
+
+---QUESTION 31---
+ID: 31 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Neuroanatomy | Frontal lobe | Brain lobes | Executive function
+DIFFICULTY: Easy
+QUESTION: What is the role of the frontal lobe?
+OPTIONS:
+A) Hearing and memory
+B) Vision and balance
+C) Problem solving, voluntary movement
+D) Breathing and heart beat regulation
+
+---QUESTION 32---
+ID: 32 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Neuroanatomy | Parietal lobe | Somatosensory | Brain lobes
+DIFFICULTY: Easy
+QUESTION: Which lobe processes touch and body position?
+OPTIONS:
+A) Temporal
+B) Frontal
+C) Parietal
+D) Occipital
+
+---QUESTION 33---
+ID: 33 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Neurochemistry | Acetylcholine | Neuromuscular junction | Muscle contraction
+DIFFICULTY: Easy
+QUESTION: Which neurotransmitter is most involved in muscle contraction?
+OPTIONS:
+A) Acetylcholine
+B) Serotonin
+C) Dopamine
+D) GABA
+
+---QUESTION 34---
+ID: 34 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Neuroanatomy | Hypothalamus | Endocrine system | Neuroendocrine integration
+DIFFICULTY: Medium
+QUESTION: Which area of the brain links the nervous system to the endocrine system?
+OPTIONS:
+A) Hippocampus
+B) Hypothalamus
+C) Amygdala
+D) Cerebellum
+
+---QUESTION 35---
+ID: 35 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Neuroanatomy | Corpus callosum | Cerebral hemispheres | Brain connectivity
+DIFFICULTY: Easy
+QUESTION: Which structure connects the two cerebral hemispheres?
+OPTIONS:
+A) Brainstem
+B) Corpus callosum
+C) Thalamus
+D) Hippocampus
+
+---QUESTION 36---
+ID: 36 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Neuroanatomy | Cerebellum | Brain structure | Cerebellar anatomy
+DIFFICULTY: Easy
+QUESTION: The cerebellum is divided into two:
+OPTIONS:
+A) Hemispheres
+B) Lobes
+C) Ventricles
+D) Gyri
+
+---QUESTION 37---
+ID: 37 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Neuroanatomy | Spinal nerves | Dorsal root | Sensory pathways
+DIFFICULTY: Medium
+QUESTION: The dorsal root of a spinal nerve carries:
+OPTIONS:
+A) Motor signals away from the CNS
+B) Sensory signals toward the CNS
+C) Both motor and sensory signals
+D) Reflexes only
+
+---QUESTION 38---
+ID: 38 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Neuroanatomy | Prefrontal cortex | Reasoning | Executive function
+DIFFICULTY: Easy
+QUESTION: Which brain region is highly developed in humans for reasoning?
+OPTIONS:
+A) Cerebellum
+B) Hippocampus
+C) Medulla
+D) Prefrontal Corex
+
+---QUESTION 39---
+ID: 39 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Neuroanatomy | Cerebellum | Motor coordination | Balance
+DIFFICULTY: Easy
+QUESTION: The cerebellum primarily coordinates:
+OPTIONS:
+A) Conscious thought
+B) Emotions
+C) Voluntary movement and balance
+D) Hormone release
+
+---QUESTION 40---
+ID: 40 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Neuroanatomy | Pons | Brainstem | Neural pathways
+DIFFICULTY: Medium
+QUESTION: The pons are important for:
+OPTIONS:
+A) Balance only
+B) Linking the cerebellum with the brain and spinal cord
+C) Hormone regulation
+D) Memory storage
+
+---QUESTION 41---
+ID: 41 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Neuroanatomy | Midbrain | Brainstem | Sensory processing
+DIFFICULTY: Medium
+QUESTION: What is the role of the midbrain?
+OPTIONS:
+A) Visual and auditory processing
+B) Language comprehension
+C) Voluntary movement initiation
+D) Hormone secretion
+
+---QUESTION 42---
+ID: 42 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Neurological Disorders | Alzheimer's disease | Hippocampus | Memory
+DIFFICULTY: Medium
+QUESTION: Which part of the CNS is most affected by Alzheimer's disease?
+OPTIONS:
+A) Cerebellum
+B) Hippocampus
+C) Medulla
+D) Cerebral peduncles
+
+---QUESTION 43---
+ID: 43 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Neurological Disorders | Huntington's disease | Genetic disorders | Neurodegeneration
+DIFFICULTY: Medium
+QUESTION: What is the main cause of Huntington's disease?
+OPTIONS:
+A) Loss of dopamine
+B) Genetic mutation
+C) Myelin sheath destruction
+D) Lack of oxygen to the cerebrum
+
+---QUESTION 44---
+ID: 44 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Neuroanatomy | Reticular formation | Consciousness | Alertness
+DIFFICULTY: Medium
+QUESTION: The reticular formation is important for:
+OPTIONS:
+A) Balance
+B) Reflexes
+C) Hormone release
+D) Consciousness and alertness
+
+---QUESTION 45---
+ID: 45 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Neuroanatomy | Limbic system | Emotions | Memory
+DIFFICULTY: Easy
+QUESTION: The limbic system helps regulate:
+OPTIONS:
+A) Voluntary muscle movement
+B) Emotions and memory
+C) Blood pressure
+D) Synaptic transmission
+
+---QUESTIONS 46-52 (SHARED CONTEXT)---
+ID: 46-52 | POINTS: 1.00 each | FORMAT: Labeling / Fill-in-blank
+TOPIC: Neuroanatomy | Neuron structure | Nerve diagram
+CONTEXT: Label each part of this nerve diagram.
+
+---QUESTION 46---
+ID: 46 | POINTS: 1.00 | FORMAT: Fill-in-blank / Labeling
+TOPIC: Neuroanatomy | Neuron structure | Nerve diagram
+DIFFICULTY: Easy
+QUESTION: Label part 26 of the nerve diagram.
+
+---QUESTION 47---
+ID: 47 | POINTS: 1.00 | FORMAT: Fill-in-blank / Labeling
+TOPIC: Neuroanatomy | Neuron structure | Nerve diagram
+DIFFICULTY: Easy
+QUESTION: Label part 27 of the nerve diagram.
+
+---QUESTION 48---
+ID: 48 | POINTS: 1.00 | FORMAT: Fill-in-blank / Labeling
+TOPIC: Neuroanatomy | Neuron structure | Nerve diagram
+DIFFICULTY: Easy
+QUESTION: Label part 28 of the nerve diagram.
+
+---QUESTION 49---
+ID: 49 | POINTS: 1.00 | FORMAT: Fill-in-blank / Labeling
+TOPIC: Neuroanatomy | Neuron structure | Nerve diagram
+DIFFICULTY: Easy
+QUESTION: Label part 29 of the nerve diagram.
+
+---QUESTION 50---
+ID: 50 | POINTS: 1.00 | FORMAT: Fill-in-blank / Labeling
+TOPIC: Neuroanatomy | Neuron structure | Nerve diagram
+DIFFICULTY: Easy
+QUESTION: Label part 30 of the nerve diagram.
+
+---QUESTION 51---
+ID: 51 | POINTS: 1.00 | FORMAT: Fill-in-blank / Labeling
+TOPIC: Neuroanatomy | Neuron structure | Nerve diagram
+DIFFICULTY: Easy
+QUESTION: Label part 31 of the nerve diagram.
+
+---QUESTION 52---
+ID: 52 | POINTS: 1.00 | FORMAT: Fill-in-blank / Labeling
+TOPIC: Neuroanatomy | Neuron structure | Nerve diagram
+DIFFICULTY: Easy
+QUESTION: Label part 32 of the nerve diagram.
+
+---QUESTION 53---
+ID: 53 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Neuroanatomy | Neurons | Neurotransmitters | Axon terminals
+DIFFICULTY: Easy
+QUESTION: In what part of the neuron are neurotransmitters located?
+OPTIONS:
+A) Dendrites
+B) Soma
+C) Axon
+D) Myelin sheath
+E) Nerve terminals
+
+---QUESTION 54---
+ID: 54 | POINTS: 1.00 | FORMAT: Fill-in-blank
+TOPIC: Neurochemistry | Neurotransmitters | Glutamate | CNS
+DIFFICULTY: Medium
+QUESTION: Name the (primary) neurotransmitter in the CNS.
+
+---QUESTION 55---
+ID: 55 | POINTS: 2.00 | FORMAT: MC (multi-select)
+TOPIC: Neurophysiology | Sodium-potassium pump | Ion transport | Membrane potential
+DIFFICULTY: Medium
+QUESTION: The sodium-potassium pump moves __ ___ions __ the cell. Select all that apply.
+OPTIONS:
+A) 3 potassium; into
+B) 3 sodium; out of
+C) 2 potassium; into
+D) 2 sodium; out of
+
+---QUESTION 56---
+ID: 56 | POINTS: 2.00 | FORMAT: Calculation
+TOPIC: Neurophysiology | Nernst equation | Calcium | Membrane potential
+DIFFICULTY: High
+QUESTION: Calculate the Nernst potential of calcium for a cell with 100 nM inside the cell 2 mM outside the cell.
+
+---QUESTION 57---
+ID: 57 | POINTS: 1.00 | FORMAT: Calculation
+TOPIC: Neurophysiology | Goldman-Hodgkin-Katz equation | Membrane potential | Ion concentrations
+DIFFICULTY: High
+QUESTION: Find the voltage across the membrane of a cell at 37ºC with the following ion concentrations:
+Ion | Inside Concentration (mM) | Outside Concentration (mM) | Permeability
+K+ | 135 | 10 | 1.0
+Na+ | 20 | 120 | .3
+Cl- | 4 | 120 | .45
+
+---QUESTION 58---
+ID: 58 | POINTS: 1.00 | FORMAT: Fill-in-blank
+TOPIC: Neuroanatomy | Glial cells | Ependymal cells | CSF production
+DIFFICULTY: Medium
+QUESTION: Name the glial cell that is responsible for producing cerebral spinal fluid.
+
+---QUESTION 59---
+ID: 59 | POINTS: 1.00 | FORMAT: Fill-in-blank
+TOPIC: Neuroanatomy | Glial cells | Astrocytes | Glial functions
+DIFFICULTY: Medium
+QUESTION: What is the function of astrocytes?
+
+---QUESTION 60---
+ID: 60 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Neuroanatomy | Glial cells | Schwann cells | Myelin | PNS
+DIFFICULTY: Medium
+QUESTION: Which of the following is the glial cell responsible for producing myelin for neurons in the PNS?
+OPTIONS:
+A) Schwann cells
+B) Microglia
+C) Oligodendrocytes
+D) Satellite cells
+
+---QUESTIONS 61-64 (SHARED CONTEXT)---
+ID: 61-64 | POINTS: 1.00 each | FORMAT: Fill-in-blank / Image Analysis
+TOPIC: Neurophysiology | Action potential | Ion channels | Refractory period
+CONTEXT: Refer to action potential diagram.
+
+---QUESTION 61---
+ID: 61 | POINTS: 1.00 | FORMAT: Fill-in-blank / Image Analysis
+TOPIC: Neurophysiology | Action potential | Threshold
+DIFFICULTY: Easy
+QUESTION: What is the threshold value for this action potential?
+
+---QUESTION 62---
+ID: 62 | POINTS: 1.00 | FORMAT: Fill-in-blank / Image Analysis
+TOPIC: Neurophysiology | Action potential | Sodium channels | Inactivation
+DIFFICULTY: Medium
+QUESTION: Which number corresponds to the inactivation of sodium ion channels?
+
+---QUESTION 63---
+ID: 63 | POINTS: 1.00 | FORMAT: Fill-in-blank / Image Analysis
+TOPIC: Neurophysiology | Action potential | Potassium channels | Repolarization
+DIFFICULTY: Medium
+QUESTION: Which number corresponds to the opening of potassium channels?
+
+---QUESTION 64---
+ID: 64 | POINTS: 1.00 | FORMAT: Fill-in-blank / Image Analysis
+TOPIC: Neurophysiology | Action potential | Refractory period
+DIFFICULTY: Medium
+QUESTION: Which number corresponds to the refractory period?
+
+---QUESTION 65---
+ID: 65 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Neuroanatomy | Myelin | Action potential propagation | Saltatory conduction
+DIFFICULTY: Medium
+QUESTION: How does myelin increase (propagation) velocity?

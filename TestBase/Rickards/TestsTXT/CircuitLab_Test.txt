@@ -1,0 +1,565 @@
+Circuit Lab C Test
+OCTOBER 25, 2025
+RICKARDS SO INVITATIONAL
+Written By: Shiven Gupta, Singapore Armed Forces '27, & Vikram Nguyen, Pembroke '26
+Page:
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+Total
+Points:
+10
+12
+14
+16
+13
+4
+10
+15
+6
+28
+22
+38
+188
+Score:
+1. The points per question are boxed in the margin next to the question.
+2. You may separate the test, but ensure you put it back in order.
+3. Out-Of-Browser time will NOT be tracked.
+4. You may remove materials from your binder AFTER the time has started.
+5. All answers to be 3 significant figues, and all must be unitless.
+6. Tiebreaker questions have TB#(order) in front of them. (QN6, QN9, QN21, QN44, QN58)
+7. If you have any questions or concerns, please contact me at shiven8gupta@gmail.com. Please also leave your
+thoughts on this test at the form linked to this hyperlink after test release.
+
+RICKARDS SO INVITATIONAL
+CIRCUIT LAB C TEST
+Multiple Choice [100 pts]
+1.
+2
+An electron traveling in the +⃗x direction experiences a magnetic force in the −⃗y direction. In which direction is
+the magnetic field directed?
++x
++y
++z
+e−
+⃗v
+⃗FB
+A. +⃗z
+B. −⃗y
+C. −⃗z
+D. +⃗y
+2.
+2
+Which of the following is true about brush-less DC (BLDC) motors?
+A. BLDC motors are just DC motors without brushes
+B. They rotate by induced magnetic fields
+C. BLDC motors are inherently more expensive than BDC motors
+D. BLDC motors are only suitable for high-speed applications
+3.
+2
+Identify the below symbol.
+A. Variable Resistor
+B. Potentiometer
+C. Resistor
+D. Inductor
+E. None of the Above
+4.
+2
+What is the average voltage drop across a silicon diode?
+A. 0.7 V
+B. 0.46 V
+C. 1.1 V
+D. 0.23 V
+5.
+2
+Faraday cages are enclosures used to block electromagnetic fields. Which of the following is true about them?
+A. Faraday cages cannot block stable or slowly varying magnetic fields
+B. Near-field, high-powered frequency transmissions like HF RFID are less likely to penetrate
+C. They can block high-frequency electromagnetic pulse (EMP) waves
+D. Mesh cages are nearly as effective as solid cages
+2 of 14
+
+RICKARDS SO INVITATIONAL
+CIRCUIT LAB C TEST
+6.
+2
+TB#1 Identify the below symbol.
+A. Signal Ground
+B. Chassis Ground
+C. Neutral Ground
+D. Protective Ground
+7.
+2
+Maxwell-Faraday’s Law can be written as (in differential form):
+⃗∇x × ⃗E = ∂⃗B
+∂t .
+It states that a time-varying magnetic field always accompanies a spatially varying non-conservative electric field.
+Which of the following is true about its derivation?
+A. Maxwell mathematically formalized this law in the 1810s
+B. Maxwell mathematically formalized this law in the 1760s
+C. Heaviside helped recast Maxwell’s equations into vector calculus form
+D. Descartes helped recast Maxwell’s equations into vector calculus form
+8.
+2
+Which of the following are possible switches?
+A. Single-Pole Single-Throw (SPST)
+B. Double-Pole Double-Throw (DPDT)
+C. Single-Pole Double-Throw (SPDT)
+D. Triple-Pole Triple-Throw (TPTT)
+E. All of the Above
+9.
+2
+TB#2 Identify the below symbol.
+A. Full Photodiode
+B. Full Zener Diode
+C. Full Schottky Diode
+D. Full Varcap
+10.
+2
+Which of the following is false of MOSFETs?
+A. They are commonly fabricated by controlled silicon oxidation
+B. MOSFETs are a type of buzzer
+C. Physicist Julius Edgar Lilienfeld first proposed the concept of one in 1925
+D. The metal (M stands for metal) is sometimes a misnomer
+11.
+2
+What is an iron nail’s electromagnetic field strength @extbfnot dependent on?
+A. Number of wire coils (N)
+B. Number of wire coils per unit length (n = N/L)
+C. Supply voltage (V )
+D. Vacuum permeability (µ0)
+3 of 14
+
+RICKARDS SO INVITATIONAL
+CIRCUIT LAB C TEST
+12.
+2
+Who is the SI Unit of Voltage named after, and what does Voltage represent?
+A. Ohm Patel, Voltage represents electron flow.
+B. John Voltage; Voltage represents electron flow.
+C. Francois-Marie Arouet Voltaire; Voltage represents potential difference.
+D. Alessandro Giuseppe Antonio Anastasio Volta; Voltage represents potential difference.
+13.
+2
+Which direction do magnetic fields always point in?
+A. North to South
+B. South to North
+C. Left to Right
+D. Right to Left
+14.
+2
+What type of generator is most commonly used in applications like modern wind turbines?
+A. Permanent magnet
+B. DC
+C. Three-φ AC
+D. Tesla Coil
+15.
+2
+What does the ”Tesla” (T) measure in SI?
+A. Magnetic Field Strength
+B. Magnetic Force
+C. Magnetic Flux Density
+D. Magnetic Energy per Second
+16.
+2
+What is the resistance of the below resistor?
+(In case of printing errors: violet, red, blue, black, green, gray)
+A. 736 Ω± 0.5%
+B. 736 Ω± 0.5%, 1 ppm/K
+C. 736 Ω± 1%, 2 ppm/K
+D. 638 Ω± 0.5%, 1 ppm/K
+17.
+2
+Which of the following is the least common material used to make printed circuit boards (PCBs)?
+A. Kapton
+B. Aluminum
+C. Woven Glass
+D. Phenolic Paper
+18.
+2
+Which of the following give the average difference between LED maximum forward voltages and typical forward
+voltages?
+A. 0.4 −0.8 V
+B. 0.7 −0.9 V
+C. 0.2 −0.3 V
+D. 0.1 −0.7 V
+4 of 14
+
+RICKARDS SO INVITATIONAL
+CIRCUIT LAB C TEST
+19.
+2
+Which of the following is a true statement on circuits and electromagnetism?
+A. ∑ΦB = ∑⃗B · ⃗A ̸= 0
+B. ∑Iloop = ε
+R
+C. Rparallel eq =
+1
+∑n
+i=1
+1
+Ri
+D. ∑Vloop = 0
+20.
+2
+What is a BJT?
+A. Bipolar Junction Transistor
+B. Bipolar Joint Termination
+C. Base Junction Transistor
+D. Binary Junction Transformer
+21.
+2
+TB#3 A button magnet and a plastic cylinder of the same size are dropped into identical conductive tubular
+rods. What must be observed?
+A. No difference in fall times is observed
+B. Inducted currents on the conductive rod speed up the magnet’s descent
+C. The magnet’s descent is significantly slower
+D. The magnet begins to levitate and does not fall all the way through
+22.
+2
+What is true about Joule heating?
+A. Does not occur in superconductive lines
+B. For DC, Eloss = I(V1 −V2)
+C. P = J · E · V = J · E · (IR)
+D. Also known as the Joule-Lenz Law in European Union countries
+23.
+2
+Which of the following is not a valid way of calculating electrical current?
+A. I = nAvde
+B. I = ie
+C. I = J · A
+D. I = Qt
+24.
+2
+Which of the following is true about the skin effect?
+A. AC resistance by skin effect can be increased by using litz wire
+B. It is the tendency for AC to be greatest near conductor surface
+C. Tubular conductors do not have any advantage over standard lines
+D. AC current density decreases exponentially deeper into the conductor
+25.
+2
+Identify this circuit symbol.
+A. Reed
+B. Rotary Switch
+C. Toggle Switch
+D. Push Button
+26.
+2
+These are used to store energy in the form of a magnetic field.
+5 of 14
+
+RICKARDS SO INVITATIONAL
+CIRCUIT LAB C TEST
+A. Inductors
+B. Transistors
+C. Capacitors
+D. Batteries
+27.
+2
+High voltage power lines ionize the air around them in a phenomenon known as
+A. The Skin Effect
+B. The Corona Effect
+C. Joule Heating
+D. Capacitive Loss
+28.
+2
+The above circuit can best be described as a
+A. Parallel circuit
+B. Voltage divider
+C. Low-pass filter
+D. Bridge rectifier
+29.
+3
+Based on 3, what is the equation for Vout?
+30.
+2
+Voltaic cells direct electrons from a _____ anode and a _____ cathode, and electrolytic cells direct them from a
+_____ anode and _____ cathode.
+A. Positive, negative / negative positive
+B. Positive, negative / positive, negative
+C. Negative, positive / negative, positive
+D. Negative, positive / positive, negative
+31.
+2
+This is used to step down AC voltage levels from power lines into houses
+A. Transformer
+B. Voltage divider
+C. MOSFET
+D. Rectifier
+32.
+2
+In an RC circuit, it takes how many time constants for the capacitor to discharge fully?
+A. 1
+B. 3
+C. 5
+D. 7
+6 of 14
+
+RICKARDS SO INVITATIONAL
+CIRCUIT LAB C TEST
+33.
+2
+The graph of V vs nτ, where n is an integer, is best modeled by which graph (ignore scale)?
+A.
+B.
+C.
+34.
+2
+Transistors do NOT
+A. Amplify signals
+B. Compare voltages
+C. Absorb excess current
+D. Act as switches
+7 of 14
+
+RICKARDS SO INVITATIONAL
+CIRCUIT LAB C TEST
+35.
+2
+What type of transistor is this?
+A. BJT
+B. NPN
+C. PNP
+D. MOSFET
+36.
+2
+In which way does A x B direct?
+A. Into the screen
+B. Out of the screen
+C. The direction of the resulting vector formed by connecting the tail of A and the tip of B
+D. None of the above, A x B is a scalar
+37.
+2
+Once charged, capacitors _____ AC and _____ DC
+A. Pass / pass
+B. Pass / block
+C. Block / pass
+D. Block / block
+38.
+2
+What is the most appropriate hydraulic analogy for an inductor?
+A. A tighter pipe
+B. A storage tank
+C. A flywheel
+D. A one-way valve
+39.
+2
+A stream of Na+ ions flows through a cell membrane in 3.5 μs. What is the current, I?
+A. 5.49 x 10-11 A
+B. 4.51 x 105 A
+C. 1.60 x 10-19 A
+D. 1.00 A
+8 of 14
+
+RICKARDS SO INVITATIONAL
+CIRCUIT LAB C TEST
+40.
+2
+A hair dryer draws 7.5A from a 120V line. What is the resistance?
+A. 0.063 Ω
+B. 1.6 Ω
+C. 16 Ω
+D. 18 Ω
+41.
+2
+How much charge passes through it in 15 minutes? (Assume DC)
+A. 112.5 C
+B. 112.5 A
+C. 7500 C
+D. 6.7 kC haha mangos
+42.
+2
+Why is AC transmitted at a high voltage when it must be stepped down for usage in household appliances?
+A. Higher voltage means lower current and therefore less power loss
+B. As voltage increases, joule heating from the Skin Effect decreases to the point of negligibility
+C. AC is inefficient over long distances because of its constant polarity shifts
+D. Multiple answers are correct
+43.
+3
+Provide an equation that explains the answer(s) to the previous question.
+44.
+2
+TB#4 Consider a simple voltage divider with an input voltage of 7.5V, with R1 = 5 Ω and R2 = 8 Ω. What is the
+output voltage?
+A. 2.88 V
+B. 4.62 V
+C. 3.74 V
+D. 577 mV
+45.
+2
+Why do most microprocessors use DC instead of AC?
+A. Semiconductors cannot function at alternating frequencies
+B. Logic gates require binary signals
+C. Capacitors in electronics block AC
+D. Pullup resistors in most microprocessors cannot handle the repeated change in polarity that AC induces
+46.
+2
+Calculate the electrostatic force between 2 electrons 200 picometers apart.
+A. 3.2 x 10-10 N
+B. 5.8 x 10-9 N
+C. 9.0 x 10-29
+D. 3.6 x 10-10 N
+9 of 14
+
+RICKARDS SO INVITATIONAL
+CIRCUIT LAB C TEST
+47.
+2
+The device shown by the schematic above is most likely a
+A. Matrix keypad
+B. Crossbar switch
+C. Resistor network / resistor bank
+D. LED display driver
+E. There is not enough information to determine the device
+48.
+2
+A fuse may be preferential to a breaker because it does NOT
+A. Respond faster
+B. Have resuability potential
+C. Pose a touching hazard
+D. Cost as much
+E. None of the above
+49.
+2
+Which is true about two wires of the same material but different dimensions?
+A. The longer wire has higher resistivity
+B. The thicker wire has higher resistivity
+C. Both wires have the same resistivity
+D. There is not enough information to answer
+50.
+0
+Which Clash Royale card can NOT be uncharged by means of electricity?
+A. Tesla
+B. Sparky
+C. Inferno Dragon
+D. Zappies
+E. Mighty Miner
+10 of 14
+
+RICKARDS SO INVITATIONAL
+CIRCUIT LAB C TEST
+Free Response [90 pts]
+51.
+2
+What average speed does energy flux ΦE travel through a circuit?
+52.
+2
+What average speed do electrons in a circuit flow at?
+53.
+4
+The complex impedance of a circuit is given by Z = 67i2 + 21 −42i (Ω). What is the absolute impedance |Z|?
+Give your answer rounded up to 2 decimal places.
+54.
+9
+Resolve the equivalent resistance of the below circuit. Take each resistor R = 1 Ω.
+1 Ω
+1 Ω
+VT
+1 Ω
+1 Ω
+1 Ω
+1 Ω
+1 Ω
+1 Ω
+I1
+55.
+3
+For an unideal wire of ρ = 5 Ω/km, ℓ= 5.00 km, and cross-sectional area of A = 0.0025km2, what is the
+resistance R?
+56.
+3
+Approximately how many time constants τLR are needed for an LR circuit to reach its steady-state current?
+57.
+3
+Approximately how many time constants τRC are needed for a capacitor in an RC circuit to reach its full charge?
+58.
+2
+TB#5 The effective resistance of a circuit is 15 Ω. What is the real component of the impedance Zre ∈R?
+11 of 14
+
+RICKARDS SO INVITATIONAL
+CIRCUIT LAB C TEST
+59.
+4
+What is the charge flowing across a wire per second for a wire of diameter 0.0001 m, electron drift speed of
+1 × 10−5 m/s and a electron number density of 1 × 1028 /m3?
+60.
+3
+What is the resistivity of a conductor with current density 5.00 A/m2 and electric field strength of 2.00 V /m?
+61.
+6
+What is the magnetic flux through a conductor with potential difference ϵ (V ), length ℓ(m), resistivity ρ (Ωm),
+radius r (m)? Assume that it is also connected to a capacitor in the circuit, and that the effective capacitance is C (F)
+and the resonant frequency is ω (rad/s). Also, state the unit of measurement.
+62.
+2
+Explain the difference between full-wave and half-wave rectifiers.
+63.
+4
+Drawlines and connecttheparts tocreateacircuitthat forcesaunidirectionalflowof current. Iftakingdigitally,
+list the connections as line segments (ie AB, BC, CD…)
+64.
+3
+Smooth the output voltage of the above circuit by adding a single component. If taking digitally, identify the
+component and describe where to put it.
+12 of 14
+
+RICKARDS SO INVITATIONAL
+CIRCUIT LAB C TEST
+65.
+6
+Consideramagneticfieldof0.02Tdirectedorthogonallythroughasinglecoilwithadiameterof50cm. Calculate
+the magnetic flux.
+66.
+8
+Assuming a transformer with N1 = 200 and N2 = 800 reaches this value from 0 in a time interval 0.02s, calculate
+the average EMF in both coils.
+67.
+6
+Explain how transformers utilize magnetic flux to change the voltage AND whether this one is stepped up or
+down.
+68.
+4
+A circuit viewed from above carries current clockwise in a single loop/coil. Determine the direction of the mag-
+netic field from the center of the circuit. Does this direction change when the current switches direction? If so, which
+direction? If not, explain why.
+69.
+2
+Does this direction change when the current moves in a straight line from left to right instead of a loop? If so,
+which direction? If not, explain why.
+70.
+2
+Identify the resistance. In case of printing errors: orange, blue, brown, gold
+71.
+4
+A 9V battery and a red LED are connected in series with this resistor. Calculate the current. Is this reasonable
+for an LED?
+72.
+4
+Suppose a capacitor of 100 microfarads were placed parallel to the LED. What is the RC time constant, and how
+long would it take to fully discharge once the battery is removed?
+73.
+2
+It’s generally said that ”current kills, not voltage”, as voltage is simply the driving force behind current; current
+as small as 0.2A is enough to be lethal for humans. Why, then, do warning signs around large power sources say ”high
+voltage”?
+13 of 14
+
+RICKARDS SO INVITATIONAL
+CIRCUIT LAB C TEST
+74.
+0
+Find the directional derivative of z = f(x, y) = ex(sin(y)) at (0, 3) in the direction of v = ⟨−6, 8⟩(hint:
+∇z = ⟨∂z
+∂x, ∂z
+∂y⟩) Then, email my math teacher and let him know that I am geeked for the test this week.
+14 of 14

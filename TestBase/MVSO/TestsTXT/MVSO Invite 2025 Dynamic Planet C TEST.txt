@@ -1,0 +1,806 @@
+1. (3.00 pts)
+Seawater pH is typically limited to which of the following ranges?
+   A)
+5.0 – 6.5
+   B)
+6.8 – 7.4
+   C)
+7.5 – 8.4
+   D)
+8.0 – 9.0
+   E)
+8.2 – 9.0
+   F)
+9.0 – 10.5
+2. (3.00 pts)
+What is the average density of seawater at the ocean surface?
+   A)
+0.997 kg/L
+   B)
+1.007 kg/L
+   C)
+1.015 kg/L
+   D)
+1.025 kg/L
+   E)
+1.035 kg/L
+   F)
+1.057 kg/L
+3. (3.00 pts)
+What is the approximate speed of sound in average seawater conditions?
+   A)
+330 m/s
+   B)
+1,000 m/s
+   C)
+1,330 m/s
+   D)
+1,500 m/s
+   E)
+1,700 m/s
+   F)
+2,500 m/s
+Dynamic Planet C - Dynamic Planet - Monta Vista Science Olympiad (Div. C) - 11-14-2025
+Student Answer Sheet (/monta-vista/SM/AnswerSheet?tid=000GDP)
+Instructions (shown before students start the test)
+good luck
+Introduction (shown after students start the test)
+For all fill-in-the-blank questions:
+- spelling counts
+- only one word per blank
+- for numbers (unless otherwise states in the question), only integers, no units, no commas 
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+12/13/25, 2:12 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GDP
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GDP
+1/14
+
+4. (3.00 pts)
+Who first proposed that salt and other minerals were carried into the sea by rivers after rainfall washed it out of the ground, concentrating in the oceans as more salt arrived over
+time?
+   A)
+Robert Boyle
+   B)
+Edmond Halley
+   C)
+Charles Darwin
+   D)
+Alfred Wegener
+   E)
+James Hutton
+   F)
+George Washington
+5. (3.00 pts)
+Which of the following typically exists at a concentration greater than 0.01% by mass in seawater?
+   A)
+Chlorine
+   B)
+Magnesium
+   C)
+Sulfur
+   D)
+Potassium
+   E)
+Carbon
+   F)
+Calcium
+6. (3.00 pts)
+Which of the following elements are commercially recovered from seawater on a large scale?
+   A)
+Magnesium and bromine
+   B)
+Lithium and iodine
+   C)
+Iodine and manganese
+   D)
+Sodium and sulfur
+   E)
+Iodine and magnesium
+   F)
+Bromine and nickle
+7. (3.00 pts)
+Oxygen concentration (O2) in air is about 21%, what is the concentration in typical seawater?
+   A)
+21%
+   B)
+1%
+   C)
+0.003%
+   D)
+0.0025%
+   E)
+0.0006%
+   F)
+0.043%
+8. (3.00 pts)
+Which best defines a clathrate?
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+12/13/25, 2:12 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GDP
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GDP
+2/14
+
+   A)
+A crystalline deposit of calcium carbonate formed from marine precipitation.
+   B)
+A silicate framework that traps water molecules in mineral cavities.
+   C)
+A solid structure where gas molecules are enclosed within water molecule cages.
+   D)
+A hydrated salt mineral formed through seawater evaporation in dry climates.
+   E)
+A polymeric hydrocarbon compound produced within deep-sea sediments.
+   F)
+A biogenic carbonate secreted by marine microorganisms in ocean basins.
+9. (3.00 pts)
+Sulfur dioxide (SO2) is extremely soluble in water. It is released in large quantities by?
+   A)
+Volcanic eruptions
+   B)
+Forest fires
+   C)
+ Burning coal
+   D)
+Burning petroluem
+   E)
+Eating a banana
+   F)
+Earthquakes
+10. (3.00 pts)
+What is the "Clathrate Gun Hypothesis"?
+   A)
+Global cooling of the oceans can cause the formation of extensive CO₂ and CH₄ hydrates on the seafloor, stabilizing atmospheric conditions.
+   B)
+Global warming of the atmosphere can lead to increased absorption of CH₄ and CO₂ by seawater, reducing greenhouse gas concentrations over time.
+   C)
+Global cooling of the continents can cause the trapping of CH₄ and CO₂ in permafrost, preventing the gases from entering the atmosphere.
+   D)
+Global warming of the oceans can cause the oxidation of CH₄ in surface waters, producing sulfate aerosols that cool the climate system.
+   E)
+Global warming of the oceans can cause the release of tremendous amounts of CH₄ from destabilized clathrates, intensifying greenhouse effects.
+   F)
+Global cooling of the oceans can cause the sequestration of CO₂ and CH₄ into stable gas hydrates, decreasing atmospheric greenhouse levels.
+11. (3.00 pts)
+When seawater evaporates and sulfate ions combine with dissolved metallic cations, which minerals are typically produced?
+   A)
+calcite and aragonite
+   B)
+quartz and feldspar
+   C)
+sylvite and fluorite
+   D)
+gold and diamond
+   E)
+hematite and magnetite
+   F)
+gypsum and anhydrite
+12. (3.00 pts)
+Which process(es) primarily controls regional variations in ocean salinity?
+   A)
+Geothermal alteration of dissolved ions within mid-ocean ridge hydrothermal systems.
+   B)
+Biological consumption of salts by plankton and deposition of minerals in sediments.
+   C)
+Differences in freshwater input and removal through precipitation, evaporation, and freezing.
+   D)
+Long-term radioactive decay of isotopes within seawater altering ionic proportions.
+   E)
+Chemical diffusion of ions across the halocline between surface and deep ocean layers.
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+12/13/25, 2:12 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GDP
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GDP
+3/14
+
+   F)
+Sequestration of dissolved salts through adsorption onto suspended marine particulates.
+13. (3.00 pts)
+At what concentration and above of salt is water considered to be briny?
+   A)
+35 ppm
+   B)
+0.5 ppt
+   C)
+3 ppt
+   D)
+0.5 ppm
+   E)
+50 ppt
+   F)
+300 ppm
+14. (3.00 pts)
+How many more times efficient is methane at absorbing infrared radiation compared to carbon dioxide?
+   A)
+30
+   B)
+40
+   C)
+50
+   D)
+2
+   E)
+3
+   F)
+4
+15. (3.00 pts)
+On what primary factors do oceanographers base the classification of oceanic zones?
+   A)
+Variations in surface circulation, nutrient upwelling intensity, and sediment composition on the seafloor.
+   B)
+Gradients in salinity, carbonate alkalinity, and concentrations of major dissolved ions throughout the water column.
+   C)
+Patterns of current velocity, tidal periodicity, and vertical density stratification in coastal and pelagic regions.
+   D)
+Changes in dissolved gas ratios, chlorophyll concentrations, and rates of organic matter decomposition with latitude
+   E)
+Distribution of plankton productivity, oxygen minimum zones, and benthic species diversity in oceanic basins.
+   F)
+Differences in depth, temperature, light penetration, and horizontal distance from continental margins.
+16. (3.00 pts)
+Which oceanic layer is characterized by a rapid change in water density with increasing depth, primarily due to combined variations in temperature and salinity?
+   A)
+Thermocline
+   B)
+Pycnocline
+   C)
+Halocline
+   D)
+Lysocline
+   E)
+Oxycline
+   F)
+Compensation depth
+17. (3.00 pts)
+At what depth is condsidered to be the hadal zone?
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+12/13/25, 2:12 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GDP
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GDP
+4/14
+
+   A)
+Between 200 and 1,000 meters
+   B)
+Between 1,000 and 4,000 meters
+   C)
+Between 4,000 and 6,000 meters
+   D)
+Deeper than 6,000 meters
+   E)
+Deeper than 8,000 meters
+   F)
+Deeper than 10,000 meters
+18. (3.00 pts)
+The ocean is vertically divided into three principal zones according to light availability.
+   A)
+The littoral, bathypelagic, and abyssopelagic zones
+   B)
+The photic, mesopelagic, and aphotic zones
+   C)
+The epipelagic, bathyal, and hadal zones
+   D)
+The neritic, oceanic, and benthic zones
+   E)
+The supralittoral, sublittoral, and intertidal zones
+   F)
+The abyssal, hadal, and pelagic zones
+19. (3.00 pts)
+How does hydrostatic pressure approximately change with increasing depth in the ocean under normal conditions?
+   A)
+Water pressure decreases by 1 atmosphere for every 1 meters of depth below the surface.
+   B)
+Water pressure decreases by 1 atmosphere for every 10 meters of depth below the surface.
+   C)
+Water pressure decreases by 1 atmosphere for every 100 meters of depth below the surface.
+   D)
+Water pressure decreases by 1 kPa for every 100 meters of depth below the surface.
+   E)
+Water pressure decreases by 10 kPa for every 10 meters of depth below the surface.
+   F)
+Water pressure decreases by 100 kPa for every 1 meters of depth below the surface.
+20. (3.00 pts)
+How can ocean temperature be measured?
+   A)
+Sonar and radar arrays
+   B)
+CTD sensors from ships
+   C)
+Autonomous platforms like Argo floats
+   D)
+ Satellites (e.g., AVHRR)
+   E)
+Moored buoys and drifting buoys
+   F)
+Mercury thermometers
+21. (3.00 pts)
+The entire ocean, containing __[first blank]__% of Earth's water, spans __[second blank]__% of Earth's surface.
+22. (3.00 pts)
+The ocean's furthest pole of inaccessibility, is known as __[first blank]__[second blank]__.
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+     
+    
+     
+    
+12/13/25, 2:12 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GDP
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GDP
+5/14
+
+23. (3.00 pts)
+In alphabetical order: The continental margin consists of three different features: the continental __[first blank]__, the continental __[second blank]__, and the continental __[third
+blank]__.
+24. (3.00 pts)
+There are __[first blank, spell out]_- types of continental margins.
+25. (3.00 pts)
+The East Coast of the United States is a typical example of a(n) __[first blank]__ margin.
+26. (3.00 pts)
+Large submarine canyons—like Monterey Canyon in California, comparable in scale to the Grand Canyon—have been carved into the slope by __[first blank]__ currents.
+27. (3.00 pts)
+The rise merges into the __[first blank]__[second blank]__, the deep ocean floor lying between 4500 and 6000 m.
+28. (3.00 pts)
+Despite covering only about __[first blank]__% of the ocean’s surface, shelves are biologically rich due to their shallow depths, which prevent nutrient loss, and their coastal
+proximity, which provides nutrient input.
+29. (3.00 pts)
+Estuaries, home to nearly __[first blank]__% of the world’s population, face significant threats from human activity, particularly pollution.
+30. (3.00 pts)
+__[first blank]__[second blank]__ estuaries have the least amount of mixing in the water.
+31. (3.00 pts)
+__[first blank]__-type of estuaries are often found in Alaska, Puget Sound, British Columbia, etc.
+     
+     
+    
+    
+    
+    
+     
+    
+    
+    
+     
+    
+    
+12/13/25, 2:12 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GDP
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GDP
+6/14
+
+32. (3.00 pts)
+In hydrology, an oceanic basin (or ocean basin) is anywhere on Earth that is covered by __[first blank]__.
+33. (3.00 pts)
+All of the ocean water is not distributed equally over the Earth; __[first blank]__% of the Northern Hemisphere is covered by oceans, while in the Southern Hemisphere the oceans
+cover __[second blank]__% of the surface area.
+34. (3.00 pts)
+CaCO₃ solubility increases with depth and pressure, which accelerates dissolution via the reaction: CaCO₃ + CO₂ + __[first blank, no special formatting, lowercase for letters when
+applicable]__ ⇌ Ca²⁺ + 2HCO₃⁻
+35. (3.00 pts)
+This feature is where seafloor spreading takes place along a __[first blank]__ plate boundary.
+36. (3.00 pts)
+The mid-ocean ridge system is the longest mountain range on __[first blank]__, reaching about __[second blank]__ km (__[third blank]__ mi).
+37. (3.00 pts)
+Alternating bands of normal and reversed polarity alogn the sea floor were first explained by __[first blank]__and__[second blank]__. Last names please, reverse alphabetical order.
+38. (3.00 pts)
+Coral reefs first appeared 485 million years ago, at the dawn of the Early __[first blank]__, displacing the microbial and sponge reefs of the Cambrian.
+39. (3.00 pts)
+Coral reefs are extremely diverse. They occupy less than 0.__[first blank]__% of the world's ocean area, yet they provide a home for at least __[second blank]__% of all marine
+species. 
+40. (3.00 pts)
+In The Structure and Distribution of Coral Reefs (published in 1842), __[first blank]__[second blank]__ set out his theory of the formation of atoll reefs during the voyage of the
+Beagle.
+    
+     
+    
+    
+    
+     
+     
+    
+     
+    
+    
+     
+    
+     
+    
+12/13/25, 2:12 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GDP
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GDP
+7/14
+
+41. (3.00 pts)
+Three major zones are recognized: 
+   A)
+the fore reef
+   B)
+reef crest
+   C)
+outer bench
+   D)
+reef margin
+   E)
+back reef
+   F)
+reef terrace
+42. (3.00 pts)
+A fringing reef (shore reef) is directly attached to a shore or borders it with a narrow, shallow channel or lagoon. It is the most common reef type.
+   A)
+True
+   B)
+False
+   C)
+The third forbidden option
+43. (3.00 pts)
+The largest fringing coral reef is the Ningaloo Reef, stretching to around 260 km (160 mi) along the coastline of ____________.
+   A)
+Above Australia
+   B)
+Northern Australia
+   C)
+Southern Australia
+   D)
+Western Australia
+   E)
+Eastern Australia
+   F)
+Austria
+44. (3.00 pts)
+Coral reefs are found in the tropics in which the water is between: 
+   A)
+25°C to 32°C
+   B)
+12°C to 20°C
+   C)
+18°C to 30°C 
+   D)
+28°C to 35°C
+   E)
+15°C to 25°C
+   F)
+20°C to 20°C
+45. (3.00 pts)
+The term “barrier” in barrier reef refers to what characteristic feature of this type of coral formation?
+   A)
+The deeper coral platform that forms far from shore and creates a broad ridge beneath the ocean surface, providing habitat for pelagic species and deep reef corals.
+   B)
+The more shallow coral structure that sticks out of the water and creates a wall-like formation separating the protected lagoon from the open ocean environment.
+   C)
+The extensive coral slope that grows outward into the open ocean and forms a submerged ridge supporting diverse marine life along its seaward face.
+   D)
+The elongated coral ridge that develops parallel to the coastline and encloses a shallow lagoon while limiting the direct impact of waves on the shore.
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+12/13/25, 2:12 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GDP
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GDP
+8/14
+
+   E)
+The consolidated coral bench that builds upward from older limestone layers and restricts coastal water circulation through its reef crest zone.
+   F)
+The uplifted coral terrace that forms near tectonically active regions and serves as a partial barrier between continental runoff and offshore waters.
+46. (3.00 pts)
+Barrier reefs, including the Great Barrier Reef, are under serious threat from which combination of global and regional factors?
+   A)
+asteroid impacts
+   B)
+overfishing
+   C)
+hydrothermal venting
+   D)
+rising ocean temperatures
+   E)
+redistribution of plankton due to election of the Canadian prime minister
+   F)
+pollution
+47. (3.00 pts)
+What is an atoll?
+   A)
+A broad coral terrace that forms along continental margins and supports seagrass beds and mangrove forests.
+   B)
+A circular volcanic island composed of basaltic rock surrounded by steep submarine canyons and slopes.
+   C)
+A ring-shaped coral reef enclosing a central lagoon, typically formed on the subsiding remnants of a volcanic island.
+   D)
+A raised limestone plateau uplifted above sea level through tectonic forces and coral accretion processes.
+   E)
+A linear reef structure that develops parallel to a shoreline and encloses a narrow shallow lagoon or tidal flat.
+   F)
+A chain of submerged seamounts formed by hotspots beneath the oceanic crust that lack coral colonization.
+48. (3.00 pts)
+Atolls are explained by several geological models. Which of the following models correctly explain atoll formation?
+   A)
+Subsidence model – Proposes that coral reefs grow upward as volcanic islands slowly subside, eventually leaving a ring-shaped reef enclosing a lagoon.
+   B)
+Antecedent platform model – Suggests that atolls formed on pre-existing flat platforms exposed during glacial lowstands and later recolonized by corals as sea levels rose.
+   C)
+Erosional canyon model – Argues that atolls originated from the erosion of continental river valleys later flooded and fringed by coral growth.
+   D)
+Tectonic uplift model – Claims that atolls form when ocean basins rise due to tectonic compression, exposing coral platforms above sea level.
+   E)
+Hydrothermal vent accretion model – Attributes atoll development to mineral precipitation from seafloor vents around volcanic summits.
+   F)
+Transform fault margin model – Suggests that atolls trace transform boundaries where crustal movement creates circular fault basins filled with coral.
+49. (3.00 pts)
+Which of the following are also types of reefs in addition to the 3 main types (i.e. fringing, barrier, atoll)?
+   A)
+Apron reef
+   B)
+Bank reef
+   C)
+Patch reef
+   D)
+Ribbon reef
+   E)
+Drying reef
+   F)
+The Bent Pyramid
+50. (3.00 pts)
+What is the term for a submerged volcanic mountain with a conical or peaked summit, formed when a volcanic island sinks below sea level?
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+12/13/25, 2:12 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GDP
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GDP
+9/14
+
+   A)
+Seamount
+   B)
+Abyssal hill
+   C)
+Guyot
+   D)
+Submarine ridge
+   E)
+Volcanic island arc
+   F)
+The Washington Monument
+51. (3.00 pts)
+In a standing wave, what appears smaller or even zero?
+   A)
+wavelength
+   B)
+fetch
+   C)
+frequency
+   D)
+period
+   E)
+velocity
+   F)
+amplitude
+52. (3.00 pts)
+Tidal waves are due to the movement of the ____.
+   A)
+asteroids
+   B)
+atmosphere
+   C)
+magic
+   D)
+The Golden Gate Bridge
+   E)
+tides
+   F)
+Tide - an American brand of laundry detergent manufactured and marketed by Procter & Gamble. Introduced in 1946, it is the highest-selling detergent brand in the world, with an
+estimated 14.3 percent of the global market.
+53. (3.00 pts)
+For shallow water, the depth is typically less than _____ of the wavelength.
+   A)
+1/10
+   B)
+5
+   C)
+1/5
+   D)
+1/2
+   E)
+2
+   F)
+1/20
+54. (3.00 pts)
+Ocean waves are traveling disturbances whose speed (celerity, c) depends on wavelength (λ) and water depth. The basic wave relation is: 
+   A)
+c = λ² ⁄ g
+   B)
+c/λ = f
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+12/13/25, 2:12 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GDP
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GDP
+10/14
+
+   C)
+c = g × λ
+   D)
+ck = 2πf
+   E)
+c = fλ
+   F)
+c²= g ⁄ λ
+55. (3.00 pts)
+Which of the following is the Japanese phrase or word for tsunami?
+   A)
+津波
+   B)
+big wave
+   C)
+hand wave
+   D)
+water wave
+   E)
+ocean wave
+56. (3.00 pts)
+About 80% of tsunamis occur where?
+   A)
+Along divergent plate boundaries of the Mid-Atlantic Ridge and central Indian Ocean spreading centers.
+   B)
+Along continental rift systems of East Africa and the Red Sea associated with crustal extension.
+   C)
+Within the seismically active margins encircling the Pacific Basin known collectively as the Ring of Fire.
+   D)
+Across transform fault systems of the Caribbean and North Anatolian regions characterized by lateral motion.
+   E)
+Across polar continental shelves where submarine landslides are induced by rapid glacial retreat.
+   F)
+Throughout subduction zones bordering the Pacific Ocean where major undersea earthquakes are frequent.
+57. (3.00 pts)
+Surface Currents involve large masses of water moving horizontally on the surface. The transfer of wind energy to water is ______.
+   A)
+Highly efficient, with nearly 25% of the wind’s kinetic energy converted directly into surface water motion.
+   B)
+Moderately efficient, with about 10% of the wind’s energy transferred to the upper mixed layer of the ocean.
+   C)
+Not very efficient, with only about 2% of the wind’s kinetic energy imparted to surface water through frictional drag.
+   D)
+Extremely efficient, with more than half of the wind’s energy converted to large-scale horizontal motion.
+   E)
+this isn't machines, what's this talk about efficiency?
+58. (3.00 pts)
+Mechanisms moving surface currents include:
+   A)
+Submarine volcanism
+   B)
+Geography
+   C)
+Earth’s magnetic field
+   D)
+Tides
+   E)
+Solar heating
+   F)
+Wind
+59. (3.00 pts)
+Which best explains the Coriolis effect?
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+12/13/25, 2:12 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GDP
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GDP
+11/14
+
+   A)
+It is the deflection of moving fluids resulting from temperature and pressure gradients between different latitudinal air masses on Earth.
+   B)
+It is the alteration of current direction caused by differences in salinity and density within the rotating ocean basins of the planet.
+   C)
+It is the change in motion produced by frictional drag between adjacent air currents traveling at different velocities across the globe.
+   D)
+It is the redistribution of oceanic flow patterns driven by differential solar heating between equatorial and polar regions of the Earth.
+   E)
+It is the apparent deflection of moving objects or fluids to the right in the Northern Hemisphere and to the left in the Southern Hemisphere due to Earth’s rotation.
+   F)
+It is the modification of water and air movement caused by gravitational variations acting across Earth’s curved and rotating surface.
+60. (3.00 pts)
+Which statement best describes a major benefit of the thermohaline circulation (THC) for Earth’s climate and human societies?
+   A)
+It generates large ocean waves that enhance offshore wind energy and increase global marine transportation efficiency.
+   B)
+It redistributes heat and nutrients around the globe, moderating regional climates and supporting marine ecosystems essential for fisheries.
+   C)
+It promotes frequent upwelling of volcanic gases that raise atmospheric greenhouse concentrations and surface temperatures.
+   D)
+It accelerates evaporation rates at the equator, increasing precipitation in tropical regions and reducing desert expansion worldwide.
+   E)
+It drives tectonic plate motion by transferring thermal energy from deep ocean layers into the asthenosphere beneath continents.
+   F)
+It stabilizes global sea levels by continuously circulating polar ice meltwater into equatorial basins at uniform rates.
+61. (3.00 pts)
+Ekman __[first blank]__ is the vertical movement of water upward, resulting from divergence of surface waters due to wind-driven Ekman transport.
+Ekman __[second blank]__  is the vertical movement of water downward, resulting from convergence of surface waters due to wind-driven Ekman transport.
+62. (3.00 pts)
+In shallow coastal waters, the Ekman __[first blank]__ is normally not fully formed and the wind events that cause upwelling episodes are typically rather short. This leads to many
+variations in the extent of upwelling.
+63. (3.00 pts)
+Longshore drift is a geological process that consists of the transportation of sediments along a coast __[first blank, geometric relation]__ to the shoreline.
+64. (3.00 pts)
+Provincetown Spit, at the northern end of Cape Cod, was formed by __[first blank]__ drift after the end of the last Ice age.
+65. (3.00 pts)
+__[first blank]__ islands protect coastlines by absorbing energy and create sheltered waters. 
+66. (3.00 pts)
+Several islands tied together by bars which rise above the water level are called a __[first blank]__ cluster.
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+     
+    
+    
+    
+    
+    
+12/13/25, 2:12 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GDP
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GDP
+12/14
+
+67. (3.00 pts)
+From which country did the previous word (answer to #66) originate?
+68. (3.00 pts)
+George Washington is stuck in a typical rip current and he requires your help. He can swim at a speed of 3 m/s, is it possible to swim out of the rip current by directly swimming to
+shore against it? [first blank, "yes" or "no"]
+69. (3.00 pts)
+__[first blank]__ is where surface water is forced downwards, where it may deliver oxygen to deeper water. It leads to reduced productivity, as it extends the depth of the nutrient-
+limited layer. 
+70. (3.00 pts)
+A __[first blank]__ tide has one high and one low water each lunar day, while a __[second blank]__ tide has two nearly equal highs and lows. When the Sun, Moon, and Earth are
+aligned, the tidal range is greatest, producing a __[third blank]__ tide.
+71. (3.00 pts)
+Whereas when the Sun and Moon are at right angles, the tidal range is smallest, producing a __[first blank]__ tide. An exceptionally high spring tide that occurs when the Moon is a
+perigee and aligned with the Sun is called a __[second blank]__ tide.
+72. (3.00 pts)
+The current that runs up the west coast of South America is the __[first blank]__ (AKA Humboldt) Current.
+73. (3.00 pts)
+The __[first blank]__ Sea is found around the Scandinavian countries of Sweden, Finland, and Denmark.
+74. (3.00 pts)
+This was a DP test.
+75. (0.01 pts)
+What did you think of the test?
+    
+    
+    
+    
+     
+     
+    
+     
+    
+    
+    
+   True     
+   False
+12/13/25, 2:12 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GDP
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GDP
+13/14
+
+Yay, you did it :)
+© 2025 - powered by Scilympiad (https://scilympiad.com) | Tournaments (/monta-vista/Home/Subscribers?sort=t) | Support Us (/monta-vista/Give)
+Terms of Use (/ToS.html) | Privacy (/Privacy.html) | Cookie Policy (/CookiePolicy.html) | Support (/monta-vista/Support) | Contact (/monta-vista/Home/Contact)
+12/13/25, 2:12 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GDP
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GDP
+14/14

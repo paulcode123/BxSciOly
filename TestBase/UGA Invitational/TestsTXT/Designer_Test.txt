@@ -1,0 +1,631 @@
+2025 Invitational Tournament - Div C -Georgia 
+Designer Genes - MCQ 
+TEST PACKET 
+ 
+ 
+Written by: Pragnya Kamalapuri, Yong Zhu, Shreejanani 
+Thirugnanasambantham, Leah Green 
+ 
+School Name/Team: _____________________________________________ 
+ 
+Student Names: ________________________________________________ 
+ 
+Instructions:  
+1.​ Write all answers on the Answer Sheet. DO NOT WRITE on the Test Packet. 
+2.​ See the Image Sheet when asked to refer to an image by a question (it may be a 
+separate sheet or attached to the back of this packet). 
+3.​ For numerical questions, answers within a reasonable range will be accepted. 
+4.​ When answering free-response questions, use the appropriate abbreviations for 
+satellite and instrument names  
+5.​ For free-response questions, the answer sheet indicates the amount of space you 
+should allocate to fully answer each question. Points are assigned based on 
+accurately answering each part of the question. 
+6.​ Ties marked with a * will be broken in order 
+
+Mendelian Genetics 
+ 
+1.​ Alex and Maria are considering having children. Both are unaffected but each has a 
+younger sister affected with a very rare genetic disorder. Their parents are unaffected. If 
+the trait is autosomal recessive with complete penetrance, what is the probability that 
+Alex and Maria’s first child will be affected? [1] 
+a.​ 1/4 
+b.​ 1/9 
+c.​ 2/9 
+d.​ 1/16 
+ 
+2.​ Genes that control coat color in mammals often exhibit multiple alleles. In hamsters, the 
+C gene has three alleles: C (black fur), cᵏ (sepia fur), and cᵃ (albino fur). Each allele 
+supplies a different amount of pigment. If geneticists cross a cᵃcᵃ albino hamster with a 
+cᵏcᵏ sepia hamster, what outcome would support the conclusion that cᵃ and cᵏ are alleles 
+of the same gene, rather than mutations in two different coat color genes? [1] 
+a.​ All offspring have black fur 
+b.​ All offspring have sepia fur 
+c.​ All offspring have albino fur 
+d.​ Offspring show both albino and sepia phenotypes in a 1:1 ratio 
+ 
+3.​ Polydactyly is a condition in which a person has extra fingers and/or toes. It is caused by 
+a dominant allele. If a person carries this allele but does not have any extra fingers or 
+toes, this is an example of? [1] 
+a.​ haploinsufficiency 
+b.​ a dominant negative mutation 
+c.​ incomplete penetrance 
+d.​ a gain-of-function mutation 
+ 
+4.​ Which of the following phenotypes is not an example of a wildtype phenotype? [1] 
+a.​ Yellow-flowered elderflower orchid 
+b.​ Red-flowered elderflower orchid 
+c.​ A gray elephant 
+d.​ An albino (white) elephant 
+ 
+ 
+ 
+ 
+ 
+ 
+
+5.​ A cross is made between a white-eyed female fruit fly and a red-eyed male. What would 
+be the reciprocal cross? Assume W is the allele for white eyes and W+ is the allele for red 
+eyes. [*1] 
+a.​ Female is XWXW and male is XWY. 
+b.​ Female is XW+XW+ and male is XW+Y. 
+c.​ Female is XW+XW+ and male is XWY. 
+d.​ Female is XWXW and male is XW+Y. 
+ 
+6.​ Which of the following is a possible explanation for pleiotropy? [1] 
+a.​ The expression of a single gene can affect cell function in more than one way. 
+b.​ A gene may be expressed in different cell types in a multicellular organism. 
+c.​ A gene may be expressed at different stages of development. 
+d.​ All of the above are possible explanations 
+ 
+7.​ Propose the most likely mode of inheritance (autosomal dominant, autosomal recessive, 
+or X-linked recessive) for the disease represented in the following pedigree. Affected 
+individuals are shown as filled (black) symbols. [1] 
+ 
+a.​ Autosomal dominant 
+b.​ Autosomal recessive 
+c.​ X-linked recessive 
+d.​ None of the above  
+ 
+ 
+ 
+ 
+
+Mitosis and Meiosis 
+8.​ Which of these mechanisms are ways in which meiosis increases the diversity within a 
+population? [1] 
+a.​ centromere sliding and telomere inversion 
+b.​ independent assortment of chromosomal homologs and chromosomal 
+non-disjunction 
+c.​ independent assortment of chromosomal homologs and homologous non-sister 
+chromatid exchange 
+d.​ Spontaneous introduction of transposable elements and microsatellite repeat 
+expansion 
+ 
+9.​ Klinefelter syndrome occurs in approximately 1 in 500 live births. People with this 
+syndrome have XXY chromosomal make up. What causes this to happen? [1] 
+a.​ Non-disjunction of the X-chromosome in either the mother or father 
+b.​ Non-disjunction of X-chromosome in the mother OR of the X-Y in the father  
+c.​ Non-disjunction of X chromosome in the mother 
+d.​ Non-disjunction of X chromosome in the father 
+ 
+10.​At which stage of the mitotic cell cycle is there the highest ratio of DNA to cytoplasm? 
+[*1] 
+a.​ Beginning of metaphase 
+b.​ End of G2 phase 
+c.​ Beginning of G1 [phase 
+d.​ End of S phase 
+ 
+11.​When do chromosomes condense during prophase I of meiosis? [1] 
+a.​ Diakinesis 
+b.​ Diplotene 
+c.​ Zygotene 
+d.​ Leptotene 
+ 
+ 
+12.​Fruit flies (Drosophila melanogaster) have a diploid number of chromosomes of eight (8). 
+Therefore, their haploid number is four (4). How many different ways can fruit fly 
+homologues be combined? [1] 
+a.​ 256 different ways 
+b.​ 16 different ways 
+c.​ 4 different ways 
+d.​ 2 different ways 
+
+ 
+13.​Use the diagram above to answer the following question: the area labeled 1 represents 
+which type of cellular reproduction? [1] 
+a.​ mitosis 1 
+b.​ mitosis 2 
+c.​ meiosis 1 
+d.​ meiosis 2 
+ 
+14.​When treating many types of cancer, the treatments often result in loss of hair (as one 
+side effect). Why is this a common side effect? [1] 
+a.​ Treatments target cells that divide infrequently, such as cancer cells and hair 
+follicle cells. 
+b.​ Treatments target cells that divide slowly, such as cancer cells and hair follicle 
+cells. 
+c.​ Treatments target cells that divide quickly, such as cancer cells and hair follicle 
+cells. 
+d.​ Treatments are administered and the hair follicle cells do not have enough 
+resources to reproduce 
+ 
+ 
+ 
+
+15.​Polyploidy is lethal in human beings, however for some organisms it can result in larger 
+organisms. Which organisms may flourish under polyploidy conditions? [1] 
+a.​ Protists 
+b.​ Bacteria 
+c.​ prokaryotic cells 
+d.​ plants 
+ 
+ 
+16.​Which of the following represents the correct sequence, based upon the images above? 
+[1] (the letters used to identify each image have no bearing on the image itself) 
+a.​ X,z,y,w,v,q 
+b.​ Q,w,x,y,v,z 
+c.​ V,z,y,x,w,q 
+d.​ z,y,x,w,q,v 
+ 
+ 
+ 
+ 
+Population and evolutionary genetics: 
+ 
+The following information is for questions 17-19: A group of research students are doing a 
+field study on a squirrel population concerning tail morphology. They observed that in a 
+population of 500 squirrels, 80 had thin tails and this population is currently in Hardy Weinberg 
+equilibrium. It is also known that bushy tails (T) as the dominant trait and thin tails (t) as a 
+recessive trait. 
+ 
+
+17.​For a population to be in Hardy-Weinberg equilibrium, which of the following must be 
+true? [1] 
+a.​ Population size must be small 
+b.​ There must be no mutations in the population 
+c.​ The population partakes in random mating 
+d.​ The population undergoes natural selection 
+ 
+18.​What is the frequency of the dominant allele (T) in this squirrel population as a percent? 
+[*1] 
+a.​ 84% 
+b.​ 60% 
+c.​ 53% 
+d.​ 42% 
+ 
+19.​What is the frequency of the heterozygous genotype in this squirrel population as a 
+percent? [*1]   
+a.​ 76% 
+b.​ 53% 
+c.​ 48% 
+d.​ 24% 
+ 
+ 
+
+ 
+20.​According to Figure 1, what is the relationship between species A and B?[1] 
+a.​ Orthologs 
+b.​ Paralogs 
+c.​ Analog 
+ 
+21.​According to Figure 1, what is the relationship between species B and C?[1] 
+a.​ Orthologs 
+b.​ Paralogs 
+c.​ Analog 
+ 
+22.​Which of the following accurately shows the chronological process of constructing a 
+phylogenetic tree? [1] 
+a.​ Data Acquisition and Preparation, Model Selection, Multiple Sequence 
+Alignment, Tree construction, and Tree Evaluation  
+b.​ Model Selection, Data Acquisition and Preparation, Multiple Sequence 
+Alignment, Tree construction, and Tree Evaluation  
+c.​ Data Acquisition and Preparation, Multiple Sequence Alignment, Model 
+Selection, Tree construction, and Tree Evaluation  
+d.​ Data Acquisition and Preparation, Multiple Sequence Alignment, Model 
+Selection, Tree Evaluation, and Tree Construction  
+ 
+23.​Which statistical technique is commonly used after a phylogenetic tree has been 
+constructed to assess the reliability and support for each specific branching point 
+(node)?[*1] 
+a.​ Multiple Sequence Alignment (MSA). 
+b.​ Bootstrapping. 
+c.​ Calculation of the chi-squared statistic. 
+d.​ Molecular clock analysis. 
+ 
+24.​What is the primary goal of the multiple sequence alignment (MSA) step in phylogenetic 
+construction?[1] 
+a.​ To create the final tree topology based on sequence similarity. 
+b.​ To randomly delete sites that contain gaps to simplify the data. 
+c.​ To ensure that homologous sites across different sequences are correctly matched. 
+d.​ To convert DNA sequences into amino acid sequences. 
+ 
+ 
+ 
+ 
+
+Molecular biology of DNA 
+ 
+25.​Which of the following best describes the characteristic of DNA in Chargaff’s Rule?[1] 
+a.​ DNA always contains equal amount of purines and pyrimidines because of 
+specific base pairing of the nitrogenous bases 
+b.​ The sequence of the nucleotides in DNA determines the trait of an organism 
+c.​ All organisms contain the sugar-phosphate backbone in the DNA, just at different 
+base ratios. 
+d.​ DNA has an unique double helix structure that allows it to have a stable structure 
+for DNA replication 
+ 
+26.​Which of the following correctly describes a nucleoside?[1] 
+a.​ A nucleotide consists of a nitrogenous base, a phosphate group, and a 5 carbon 
+sugar 
+b.​ A nucleoside is formed of a nitrogenous base binding to a 5 carbon sugar and can 
+form DNA monomer by bonding with phosphate groups 
+c.​ A nucleoside and a nucleotide are very similar chemically, except nucleotide has 
+an additional 5 carbon group and one is a monomer of DNA 
+d.​ A nucleoside contains of only a nitrogenous base and carboxyl group with the 
+lacking of phosphate group 
+ 
+27.​In DNA, the phosphate group is attached to which carbon of the deoxyribose sugar?[1] 
+a.​  1′ 
+b.​  2′ 
+c.​  3′ 
+d.​  5′  
+ 
+28.​DNA replication is considered semi-conservative because:[1] 
+a.​  Each daughter molecule contains two entirely new strands. 
+b.​  Each daughter molecule contains one parental strand and one new strand.  
+c.​  The parent DNA molecule is conserved, and two new strands are synthesized 
+separately. 
+d.​  Each strand alternates between old and new nucleotides. 
+ 
+29.​Why are purine–purine or pyrimidine–pyrimidine base pairs not used in the DNA?[1] 
+a.​ Their hydrogen bonds would be too strong to allow strand separation. 
+b.​ They would disrupt the uniform diameter of the double helix. 
+c.​ Their hydrogen bonding is too weak to stabilize the double helix. 
+d.​ DNA polymerase is unable to recognize them during replication. 
+ 
+
+30.​A chemotherapy drug interferes with thymine production, leading to increased 
+incorporation of uracil into DNA. What is the most likely cellular consequence of this 
+substitution?[1] 
+a.​ The DNA helix becomes more stable because uracil forms stronger hydrogen 
+bonds. 
+b.​ DNA repair systems are triggered, leading to strand breaks and cell death. 
+c.​ Replication proceeds normally since uracil pairs correctly with adenine. 
+d.​ The sugar–phosphate backbone of DNA is disrupted, causing chromosomes to 
+fragment spontaneously. 
+ 
+ 
+31.​Which of the following is NOT a function of chromatin?[1] 
+a.​ Compacting DNA to fit inside the nucleus. 
+b.​ Protecting DNA from damage. 
+c.​ Producing ribosomal RNA in the nucleolus. 
+d.​ Helping regulate gene expression. 
+ 
+32.​ATP (adenosine triphosphate) is often the source of energy for the cell. Structurally, why 
+is it classified as a nucleotide rather than just a nucleoside?[1] 
+a.​ Because it contains adenine linked only to deoxyribose. 
+b.​ Because it has a nitrogenous base but no phosphate groups. 
+c.​ Because it contains a nucleoside along with three phosphate groups attached. 
+d.​ Because it lacks a sugar component needed to in a nucleoside 
+ 
+33.​Why are centromeres and telomeres usually made of heterochromatin?[1] 
+a.​ They contain many protein-coding genes that need constant expression. 
+b.​ They are specialized regions commonly in ribosomal RNA transcription and 
+nucleolus assembly. 
+c.​ Their tightly packed structure maintains stability and reduces unwanted 
+recombination. 
+d.​ Their loose packing allows them to replicate and transcribe more quickly. 
+ 
+ 
+Prokaryotic gene expression and regulation 
+34.​Select which choice accurately describes the Central Dogma. [1] 
+a.​ DNA is translated to RNA which is translocated to protein. 
+b.​ RNA is transcribed to DNA which is translated to protein. 
+c.​ Protein is translated to DNA which is transcribed to RNA. 
+d.​ DNA is transcribed to RNA which is translated to protein. 
+ 
+
+35.​Select the correct directionality of transcription for the leading strand. [1] 
+a.​ DNA is read 3’ to 5’ and the corresponding RNA strand is built 5’ to 3’ 
+b.​ DNA is read 5’ to 3’ and the corresponding RNA strand is built 3’ to 5’. 
+c.​ RNA is read 3’ to 5’ and the corresponding DNA strand is built 5’ to 3’ 
+d.​ RNA is read 5’ to 3’ and the corresponding DNA strand is built 3’ to 5’ 
+ 
+36.​During the initiation stage of transcription, which enzyme binds to which site?[1] 
+a.​ DNA polymerase; start codon 
+b.​ RNA polymerase; promoter 
+c.​ DNA ligase; operon 
+d.​ Primase; primer 
+ 
+37.​True or false: When pre-mRNAs undergo splicing, exons are removed from the sequence, 
+leaving the mature mRNA. [1] 
+a.​ True 
+b.​ False 
+ 
+38.​Hypothetical gene X is expressed when there is an excess of glucagon in the body, 
+working to return glucagon levels to baseline.  The gene X operon could be described 
+as… [1] 
+a.​ Positive inducible 
+b.​ Negative inducible 
+c.​ Positive repressible 
+d.​ Negative repressible 
+ 
+39.​Place the following steps in order of lac operon function when lactose is present and 
+glucose levels are low: *[1] 
+ 
+(1) RNA polymerase is activated. 
+(2) cAMP levels increase due to low glucose levels and a halt of ATP production. 
+(3) Lactose binds to the Lacl repressor, causing a conformational change and leading the 
+repressor to fall off the operator. 
+(4)  RNA polymerase binds to the promoter and transcribes the lac gene 
+(5)  cAMP binds to CAP, then binding to the promoter of the lac operon 
+ 
+a.​ 3,1,2,5,4 
+b.​ 1,3,5,3,4 
+c.​ 2,5,3,1,4 
+d.​ 1,4,3,2,5 
+ 
+
+40.​What does the “m” in “mRNA” stand for, in regard to translation? [1] 
+a.​ Micro 
+b.​ Messenger 
+c.​ Multiple 
+d.​ Molecular 
+ 
+41.​To start any DNA coding sequence, a “start codon” must be present.  Which amino acid 
+is the correct “start codon”? [1] 
+a.​ Arginine 
+b.​ Asparagine 
+c.​ Tryptophan 
+d.​ Methionine 
+ 
+ 
+42.​What is the purpose of the 5’ cap added to mRNA after transcription? [1] 
+a.​ To guide the mRNA to the ribosome 
+b.​ To tell translation where to start 
+c.​ To protect the mRNA from degradation 
+d.​ To give tRNA something to attach onto during translation 
+ 
+43.​What is the difference between a cis- and trans-regulatory element? [1] 
+a.​ Cis-regulatory elements are on the same chromosome as the gene they control, 
+and trans-regulatory elements are located on any chromosome and are able to 
+travel. 
+b.​ Trans-regulatory elements are on the same chromosome as the gene they control, 
+and cis-regulatory elements are located on any chromosome and are able to travel. 
+c.​ Cis-regulatory elements are on the leading DNA strand and trans-regulatory 
+elements are on the lagging DNA strand. 
+d.​ Trans-regulatory elements are on the leading DNA strand and cis-regulatory 
+elements are on the lagging DNA strand. 
+ 
+Technology and Techniques 
+44.​Illumina sequencing is a next-generation sequencing method that is able to sequence high 
+volumes of DNA sequences quickly.  Name the method in which Illumina is able to do 
+this. [1] 
+a.​ Polymerase-chain reaction (PCR) 
+b.​ Sequencing-by-synthesis (SBS) 
+c.​ Large-scale gel-electrophoresis 
+d.​ Mutation-identification technology 
+ 
+
+45.​What unique ability of plasmids allows them to be critical tools for molecular cloning? 
+[1] 
+a.​ Plasmids are separate from chromosomal DNA, and are able to replicate 
+independently 
+b.​ Plasmids are strong, circular fragments of DNA that are unable to denature 
+c.​ Plasmids always integrate into the chromosomes, allowing scientists to inject 
+them into predetermined cells 
+d.​ Plasmids are able to adapt to any ploidy number 
+ 
+ 
+46.​What is the difference between gene knock-out and knock-down? [1] 
+a.​ Gene knock-out results in a temporary reduction of expression, and knock-down 
+results in permanent inactivation of the gene 
+b.​ Gene knock-out refers to changes made at the mRNA level, while knock-down 
+refers to changes made at the DNA level 
+c.​ Gene knock-out results in permanent inactivation of the gene, and knock-down 
+results in temporary reduction of expression 
+d.​ Gene knock-out removes the gene from the genome, and knock-down moves the 
+gene downstream 
+ 
+47.​When is a genetic knock-down more appropriate than knock-out? [1] 
+a.​ When the gene of interest is conditionally expressed 
+b.​ When the gene of interest is lethal if not present 
+c.​ When the gene of interest is long in nucleotide numbers 
+d.​ When the gene of interest is not being transcribed 
+ 
+ 
+ 
+ 
+ 
+ 
+2025 State Tournament - Div C -Georgia 
+Designer Genes - FRQ 
+
+ 
+ 
+Written by: Pragnya Kamalapuri, Yong Zhu, Shreejanani 
+Thirugnanasambantham, Leah Green 
+ 
+School Name/Team: _____________________________________________ 
+ 
+Student Names: ________________________________________________ 
+ 
+Instructions:  
+1.​ Write all answers on the Answer Sheet. DO NOT WRITE on Test Packet. 
+2.​ See the Image Sheet when asked to refer to an image by a question (it may be 
+a separate sheet or attached to the back of this packet). 
+3.​ For numerical questions, answers within a reasonable range will be accepted. 
+4.​ When answering free-response questions, use the appropriate abbreviations 
+for satellite and instrument names  
+5.​ For free-response questions, the answer sheet indicates the amount of space 
+you should allocate to fully answer each question. Points are assigned based 
+on accurately answering each part of the question. 
+6.​ Ties marked with a * will be broken in order 
+ 
+ 
+ 
+Free response questions 
+1.​ The three nonsense codons in the genetic code are UAG, UAA, and UGA. Suppose a 
+chemical mutagen causes frequent G to A mutations during DNA replication. 
+Predict which stop codons would be expected to arise most often from these 
+
+mutations and explain why. In your response, compare the number of base changes 
+required to produce each stop codon. [3 points] 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+In a certain species of flowers, pink flowers are dominant over white flowers and tall plants 
+are dominant over dwarf plants. A tall pink flowered plant is crossed with a white flowered 
+dwarf plant and the following progeny is obtained:  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+2.​ Assume that “A” and “a” correspond to dominant allele and recessive alleles for 
+color, respectively. Assume that “B” and “b” correspond to dominant and recessive 
+alleles for height, respectively. What are the most likely genotypes of the parents and 
+progeny? BONUS: Test your genetic hypothesis with a chi-square test at the 0.05 
+significance level using the following chi-square table: [5 points]                                                            
+Pink, tall 
+131 
+Pink, short 
+47 
+White, tall 
+40 
+White, short​
+ 
+6 
+
+ 
+ 
+ANSWER: 
+ 
+ 
+ 
+ 
+ 
+An experiment on corn kernels was conducted by crossing a pure-bred red-kernel strain 
+(AABBCC) and a pure-bred white-kernel (aabbcc) strain. The F1 generation showed a 
+phenotype of pink. The F2 generation produced a range of colors with 2 out of 128 
+offspring having a white phenotype identical to the parent.  
+ 
+3.​ Based on the provided data, calculate the number of genes that contribute to the white 
+kernel color in this population. [1 point] 
+ 
+ 
+4.​ Based on the description which graph most nearly applies to the F2 generation of this 
+population. [*1 point] 
+ 
+ 
+a.​   
+ 
+b.​   
+ 
+
+c.​   
+ 
+d.​   
+ 
+ 
+ 
+An engineer plans to build a border wall exactly in the middle of a grassland where a 
+population of rabbits is inhabiting, thereby introducing a geographical barrier. A few years 
+later, a highly contagious disease spreads and targets rabbits with a specific allele for fur 
+color. Rabbits that have the fur color allele have a slight advantage regarding their 
+metabolic function, a trait that is completely unrelated to fur color.  
+ 
+5.​ Mention at least two phenomena (evolutionary mechanisms) that happen to the 
+population of rabbits in this situation [4 points]? 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+6.​ Shown below are histone modification profiles of genomic regions containing two 
+genes of interest - POU5F1 and EOMES – in human embryonic stem cells. Which of 
+these genes will be expressed in these cells? Explain. [*2 points] 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+7.​ During a PCR, there are three temperature dependent changes during the three 
+specific steps of the process.  Please name the step and why each step is temperature 
+dependent (6 points). 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+8.​ Provide a brief explanation to the purpose of each given reagent for a standard PCR 
+(5 points). 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+9.​ Briefly explain how Sanger sequencing works to label the DNA sequence (4 points). 
+ 
+ 

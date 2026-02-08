@@ -1,0 +1,157 @@
+EVENT: Astronomy
+SOURCE: Rickards Invitational 2025 (Div. C)
+FORMAT: 18 questions (Free Response, Fill-in-blank, True/False, Calculations)
+TOTAL POINTS: 164
+
+---SECTION 1: DSOs---
+
+---QUESTION 1---
+ID: 1 | POINTS: 7.00 | FORMAT: Free Response (4 parts) / Image Analysis
+TOPIC: Deep Sky Objects | H II regions | Nebulae | Observatories
+DIFFICULTY: Medium
+QUESTION: Use the following image to answer question 1.
+a. What is the name of this DSO? (1)
+b. Which observatory was this image taken at? (1)
+c. The bright red region in the middle left of the image is a(n) _______, and composed primarily of ________. (2)
+d. Would you expect the gas in this region to be primarily ionized or neutral? Why? (3)
+
+---QUESTION 2---
+ID: 2 | POINTS: 8.00 | FORMAT: Free Response (4 parts) / Image Analysis
+TOPIC: Deep Sky Objects | Planetary nebulae | Molecules | Variable stars
+DIFFICULTY: Medium
+QUESTION: Use the following image to answer question 2.
+a. What is the name of the DSO shown in this image? (1)
+b. This diagram shows the presence of which compound? Why is it significant? (4)
+c. What type of star is this DSO? Be specific! (2)
+d. True/False: This DSO is a type of pulsating variable star. (1)
+
+---QUESTION 3---
+ID: 3 | POINTS: 8.00 | FORMAT: Free Response (4 parts) / Image Analysis
+TOPIC: Deep Sky Objects | Pulsars | Physics principles | Discovery dates
+DIFFICULTY: High
+QUESTION: Use the following image to answer question 3.
+a. These graphs represent which DSO? (1)
+b. What is unique about this particular DSO? (2)
+c. This DSO "violates" a well-known astrophysics principle. What is this principle and how is a violation possible? (4)
+d. When was this DSO first detected? (1)
+
+---QUESTION 4---
+ID: 4 | POINTS: 9.00 | FORMAT: Free Response (5 parts) / Image Analysis
+TOPIC: Deep Sky Objects | Supernova remnants | EM spectrum | Elements
+DIFFICULTY: Medium
+QUESTION: Use the following image to answer question 4.
+a. What is the name of the DSO shown in the image? (1)
+b. What section of the EM spectrum was this image taken in? What is this image showing (3)?
+c. True/False: this image is a composite taken over the course of 5 years. (1)
+d. This DSO had an unusual element detected in it. Which element was this and why was that significant? (3)
+e. This DSO emits radiation most prominently in ______ wavelengths. (1)
+
+---QUESTION 5---
+ID: 5 | POINTS: 8.00 | FORMAT: Free Response (4 parts) / Image Analysis
+TOPIC: Deep Sky Objects | Galaxies | Wavelengths | Telescopes | Interactions
+DIFFICULTY: Medium
+QUESTION: Use the following image to answer question 5.
+a. Provide 2 names for the DSO shown in the image. (2)
+b. This DSO is primarily observed in which wavelengths? These wavelengths correspond to which colors in the image? (2)
+c. This DSO has recently been observed to be interacting with another object. What is this object? (official designations are not needed) (2)
+d. This image uses data from two different telescopes. What are they? (2)
+
+---QUESTION 6---
+ID: 6 | POINTS: 6.00 | FORMAT: Free Response (4 parts) / Image Analysis
+TOPIC: Deep Sky Objects | Variable stars | Light curves | Planets | Pop culture
+DIFFICULTY: Medium
+QUESTION: Use the following image to answer question 6.
+a. What is the DSO shown by the light curve in the image? (1)
+b. This DSO is the first of its kind found to contain what structures? Briefly describe them and name the most probable mechanism of their formation. (3)
+c. True/False: this DSO is confirmed to have two planets orbiting it. (1)
+d. This DSO is relatively famous, with a popularized (if dramatic) name being given to it in pop culture. What is this name? (1)
+
+---QUESTION 7---
+ID: 7 | POINTS: 3.00 | FORMAT: Free Response
+TOPIC: Variable Stars | RR Lyrae | Pulsation mechanisms
+DIFFICULTY: Medium
+QUESTION: What kind of variable stars are RR Lyrae variables classified as? What is the name of the leading hypothesis of RR Lyrae periodicity?
+
+---QUESTION 8---
+ID: 8 | POINTS: 4.00 | FORMAT: Free Response
+TOPIC: Variable Stars | Instability Strip | HR diagram | Pulsation mechanisms
+DIFFICULTY: Medium
+QUESTION: Which phenomenon is responsible for the Instability Strip on the HR diagram (and many other types of variability in stars)? Briefly explain how it works.
+
+---SECTION 2: Theory---
+
+---QUESTION 9---
+ID: 9 | POINTS: 2.00 | FORMAT: Fill-in-blank
+TOPIC: Variable Stars | Long-period variables | Mira variables
+DIFFICULTY: Medium
+QUESTION: Assume you are observing a variable star which is very red in color, has a pulsation period of about 125 days, and is a late-stage giant. What type of variable is this?
+
+---QUESTION 10---
+ID: 10 | POINTS: 4.00 | FORMAT: Free Response / Image Analysis
+TOPIC: Variable Stars | Light curves | Classification
+DIFFICULTY: Medium
+QUESTION: This image shows two types of variable stars. Which types of variable stars do these graphs show? Be sure to note which one is which in your answer.
+
+---QUESTION 11---
+ID: 11 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Stellar Populations | Wolf-Rayet stars | Population I | Population II
+DIFFICULTY: Medium
+QUESTION: Are Wolf-Rayet stars classified as Population I or II? Explain.
+
+---QUESTION 12---
+ID: 12 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Stellar Populations | Globular clusters | Population I | Population II
+DIFFICULTY: Easy
+QUESTION: Globular clusters are mostly composed of Population I stars.
+ANSWER: FALSE
+
+---QUESTION 13---
+ID: 13 | POINTS: 5.00 | FORMAT: Free Response
+TOPIC: Radio Astronomy | Signal processing | Fourier analysis
+DIFFICULTY: Medium
+QUESTION: What technique is used to dissect signals into their constituent frequencies? What other uses does it have in radio astronomy?
+
+---QUESTION 14---
+ID: 14 | POINTS: 2.00 | FORMAT: Fill-in-blank
+TOPIC: Neutron Stars | Wavelengths | Observational astronomy
+DIFFICULTY: Medium
+QUESTION: Which wavelengths would be best used to image a neutron star?
+
+---QUESTION 15---
+ID: 15 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Supernovae | Type II supernovae | Galaxy types
+DIFFICULTY: Easy
+QUESTION: Most Type II supernovae do not occur in elliptical galaxies.
+ANSWER: TRUE
+
+---SECTION 3: Astrophysics---
+
+---QUESTION 16---
+ID: 16 | POINTS: 36.00 | FORMAT: Calculation (5 parts) / Image Analysis
+TOPIC: Binary Systems | White Dwarfs | Orbital mechanics | Gravitational radiation | Supernovae
+DIFFICULTY: Very High
+QUESTION: This is the radial velocity graph of a system of two white dwarves.
+a. Given that the total mass of the system is 1.5 M☉, what is the period of the white dwarves? (4)
+b. What is the total orbital energy of this system? (2)
+c. Due to general relativity, this energy is lost to gravitational radiation at a rate of -32/5 G⁴ c⁻⁵ r⁻⁵ (Mₐ Mᵦ) (Mₐ+Mᵦ). What is the rate of orbital decay of the two white dwarfs? (5)
+d. How long will it take these two white dwarves to merge? (6)
+e. What type of supernova will this collision result in? (1)
+
+---QUESTION 17---
+ID: 17 | POINTS: 12.00 | FORMAT: Calculation (2 parts) / Image Analysis
+TOPIC: Supernovae | Spectroscopy | Radial velocity | Parallax
+DIFFICULTY: High
+QUESTION: This will be the spectrum of the supernova.
+a. How fast is the system moving from Earth? (4)
+b. The parallax of the white dwarves is 0.005". Is the value from (a.) reasonable? (2)
+
+---QUESTION 18---
+ID: 18 | POINTS: 46.00 | FORMAT: Calculation (5 parts) / Image Analysis
+TOPIC: White Dwarfs | Spectroscopy | Temperature | Extinction | Planetary systems | Transits
+DIFFICULTY: Very High
+QUESTION: This is the current light spectrum of the system referenced in #16 and #17.
+a. What is the temperature of the white dwarfs? (2)
+b. Light is absorbed as it passes through the ISM through a process known as extinction. In the milky way galaxy, extinction is about 1.8 magnitudes/kpc. What is the apparent magnitude of the system? (Use the nonrelativistic equations for this problem). (6)
+c. A planet exists in this system. How would it orbit the white dwarves? (2)
+d. The transit depth if all three members of the system were to line up with the planet in front is 0.6. Provide a simplified expression for the inclination of the planet in terms of its orbital distance. (5)
+e. What will be the temperature of the white dwarfs at the time of collision? You may use t=10³⁰ s if you did not obtain a value for merger time. (8)

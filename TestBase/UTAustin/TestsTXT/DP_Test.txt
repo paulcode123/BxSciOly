@@ -1,0 +1,945 @@
+ 
+2025 UT Invitational 
+10/25/2025 
+Dynamic Planet B/C Exam  
+ 
+Parameters  
+●​
+Each participant may bring a 2” or smaller binder, and 2 standalone calculators of any type.  
+●​
+This packet should not be taken outside the testing room! If you have this, notify the event supervisors 
+immediately or else you will be disqualified! 
+Directions  
+●​
+You will have 50 minutes to complete this exam - do not begin until instructed to do so!  
+●​
+All answers must be indicated on your answer document. DO NOT WRITE ON THIS EXAM!  
+●​
+Point values are indicated for all questions & tiebreakers are indicated in test booklets. The number of 
+tiebreakers correctly answered indicates your tie order.  
+●​
+The maximum number of obtainable points on this exam is 118 points.  
+●​
+You may take apart the test to split the work, but make sure to staple it back together at the end of the 
+event.  
+Authors: Mahima Mahajan, University of Texas at Austin, SDS ‘28 
+   Justin Yang, University of Texas at Austin, CS ‘29 
+(any questions after the conclusion of this event may be emailed to mahima@atxscioly.org or 
+justin@atxscioly.org) 
+***CLASS SET: DO NOT WRITE ON THE EXAM*** 
+Exam Questions start on the next page →  
+
+2025 UT Invitational​
+​
+​
+ Page 2 of 15 ​
+​
+​
+Dynamic Planet B/C Exam  
+ 
+Section 1 : Multiple Choice Questions 
+Each question in this section is worth 1 point. 
+1.​
+Sodium and chloride make up approximately what percentage of all dissolved ions in seawater by weight? 
+a.​
+70% 
+b.​
+75% 
+c.​
+80% 
+d.​
+85% 
+e.​
+90% 
+2.​ Name the major compound responsible for the decrease in pH in the ocean. 
+a.​
+HCl 
+b.​
+CO2 
+c.​
+CH4 
+d.​
+(H₃PO₄) 
+e.​
+CO 
+3.​ The Coriolis effect causes moving objects in the Northern Hemisphere to deflect: 
+a.​
+To the left 
+b.​
+To the right 
+c.​
+Upward 
+d.​
+Downward 
+e.​
+Straight 
+4.​ Western intensification results in: 
+a.​
+Stronger currents on the western side of ocean basins 
+b.​ Stronger currents on the eastern side of ocean basins 
+c.​
+Weaker gyres  
+d.​ Reduced upwelling 
+e.​
+No significant effect 
+5.​ Ekman transport is the net movement of water at an angle of ____ to the wind. 
+a.​
+30o 
+b.​ 45o 
+c.​
+90o 
+d.​ 180o 
+e.​
+0o 
+6.​ The North Atlantic Gyre circulates: 
+a.​
+Clockwise in the Northern Hemisphere 
+b.​ Counterclockwise in the Northern Hemisphere 
+c.​
+Clockwise in the Southern Hemisphere 
+d.​ Counterclockwise in the Southern Hemisphere 
+e.​
+There is no significant pattern of circulation 
+7.​ The main driver of surface ocean currents is: 
+a.​
+Tides 
+b.​
+Thermohaline 
+Circulation 
+c.​
+Earthquakes 
+d.​
+Wind 
+e.​
+Precipitation 
+ 
+***CLASS SET: DO NOT WRITE ON THE EXAM*** 
+ 
+
+2025 UT Invitational​
+​
+​
+ Page 3 of 15 ​
+​
+​
+Dynamic Planet B/C Exam  
+ 
+8.​ Which of the following is a warm boundary current?  
+a.​
+California Current 
+b.​ Gulf Stream 
+c.​
+Canary Current 
+d.​ Benguela Current 
+e.​
+Humboldt Current 
+9.​ Which of the following does not contribute to mechanical mixing in the surface layer? 
+a.​
+Surface 
+Waves 
+b.​
+Hurricanes 
+c.​
+Cold Polar 
+Air Mass 
+d.​
+Rain 
+e.​
+None of the 
+above 
+10.​ Approximately, what is the current pH of the ocean? 
+a.​
+8.0 
+b.​
+8.1 
+c.​
+8.2 
+d.​
+8.3 
+e.​
+8.4 
+11.​ Wave shoaling occurs when: 
+a.​
+Waves slow down and increase in height near shallow water 
+b.​ Waves break in deep water 
+c.​
+Currents interact with tides 
+d.​ Waves increase in wavelength in the open ocean 
+e.​
+Tsunamis dissipates 
+12.​ Deep-water waves travel with a speed proportional to: 
+a.​
+Wave period squared  
+b.​ Square root of wavelength 
+c.​
+Water temperature 
+d.​ Wind speed 
+e.​
+Wave height 
+13.​ Which of the following tides occur when the Earth, Sun, and Moon form a syzygy? 
+a.​
+spring 
+b.​
+neap 
+c.​
+diurnal 
+d.​
+low 
+e.​
+high 
+ 
+ 
+***CLASS SET: DO NOT WRITE ON THE EXAM*** 
+ 
+
+2025 UT Invitational​
+​
+​
+ Page 4 of 15 ​
+​
+​
+Dynamic Planet B/C Exam  
+ 
+14.​ Wave refraction causes: 
+a.​
+Even distribution of energy along coasts 
+b.​ Dissipation of waves in deep ocean 
+c.​
+Formation of tsunamis 
+d.​ Changes in salinity 
+e.​
+Concentration of wave energy on headlands 
+15.​ Storm surge is most strongly influenced by: 
+a.​
+Tsunami wave height 
+b.​ Lunar phase 
+c.​
+Salinity gradients 
+d.​ High winds and low atmosphere pressure 
+e.​
+Earthquakes 
+16.​ Constructive interference of waves results in: 
+a.​
+Larger wave 
+heights 
+b.​
+Smaller wave 
+heights 
+c.​
+Wave 
+reflection 
+d.​
+Wave 
+diffraction 
+e.​
+Formation of 
+rip currents 
+17.​ Which process contributes to the southward flow of dense, cold water in the North Atlantic, helping 
+drive the thermohaline circulation? 
+a.​
+Western movement of ocean water caused by trade winds  
+b.​ Northern intensification of the subtropical gyres 
+c.​
+Coastal upwelling in California 
+d.​ Deep convection in the Labrador Sea 
+e.​
+Strengthened Antarctic Circumpolar Current 
+18.​ A Kelvin wave traveling along the equator in the Pacific Ocean always moves: 
+a.​
+Northward 
+b.​
+Eastward 
+c.​
+Southward 
+d.​
+Westward 
+e.​
+Upward 
+19.​ Which feature typically develops on the down-current side of a headland due to wave shadowing? Select 
+all that apply. 
+a.​
+Spit 
+b.​
+Rip current 
+c.​
+Tombolo 
+d.​
+Lagoon 
+e.​
+Delta 
+***CLASS SET: DO NOT WRITE ON THE EXAM*** 
+ 
+
+2025 UT Invitational​
+​
+​
+ Page 5 of 15 ​
+​
+​
+Dynamic Planet B/C Exam  
+ 
+20.​ The Canary Current differs from the Gulf Stream because it is: 
+a.​
+Warm, 
+deep, fast 
+b.​
+Warm, 
+shallow, slow 
+c.​
+Cold, 
+shallow, 
+slow 
+d.​
+Cold, 
+deep, fast 
+e.​
+A 
+thermohaline 
+current rather 
+than a surface 
+current 
+21.​ If the Coriolis effect were suddenly “turned off,” surface ocean gyres would: 
+a.​
+Reverse 
+circulation 
+direction 
+b.​
+Strengthen 
+Ekman spirals 
+c.​
+Intensify 
+into faster 
+gyres 
+d.​
+Stop 
+circulation 
+and flow 
+linearly 
+e.​
+Surface ocean 
+gyres won’t 
+be effected 
+22.​ Rossby waves typically span 
+f.​
+A few 
+meters 
+g.​
+Tens of 
+meters 
+h.​
+A few 
+kilometers 
+i.​
+Tens of 
+kilometers 
+j.​
+Hundreds to 
+thousands of 
+kilometers 
+23.​ Turbidites are often deposited by what type of flow? 
+a.​
+laminar 
+b.​
+frictional 
+c.​
+traditional 
+d.​
+density 
+e.​
+All of the 
+above 
+24.​ The upper layer of oceanic crust can be characterized by what structures? Select all that apply. 
+a.​
+Pillow lavas 
+b.​
+Cumulate 
+rocks 
+c.​
+Dikes 
+d.​
+Gabbro 
+e.​
+Troctolites 
+25.​ During an El Niño event, the thermocline in the eastern Pacific is: 
+a.​
+Shallower 
+and weaker 
+b.​
+Shallower 
+and 
+stronger 
+c.​
+Deeper and 
+weaker 
+d.​
+Deeper and 
+stronger 
+e.​
+Unaffected 
+26.​ The Pacific Decadal Oscillation differs from ENSO mainly in: 
+a.​
+Strength of 
+trade winds 
+b.​
+Timescale 
+and 
+geographic 
+footprint 
+c.​
+Influence 
+of lunar 
+cycles 
+d.​
+Dependence 
+on volcanic 
+activity 
+e.​
+Absence of 
+sea surface 
+temperature 
+patterns 
+ 
+***CLASS SET: DO NOT WRITE ON THE EXAM*** 
+ 
+
+2025 UT Invitational​
+​
+​
+ Page 6 of 15 ​
+​
+​
+Dynamic Planet B/C Exam  
+ 
+27.​ Ocean deoxygenation is particularly severe in: 
+a.​
+Coral reef lagoons 
+b.​ Polar surface waters 
+c.​
+Deep trenches 
+d.​ Oxygen minimum zones at mid-depths 
+e.​
+Fjords 
+28.​ As the ocean absorbs more atmospheric CO2 , carbonate ion availability declines. What threshold value 
+is most critical for reef-building corals to continue effective calcification? 
+a.​
+pH above 8.5 
+b.​ Temperature below 26°C 
+c.​
+pH below 6.5 
+d.​ Oxygen saturation below 50% 
+e.​
+Argonite saturation state (Ωagar) of 3.0  
+29.​ Thermal expansion contributes roughly what fraction of observed sea-level rise? 
+a.​
+¼  
+b.​ ⅓ 
+c.​
+½ 
+d.​ ⅔ 
+e.​
+¾  
+30.​ A group of scientists needs to map the shape of the seafloor to identify a potential submarine canyon. 
+Which research tool would provide the most effective data? 
+a.​
+Sediment 
+core 
+sampler 
+b.​
+CTD 
+device 
+c.​
+Sonar 
+(multibean 
+or 
+side-scan) 
+d.​
+Niskin 
+bottle water 
+sampler 
+e.​
+ADCP 
+31.​ CTDs measure conductivity as a way to measure what? 
+a.​
+Biodiversity 
+b.​
+Current 
+Flow 
+c.​
+Underwater 
+storms 
+d.​
+Salinity 
+e.​
+All of the 
+above 
+32.​ Which water masses mix to form the “Common Water”? Select all that apply. 
+a.​
+NACSW 
+b.​
+NADW 
+c.​
+MIW 
+d.​
+MBW 
+e.​
+AABW 
+ 
+ 
+***CLASS SET: DO NOT WRITE ON THE EXAM*** 
+ 
+
+2025 UT Invitational​
+​
+​
+ Page 7 of 15 ​
+​
+​
+Dynamic Planet B/C Exam  
+ 
+33.​ Which of the following are the main drivers of upwelling? Select all that apply. 
+a.​
+Wind 
+b.​
+Coriolis 
+Effect 
+c.​
+Lunar 
+Gravity 
+d.​
+Ekman 
+Transport 
+e.​
+Volcanoes 
+34.​ Energy balance at the surface of the ocean is a combination of which of the following? Select all that apply. 
+a.​
+Net 
+shortwave 
+radiation 
+b.​
+Net 
+longwave 
+radiation 
+c.​
+Net latent 
+heat flux 
+d.​
+Net sensible 
+heat flux 
+e.​
+Net ground 
+heat 
+transfer 
+35.​ Active continental margins are characterized by ____ and relatively  _____ shelves. 
+a.​
+Narrow; 
+steep 
+b.​
+Wide; Steep 
+c.​
+Narrow; 
+Shallow 
+d.​
+Wide; 
+Shallow 
+e.​
+Shallow; 
+Steep  
+36.​ Which of the following are the most common sources of salt in the ocean? Select all that apply. 
+a.​
+Land 
+b.​
+Rain 
+c.​
+Meteorites 
+d.​
+Dead 
+animals 
+e.​
+Hydrothermal 
+vents 
+37.​ At what fraction of a tide’s wavelength would you observe the largest effect of tidal resonance? 
+a.​
+1/8 
+b.​
+1/4 
+c.​
+1/2 
+d.​
+5/8 
+e.​
+5/4 
+38.​ A geostrophic current flows northward in the Northern Hemisphere. Where is the region of higher pressure 
+relative to the current? 
+a.​
+Directly 
+ahead 
+b.​
+To the west 
+c.​
+Directly 
+behind 
+d.​
+To the east 
+e.​
+Beneath the 
+flow 
+39.​ Rossby waves exist because the Coriolis parameter (𝑓) changes with: 
+a.​
+Depth of 
+the ocean 
+b.​
+Temperature 
+gradients 
+c.​
+Salinity 
+d.​
+Latitude 
+e.​
+Longitude 
+40.​ Which statement best distinguishes Kelvin waves from Rossby waves? 
+a.​
+Kelvin waves move westward, Rossby waves move eastward 
+b.​
+Kelvin waves move eastward, Rossby waves move westward 
+c.​
+Kelvin waves and Rossby waves are the same thing.  
+d.​
+Kelvin waves move northward, Rossby waves move southward 
+e.​
+Kelvin waves move southward, Rossby waves move northward 
+***CLASS SET: DO NOT WRITE ON THE EXAM*** 
+ 
+
+2025 UT Invitational​
+​
+​
+ Page 8 of 15 ​
+​
+​
+Dynamic Planet B/C Exam  
+ 
+41.​ Geostrophic balance is most closely responsible for the circulation of: 
+a.​
+Ocean 
+currents 
+b.​
+Internal 
+waves 
+c.​
+Atmospheric 
+winds 
+d.​
+A and B 
+e.​
+A and C 
+42.​ Which process best explains why Rossby waves are so important to large-scale ocean dynamics? 
+a.​
+They dissipate energy from wind waves 
+b.​
+They maintain tidal resonance in coastal shelves 
+c.​
+They redistribute heat across entire ocean basins 
+d.​
+They are not important. 
+e.​
+They maintain tidal resonance in coastal shelves 
+43.​ Which instrument is designed to measure the speed and direction of seawater currents throughout the water 
+column? 
+a.​
+Niskin 
+bottle 
+b.​
+CTD 
+c.​
+ADCP 
+d.​
+Sediment 
+corer 
+e.​
+Sonar 
+44.​ A researcher wants to study changes in ocean chemistry due to acidification over time. Which combination of 
+tools would give the most complete data? 
+a.​
+Sonar + ADCP 
+b.​
+Sonar + Niskin bottles 
+c.​
+ADCP + Niskin bottles 
+d.​
+Sonar + ADCP + Niskin bottles 
+e.​
+None of the above. 
+45.​ In the Northern Hemisphere, a geostrophic current flows northward. On which side of the current is higher 
+pressure located? 
+a.​
+Directly 
+ahead 
+b.​
+East 
+c.​
+Directly 
+behind 
+d.​
+West 
+e.​
+Beneath the 
+flow 
+46.​  What are the different types of mesoscale eddies? Select all that apply. 
+a.​
+Dynamic 
+b.​
+Static 
+c.​
+Transient 
+d.​
+Permanent 
+e.​
+Atmospheric 
+47.​ In which month would you expect to see the most negative SAM event? 
+a.​
+January 
+b.​
+March 
+c.​
+May 
+d.​
+July 
+e.​
+November 
+ 
+***CLASS SET: DO NOT WRITE ON THE EXAM*** 
+ 
+
+2025 UT Invitational​
+​
+​
+ Page 9 of 15 ​
+​
+​
+Dynamic Planet B/C Exam  
+ 
+48.​ In geostrophic balance, how do fluids flow? 
+a.​
+Low to 
+high 
+pressure 
+b.​
+High  to 
+low 
+pressure 
+c.​
+Along 
+latitude lines 
+d.​
+Along 
+longitude 
+lines 
+e.​
+Parallel to 
+isobars 
+***CLASS SET: DO NOT WRITE ON THE EXAM*** 
+ 
+
+2025 UT Invitational​
+​
+​
+ Page 10 of 15 ​
+​
+​
+Dynamic Planet B/C Exam  
+ 
+Section 2 : Short Answer Questions 
+49.​ (3 pts) ADCPs have multiple frequencies by which they operate. Explain when you would use low vs. 
+high frequencies. 
+ 
+Image taken from The COMET Program “Towards a physical model of Antarctic sea ice microstructure including biogeochemical processes 
+using the extended Theory of Porous Media” 
+50.​ (6 pts) Using the above image, answer the following: 
+a.​
+(1 pt) At  277K and ~34.5 PSU, what is the density of the water? 
+b.​ (2 pts) Calculate the σt of the density. 
+c.​
+(2 pts) Why do scientists opt to use the σt  instead of density? 
+d.​ (1 pt) What word is used to indicate lines of equal density as shown in the diagram 
+51.​ (5 pts) Answer the following questions regarding the thermocline. 
+a.​
+(1 pt) When can you tell you enter the thermocline of a body of water? 
+b.​ (2 pts) What role do thermoclines play in hurricane forecasting? 
+c.​
+(2 pts) At mid-latitudes, what happens to the thermocline during winter vs summer? 
+ 
+***CLASS SET: DO NOT WRITE ON THE EXAM*** 
+ 
+
+2025 UT Invitational​
+​
+​
+ Page 11 of 15 ​
+​
+​
+Dynamic Planet B/C Exam  
+ 
+52.​ (2 pts) What are the four stages in the tidal cycle in order? 
+53.​ (5 pts) Back in 1999, a program called Argo was proposed at OceanObs, an international conference of 
+agencies who want to coordinate ocean research. The goal was to create a series of floats to help collect 
+data and provide greater insight into the chemistry and physics of the ocean. These floats are able to 
+control their depth, sinking and rising according to a predetermined set of instructions coded into the 
+floats. The floats typically operate in around ten day cycles where they would drift for 9 days, sink to 
+start a profile of various data points, and then resurface to relay their data. 
+a.​
+(3 pts) What is the mechanism behind the Argo floats’ ability to sink or rise?** 
+b.​ (2 pts) How are Argo floats able to help scientists determine flow of ocean currents? 
+54.​ (6 pts) Answer the following questions about calculating oceanic heat transport (OHT). 
+a.​
+(2 pts) What are the three types of estimates for OHT? 
+b.​ (2 pts) What are the advantages to indirect estimations of OHT? 
+c.​
+(2 pts) Why don’t we use the term temperature transport instead of heat transport? 
+ 
+ 
+ 
+ 
+***CLASS SET: DO NOT WRITE ON THE EXAM*** 
+ 
+
+2025 UT Invitational​
+​
+​
+ Page 12 of 15 ​
+​
+​
+Dynamic Planet B/C Exam  
+ 
+ 
+Image taken from NOAA “Ocean floor features” 
+55.​ (9 pts) Using the above image, answer the following: 
+a.​
+(3 pts) Identify structure A and explain how it forms. 
+b.​ (3 pts) Identify structure B and explain how it forms. 
+c.​
+(3 pts) Identify structure C and explain how it is so flat. 
+56.​ (6 pts) The AMOC has been getting weaker since the 19th century due to rising temperatures 
+attributed to climate change. 
+a.​
+(4 pts) Explain how and why the AMOC’s strength is diminishing. 
+b.​ (2 pts) How will this affect Europe? 
+57.​ (6 pts) Waves are an extremely common phenomenon in the ocean. Scientists attempt to measure them 
+in order to understand how they function. Let’s assume that the scientists discover a wave that is 27m 
+tall, has a wavelength of 300m, and a wave period of 10s. 
+a.​
+(2 pts) Calculate the steepness of the wave.  
+b.​ (1 pt) Is this wave a deep or shallow water wave? 
+c.​
+(3 pts) What are the 3 things that affect wave height in wind generated waves? 
+ 
+***CLASS SET: DO NOT WRITE ON THE EXAM*** 
+ 
+
+2025 UT Invitational​
+​
+​
+ Page 13 of 15 ​
+​
+​
+Dynamic Planet B/C Exam  
+ 
+ 
+*Image taken from NASA article “Pacific Wind and Current Changes Bring Warm, Wild Weather” 
+58.​ (7 pts) The above image shows the Pacific Ocean during neutral conditions compared to during an El 
+Niño event. In your response: 
+a.​
+(2 pts) Explain the effects of an El Niño event. 
+b.​ (2 pts) Explain how equatorial Rossby waves contribute to the termination of an El Niño 
+event. 
+c.​
+(2 pts) Explain how the trade winds drive surface circulation in the equatorial Pacific under 
+normal conditions. 
+d.​ (1 pt) Predict one ecological or climate impact of this altered circulation pattern. 
+59.​ (6 pts) Between 2022 and 2023, the Peruvian fishing industry suffered a loss of 25.43% in harvests and a 
+12.56% decrease in total seafood exports as a result of warming waters and political instability. Despite 
+this, the Peruvian fishing industry is still strong with a large domestic demand for seafood. (Data is taken 
+from Peruvian Seafood and Aquaculture Industry Observations and Analysis by the USDA). 
+a.​
+(4 pts) Why does the coast of Peru have such a rich abundance of fish? 
+b.​ (2 pt) What natural phenomenon serves as a major factor in the decrease in harvests? 
+***CLASS SET: DO NOT WRITE ON THE EXAM*** 
+ 
+
+2025 UT Invitational​
+​
+​
+ Page 14 of 15 ​
+​
+​
+Dynamic Planet B/C Exam  
+ 
+60.​ (9 pts) In 2011, Japan suffered from a massive tsunami that hit Tohoku, caused by a megathrust 
+earthquake that also caused significant damage.. The economic damage was over $300 billion and left a 
+scar in Japan’s economy. The tsunami itself ended up reaching places like Chile across the Pacific Ocean, 
+although less intense and devastating than it was in Japan.  
+a.​
+(1 pt) How high on the Richter scale do you expect the earthquake that caused the tsunami to 
+be? (Not looking for an exact number, just make an educated guess) 
+b.​ (4 pts) Explain the mechanism by which earthquakes cause tsunamis in terms of tectonics. 
+c.​
+(4 pts) Tsunamis in the ocean are quite short but increase in height drastically once they 
+approach shore. Explain how this occurs.  
+61.​ (3 pts) The Red Sea is currently expanding, slowly growing at a few centimeters per year. Located in the 
+Middle East between the coasts of Egypt and Saudi Arabia, it suffers from high evaporation and has 
+relatively hot waters compared to other seas. Answer the following questions regarding the Red Sea. 
+a.​
+(1 pt) What stage in the Wilson Cycle is the Red Sea in? 
+b.​ (1 pt) Eventually, the Red Sea will enter the next stage in its life cycle, growing into an ocean 
+basin with continental margins. Name an ocean that is currently in that next stage. 
+c.​
+(1 pt) What can you infer about the salinity of the Red Sea compared to the average salinity 
+level based on the given information? 
+62.​ (6 pts) Answer the following questions regarding the nutrient concentrations and dissolved oxygen in 
+the Atlantic and Pacific Oceans. 
+a.​
+(1 pt) Between the Atlantic and Pacific Ocean, which has the higher nutrient concentration? 
+b.​ (1 pt) Between the Atlantic and Pacific Ocean, which has the lower dissolved oxygen content? 
+c.​
+(4 pts) Explain how the difference in dissolved oxygen and nutrient concentrations  occur. 
+63.​ (8 pts) The Gulf Stream transports warm water from the tropical Atlantic northward toward Europe, 
+carrying approximately 1.4 petawatts of heat energy– roughly 100 times the world’s total energy 
+consumption.  
+a.​
+(3 pts) Explain the mechanism by which the Gulf Stream forms and maintains its northward 
+flow. Include the roles of wind patterns, the Coriolis effect, and density gradients. 
+***CLASS SET: DO NOT WRITE ON THE EXAM*** 
+ 
+
+2025 UT Invitational​
+​
+​
+ Page 15 of 15 ​
+​
+​
+Dynamic Planet B/C Exam  
+ 
+b.​ (2 pts) Western boundary currents like the Gulf Stream are narrower, deeper, and faster than 
+eastern boundary currents like the Canary Current. Explain why.  
+c.​
+(3 pts) Climate change could increase freshwater input into the North Atlantic through 
+melting ice sheets and precipitation. Explain how this freshwater input would disrupt 
+thermohaline circulation. 
+64.​ (3 pts) Answer the following questions regarding tidal patterns and astronomical influences. 
+a.​
+(1 pt) What type of tide occurs when the Moon and Sun are at 90 degrees from each other? 
+b.​ (1 pt) During this tidal configuration, does the tide reach its maximum or minimum range? 
+c.​
+(1 pt) What lunar orbital position would cause this tide to have an even smaller range if it 
+coincides with this timing? 
+65.​ (3 pts) CTD devices are essential tools in oceanographic research, deployed from research vessels to 
+collect vertical profiles of ocean properties. 
+a.​
+(1 pt) What do the letters "CTD" stand for? 
+b.​ (1 pt) As a CTD device descends through the water column from surface to deep ocean, how 
+would you expect the temperature reading to generally change? 
+c.​
+(1 pt) CTD devices are often deployed with a rosette of Niskin bottles. What is the primary 
+purpose of these Niskin bottles? 
+ 
+***CLASS SET: DO NOT WRITE ON THE EXAM*** 
+ 

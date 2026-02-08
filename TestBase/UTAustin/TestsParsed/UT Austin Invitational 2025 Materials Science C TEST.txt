@@ -1,0 +1,368 @@
+EVENT: Materials Science
+SOURCE: UT Austin Invitational 2025 (Div. C)
+FORMAT: Multiple problems with short answer, multiple choice, calculation, and graphing questions
+TOTAL POINTS: 101
+
+---QUESTION 1---
+ID: 1
+POINTS: 15.00
+FORMAT: Short Answer
+TOPIC: Problem 1 | Cold-worked copper | Recrystallization vs grain growth
+DIFFICULTY: Medium
+QUESTION: Dr. Pym shrinks you down to the µm scale using his Ant Man suit. He places you on top of two pieces of cold-worked copper: One heated to 350°C, allowing recrystallization to occur while the other was heated to 500°C for a significantly longer time, causing grain growth to occur. What are some differences that you may notice between the two cold-worked copper samples?
+
+---QUESTION 2---
+ID: 2
+POINTS: 3.00
+FORMAT: Short Answer
+TOPIC: Problem 1 | Hall-Petch equation | Symbol definitions
+DIFFICULTY: Medium
+QUESTION: Below is the Hall-Petch equation. Describe what each symbol/letter represents and their units using fundamental metric SI units. σy = σo + ky/√d
+
+---QUESTION 3---
+ID: 3
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Problem 1 | Hall-Petch equation | Yield strength comparison
+DIFFICULTY: Medium
+QUESTION: Based on your observations on both samples, which sample do you expect to have a higher σy value?
+OPTIONS:
+A) Recrystallized copper
+B) Grain-growth copper
+
+---QUESTION 4---
+ID: 4
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Problem 1 | Hall-Petch equation | Higher yield strength reason
+DIFFICULTY: Medium
+QUESTION: Why does this higher σy value occur?
+
+---QUESTION 5---
+ID: 5
+POINTS: 4.00
+FORMAT: Graph
+TOPIC: Problem 1 | Hall-Petch equation | Graph and applicability
+DIFFICULTY: Medium
+QUESTION: Graph σy as a function of d for the Hall–Petch Equation given. Does the Hall–Petch relation apply for all values of d? If not, which values does it apply to?
+
+---QUESTION 6---
+ID: 6
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Problem 1 | Hall-Petch effect | Line labeling
+DIFFICULTY: Medium
+QUESTION: Which effect does the line drawn exhibit? Label the line accordingly.
+
+---QUESTION 7---
+ID: 7
+POINTS: 2.00
+FORMAT: Graph
+TOPIC: Problem 1 | Reverse Hall-Petch effect | Graph
+DIFFICULTY: Medium
+QUESTION: Draw the Reverse Hall–Petch effect line on the graph and label it accordingly. [Student should draw the line on back of exam sheet 4.]
+
+---QUESTION 8---
+ID: 8
+POINTS: 4.00
+FORMAT: Short Answer
+TOPIC: Problem 2 | Ceramic nanomaterials | Advantages
+DIFFICULTY: Medium
+QUESTION: Professor Oak wants to first make a Pokéball that won't break upon hitting rock- or steel-type Pokémon, but can also resist heat from fire-type Pokémon. Explain two reasons why a ceramic nanomaterial is best for this purpose.
+
+---QUESTION 9---
+ID: 9
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Problem 2 | Pokéball naming | Bonus
+DIFFICULTY: Easy
+QUESTION: Bonus: Give this Pokéball a new name.
+
+---QUESTION 10---
+ID: 10
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Problem 2 | Bottom-Up Production | Waste advantages
+DIFFICULTY: Medium
+QUESTION: Kurt is considering building a Pokeball factory in his hometown of Azalea Town. He wants to use Bottom-Up Production. Explain why this is advantageous for keeping Azalea Town clean (think waste).
+
+---QUESTION 11---
+ID: 11
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Problem 2 | Bottom-Up Production | Energy efficiency
+DIFFICULTY: Medium
+QUESTION: Explain why this is advantageous for energy efficiency; Azalea Town has little access to good energy sources?
+
+---QUESTION 12---
+ID: 12
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Problem 2 | Bottom-Up Production | Precision
+DIFFICULTY: Medium
+QUESTION: Explain why this is advantageous for precisely building Pokéballs?
+
+---QUESTION 13---
+ID: 13
+POINTS: 2.00
+FORMAT: Multiple Choice
+TOPIC: Problem 2 | Electroluminescent Coatings | Bandgap for red glow
+DIFFICULTY: Medium
+QUESTION: The Devon Corporation has asked Kurt to develop a brand-new, cutting edge Pokeball called the Voltball. It will have improved efficiency for catching electric-types, and glow when a small current is applied from an electric-type pokemon caught inside. To do this, Kurt plans to use Electroluminescent Coatings. If he wants the Pokeballs to glow red, would he want a smaller or larger bandgap?
+OPTIONS:
+A) Smaller
+B) Larger
+C) Depends on the size of the Pokéball
+D) Cannot determine
+
+---QUESTION 14---
+ID: 14
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Problem 2 | Electroluminescent Coatings | Nanoparticle size for yellow
+DIFFICULTY: Medium
+QUESTION: If he wants another class of Voltballs to instead glow yellow, would he have to increase or decrease the nanoparticle size?
+OPTIONS:
+A) Increase
+B) Decrease
+C) Nanoparticle size does not affect color
+D) Cannot determine
+
+---QUESTION 15---
+ID: 15
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Problem 2 | Electroluminescent Coatings | Wavelength change
+DIFFICULTY: Medium
+QUESTION: What change in wavelength does this correspond to?
+OPTIONS:
+A) An increase
+B) A decrease
+C) It stays the same
+D) Cannot determine
+
+---QUESTION 16---
+ID: 16
+POINTS: 2.00
+FORMAT: Multiple Choice
+TOPIC: Problem 2 | Metal-Oxide Nanoparticles | Surface area to volume ratio
+DIFFICULTY: Medium
+QUESTION: Team Rocket is developing a Pokeball that can be placed in poisonous gas in order to poison the Pokemon inside, but still resist degradation from chemical reactions. Their lead scientist is considering Metal-Oxide Nanoparticles. How does the high surface area to volume ratio of these nanoparticles allow the gas to linger inside the Pokeball for longer?
+OPTIONS:
+A) Semi-permeable so gas goes in but not out
+B) Larger → attracts more gas but harder to leave
+C) More absorption sites slow diffusion
+D) None of the above
+
+---QUESTION 17---
+ID: 17
+POINTS: 4.00
+FORMAT: Short Answer
+TOPIC: Problem 2 | Composite effect | Carbon-based nanomaterials | Diffusion control
+DIFFICULTY: High
+QUESTION: How can the scientist use the composite effect with carbon-based nanomaterials to control diffusion? [Tiebreaker #1]
+
+---QUESTION 18---
+ID: 18
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Problem 2 | Nanoparticles | UV reflection
+DIFFICULTY: Medium
+QUESTION: The Weather Institute in Hoenn is partnering with the Devon Corporation to build weather-resistant Pokeballs to deal with the desert in Hoenn. Why would small nanoparticles be a good option to reflect UV light and prevent overheating?
+
+---QUESTION 19---
+ID: 19
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Problem 2 | Thermal conductivity | Uneven expansion prevention
+DIFFICULTY: Medium
+QUESTION: Why would materials with good thermal conductivity prevent uneven expansion?
+
+---QUESTION 20---
+ID: 20
+POINTS: 3.00
+FORMAT: Short Answer
+TOPIC: Problem 3 | Diamond | sp3 hybridization | Conductivity and durability
+DIFFICULTY: Medium
+QUESTION: Shuri discovers a new Vibranium alloy, called 'Ultra-Vibranium.' Ultra-Vibranium is even stronger than regular Vibranium, and is similar in structure to diamond. Describe why diamond, which has sp3 hybridization, has poor conductivity but is extremely durable.
+
+---QUESTION 21---
+ID: 21
+POINTS: 3.00
+FORMAT: Multiple Choice
+TOPIC: Problem 3 | Ultra-Vibranium | Elastic modulus calculation
+DIFFICULTY: High
+QUESTION: When testing the Ultra-Vibranium, T'Challa exerts a force of 500 N pulling apart a 1 meter cylindrical rod of New Vibranium with radius 3 cm, which makes it stretch by 177 nm. What is the elastic modulus of Ultra-Vibranium?
+OPTIONS:
+A) 1 × 10¹² Pa
+B) 1 × 10⁹ Pa
+C) 1 × 10⁶ Pa
+D) 1 × 10³ Pa
+
+---QUESTION 22---
+ID: 22
+POINTS: 2.00
+FORMAT: Multiple Choice
+TOPIC: Problem 3 | Diamond | Thermal conductivity
+DIFFICULTY: Medium
+QUESTION: Shuri is considering the thermal conductivity of Ultra-Vibranium. Does diamond tend to have high or low thermal conductivity?
+OPTIONS:
+A) High
+B) Low
+
+---QUESTION 23---
+ID: 23
+POINTS: 3.00
+FORMAT: Short Answer
+TOPIC: Problem 3 | Thermal conductivity | Explosion disadvantage
+DIFFICULTY: Medium
+QUESTION: What is a disadvantage of low thermal conductivity in the case of an explosion?
+
+---QUESTION 24---
+ID: 24
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Problem 3 | HPHT vs CVD | Layered material
+DIFFICULTY: Medium
+QUESTION: Assume building Ultra-Vibranium is the same process as building diamond. Shuri considers High Pressure High Temperature (HPHT) and Chemical Vapor Deposition (CVD) methods of forming the material. Which one would allow her to make layered Ultra-Vibranium?
+OPTIONS:
+A) HPHT
+B) CVD
+
+---QUESTION 25---
+ID: 25
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Problem 3 | HPHT vs CVD | Purity
+DIFFICULTY: Medium
+QUESTION: Which one would produce purer Ultra-Vibranium?
+OPTIONS:
+A) HPHT
+B) CVD
+
+---QUESTION 26---
+ID: 26
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Problem 3 | HPHT vs CVD | Size
+DIFFICULTY: Medium
+QUESTION: Which one would create larger Ultra-Vibranium?
+OPTIONS:
+A) HPHT
+B) CVD
+
+---QUESTION 27---
+ID: 27
+POINTS: 5.00
+FORMAT: Short Answer
+TOPIC: Problem 3 | Lightning Vibranium | sp2 hybridization | Conductivity
+DIFFICULTY: High
+QUESTION: Shuri now finds another Vibranium alloy, called Lightning Vibranium, that is similar to graphene. She plans to use Lightning Vibranium for weapons that can electrocute because of its excellent conductivity. Explain why Lightning Vibranium, which has an sp2 hybridized honeycomb lattice, is a much better conductor than Ultra-Vibranium. [Tiebreaker #2]
+
+---QUESTION 28---
+ID: 28
+POINTS: 2.00
+FORMAT: Multiple Choice
+TOPIC: Problem 3 | Stealth coating | Metal mirror
+DIFFICULTY: Medium
+QUESTION: Shuri is working with a scientist to make Ultra-Vibranium and Lightning Vibranium less visible in low light but still reflect Infrared Radiation so that they don't heat up excessively. Why would a shiny metal mirror coating not work?
+OPTIONS:
+A) Absorbs too much light
+B) Reflects too much light
+C) Always too hot
+D) None of the above
+
+---QUESTION 29---
+ID: 29
+POINTS: 3.00
+FORMAT: Short Answer
+TOPIC: Problem 3 | Stealth coating | IR reflection and visible absorption
+DIFFICULTY: Medium
+QUESTION: Identify one way they can make the Vibraniums reflect IR Radiation but absorb visible light.
+
+---QUESTION 30---
+ID: 30
+POINTS: 3.00
+FORMAT: Short Answer
+TOPIC: Problem 3 | Stealth coating | Material durability
+DIFFICULTY: Medium
+QUESTION: For your answer in ii., critique how this would affect the material durability.
+
+---QUESTION 31---
+ID: 31
+POINTS: 2.00
+FORMAT: Multiple Choice
+TOPIC: Problem 3 | Bane Vibranium | Wetting angle for poison absorption
+DIFFICULTY: Medium
+QUESTION: Shuri creates a third new vibranium, called Bane Vibranium, which can be used with a new poison that she has discovered, called Mortivex. Bane Vibranium can be dipped in Mortivex to make it even more deadly. For the Bane Vibranium to efficiently absorb the poison, would she want a high (>90°) or low (<90°) wetting angle between Mortivex and Bane Vibranium?
+OPTIONS:
+A) High (>90°)
+B) Low (<90°)
+
+---QUESTION 32---
+ID: 32
+POINTS: 2.00
+FORMAT: Multiple Choice
+TOPIC: Problem 3 | Bane Vibranium | Wetting angle for water repulsion
+DIFFICULTY: Medium
+QUESTION: For the Bane Vibranium to repel water, would she want a high (>90°) or low (<90°) wetting angle between water and Bane Vibranium?
+OPTIONS:
+A) High (>90°)
+B) Low (<90°)
+
+---QUESTION 33---
+ID: 33
+POINTS: 4.00
+FORMAT: Short Answer
+TOPIC: Problem 3 | Surfactants | Wetting angles
+DIFFICULTY: High
+QUESTION: Assume Mortivex has low surface tension compared to water, and is nonpolar. Explain how a surfactant with a hydrophobic tail and a hydrophilic head would allow for the appropriate wetting angles from the past two problems. [Tiebreaker #3]
+
+---QUESTION 34---
+ID: 34
+POINTS: 3.00
+FORMAT: Calculation
+TOPIC: Problem 4 | Lab | Hardness proxy calculation
+DIFFICULTY: Medium
+QUESTION: You are given 3 aluminum samples, each having undergone a different heat treatment: 2 hour aging, quenching, and annealing. Calculate the hardness proxy using the given formula H = 1/D for indent on each sample.
+
+---QUESTION 35---
+ID: 35
+POINTS: 5.00
+FORMAT: Graph
+TOPIC: Problem 4 | Lab | Hardness proxy plot
+DIFFICULTY: Medium
+QUESTION: Plot hardness proxy vs indent diameter samples and draw the subsequent trendline. [Student should create plot on back of exam sheet 4.]
+
+---QUESTION 36---
+ID: 36
+POINTS: 6.00
+FORMAT: Short Answer
+TOPIC: Problem 4 | Lab | Heat treatment identification
+DIFFICULTY: Medium
+QUESTION: Which sample has undergone which treatment? (2 hour aging, quenching, and annealing)
+
+---QUESTION 37---
+ID: 37
+POINTS: 4.00
+FORMAT: Short Answer
+TOPIC: Problem 4 | Lab | Hall-Petch Effect | Grain size
+DIFFICULTY: Medium
+QUESTION: Assuming the Hall–Petch Effect applies, which sample has the largest grain size? Which has the smallest? Why?
+
+---QUESTION 38---
+ID: 38
+POINTS: 5.00
+FORMAT: Graph
+TOPIC: Problem 4 | Lab | Overaged sample | Hardness proxy chart
+DIFFICULTY: Medium
+QUESTION: Where would an overaged sample go on the hardness proxy chart? Draw and label the point and explain why it would be there.
+
+---QUESTION 39---
+ID: 39
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Problem 4 | Lab | Hardness proxy | Usefulness
+DIFFICULTY: Medium
+QUESTION: Explain why the hardness proxy is a useful tool in this lab, even if it does not give absolute hardness values in standard units.
+

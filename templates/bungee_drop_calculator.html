@@ -1,0 +1,2132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bungee Drop Calculator</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js" charset="utf-8"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+
+        .tabs {
+            display: flex;
+            background: #f5f5f5;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            background: transparent;
+            font-size: 1.1em;
+        }
+
+        .tab:hover {
+            background: #e0e0e0;
+        }
+
+        .tab.active {
+            background: white;
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 30px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .split-view {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .panel {
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .panel h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+
+        .btn-success {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #218838;
+        }
+
+        .btn-danger {
+            background: #dc3545;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #c82333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        table th,
+        table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table th {
+            background: #667eea;
+            color: white;
+            font-weight: 600;
+        }
+
+        table tr:hover {
+            background: #f5f5f5;
+        }
+
+        .input-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr auto;
+            gap: 10px;
+            margin-bottom: 10px;
+            align-items: end;
+        }
+
+        .alert {
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .alert-warning {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+
+        .alert-danger {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .result-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .result-box h3 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .result-box .value {
+            font-size: 3em;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .result-box .unit {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 400px;
+            margin-top: 20px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #667eea;
+            text-align: center;
+        }
+
+        .stat-card .label {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 8px;
+        }
+
+        .stat-card .value {
+            color: #667eea;
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+
+        .file-input-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .file-input-wrapper input[type=file] {
+            position: absolute;
+            left: -9999px;
+        }
+
+        @media (max-width: 968px) {
+            .split-view {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .info-text {
+            background: #e7f3ff;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #667eea;
+            margin-bottom: 20px;
+            font-size: 0.95em;
+        }
+
+        .scrollable-table {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .string-management {
+            background: #f0f4ff;
+            border-left: 5px solid #667eea;
+        }
+
+        #stringSelector {
+            background: white;
+            cursor: pointer;
+        }
+
+        #stringCode {
+            background: white;
+            transition: border-color 0.3s;
+        }
+
+        #stringCode:focus {
+            border-color: #667eea;
+            outline: none;
+        }
+        
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            display: none;
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="spinner"></div>
+    </div>
+    <div class="container">
+        <div class="header">
+            <div style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; position: relative;">
+                <a href="/" style="color: white; text-decoration: none; position: absolute; left: 0;"><i class="fas fa-arrow-left"></i> Home</a>
+                <div style="flex-grow: 1; text-align: center;">
+                    <h1>🎯 Bungee Drop Calculator</h1>
+                    <p>Science Olympiad Division C - Cord Calibration & Drop Prediction Tool</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="string-management panel" style="margin: 20px; border: 2px solid #667eea;">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <label style="font-weight: bold;">Select String:</label>
+                    <select id="stringSelector" onchange="loadSelectedString()" style="padding: 8px; border-radius: 4px; border: 1px solid #ddd; min-width: 150px;">
+                        <option value="">-- Select String --</option>
+                    </select>
+                    <button class="btn btn-primary" onclick="createNewString()" style="margin: 0; padding: 8px 15px;">+ New String</button>
+                </div>
+                <div id="stringDetails" style="display: none; align-items: center; gap: 15px; flex-grow: 1;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <label style="font-weight: bold;">String ID:</label>
+                        <span id="currentStringIdDisplay" style="font-weight: bold; color: #667eea; font-size: 1.2em;"></span>
+                    </div>
+                    <div style="flex-grow: 1;"></div>
+                    <button class="btn btn-danger" onclick="deleteCurrentString()" style="margin: 0; padding: 8px 15px;">Delete</button>
+                </div>
+            </div>
+            <div style="margin-top: 15px;">
+                <button class="btn btn-secondary" onclick="toggleNotes()" style="margin: 0; padding: 8px 15px;">
+                    <span id="notesToggleText">Show Notes</span>
+                </button>
+                <div id="notesContainer" style="display: none; margin-top: 10px;">
+                    <label style="font-weight: bold; display: block; margin-bottom: 5px;">String Notes:</label>
+                    <textarea id="stringNotes" placeholder="Add notes about strings, measurements, or anything else..." style="width: 100%; min-height: 100px; padding: 8px; border-radius: 4px; border: 1px solid #ddd; font-family: inherit; resize: vertical;" onchange="saveCurrentString()"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div id="mainContent" style="opacity: 0.5; pointer-events: none;">
+            <div class="tabs">
+            <button class="tab active" onclick="switchTab('calibration')">📊 Calibration</button>
+            <button class="tab" onclick="switchTab('calculator')">🧮 Calculator</button>
+            <button class="tab" onclick="switchTab('trials')">📝 Trials & Refinement</button>
+            <button class="tab" onclick="switchTab('export')">🚀 Export Model</button>
+        </div>
+
+        <div id="calibration" class="tab-content active">
+            <div class="split-view">
+                <div class="panel">
+                    <h2>Force-Length Data Entry</h2>
+                    
+                    <div class="info-text">
+                        <strong>Calibration Instructions:</strong> Suspend your cord vertically and measure the stretched length at different force values. <strong>The first point must have a Force of 0</strong> to define the unstretched length.
+                    </div>
+
+                    <div class="form-group">
+                        <label>Add Force-Length Measurements</label>
+                        <div class="input-row" style="grid-template-columns: 1fr 1fr auto;">
+                            <input type="number" id="inputForce" placeholder="Force (N)" step="0.1" min="0">
+                            <input type="number" id="inputLength" placeholder="Length (cm)" step="0.1" min="0">
+                            <button class="btn btn-primary" onclick="addDataPoint()">Add</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Interpolation Method</label>
+                        <select id="interpolationMethod" onchange="saveCurrentString(); updateGraphs();">
+                            <option value="linear">Linear</option>
+                            <option value="spline">Cubic Spline</option>
+                            <option value="polynomial2">Polynomial (degree 2)</option>
+                            <option value="polynomial">Polynomial (degree 3)</option>
+                        </select>
+                    </div>
+
+                    <div class="scrollable-table">
+                        <table id="dataTable">
+                            <thead>
+                                <tr>
+                                    <th>Force (N)</th>
+                                    <th>Unstretched (cm)</th>
+                                    <th>Stretched (cm)</th>
+                                    <th>Strain (%)</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="dataTableBody">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h2>Visualization</h2>
+                    
+                    <div class="chart-container">
+                        <canvas id="forceChart"></canvas>
+                    </div>
+
+                    <div class="chart-container">
+                        <canvas id="energyChart"></canvas>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="label">Data Points</div>
+                            <div class="value" id="dataPointCount">0</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="label">Max Force (N)</div>
+                            <div class="value" id="maxForce">-</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="label">Max Extension (cm)</div>
+                            <div class="value" id="maxExtension">-</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="calculator" class="tab-content">
+            <div class="split-view">
+                <div class="panel">
+                    <h2>Drop Parameters</h2>
+
+                    <div class="info-text">
+                        <strong>Calculator:</strong> Enter the drop height and mass to calculate the optimal cord attachment length. This uses your calibration data and energy conservation principles.
+                    </div>
+
+                    <div class="form-group">
+                        <label>Drop Height (m)</label>
+                        <input type="number" id="dropHeight" value="3.0" step="0.01" min="2" max="8">
+                        <small style="color: #666;">Regionals: 2.00-5.00m | States: 2.00-5.00m | Nationals: 5.00-8.00m</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Total Mass (g)</label>
+                        <input type="number" id="totalMass" value="200" step="1" min="100" max="600">
+                        <small style="color: #666;">Light mass: 100-300g | Heavy mass: +200-300g</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Bottle Height (cm)</label>
+                        <input type="number" id="bottleHeight" value="30" step="0.1" min="0" max="35">
+                        <small style="color: #666;">Max 35.0 cm per rules</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Target Distance Above Surface (cm)</label>
+                        <input type="number" id="targetDistance" value="2" step="0.1" min="0" max="50">
+                        <small style="color: #666;">Safety margin to avoid touching</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Amplitude Decay Ratio (γ)</label>
+                        <input type="number" id="dampingFactor" value="0.95" step="0.01" min="0.5" max="1.0">
+                        <small style="color: #666;">Ratio of successive amplitudes. 1.0 = no damping. Typical: 0.90-0.98.</small>
+                    </div>
+
+                    <button class="btn btn-primary" onclick="calculateCordLength()">Calculate Cord Length</button>
+                    <button class="btn btn-success" onclick="runSimulation()">Run Simulation</button>
+                </div>
+
+                <div class="panel">
+                    <h2>Calculation Details</h2>
+                    <div id="calculationResult"></div>
+                    <div id="calculationDetails" style="font-family: monospace; white-space: pre-wrap; background: white; padding: 20px; border-radius: 6px; line-height: 1.8; max-height: 400px; overflow-y: auto; margin-top: 20px;"></div>
+                    <div id="forceCheck" style="margin-top: 15px; padding: 15px; background: #f0f4ff; border-radius: 6px; border-left: 4px solid #667eea; display: none;">
+                        <div style="display: flex; align-items: center; font-weight: 500;">
+                            <span style="margin-right: 10px; font-size: 18px; color: #667eea;">☑</span>
+                            <span id="forceCheckText"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="split-view" style="margin-top: 30px;">
+                <div class="panel">
+                    <h2>Drop Simulation</h2>
+                    <div style="position: relative; width: 100%; height: 400px; background: linear-gradient(to bottom, #e0f7ff 0%, #fff 50%, #8B4513 100%); border-radius: 8px; border: 2px solid #667eea; overflow: hidden;">
+                        <canvas id="simulationCanvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></canvas>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h2>Height & Forces vs Time</h2>
+                    <div class="chart-container">
+                        <canvas id="heightTimeChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="trials" class="tab-content">
+            <div class="split-view">
+                <div class="panel">
+                    <h2>Record Trial Data</h2>
+
+                    <div class="info-text">
+                        <strong>Trial Logging:</strong> Record actual drop results to refine your damping factor. The system will back-calculate the damping factor needed for each trial and recommend an optimal value.
+                    </div>
+
+                    <div class="form-group">
+                        <label>Cord Length Used (cm)</label>
+                        <input type="number" id="trialCordLength" step="0.1" min="0">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Mass (g)</label>
+                        <input type="number" id="trialMass" step="1" min="100">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Drop Height (m)</label>
+                        <input type="number" id="trialHeight" step="0.01" min="2" max="8">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Bottle Height (cm)</label>
+                        <input type="number" id="trialBottleHeight" step="0.1" min="0" max="35" value="30">
+                        <small style="color: #666;">Height of your bottle/device</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Target Distance Above Surface (cm)</label>
+                        <input type="number" id="trialTargetDistance" step="0.1" min="0" value="2.0">
+                        <small style="color: #666;">The distance you aimed for</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Damping Used (Calculated)</label>
+                        <input type="number" id="trialDampingUsed" step="0.0001" min="0" max="2.0" placeholder="Auto-calculated">
+                        <small style="color: #666;">The damping factor assumed for this setup (you can edit this)</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Actual Closest Distance to Ground (cm)</label>
+                        <input type="number" id="trialDistance" step="0.1" min="0">
+                        <small style="color: #666;">Closest distance the bottom of bottle got to ground</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Notes (optional)</label>
+                        <input type="text" id="trialNotes" placeholder="e.g., Heavy mass, bounce observed, etc.">
+                    </div>
+
+                    <button class="btn btn-primary" onclick="addTrial()">Add Trial</button>
+                    <button class="btn btn-success" onclick="applyFittedDamping()">Apply Fitted Damping to Calculator</button>
+                    <button class="btn btn-danger" onclick="clearTrials()">Clear All Trials</button>
+
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="label">Total Trials</div>
+                            <div class="value" id="trialCount">0</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="label">Fitted Decay Ratio (γ)</div>
+                            <div class="value" id="fittedDamping">-</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="label">Mean Residual (cm)</div>
+                            <div class="value" id="meanResidual">-</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="label">Std Dev (cm)</div>
+                            <div class="value" id="stdDevResidual">-</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h2>Trial History & Analysis</h2>
+                    
+                    <div class="scrollable-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Cord (cm)</th>
+                                    <th>Mass (g)</th>
+                                    <th>Height (m)</th>
+                                    <th>Target (cm)</th>
+                                    <th>Actual (cm)</th>
+                                    <th>Error (cm)</th>
+                                    <th>γ Used</th>
+                                    <th>Trial γ</th>
+                                    <th>Fitted Residual (cm)</th>
+                                    <th>Notes</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="trialsTableBody">
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="chart-container">
+                        <canvas id="errorChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="export" class="tab-content">
+            <div class="split-view">
+                <div class="panel">
+                    <h2>Model Configuration</h2>
+                    <div class="info-text">
+                        <strong>Export Model:</strong> Generate a complete lookup table and a fitted approximation function for your cord. This uses the calibration data and current damping factor.
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Amplitude Decay Ratio (γ)</label>
+                        <input type="number" id="exportGamma" step="0.0001" min="0.5" max="1.0" value="0.95">
+                        <small style="color: #666;">Will use fitted value from Trials tab if available.</small>
+                    </div>
+                    
+                    <div class="form-group" style="display: none;">
+                        <label>Target Distance (cm)</label>
+                        <input type="number" id="exportTargetDistance" value="0.0" step="0.1">
+                    </div>
+
+                    <button class="btn btn-primary" onclick="generateExportModel()">Generate 3D Model & Formula</button>
+                    
+                    <div id="exportFormulaBox" style="margin-top: 20px; display: none;">
+                        <h3>Fitted Approximation Formula (Free-Space Model)</h3>
+                        <div id="exportFormula" style="background: #f0f4ff; padding: 15px; border-radius: 6px; border-left: 4px solid #667eea; font-family: monospace; margin-top: 10px; font-size: 0.9em; word-break: break-all;"></div>
+                        
+                        <div style="margin-top: 15px; display: flex; gap: 15px;">
+                            <div class="stat-card" style="padding: 10px; flex: 1;">
+                                <div class="label" style="font-size: 0.8em;">Avg Fit Error</div>
+                                <div class="value" id="exportAvgError" style="font-size: 1.2em;">-</div>
+                                <div style="font-size: 0.7em; color: #666;">Mean Absolute Error</div>
+                            </div>
+                            <div class="stat-card" style="padding: 10px; flex: 1;">
+                                <div class="label" style="font-size: 0.8em;">Max Fit Error</div>
+                                <div class="value" id="exportMaxError" style="font-size: 1.2em;">-</div>
+                                <div style="font-size: 0.7em; color: #666;">Worst-case point</div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 30px;">
+                            <h3>TI-84 Calculator Program (Full Competition Mode)</h3>
+                            <div id="tiProgramCode" style="background: #2d2d2d; color: #f8f8f2; padding: 20px; border-radius: 6px; font-family: 'Courier New', Courier, monospace; margin-top: 10px; font-size: 0.85em; white-space: pre-wrap; overflow-x: auto; border-left: 5px solid #28a745;"></div>
+                            <div style="margin-top: 10px; font-size: 0.85em; color: #666;">
+                                <p><strong>Competition Mode:</strong> Handles Regional/State/National rules, heavy mass bonus, and bonus drop qualification.</p>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 30px;">
+                            <h3>TI-84 Calculator Program (Simple Mode)</h3>
+                            <div id="tiSimpleProgramCode" style="background: #2d2d2d; color: #f8f8f2; padding: 20px; border-radius: 6px; font-family: 'Courier New', Courier, monospace; margin-top: 10px; font-size: 0.85em; white-space: pre-wrap; overflow-x: auto; border-left: 5px solid #007bff;"></div>
+                            <div style="margin-top: 10px; font-size: 0.85em; color: #666;">
+                                <p><strong>Simple Mode:</strong> Just enter your parameters and get a length. No competition logic.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h2>3D Visualization (Rotatable)</h2>
+                    <div id="exportPlotContainer" style="width: 100%; height: 500px;">
+                        <p style="color: #666; margin-top: 150px; text-align: center;">Click generate to see the 3D surface model.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel" style="margin-top: 30px;">
+                <h2>Generated Dataset (m, h, L)</h2>
+                <div class="scrollable-table">
+                    <table id="exportDataTable">
+                        <thead>
+                            <tr>
+                                <th>Mass (g)</th>
+                                <th>Height (m)</th>
+                                <th>Cord Length L (cm)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="exportDataTableBody">
+                        </tbody>
+                    </table>
+                </div>
+                <div style="margin-top: 15px;">
+                    <button class="btn btn-secondary" onclick="downloadCSV()">Download Dataset (CSV)</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global state
+        let currentUser = null;
+        let bungeeData = null;
+        let bungeeStrings = [];
+        let currentString = null;
+        
+        let calibrationData = [];
+        let trials = [];
+        let forceChart = null;
+        let energyChart = null;
+        let errorChart = null;
+        let heightTimeChart = null;
+        let fittedDampingFactor = 1.0;
+
+        // Check auth and load data on startup
+        window.onload = async function() {
+            currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+            if (!currentUser) {
+                window.location.href = '/login?next=' + encodeURIComponent(window.location.pathname);
+                return;
+            }
+            
+            await fetchBungeeData();
+            
+            // Add listeners for auto-calculating Damping Used
+            ['trialCordLength', 'trialMass', 'trialHeight', 'trialBottleHeight', 'trialTargetDistance'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.addEventListener('input', updateCalculatedDampingUsed);
+                }
+            });
+        };
+
+        async function fetchBungeeData() {
+            showLoading(true);
+            try {
+                const response = await fetch('/api/bungee/data');
+                if (!response.ok) throw new Error('Failed to fetch data');
+                bungeeData = await response.json();
+                
+                // Initialize if empty
+                if (!bungeeData.strings) {
+                    bungeeData.strings = [];
+                }
+                if (!bungeeData.notes) {
+                    bungeeData.notes = '';
+                }
+                if (!bungeeData.interpolationMethod) {
+                    bungeeData.interpolationMethod = 'linear';
+                }
+                
+                bungeeStrings = bungeeData.strings || [];
+                updateStringSelector();
+                
+                // Load notes and interpolation method
+                document.getElementById('stringNotes').value = bungeeData.notes || '';
+                document.getElementById('interpolationMethod').value = bungeeData.interpolationMethod || 'linear';
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error loading data. Please refresh.');
+            } finally {
+                showLoading(false);
+            }
+        }
+        
+        function toggleNotes() {
+            const container = document.getElementById('notesContainer');
+            const toggleText = document.getElementById('notesToggleText');
+            if (container.style.display === 'none') {
+                container.style.display = 'block';
+                toggleText.textContent = 'Hide Notes';
+            } else {
+                container.style.display = 'none';
+                toggleText.textContent = 'Show Notes';
+            }
+        }
+
+        function updateStringSelector() {
+            const selector = document.getElementById('stringSelector');
+            const currentVal = selector.value;
+            selector.innerHTML = '<option value="">-- Select String --</option>';
+            
+            bungeeStrings.forEach(str => {
+                const option = document.createElement('option');
+                option.value = str.stringId;
+                option.textContent = str.stringId;
+                selector.appendChild(option);
+            });
+            
+            if (currentVal && bungeeStrings.find(s => s.stringId === currentVal)) {
+                selector.value = currentVal;
+            }
+        }
+
+        function showLoading(show) {
+            document.getElementById('loadingOverlay').style.display = show ? 'flex' : 'none';
+        }
+
+        function createNewString() {
+            // Find next string ID: BxS1, BxS2, etc.
+            let nextNum = 1;
+            const ids = bungeeStrings.map(s => {
+                const match = s.stringId.match(/BxS(\d+)/);
+                return match ? parseInt(match[1]) : 0;
+            });
+            if (ids.length > 0) {
+                nextNum = Math.max(...ids) + 1;
+            }
+            
+            const stringId = `BxS${nextNum}`;
+            
+            // Add new string to array
+            const newString = {
+                stringId: stringId,
+                calibrationData: [],
+                trials: []
+            };
+            
+            bungeeStrings.push(newString);
+            updateStringSelector();
+            document.getElementById('stringSelector').value = stringId;
+            loadSelectedString();
+            saveBungeeData();
+        }
+
+        function loadSelectedString() {
+            const stringId = document.getElementById('stringSelector').value;
+            const mainContent = document.getElementById('mainContent');
+            const stringDetails = document.getElementById('stringDetails');
+            
+            if (!stringId) {
+                mainContent.style.opacity = '0.5';
+                mainContent.style.pointerEvents = 'none';
+                stringDetails.style.display = 'none';
+                currentString = null;
+                calibrationData = [];
+                trials = [];
+                updateDataTable();
+                updateGraphs();
+                return;
+            }
+            
+            currentString = bungeeStrings.find(s => s.stringId === stringId);
+            if (!currentString) return;
+            
+            // Enable UI
+            mainContent.style.opacity = '1';
+            mainContent.style.pointerEvents = 'auto';
+            stringDetails.style.display = 'flex';
+            
+            // Update display
+            document.getElementById('currentStringIdDisplay').textContent = currentString.stringId;
+            
+            // Load data
+            calibrationData = currentString.calibrationData || [];
+            trials = currentString.trials || [];
+            
+            // Update UI components
+            updateDataTable();
+            updateGraphs();
+            updateFittedDamping();
+            updateTrialsTable();
+            updateErrorChart();
+
+            // Set export gamma to fitted value if available
+            if (fittedDampingFactor && fittedDampingFactor !== 1.0) {
+                document.getElementById('exportGamma').value = fittedDampingFactor.toFixed(4);
+            }
+        }
+
+        async function saveBungeeData() {
+            if (!bungeeData) return;
+            
+            // Update current string data if one is selected
+            if (currentString) {
+                const idx = bungeeStrings.findIndex(s => s.stringId === currentString.stringId);
+                if (idx !== -1) {
+                    bungeeStrings[idx].calibrationData = calibrationData;
+                    bungeeStrings[idx].trials = trials;
+                }
+            }
+            
+            const data = {
+                strings: bungeeStrings,
+                notes: document.getElementById('stringNotes').value,
+                interpolationMethod: document.getElementById('interpolationMethod').value
+            };
+            
+            try {
+                const response = await fetch('/api/bungee/data', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                if (!response.ok) throw new Error('Failed to save');
+                
+                bungeeData = { ...bungeeData, ...data };
+            } catch (error) {
+                console.error('Error saving:', error);
+                alert('Failed to save data.');
+            }
+        }
+        
+        function saveCurrentString() {
+            saveBungeeData();
+        }
+
+        async function deleteCurrentString() {
+            if (!currentString) return;
+            if (!confirm(`Are you sure you want to delete ${currentString.stringId}? All calibration and trial data will be lost.`)) return;
+            
+            const idx = bungeeStrings.findIndex(s => s.stringId === currentString.stringId);
+            if (idx !== -1) {
+                bungeeStrings.splice(idx, 1);
+                updateStringSelector();
+                document.getElementById('stringSelector').value = '';
+                loadSelectedString();
+                await saveBungeeData();
+            }
+        }
+
+        function updateCalculatedDampingUsed() {
+            const cordLength = parseFloat(document.getElementById('trialCordLength').value);
+            const mass = parseFloat(document.getElementById('trialMass').value);
+            const height = parseFloat(document.getElementById('trialHeight').value);
+            const bottleHeight = parseFloat(document.getElementById('trialBottleHeight').value);
+            const targetDistance = parseFloat(document.getElementById('trialTargetDistance').value);
+
+            if (!isNaN(cordLength) && !isNaN(mass) && !isNaN(height) && !isNaN(bottleHeight) && !isNaN(targetDistance)) {
+                const damping = calculateDampingForDistance(height * 100, mass, cordLength, bottleHeight, targetDistance);
+                const dampingEl = document.getElementById('trialDampingUsed');
+                if (dampingEl) {
+                    dampingEl.value = damping.toFixed(4);
+                }
+            }
+        }
+
+        // Tab switching
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            
+            event.target.classList.add('active');
+            document.getElementById(tabName).classList.add('active');
+        }
+
+        // Calibration data management
+        function addDataPoint() {
+            const force = parseFloat(document.getElementById('inputForce').value);
+            const length = parseFloat(document.getElementById('inputLength').value);
+
+            if (isNaN(force) || isNaN(length)) {
+                alert('Please enter valid numbers for force and length.');
+                return;
+            }
+
+            if (calibrationData.length === 0 && force !== 0) {
+                alert('The first data point must have a Force of 0 to define the unstretched length.');
+                return;
+            }
+
+            if (calibrationData.length > 0 && force <= 0) {
+                alert('Subsequent data points must have a Force greater than 0.');
+                return;
+            }
+
+            // Strain is derived from the first point (Force 0)
+            let strain = 0;
+            if (calibrationData.length > 0) {
+                const unstretched = calibrationData[0].length;
+                strain = (length - unstretched) / unstretched;
+            }
+
+            calibrationData.push({ force, length, strain });
+            calibrationData.sort((a, b) => a.force - b.force);
+            
+            // Re-calculate all strains after sorting just in case
+            if (calibrationData.length > 0) {
+                const unstretched = calibrationData[0].length;
+                calibrationData.forEach(p => {
+                    p.strain = (p.length - unstretched) / unstretched;
+                });
+            }
+            
+            document.getElementById('inputForce').value = '';
+            document.getElementById('inputLength').value = '';
+            
+            saveCurrentString();
+            updateDataTable();
+            updateGraphs();
+        }
+
+        function removeDataPoint(index) {
+            calibrationData.splice(index, 1);
+            
+            // Re-calculate all strains after removal
+            if (calibrationData.length > 0) {
+                const unstretched = calibrationData[0].length;
+                calibrationData.forEach(p => {
+                    p.strain = (p.length - unstretched) / unstretched;
+                });
+            }
+
+            saveCurrentString();
+            updateDataTable();
+            updateGraphs();
+        }
+
+        function updateDataTable() {
+            const tbody = document.getElementById('dataTableBody');
+            tbody.innerHTML = '';
+
+            const unstretched = calibrationData.length > 0 ? calibrationData[0].length : 0;
+
+            calibrationData.forEach((point, index) => {
+                const row = tbody.insertRow();
+                row.innerHTML = `
+                    <td>${point.force.toFixed(2)}</td>
+                    <td>${unstretched.toFixed(2)}</td>
+                    <td>${point.length.toFixed(2)}</td>
+                    <td>${(point.strain * 100).toFixed(2)}%</td>
+                    <td><button class="btn btn-danger" style="padding: 6px 12px;" onclick="removeDataPoint(${index})">Remove</button></td>
+                `;
+            });
+
+            document.getElementById('dataPointCount').textContent = calibrationData.length;
+            if (calibrationData.length > 0) {
+                const maxForce = Math.max(...calibrationData.map(d => d.force));
+                const maxStrain = Math.max(...calibrationData.map(d => d.strain));
+                document.getElementById('maxForce').textContent = maxForce.toFixed(2);
+                document.getElementById('maxExtension').textContent = (maxStrain * 100).toFixed(1) + '%';
+            } else {
+                document.getElementById('maxForce').textContent = '-';
+                document.getElementById('maxExtension').textContent = '-';
+            }
+        }
+
+
+        // Interpolation functions
+        function interpolateForce(strain) {
+            const method = document.getElementById('interpolationMethod').value;
+            if (calibrationData.length === 0) return 0;
+            const data = calibrationData.map(d => ({ x: d.strain, y: d.force })).filter(d => d.x >= 0);
+            if (data.length === 0) return 0;
+            if (method === 'linear') return linearInterpolate(data, strain);
+            if (method === 'spline') return cubicSplineInterpolate(data, strain);
+            if (method === 'polynomial2') return polynomialInterpolate(data, strain, 2);
+            return polynomialInterpolate(data, strain, 3);
+        }
+
+        function linearInterpolate(data, x) {
+            if (x < data[0].x) {
+                if (data.length < 2) return data[0].y;
+                const slope = (data[1].y - data[0].y) / (data[1].x - data[0].x);
+                return Math.max(0, data[0].y + slope * (x - data[0].x));
+            }
+            if (x > data[data.length - 1].x) {
+                if (data.length < 2) return data[data.length - 1].y;
+                const last = data.length - 1;
+                const slope = (data[last].y - data[last - 1].y) / (data[last].x - data[last - 1].x);
+                return data[last].y + slope * (x - data[last].x);
+            }
+            for (let i = 0; i < data.length - 1; i++) {
+                if (x >= data[i].x && x <= data[i + 1].x) {
+                    const t = (x - data[i].x) / (data[i + 1].x - data[i].x);
+                    return data[i].y + t * (data[i + 1].y - data[i].y);
+                }
+            }
+            return 0;
+        }
+
+        function cubicSplineInterpolate(data, x) {
+            if (x < data[0].x || x > data[data.length - 1].x) return linearInterpolate(data, x);
+            if (data.length < 2) return linearInterpolate(data, x);
+            for (let i = 0; i < data.length - 1; i++) {
+                if (x >= data[i].x && x <= data[i + 1].x) {
+                    const p0 = i > 0 ? data[i - 1] : data[i];
+                    const p1 = data[i];
+                    const p2 = data[i + 1];
+                    const p3 = i < data.length - 2 ? data[i + 2] : data[i + 1];
+                    const t = (x - p1.x) / (p2.x - p1.x);
+                    const t2 = t * t;
+                    const t3 = t2 * t;
+                    return 0.5 * ((2 * p1.y) + (-p0.y + p2.y) * t + (2 * p0.y - 5 * p1.y + 4 * p2.y - p3.y) * t2 + (-p0.y + 3 * p1.y - 3 * p2.y + p3.y) * t3);
+                }
+            }
+            return 0;
+        }
+
+        function polynomialInterpolate(data, x, degree) {
+            if (data.length < degree + 1) return linearInterpolate(data, x);
+            const coeffs = polynomialFit(data, degree);
+            let result = 0;
+            for (let i = 0; i <= degree; i++) result += coeffs[i] * Math.pow(x, i);
+            return Math.max(0, result);
+        }
+
+        function polynomialFit(data, degree) {
+            const n = data.length;
+            const X = [];
+            const y = data.map(d => d.y);
+            for (let i = 0; i < n; i++) {
+                const row = [];
+                for (let j = 0; j <= degree; j++) row.push(Math.pow(data[i].x, j));
+                X.push(row);
+            }
+            const XtX = multiplyMatrices(transpose(X), X);
+            const Xty = multiplyMatrixVector(transpose(X), y);
+            return solveLinearSystem(XtX, Xty);
+        }
+
+        function transpose(matrix) { return matrix[0].map((_, i) => matrix.map(row => row[i])); }
+        function multiplyMatrices(a, b) {
+            const result = [];
+            for (let i = 0; i < a.length; i++) {
+                result[i] = [];
+                for (let j = 0; j < b[0].length; j++) {
+                    result[i][j] = 0;
+                    for (let k = 0; k < a[0].length; k++) result[i][j] += a[i][k] * b[k][j];
+                }
+            }
+            return result;
+        }
+        function multiplyMatrixVector(matrix, vector) {
+            return matrix.map(row => row.reduce((sum, val, i) => sum + val * vector[i], 0));
+        }
+        function solveLinearSystem(A, b) {
+            const n = A.length;
+            const augmented = A.map((row, i) => [...row, b[i]]);
+            for (let i = 0; i < n; i++) {
+                let maxRow = i;
+                for (let k = i + 1; k < n; k++) if (Math.abs(augmented[k][i]) > Math.abs(augmented[maxRow][i])) maxRow = k;
+                [augmented[i], augmented[maxRow]] = [augmented[maxRow], augmented[i]];
+                for (let k = i + 1; k < n; k++) {
+                    const factor = augmented[k][i] / augmented[i][i];
+                    for (let j = i; j <= n; j++) augmented[k][j] -= factor * augmented[i][j];
+                }
+            }
+            const x = new Array(n);
+            for (let i = n - 1; i >= 0; i--) {
+                x[i] = augmented[i][n];
+                for (let j = i + 1; j < n; j++) x[i] -= augmented[i][j] * x[j];
+                x[i] /= augmented[i][i];
+            }
+            return x;
+        }
+
+        function calculateStrainEnergyDensity(strain) {
+            const steps = 1000;
+            const dStrain = strain / steps;
+            let energyDensity = 0;
+            for (let i = 0; i < steps; i++) {
+                const s1 = i * dStrain;
+                const s2 = (i + 1) * dStrain;
+                const f1 = interpolateForce(s1);
+                const f2 = interpolateForce(s2);
+                energyDensity += (f1 + f2) * dStrain / 2;
+            }
+            return energyDensity;
+        }
+
+
+        function updateGraphs() {
+            if (calibrationData.length === 0) {
+                if (forceChart) forceChart.destroy();
+                if (energyChart) energyChart.destroy();
+                return;
+            }
+            const strains = calibrationData.map(d => d.strain).filter(s => s >= 0);
+            const minStrain = 0;
+            const maxStrain = Math.max(...strains);
+            const padding = maxStrain * 0.1 || 0.1;
+            const points = 100;
+            const interpolatedData = [];
+            const energyData = [];
+            for (let i = 0; i <= points; i++) {
+                const strain = minStrain + (maxStrain + padding - minStrain) * i / points;
+                const force = interpolateForce(strain);
+                const energyDensity = calculateStrainEnergyDensity(strain);
+                interpolatedData.push({ x: strain * 100, y: force });
+                energyData.push({ x: strain * 100, y: energyDensity });
+            }
+            const measuredData = calibrationData.map(d => ({ x: d.strain * 100, y: d.force })).filter(d => d.x >= 0);
+            const forceCtx = document.getElementById('forceChart').getContext('2d');
+            if (forceChart) forceChart.destroy();
+            forceChart = new Chart(forceCtx, {
+                type: 'scatter',
+                data: {
+                    datasets: [
+                        { label: 'Measured Data', data: measuredData, borderColor: 'rgb(220, 38, 38)', backgroundColor: 'rgba(220, 38, 38, 0.5)', pointRadius: 6, pointHoverRadius: 8, showLine: false },
+                        { label: 'Interpolated F(strain)', data: interpolatedData, borderColor: 'rgb(102, 126, 234)', backgroundColor: 'rgba(102, 126, 234, 0.1)', pointRadius: 0, borderWidth: 2, showLine: true, tension: 0.1 }
+                    ]
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    plugins: { title: { display: true, text: 'Force vs Strain', font: { size: 16 } }, legend: { display: true }, tooltip: { callbacks: { label: function(context) { return `Strain: ${context.parsed.x.toFixed(1)}%, Force: ${context.parsed.y.toFixed(2)} N`; } } } },
+                    scales: { x: { type: 'linear', title: { display: true, text: 'Strain (%)' }, min: 0, max: (maxStrain + padding) * 100 }, y: { type: 'linear', title: { display: true, text: 'Force (N)' }, beginAtZero: true } }
+                }
+            });
+            const energyCtx = document.getElementById('energyChart').getContext('2d');
+            if (energyChart) energyChart.destroy();
+            energyChart = new Chart(energyCtx, {
+                type: 'line',
+                data: { datasets: [{ label: 'Strain Energy Density (Joules/meter)', data: energyData, borderColor: 'rgb(118, 75, 162)', backgroundColor: 'rgba(118, 75, 162, 0.1)', pointRadius: 0, borderWidth: 2, fill: true, tension: 0.1 }] },
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    plugins: { title: { display: true, text: 'Strain Energy Density vs Strain', font: { size: 16 } }, tooltip: { callbacks: { label: function(context) { return `Strain: ${context.parsed.x.toFixed(1)}%, Energy Density: ${context.parsed.y.toFixed(2)} J/m`; } } } },
+                    scales: { x: { type: 'linear', title: { display: true, text: 'Strain (%)' }, min: 0, max: (maxStrain + padding) * 100 }, y: { type: 'linear', title: { display: true, text: 'Energy Density (J/m)' }, beginAtZero: true } }
+                }
+            });
+        }
+
+        function getStrainForForce(targetForce) {
+            if (calibrationData.length < 2) return 0;
+            let low = 0, high = 5.0; // Support up to 500% strain
+            for (let i = 0; i < 30; i++) {
+                let mid = (low + high) / 2;
+                if (interpolateForce(mid) < targetForce) low = mid;
+                else high = mid;
+            }
+            return (low + high) / 2;
+        }
+
+        function getSimulationMinHeight(heightCm, massG, cordLengthCm, bottleHeightCm, gamma) {
+            const dt = 0.002; 
+            const g = 9.8; 
+            const massKg = massG / 1000;
+            let y = heightCm - bottleHeightCm; 
+            let v = 0; 
+            let minHeight = y;
+            
+            // Calculate damping coeff once
+            const s_eq = getStrainForForce(massKg * g);
+            const f1 = interpolateForce(s_eq);
+            const f2 = interpolateForce(s_eq + 0.01);
+            const k_eff = ((f2 - f1) / 0.01) / cordLengthCm;
+            const k_eff_SI = k_eff * 100;
+            const zeta = -Math.log(gamma) / Math.PI;
+            const dampingCoeff = 2 * zeta * Math.sqrt(massKg * k_eff_SI);
+
+            // Simulate until velocity becomes positive (bottom of first swing)
+            for (let t = 0; t < 5; t += dt) {
+                const extension = Math.max(0, (heightCm - (y + bottleHeightCm)) - cordLengthCm);
+                let netForceN = -massKg * g;
+                if (extension > 0) {
+                    netForceN += interpolateForce(extension / cordLengthCm);
+                    netForceN -= dampingCoeff * (v / 100);
+                }
+                v += (netForceN / massKg) * 100 * dt;
+                y += v * dt;
+                if (y < minHeight) minHeight = y;
+                if (t > 0.2 && v > 0) break; // Finished first descent
+            }
+            return minHeight;
+        }
+
+        function solveForL(heightCm, mass, bottleHeight, targetDist, gamma) {
+            const y_release = heightCm - bottleHeight;
+            let lowL = 1, highL = y_release - targetDist;
+            let bestL = lowL;
+            for (let i = 0; i < 25; i++) {
+                let midL = (lowL + highL) / 2;
+                let minHeight = getSimulationMinHeight(heightCm, mass, midL, bottleHeight, gamma);
+                if (minHeight > targetDist) lowL = midL;
+                else highL = midL;
+                bestL = midL;
+            }
+            return bestL;
+        }
+
+        function calculateCordLength() {
+            const height = parseFloat(document.getElementById('dropHeight').value);
+            const mass = parseFloat(document.getElementById('totalMass').value);
+            const bottleHeight = parseFloat(document.getElementById('bottleHeight').value);
+            const targetDist = parseFloat(document.getElementById('targetDistance').value);
+            const gamma = parseFloat(document.getElementById('dampingFactor').value);
+            
+            if (calibrationData.length === 0) {
+                document.getElementById('calculationResult').innerHTML = '<div class="alert alert-warning">Please add calibration data first.</div>';
+                return;
+            }
+            
+            const heightCm = height * 100;
+            const massKg = mass / 1000;
+            const g = 9.8;
+            const y_release = heightCm - bottleHeight;
+
+            // Main calculation
+            const bestL = solveForL(heightCm, mass, bottleHeight, targetDist, gamma);
+            
+            // Marginal Offset Calculation (dL/dH)
+            // Calculate L for H + 1cm
+            const hPlus1 = heightCm + 1.0;
+            const lPlus1 = solveForL(hPlus1, mass, bottleHeight, targetDist, gamma);
+            const marginalOffset = lPlus1 - bestL;
+
+            const s_eq = getStrainForForce(massKg * g);
+            const x_eq = s_eq * bestL;
+            const y_eq = y_release - bestL - x_eq;
+            const x_max = y_release - targetDist - bestL;
+
+            const resultDiv = document.getElementById('calculationResult');
+            resultDiv.innerHTML = `<div class="result-box"><h3>Recommended Cord Attachment Length</h3><div class="value">${bestL.toFixed(2)}<span class="unit"> cm</span></div><p>Attach cord at ${bestL.toFixed(2)} cm from the top</p><p><b>Marginal Offset:</b> ${marginalOffset.toFixed(3)} cm per 1 cm height change</p><p>Expected Max Stretch: ${x_max.toFixed(2)} cm</p><p>Equilibrium Stretch: ${x_eq.toFixed(2)} cm</p></div>`;
+            
+            const detailsDiv = document.getElementById('calculationDetails');
+            detailsDiv.textContent = `CALCULATION DETAILS (Simulation-Based Solver)\n════════════════════════════════════════════\nInput Parameters:\n  Drop Height: ${heightCm.toFixed(2)} cm\n  Total Mass: ${mass.toFixed(1)} g\n  Target Distance: ${targetDist.toFixed(2)} cm\n  Bottle Height: ${bottleHeight.toFixed(2)} cm\n\nModel Parameters:\n  Amplitude Decay (γ): ${gamma.toFixed(4)}\n  Equilibrium Strain (s_eq): ${(s_eq * 100).toFixed(2)}%\n  Equilibrium Height (y_eq): ${y_eq.toFixed(2)} cm\n\nCord Configuration:\n  Recommended Length (L): ${bestL.toFixed(2)} cm\n  Marginal Offset (dL/dH): ${marginalOffset.toFixed(3)} cm/cm\n  Max Extension (x_max): ${x_max.toFixed(2)} cm\n  Equilibrium Extension (x_eq): ${x_eq.toFixed(2)} cm\n  Max Strain: ${((x_max / bestL) * 100).toFixed(2)}%`;
+            
+            // Calculate force check: 30cm cord under bottle weight
+            const testCordLength = 30.0; // cm
+            const testStrain = getStrainForForce(massKg * g);
+            const testStretchedLength = testCordLength * (1 + testStrain);
+            const forceCheckDiv = document.getElementById('forceCheck');
+            const forceCheckText = document.getElementById('forceCheckText');
+            forceCheckDiv.style.display = 'block';
+            forceCheckText.textContent = `30 cm should stretch to ${testStretchedLength.toFixed(2)} cm under the ${mass.toFixed(0)} g weight of the bottle.`;
+            
+            // Automatically start the simulation after calculation
+            setTimeout(() => runSimulation(), 100);
+        }
+
+        function calculateDampingForDistance(heightCm, mass, cordLength, bottleHeight, dropDistance) {
+            const massKg = mass / 1000, g = 9.8;
+            if (calibrationData.length === 0) return 0.95;
+            
+            // Use binary search to find which gamma results in the observed dropDistance
+            let lowG = 0.5, highG = 1.1;
+            for (let i = 0; i < 20; i++) {
+                let midG = (lowG + highG) / 2;
+                let minHeight = getSimulationMinHeight(heightCm, mass, cordLength, bottleHeight, midG);
+                if (minHeight > dropDistance) highG = midG; // Simulation stopped too high -> needs less damping (higher gamma)
+                else lowG = midG; // Simulation fell too low -> needs more damping (lower gamma)
+            }
+            return (lowG + highG) / 2;
+        }
+
+        function updateFittedDamping() {
+            if (trials.length === 0) {
+                document.getElementById('fittedDamping').textContent = '-';
+                document.getElementById('meanResidual').textContent = '-';
+                document.getElementById('stdDevResidual').textContent = '-';
+                fittedDampingFactor = 0.95; return;
+            }
+            // Filter reasonable gamma values
+            const validTrials = trials.filter(t => t.trialDamping >= 0.5 && t.trialDamping <= 1.1);
+            fittedDampingFactor = validTrials.length === 0 ? 0.95 : validTrials.reduce((sum, t) => sum + t.trialDamping, 0) / validTrials.length;
+            document.getElementById('fittedDamping').textContent = fittedDampingFactor.toFixed(4);
+            const residuals = [];
+            trials.forEach(trial => {
+                const predicted = predictDistanceWithDamping(trial.height * 100, trial.mass, trial.cordLength, trial.bottleHeight, fittedDampingFactor);
+                trial.predictedDistance = predicted; 
+                trial.residual = trial.distance - predicted; 
+                residuals.push(trial.residual);
+            });
+            const meanResidual = residuals.reduce((sum, r) => sum + r, 0) / residuals.length;
+            const variance = residuals.reduce((sum, r) => sum + Math.pow(r - meanResidual, 2), 0) / residuals.length;
+            document.getElementById('meanResidual').textContent = meanResidual.toFixed(3);
+            document.getElementById('stdDevResidual').textContent = Math.sqrt(variance).toFixed(3);
+        }
+
+        function predictDistanceWithDamping(heightCm, mass, cordLength, bottleHeight, gamma) {
+            const massKg = mass / 1000, g = 9.8;
+            const y_release = heightCm - bottleHeight;
+            const s_eq = getStrainForForce(massKg * g);
+            const y_eq = y_release - cordLength * (1 + s_eq);
+            
+            // y_bottom = y_eq - gamma * (y_release - y_eq)
+            return y_eq - gamma * (y_release - y_eq);
+        }
+
+        function applyFittedDamping() {
+            if (trials.length === 0) { alert('No trials recorded yet.'); return; }
+            document.getElementById('dampingFactor').value = fittedDampingFactor.toFixed(4);
+            switchTab('calculator');
+            alert(`Applied fitted damping factor: ${fittedDampingFactor.toFixed(4)}`);
+        }
+
+        function removeTrial(index) {
+            trials.splice(index, 1);
+            saveCurrentString();
+            updateFittedDamping(); updateTrialsTable(); updateErrorChart();
+        }
+
+        function clearTrials() {
+            if (confirm('Are you sure you want to clear all trial data?')) {
+                trials = []; fittedDampingFactor = 1.0;
+                saveCurrentString();
+                updateFittedDamping(); updateTrialsTable(); updateErrorChart();
+            }
+        }
+
+        function updateTrialsTable() {
+            const tbody = document.getElementById('trialsTableBody'); tbody.innerHTML = '';
+            trials.forEach((trial, index) => {
+                const fittedResidual = trial.residual !== undefined ? trial.residual : 0;
+                const residualColor = Math.abs(fittedResidual) < 1.0 ? '#28a745' : (Math.abs(fittedResidual) < 3.0 ? '#ffc107' : '#dc3545');
+                const row = tbody.insertRow();
+                row.innerHTML = `<td>${trial.cordLength.toFixed(2)}</td><td>${trial.mass.toFixed(1)}</td><td>${trial.height.toFixed(2)}</td><td>${trial.targetDistance.toFixed(2)}</td><td>${trial.distance.toFixed(2)}</td><td>${trial.error.toFixed(2)}</td><td>${trial.dampingUsed.toFixed(4)}</td><td>${trial.trialDamping.toFixed(4)}</td><td style="color: ${residualColor}; font-weight: bold;">${fittedResidual.toFixed(2)}</td><td>${trial.notes || '-'}</td><td><button class="btn btn-danger" style="padding: 6px 12px;" onclick="removeTrial(${index})">Remove</button></td>`;
+            });
+            document.getElementById('trialCount').textContent = trials.length;
+        }
+
+        function updateErrorChart() {
+            const ctx = document.getElementById('errorChart').getContext('2d');
+            if (errorChart) errorChart.destroy(); if (trials.length === 0) return;
+            errorChart = new Chart(ctx, {
+                type: 'scatter',
+                data: {
+                    datasets: [
+                        { label: 'Trial Damping Factor', data: trials.map((t, i) => ({ x: i + 1, y: t.trialDamping })), borderColor: 'rgb(102, 126, 234)', backgroundColor: 'rgba(102, 126, 234, 0.5)', pointRadius: 8, yAxisID: 'y' },
+                        { label: 'Fitted Damping Factor', data: trials.map((t, i) => ({ x: i + 1, y: fittedDampingFactor })), borderColor: 'rgb(220, 38, 38)', pointRadius: 0, borderWidth: 2, borderDash: [5, 5], showLine: true, yAxisID: 'y' },
+                        { label: 'Residual Error (cm)', data: trials.map((t, i) => ({ x: i + 1, y: t.residual || 0 })), borderColor: 'rgb(34, 197, 94)', backgroundColor: 'rgba(34, 197, 94, 0.5)', pointRadius: 6, yAxisID: 'y1' }
+                    ]
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    scales: { x: { title: { display: true, text: 'Trial Number' } }, y: { title: { display: true, text: 'Amplitude Decay Ratio (γ)' }, min: 0.5, max: 1.0 }, y1: { position: 'right', title: { display: true, text: 'Residual Error (cm)' }, grid: { drawOnChartArea: false } } }
+                }
+            });
+        }
+
+        function addTrial() {
+            const cordLength = parseFloat(document.getElementById('trialCordLength').value);
+            const mass = parseFloat(document.getElementById('trialMass').value);
+            const height = parseFloat(document.getElementById('trialHeight').value);
+            const bottleHeight = parseFloat(document.getElementById('trialBottleHeight').value);
+            const targetDistance = parseFloat(document.getElementById('trialTargetDistance').value);
+            const distance = parseFloat(document.getElementById('trialDistance').value);
+            const notes = document.getElementById('trialNotes').value;
+            if (isNaN(cordLength) || isNaN(mass) || isNaN(height) || isNaN(bottleHeight) || isNaN(distance) || isNaN(targetDistance)) {
+                alert('Please fill in all numeric fields.'); return;
+            }
+            const trialDamping = calculateDampingForDistance(height * 100, mass, cordLength, bottleHeight, distance);
+            let dampingUsed = parseFloat(document.getElementById('trialDampingUsed').value);
+            if (isNaN(dampingUsed)) dampingUsed = calculateDampingForDistance(height * 100, mass, cordLength, bottleHeight, targetDistance);
+            const error = distance - targetDistance;
+            trials.push({ cordLength, mass, height, bottleHeight, targetDistance, distance, error, trialDamping, dampingUsed, notes, timestamp: new Date().toISOString() });
+            
+            saveCurrentString();
+            updateFittedDamping();
+            updateTrialsTable();
+            updateErrorChart();
+        }
+
+        function getScaledElasticEnergy(L_target, extension) {
+            const strain = extension / L_target;
+            const energyDensity = calculateStrainEnergyDensity(strain);
+            return L_target * energyDensity;
+        }
+
+        let simulationData = null, simulationRunning = false, simulationPaused = false, simulationAnimationId = null;
+        function getScaledForce(extension, currentL) { return interpolateForce(extension / currentL); }
+        function simulateDrop(heightCm, massG, cordLengthCm, bottleHeightCm, gamma) {
+            const dt = 0.001; 
+            const g = 9.8; 
+            const massKg = massG / 1000; 
+
+            let t = 0;
+            let y = heightCm - bottleHeightCm; 
+            let v = 0; 
+            
+            const trajectory = [];
+            const maxTime = 10; 
+            let settled = false;
+            const settleThreshold = 1.0; 
+            const settleTime = 0.5; 
+
+            // Calculate effective k for damping
+            const s_eq = getStrainForForce(massKg * g);
+            const f1 = interpolateForce(s_eq);
+            const f2 = interpolateForce(s_eq + 0.01);
+            const k_eff = ((f2 - f1) / 0.01) / cordLengthCm; // N/cm
+            const k_eff_SI = k_eff * 100; // N/m
+            
+            const zeta = -Math.log(gamma) / Math.PI;
+            const dampingCoeff = 2 * zeta * Math.sqrt(massKg * k_eff_SI);
+
+            while (t < maxTime && !settled) {
+                const cordTop = heightCm; 
+                const bottleTop = y + bottleHeightCm; 
+                const totalLength = cordTop - bottleTop; 
+                const extension = Math.max(0, totalLength - cordLengthCm);
+
+                const gravityForceN = -massKg * g; 
+                let elasticForceN = 0;
+                let netForceN = gravityForceN;
+
+                if (extension > 0) {
+                    elasticForceN = getScaledForce(extension, cordLengthCm); 
+                    netForceN += elasticForceN; 
+                    netForceN -= dampingCoeff * (v / 100); 
+                }
+
+                const airDrag = 0.0000001 * massKg * v * Math.abs(v); 
+                netForceN -= airDrag;
+
+                const a = (netForceN / massKg) * 100; 
+                v += a * dt;
+                y += v * dt;
+
+                if (y < 0) {
+                    y = 0;
+                    v = -v * 0.3; 
+                }
+
+                if (trajectory.length === 0 || t - trajectory[trajectory.length - 1].t >= 0.01) {
+                    trajectory.push({ t, y, v, extension, a, elasticForceN, netForceN });
+                }
+
+                if (t > 2.0 && trajectory.length > 100) {
+                    const recentPoints = trajectory.slice(-Math.floor(settleTime / 0.01));
+                    const avgRecentV = recentPoints.reduce((sum, p) => sum + Math.abs(p.v), 0) / recentPoints.length;
+                    const maxRecentY = Math.max(...recentPoints.map(p => p.y));
+                    const minRecentY = Math.min(...recentPoints.map(p => p.y));
+                    const oscillation = maxRecentY - minRecentY;
+                    
+                    if (avgRecentV < settleThreshold && oscillation < 1.0) {
+                        settled = true;
+                    }
+                }
+
+                t += dt;
+            }
+            return trajectory;
+        }
+
+        // Run simulation
+        function runSimulation() {
+            if (calibrationData.length === 0) {
+                alert('Please add calibration data first.');
+                return;
+            }
+
+            // Stop any running simulation first
+            simulationRunning = false;
+            simulationPaused = false;
+            if (simulationAnimationId) {
+                clearTimeout(simulationAnimationId);
+                simulationAnimationId = null;
+            }
+
+            const height = parseFloat(document.getElementById('dropHeight').value);
+            const mass = parseFloat(document.getElementById('totalMass').value);
+            const bottleHeight = parseFloat(document.getElementById('bottleHeight').value);
+            const dampingFactor = parseFloat(document.getElementById('dampingFactor').value);
+
+            // Get the calculated cord length from the result
+            const resultDiv = document.getElementById('calculationResult');
+            if (!resultDiv.innerHTML.includes('Recommended Cord Attachment Length')) {
+                alert('Please calculate the cord length first.');
+                return;
+            }
+
+            // Extract cord length from the result (find the value in the result box)
+            const valueMatch = resultDiv.innerHTML.match(/value">([0-9.]+)<span class="unit"> cm<\/span>/);
+            if (!valueMatch) {
+                alert('Could not find cord length. Please calculate first.');
+                return;
+            }
+
+            const cordLength = parseFloat(valueMatch[1]);
+            const heightCm = height * 100;
+
+            // Run physics simulation
+            simulationData = {
+                trajectory: simulateDrop(heightCm, mass, cordLength, bottleHeight, dampingFactor),
+                heightCm,
+                cordLength,
+                bottleHeight
+            };
+
+            // Update combined height and force chart
+            updateHeightTimeChart();
+
+            // Start animation
+            simulationRunning = true;
+            simulationPaused = false;
+            animateSimulation();
+        }
+
+        function updateHeightTimeChart() {
+            if (!simulationData) return;
+            const ctx = document.getElementById('heightTimeChart').getContext('2d');
+            if (heightTimeChart) heightTimeChart.destroy();
+
+            const trajectory = simulationData.trajectory;
+
+            heightTimeChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    datasets: [
+                        {
+                            label: 'Height Above Ground (cm)',
+                            data: trajectory.map(p => ({ x: p.t, y: p.y })),
+                            borderColor: 'rgb(102, 126, 234)',
+                            backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                            borderWidth: 2,
+                            pointRadius: 0,
+                            fill: true,
+                            tension: 0.1,
+                            yAxisID: 'y'
+                        },
+                        {
+                            label: 'Cord Force (N)',
+                            data: trajectory.map(p => ({ x: p.t, y: p.elasticForceN })),
+                            borderColor: 'rgb(34, 197, 94)',
+                            backgroundColor: 'rgba(34, 197, 94, 0.1)',
+                            borderWidth: 2,
+                            pointRadius: 0,
+                            fill: false,
+                            tension: 0.1,
+                            yAxisID: 'y1'
+                        },
+                        {
+                            label: 'Net Force (N)',
+                            data: trajectory.map(p => ({ x: p.t, y: p.netForceN })),
+                            borderColor: 'rgb(239, 68, 68)',
+                            backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                            borderWidth: 2,
+                            pointRadius: 0,
+                            fill: false,
+                            tension: 0.1,
+                            yAxisID: 'y1'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: {
+                        mode: 'index',
+                        intersect: false
+                    },
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Height & Forces vs Time - Drop Simulation',
+                            font: { size: 16 }
+                        },
+                        legend: {
+                            display: true
+                        }
+                    },
+                    scales: {
+                        x: {
+                            type: 'linear',
+                            title: {
+                                display: true,
+                                text: 'Time (s)'
+                            }
+                        },
+                        y: {
+                            type: 'linear',
+                            position: 'left',
+                            title: {
+                                display: true,
+                                text: 'Height (cm)',
+                                color: 'rgb(102, 126, 234)'
+                            },
+                            ticks: {
+                                color: 'rgb(102, 126, 234)'
+                            },
+                            beginAtZero: true
+                        },
+                        y1: {
+                            type: 'linear',
+                            position: 'right',
+                            title: {
+                                display: true,
+                                text: 'Force (N)',
+                                color: 'rgb(34, 197, 94)'
+                            },
+                            ticks: {
+                                color: 'rgb(34, 197, 94)'
+                            },
+                            grid: {
+                                drawOnChartArea: false
+                            }
+                        }
+                    }
+                },
+                plugins: [{
+                    id: 'timeIndicator',
+                    afterDraw: (chart) => {
+                        if (chart.currentTime !== undefined) {
+                            const ctx = chart.ctx;
+                            const x = chart.scales.x.getPixelForValue(chart.currentTime);
+                            const topY = chart.scales.y.top;
+                            const bottomY = chart.scales.y.bottom;
+
+                            ctx.save();
+                            ctx.beginPath();
+                            ctx.moveTo(x, topY);
+                            ctx.lineTo(x, bottomY);
+                            ctx.lineWidth = 2;
+                            ctx.strokeStyle = 'rgba(0, 0, 0, 0.7)';
+                            ctx.setLineDash([5, 5]);
+                            ctx.stroke();
+
+                            // Add dot at current height
+                            const trajectory = simulationData.trajectory;
+                            const point = trajectory.find(p => p.t >= chart.currentTime) || trajectory[0];
+                            const y = chart.scales.y.getPixelForValue(point.y);
+                            
+                            ctx.beginPath();
+                            ctx.arc(x, y, 5, 0, Math.PI * 2);
+                            ctx.fillStyle = 'rgb(102, 126, 234)';
+                            ctx.fill();
+                            ctx.strokeStyle = 'white';
+                            ctx.lineWidth = 2;
+                            ctx.stroke();
+                            
+                            ctx.restore();
+                        }
+                    }
+                }]
+            });
+        }
+
+        // Animate the simulation
+        function animateSimulation() {
+            if (!simulationData || !simulationRunning) return;
+
+            const canvas = document.getElementById('simulationCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Set canvas size
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+
+            const trajectory = simulationData.trajectory;
+            let frameIndex = 0;
+            const framesPerSecond = 60;
+            const frameDelay = 1000 / framesPerSecond;
+
+            function drawFrame() {
+                if (!simulationRunning || simulationPaused) return;
+
+                if (frameIndex >= trajectory.length) {
+                    simulationRunning = false;
+                    return;
+                }
+
+                const point = trajectory[frameIndex];
+                
+                // Update chart indicator
+                if (heightTimeChart) {
+                    heightTimeChart.currentTime = point.t;
+                    heightTimeChart.update('none');
+                }
+
+                // Clear canvas
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                // Draw scale
+                const heightCm = simulationData.heightCm;
+                const scale = (canvas.height * 0.9) / heightCm; // pixels per cm
+                const xCenter = canvas.width / 2;
+
+                // Draw ground
+                const groundY = canvas.height - 10;
+                ctx.fillStyle = '#8B4513';
+                ctx.fillRect(0, groundY, canvas.width, 10);
+                ctx.fillStyle = '#654321';
+                ctx.fillRect(0, groundY - 5, canvas.width, 5);
+
+                // Draw attachment point
+                const attachY = 10;
+                ctx.fillStyle = '#333';
+                ctx.fillRect(xCenter - 30, attachY - 5, 60, 10);
+                ctx.fillRect(xCenter - 3, attachY, 6, 10);
+
+                // Draw cord
+                const bottleTopY = groundY - (point.y + simulationData.bottleHeight) * scale;
+                ctx.strokeStyle = '#667eea';
+                ctx.lineWidth = 3;
+                ctx.setLineDash([]);
+                ctx.beginPath();
+                ctx.moveTo(xCenter, attachY + 10);
+                ctx.lineTo(xCenter, bottleTopY);
+                ctx.stroke();
+
+                // Draw bottle
+                const bottleWidth = 20;
+                const bottleHeight = simulationData.bottleHeight * scale;
+                const bottleY = bottleTopY;
+                
+                // Bottle body
+                ctx.fillStyle = '#60a5fa';
+                ctx.fillRect(xCenter - bottleWidth / 2, bottleY, bottleWidth, bottleHeight);
+                
+                // Bottle cap
+                ctx.fillStyle = '#3b82f6';
+                ctx.fillRect(xCenter - bottleWidth / 2 - 2, bottleY - 5, bottleWidth + 4, 5);
+
+                // Bottle outline
+                ctx.strokeStyle = '#1e40af';
+                ctx.lineWidth = 2;
+                ctx.strokeRect(xCenter - bottleWidth / 2, bottleY, bottleWidth, bottleHeight);
+
+                // Draw mass inside bottle
+                ctx.fillStyle = '#fbbf24';
+                ctx.beginPath();
+                ctx.arc(xCenter, bottleY + bottleHeight / 2, 6, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Draw height measurement
+                ctx.fillStyle = '#333';
+                ctx.font = 'bold 14px Arial';
+                ctx.textAlign = 'left';
+                ctx.fillText(`Height: ${point.y.toFixed(2)} cm`, 10, 30);
+                ctx.fillText(`Time: ${point.t.toFixed(3)} s`, 10, 50);
+                ctx.fillText(`Velocity: ${point.v.toFixed(1)} cm/s ${point.v > 0 ? '↑' : point.v < 0 ? '↓' : ''}`, 10, 70);
+                ctx.fillText(`Extension: ${point.extension.toFixed(2)} cm`, 10, 90);
+                ctx.fillText(`Accel: ${point.a.toFixed(1)} cm/s²`, 10, 110);
+
+                // Draw target line
+                const targetDist = parseFloat(document.getElementById('targetDistance').value);
+                const targetY = groundY - targetDist * scale;
+                ctx.strokeStyle = '#ef4444';
+                ctx.lineWidth = 2;
+                ctx.setLineDash([5, 5]);
+                ctx.beginPath();
+                ctx.moveTo(0, targetY);
+                ctx.lineTo(canvas.width, targetY);
+                ctx.stroke();
+                ctx.fillStyle = '#ef4444';
+                ctx.font = '12px Arial';
+                ctx.textAlign = 'right';
+                ctx.fillText(`Target: ${targetDist.toFixed(1)} cm`, canvas.width - 10, targetY - 5);
+
+                frameIndex++;
+                
+                simulationAnimationId = setTimeout(drawFrame, frameDelay);
+            }
+
+            drawFrame();
+        }
+
+        // Pause simulation
+        function pauseSimulation() {
+            if (simulationRunning) {
+                simulationPaused = !simulationPaused;
+                if (!simulationPaused) {
+                    animateSimulation();
+                }
+            }
+        }
+
+        // Reset simulation
+        function resetSimulation() {
+            simulationRunning = false;
+            simulationPaused = false;
+            if (simulationAnimationId) {
+                clearTimeout(simulationAnimationId);
+            }
+            
+            const canvas = document.getElementById('simulationCanvas');
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            if (simulationData) {
+                runSimulation();
+            }
+        }
+
+        async function generateExportModel() {
+            if (calibrationData.length === 0) {
+                alert('Please add calibration data first.');
+                return;
+            }
+
+            showLoading(true);
+            const gamma = parseFloat(document.getElementById('exportGamma').value);
+            const targetDistance = parseFloat(document.getElementById('exportTargetDistance').value);
+            const interpolationMethod = document.getElementById('interpolationMethod').value;
+            const bottleHeight = parseFloat(document.getElementById('bottleHeight').value);
+
+            try {
+                const response = await fetch('/api/bungee/export', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        calibrationData,
+                        interpolationMethod,
+                        gamma,
+                        bottleHeight,
+                        targetDistance
+                    })
+                });
+
+                if (!response.ok) throw new Error('Failed to generate model');
+                const result = await response.json();
+
+                // Display formula
+                document.getElementById('exportFormulaBox').style.display = 'block';
+                document.getElementById('exportFormula').textContent = result.formula;
+                document.getElementById('exportAvgError').textContent = result.avg_error.toFixed(4) + ' cm';
+                document.getElementById('exportMaxError').textContent = result.max_error.toFixed(4) + ' cm';
+
+                // Generate TI-84 Program Code
+                let tiCode = "PROGRAM:BUNGEE\n";
+                tiCode += ":ClrHome:Menu(\"LEVEL\",\"REG\",1,\"STATE\",2,\"NAT\",3)->V\n";
+                tiCode += ":Input \"LIGHT MASS(G):\",ML\n";
+                tiCode += ":Input \"HEAVY MASS(G):\",MH\n";
+                tiCode += ":Input \"BOTTLE(CM):\",B\n";
+                tiCode += ":Input \"TARGET(CM):\",T\n";
+                tiCode += ":Input \"H1 TOTAL(M):\",H1\n";
+                tiCode += ":If V>1:Input \"H2 TOTAL(M):\",H2\n";
+                tiCode += ":Input \"BTDD(M):\",HB\n";
+                tiCode += ":0->S:0->K:999->D1:999->D2\n";
+                
+                tiCode += ":Lbl H1:H1->H:1->N:ML->M\n";
+                tiCode += ":Lbl D1:ClrHome:Disp \"HEIGHT 1, DROP\",N\n";
+                tiCode += ":If N=2:Then:Menu(\"MASS\",\"LIGHT\",L1,\"HEAVY\",L2)\n";
+                tiCode += ":Lbl L2:MH->M:1->K:Goto L3:Lbl L1:ML->M:0->K:Lbl L3:End\n";
+                
+                tiCode += ":Lbl P1:H-B/100-T/100->X:0->L\n";
+                let coeffs = result.parameters;
+                let termsMeta = [];
+                for (let i = 0; i < 6; i++) {
+                    for (let j = 0; j < 6 - i; j++) {
+                        termsMeta.push({m: i, h: j});
+                    }
+                }
+                for (let k = 0; k < coeffs.length; k++) {
+                    let c = coeffs[k];
+                    if (Math.abs(c) < 1e-18) continue;
+                    let s_c = c.toExponential(4).replace('e', '*10^(') + ')';
+                    let m_part = termsMeta[k].m === 0 ? "" : (termsMeta[k].m === 1 ? "*M" : `*M^${termsMeta[k].m}`);
+                    let h_part = termsMeta[k].h === 0 ? "" : (termsMeta[k].h === 1 ? "*X" : `*X^${termsMeta[k].h}`);
+                    tiCode += `:L+${s_c}${m_part}${h_part}->L\n`;
+                }
+                
+                tiCode += ":Disp \"RECOMMENDED L:\",L\n";
+                tiCode += ":Input \"OFF BY(CM):\",E\n";
+                tiCode += ":10*abs(E)-20*K->D:If E<0:0.5*H*100->D\n";
+                tiCode += ":Disp \"DROP SCORE:\",D:Pause\n";
+                tiCode += ":If D<D1:D->D1\n";
+                tiCode += ":If N=1:Then:2->N:H+E/100->H:Goto D1:End\n";
+                
+                tiCode += ":If V>1 and H=H1:Then:H2->H:1->N:ML->M:0->K:Goto D1:End\n";
+                
+                tiCode += ":Lbl BNS:ClrHome:30->Q:If V=2:20->Q:If V=3:10->Q\n";
+                tiCode += ":If D1>Q and D2>Q:Then:Disp \"NOT QUALIFIED\",\"SCORE:\",D1+D2:Stop:End\n";
+                tiCode += ":Disp \"INVITED TO BONUS\",\"BTDD:\",HB\n";
+                tiCode += ":HB->X:ML->M:0->L:Goto P1\n"; // Reuses the poly solver at P1
+                // Note: The loop needs to handle stopping after bonus.
+                // We'll add a flag to stop if doing bonus.
+                tiCode = tiCode.replace(':HB->X:ML->M:0->L:Goto P1', ':HB->X:ML->M:0->L:1->F:Goto P1');
+                tiCode = tiCode.replace(':Disp \"DROP SCORE:\",D:Pause', ':Disp \"DROP SCORE:\",D:Pause:If F=1:Stop');
+
+                document.getElementById('tiProgramCode').textContent = tiCode;
+
+                // Generate TI-84 Simple Program Code
+                let simpleTiCode = "PROGRAM:BUNGSIMP\n";
+                simpleTiCode += ":ClrHome\n";
+                simpleTiCode += ":Input \"TOT HT(M):\",H\n";
+                simpleTiCode += ":Input \"MASS(G):\",M\n";
+                simpleTiCode += ":Input \"BOTTLE(CM):\",B\n";
+                simpleTiCode += ":Input \"TARGET(CM):\",T\n";
+                simpleTiCode += ":H-B/100-T/100->X\n";
+                simpleTiCode += ":0->L\n";
+                
+                // Reuse same coefficients and logic for the polynomial
+                for (let k = 0; k < coeffs.length; k++) {
+                    let c = coeffs[k];
+                    if (Math.abs(c) < 1e-18) continue;
+                    let s_c = c.toExponential(4).replace('e', '*10^(') + ')';
+                    let m_part = termsMeta[k].m === 0 ? "" : (termsMeta[k].m === 1 ? "*M" : `*M^${termsMeta[k].m}`);
+                    let h_part = termsMeta[k].h === 0 ? "" : (termsMeta[k].h === 1 ? "*X" : `*X^${termsMeta[k].h}`);
+                    simpleTiCode += `:L+${s_c}${m_part}${h_part}->L\n`;
+                }
+                
+                simpleTiCode += ":ClrHome\n";
+                simpleTiCode += ":Disp \"RECOMMENDED L:\"\n";
+                simpleTiCode += ":Disp L\n";
+                
+                document.getElementById('tiSimpleProgramCode').textContent = simpleTiCode;
+
+                // Render Plotly plot
+                const plotData = [
+                    {
+                        x: result.points.map(p => p.m),
+                        y: result.points.map(p => p.h),
+                        z: result.points.map(p => p.l),
+                        mode: 'markers',
+                        marker: {
+                            size: 5,
+                            color: 'red',
+                            opacity: 0.8
+                        },
+                        type: 'scatter3d',
+                        name: 'Simulation Data'
+                    },
+                    {
+                        x: result.surface.m,
+                        y: result.surface.h,
+                        z: result.surface.l,
+                        type: 'surface',
+                        colorscale: 'Viridis',
+                        opacity: 0.8,
+                        showscale: false,
+                        name: 'Fitted Model'
+                    }
+                ];
+
+                const layout = {
+                    title: 'Bungee Drop Surface Calibration',
+                    autosize: true,
+                    margin: { l: 0, r: 0, b: 0, t: 30 },
+                    scene: {
+                        xaxis: { title: 'Mass (g)' },
+                        yaxis: { title: 'Height (m)' },
+                        zaxis: { title: 'L (cm)' }
+                    }
+                };
+
+                Plotly.newPlot('exportPlotContainer', plotData, layout, { responsive: true });
+
+                // Display table
+                const tbody = document.getElementById('exportDataTableBody');
+                tbody.innerHTML = '';
+                result.points.forEach(p => {
+                    const row = tbody.insertRow();
+                    row.innerHTML = `<td>${p.m.toFixed(1)}</td><td>${p.h.toFixed(2)}</td><td>${p.l.toFixed(2)}</td>`;
+                });
+
+                // Store for CSV download
+                window.lastGeneratedPoints = result.points;
+
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error generating model: ' + error.message);
+            } finally {
+                showLoading(false);
+            }
+        }
+
+        function downloadCSV() {
+            if (!window.lastGeneratedPoints) {
+                alert('Please generate the model first.');
+                return;
+            }
+
+            let csv = 'Mass (g),Height (m),Cord Length L (cm)\n';
+            window.lastGeneratedPoints.forEach(p => {
+                csv += `${p.m},${p.h},${p.l}\n`;
+            });
+
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.setAttribute('hidden', '');
+            a.setAttribute('href', url);
+            a.setAttribute('download', 'bungee_model_export.csv');
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+    </script>
+</body>
+</html>

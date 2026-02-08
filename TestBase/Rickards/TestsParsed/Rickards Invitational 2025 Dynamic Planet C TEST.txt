@@ -1,0 +1,792 @@
+EVENT: Dynamic Planet
+SOURCE: Rickards Invitational 2025 (Div. C)
+FORMAT: 83 questions (MC, Free Response, Calculations)
+TOTAL POINTS: 138
+
+---SECTION 1: Ocean Circulation and Water Properties---
+
+---QUESTION 1---
+ID: 1 | POINTS: 1.00 | FORMAT: MC / Case Study
+TOPIC: Oceanography | Eddies | Anticyclonic eddies | Sea surface temperature | Sargasso Sea
+DIFFICULTY: Medium
+QUESTION: You are a marine scientist aboard the Research Vessel (R/V) 67, on a mission to investigate anomalies in ocean circulation and water properties in the North Atlantic Ocean. The ship begins its journey in Florida but first heads to the equator before traveling northward toward the Arctic Circle. As you head north, you record changes in sea surface temperature, salinity, nutrients, and chlorophyll concentrations. The first strange observation occurs near the Sargasso Sea, where sea surface temperatures are higher than expected. Using satellite data, you discover a large anticyclonic eddy spinning clockwise. What likely caused the high sea surface temperatures observed in the Sargasso Sea?
+OPTIONS:
+A) Upwelling from deep cold water
+B) Presence of a cyclonic eddy
+C) Downwelling associated with an anticyclonic eddy
+D) Increased chlorophyll concentrations
+
+---QUESTION 2---
+ID: 2 | POINTS: 1.00 | FORMAT: MC / Case Study
+TOPIC: Oceanography | Thermocline | Nutrients | Chlorophyll | Vertical mixing
+DIFFICULTY: Medium
+QUESTION: Later, you deploy CTD instruments and notice a pronounced thermocline. You also detect low nutrient levels in the surface waters, with a corresponding low chlorophyll concentration. Why were nutrient and chlorophyll concentrations low at the surface in the thermocline region?
+OPTIONS:
+A) Photosynthesis removes nutrients too quickly
+B) Nutrients are trapped below the thermocline due to limited vertical mixing
+C) Cold water holds fewer nutrients
+D) Eddies remove nutrients from surface waters
+
+---QUESTION 3---
+ID: 3 | POINTS: 1.00 | FORMAT: MC / Case Study
+TOPIC: Oceanography | Gulf Stream | Western intensification | Boundary currents
+DIFFICULTY: Medium
+QUESTION: Crossing the Gulf Stream, you measure strong eastward flow, and the sea surface is slightly higher on the western side of the ocean basin. Continuing north, you notice surface water becomes cooler and saltier, increasing in density. The Gulf Stream is stronger and narrower than eastern boundary currents due to:
+OPTIONS:
+A) Upwelling
+B) Thermohaline Circulation
+C) Ekman Spirals
+D) Western Intensification
+
+---QUESTION 4---
+ID: 4 | POINTS: 1.00 | FORMAT: MC / Case Study
+TOPIC: Oceanography | Ekman transport | Wind-driven currents | Surface water movement
+DIFFICULTY: Medium
+QUESTION: Which process explains why surface water moved at an angle to the wind during your voyage?
+OPTIONS:
+A) Thermohaline flow
+B) Ekman transport
+C) Convection Currents
+D) Upwelling
+E) Langmuir Circulation
+
+---QUESTION 5---
+ID: 5 | POINTS: 1.00 | FORMAT: MC / Case Study
+TOPIC: Oceanography | Thermohaline circulation | Deep water formation | Greenland
+DIFFICULTY: Medium
+QUESTION: Near Greenland, deep water is forming. You trace this water mass sinking below the surface, becoming part of the thermohaline circulation—the great "global conveyor belt" that distributes heat and energy across oceans. The sinking of cold, salty water near Greenland is a key driver of:
+OPTIONS:
+A) Upwelling in equatorial regions
+B) Surface gyre formation
+C) Thermohaline circulation
+D) Ekman spirals
+
+---QUESTION 6---
+ID: 6 | POINTS: 2.00 | FORMAT: Free Response / Case Study
+TOPIC: Oceanography | Thermocline | Formation | Nutrient distribution
+DIFFICULTY: Medium
+QUESTION: You observed a pronounced thermocline during the expedition. Describe how a thermocline forms and explain its effect on nutrient distribution in the water column.
+
+---QUESTION 7---
+ID: 7 | POINTS: 2.00 | FORMAT: Free Response / Case Study
+TOPIC: Oceanography | Salinity | Surface salinity | Processes
+DIFFICULTY: Medium
+QUESTION: As you traveled north, you noticed surface waters became saltier. Explain one oceanographic process that could cause surface salinity to increase.
+
+---QUESTION 8---
+ID: 8 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Oceanography | Stratification | Temperature | Density
+DIFFICULTY: Medium
+QUESTION: Define "stratification" in the ocean and explain how it relates to temperature and density.
+
+---QUESTION 9---
+ID: 9 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Oceanography | Convergence | Surface water | Nutrients | Productivity
+DIFFICULTY: Medium
+QUESTION: Describe what happens to surface water in regions of convergence and how this affects nutrient availability and biological productivity.
+
+---QUESTION 10---
+ID: 10 | POINTS: 2.00 | FORMAT: Free Response / Case Study
+TOPIC: Oceanography | Water masses | Greenland | Deep water | Energy transport
+DIFFICULTY: Medium
+QUESTION: You followed a water mass from the surface near Greenland into the deep ocean. Identify the name of this water mass, and explain its role in global ocean energy transport.
+
+---SECTION 2: Climate Patterns---
+
+---QUESTION 11---
+ID: 11 | POINTS: 1.00 | FORMAT: MC / Case Study
+TOPIC: Climate | El Niño | ENSO | Walker circulation | Pacific SST
+DIFFICULTY: Medium
+QUESTION: Once your expedition concludes, you are excited to talk about these and many other findings. You meet up with a friend who recently went on an expedition on their own, but investigating unusual climate patterns affecting the eastern Pacific. Jokingly, they decide to quiz you on some of their observations. One thing they noticed was that satellite data indicated a sustained warming of sea surface temperatures in the central and eastern equatorial Pacific. What large-scale phenomenon was most likely being observed, and what atmospheric change accompanies it?
+OPTIONS:
+A) La Niña; enhanced trade winds and upwelling in the eastern Pacific
+B) El Niño; weakening of the Walker circulation and eastward shift in rainfall
+C) Pacific Decadal Oscillation (cool phase); increase in western Pacific convection
+D) Southern Annular Mode (positive phase); cooling of equatorial Pacific waters
+
+---QUESTION 12---
+ID: 12 | POINTS: 1.00 | FORMAT: MC / Case Study
+TOPIC: Climate | Teleconnections | El Niño | Global impacts | ITCZ
+DIFFICULTY: Medium
+QUESTION: As this phenomenon strengthened, coastal communities in Peru reported record rainfall and flooding, while Indonesia faces drought and increased wildfire risk. Which mechanism best explains these geographically distant impacts?
+OPTIONS:
+A) The weakening of Antarctic Bottom Water formation
+B) The migration of the Intertropical Convergence Zone (ITCZ)
+C) Teleconnections altering global atmospheric pressure and precipitation patterns
+D) The reversal of ocean gyres driven by Coriolis anomalies
+
+---QUESTION 13---
+ID: 13 | POINTS: 1.00 | FORMAT: MC / Case Study
+TOPIC: Climate | Teleconnections | El Niño | Global impacts | ITCZ
+DIFFICULTY: Medium
+QUESTION: As this phenomenon strengthened, coastal communities in Peru reported record rainfall and flooding, while Indonesia faces drought and increased wildfire risk. Which mechanism best explains these geographically distant impacts?
+OPTIONS:
+A) The weakening of Antarctic Bottom Water formation
+B) The migration of the Intertropical Convergence Zone (ITCZ)
+C) Teleconnections altering global atmospheric pressure and precipitation patterns
+D) The reversal of ocean gyres driven by Coriolis anomalies
+
+---QUESTION 14---
+ID: 14 | POINTS: 1.00 | FORMAT: MC / Case Study
+TOPIC: Climate | El Niño | Sea level | Downwelling | Trade winds
+DIFFICULTY: Medium
+QUESTION: Your friend deployed Argo floats and found subsurface temperature anomalies down to 150 meters, suggesting significant vertical heat redistribution. Meanwhile, sea level along the western coasts of the Americas was above normal. What explains the regional sea level rise during this phase of the observed phenomenon?
+OPTIONS:
+A) Downwelling caused by weakened trade winds and surface water piling up
+B) Melting of polar glaciers due to El Niño
+C) Strengthened Ekman upwelling increasing surface elevation
+D) Decreased atmospheric pressure drawing the ocean surface upward
+
+---QUESTION 15---
+ID: 15 | POINTS: 1.00 | FORMAT: MC / Case Study
+TOPIC: Climate | Pacific Decadal Oscillation | PDO | Positive phase | SST patterns
+DIFFICULTY: Medium
+QUESTION: Months later, after the phenomenon subsided, the team began to detect longer-term warming trends in mid-latitude sea surface temperatures in the North Pacific. A positive-phase Pacific Decadal Oscillation (PDO) is suspected. Which of the following is characteristic of a positive PDO phase?
+OPTIONS:
+A) SST warming along the eastern North Pacific coast and cooling in the central western Pacific
+B) Warm SST anomalies along the western Pacific and cool anomalies along North America
+C) Suppressed North Pacific storm tracks and intensified subtropical highs
+D) Strengthened western boundary currents transporting warm water poleward
+
+---QUESTION 16---
+ID: 16 | POINTS: 1.00 | FORMAT: MC / Case Study
+TOPIC: Climate | Southern Annular Mode | SAM | Antarctic | Sea ice
+DIFFICULTY: Medium
+QUESTION: Your friend then shifted course to the Southern Ocean. Atmospheric observations showed a poleward shift of the westerly wind belt and record-low sea ice extent around Antarctica. Which climate mode is most likely influencing these conditions?
+OPTIONS:
+A) Positive SAM
+B) ENSO
+C) Negative PDO
+D) Indian Ocean Dipole
+
+---QUESTION 17---
+ID: 17 | POINTS: 1.00 | FORMAT: MC / Case Study
+TOPIC: Ocean Chemistry | Ocean acidification | pH | Aragonite saturation | CO2 absorption
+DIFFICULTY: Medium
+QUESTION: As part of the vessel's chemistry team, water samples were collected from both the equatorial Pacific and Southern Ocean. Analysis showed decreasing pH and lower aragonite saturation horizons in both regions. What process is most directly responsible for these chemical changes, and why are polar waters particularly vulnerable?
+OPTIONS:
+A) Ocean acidification from increased atmospheric CO₂ absorption; colder water holds more CO₂
+B) Thermal expansion; polar waters trap heat more effectively
+C) Deoxygenation; less O₂ available for calcifying organisms
+D) Upwelling of anoxic waters from the deep ocean; these waters have lower pH
+
+---QUESTION 18---
+ID: 18 | POINTS: 1.00 | FORMAT: MC / Case Study
+TOPIC: Ocean Chemistry | Oxygen minimum zone | Deoxygenation | OMZ
+DIFFICULTY: Medium
+QUESTION: They also compared dissolved oxygen profiles over a 20-year dataset from the eastern tropical Pacific. The data showed a thickening oxygen minimum zone (OMZ) and upward expansion toward shallower depths. Which of the following is the most likely explanation for the observed deoxygenation?
+OPTIONS:
+A) Increased surface productivity and rapid organic matter recycling
+B) Ocean warming reducing solubility and weakening vertical mixing
+C) Strengthening of thermohaline circulation
+D) Decline in nitrate levels reducing microbial respiration
+
+---QUESTION 19---
+ID: 19 | POINTS: 1.00 | FORMAT: MC / Case Study
+TOPIC: Climate | Sea level rise | Sunny day flooding | Thermal expansion | ENSO
+DIFFICULTY: Medium
+QUESTION: Interestingly, coastal communities in the western tropical Pacific are reporting increasing frequency of "sunny day" flooding (flooding during high tides with no storm present). What combination of climate processes is most likely contributing to this phenomenon?
+OPTIONS:
+A) ENSO-induced sea level fall and isostatic rebound
+B) PDO-associated wind changes and submarine volcanic uplift
+C) SAM-driven cooling and enhanced evaporation drawing sea level upward
+D) Long-term sea level rise from thermal expansion plus ENSO variability temporarily raising sea level
+
+---SECTION 3: Mangroves---
+
+---QUESTION 20---
+ID: 20 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Mangroves | Soil oxygen | Root adaptations | Pneumatophores
+DIFFICULTY: Medium
+QUESTION: What makes the soil in mangrove ecosystems have very little free oxygen available? How do mangrove roots overcome this challenge?
+
+---QUESTION 21---
+ID: 21 | POINTS: 2.00 | FORMAT: MC (multi-select)
+TOPIC: Mangroves | Saltwater adaptations | Salt exclusion | Salt secretion | Viviparous seeds
+DIFFICULTY: Medium
+QUESTION: Which of the following are adaptations that mangroves have to live in areas flooded by saltwater? (select all that apply).
+OPTIONS:
+A) Exclusion of salt with impermeable roots
+B) Salt secretion via leaves
+C) Reverse osmosis pneumatophores
+D) Thick, waxy leaf cuticle
+E) Calcium-rich bark coating for salt neutralization
+F) Buoyant and viviparous seeds
+
+---QUESTION 22---
+ID: 22 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Mangroves | Zonation | Tidal amplitude | Oceanographic factors
+DIFFICULTY: Medium
+QUESTION: What oceanographic factor most influences mangrove zonation patterns?
+OPTIONS:
+A) Chlorophyll concentration in surface waters
+B) Tidal amplitude and frequency
+C) Thermohaline circulation
+D) Upwelling intensity near the coast
+
+---QUESTION 23---
+ID: 23 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Mangroves | Zonation | Tidal amplitude | Oceanographic factors
+DIFFICULTY: Medium
+QUESTION: What oceanographic factor most influences mangrove zonation patterns?
+OPTIONS:
+A) Chlorophyll concentration in surface waters
+B) Tidal amplitude and frequency
+C) Thermohaline circulation
+D) Upwelling intensity near the coast
+
+---QUESTION 24---
+ID: 24 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Mangroves | Sediment dynamics | Root networks | Trapping
+DIFFICULTY: Medium
+QUESTION: How do mangroves influence coastal sediment dynamics?
+OPTIONS:
+A) Increase turbidity through root respiration
+B) Erode sediment through leaf little decomposition
+C) Compact sediment via pneumatophore pressure
+D) Trap suspended particles via root networks
+
+---QUESTION 25---
+ID: 25 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Mangroves | Blue carbon | Carbon sequestration
+DIFFICULTY: Medium
+QUESTION: What does it mean for mangroves to be considered "blue carbon ecosystems"
+
+---SECTION 4: Waves---
+
+---QUESTION 26---
+ID: 26 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Waves | Wave height | Shoaling | Physical principles
+DIFFICULTY: Medium
+QUESTION: Which physical principle best explains why wave height increases as waves approach shores with mangroves?
+OPTIONS:
+A) Bernoulli's principle
+B) Conservation of angular momentum
+C) Doppler shift from tidal interference
+D) Shoaling due to decreasing depth
+
+---QUESTION 27---
+ID: 27 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Waves | Wave frequency | Energy dissipation | Mangrove forests
+DIFFICULTY: Medium
+QUESTION: What happens to wave frequency as it passes through a mangrove forest?
+OPTIONS:
+A) Frequency increases due to root turbulence
+B) Frequency decreases due to sediment absorption
+C) Frequency fluctuates depending on mangrove density
+D) Frequency remains constant despite energy dissipation
+
+---QUESTION 28---
+ID: 28 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Waves | Wave refraction | Coastline | Bending
+DIFFICULTY: Easy
+QUESTION: What best describes wave refraction?
+OPTIONS:
+A) Waves bending due to changes in wind direction
+B) Wave fronts bending as they approach irregular coastlines
+C) Waves splitting into smaller ripples
+D) Wave energy being absorbed by deep trenches
+
+---QUESTION 29---
+ID: 29 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Waves | Wave speed | Deep to shallow water | Friction
+DIFFICULTY: Medium
+QUESTION: How does wave speed change as waves move from deep to shallow water?
+OPTIONS:
+A) It increases due to pressure gradients
+B) It decreases due to friction and bottom drag
+C) It increases due to tidal pull
+D) It does not change due to conservation of energy
+
+---QUESTION 30---
+ID: 30 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Waves | Constructive interference | Rogue waves | Wave amplitude
+DIFFICULTY: Medium
+QUESTION: Which of the following results from constructive wave interference?
+OPTIONS:
+A) Formation of rogue waves
+B) Wave cancellation and flat seas
+C) Wave amplitude reduction
+D) Increased salinity in surface layers
+
+---QUESTION 31---
+ID: 31 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Mangroves | Economic motivation | Wave action | Coastal protection
+DIFFICULTY: Medium
+QUESTION: What is the primary economic motivation behind mangrove restoration efforts as they relate to coastal wave action?
+
+---SECTION 5: Tides---
+
+---QUESTION 32---
+ID: 32 | POINTS: 2.00 | FORMAT: MC (multi-select)
+TOPIC: Tides | Semidiurnal tides | US locations | Tidal patterns
+DIFFICULTY: Medium
+QUESTION: At which of the following locations in the US would you expect to experience two high tides and two low tides per day?
+OPTIONS:
+A) New Orleans, Louisiana
+B) Astoria, Oregon
+C) Revere, Massachusetts
+D) Penescola, Florida
+E) Charleston, South Carolina
+F) Santa Monica, California
+
+---QUESTION 33---
+ID: 33 | POINTS: 2.00 | FORMAT: Calculation | TB#1
+TOPIC: Tides | Tidal amplitude | High tide timing | Semidiurnal tides
+DIFFICULTY: Medium
+QUESTION: A researcher in Half Moon Bay, CA measures the tidal amplitude to be 4.5 ft at 8pm on November 2nd. At what time is the next high tide of approximately equal amplitude? [TIEBREAKER #1]
+
+---QUESTION 34---
+ID: 34 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Tides | Spring tides | Full moon | Tidal range | Baltimore
+DIFFICULTY: Medium
+QUESTION: The next full moon is on November 5 2025. On which of the following days would a researcher in Baltimore, MD note an above average tidal range?
+OPTIONS:
+A) October 23 2025
+B) November 6 2025
+C) November 13 2025
+D) November 20 2025
+E) Dec 25 2025
+F) Jan 8 2026
+
+---QUESTION 35---
+ID: 35 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Tides | Neap tides | Tidal range
+DIFFICULTY: Easy
+QUESTION: What name is given to tides that exhibit below average tidal range?
+
+---QUESTION 36---
+ID: 36 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Tides | Amphidromic points | Tidal variation
+DIFFICULTY: Medium
+QUESTION: What name is given to areas that experience little to no tidal variation?
+
+---QUESTION 37---
+ID: 37 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Tides | King tide | Spring tide | Differences
+DIFFICULTY: Medium
+QUESTION: What is the difference, if any, between a king tide and a spring tide?
+
+---QUESTION 38---
+ID: 38 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Tides | Bay of Fundy | Tidal amplitude | Resonance
+DIFFICULTY: Medium
+QUESTION: What phenomenon is responsible for the Bay of Fundy's large tidal amplitude?
+
+---QUESTION 39---
+ID: 39 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Tides | Tidal currents | Velocity | Tidal cycle
+DIFFICULTY: Medium
+QUESTION: At which point in the tidal cycle do tidal currents in the open ocean have the highest velocity?
+
+---QUESTION 40---
+ID: 40 | POINTS: 4.00 | FORMAT: Calculation
+TOPIC: Tides | Equilibrium tide | Moon's gravity | Latitude | Tidal height
+DIFFICULTY: High
+QUESTION: The Moon's gravity pulls unevenly on Earth's oceans, creating a bulge that varies with latitude. Using known Earth and Moon parameters, estimate how the equilibrium tidal height differs between the equator and the poles, assuming the ocean surface adjusts hydrostatically.
+
+---SECTION 6: Calculations---
+
+---QUESTION 41---
+ID: 41 | POINTS: 4.00 | FORMAT: Calculation
+TOPIC: Waves | Wavelength | Wave speed | Continental shelf | Depth
+DIFFICULTY: High
+QUESTION: A wave with a wavelength of 100 meters travels across a continental shelf that is 20 meters deep. Determine its approximate speed and compare it to the same wave moving over the open ocean, where the depth is effectively infinite.
+
+---QUESTION 42---
+ID: 42 | POINTS: 4.00 | FORMAT: Calculation | TB#2
+TOPIC: Tides | Standing waves | Inlet | Semi-diurnal tide | Oscillation | TB#2
+DIFFICULTY: Very High
+QUESTION: A long, narrow inlet 500 kilometers in length experiences a semi-diurnal tide. Assuming it behaves like a standing wave, calculate how long it takes for one complete oscillation and where along the basin the highest and lowest water levels occur. [TIEBREAKER #2]
+
+---QUESTION 43---
+ID: 43 | POINTS: 4.00 | FORMAT: Calculation
+TOPIC: Oceanography | Geostrophic current | Sea level slope | Coriolis parameter
+DIFFICULTY: Very High
+QUESTION: Along a section of ocean surface, the sea level slopes downward by one millimeter for every kilometer. Given a typical mid-latitude Coriolis parameter, estimate the speed of the resulting geostrophic current and describe its direction relative to the slope.
+
+---QUESTION 44---
+ID: 44 | POINTS: 4.00 | FORMAT: Calculation
+TOPIC: Oceanography | Density | Current speed | Depth | Thermal wind
+DIFFICULTY: Very High
+QUESTION: Two instruments measure water density along a north–south line in the ocean, showing that denser water lies slightly to the north. Use this information to determine whether the current speed increases or decreases with depth and estimate how large that change is between the surface and 1000 meters depth.
+
+---QUESTION 45---
+ID: 45 | POINTS: 4.00 | FORMAT: Calculation
+TOPIC: Sediment Transport | Bottom currents | Storm conditions | Transport rate
+DIFFICULTY: High
+QUESTION: During calm conditions, bottom currents move at about 0.1 m/s, but during a storm, speeds can rise to 0.5 m/s. If sediment begins to move only once currents exceed 0.15 m/s, estimate how much greater the transport rate becomes during the storm compared to normal conditions.
+
+---QUESTION 46---
+ID: 46 | POINTS: 4.00 | FORMAT: Calculation
+TOPIC: Tectonics | Isostasy | Oceanic crust | Continental crust | Mantle | Density
+DIFFICULTY: Very High
+QUESTION: Imagine a cross-section of oceanic crust that is 7 kilometers thick beneath 5 kilometers of seawater, while the nearby continental crust is 35 kilometers thick. Using the densities for crust, mantle, and water listed below, determine how deep the oceanic crust must sink into the mantle for the two columns to balance in isostatic equilibrium. Seawater: 1030, Continental Crust: 2700, Oceanic Crust: 2900, Upper Mantle: 3300
+
+---QUESTION 47---
+ID: 47 | POINTS: 4.00 | FORMAT: Calculation / Free Response
+TOPIC: Tectonics | Seafloor depth | Mid-ocean ridge | Crustal age | Thermal subsidence
+DIFFICULTY: Very High
+QUESTION: Newly formed seafloor near a mid-ocean ridge lies about 2500 meters below sea level, but older crust farther away is deeper. If the depth increases roughly with the square root of the crust's age, estimate how much deeper the seafloor becomes after 10 million and 100 million years, and explain physically why the rate of deepening slows over time.
+
+---QUESTION 48---
+ID: 48 | POINTS: 4.00 | FORMAT: Free Response
+TOPIC: Coastal Processes | Sea level rise | Wave refraction | Sediment | Barrier islands | Inlets
+DIFFICULTY: Very High
+QUESTION: A coastal region experiences alternating layers of sand and silt deposits along its barrier islands. Historical tide gauge records show a 0.3 m sea-level rise over the last century. Explain how sea-level rise, wave refraction, and sediment availability interact to reshape the coastline. Predict how barrier island migration and inlet formation would change over the next 100 years if the rate of sea-level rise doubles.
+
+---QUESTION 49---
+ID: 49 | POINTS: 4.00 | FORMAT: Free Response | TB#3
+TOPIC: Coastal Processes | Delta retreat | Sediment | River modification | Mitigation | TB#3
+DIFFICULTY: Very High
+QUESTION: Satellite imagery shows a delta retreating by 25 m per year despite constant river discharge. Grain-size analysis indicates finer sediment than in the previous decade. Identify the key coastal process causing this change. Describe how human modification of the river system could have led to this pattern and propose one engineering mitigation strategy. [TIEBREAKER #3]
+
+---SECTION 7: Coastal Processes---
+
+---QUESTION 50---
+ID: 50 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Coastal Processes | Barrier islands | Landward migration | Overwash
+DIFFICULTY: Medium
+QUESTION: Which process is primarily responsible for the landward migration of barrier islands?
+OPTIONS:
+A) Longshore Drift
+B) Wave Refraction
+C) Overwash and Storm Surge Deposition
+D) Tectonic Uplift
+
+---QUESTION 51---
+ID: 51 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Coastal Processes | High-energy waves | Steep nearshore | Sea cliffs | Landforms
+DIFFICULTY: Medium
+QUESTION: A coast dominated by high-energy waves and steep nearshore slope will likely develop:
+OPTIONS:
+A) Spits
+B) Pocket Beaches
+C) Sea Cliffs
+D) Tidal Flats
+
+---QUESTION 52---
+ID: 52 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Coastal Processes | Longshore drift | Seasonal winds | Sand spits
+DIFFICULTY: Medium
+QUESTION: When prevailing winds reverse seasonally, longshore drift direction changes, often resulting in:
+OPTIONS:
+A) Increased tidal amplitude
+B) Sand spit erosion and reformation
+C) Seaward dune migration
+D) Submarine canyon formation
+
+---QUESTION 53---
+ID: 53 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Coastal Processes | Jetties | Sediment accumulation | Updrift | Downdrift
+DIFFICULTY: Medium
+QUESTION: If a jetty is built perpendicular to the coastline, which side will accumulate more sediment?
+OPTIONS:
+A) The updrift side
+B) The downdrift side
+C) Both equally
+D) Neither - sediment bypasses the jetty
+
+---QUESTION 54---
+ID: 54 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Coastal Processes | Winter profile | Storm waves | Sediment transport
+DIFFICULTY: Medium
+QUESTION: A coastal profile shows steepening and sand loss during winter months. This is because:
+OPTIONS:
+A) Swell waves dominate in summer
+B) Storm waves transport sediment offshore
+C) Longshore drift reverses direction
+D) Estuarine inflow increases
+
+---QUESTION 55---
+ID: 55 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Coastal Processes | Offshore bars | Wave energy | Landforms
+DIFFICULTY: Medium
+QUESTION: The presence of parallel offshore bars indicates:
+OPTIONS:
+A) Rapid tectonic subsidence
+B) Wave energy dissipation zones
+C) Coral reef growth
+D) Glacial meltwater deposits
+
+---QUESTION 56---
+ID: 56 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Coastal Processes | Longshore transport | Spits | Landforms
+DIFFICULTY: Easy
+QUESTION: Which coastal landform results primarily from longshore transport and deposition?
+OPTIONS:
+A) Sea arch
+B) Spit
+C) Wave-Cut Platform
+D) Stack
+
+---QUESTION 57---
+ID: 57 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Upwelling | Seawater density | Cooling
+DIFFICULTY: Medium
+QUESTION: If seawater density increases due to cooling nearshore, the local effect on upwelling would be:
+OPTIONS:
+A) Enhanced upwelling
+B) Reduced upwelling
+C) No effect
+D) Periodic reversal of upwelling
+
+---QUESTION 58---
+ID: 58 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Estuaries | Salinity | River discharge | Storm effects
+DIFFICULTY: Medium
+QUESTION: You measure decreasing salinity near an estuary mouth after a storm. This is caused by:
+OPTIONS:
+A) River discharge mixing
+B) Saltwater Intrusion
+C) Coastal Upwelling
+D) Tidal Amplification
+
+---SECTION 8: Tectonics and Seafloor---
+
+---QUESTION 59---
+ID: 59 | POINTS: 4.00 | FORMAT: Free Response
+TOPIC: Tectonics | Mid-ocean ridge | Magnetic anomalies | Spreading rates | Sediment | Age determination
+DIFFICULTY: Very High
+QUESTION: A cross-section of the Atlantic shows a mid-ocean ridge with symmetric magnetic anomalies but variable sediment thickness. Explain what this pattern indicates about spreading rates and sedimentation over time. Describe how you could estimate the age of the crust at specific distances from the ridge using magnetic reversal timelines.
+
+---QUESTION 60---
+ID: 60 | POINTS: 4.00 | FORMAT: Free Response
+TOPIC: Sedimentology | Deep-sea cores | Biogenic ooze | Volcanic ash | Plate interaction | Tectonic history
+DIFFICULTY: Very High
+QUESTION: A deep-sea drilling core reveals alternating layers of biogenic ooze and volcanic ash. The ash layers correspond to major explosive eruptions on nearby island arcs. Explain what this implies about plate interaction and sedimentation rates. Describe how this information could help reconstruct volcanic and tectonic history.
+
+---QUESTION 61---
+ID: 61 | POINTS: 1.00 | FORMAT: MC / Image Analysis
+TOPIC: Tectonics | Spreading centers | Fast-spreading | Rift valley
+DIFFICULTY: Medium
+QUESTION: Which of the following , A or B, is representative of a fast-spreading center?
+OPTIONS:
+A) A, because it develops a rift valley
+B) A, because it does not develop a rift valley
+C) B, because it develops a rift valley
+D) B, because it does not develop a rift valley
+
+---QUESTION 62---
+ID: 62 | POINTS: 1.00 | FORMAT: Free Response / Image Analysis
+TOPIC: Tectonics | Western North America | Margin components | Plate boundaries
+DIFFICULTY: Medium
+QUESTION: On the following illustration please identify the major tectonic components of the western North American margin labeled (A), (B), (C), and (D).
+
+---QUESTION 63---
+ID: 63 | POINTS: 2.00 | FORMAT: Free Response | TB#4
+TOPIC: Tectonics | Mt Shasta | Lassen | Volcanic setting | TB#4
+DIFFICULTY: Medium
+QUESTION: Mt Shasta and Lassen formed in what kind of tectonic setting? [TIEBREAKER #4]
+
+---SECTION 9: Climate and Ocean Systems---
+
+---QUESTION 64---
+ID: 64 | POINTS: 4.00 | FORMAT: Free Response
+TOPIC: Climate | El Niño | SST | Trade winds | Fisheries | Weather patterns
+DIFFICULTY: High
+QUESTION: A buoy network across the Pacific records a 2°C rise in SST and weakened trade winds. Simultaneously, South America experiences heavy rainfall. Explain how these observations indicate an El Niño event. Discuss the potential effects on fisheries and global weather patterns.
+
+---QUESTION 65---
+ID: 65 | POINTS: 4.00 | FORMAT: Free Response
+TOPIC: Paleoceanography | Sediment cores | Ice-rafted debris | Climate oscillations | Ocean circulation | CO2
+DIFFICULTY: Very High
+QUESTION: Sediment cores from the North Atlantic show alternating layers of ice-rafted debris and fine silt. Explain how these layers record climate oscillations. Propose how such data could be used to correlate ocean circulation changes with atmospheric CO₂ levels.
+
+---QUESTION 66---
+ID: 66 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Ocean Currents | Gulf Stream | Climate | Coastal cities
+DIFFICULTY: Medium
+QUESTION: A coastal city experiences unusually warm winters. Which change in ocean currents could most likely cause this?
+OPTIONS:
+A) Weakening of the Gulf Stream
+B) Strengthening of the Antarctic Circumpolar Current
+C) A slowdown of the California Current
+D) Intensification of the Labrador Current
+
+---QUESTION 67---
+ID: 67 | POINTS: 1.00 | FORMAT: Calculation
+TOPIC: Oceanography | Salinity | Freshwater input | North Atlantic
+DIFFICULTY: Medium
+QUESTION: If 500 km³ of freshwater enters the North Atlantic annually, decreasing salinity in the surface layer of 10⁶ km³, the approximate salinity drop is:
+OPTIONS:
+A) 0.05 PSU
+B) 0.5 PSU
+C) 5 PSU
+D) 50 PSU
+
+---QUESTION 68---
+ID: 68 | POINTS: 1.00 | FORMAT: Calculation
+TOPIC: Waves | Wave energy flux | Wave height | Period
+DIFFICULTY: Medium
+QUESTION: Given wave height H=6m and period T=12 s, what is the wave energy flux per meter of wave crest?
+OPTIONS:
+A) 500 kW/m
+B) 3000 kW/m
+C) 5000 kW/m
+D) 10000 kW/m
+
+---QUESTION 69---
+ID: 69 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Coastal Management | Erosion control | Beach nourishment | Ecological damage
+DIFFICULTY: Medium
+QUESTION: Which human intervention could reduce coastal erosion while minimizing ecological damage?
+OPTIONS:
+A) Hard seawalls along the entire coast
+B) Beach nourishment with native sand
+C) Damming rivers to reduce sediment supply
+D) Paving over dunes for development
+
+---QUESTION 70---
+ID: 70 | POINTS: 1.00 | FORMAT: Calculation
+TOPIC: Tectonics | Seafloor spreading | Mid-ocean ridge | Area calculation
+DIFFICULTY: Medium
+QUESTION: A mid-ocean ridge spreads at 5 cm/year. After 1 million years, the new seafloor area along a 1000 km ridge is approximately:
+OPTIONS:
+A) 5 km²
+B) 500 km²
+C) 5000 km²
+D) 50000 km²
+
+---QUESTION 71---
+ID: 71 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Tectonics | Volcanic islands | Hawaii | Isostatic adjustment | Subsidence
+DIFFICULTY: Medium
+QUESTION: Volcanic islands like Hawaii slowly sink over millions of years due to:
+OPTIONS:
+A) Plate subduction under the island
+B) Erosion by waves alone
+C) Isostatic adjustment of the lithosphere
+D) Shrinking of the mantle under the hotspot
+
+---QUESTION 72---
+ID: 72 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Ocean Chemistry | pH | Ocean acidification | Carbonate ions
+DIFFICULTY: Medium
+QUESTION: A pH drop from 7.8 to 7.6 in seawater could most directly:
+OPTIONS:
+A) Increase coral calcification
+B) Reduce carbonate ion availability
+C) Raise oxygen solubility
+D) Increase seawater alkalinity
+
+---QUESTION 73---
+ID: 73 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Ocean Chemistry | CO2 | Carbonate system | Carbonate ions | pH
+DIFFICULTY: Medium
+QUESTION: If atmospheric CO₂ rises by 50 ppm, the ocean carbonate system will likely:
+OPTIONS:
+A) Increase carbonate ion concentration
+B) Decrease carbonate ion concentration
+C) Keep pH constant
+D) Remove CO₂ from the atmosphere without change in pH
+
+---QUESTION 74---
+ID: 74 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | Ekman transport | Upwelling | Western coasts
+DIFFICULTY: Medium
+QUESTION: Ekman transport along the western coast of a continent leads to:
+OPTIONS:
+A) Downwelling and warmer surface water
+B) Increased ocean acidification
+C) Upwelling and nutrient-rich water
+D) Stronger hurricanes
+
+---QUESTION 75---
+ID: 75 | POINTS: 1.00 | FORMAT: Calculation
+TOPIC: Coastal Processes | Storm surge | Kinetic energy | Bay area
+DIFFICULTY: Medium
+QUESTION: A storm surge of 3 m affects a bay of 50 km². The moving water's kinetic energy is:
+OPTIONS:
+A) 2 × 10⁶ J
+B) 2 × 10⁹ J
+C) 2 × 10¹² J
+D) 2 × 10¹⁵ J
+
+---QUESTION 76---
+ID: 76 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Marine Biology | Phytoplankton blooms | Limiting factors | Light | Nutrients | Stratification
+DIFFICULTY: Medium
+QUESTION: A phytoplankton bloom is most limited by:
+OPTIONS:
+A) Salinity alone
+B) Light, nutrients, and water stratification
+C) Temperature only
+D) Wind speed
+
+---QUESTION 77---
+ID: 77 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Marine Biology | Overfishing | Trophic cascades | Top predators
+DIFFICULTY: Medium
+QUESTION: Overfishing of top predators can cause:
+OPTIONS:
+A) Primary production decline
+B) Trophic cascade effects
+C) Immediate coral bleaching
+D) Ocean acidification
+
+---QUESTION 78---
+ID: 78 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Oceanography | ARGO floats | Temperature | Salinity | Global measurements
+DIFFICULTY: Easy
+QUESTION: ARGO floats contribute to oceanography by:
+OPTIONS:
+A) Mapping only coastal currents
+B) Measuring ocean temperature and salinity profiles globally
+C) Recording wind speed above the ocean
+D) Filtering microplastics from seawater
+
+---QUESTION 79---
+ID: 79 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Climate | Clausius-Clapeyron | Tropical cyclones | Ocean warming | Moisture
+DIFFICULTY: Medium
+QUESTION: According to the Clausius-Clapeyron relationship, warming oceans:
+OPTIONS:
+A) Reduce tropical cyclone intensity
+B) Intensify tropical cyclones by increasing moisture in the air
+C) Do not affect cyclone intensity
+D) Increase atmospheric CO₂ absorption only
+
+---QUESTION 80---
+ID: 80 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Coastal Management | Sea level rise | Risk-based zoning | Planning
+DIFFICULTY: Medium
+QUESTION: For a coastal city planning for 0.5 m sea-level rise, a risk-based zoning plan should
+OPTIONS:
+A) Build seawalls without considering past data
+B) Allow development in low-lying areas
+C) Rely solely on desalination plants
+D) Restrict development in high-risk zones using past storm surge data
+
+---QUESTION 81---
+ID: 81 | POINTS: 1.00 | FORMAT: Calculation
+TOPIC: Marine Pollution | Oil spills | Surface area | Thickness
+DIFFICULTY: Medium
+QUESTION: A 2000 L oil spill spreads as a 0.1 mm layer. The affected surface area is approximately:
+OPTIONS:
+A) 2
+B) 20
+C) 20000
+D) 200000
+
+---QUESTION 82---
+ID: 82 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Marine Pollution | Microplastics | Bioaccumulation | Food web
+DIFFICULTY: Medium
+QUESTION: Microplastics at 500 particles/L in a bay can:
+OPTIONS:
+A) Only affect fish size
+B) Bioaccumulate through the food web
+C) Immediately increase pH
+D) Reduce salinity
+
+---QUESTION 83---
+ID: 83 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Marine Resources | Methane hydrates | Climate impact | Greenhouse gases
+DIFFICULTY: Medium
+QUESTION: Extracting methane from continental slope hydrates could:
+OPTIONS:
+A) Have no climate impact
+B) Reduce greenhouse gas emissions
+C) Release methane and contribute to global warming
+D) Increase ocean alkalinity

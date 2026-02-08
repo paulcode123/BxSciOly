@@ -1550,10 +1550,10 @@
         // Use absolute value of hash
         hash = Math.abs(hash);
         
-        // Convert to 5-letter code (A-Z)
+        // Convert to 3-letter code (A-Z)
         const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         let code = '';
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 3; i++) {
             code += letters.charAt(hash % 26);
             hash = Math.floor(hash / 26);
         }
@@ -1817,11 +1817,11 @@
         }
     }
 
-    // Generate random 5-character code
+    // Generate random 3-character code
     function generateRandomCode() {
         const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         let code = '';
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 3; i++) {
             code += chars.charAt(Math.floor(Math.random() * chars.length));
         }
         return code;

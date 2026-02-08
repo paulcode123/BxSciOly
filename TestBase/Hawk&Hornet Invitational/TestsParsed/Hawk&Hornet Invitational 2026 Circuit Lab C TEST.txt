@@ -1,0 +1,452 @@
+EVENT: Circuit Lab
+SOURCE: Hawk&Hornet Invitational 2026 (Div. C)
+FORMAT: 40 questions (30 MC @ 2pts, 10 FR @ variable points, Lab @ 20pts)
+TOTAL POINTS: 180
+
+---PART 1: MULTIPLE CHOICE (60 points, 2 pts each)---
+
+---QUESTION 1---
+ID: 1 | POINTS: 2.00 | FORMAT: MC
+TOPIC: DC Circuits | Series Circuits | Ohm's Law | Current
+DIFFICULTY: Easy
+QUESTION: A 9V battery is connected to a 10 ohm resistor and a 5 ohm resistor in series. What is the current through the 5 ohm resistor?
+OPTIONS:
+A) 2.7 A
+B) 1.8 A
+C) 0.6 A
+D) 0.9 A
+
+---QUESTION 2---
+ID: 2 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Electrical Engineering | Wire Properties | Current Carrying Capacity
+DIFFICULTY: Medium
+QUESTION: The current carrying capacity of a standard wire most depends on what?
+OPTIONS:
+A) Wire material
+B) Gauge
+C) Length
+D) Insulation material
+
+---QUESTION 3---
+ID: 3 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Electrical Engineering | Wire Properties | Voltage Rating
+DIFFICULTY: Medium
+QUESTION: The voltage rating of a wire depends on what?
+OPTIONS:
+A) Wire material
+B) Gauge
+C) Length
+D) Insulation material
+
+---QUESTION 4---
+ID: 4 | POINTS: 2.00 | FORMAT: MC / Fill-in-blank
+TOPIC: History of Science | Batteries | Alessandro Volta | Voltaic Pile
+DIFFICULTY: Easy
+QUESTION: Who invented the first electric battery? Bonus point if you can name it
+OPTIONS:
+A) Thomas Edison
+B) Michael Faraday
+C) Nikola Tesla
+D) Alessandro Volta
+Called a: _________________
+
+---QUESTION 5---
+ID: 5 | POINTS: 2.00 | FORMAT: MC (multi-select)
+TOPIC: Electrical Safety | Electric Shock | Danger Factors
+DIFFICULTY: Easy
+QUESTION: Which factors determine how dangerous a shock may be?
+OPTIONS:
+A) Voltage
+B) Current
+C) Frequency
+D) Contact duration
+E) All of the above
+
+---QUESTION 6---
+ID: 6 | POINTS: 2.00 | FORMAT: MC (multi-select)
+TOPIC: Magnetism | Magnetic Fields | Sources of Magnetic Fields
+DIFFICULTY: Medium
+QUESTION: What can be used to produce a magnetic field? (circle all that apply)
+OPTIONS:
+A) A very hot iron nail
+B) A changing current
+C) A steady-state current
+D) A stationary proton
+E) A moving neutron
+
+---QUESTION 7---
+ID: 7 | POINTS: 2.00 | FORMAT: MC (multi-select)
+TOPIC: Electricity | Electric Fields | Sources of Electric Fields
+DIFFICULTY: Medium
+QUESTION: What can be used to produce an electric field? (circle all that apply)
+OPTIONS:
+A) A changing magnetic field
+B) A stationary lone proton
+C) A moving lone electron
+D) A moving neutron
+
+---QUESTION 8---
+ID: 8 | POINTS: 2.00 | FORMAT: MC
+TOPIC: AC Circuits | Household Electricity | Peak-to-Peak Voltage
+DIFFICULTY: Medium
+QUESTION: What is the peak to peak voltage of a standard American electrical outlet?
+OPTIONS:
+A) 120V
+B) 240V
+C) 340V
+D) 170V
+
+---QUESTION 9---
+ID: 9 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Magnetism | Lorentz Force | Right-Hand Rule | Electron Motion
+DIFFICULTY: Medium
+QUESTION: If an electron has a velocity out of the page in a uniform magnetic field toward the left of the page. In what direction is the force experienced by the electron?
+OPTIONS:
+A) Into the page
+B) Towards the top of the page
+C) Towards the bottom of the page
+D) Towards the left of the page
+
+---QUESTION 10---
+ID: 10 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Magnetism | Lorentz Force | Current-Carrying Wire | Proton
+DIFFICULTY: Medium
+QUESTION: A current flows through a wire towards the top of the page as shown. On the right of the wire is a stationary proton. In what direction is the Lorentz force exerted on the proton?
+OPTIONS:
+A) Toward the wire
+B) Away from the wire
+C) No force exerted
+D) Into the page
+
+---QUESTION 11---
+ID: 11 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Electronics | LEDs | Efficiency
+DIFFICULTY: Easy
+QUESTION: Approximately how efficient are typical LEDs?
+OPTIONS:
+A) 30%
+B) 90%
+C) 5%
+D) 80%
+
+---QUESTION 12---
+ID: 12 | POINTS: 2.00 | FORMAT: MC / Calculation
+TOPIC: DC Circuits | Parallel Circuits | Equivalent Resistance
+DIFFICULTY: Easy
+QUESTION: A 5 ohm resistor and two 10 ohm resistors are all placed in parallel. What is the equivalent resistance of the circuit?
+OPTIONS:
+A) 2.6 ohms
+B) 2.5 ohms
+C) 4 ohms
+D) 8.3 ohms
+
+---QUESTION 13---
+ID: 13 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Magnetism | Force Between Wires | Parallel Current-Carrying Wires
+DIFFICULTY: Medium
+QUESTION: Two side by side wires both carry current in the same direction as shown. What direction is the force on each wire?
+OPTIONS:
+A) Toward the other wire
+B) Away from the other wire
+C) No force exerted
+D) One goes into the page and the other goes out of the page
+
+---QUESTION 14---
+ID: 14 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Magnetism | Magnetic Monopoles | Fundamental Physics
+DIFFICULTY: Medium
+QUESTION: Why are there no magnetic monopoles?
+OPTIONS:
+A) Valence electron interference
+B) Quantized electron energies
+C) Trick question, there are magnetic monopoles
+D) That's just the way the universe works
+
+---QUESTION 15---
+ID: 15 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Capacitors | Dielectric Breakdown | Capacitor Failure
+DIFFICULTY: Medium
+QUESTION: When a capacitor fails due to overvoltage, what is it that fails?
+OPTIONS:
+A) The plates touch due to electrostatic attraction
+B) The dielectric undergoes dielectric breakdown
+C) Electrons flow through the insulative package
+D) The dielectric inside reacts with the metal plates
+
+---QUESTION 16---
+ID: 16 | POINTS: 2.00 | FORMAT: MC / Calculation
+TOPIC: Electrostatics | Coulomb's Law | Electric Force | Point Charges
+DIFFICULTY: Medium
+QUESTION: A point charge q₁ has a magnitude of 9nC. A second charge q₂ has a magnitude of -1.5nC and is located 0.12m from the first charge. Determine the net force each charge exerts on the other.
+OPTIONS:
+A) 1.2×10⁻¹⁶ N
+B) 1.1×10⁻¹⁶ N
+C) 6.2×10⁻⁸ N
+D) 8.4×10⁻⁶ N
+
+---QUESTION 17---
+ID: 17 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Magnetism | Fundamental Forces | Relativity
+DIFFICULTY: Medium
+QUESTION: Magnetism is _____
+OPTIONS:
+A) A fundamental force separate from the electric force
+B) Only present in transition metals
+C) The result of relativistic length contraction
+D) Magic
+
+---QUESTION 18---
+ID: 18 | POINTS: 2.00 | FORMAT: MC
+TOPIC: DC Circuits | Series and Parallel Resistors | Equivalent Resistance
+DIFFICULTY: Medium
+QUESTION: For any two resistors, which of the following is false?
+OPTIONS:
+A) The equivalent series resistance will always be the sum of the individual resistances
+B) The equivalent parallel resistance will always be greater than or equal to the largest resistor
+C) The equivalent parallel resistance will always be less than or equal to the smallest resistor
+D) The resistors in series will form a voltage divider
+
+---QUESTION 19---
+ID: 19 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Electrostatics | Van De Graaff Generator | High Voltage | Low Current
+DIFFICULTY: Medium
+QUESTION: A Van De Graaff Generator can produce long electrical arcs but can be touched safely. Why is this the case?
+OPTIONS:
+A) They have high current but low voltage
+B) They have high voltage but low current
+C) They have very low frequency
+D) They have very high frequency
+
+---QUESTION 20---
+ID: 20 | POINTS: 2.00 | FORMAT: MC
+TOPIC: DC Circuits | Electron Drift Velocity | Current Flow
+DIFFICULTY: Medium
+QUESTION: How fast do electrons move through a typical DC current-carrying wire?
+OPTIONS:
+A) Exactly the speed of light
+B) Almost (99.9999%) the speed of light
+C) A few millimeters per second
+D) Electrons don't actually move in a wire
+
+---QUESTION 21---
+ID: 21 | POINTS: 2.00 | FORMAT: MC
+TOPIC: History of Science | Maxwell's Equations | Contributors
+DIFFICULTY: Medium
+QUESTION: Which of the following figures did not contribute to Maxwell's equations?
+OPTIONS:
+A) Heinrich Hertz
+B) Carl Friedrich Gauss
+C) André-Marie Ampère
+D) Michael Faraday
+
+---QUESTION 22---
+ID: 22 | POINTS: 2.00 | FORMAT: MC / Calculation
+TOPIC: Capacitors | Energy Storage | Capacitor Charging
+DIFFICULTY: Medium
+QUESTION: 50mA of current flows into a 2F capacitor for 25 seconds before it is disconnected from the current source. About how much energy is stored in the capacitor after it has been disconnected?
+OPTIONS:
+A) 2.5 J
+B) 0.6 J
+C) 1.2 J
+D) 0.4 J
+
+---QUESTION 23---
+ID: 23 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Capacitors | Types | Polarized Capacitors | Electrolytic
+DIFFICULTY: Easy
+QUESTION: Which type of capacitor is typically polarized?
+OPTIONS:
+A) Electrolytic
+B) Ceramic
+C) Film
+D) SMT
+
+---QUESTION 24---
+ID: 24 | POINTS: 2.00 | FORMAT: MC
+TOPIC: DC Circuits | Power | Power Equations
+DIFFICULTY: Easy
+QUESTION: Which of the following is not an equation for power?
+OPTIONS:
+A) VI
+B) V²/R
+C) I²R
+D) V²R
+
+---QUESTION 25---
+ID: 25 | POINTS: 2.00 | FORMAT: MC
+TOPIC: DC Circuits | Load | Resistance | High Power Devices
+DIFFICULTY: Medium
+QUESTION: A device with a large load (like a refrigerator) acts most similar to
+OPTIONS:
+A) A resistor with a high resistance
+B) A resistor with a low resistance
+C) A DC voltage source
+D) A diode
+
+---QUESTION 26---
+ID: 26 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Electronics | Diodes | Forward Voltage | Series Circuits
+DIFFICULTY: Medium
+QUESTION: Three diodes (Vf = 0.7V) and a 10 ohm resistor are placed in series and are connected to a battery with voltage Vs. Which equation best represents the current in the circuit?
+OPTIONS:
+A) (Vs - 0.7)/10
+B) (Vs - 10 - 0.7)
+C) (Vs - (3 × 0.7))/10
+D) (Vs/10) - (3 × 0.7)
+
+---QUESTION 27---
+ID: 27 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Magnetism | Magnetic Domains | Breaking Magnets
+DIFFICULTY: Easy
+QUESTION: What happens if a magnet is broken in half?
+OPTIONS:
+A) One half becomes a north pole and the other half a south pole
+B) The magnet stops working
+C) It splits into two smaller magnets
+D) The universe explodes
+
+---QUESTION 28---
+ID: 28 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Quantum Physics | Wave-Particle Duality | Light | Photons
+DIFFICULTY: Medium
+QUESTION: Is light a particle or a wave?
+OPTIONS:
+A) Light is a particle because photons are discrete packets of energy
+B) Light is a wave because it interferes with itself
+C) Light is either a particle or a wave depending on its frequency
+D) Light is both a particle and a wave
+
+---QUESTION 29---
+ID: 29 | POINTS: 2.00 | FORMAT: MC
+TOPIC: DC Circuits | Resistance | Factors Affecting Resistance
+DIFFICULTY: Easy
+QUESTION: Which of the following would make a resistor have a higher resistance?
+OPTIONS:
+A) Using a more conductive material
+B) Heating up the resistor
+C) Increasing cross-sectional area
+D) Decreasing length
+
+---QUESTION 30---
+ID: 30 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Meta | Test Difficulty | All Answers Correct
+DIFFICULTY: Easy
+QUESTION: How hard was this test? (All answers are correct)
+OPTIONS:
+A) Easy
+B) Medium
+C) Hard
+D) Just right
+
+---PART 2: FREE RESPONSE (99 points)---
+
+---QUESTIONS 1a-1c (SHARED CONTEXT)---
+ID: 1a-1c | POINTS: Variable (5+3+3) | FORMAT: Calculation
+TOPIC: Electronics | LEDs | Resistors | Power | Series Circuits
+CONTEXT: Questions relate to a red LED (Vf = 1.8V) running at 35mW using a 3.7V battery
+
+---QUESTION 1a---
+ID: 1a | POINTS: 5.00 | FORMAT: Calculation
+TOPIC: Electronics | LEDs | Resistor Selection | Series Circuits
+DIFFICULTY: Medium
+QUESTION: You have a red LED (Vf = 1.8V) that you want to run at 35mW using a 3.7V battery. What value resistor must be used in series to achieve this?
+CALCULATION: Calculate current from power and voltage, then resistor value from voltage drop and current
+
+---QUESTION 1b---
+ID: 1b | POINTS: 3.00 | FORMAT: Calculation
+TOPIC: DC Circuits | Power Dissipation | Resistors
+DIFFICULTY: Easy
+QUESTION: Find the power dropped across the resistor.
+CALCULATION: Use P = I²R or P = V×I
+
+---QUESTION 1c---
+ID: 1c | POINTS: 3.00 | FORMAT: Calculation
+TOPIC: Electronics | Parallel LEDs | Resistor Power Rating | Maximum Current
+DIFFICULTY: Medium
+QUESTION: Find the number of LEDs you could put in parallel before burning out the resistor (assuming it is a typical 1/4W resistor).
+CALCULATION: Determine maximum current through resistor, then number of parallel LEDs
+
+---QUESTION 2---
+ID: 2 | POINTS: 3.00 | FORMAT: Free Response
+TOPIC: Electronics | DC-DC Converters | Buck Converter | Boost Converter
+DIFFICULTY: Medium
+QUESTION: In a sentence or two, what is the difference between a buck converter and a boost converter? (In terms of what they do, not how they work)
+
+---QUESTION 3---
+ID: 3 | POINTS: 5.00 | FORMAT: Calculation
+TOPIC: AC Circuits | LC Oscillators | Resonant Frequency
+DIFFICULTY: Medium
+QUESTION: What is the resonant frequency, in Hz, of an LC oscillator with an inductance of 700μH and a capacitance of 8mF?
+CALCULATION: Use f = 1/(2π√(LC))
+
+---QUESTION 4---
+ID: 4 | POINTS: 15.00 | FORMAT: Free Response (3 pts each)
+TOPIC: Units | Dimensional Analysis | Electrical Units | Base Units
+DIFFICULTY: Medium
+QUESTION: Write the units for the following values using only Coulombs(C), Joules(J), Seconds(s).
+a) Voltage
+b) Current
+c) Capacitance
+d) Power
+e) Impedance
+
+---QUESTION 5---
+ID: 5 | POINTS: 5.00 | FORMAT: Free Response
+TOPIC: Materials Science | Electrical Conductivity | Conductors | Insulators
+DIFFICULTY: Easy
+QUESTION: List the following materials in order of descending conductance: Tap Water, Copper, Gold, Distilled Water, Silver
+
+---QUESTION 6---
+ID: 6 | POINTS: 5.00 | FORMAT: Calculation
+TOPIC: Electronics | LEDs | Variable Resistors | Power Limits
+DIFFICULTY: Medium
+QUESTION: You have a blue LED (Vf = 3.0V) and a voltage source with variable voltage Vs. Assuming you have a 1/4W variable resistor in series that always makes the current through the LED 20mA, what is the largest voltage Vs can be without destroying your resistor?
+CALCULATION: Determine maximum voltage drop across resistor from power rating, then add LED forward voltage
+
+---QUESTION 7---
+ID: 7 | POINTS: 25.00 | FORMAT: Calculation / Derivation
+TOPIC: DC Circuits | Resistor Networks | Equivalent Resistance | Complex Circuits
+DIFFICULTY: Very High
+QUESTION: Derive a general solution for the equivalent resistance between nodes A and B of this resistor network.
+CALCULATION: Use series/parallel combinations and circuit analysis techniques
+
+---QUESTIONS 8a-8b (SHARED CONTEXT)---
+ID: 8a-8b | POINTS: Variable (5+5) | FORMAT: Calculation
+TOPIC: DC Circuits | RC Circuits | Capacitors | Voltage Divider | Energy Storage
+CONTEXT: Questions relate to circuit with 9V battery, two series resistors (R1=5Ω, R2=10Ω), and two series capacitors (C1=3nF, C2=8nF)
+
+---QUESTION 8a---
+ID: 8a | POINTS: 5.00 | FORMAT: Calculation
+TOPIC: DC Circuits | RC Circuits | Voltage Divider | Potential Difference
+DIFFICULTY: Medium
+QUESTION: In the image shown, a 9V battery is connected to two series resistors and two series capacitors. R1 = 5 ohms, R2 = 10 ohms, C1 = 3nF, C2 = 8nF. Find the potential difference between points A and B.
+CALCULATION: Calculate equivalent capacitance, charge on capacitors, then voltage across C2
+
+---QUESTION 8b---
+ID: 8b | POINTS: 5.00 | FORMAT: Calculation
+TOPIC: Capacitors | Energy Storage | Stored Energy
+DIFFICULTY: Medium
+QUESTION: Find the energy stored in C2.
+CALCULATION: Use E = ½CV²
+
+---QUESTION 9---
+ID: 9 | POINTS: 8.00 | FORMAT: Free Response
+TOPIC: AC Circuits | Transformers | Power Conservation | RMS Values
+DIFFICULTY: High
+QUESTION: Adia builds the circuit shown using a 1:10 step up transformer. Both resistors shown have a value of 10 ohms and the AC source has a voltage of 10V RMS. Adia calculates that the RMS current in the primary circuit is 10V/10ohms = 1A. Thus the total power coming from the source is 10V×1A = 10W. On the secondary coil however, adia measures 100V. She calculates that there must be a current of 100V/10ohms = 10A, which implies that the power on the secondary side of the circuit must be 100V×10A = 1000W. This cannot be true since for any transformer, power in = power out. On what line was the first mistake Adia made in her calculations and why was it wrong?
+
+---QUESTION 10---
+ID: 10 | POINTS: 12.00 | FORMAT: Free Response / Drawing (3 pts each)
+TOPIC: Electronics | Schematic Symbols | Component Identification
+DIFFICULTY: Easy
+QUESTION: Draw the schematic symbol for the following components:
+a) Relay
+b) NPN BJT
+c) Potentiometer
+d) LED
+
+---PART 3: LAB (20 points)---
+ID: Lab | POINTS: 20.00 | FORMAT: Lab Practical
+TOPIC: Circuit Lab | Laboratory Skills | Hands-On Testing
+DIFFICULTY: Variable
+QUESTION: Lab practical component (20 points)

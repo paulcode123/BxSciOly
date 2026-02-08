@@ -1,0 +1,554 @@
+1. (2.00 pts)
+Mechanical advantage uses what law ? 
+   A)
+Law of the machine
+   B)
+Law of the lever
+   C)
+Law of mechanical advantage
+   D)
+Law of the arm
+2. (2.00 pts)
+Who is credited with discovering the principle of the lever?
+3. (2.00 pts)
+The ideal mechanical advantage of a machine depends on what?
+   A)
+Machine material
+   B)
+Machine weight
+   C)
+Machine dimensions
+   D)
+Amount of friction
+4. (2.00 pts)
+The actual mechanical advantage of a machine is always
+Machines C - Machines C - Rickards Invitational Div. C SATELLITE - 11-01-2025
+Student Answer Sheet (/rickards/ES/AnswerSheet?tid=000GHY)
+Instructions (shown before students start the test)
+Written by Olivia Lu (Clayton '28) & Priyanshu Dasgupta (Monty '26)
+Introduction (shown after students start the test)
+GOOD LUCK !!! 
+Assume gravity to be 9.81and make sure to round correctly!
+All MCQs are worth 2 points except #40 which is worth 5 points.
+Sig-figs are not taken into account. However, FRQs (#45 onwards) do not offer partial credit. 
+12/3/25, 2:15 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000GHY
+https://scilympiad.com/rickards/Es/PrevTest?tid=000GHY
+1/12
+
+   A)
+More than IMA
+   B)
+More than or equal to IMA
+   C)
+Less than IMA
+   D)
+Less than or equal to IMA
+5. (4.00 pts)
+Why is this the case?
+6. (2.00 pts)
+How long is the effort arm compared to the load arm ? 
+   A)
+Longer than the load arm
+   B)
+Shorter than the load arm
+   C)
+Equal to the load arm
+   D)
+None of the above
+7. (1.00 pts)
+A (longer/shorter) effort arm results in greater mechanical advantage
+   A)
+longer
+   B)
+shorter
+8. (1.00 pts)
+A (longer/shorter) effort arm results in greater mechanical advantage
+   A)
+longer
+   B)
+shorter
+9. (3.00 pts)
+Find the IMA
+10. (3.00 pts)
+If the lever is used to lift a 25lb load with 70N effort force, what is the AMA?
+Bob's lever has an effort arm of 1.2m and a resistance arm of .3m
+12/3/25, 2:15 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000GHY
+https://scilympiad.com/rickards/Es/PrevTest?tid=000GHY
+2/12
+
+11. (4.00 pts)
+Is this realistic? Explain. 
+12. (2.00 pts)
+If a machine has an IMA of 5 but an AMA of 2, what is true? 
+   A)
+The machine has no energy loss
+   B)
+The input force is larger than the output force
+   C)
+The efficiency is more than 50%
+   D)
+The efficiency is less than 50%
+13. (2.00 pts)
+The IMA for a lever is determined by the placement of the ___.
+   A)
+Fulcrum
+   B)
+Load
+   C)
+Force
+   D)
+Effort
+14. (3.00 pts)
+What's the difference between a wedge and an inclined plane ?
+15. (2.00 pts)
+What is not considered one of the 6 classical simple machines?
+   A)
+Lever
+   B)
+Inclined plane
+   C)
+Wedge
+   D)
+Nail
+   E)
+Screw
+16. (2.00 pts)
+What is true about compound machines?
+   A)
+The IMA is always less than 1
+   B)
+The AMA is the sum of the AMAs of the component machines
+12/3/25, 2:15 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000GHY
+https://scilympiad.com/rickards/Es/PrevTest?tid=000GHY
+3/12
+
+   C)
+The overall IMA is product of IMAs of component machines
+   D)
+Their efficiency is always greater than that of simple machines
+17. (2.00 pts)
+Why do compound machines have lower efficiency than simple machines? 
+18. (1.50 pts)
+What are the 3 Archimedean simple machines?
+19. (3.00 pts)
+Why can't simple machines change the amount of work you do ?
+20. (3.00 pts)
+What is the difference between load and effort ?
+21. (2.00 pts)
+Why can no machine be 100% efficient?
+22. (2.00 pts)
+Boberthas system has 5 movable pulleys and 3 anchored pulleys. What is its mechanical advantage?
+23. (2.00 pts)
+A wheel and axle is actually a form of a: 
+12/3/25, 2:15 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000GHY
+https://scilympiad.com/rickards/Es/PrevTest?tid=000GHY
+4/12
+
+   A)
+Lever
+   B)
+Pulley
+   C)
+Wedge
+   D)
+Screw
+   E)
+None
+24. (1.00 pts)
+For a self locking screw, the actual mechanical advantage is always greater than the ideal mechanical advantage.
+25. (1.00 pts)
+The angle of repose for a material equals the arctangent of the coefficient of static friction.
+26. (2.00 pts)
+Describe the shape of a graph of load and ideal effort.
+   A)
+No relationship
+   B)
+Horizontal line
+   C)
+Quadratic and direct
+   D)
+Linear and direct
+27. (2.00 pts)
+Describe the shape of a graph of load and mechanical advantage of a frictionless machine.
+   A)
+No relationship
+   B)
+Horizontal line
+   C)
+Quadratic and indirect
+   D)
+Linear and direct
+28. (2.00 pts)
+Describe the shape of a graph of load and efficiency
+   A)
+No relationship
+   B)
+Horizontal line
+   C)
+Quadratic and direct
+   D)
+Linear and direct
+29. (2.00 pts)
+The coefficient of friction depends primarily on:
+   A)
+The weight of the object
+   B)
+The velocity of the object
+   C)
+The surface area of contact
+   D)
+The materials in contact
+   True     
+   False
+   True     
+   False
+12/3/25, 2:15 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000GHY
+https://scilympiad.com/rickards/Es/PrevTest?tid=000GHY
+5/12
+
+30. (2.00 pts)
+The coefficient of static friction is:
+   A)
+Always less than kinetic friction
+   B)
+Always greater than kinetic friction
+   C)
+Always equal to kinetic friction
+   D)
+Independent of kinetic friction
+31. (2.00 pts)
+What is the relationship between the coefficient of static friction and angle of repose
+   A)
+μₛ = cosθ
+   B)
+μₛ = sinθ
+   C)
+μₛ = tanθ
+   D)
+μₛ = cscθ
+32. (2.00 pts)
+If a block starts sliding at an incline of 27, what is the coefficient of static friction ?
+   A)
+.43
+   B)
+.51
+   C)
+.67
+   D)
+.82
+33. (2.00 pts)
+A self locking screw has a lead angle of λ = 3°, μ = 0.1. Will it self lock?
+   A)
+yes
+   B)
+no
+   C)
+cannot be determined
+34. (2.00 pts)
+A plane has μₛ = .4. What is the maximum angle at which a block will stay at rest?
+   A)
+35.1
+   B)
+30.7
+   C)
+28.3
+   D)
+21.8
+35. (2.00 pts)
+The MCs are gonna start getting harder from now on, so lock in. Suppose for a compound machine, you have a compound machine where you attach an axe to one end of a Class
+1 Lever such that the effort arm is 1 meter long and the axe is 3 meters from where the effort is applied (end of effort arm). The axe is 2 inches wide and 20 inches long. What is the
+IMA?
+   A)
+0.50
+   B)
+10
+   C)
+3.33
+12/3/25, 2:15 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000GHY
+https://scilympiad.com/rickards/Es/PrevTest?tid=000GHY
+6/12
+
+   D)
+5.0
+36. (2.00 pts)
+Which of the following relationships are the most correct/general in an experimental setup where frictional forces are non-negligible?
+   A)
+IMA = AMA
+   B)
+IMA < AMA
+   C)
+AMA < IMA
+   D)
+IMA ≥ AMA
+   E)
+AMA ≥ IMA
+37. (2.00 pts)
+A block of mass, m, is raised by a frictionless and massless pulley system which somehow has a mechanical advantage that varies as a function of height: MA = 3 + 0.5h. If the
+block is lifted from h = 0 meters to h = 4 meters, what is the total work done by the effort force if m = 20 kg?
+   A)
+6800
+   B)
+800
+   C)
+3100
+   D)
+3200
+38. (2.00 pts)
+Consider such a retractable lever who has one end attached to a gear. This causes it to have an effort arm with length varying with time: 
+. However, since it is
+retractable, you can imagine the fulcrum fixing the load arm to place to a length of 1 m. If the effort is applied over t from 0 to  seconds, what is the average ideal mechanical
+advantage over this interval? Assume that all forces act perpendicular to the rod.
+   A)
+   B)
+   C)
+   D)
+39. (2.00 pts)
+A uniform disk-shaped puller of mass 
+ and radius 
+ is used to lift a mass 
+ attached to a rope that does not slip on the pulley. If the mass is released from rest and allowed to
+fall a distance , what is the speed of the mass just before it hits the ground?
+   A)
+   B)
+   C)
+   D)
+40. (5.00 pts)
+A screw jack has a mean diameter of 6 cm and a pitch of 1 cm. If the coefficient of friction is 0.15, what is the maximum load it can raise before losing self-locking, given a
+maximum effort force of 800 N? (Take the lead angle  to satisfy 
+)
+   A)
+3910 N
+   B)
+2210 N
+   C)
+800 N
+L(t) = 2 + sin t
+π
+2π + 2
+2π+2
+π
+2π+2
+2
+π+1
+2π
+M
+R
+m
+h
+√2gh
+√2Mgh
+m+M
+√2mgh
+m+M
+√
+mghR
+(m+M)(R+2)
+λ
+sin λ ≈λ
+12/3/25, 2:15 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000GHY
+https://scilympiad.com/rickards/Es/PrevTest?tid=000GHY
+7/12
+
+   D)
+920 N
+41. (2.00 pts)
+Which of the following statements about the energy losses in real machines is correct at the microscopic level?
+   A)
+Losses are always due to macroscopic deformation
+   B)
+All friction converts mechanical energy purely to heat
+   C)
+Friction losses may be due to both heat and microscopic elastic energy stored in asperities
+   D)
+Energy losses are minimized by increasing the load
+42. (2.00 pts)
+Suppose you are trying to maximize the mechanical advantage of a 3rd class lever by varying the position of the fulcrum along a uniform bar of length L. What position, as a fractio
+of L, yields maximum mechanical advantage?
+   A)
+At the midpoint
+   B)
+At 
+ from the load
+   C)
+At one end
+   D)
+As close to the load as possible
+43. (2.00 pts)
+A wedge is driven into a rigid material with an initial velocity 
+. The force exerted by the material can be modeled as 
+. How far will the wedge penetrate before
+stopping?
+   A)
+   B)
+   C)
+   D)
+44. (2.00 pts)
+A differential pulley has two pulleys of radii 
+ and  (
+), and the effort rope is wound around both. If you want the velocity ratio (inverse of IMA) to remain below a critical value
+to prevent slipping, which adjustment should you make?
+   A)
+Increase 
+ and decrease 
+   B)
+Increase  and decrease 
+   C)
+Keep as is
+   D)
+Increase both equally
+45. (2.00 pts)
+The efficiency of a machine is given by 
+ where  is the input force. Also given 
+, at what time does the efficiency surpass 80%?
+   A)
+2.83 s
+   B)
+3.16 s
+   C)
+2.34 s
+   D)
+4.01 s
+L
+3
+v0
+F(x) = kx2
+mv2
+0
+k
+3mv2
+0
+2k
+√3mv2
+0
+2k
+3√3mv2
+0
+2k
+R
+r R > r
+R
+r
+r
+R
+η(x) = 1 −e−0.2x
+x
+x(t) = t2
+12/3/25, 2:15 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000GHY
+https://scilympiad.com/rickards/Es/PrevTest?tid=000GHY
+8/12
+
+46. (2.00 pts)
+Describe a free body diagram for the mass m at the instant shown in the figure.
+47. (8.00 pts)
+Determine the period, T, of the circular motion in terms of the given parameters and constants (R, θ, m, g).
+48. (5.00 pts)
+ Describe the free body diagram for the mass, and use Newton’s 2nd Law to write down a differential equation for θ(t).
+The following information applies for questions #46-#47
+A point mass, m, is placed inside a hemispherical bowl with radius R. The mass moves along a circular path in the horizontal plane on the inside of the bowl, making a (constant)
+angle θ with respect to the vertical direction as measured from the center of the sphere. Gravitational acceleration is g, pointing downward. The bowl is fixed to the ground and the
+inside is frictionless. Note: The line drawn to the mass from the center is not a string. You should not have any tension terms.
+Use this information for questions #48-49
+Now let’s place the hemispherical bowl upside down. It still has radius R, is frictionless, and is fixed to the ground so it can’t move. The point mass, m, is initially placed at the very
+top of the bowl and given a small nudge so that its initial angular velocity is ω0 as it starts sliding down the side of the bowl. Gravitational acceleration is g, pointing downward.
+For the first part of its motion, the mass will slide down the side of the bowl. After a certain point it will leave the surface of the bowl, but this problem is only asking about the first
+part, where the mass is touching the bowl and its position is described by the angle θ with respect to the vertical position.
+12/3/25, 2:15 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000GHY
+https://scilympiad.com/rickards/Es/PrevTest?tid=000GHY
+9/12
+
+49. (10.00 pts)
+Determine θ(t) while the mass is touching the bowl and θis small. Hint: since θ is small, you can use 
+. With this approximation, you should be able to write down the
+general solution by eye, and then solve for the constants with the initial conditions.
+50. (7.00 pts)
+A block and tackle is a system of two or more pulleys with a rope or cable threaded between them, used to provide tension and lift heavy loads. Explain the mechanism behind how
+a block and tackle can be constructed to have a mechanical advantage of N (for N pulleys). Note that there are several right answers.
+51. (6.00 pts)
+How are the accelerations related, assuming that the string is unstretchable? Strongest responses will include equation(s)
+52. (7.00 pts)
+Find the tension in the rope, T.
+The following information is useful for #51-#52
+The system in the figure uses massless, frictionless pulleys and massless rope. The coefficient of friction between the masses and horizontal surfaces is μ. Assume that M1 and M2
+are sliding towards M3. The force due to gravity is directed downward.
+The following information is useful for questions #53-#54
+Yet another pulley problem! Examine the figure on the right. There is always a fixed pulley (rightmost pulley) labeled, say 
+, to which n other pulleys are attached in a “nested”
+arrangement (
+, 
+, … 
+). To help with the general case this problem is split into parts. A mass (
+) is hung from a string attached to the fixed pulley, and an identical
+mass (
+) is hung from the nth pulley. Remember, strings are not stretchable; 
+.
+sin θ ≈θ
+P0
+P1 P2
+Pn
+m0 = m
+mn = m
+m0 = mn
+12/3/25, 2:15 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000GHY
+https://scilympiad.com/rickards/Es/PrevTest?tid=000GHY
+10/12
+
+53. (7.00 pts)
+Suppose n = 1. Find the tension, T , with which the rightmost mass is being pulled up. Find the acceleration, 
+ , of the mass on the right (
+). Find the acceleration, 
+ , of the
+mass on the left (
+).
+54. (8.00 pts)
+Now solve for T, 
+, and 
+ in the general case (n = n).
+55. (3.00 pts)
+Bobenzo is skiing down a hill with constant acceleration and mapped out a position time graph for her very important AP physics lab report. She weighs 50kg and has a 
+ of .123
+The slope is 35° from horizontal. What is the frictional force?
+56. (3.00 pts)
+What is the minimum coefficient of static friction required for Bobenzo to stand still on the slope without sliding?
+57. (5.00 pts)
+If Bobenzo descends 105m along the slope, how much mechanical energy is converted to thermal energy by friction?
+a0
+m0
+an
+mn
+a0
+an
+μk
+12/3/25, 2:15 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000GHY
+https://scilympiad.com/rickards/Es/PrevTest?tid=000GHY
+11/12
+
+58. (4.00 pts)
+If her skiing lasts 15 seconds, what is the average power dissipated by friction?
+59. (2.50 pts)
+Bobert has a bright red bike! What simple machines are a part of his bike? 
+60. (5.00 pts)
+The radius of Bobert's bright red bike wheel is 35cm, and the axle radius is .017m. What is the wheel and axles ideal mechanical advantage?
+61. (5.00 pts)
+Bobert is bothered by his IMA is not exactly 15 :(
+What should his axle radius be to make his dreams of this come true?
+62. (5.00 pts)
+Whoops! It turns out the wheel's radius is actually known to be ±1mm and the axle radius is ± .2mm! What is the uncertainty of the IMA?
+Congrats on finishing!
+Fill out this google form to leave feedback on the test: Feedback Form (https://forms.gle/q4AygEgp2zvx6b497)
+© 2025 - powered by Scilympiad (https://scilympiad.com) | Tournaments (/rickards/Home/Subscribers?sort=t) | Support Us (/rickards/Give)
+Terms of Use (/ToS.html) | Privacy (/Privacy.html) | Cookie Policy (/CookiePolicy.html) | Support (/rickards/Support) | Contact (/rickards/Home/Contact)
+12/3/25, 2:15 AM
+scilympiad.com/rickards/Es/PrevTest?tid=000GHY
+https://scilympiad.com/rickards/Es/PrevTest?tid=000GHY
+12/12

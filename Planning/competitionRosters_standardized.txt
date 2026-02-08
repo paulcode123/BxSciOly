@@ -717,7 +717,55 @@ Registration Opens: November 24, 2025
 Registration Closes: November 28, 2025 11:59pm
 Roster Released: December 1, 2025
 
-Roster: Pending roster release
+Team A:
+Anatomy and Physiology: Noelle Delosreyes, Ileene Ng
+Astronomy: Johnny Lin, Pramit Acharjee
+Boomilever: Jerry Zhu, Jonathan Yip
+Bungee Drop: Atef Istiaque, Jonathan Yip
+Chemistry Lab: Queenie Tang, Adeline Nurenie
+Circuit Lab: Atef Istiaque, Lia Skarabot
+Codebusters: Morgan Greenfield, Queenie Tang
+Designer Genes: Johnny Lin, Ileene Ng
+Disease Detectives: Noelle Delosreyes, Ileene Ng
+Dynamic Planet: Johnny Lin, Pramit Acharjee
+Electric Vehicle: Lia Skarabot, Jerry Zhu
+Entomology: Itamar Goshen, Elyn Wang
+Engineering CAD: Adeline Nurenie, Maliha Noreen
+Experimental Design: Morgan Greenfield, Anna Gao
+Forensics: Morgan Greenfield, Queenie Tang
+Helicopter: Jonathan Yip, Atef Istiaque
+Hovercraft: Atef Istiaque, Jerry Zhu
+Machines: Maliha Noreen, Jonathan Yip
+Material Science: Adeline Nurenie, Anna Gao
+Remote Sensing: Itamar Goshen, Pramit Acharjee
+Robot Tour: Lia Skarabot, Jerry Zhu
+Rocks and Minerals: Itamar Goshen, Pramit Acharjee
+Water Quality: Noelle Delosreyes, Anna Gao
+
+Team B:
+Anatomy and Physiology: Sophia Weng, Eugene Lim
+Astronomy: Kael Barba, Karis Lau
+Boomilever: Ian Kim, Chase Li
+Bungee Drop: Ian Kim, Chase Li
+Chemistry Lab: Andrew Lin, Kael Barba
+Circuit Lab: Eugene Lim, Linwang Li
+Codebusters: Andrew Lin, Owen Zhang, Ian Kim
+Designer Genes: Ian Liu, Sophia Weng
+Disease Detectives: Sophia Weng, Eugene Lim
+Dynamic Planet: Matthew Huang, James Kim
+Electric Vehicle: Jacob Berner, Andrew Lin
+Entomology: Ian Liu, James Kim
+Engineering CAD: Linwang Li, Karis Lau
+Experimental Design: Jacqueline Wang, Matthew Huang, Eugene Lim
+Forensics: Matthew Huang, Owen Zhang
+Helicopter: Chase Li, James Kim
+Hovercraft: Alan Lin, Jacob Berner
+Machines: Alan Lin, Jacob Berner
+Material Science: Owen Zhang, Kael Barba
+Remote Sensing: Linwang Li, Karis Lau
+Robot Tour: Andrew Lin, Alan Lin
+Rocks and Minerals: Chase Li, Jacqueline Wang
+Water Quality: Ian Liu, Jacqueline Wang
 
 ================================================================================
 
@@ -742,7 +790,80 @@ Registration Opens: January 5, 2026
 Registration Closes: January 12, 2026
 Roster Released: January 18, 2026
 
-Roster: Pending roster release
+Team A:
+Anatomy and Physiology: Ileene Ng, Noelle Delosreyes
+Astronomy: Itamar Goshen, Paul Nieuwerburgh
+Boomilever: Jonathan Yip, Aidan Wong
+Bungee Drop: Jin Zhao, Edison Lee
+Chemistry Lab: Queenie Tang, Morgan Greenfield
+Circuit Lab: Paul Nieuwerburgh, Aaron Krasinski
+Codebusters: Queenie Tang, Edison Lee, Morgan Greenfield
+Designer Genes: Ileene Ng, Noelle Delosreyes
+Disease Detectives: Ileene Ng, Noelle Delosreyes
+Dynamic Planet: Jodi Zheng, Brandon Lin
+Electric Vehicle: Aidan Wong, Paul Nieuwerburgh
+Entomology: Anushka Biswas, Jodi Zheng
+Experimental Design: Jonathan Yip, Morgan Greenfield, Brandon Lin
+Forensics: Queenie Tang, Morgan Greenfield
+Helicopter: Jin Zhao, Jonathan Yip
+Hovercraft: Jin Zhao, Edison Lee
+Machines: Jonathan Yip, Aaron Krasinski
+Material Science: Brandon Lin, Aaron Krasinski
+Remote Sensing: Yutong Chen, Itamar Goshen
+Robot Tour: Aidan Wong, Edison Lee
+Rocks and Minerals: Anushka Biswas, Jodi Zheng
+Water Quality: Yutong Chen, Noelle Delosreyes
+Write It Do It: Brandon Lin, Jin Zhao
+
+Team B:
+Anatomy and Physiology: Linwang Li, Sophia Zheng
+Astronomy: Johnny Lin, Kael Barba
+Boomilever: Senna Shiau, Jerry Zhu
+Bungee Drop: Jerry Zhu, Atef Istiaque
+Chemistry Lab: Andrew Lin, Lyla Quim
+Circuit Lab: Linwang Li, Atef Istiaque
+Codebusters: Simeon Chen, Andrew Lin, Elyn Wang
+Designer Genes: Johnny Lin, Xin Yue Wen
+Disease Detectives: Sherman Wong, Sophia Zheng
+Dynamic Planet: Johnny Lin, Simeon Chen
+Electric Vehicle: Andrew Lin, Jerry Zhu
+Entomology: Johnny Lin, Elyn Wang
+Experimental Design: Simeon Chen, Anna Gao, Sherman Wong
+Forensics: Simeon Chen, Xin Yue Wen
+Helicopter: Senna Shiau, Jerry Zhu
+Hovercraft: Atef Istiaque, Senna Shiau
+Machines: Linwang Li, Senna Shiau
+Material Science: Kael Barba, Anna Gao
+Remote Sensing: Linwang Li, Lyla Quim
+Robot Tour: Andrew Lin, Linwang Li
+Rocks and Minerals: Lyla Quim, Johnny Lin
+Water Quality: Anna Gao, Xin Yue Wen
+Write It Do It: Jerry Zhu, Sienna Shiau
+
+Team C:
+Anatomy and Physiology: Sean Kim, Brian Chen
+Astronomy: Jeun Ebat, Rishav Banik
+Boomilever: Jacqueline Wang, Haylie Leong
+Bungee Drop: Chase Li, Jeun Ebat
+Chemistry Lab: Stanley Zhao, Adeline Nurenie
+Circuit Lab: Rishav Banik, Ella Gao
+Codebusters: Sean Kim, Ella Gao, Brian Chen
+Designer Genes: Tenzin Yangtso, Stanley Zhao
+Disease Detectives: Owen Zhang, Stanley Zhao
+Dynamic Planet: James Kim, Ryan Chen
+Electric Vehicle: Rishav Banik, Ella Gao
+Entomology: James Kim, Tenzin Yangtso
+Experimental Design: Jacqueline Wang, Ryan Chen, Owen Zhang
+Forensics: Stanley Zhao, Owen Zhang
+Helicopter: Haylie Leong, James Kim
+Hovercraft: Haylie Leong, Alan Lin
+Machines: Alan Lin, Rishav Banik
+Material Science: Adeline Nurenie, Owen Zhang
+Remote Sensing: Jeun Ebat, Ryan Chen
+Robot Tour: Alan Lin, Rishav Banik
+Rocks and Minerals: Jacqueline Wang, Chase Li
+Water Quality: Jacqueline Wang, Tenzin Yangtso
+Write It Do It: Adeline Nurenie, Chase Li
 
 ================================================================================
 

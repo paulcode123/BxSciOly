@@ -463,8 +463,8 @@ def generate_todays_meetings():
         created_meetings = []
         
         def generate_code():
-            """Generate random 5-letter code"""
-            return ''.join(random.choices(string.ascii_uppercase, k=5))
+            """Generate random 3-letter code"""
+            return ''.join(random.choices(string.ascii_uppercase, k=3))
         
         for event_info in todays_events:
             event_name = event_info['eventName']
@@ -3323,7 +3323,9 @@ def create_excused_absence():
 def get_member_excused_absences(member_id):
     """Get all excused absences for a specific member"""
     try:
-        absences_query = db.collection('ExcusedAbsences').where('memberId', '==', member_id).order_by('dateOfAbsence', direction=firestore.Query.DESCENDING).stream()
+        # Query without order_by to avoid requiring a composite index
+        # We'll sort in Python instead
+        absences_query = db.collection('ExcusedAbsences').where('memberId', '==', member_id).stream()
         absences = []
         
         for absence in absences_query:
@@ -3331,22 +3333,73 @@ def get_member_excused_absences(member_id):
             absence_data['id'] = absence.id
             absences.append(absence_data)
         
+        # Sort in Python by dateOfAbsence (descending)
+        if absences:
+            def get_sort_date(absence):
+                date_val = absence.get('dateOfAbsence')
+                if date_val is None:
+                    return datetime.min.replace(tzinfo=None)
+                # Handle Firestore Timestamp objects
+                if hasattr(date_val, 'timestamp'):
+                    return datetime.fromtimestamp(date_val.timestamp())
+                elif hasattr(date_val, 'toDate'):
+                    return date_val.toDate()
+                elif isinstance(date_val, datetime):
+                    return date_val
+                else:
+                    # Try to parse as string
+                    try:
+                        parsed = datetime.fromisoformat(str(date_val))
+                        return parsed
+                    except:
+                        return datetime.min.replace(tzinfo=None)
+            
+            absences.sort(key=get_sort_date, reverse=True)
+        
         return jsonify(absences), 200
         
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        import traceback
+        error_msg = f"Error getting member excused absences for member {member_id}: {str(e)}"
+        logger.error(f"{error_msg}\n{traceback.format_exc()}")
+        return jsonify({"error": error_msg}), 500
 
 @firebase_routes.route('/api/ExcusedAbsences/event/<event_id>', methods=['GET'])
 def get_event_excused_absences(event_id):
     """Get all excused absences for a specific event"""
     try:
-        absences_query = db.collection('ExcusedAbsences').where('eventId', '==', event_id).order_by('dateOfAbsence', direction=firestore.Query.DESCENDING).stream()
+        # Query without order_by to avoid requiring a composite index
+        # We'll sort in Python instead
+        absences_query = db.collection('ExcusedAbsences').where('eventId', '==', event_id).stream()
         absences = []
         
         for absence in absences_query:
             absence_data = absence.to_dict()
             absence_data['id'] = absence.id
             absences.append(absence_data)
+        
+        # Sort in Python by dateOfAbsence (descending)
+        if absences:
+            def get_sort_date(absence):
+                date_val = absence.get('dateOfAbsence')
+                if date_val is None:
+                    return datetime.min.replace(tzinfo=None)
+                # Handle Firestore Timestamp objects
+                if hasattr(date_val, 'timestamp'):
+                    return datetime.fromtimestamp(date_val.timestamp())
+                elif hasattr(date_val, 'toDate'):
+                    return date_val.toDate()
+                elif isinstance(date_val, datetime):
+                    return date_val
+                else:
+                    # Try to parse as string
+                    try:
+                        parsed = datetime.fromisoformat(str(date_val))
+                        return parsed
+                    except:
+                        return datetime.min.replace(tzinfo=None)
+            
+            absences.sort(key=get_sort_date, reverse=True)
         
         return jsonify(absences), 200
         

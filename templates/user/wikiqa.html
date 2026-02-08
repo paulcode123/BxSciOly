@@ -1,0 +1,120 @@
+{% extends 'layout.html' %}
+
+{% block title %}Offline Astronomy Wikipedia Q&A - Bronx Science Olympiad{% endblock %}
+
+{% block content %}
+<div class="hero" style="height: 30vh; background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('/static/images/learning-modules-bg.jpg'); background-size: cover; background-position: center;">
+    <div class="hero-content">
+        <h1><i class="fas fa-search"></i> Offline Astronomy Wikipedia Q&amp;A</h1>
+        <p>Ask a question and search your offline Wikipedia corpus</p>
+    </div>
+</div>
+
+<section class="section">
+    <div class="container">
+        <div class="card" style="background: white; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); padding: 24px;">
+            <form method="GET" action="{{ url_for('wikiqa_routes.user_wikiqa') }}" style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
+                <input
+                    type="text"
+                    name="q"
+                    value="{{ q }}"
+                    placeholder="Type a question (e.g., What causes Type Ia supernovae?)"
+                    style="flex:1; min-width: 280px; padding: 12px 14px; border-radius: 10px; border: 1px solid #ddd;"
+                    autocomplete="off"
+                />
+                <select name="k" style="padding: 12px 14px; border-radius: 10px; border: 1px solid #ddd;">
+                    {% for opt in [5,8,10,15,20] %}
+                        <option value="{{ opt }}" {% if top_k == opt %}selected{% endif %}>Top {{ opt }}</option>
+                    {% endfor %}
+                </select>
+                <button class="btn-primary" type="submit" style="border:none; cursor:pointer;">
+                    <i class="fas fa-magnifying-glass"></i> Search
+                </button>
+            </form>
+
+            <div style="margin-top: 14px; color:#666; font-size: 0.95em;">
+                <div><strong>Index status</strong>:</div>
+                <div style="margin-top:6px;">
+                    <span>Pages JSONL: </span>
+                    <code>{{ status.pages_jsonl }}</code>
+                    {% if status.pages_ok %}<span style="color:#2e7d32; font-weight:600;">(found)</span>{% else %}<span style="color:#c62828; font-weight:600;">(missing)</span>{% endif %}
+                </div>
+                <div style="margin-top:6px;">
+                    <span>SQLite FTS: </span>
+                    <code>{{ status.sqlite }}</code>
+                    {% if status.sqlite_ok %}<span style="color:#2e7d32; font-weight:600;">(found)</span>{% else %}<span style="color:#c62828; font-weight:600;">(missing)</span>{% endif %}
+                </div>
+                <div style="margin-top:6px;">
+                    <span>Semantic index (optional): </span>
+                    {% if status.semantic_backend == 'hnsw' %}
+                        <code>{{ status.hnsw }}</code>
+                        <span style="color:#2e7d32; font-weight:600;">(found)</span>
+                    {% elif status.semantic_backend == 'embeddings' %}
+                        <code>{{ status.embeddings }}</code>
+                        <span style="color:#2e7d32; font-weight:600;">(found)</span>
+                    {% else %}
+                        <code>{{ status.embeddings }}</code>
+                        <span style="color:#ad6a00; font-weight:600;">(not built)</span>
+                    {% endif %}
+                </div>
+            </div>
+
+            {% if not status.sqlite_ok %}
+                <div style="margin-top: 16px; padding: 14px; border-radius: 12px; background: #fff7e6; border: 1px solid #ffe0a3;">
+                    <strong>Index not built yet.</strong>
+                    <div style="margin-top:8px;">
+                        Run:
+                        <code>python astronomy_wiki_download.py</code>
+                        then
+                        <code>python astronomy_wiki_build_index.py</code>
+                    </div>
+                    <div style="margin-top:8px; color:#666;">
+                        After that, this page works fully offline.
+                    </div>
+                </div>
+            {% endif %}
+
+            {% if error %}
+                <div style="margin-top: 16px; padding: 14px; border-radius: 12px; background: #ffebee; border: 1px solid #ffcdd2;">
+                    <strong>Search error:</strong> {{ error }}
+                </div>
+            {% endif %}
+        </div>
+
+        {% if q and results %}
+            <div style="margin-top: 20px;">
+                <h2 style="margin-bottom: 10px;">Results for: <span style="font-weight:700;">{{ q }}</span></h2>
+
+                {% for r in results %}
+                    <div class="card" style="background: white; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); padding: 18px; margin-bottom: 14px;">
+                        <div style="display:flex; justify-content:space-between; gap: 12px; flex-wrap:wrap;">
+                            <div style="font-weight: 700;">
+                                {{ r.title }}
+                            </div>
+                            <div style="color:#666; font-size: 0.9em;">
+                                <span style="margin-right: 10px;"><strong>mode</strong>: {{ r.mode }}</span>
+                                <span><strong>score</strong>: {{ "%.3f"|format(r.score) }}</span>
+                            </div>
+                        </div>
+                        {% if r.url %}
+                            <div style="margin-top: 6px;">
+                                <a href="{{ r.url }}" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: none;">
+                                    {{ r.url }}
+                                </a>
+                            </div>
+                        {% endif %}
+                        <div style="margin-top: 10px; color:#222; line-height:1.55;">
+                            {{ r.chunk }}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% elif q and status.sqlite_ok %}
+            <div style="margin-top: 18px; color:#666;">
+                No results found for <strong>{{ q }}</strong>. Try a shorter query or a key term.
+            </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
+

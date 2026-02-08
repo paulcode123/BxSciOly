@@ -1,0 +1,258 @@
+Science Olympiad
+UT Invitational
+October 25, 2025
+Astronomy C
+Directions:
+• Each team will be given 50 minutes to complete the exam.
+• There are four sections with a total of 65 questions.
+• Do not write on the exam or image sheet. Only write on your answer sheet.
+• For calculation questions, work will be graded. Please show all your work.
+• Unless otherwise specified, report numerical answers to three significant figures.
+• The use of AI tools (e.g. ChatGPT) are expressly forbidden.
+• Tiebreakers, in order: §A, §B, §D.
+• After the tournament, the exam will be available online at robertyl.com/scioly
+• Good luck! And may the stars align for you.
+Written by: The Astronomy A-Team
+Ryan Chang, ryan_chang@berkeley.edu | Robert Lee, robertyl@ucla.edu
+Rio Sessions, rio.sessions@student.nmt.edu
+Page 1 of 7
+
+Astronomy C
+UT 2025
+Reference Page
+Deep-Sky Objects:
+• The Orion Molecular Cloud Complex,
+• Sharpless 29 (NGC 6559),
+• Ophion Star Family,
+• HP Tau,
+• Mira (Omicron Ceti),
+• Helix Nebula (NGC 7293),
+• Janus (ZTF J203349.8+322901.1),
+• WDJ181058.67+311940.94,
+• The Crab (M1),
+• The Bone (G359.13),
+• Cas A,
+• Tycho’s SNR.
+Conversions and Constants:
+1 au “ 1.496 ˆ 1011 m
+1 ly “ 9.461 ˆ 1015 m
+1 pc “ 3.086 ˆ 1016 m
+1 yr “ 365.25 d
+1 d “ 86 400 s
+1 R@ “ 6.957 ˆ 108 m
+1 M@ “ 1.989 ˆ 1030 kg
+Mbol,@ “ `4.75 (abs. mag.)
+1 RJ “ 7.149 ˆ 107 m
+1 MJ “ 1.899 ˆ 1027 kg
+1 RC “ 6.378 ˆ 106 m
+1 MC “ 5.972 ˆ 1024 kg
+G “ 6.674 ˆ 10´11 N m2 kg´2
+b “ 2.898 ˆ 10´3 m K
+σ “ 5.670 ˆ 10´8 W m´2 K´4
+h “ 4.136 ˆ 10´15 eV Hz´1
+H0 “ 70 km s´1 Mpc´1
+Page 2 of 7
+
+Astronomy C
+UT 2025
+Section A: Stars! [23 points]
+1. [1 pt] The sun is classified as a G2V star under what widely-used stellar classification scheme?
+A. Harvard system
+B. Secchi classification
+C. Draper system
+D. Morgan–Keenan system
+2. [2 pts] In this classification scheme, Roman numerals are used to denote different luminosity classes.
+Match each luminosity class (I, III, IV, V, VII) with its corresponding star type:
+• White dwarf
+• Giant
+• Main sequence
+• Subgiant
+• Supergiant
+3. [1 pt] The Chandrasekhar limit is the upper bound mass to what astronomical object?
+4. [1 pt] The Tolman–Oppenheimer–Volkoff limit is the upper bound mass to what astronomical objects?
+5. [2 pts] Order these five wavelength regimes by increasing frequency
+increasing frequency
+increasing frequency
+increasing frequency
+increasing frequency
+increasing frequency
+increasing frequency
+increasing frequency
+increasing frequency
+increasing frequency
+increasing frequency
+increasing frequency
+increasing frequency
+increasing frequency
+increasing frequency
+increasing frequency
+increasing frequency:
+• Visible
+• Infrared
+• Gamma
+• Microwave
+• Far ultraviolet
+The following five (5) questions refer to the Hertzsprung–Russell (HR) diagram in Image 1.
+6. [1 pt] Which letter is closest to where our sun would be on this diagram? (A–I)
+7. [1 pt] Which letter is closest to where our sun would be in about 5 billion years? (A–I)
+8. [1 pt] Which letter is closest to where our sun would be in about 10 billion years? (A–I)
+9. [1 pt] Which letter is closest to where a red dwarf would be on this diagram? (A–I)
+10. [1 pt] What is the name of the red dashed line?
+11. [2 pts] Can brown dwarfs be plotted on an HR diagram? If so, what general area would they be in
+Image 1?
+12. [2 pts] HR diagrams don’t necessarily require temperature or luminosity themselves on the x- and y-
+axes—a diagram with parameters that relate to temperature and luminosity will work just as well. Name
+a potential set of x- and y-axis parameters that could be used.
+Spectra of two objects are depicted in Image 2. Use the spectra to answer the following three (3) questions.
+13. [1 pt] What idealized object closely approximates the spectra?
+14. [2 pts] Name the non-ideal features apparent in the spectra. Describe the process (at the atomic level)
+through which they are created.
+15. [2 pts] Which object is warmer? Explain why.
+16. [2 pts] Image 3 depicts the spectra of another two objects. Why can’t you approximate them by the
+idealized object in question 13?
+Page 3 of 7
+
+Astronomy C
+UT 2025
+Section B: Star Birth [25 points]
+The following six (6) questions refer to the object in the cover image.
+17. [1 pt] Identify the object.
+18. [1 pt] What is the name of the bright red circular structure on the right side of the image?
+19. [1 pt] What is the name of the red arc-like structure on the left side of the image?
+20. [1 pt] What is suspected to have caused the aforementioned structures to assume their circular shape?
+21. [2 pts] This object is one of the largest areas of stellar formation in our vicinity. What wavelength of
+light would be best suited to study this area, and why?
+22. [2 pts] How old is this object? What would the stars and gas in this object look like in a few million
+years’ time?
+23. [1 pt] Name the cold, dense regions of gas and dust that lead to star formation.
+24. [2 pts] As gas and dust collapses into protostars, gravitational potential energy is released. What is the
+energy first converted into?
+25. [2 pts] This process eventually forms groups of stars like the Ophion star family. What unique property
+makes it different from other stellar families?
+These regions are primarily (by mass) composed of H2 which is difficult to detect directly due to their low
+temperatures.
+26. [1 pt] What other abundant, simple molecule is often used as a tracer for H2?
+27. [1 pt] What wavelength is used to detect them?
+For the following two (2) questions, use the following information. Two mass functions are evaluated for two
+star clusters formed from identical regions of gas and dust, and are plotted in Image 5. A mass function
+represents the distribution of masses for a population of stars; in these plots, each bar represents the relative
+number of stars (y-axis) at a particular mass (x-axis). For example, there are 100 times more 1 M@ stars
+than there are 4 M@ stars in cluster B.
+28. [3 pts] What is the mass ratio of cluster A captured in low-mass stars (less than 2 M)?
+29. [3 pts] Which cluster is older? Justify your answer.
+30. [1 pt] Which image depicts HP Tau?
+31. [1 pt] What type of variable star is HP Tau?
+32. [2 pts] Fill in the four blanks in the provided diagram of the type of star from the previous question.
+Page 4 of 7
+
+Astronomy C
+UT 2025
+Section C: Star Death [41 points]
+Setup Instructions
+• Go to nso.js9.org
+• Select [The Unofficial Chandra Archive Search Page] button on the right of the screen. A pop-up
+should appear.
+• Type “4384” in the upper left box (labeled [Chandra Obs ID]).
+• Click [Search].
+• Then, scroll down and drag and drop the title link into the window, as shown in Image 7.
+• Select [Scale > log] so you can see the image. You can also click and drag around on the image to
+change the contrast/bias.
+Now, select [Analysis > FITS Header(s)].
+33. [1 pt] Look for the “OBJECT” field. What is the name of the object shown in this observation?
+34. [1 pt] What type of object is this?
+Click on the circle icon in the top bar to create a circular region. Don’t change the size of this region. Place
+this region around the central object, shown in Image 8.
+35. [2 pts] What are the coordinates of this central object?
+36. [2 pts] Click [Analysis > Energy spectrum]. Estimate the energy corresponding to the peak of the
+continuous emission, in eV.
+37. [2 pts] Select [Analysis > Counts in Regions]. Record the number from the “net_counts” column.
+Now, move the region to the bright knot region around the top, shown in Image 9. Again, don’t change the
+size of the region.
+38. [2 pts] Select [Analysis > Energy spectrum]. What additional feature(s) do you observe in this spec-
+trum from the central object spectrum?
+39. [1 pt] Select [Analysis > Counts in regions]. Is this knot brighter or dimmer than the central object
+in x-rays?
+40. [2 pts] Given the type of object this is, what is likely happening in this region that results in these x-ray
+bright knots?
+41. [1 pt] What object is shown in Image 10?
+42. [1 pt] How far is this object, in parsecs?
+43. [2 pts] This object is a planetary nebula, but this name is a misnomer as its extended envelope is not
+related to planets. How does this extended envelope form and why does it glow?
+44. [2 pts] Identify the type of object at the center of Image 10 and list the two elements it is primarily
+composed of.
+Page 5 of 7
+
+Astronomy C
+UT 2025
+Section C continued...
+45. [1 pt] Which of the following best explains why not all neutron stars are pulsars?
+A. Only neutron stars whose progenitors had a high angular momentum became pulsars.
+B. Many neutron stars used to pulsate, but have since lost rotational energy and no longer do.
+C. Pulsars require a lot of energy transfer from supernovae, and only the most massive progenitor
+stars end up as pulsars.
+D. Pulsars require mass transfer from a secondary object to generate rotational energy, and many
+neutron stars are not accompanied by another star.
+46. [1 pt] What object is portrayed in Image 11?
+47. [2 pts] This image is a composite image of infrared, visible, and x-ray light. Which three telescopes
+helped to create this image?
+48. [1 pt] This object is an extremely young stellar remnant! What year did it form, and how old is it right
+now, in years?
+49. [2 pts] How many revolutions per second does this object complete?
+50. [3 pts] Despite being very young and energetic, many other pulsars spin even faster than this object.
+What are these pulsars called, and why do they spin faster despite being much older?
+The next four (4) questions focus on Cas A.
+51. [1 pt] Identify the image of it.
+52. [1 pt] What type of supernova is it? Be specific.
+53. [1 pt] Although this supernova formed over three centuries ago, its spectrum was recently reconstructed
+to confirm its classification. How was this done?
+54. [1 pt] What is the main distinction between type I and II supernovae?
+55. [5 pts] Your friend Maddy has come up with a few models for the orbital motion of a double white dwarf
+binary system. Image 6 depicts three possible configurations of the system, with a white dwarf in blue
+and one in red. For each one, tell her if it is valid or not. If it is, estimate the ratio of the masses to the
+nearest integer (i.e., Mblue : Mred), and if it is not, explain to her why.
+56. [1 pt] What law can be used to determine the total mass of the system?
+57. [1 pt] Which object in this year’s list is a double white dwarf binary?
+58. [1 pt] That binary system is predicted to merge in 23 million years. What is the source/cause of the
+orbital decay of the system?
+Page 6 of 7
+
+Astronomy C
+UT 2025
+Section D: Star Math [16 points]
+A Twinkling Star. Katrina runs an observatory and wants to determine some properties of a star.
+59. [2 pts] Using the spectrum in Image 4, help her find the effective surface temperature of the star, in
+kelvin.
+60. [3 pts] With her expertise, she determines the star has an absolute, bolometric magnitude of `4.75. She
+asks you to calculate the radius of the star, in km.
+Climbing the Ladder. The cosmic distance ladder is an important arsenal of methods for measuring
+distances that covers the many magnitudes found in astronomy. In this problem, we’ll climb up the most
+important rungs.
+61. [2 pts] Tycho owns an observatory and discovers a bright star in the night sky. Over the course of a
+year, he observes an annual parallax of 200 milliarcseconds. How far away is this star, in parsecs?
+Unfortunately, direct measurements—even from space—are currently limited to the order of kiloparsecs.
+Fortunately, Tycho discovers some variable stars in a globular cluster at a distance of 10 kpc. He notices
+these stars are not Cepheid nor RR Lyrae stars, so he observes them in detail and lists the apparent magnitude
+(m) and period (P) of four such stars in the table below.
+Star
+m
+P [days]
+Jeff
+10.9
+5
+Britta
+12.1
+20
+Abed
+12.9
+55
+Troy
+13.8
+190
+62. [3 pts] For each of the four stars, find their absolute magnitude and the base 10 logarithm of their period.
+63. [2 pts] Plot these two parameters in the given space, with the base 10 logarithm of their period (log10 P)
+on the x-axis and the absolute magnitude (M) on the y-axis. Make sure to include axes labels and
+appropriate tick marks.
+64. [3 pts] Draw a line of best fit to the data computed above and determine a period-luminosity relationship
+for this class of variable stars (i.e., find the slope α and y-intercept β for the line M “ α log10 P ` β).
+65. [1 pt] Variable stars are often used as standard candles. What type of supernova is also used as one?
+Page 7 of 7

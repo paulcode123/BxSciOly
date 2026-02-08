@@ -1,0 +1,373 @@
+================================================================================
+CIRCUIT LAB STUDY BINDER - WITH IMAGE PLACEHOLDERS
+Version 1.1 - Optimized for Quick Lookup + Visual Learning
+================================================================================
+
+KEY DIAGRAMS/CHARTS TO ADD (Summary):
+
+1. SECTION 1 - Formulas
+   [ADD IMAGE: Power Triangle - P=VI, P=I²R, P=V²/R relationships]
+
+2. SECTION 1 - Circuits  
+   [ADD IMAGE: Series Circuit Diagram]
+   [ADD IMAGE: Parallel Circuit Diagram]
+
+3. SECTION 2 - Components
+   [ADD IMAGE: Resistor Color Code Chart]
+   [ADD IMAGE: Component Symbols Reference Sheet]
+   [ADD IMAGE: LED Color vs Forward Voltage Chart]
+   [ADD IMAGE: Diode I-V Curve Characteristic]
+
+4. SECTION 3 - AC/Magnetism
+   [ADD IMAGE: Magnetic Field Around Straight Wire (Right-Hand Rule)]
+   [ADD IMAGE: Lorentz Force 3D Vector Diagram]
+   [ADD IMAGE: AC Sine Wave - RMS vs Peak Voltage]
+
+5. SECTION 5 - Visual Models
+   [ADD IMAGE: RC Charging Curve - Exponential Rise]
+   [ADD IMAGE: RC Discharging Curve - Exponential Decay]
+   [ADD IMAGE: Right-Hand Rule in 3 Contexts (Wire, Loop, Force)]
+   [ADD IMAGE: Series vs Parallel Comparison Table Visual]
+   [ADD IMAGE: Transformer Core and Flux Diagram]
+
+6. SECTION 4 - Problem Solving
+   [ADD IMAGE: Circuit Analysis Decision Flowchart]
+   [ADD IMAGE: Equivalent Resistance Reduction Steps]
+
+7. PRACTICAL SECTIONS
+   [ADD IMAGE: Multimeter Connection Diagrams]
+   [ADD IMAGE: Breadboard Layout and Wiring]
+   [ADD IMAGE: LED Series Resistor Calculation Example]
+
+================================================================================
+DETAILED DIAGRAM SPECIFICATIONS
+================================================================================
+
+--- DIAGRAM 1: POWER TRIANGLE ---
+Type: Triangle relationship chart
+Content:
+  - Triangle with P at top, I²R and V²/R on bottom corners
+  - V, I, R relationships shown with arrows
+  - Color-coded: Red=Voltage, Blue=Current, Green=Resistance
+  - Include: "NOT P = V²R" marked with X
+  - Show examples: 10V, 1A → 10W vs wrong calculation
+  
+Use: Immediately after "Power Equations" section (1.1)
+
+--- DIAGRAM 2: SERIES CIRCUIT DIAGRAM ---
+Type: Circuit schematic
+Content:
+  - Battery (V_in) connected to 3 resistors in series
+  - Current flow arrows showing same I everywhere
+  - Voltage drops labeled V₁, V₂, V₃ above each resistor
+  - Ground symbol shown
+  - Color code: Red=positive, Black=ground
+  - Show voltage divider effect visually
+  
+Use: After "SERIES CIRCUITS" formula (1.1)
+
+--- DIAGRAM 3: PARALLEL CIRCUIT DIAGRAM ---
+Type: Circuit schematic
+Content:
+  - Battery (V_in) connected to 3 resistors in parallel
+  - Voltage same across all three resistors
+  - Current arrows I₁, I₂, I₃ showing division
+  - Total current I_total at top
+  - Indicate smallest resistor gets most current
+  - Ground symbol shown
+  
+Use: After "PARALLEL CIRCUITS" formula (1.1)
+
+--- DIAGRAM 4: RESISTOR COLOR CODE ---
+Type: Visual reference chart
+Content:
+  - Physical resistor image at top
+  - Show 4-band, 5-band, and 6-band examples
+  - Color strips with values 0-9
+  - Band positions clearly labeled (1st digit, 2nd digit, multiplier, tolerance, temp coeff)
+  - Work through examples: Brown-Black-Brown-Gold = 10Ω ± 5%
+  - Show multiplier colors separately: Gold=×0.1, Silver=×0.01
+  
+Use: After "RESISTOR COLOR CODES" section (2.1)
+
+--- DIAGRAM 5: COMPONENT SYMBOLS REFERENCE ---
+Type: Comprehensive symbol sheet
+Content:
+  - Resistor (fixed, variable, potentiometer)
+  - Capacitor (non-polarized, polarized/electrolytic)
+  - Inductor (air-core, ferrite-core, iron-core)
+  - Diode (standard, Zener, Schottky, LED, photodiode)
+  - Transistor (NPN BJT, PNP BJT, N-channel MOSFET, P-channel MOSFET)
+  - Switches (SPST, SPDT, DPDT, push-button, toggle, reed)
+  - Grounds (signal, chassis, earth)
+  - Power sources (battery, AC source)
+  - Other (fuse, circuit breaker, relay)
+  - Each symbol with name label
+  
+Use: In place of ASCII symbols (Section 3.5)
+
+--- DIAGRAM 6: LED COLOR VS FORWARD VOLTAGE ---
+Type: Color vs voltage chart
+Content:
+  - Horizontal bar chart showing voltage ranges
+  - LED beads of actual colors (red, green, yellow, blue, white, IR)
+  - Voltage scale from 0V to 4V
+  - Show ranges: Red 1.8-2.0V, Green 2.0-2.2V, Blue 3.0-3.5V, White 3.0-3.5V
+  - Indicate typical vs maximum voltage
+  - Color gradient to show relationship
+  
+Use: In LED section (2.4)
+
+--- DIAGRAM 7: DIODE I-V CURVE ---
+Type: Characteristic curve
+Content:
+  - Graph with voltage (x-axis) and current (y-axis)
+  - Forward bias region showing exponential rise
+  - Reverse bias region showing near-zero current until breakdown
+  - Mark forward voltage threshold (~0.7V for silicon)
+  - Breakdown voltage marked
+  - Annotate knee (where conduction starts)
+  - Show Schottky vs standard silicon difference
+  
+Use: Diode specification section (2.4)
+
+--- DIAGRAM 8: MAGNETIC FIELD AROUND STRAIGHT WIRE ---
+Type: 2D and 3D vector visualization
+Content:
+  - Top view: Concentric circles around wire showing field lines
+  - Right-hand rule: Hand with thumb pointing up (current), fingers curling
+  - Side view: Wire with field pointing in/out of page
+  - Label direction clearly (into/out of page using ⊗ and ⊙)
+  - Show several loop positions with field direction
+  - Color intensity shows field strength (stronger near wire)
+  
+Use: Magnetic field section (1.3)
+
+--- DIAGRAM 9: LORENTZ FORCE 3D DIAGRAM ---
+Type: 3D vector visualization
+Content:
+  - Charge particle shown (circle with + or -)
+  - Velocity vector (arrow in one direction, e.g., →)
+  - Magnetic field vector (arrow in another direction, e.g., ↑)
+  - Force vector (resulting from v × B, e.g., ↗)
+  - Right-hand rule: Hand demonstrating fingers=v, curl toward B, thumb=F
+  - Show both positive and negative charges (reversed force)
+  - Multiple example configurations
+  
+Use: Lorentz force section (1.3)
+
+--- DIAGRAM 10: AC SINE WAVE - RMS vs PEAK ---
+Type: Waveform comparison
+Content:
+  - Full sine wave with peak voltage labeled (170V for household)
+  - RMS voltage line (0.707 × peak = 120V for household)
+  - Peak-to-peak voltage marked (340V)
+  - Time axis showing period T = 1/60 s
+  - Show RMS as effective equivalent DC voltage
+  - Multiple cycles shown
+  - Frequency label (60 Hz)
+  
+Use: AC fundamentals section (1.2)
+
+--- DIAGRAM 11: RC CHARGING CURVE ---
+Type: Exponential rise graph
+Content:
+  - X-axis: Time in units of τ (0, 1τ, 2τ, 3τ, 4τ, 5τ)
+  - Y-axis: Voltage as % of V₀ (0%, 63.2%, 86.5%, 95%, 98.2%, 99.3%)
+  - Smooth exponential curve starting at 0, approaching V₀ asymptotically
+  - Horizontal dashed line at V₀
+  - Key points marked with dots
+  - Annotations: "95% at 3τ", "99% at 5τ"
+  - Contrast with discharging curve (opposite direction)
+  
+Use: RC circuit behavior section (5.1)
+
+--- DIAGRAM 12: RC DISCHARGING CURVE ---
+Type: Exponential decay graph
+Content:
+  - X-axis: Time in units of τ
+  - Y-axis: Voltage as % of V₀ (100%, 36.8%, 13.5%, 5%, 1.8%, 0.7%)
+  - Smooth exponential decay from V₀ to 0
+  - Horizontal dashed line at 0
+  - Key points marked with dots
+  - Annotations: "37% remaining at 1τ", "1% remaining at 5τ"
+  - Compare/contrast with charging curve overlay
+  
+Use: RC circuit behavior section (5.1)
+
+--- DIAGRAM 13: RIGHT-HAND RULE - 3 CONTEXTS ---
+Type: Three separate hand diagrams + equations
+Content:
+
+  Context 1 - Magnetic field from straight wire:
+    - Hand with thumb pointing up (current direction)
+    - Fingers curling showing field direction
+    - Wire shown vertically
+    - Field circles shown around wire
+    - Label: "Current Up → Field circles outward (viewed from right)"
+
+  Context 2 - Magnetic field from loop:
+    - Hand curling in clockwise direction (viewed from above)
+    - Thumb pointing down (into page)
+    - Loop shown overhead view
+    - Field direction marked (⊗ for into page)
+    - Label: "Clockwise current → Field into page"
+
+  Context 3 - Force on moving charge:
+    - Fingers pointing right (velocity)
+    - Curl toward up (magnetic field)
+    - Thumb pointing forward (force on positive charge)
+    - Velocity, field, force vectors clearly labeled
+    - Note about reversing for negative charge
+    - Label: "v × B = Force direction"
+
+Use: Right-hand rule section (5.2)
+
+--- DIAGRAM 14: SERIES VS PARALLEL COMPARISON TABLE (VISUAL) ---
+Type: Side-by-side comparison with icons
+Content:
+  - Left column: Series circuits (single path visual)
+  - Right column: Parallel circuits (multiple paths visual)
+  - Rows for each property:
+    - Voltage: Series shows dividing arrows, Parallel shows equal marks
+    - Current: Series shows equal arrows, Parallel shows dividing arrows
+    - Resistance: Series shows stacked formula, Parallel shows reciprocals
+    - If one breaks: Series shows X through entire circuit, Parallel shows others working
+    - Power dissipation: Series shows larger R=more P, Parallel shows smaller R=more P
+  - Color coding: Red=Series, Blue=Parallel
+  
+Use: Series vs parallel section (5.3)
+
+--- DIAGRAM 15: TRANSFORMER CORE AND FLUX ---
+Type: Cross-sectional and schematic view
+Content:
+  - Primary coil (left) with N₁ turns labeled
+  - Secondary coil (right) with N₂ turns labeled
+  - Iron core connecting them
+  - Magnetic flux lines shown going through core
+  - Arrows showing flux direction
+  - Voltage in/out labeled (V₁, V₂)
+  - Current in/out labeled (I₁, I₂)
+  - Step-up example: N₂>N₁, V₂>V₁, I₂<I₁
+  - Include: V₂/V₁ = N₂/N₁ formula visible
+  
+Use: Transformer operation section (5.5)
+
+--- DIAGRAM 16: CIRCUIT ANALYSIS DECISION FLOWCHART ---
+Type: Flowchart with decision points
+Content:
+  - Start: "Understand the circuit"
+  - Decision 1: "Series or Parallel?"
+    - Series path: Use R_eq = ΣR
+    - Parallel path: Use 1/R_eq = Σ(1/R)
+  - Decision 2: "Mixed? Yes→ Reduce step by step"
+  - Decision 3: "What are we solving for?"
+    - Voltage: Use V = IR
+    - Current: Use I = V/R
+    - Resistance: Use R = V/I
+  - Decision 4: "AC or DC?"
+    - DC: Use resistive calculations
+    - AC: Use impedance Z = R + jX
+  - End: "Verify with power balance"
+  
+Use: Circuit analysis strategy section (4.1)
+
+--- DIAGRAM 17: EQUIVALENT RESISTANCE REDUCTION ---
+Type: Step-by-step visual walkthrough
+Content:
+  - Example circuit: 3 resistors in complex arrangement
+  - Step 1: Circle the series resistors, show R₁₂ = R₁ + R₂
+  - Step 2: Circle the parallel group, show R₁₂₃ = (R₁₂ × R₃)/(R₁₂ + R₃)
+  - Step 3: Show final circuit with single R_eq
+  - Calculate numerical example with actual values
+  - Show intermediate circuits after each step
+  - Highlight which operations to perform
+  
+Use: Equivalent resistance section (4.2)
+
+--- DIAGRAM 18: MULTIMETER CONNECTION DIAGRAMS ---
+Type: Three separate diagrams
+Content:
+
+  Voltage Measurement:
+    - Multimeter in parallel with resistor
+    - Red lead to positive, Black to ground
+    - Dial set to V (or V~ for AC)
+    - Text: "Parallel connection, high impedance"
+
+  Current Measurement:
+    - Multimeter in series with circuit
+    - Must break circuit to insert meter
+    - Red lead in current jack (A or mA)
+    - Black lead to ground
+    - Dial set to A or mA
+    - Text: "Series connection, low impedance"
+
+  Resistance Measurement:
+    - Component isolated from circuit
+    - Power OFF
+    - Meter in parallel with component
+    - Dial set to Ω
+    - Text: "Component isolated, power off"
+
+Use: Multimeter safety section (6.4)
+
+--- DIAGRAM 19: BREADBOARD LAYOUT AND WIRING ---
+Type: Overhead view of breadboard
+Content:
+  - Power rails shown (red for +, black for ground)
+  - Terminal strips with connection points
+  - Example circuit built: Battery → Resistor → LED → Ground
+  - Jumper wires color-coded
+  - Component placement shown
+  - Good practices marked: organized layout, short wires, clear paths
+  - Bad practices marked with X: crossed wires, long wires, poor organization
+  
+Use: Breadboarding section (6.4)
+
+--- DIAGRAM 20: LED SERIES RESISTOR CALCULATION EXAMPLE ---
+Type: Step-by-step calculation visual
+Content:
+  - Circuit diagram: 9V battery → Resistor R → Red LED → Ground
+  - Given:
+    - V_supply = 9V
+    - V_LED (red) = 1.8V
+    - I_LED (desired) = 20mA
+  - Step 1: V_resistor = V_supply - V_LED = 9 - 1.8 = 7.2V
+  - Step 2: R = V_resistor / I = 7.2 / 0.020 = 360Ω
+  - Step 3: Select 360Ω or 390Ω standard resistor
+  - Step 4: Verify power: P = 7.2V × 0.020A = 144mW (use ≥1/4W resistor)
+  - Show color codes for 360Ω (Orange-Blue-Brown-Gold)
+  
+Use: LED section (2.4) or circuit design examples
+
+================================================================================
+INTEGRATION NOTES FOR DOCUMENT CREATOR
+================================================================================
+
+These diagrams should be:
+1. High contrast for readability
+2. Labeled clearly with values and units
+3. Color-coded consistently (Red=positive/wire, Blue=current, Green=resistive)
+4. Sized appropriately (can be printed on page margins or full page)
+5. Referenced in text with exact location noted "[ADD IMAGE: Description]"
+6. Saved as high-quality images (PNG or PDF, at least 300 DPI for printing)
+
+Priority ranking for creation (do these first):
+  HIGH: Diagrams 1, 2, 3 (Power, Series/Parallel circuits)
+  HIGH: Diagrams 11, 12 (RC curves - critical for understanding)
+  HIGH: Diagrams 5, 6 (Component specs - frequently referenced)
+  MEDIUM: Diagrams 8, 9, 13 (Magnetism/Right-hand rule)
+  MEDIUM: Diagrams 4, 7 (Component details)
+  MEDIUM: Diagrams 14, 15 (Comparisons and transformers)
+  LOW: Diagrams 10 (AC waveform)
+  REFERENCE: Diagrams 16, 17, 18, 19, 20 (Flowcharts and procedures)
+
+Software recommendations for creating diagrams:
+- Circuit diagrams: LTspice, Circuit Lab, Draw.io, Inkscape
+- Graphs/charts: Matplotlib (Python), Excel, Desmos
+- Vector graphics: Inkscape, Adobe Illustrator
+- Hand diagrams: Procreate, Adobe Fresco, or hand-drawn then scanned
+- Flowcharts: Lucidchart, Draw.io, Miro
+
+================================================================================

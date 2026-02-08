@@ -1,0 +1,324 @@
+1. (1.00 pts)
+Mendel's Law of ______ states that every individual organism contains two alleles for each trait and they seperate during meiosis 
+2. (1.00 pts)
+During Mendel's experiments, he idealized a 3:1 ratio between dominant and recessive phenotypes. But in a dihybrid cross, he found a ratio of: 
+   A)
+3:1
+   B)
+1:1:1:1
+   C)
+3:1:1:3
+   D)
+9:3:3:1
+3. (1.00 pts)
+In Labrador retrievers, coat color is determined by two genes:
+Gene B = pigment color (B = black, b = brown)
+Gene E = pigment deposition (E = allows color, e = no pigment → yellow)
+What is the expected phenotypic ratio when two heterozygotes (BbEe × BbEe) are crossed?
+   A)
+9 black: 3 brown: 4 yellow 
+   B)
+12 black : 3 brown : 1 yellow
+   C)
+9 brown : 3 yellow : 4 black
+   D)
+15 black : 1 yellow
+4. (1.00 pts)
+Which statement best describes the implication of epistasis for genetic studies?
+   A)
+It supports Mendel’s law of segregation but not independent assortment.
+   B)
+It shows that some traits are controlled by environmental factors only.
+   C)
+It demonstrates that genes can interact in pathways, modifying Mendelian ratios.
+   D)
+. It implies that only dominant alleles are expressed.
+Designer Genes C - Designer Genes - Monta Vista Science Olympiad (Div. C) - 11-14-2025
+Student Answer Sheet (/monta-vista/SM/AnswerSheet?tid=000GFM)
+Instructions (shown before students start the test)
+Introduction (shown after students start the test)
+Section 1: The Ideas of Mendel 
+    
+Section 2: The two M cycles 
+12/13/25, 2:12 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GFM
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GFM
+1/7
+
+5. (1.00 pts)
+The main purpose of meiosis is to produce genetically identical cells 
+6. (1.00 pts)
+Crossing over occurs during prophase I of meiosis 
+7. (1.00 pts)
+Spindle fibers are unique to meiosis 
+8. (1.00 pts)
+If nondisjunction occurs during Meiosis I, what happens?
+   A)
+Two gametes are normal, two abnormal
+   B)
+All gametes are abnormal 
+,
+   C)
+no effect
+   D)
+Results in polyploidy
+9. (1.00 pts)
+Which of the following events occurs in both mitosis and meiosis II?
+   A)
+Separation of homologous chromosomes
+   B)
+Separation of sister chromatids
+   C)
+Crossing over
+   D)
+Synapsis
+10. (3.00 pts)
+A 35-year-old woman undergoes prenatal genetic screening. The doctor performs a karyotype on fetal cells and finds 47 chromosomes, including three copies of chromosome 21.
+Answer the following based off that information: 
+Explain what error during meiosis could have caused this result.
+|(b) Identify the name of this condition and describe how it affects chromosome number in the gamete and zygote.
+(c) Describe how this error differs from a mutation that occurs during mitosis.
+11. (1.00 pts)
+The sugar in DNA lacks which functional group found in RNA?
+   True     
+   False
+   True     
+   False
+   True     
+   False
+Section 3: The Depths of DNA 
+12/13/25, 2:12 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GFM
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GFM
+2/7
+
+   A)
+3′-OH
+   B)
+2′-OH
+   C)
+5′-OH
+   D)
+Carbonyl Group
+12. (1.00 pts)
+The 5′ end of a DNA strand is characterized by a:
+   A)
+Free hydroxyl group on carbon 3′
+   B)
+Free phosphate on carbon 5' 
+   C)
+Nitrogenous base 
+   D)
+Deoxyribose
+13. (2.00 pts)
+Explain the formation of Phosphodiester bonds
+14. (1.00 pts)
+Which of the following levels of DNA organization is the loosest and most transcriptionally active?
+   A)
+Chromosome 
+   B)
+Heterochromatin 
+   C)
+Euchromatin
+   D)
+Nucleosome
+15. (1.00 pts)
+DNA in nucleosomes is wrapped around:
+   A)
+Histone octamers
+   B)
+Actin filaments 
+   C)
+RNA particles 
+   D)
+Ribosomes 
+16. (1.00 pts)
+A point mutation changing an A→G in the third position of a codon but coding for the same amino acid is a called ____ mutation. (Hint the answer is 1 word)
+17. (1.00 pts)
+A mutation that converts a codon for an amino acid into a stop codon is a ___ mutation 
+18. (2.00 pts)
+Why is the mutation in the previous question so harmful? What's an example of its effect?
+    
+    
+12/13/25, 2:12 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GFM
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GFM
+3/7
+
+19. (1.00 pts)
+Which of the following can cause DNA damage?
+   A)
+X-rays
+   B)
+Gamma rays 
+   C)
+Chemical exposures 
+   D)
+All of the above 
+20. (2.00 pts)
+Pyrimidine Dimers is a type of DNA damage caused by:
+   A)
+Bacterial toxins 
+   B)
+UV radiation 
+   C)
+Errors in DNA replication during S phase 
+   D)
+Ioniziation 
+21. (1.00 pts)
+Which DNA repair mechanism specifically removes and replaces incorrectly paired bases that escape proofreading during replication?
+   A)
+Nucleotide excision repair (NER)
+   B)
+Mismatch repair (MMR)
+   C)
+Base excision repair (BER)
+   D)
+Homologous recombination (HR)
+22. (1.00 pts)
+Nucleotide excision repair (NER) primarily fixes which type of DNA damage?
+   A)
+Double-stranded breaks from X-rays 
+   B)
+Thymine dimers 
+   C)
+Depurination from loss of bases 
+   D)
+Mispairs from replication 
+23. (1.00 pts)
+DNA polymerase can synthesize new DNA strands in both the 5′→3′ and 3′→5′ directions.
+24. (1.00 pts)
+Hydrogen bonds between complementary bases stabilize the DNA double helix.
+   True     
+   False
+   True     
+   False
+Section 4: How the prokaryotes do it 
+12/13/25, 2:12 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GFM
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GFM
+4/7
+
+25. (1.00 pts)
+Which enzyme catalyzes transcription in prokaryotes?
+   A)
+DNA polymerase III 
+   B)
+RNA Polymerase 
+   C)
+Ligase 
+   D)
+Reverse Transcriptase 
+26. (1.00 pts)
+The σ (sigma) factor in bacterial RNA polymerase is responsible for:
+   A)
+Elongation 
+   B)
+Termination 
+   C)
+Ribosome binding 
+   D)
+Promoter recognition and initiation
+27. (1.00 pts)
+The lac operon is activated when lactose is present and glucose is low
+28. (1.00 pts)
+In the trp operon, tryptophan acts as a inducer 
+29. (1.00 pts)
+In prokaryotes, transcription and translation can occur simultaneously.
+30. (1.00 pts)
+Riboswitches are regulatory RNA segments that can bind metabolites and alter gene expression.
+31. (1.00 pts)
+The Shine-Dalgarno sequence is found on the 3′ end of mRNA.
+32. (2.00 pts)
+The codon that signals the start of translation is usually __________, which codes for the amino acid __________ (FULL AMINO ACID NAME)
+33. (1.00 pts)
+The sequence on bacterial mRNA that helps the ribosome identify the correct start codon is the __________ sequence.
+   True     
+   False
+   True     
+   False
+   True     
+   False
+   True     
+   False
+   True     
+   False
+     
+    
+    
+12/13/25, 2:12 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GFM
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GFM
+5/7
+
+34. (1.00 pts)
+The DNA sequence where a repressor binds to block transcription in an operon is called the __________
+35. (3.00 pts)
+The lac operon is a pretty important operon in prokaryotes. Answer the following about it 
+(a) Describe the roles of the lac repressor (LacI) and the CAP-cAMP complex in regulating the lac operon.
+(b) Explain what happens to lac operon transcription when lactose is present but glucose is high.
+(c) Predict the effect of a mutation that deletes the operator region and explain why.
+36. (1.00 pts)
+During the denaturation step of PCR, which bonds are broken?
+   A)
+Covalent bonds between sugars and phosphates
+   B)
+Hydrogen bonds between complementary bases
+   C)
+Disulfide bonds in proteins
+   D)
+Amino acid peptide bonds 
+37. (1.00 pts)
+What is the typical temperature range for the denaturation step in PCR?
+   A)
+40-50°C
+   B)
+94–98 °C
+   C)
+25–30 °C
+   D)
+55–65 °C
+38. (1.00 pts)
+Which enzyme is used in PCR due to its heat stability? 
+   A)
+DNA polymerase III
+   B)
+RNA polymerase
+   C)
+Taq polymerase
+   D)
+Ligase
+39. (1.00 pts)
+Where does that previously mentioned enzyme come from?
+    
+Section 5: The Techniques  
+12/13/25, 2:12 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GFM
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GFM
+6/7
+
+40. (3.00 pts)
+There's some cool techniques used in biotechnology! Answer the following: 
+(a) Describe the role of temperature in each step of the PCR cycle (denaturation, annealing, and extension).
+(b) Explain how Sanger sequencing uses modified nucleotides to determine DNA sequence.
+(c) Identify one biological question/idea that can be answered using PCR, and one that can be answered using Sanger sequencing.
+41. (1.00 pts)
+How many copies of DNA are theoretically produced after 5 PCR cycles (starting from 1 molecule)? (Just put in a number as your answer, for instance '67')
+42. (1.00 pts)
+PCR is commonly used to:
+   A)
+Detect pathogens
+   B)
+ Amplify DNA for cloning
+   C)
+Analyze genetic mutations 
+   D)
+All of the above 
+    
+Good job! Good luck on any other events you may have! 
+© 2025 - powered by Scilympiad (https://scilympiad.com) | Tournaments (/monta-vista/Home/Subscribers?sort=t) | Support Us (/monta-vista/Give)
+Terms of Use (/ToS.html) | Privacy (/Privacy.html) | Cookie Policy (/CookiePolicy.html) | Support (/monta-vista/Support) | Contact (/monta-vista/Home/Contact)
+12/13/25, 2:12 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GFM
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GFM
+7/7

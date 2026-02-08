@@ -70,7 +70,7 @@ Admin portal now has a "Generate Today's Codes" button that automatically create
 **Backend Endpoint (`/api/Meeting/generate-today`):**
 1. Reads `static/schedule.txt`
 2. Parses schedule to find today's events
-3. Generates random 5-letter codes
+3. Generates random 3-letter codes
 4. Creates Meeting documents in Firestore
 5. Returns list of created meetings
 

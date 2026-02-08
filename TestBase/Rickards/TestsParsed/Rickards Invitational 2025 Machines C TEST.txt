@@ -1,0 +1,541 @@
+EVENT: Machines
+SOURCE: Rickards Invitational 2025 (Div. C)
+FORMAT: 62 questions (MC, Free Response, Calculations)
+TOTAL POINTS: 150
+
+---SECTION 1: Basic Concepts---
+
+---QUESTION 1---
+ID: 1 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Mechanical Advantage | Law of the lever | Law of the machine
+DIFFICULTY: Easy
+QUESTION: Mechanical advantage uses what law?
+OPTIONS:
+A) Law of the machine
+B) Law of the lever
+C) Law of mechanical advantage
+D) Law of the arm
+
+---QUESTION 2---
+ID: 2 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: History | Lever | Principle | Discovery | Archimedes
+DIFFICULTY: Easy
+QUESTION: Who is credited with discovering the principle of the lever?
+
+---QUESTION 3---
+ID: 3 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Ideal Mechanical Advantage | IMA | Dependencies | Machine dimensions
+DIFFICULTY: Easy
+QUESTION: The ideal mechanical advantage of a machine depends on what?
+OPTIONS:
+A) Machine material
+B) Machine weight
+C) Machine dimensions
+D) Amount of friction
+
+---QUESTION 4---
+ID: 4 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Actual Mechanical Advantage | AMA | IMA | Comparison | Relationship
+DIFFICULTY: Easy
+QUESTION: The actual mechanical advantage of a machine is always
+OPTIONS:
+A) More than IMA
+B) More than or equal to IMA
+C) Less than IMA
+D) Less than or equal to IMA
+
+---QUESTION 5---
+ID: 5 | POINTS: 4.00 | FORMAT: Free Response
+TOPIC: Actual Mechanical Advantage | AMA | IMA | Friction | Energy loss | Explanation
+DIFFICULTY: Medium
+QUESTION: Why is this the case?
+
+---QUESTION 6---
+ID: 6 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Levers | Effort arm | Load arm | Comparison | Length
+DIFFICULTY: Easy
+QUESTION: How long is the effort arm compared to the load arm?
+OPTIONS:
+A) Longer than the load arm
+B) Shorter than the load arm
+C) Equal to the load arm
+D) None of the above
+
+---QUESTION 7---
+ID: 7 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Levers | Effort arm | Mechanical advantage | Longer vs Shorter
+DIFFICULTY: Easy
+QUESTION: A (longer/shorter) effort arm results in greater mechanical advantage
+OPTIONS:
+A) longer
+B) shorter
+
+---QUESTION 8---
+ID: 8 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Levers | Effort arm | Mechanical advantage | Longer vs Shorter
+DIFFICULTY: Easy
+QUESTION: A (longer/shorter) effort arm results in greater mechanical advantage
+OPTIONS:
+A) longer
+B) shorter
+
+---QUESTION 9---
+ID: 9 | POINTS: 3.00 | FORMAT: Calculation
+TOPIC: Levers | IMA | Calculation | Effort arm | Resistance arm
+DIFFICULTY: Medium
+QUESTION: Find the IMA. Bob's lever has an effort arm of 1.2m and a resistance arm of .3m
+
+---QUESTION 10---
+ID: 10 | POINTS: 3.00 | FORMAT: Calculation
+TOPIC: Levers | AMA | Calculation | Load | Effort force | Unit conversion
+DIFFICULTY: Medium
+QUESTION: If the lever is used to lift a 25lb load with 70N effort force, what is the AMA?
+
+---QUESTION 11---
+ID: 11 | POINTS: 4.00 | FORMAT: Free Response
+TOPIC: Levers | Realism | AMA | IMA | Feasibility | Explanation
+DIFFICULTY: Medium
+QUESTION: Is this realistic? Explain.
+
+---QUESTION 12---
+ID: 12 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Machines | IMA | AMA | Efficiency | Energy loss | Relationships
+DIFFICULTY: Medium
+QUESTION: If a machine has an IMA of 5 but an AMA of 2, what is true?
+OPTIONS:
+A) The machine has no energy loss
+B) The input force is larger than the output force
+C) The efficiency is more than 50%
+D) The efficiency is less than 50%
+
+---QUESTION 13---
+ID: 13 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Levers | IMA | Fulcrum | Load | Force | Effort | Determination
+DIFFICULTY: Easy
+QUESTION: The IMA for a lever is determined by the placement of the ___.
+OPTIONS:
+A) Fulcrum
+B) Load
+C) Force
+D) Effort
+
+---QUESTION 14---
+ID: 14 | POINTS: 3.00 | FORMAT: Free Response
+TOPIC: Simple Machines | Wedge | Inclined plane | Differences
+DIFFICULTY: Medium
+QUESTION: What's the difference between a wedge and an inclined plane?
+
+---QUESTION 15---
+ID: 15 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Simple Machines | Six classical machines | Lever | Inclined plane | Wedge | Screw | Nail
+DIFFICULTY: Easy
+QUESTION: What is not considered one of the 6 classical simple machines?
+OPTIONS:
+A) Lever
+B) Inclined plane
+C) Wedge
+D) Nail
+E) Screw
+
+---QUESTION 16---
+ID: 16 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Compound Machines | IMA | AMA | Efficiency | Properties
+DIFFICULTY: Medium
+QUESTION: What is true about compound machines?
+OPTIONS:
+A) The IMA is always less than 1
+B) The AMA is the sum of the AMAs of the component machines
+C) The overall IMA is product of IMAs of component machines
+D) Their efficiency is always greater than that of simple machines
+
+---QUESTION 17---
+ID: 17 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Compound Machines | Efficiency | Simple machines | Comparison | Reasons
+DIFFICULTY: Medium
+QUESTION: Why do compound machines have lower efficiency than simple machines?
+
+---QUESTION 18---
+ID: 18 | POINTS: 1.50 | FORMAT: Free Response
+TOPIC: History | Archimedean simple machines | Three machines
+DIFFICULTY: Easy
+QUESTION: What are the 3 Archimedean simple machines?
+
+---QUESTION 19---
+ID: 19 | POINTS: 3.00 | FORMAT: Free Response
+TOPIC: Simple Machines | Work | Conservation | Why machines can't change work
+DIFFICULTY: Medium
+QUESTION: Why can't simple machines change the amount of work you do?
+
+---QUESTION 20---
+ID: 20 | POINTS: 3.00 | FORMAT: Free Response
+TOPIC: Machines | Load | Effort | Differences | Definitions
+DIFFICULTY: Easy
+QUESTION: What is the difference between load and effort?
+
+---QUESTION 21---
+ID: 21 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Machines | Efficiency | 100% efficiency | Why impossible | Friction | Energy loss
+DIFFICULTY: Easy
+QUESTION: Why can no machine be 100% efficient?
+
+---SECTION 2: Pulleys---
+
+---QUESTION 22---
+ID: 22 | POINTS: 2.00 | FORMAT: Calculation
+TOPIC: Pulleys | Mechanical advantage | Movable pulleys | Anchored pulleys | Calculation
+DIFFICULTY: Medium
+QUESTION: Boberthas system has 5 movable pulleys and 3 anchored pulleys. What is its mechanical advantage?
+
+---QUESTION 23---
+ID: 23 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Wheel and Axle | Simple machine type | Lever | Pulley | Wedge | Screw
+DIFFICULTY: Easy
+QUESTION: A wheel and axle is actually a form of a:
+OPTIONS:
+A) Lever
+B) Pulley
+C) Wedge
+D) Screw
+E) None
+
+---SECTION 3: Screws and Friction---
+
+---QUESTION 24---
+ID: 24 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Screws | Self-locking | AMA | IMA | Relationship
+DIFFICULTY: Medium
+QUESTION: For a self locking screw, the actual mechanical advantage is always greater than the ideal mechanical advantage.
+
+---QUESTION 25---
+ID: 25 | POINTS: 1.00 | FORMAT: True/False
+TOPIC: Friction | Angle of repose | Coefficient of static friction | Arctangent | Relationship
+DIFFICULTY: Medium
+QUESTION: The angle of repose for a material equals the arctangent of the coefficient of static friction.
+
+---QUESTION 26---
+ID: 26 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Graphs | Load | Ideal effort | Relationship | Graph shape
+DIFFICULTY: Medium
+QUESTION: Describe the shape of a graph of load and ideal effort.
+OPTIONS:
+A) No relationship
+B) Horizontal line
+C) Quadratic and direct
+D) Linear and direct
+
+---QUESTION 27---
+ID: 27 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Graphs | Load | Mechanical advantage | Frictionless machine | Graph shape
+DIFFICULTY: Medium
+QUESTION: Describe the shape of a graph of load and mechanical advantage of a frictionless machine.
+OPTIONS:
+A) No relationship
+B) Horizontal line
+C) Quadratic and indirect
+D) Linear and direct
+
+---QUESTION 28---
+ID: 28 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Graphs | Load | Efficiency | Relationship | Graph shape
+DIFFICULTY: Medium
+QUESTION: Describe the shape of a graph of load and efficiency
+OPTIONS:
+A) No relationship
+B) Horizontal line
+C) Quadratic and direct
+D) Linear and direct
+
+---QUESTION 29---
+ID: 29 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Friction | Coefficient of friction | Dependencies | Weight | Velocity | Surface area | Materials
+DIFFICULTY: Easy
+QUESTION: The coefficient of friction depends primarily on:
+OPTIONS:
+A) The weight of the object
+B) The velocity of the object
+C) The surface area of contact
+D) The materials in contact
+
+---QUESTION 30---
+ID: 30 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Friction | Static friction | Kinetic friction | Coefficient comparison | Relationship
+DIFFICULTY: Easy
+QUESTION: The coefficient of static friction is:
+OPTIONS:
+A) Always less than kinetic friction
+B) Always greater than kinetic friction
+C) Always equal to kinetic friction
+D) Independent of kinetic friction
+
+---QUESTION 31---
+ID: 31 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Friction | Coefficient of static friction | Angle of repose | Relationship | Trigonometric functions
+DIFFICULTY: Medium
+QUESTION: What is the relationship between the coefficient of static friction and angle of repose
+OPTIONS:
+A) μₛ = cosθ
+B) μₛ = sinθ
+C) μₛ = tanθ
+D) μₛ = cscθ
+
+---QUESTION 32---
+ID: 32 | POINTS: 2.00 | FORMAT: Calculation
+TOPIC: Friction | Coefficient of static friction | Angle of incline | Calculation | 27 degrees
+DIFFICULTY: Medium
+QUESTION: If a block starts sliding at an incline of 27, what is the coefficient of static friction?
+OPTIONS:
+A) .43
+B) .51
+C) .67
+D) .82
+
+---QUESTION 33---
+ID: 33 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Screws | Self-locking | Lead angle | Coefficient of friction | Determination | λ = 3° | μ = 0.1
+DIFFICULTY: Medium
+QUESTION: A self locking screw has a lead angle of λ = 3°, μ = 0.1. Will it self lock?
+OPTIONS:
+A) yes
+B) no
+C) cannot be determined
+
+---QUESTION 34---
+ID: 34 | POINTS: 2.00 | FORMAT: Calculation
+TOPIC: Friction | Maximum angle | Coefficient of static friction | Angle of repose | μₛ = .4
+DIFFICULTY: Medium
+QUESTION: A plane has μₛ = .4. What is the maximum angle at which a block will stay at rest?
+OPTIONS:
+A) 35.1
+B) 30.7
+C) 28.3
+D) 21.8
+
+---SECTION 4: Advanced Problems---
+
+---QUESTION 35---
+ID: 35 | POINTS: 2.00 | FORMAT: Calculation
+TOPIC: Compound Machines | IMA | Lever | Axe | Effort arm | Dimensions | Calculation
+DIFFICULTY: High
+QUESTION: The MCs are gonna start getting harder from now on, so lock in. Suppose for a compound machine, you have a compound machine where you attach an axe to one end of a Class 1 Lever such that the effort arm is 1 meter long and the axe is 3 meters from where the effort is applied (end of effort arm). The axe is 2 inches wide and 20 inches long. What is the IMA?
+OPTIONS:
+A) 0.50
+B) 10
+C) 3.33
+D) 5.0
+
+---QUESTION 36---
+ID: 36 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Machines | IMA | AMA | Friction | Relationships | Experimental setup
+DIFFICULTY: Medium
+QUESTION: Which of the following relationships are the most correct/general in an experimental setup where frictional forces are non-negligible?
+OPTIONS:
+A) IMA = AMA
+B) IMA < AMA
+C) AMA < IMA
+D) IMA ≥ AMA
+E) AMA ≥ IMA
+
+---QUESTION 37---
+ID: 37 | POINTS: 2.00 | FORMAT: Calculation
+TOPIC: Pulleys | Variable mechanical advantage | Work | Integration | Height-dependent MA | m = 20 kg
+DIFFICULTY: Very High
+QUESTION: A block of mass, m, is raised by a frictionless and massless pulley system which somehow has a mechanical advantage that varies as a function of height: MA = 3 + 0.5h. If the block is lifted from h = 0 meters to h = 4 meters, what is the total work done by the effort force if m = 20 kg?
+OPTIONS:
+A) 6800
+B) 800
+C) 3100
+D) 3200
+
+---QUESTION 38---
+ID: 38 | POINTS: 2.00 | FORMAT: Calculation
+TOPIC: Levers | Retractable lever | Variable effort arm | Gear | Average IMA | Integration | Time-dependent
+DIFFICULTY: Very High
+QUESTION: Consider such a retractable lever who has one end attached to a gear. This causes it to have an effort arm with length varying with time: L(t) = 2 + sin t. However, since it is retractable, you can imagine the fulcrum fixing the load arm to place to a length of 1 m. If the effort is applied over t from 0 to π seconds, what is the average ideal mechanical advantage over this interval? Assume that all forces act perpendicular to the rod.
+OPTIONS:
+A) 2π + 2
+B) 2π+2/π
+C) 2π+2/2
+D) π+1/2π
+
+---QUESTION 39---
+ID: 39 | POINTS: 2.00 | FORMAT: Calculation
+TOPIC: Pulleys | Rotational motion | Uniform disk | Mass | Radius | Conservation of energy | Speed calculation
+DIFFICULTY: Very High
+QUESTION: A uniform disk-shaped puller of mass M and radius R is used to lift a mass m attached to a rope that does not slip on the pulley. If the mass is released from rest and allowed to fall a distance h, what is the speed of the mass just before it hits the ground?
+OPTIONS:
+A) √2gh
+B) √2Mgh/(m+M)
+C) √2mgh/(m+M)
+D) √mghR/((m+M)(R+2))
+
+---QUESTION 40---
+ID: 40 | POINTS: 5.00 | FORMAT: Calculation
+TOPIC: Screws | Screw jack | Self-locking | Maximum load | Mean diameter | Pitch | Coefficient of friction | Effort force
+DIFFICULTY: Very High
+QUESTION: A screw jack has a mean diameter of 6 cm and a pitch of 1 cm. If the coefficient of friction is 0.15, what is the maximum load it can raise before losing self-locking, given a maximum effort force of 800 N? (Take the lead angle λ to satisfy sin λ ≈ λ)
+OPTIONS:
+A) 3910 N
+B) 2210 N
+C) 800 N
+D) 920 N
+
+---QUESTION 41---
+ID: 41 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Energy Losses | Real machines | Microscopic level | Friction | Heat | Elastic energy | Asperities
+DIFFICULTY: High
+QUESTION: Which of the following statements about the energy losses in real machines is correct at the microscopic level?
+OPTIONS:
+A) Losses are always due to macroscopic deformation
+B) All friction converts mechanical energy purely to heat
+C) Friction losses may be due to both heat and microscopic elastic energy stored in asperities
+D) Energy losses are minimized by increasing the load
+
+---QUESTION 42---
+ID: 42 | POINTS: 2.00 | FORMAT: MC / Calculation
+TOPIC: Levers | Third class lever | Maximum mechanical advantage | Fulcrum position | Uniform bar | Length L
+DIFFICULTY: High
+QUESTION: Suppose you are trying to maximize the mechanical advantage of a 3rd class lever by varying the position of the fulcrum along a uniform bar of length L. What position, as a fraction of L, yields maximum mechanical advantage?
+OPTIONS:
+A) At the midpoint
+B) At L/3 from the load
+C) At one end
+D) As close to the load as possible
+
+---QUESTION 43---
+ID: 43 | POINTS: 2.00 | FORMAT: Calculation
+TOPIC: Wedges | Penetration | Initial velocity | Force model | F(x) = kx² | Distance calculation
+DIFFICULTY: Very High
+QUESTION: A wedge is driven into a rigid material with an initial velocity v₀. The force exerted by the material can be modeled as F(x) = kx². How far will the wedge penetrate before stopping?
+OPTIONS:
+A) mv²₀/k
+B) 3mv²₀/2k
+C) √3mv²₀/2k
+D) 3√3mv²₀/2k
+
+---QUESTION 44---
+ID: 44 | POINTS: 2.00 | FORMAT: MC
+TOPIC: Pulleys | Differential pulley | Radii | Velocity ratio | IMA | Slipping prevention | Adjustments
+DIFFICULTY: High
+QUESTION: A differential pulley has two pulleys of radii R and r (R > r), and the effort rope is wound around both. If you want the velocity ratio (inverse of IMA) to remain below a critical value to prevent slipping, which adjustment should you make?
+OPTIONS:
+A) Increase R and decrease r
+B) Increase r and decrease R
+C) Keep as is
+D) Increase both equally
+
+---QUESTION 45---
+ID: 45 | POINTS: 2.00 | FORMAT: Calculation
+TOPIC: Efficiency | Time-dependent | Efficiency function | Input force | Time calculation | η(x) = 1 − e^(-0.2x) | x(t) = t²
+DIFFICULTY: High
+QUESTION: The efficiency of a machine is given by η(x) = 1 − e^(-0.2x) where x is the input force. Also given x(t) = t², at what time does the efficiency surpass 80%?
+OPTIONS:
+A) 2.83 s
+B) 3.16 s
+C) 2.34 s
+D) 4.01 s
+
+---SECTION 5: Advanced Free Response Problems---
+
+---QUESTION 46---
+ID: 46 | POINTS: 2.00 | FORMAT: Free Response / Image Analysis
+TOPIC: Free Body Diagrams | Mass | Hemispherical bowl | Circular motion | Forces
+DIFFICULTY: High
+QUESTION: Describe a free body diagram for the mass m at the instant shown in the figure.
+
+---QUESTION 47---
+ID: 47 | POINTS: 8.00 | FORMAT: Calculation / Free Response
+TOPIC: Circular Motion | Period | Hemispherical bowl | Mass | Angle | Radius | Gravitational acceleration
+DIFFICULTY: Very High
+QUESTION: Determine the period, T, of the circular motion in terms of the given parameters and constants (R, θ, m, g).
+
+---QUESTION 48---
+ID: 48 | POINTS: 5.00 | FORMAT: Free Response
+TOPIC: Free Body Diagrams | Newton's 2nd Law | Differential equation | Mass | Hemispherical bowl | Angle | θ(t)
+DIFFICULTY: Very High
+QUESTION: Describe the free body diagram for the mass, and use Newton's 2nd Law to write down a differential equation for θ(t).
+
+---QUESTION 49---
+ID: 49 | POINTS: 10.00 | FORMAT: Calculation / Free Response
+TOPIC: Differential Equations | Small angle approximation | θ(t) | Hemispherical bowl | Initial conditions | General solution
+DIFFICULTY: Very High
+QUESTION: Determine θ(t) while the mass is touching the bowl and θ is small. Hint: since θ is small, you can use sin θ ≈ θ. With this approximation, you should be able to write down the general solution by eye, and then solve for the constants with the initial conditions.
+
+---QUESTION 50---
+ID: 50 | POINTS: 7.00 | FORMAT: Free Response
+TOPIC: Pulleys | Block and tackle | Mechanism | Mechanical advantage | N pulleys | Construction
+DIFFICULTY: High
+QUESTION: A block and tackle is a system of two or more pulleys with a rope or cable threaded between them, used to provide tension and lift heavy loads. Explain the mechanism behind how a block and tackle can be constructed to have a mechanical advantage of N (for N pulleys). Note that there are several right answers.
+
+---QUESTION 51---
+ID: 51 | POINTS: 6.00 | FORMAT: Free Response
+TOPIC: Pulleys | Accelerations | Relationship | Unstretchable string | Equations
+DIFFICULTY: High
+QUESTION: How are the accelerations related, assuming that the string is unstretchable? Strongest responses will include equation(s)
+
+---QUESTION 52---
+ID: 52 | POINTS: 7.00 | FORMAT: Calculation / Free Response
+TOPIC: Pulleys | Tension | Rope | Calculation | System analysis
+DIFFICULTY: Very High
+QUESTION: Find the tension in the rope, T.
+
+---QUESTION 53---
+ID: 53 | POINTS: 7.00 | FORMAT: Calculation / Free Response
+TOPIC: Pulleys | Nested pulleys | Tension | Acceleration | n = 1 | Fixed pulley | Masses
+DIFFICULTY: Very High
+QUESTION: Suppose n = 1. Find the tension, T, with which the rightmost mass is being pulled up. Find the acceleration, a₀, of the mass on the right (m₀). Find the acceleration, aₙ, of the mass on the left (mₙ).
+
+---QUESTION 54---
+ID: 54 | POINTS: 8.00 | FORMAT: Calculation / Free Response
+TOPIC: Pulleys | Nested pulleys | General case | Tension | Accelerations | n = n | General solution
+DIFFICULTY: Very High
+QUESTION: Now solve for T, a₀, and aₙ in the general case (n = n).
+
+---SECTION 6: Applied Problems---
+
+---QUESTION 55---
+ID: 55 | POINTS: 3.00 | FORMAT: Calculation
+TOPIC: Friction | Skiing | Frictional force | Constant acceleration | Mass | Coefficient of kinetic friction | Slope angle
+DIFFICULTY: Medium
+QUESTION: Bobenzo is skiing down a hill with constant acceleration and mapped out a position time graph for her very important AP physics lab report. She weighs 50kg and has a μₖ of .123. The slope is 35° from horizontal. What is the frictional force?
+
+---QUESTION 56---
+ID: 56 | POINTS: 3.00 | FORMAT: Calculation
+TOPIC: Friction | Minimum coefficient of static friction | Standing still | Slope | No sliding
+DIFFICULTY: Medium
+QUESTION: What is the minimum coefficient of static friction required for Bobenzo to stand still on the slope without sliding?
+
+---QUESTION 57---
+ID: 57 | POINTS: 5.00 | FORMAT: Calculation
+TOPIC: Energy | Mechanical energy | Thermal energy | Friction | Distance | Slope | Conversion
+DIFFICULTY: Medium
+QUESTION: If Bobenzo descends 105m along the slope, how much mechanical energy is converted to thermal energy by friction?
+
+---QUESTION 58---
+ID: 58 | POINTS: 4.00 | FORMAT: Calculation
+TOPIC: Power | Average power | Friction | Dissipation | Time | 15 seconds
+DIFFICULTY: Medium
+QUESTION: If her skiing lasts 15 seconds, what is the average power dissipated by friction?
+
+---QUESTION 59---
+ID: 59 | POINTS: 2.50 | FORMAT: Free Response
+TOPIC: Simple Machines | Bike | Components | Identification
+DIFFICULTY: Easy
+QUESTION: Bobert has a bright red bike! What simple machines are a part of his bike?
+
+---QUESTION 60---
+ID: 60 | POINTS: 5.00 | FORMAT: Calculation
+TOPIC: Wheel and Axle | IMA | Radius | Wheel radius | Axle radius | Calculation | 35cm | .017m
+DIFFICULTY: Medium
+QUESTION: The radius of Bobert's bright red bike wheel is 35cm, and the axle radius is .017m. What is the wheel and axles ideal mechanical advantage?
+
+---QUESTION 61---
+ID: 61 | POINTS: 5.00 | FORMAT: Calculation
+TOPIC: Wheel and Axle | IMA | Axle radius | Calculation | Desired IMA = 15
+DIFFICULTY: Medium
+QUESTION: Bobert is bothered by his IMA is not exactly 15 :( What should his axle radius be to make his dreams of this come true?
+
+---QUESTION 62---
+ID: 62 | POINTS: 5.00 | FORMAT: Calculation
+TOPIC: Uncertainty | Propagation | IMA | Wheel radius | Axle radius | Uncertainty calculation | ±1mm | ±.2mm
+DIFFICULTY: High
+QUESTION: Whoops! It turns out the wheel's radius is actually known to be ±1mm and the axle radius is ± .2mm! What is the uncertainty of the IMA?

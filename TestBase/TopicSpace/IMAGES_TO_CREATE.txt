@@ -1,0 +1,263 @@
+================================================================================
+IMAGES NEEDED FOR CIRCUIT LAB STUDY BINDER
+Quick Reference for Creating Visual Aids
+================================================================================
+
+Priority 1 (CRITICAL - Create First):
+================================================================================
+
+1. Power Triangle Diagram
+   Location: Section 1.1 - After "POWER EQUATIONS"
+   Content: Triangle showing P=VI, P=I²R, P=V²/R with V, I, R labels
+   Why: Students frequently confuse power equations
+   Format: Simple geometric diagram, color-coded
+
+2. Series Circuit Diagram
+   Location: Section 1.1 - After "SERIES CIRCUITS" formula
+   Content: Battery connected to 3 resistors in series with voltage drops labeled
+   Why: Visual understanding of voltage dividing
+   Format: Circuit schematic, standard component symbols
+
+3. Parallel Circuit Diagram
+   Location: Section 1.1 - After "PARALLEL CIRCUITS" formula  
+   Content: Battery connected to 3 resistors in parallel with currents labeled
+   Why: Visual understanding of current dividing
+   Format: Circuit schematic, standard component symbols
+
+4. Resistor Color Code Reference
+   Location: Section 2.1 - After "EXAMPLES" in resistor section
+   Content: Physical resistor image showing 4-band, 5-band, 6-band with worked examples
+   Why: Students need to quickly decode color codes
+   Format: Photo + annotations or digital illustration
+
+5. RC Charging Curve
+   Location: Section 5.1 (not in current file, should be added)
+   Content: Exponential rise graph showing 0, 1τ, 2τ, 3τ, 5τ time points
+   Why: Critical for understanding time constants
+   Format: Graph with smooth curve, labeled percentages
+
+6. RC Discharging Curve
+   Location: Section 5.1 (not in current file, should be added)
+   Content: Exponential decay graph mirroring charging curve
+   Why: Complement to charging curve
+   Format: Graph with smooth curve, labeled percentages
+
+Priority 2 (HIGH - Create Next):
+================================================================================
+
+7. Component Symbols Reference Sheet
+   Location: Section 3.5 (replaces ASCII art)
+   Content: All standard circuit symbols organized by category
+   Why: Students need quick visual reference during exams
+   Format: Reference sheet with ~30 symbols, organized grid
+
+8. Magnetic Field Around Straight Wire (Right-Hand Rule Context 1)
+   Location: Section 1.3 - After "MAGNETIC FIELD (Straight wire)" formula
+   Content: Top view of concentric circles + right-hand rule hand position
+   Why: Most students struggle with right-hand rule
+   Format: Multiple views (top, side, 3D perspective)
+
+9. Lorentz Force 3D Diagram (Right-Hand Rule Context 3)
+   Location: Section 1.3 - After "MAGNETIC FORCE (Moving charge)" formula
+   Content: 3D vectors showing v, B, F with right-hand rule
+   Why: Students reverse directions frequently
+   Format: 3D diagram with multiple example orientations
+
+10. LED Color vs Forward Voltage Chart
+    Location: Section 2.4 - After "Forward Voltage (Color-dependent)" list
+    Content: Bar chart or image showing LED colors with voltage ranges
+    Why: Quick visual reference for LED specifications
+    Format: Color-coded bar chart or LED images with values
+
+11. AC Sine Wave - RMS vs Peak
+    Location: Section 1.2 - After "RMS vs. PEAK CONVERSION" formulas
+    Content: Sine wave showing 120V RMS, 170V peak, 340V peak-to-peak
+    Why: Students confuse RMS and peak voltages
+    Format: Waveform graph with clearly marked voltages
+
+12. Series vs Parallel Comparison Visual
+    Location: Section 5.3 (not fully in current file)
+    Content: Side-by-side circuit diagrams with comparison table
+    Why: Students need to quickly distinguish and recall differences
+    Format: Two circuits side-by-side with parallel comparison annotations
+
+Priority 3 (MEDIUM - Create If Time):
+================================================================================
+
+13. Diode I-V Characteristic Curve
+    Location: Section 2.4 - In diode specifications
+    Content: Graph showing forward bias (exponential rise) and reverse bias
+    Why: Helps understand diode behavior
+    Format: Typical I-V curve with annotations
+
+14. Transformer Core and Flux
+    Location: Section 5.5 - Transformer operation
+    Content: Primary/secondary coils with shared flux, labeled voltage/current ratios
+    Why: Visual understanding of transformer operation
+    Format: Cross-section view with flux lines and labels
+
+15. Right-Hand Rule - All 3 Contexts
+    Location: Section 5.2
+    Content: Three separate hand diagrams showing wire, loop, and force contexts
+    Why: Comprehensive reference for all right-hand rule applications
+    Format: Hand illustrations for each context
+
+16. Circuit Analysis Decision Flowchart
+    Location: Section 4.1 - Circuit analysis strategy
+    Content: Decision tree: Series or Parallel? → Solving for what? → AC or DC?
+    Why: Helps students systematically approach problems
+    Format: Flowchart with decision diamonds and process boxes
+
+17. Equivalent Resistance Reduction Steps
+    Location: Section 4.2 - After method description
+    Content: Step-by-step reduction of complex circuit with intermediate states
+    Why: Shows how to systematically simplify circuits
+    Format: Series of circuit diagrams showing progression
+
+18. Multimeter Connection Diagrams
+    Location: Section 6.4 - Safety and practical tips
+    Content: Three diagrams: voltage (parallel), current (series), resistance (isolated)
+    Why: Critical for safe meter usage
+    Format: Three separate circuit diagrams with meter connections shown
+
+19. Breadboard Layout and Wiring Example
+    Location: Section 6.4 - Breadboarding section
+    Content: Overhead view showing proper component placement and jumper routing
+    Why: Visual reference for building circuits
+    Format: Breadboard layout diagram with example circuit
+
+20. LED Series Resistor Calculation Example
+    Location: Section 2.4 - LED section OR as standalone reference
+    Content: Step-by-step calculation with circuit diagram and color codes
+    Why: Most common practical calculation students need to do
+    Format: Visual walkthrough with circuit diagram
+
+Optional (LOW - Reference/Enhancement):
+================================================================================
+
+21. Solenoid Diagram
+    Location: Section 1.3 - Solenoid field section
+    Content: Coil showing field lines, labeled N, L, I, B
+    Why: Visual reference for solenoid formula
+    Format: 3D or cross-section illustration
+
+22. Voltage Divider Circuit
+    Location: After VOLTAGE DIVIDER formula (1.1)
+    Content: Two resistor divider showing input and output voltages
+    Why: Quick reference for voltage divider configuration
+    Format: Simple circuit diagram
+
+23. AC vs DC Symbol Reference
+    Location: Section 3.5 - Component symbols
+    Content: Battery symbol (DC) vs AC source symbol
+    Why: Students sometimes confuse representations
+    Format: Simple symbol comparison
+
+24. Common Component Packages (DIP, SMD, etc.)
+    Location: Could be added to component sections
+    Content: Physical appearance of resistors, capacitors, ICs in various packages
+    Why: Helps recognize components on breadboards
+    Format: Photos or illustrations of packages
+
+25. Multimeter Dial Positions
+    Location: Section 6.4 - Multimeter usage
+    Content: Photo/illustration of typical multimeter with dial settings labeled
+    Why: Reference for proper meter configuration
+    Format: Annotated photo or illustration
+
+================================================================================
+CREATION STRATEGY
+================================================================================
+
+PHASE 1 (Week 1): Create Priority 1 images (Diagrams 1-6)
+  - These are used most frequently
+  - Most critical for understanding
+  - Estimated time: 3-4 hours
+
+PHASE 2 (Week 2): Create Priority 2 images (Diagrams 7-12)
+  - High value for learning
+  - Support key concepts
+  - Estimated time: 4-5 hours
+
+PHASE 3 (Week 3+): Create Priority 3 images (Diagrams 13-20)
+  - Reference and supporting material
+  - Nice to have but not critical
+  - Estimated time: 3-4 hours
+
+RECOMMENDED TOOLS:
+- Circuit diagrams: LTspice, Circuit Lab, or Draw.io
+- Graphs/curves: Desmos, Matplotlib, or Excel
+- Vector graphics: Inkscape (free) or Adobe Illustrator
+- Photos/annotations: Snagit or basic image editor
+- Hand diagrams: Draw.io, Procreate, or hand-drawn + scanned
+
+FILE FORMAT RECOMMENDATIONS:
+- PNG for diagrams (preserves quality, no loss)
+- High resolution (300 DPI minimum for print quality)
+- Consistent sizing (all graphs same size if possible)
+- Consistent color scheme (use palette for brand consistency)
+
+PLACEMENT IN DOCUMENT:
+- Insert image placeholder text "[ADD IMAGE: description]" in text file
+- Link to image files in final document
+- Number images for cross-referencing
+- Include figure captions
+
+================================================================================
+SPECIFIC TECHNICAL NOTES FOR EACH DIAGRAM
+================================================================================
+
+Power Triangle:
+- Keep simple, avoid 3D effects
+- Color: Red=P, Blue=I²R, Green=V²/R
+- Include both valid and invalid (P=V²R crossed out)
+
+Series/Parallel Circuits:
+- Use standard IEEE symbols
+- Color: Red=+, Black=Ground, White=other
+- Include ground symbols for clarity
+- Label all voltages and currents
+
+RC Curves:
+- Exponential curves, NOT linear
+- Mark key percentages (63%, 95%, 99%)
+- Time axis in τ units, not seconds
+- Include mathematical formula on graph
+
+Component Symbols:
+- Use standard symbols per IEEE 315
+- Organize logically (passive first, then active)
+- Include component name below each symbol
+- Size all symbols consistently
+
+LED Color Chart:
+- Use actual LED colors or close approximations
+- Show voltage ranges as bars
+- Include both typical and max values
+- Color intensity could represent brightness
+
+Right-Hand Rule:
+- Show actual hand in realistic positions
+- Multiple views for each context (top, side, perspective)
+- Use arrows to show relationships between vectors
+- Label each finger/thumb with meaning
+
+Circuit Analysis Flowchart:
+- Use diamond shapes for decisions
+- Use rectangles for processes
+- Include "yes/no" labels on decision branches
+- Show end state clearly
+
+Multimeter Connections:
+- Show three separate circuits (voltage, current, resistance)
+- Highlight meter connections in red
+- Show correct dial setting for each
+- Include warning symbols for improper usage
+
+Breadboard Layout:
+- Show overhead view
+- Color power rails red/black
+- Show component placement with labels
+- Highlight proper wire routing (short, organized)
+
+================================================================================

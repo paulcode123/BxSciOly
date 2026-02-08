@@ -1,0 +1,796 @@
+1. (1.00 pts)
+Which of the following best describes a common source outbreak?
+   A)
+Influenza spreading person-to-person
+   B)
+Cholera from a contaminated water supply
+   C)
+HIV transmitted sexually
+   D)
+Measles in a school
+2. (1.00 pts)
+The basic reproduction number (R0) measures:
+   A)
+Mortality rate
+   B)
+Incubation period
+   C)
+Transmission potential of a disease
+   D)
+Case fatality ratio
+3. (1.00 pts)
+Which study design follows a group of individuals over time to observe outcomes?
+   A)
+Case-control
+   B)
+Cohort
+   C)
+Cross-sectional
+   D)
+Ecological
+4. (1.00 pts)
+During an outbreak investigation, the first step is usually:
+   A)
+Develop hypotheses
+   B)
+Establish the existence of an outbreak
+   C)
+Implement control measures
+   D)
+Collect laboratory samples
+5. (1.00 pts)
+Which measure represents the proportion of exposed individuals who develop disease?
+   A)
+Attack rate
+   B)
+Incidence rate
+   C)
+Prevalence
+   D)
+Mortality rate
+Disease Detectives C - Disease Detectives - Monta Vista Science Olympiad (Div. C) - 11-14-2025
+Student Answer Sheet (/monta-vista/SM/AnswerSheet?tid=000GEM)
+Instructions (shown before students start the test)
+Introduction (shown after students start the test)
+12/13/25, 2:12 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEM
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEM
+1/20
+
+6. (1.00 pts)
+A foodborne outbreak linked to a single meal is an example of:
+   A)
+Continuous common source
+   B)
+Propagated
+   C)
+Sporadic
+   D)
+Point source
+7. (1.00 pts)
+Which of the following is a key feature of a propagated outbreak?
+   A)
+Single peak in cases
+   B)
+Multiple peaks over time
+   C)
+Short incubation period
+   D)
+Only one person affected
+8. (1.00 pts)
+Which measure estimates the number of new cases in a population during a specific time?
+   A)
+Incidence rate
+   B)
+Prevalence
+   C)
+Mortality rate
+   D)
+Case-fatality ratio
+9. (1.00 pts)
+In a case-control study, participants are selected based on:
+   A)
+Exposure status
+   B)
+Outcome status
+   C)
+Random sampling
+   D)
+Age
+10. (1.00 pts)
+Which of the following is NOT an example of primary prevention?
+   A)
+Vaccination
+   B)
+Health education
+   C)
+Quarantine of infected individuals
+   D)
+Wearing masks during a pandemic
+11. (1.00 pts)
+During which outbreak phase is the epidemic curve plotted?
+   A)
+Before investigation
+   B)
+During investigation
+   C)
+After control measures
+   D)
+Never
+12/13/25, 2:12 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEM
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEM
+2/20
+
+12. (1.00 pts)
+Which of the following describes herd immunity?
+   A)
+All individuals are immune
+   B)
+Immunity is temporary
+   C)
+Enough people are immune to prevent disease spread
+   D)
+Only children are immune
+13. (1.00 pts)
+Which measure represents the proportion of deaths among diagnosed cases?
+   A)
+Incidence rate
+   B)
+Mortality rate
+   C)
+Attack rate
+   D)
+Case-fatality ratio
+14. (1.00 pts)
+An epidemiologist wants to study the association between smoking and lung cancer. Which study design is most appropriate?
+   A)
+Case-control study
+   B)
+Cohort study
+   C)
+Cross-sectional study
+   D)
+Ecological study
+15. (1.00 pts)
+Which type of study is retrospective in nature?
+   A)
+Case-control
+   B)
+Cohort
+   C)
+Randomized controlled trial
+   D)
+Cross-sectional
+16. (1.00 pts)
+Which of the following is an example of an emerging infectious disease?
+   A)
+Seasonal flu
+   B)
+COVID-19
+   C)
+Common cold
+   D)
+Chickenpox
+17. (1.00 pts)
+What is the incubation period?
+   A)
+Time from onset to recovery
+   B)
+Time from exposure to symptom onset
+   C)
+Time from diagnosis to death
+   D)
+Time from birth to immunity
+12/13/25, 2:12 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEM
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEM
+3/20
+
+18. (1.00 pts)
+Which is an example of a vector-borne disease?
+   A)
+Cholera
+   B)
+Influenza
+   C)
+Malaria
+   D)
+Tuberculosis
+19. (1.00 pts)
+Which factor is considered a host factor in disease occurrence?
+   A)
+Pathogen type
+   B)
+Immunity status
+   C)
+Environmental sanitation
+   D)
+Water contamination
+20. (1.00 pts)
+Which of the following is an environmental factor in disease transmission?
+   A)
+Age    
+   B)
+Gender
+   C)
+Genetic predisposition
+   D)
+Temperature and humidity
+21. (1.00 pts)
+Which term refers to the total number of cases in a population at a specific time?
+   A)
+Incidence
+   B)
+Attack rate
+   C)
+Prevalence
+   D)
+Mortality rate
+22. (1.00 pts)
+Which of the following best describes a common source outbreak?
+   A)
+Cholera from a contaminated water supply
+   B)
+Influenza spreading person-to-person
+   C)
+HIV transmitted sexually
+   D)
+Measles in a school
+(1 point each, 70 points total) Each term will be used only once
+Active Immunity
+Acute Exposure
+Agent
+Antigen
+Secondary Attack
+Rate
+Information Bias
+Selection Bias
+Crude Birth Rate
+Index Case
+Necessary Cause
+Class Interval
+Comparison Value
+Confounding
+Delayed Health
+Effect
+Detection Limit
+Dose-Response
+Relationship
+Efficacy
+Efficiency
+Endemic Level
+Epidemiologic Trial
+Analytic
+Epidemiology
+12/13/25, 2:12 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEM
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEM
+4/20
+
+23. (1.00 pts)
+The systematic assessment of people exposed or potentially exposed to health hazards.
+24. (1.00 pts)
+Manipulation of the association between an exposure and a health outcome by a third variable that is related to both.
+25. (1.00 pts)
+The immunity that results from the production of antibodies by the immune system in response to the presence of an antigen.
+26. (1.00 pts)
+The number of deaths of children from birth up to, but not including, 28 days per 1,000 live births.
+27. (1.00 pts)
+Contact with a substance that occurs once or for only a short time.
+Applied Epidemiology
+Descriptive
+Epidemiology
+Exposure-Dose
+Reconstruction
+Fomite
+Health Promotion
+Healthy Worker
+Effect
+Host Factor
+Active Immunity
+Herd Immunity
+Passive Immunity
+Incidence
+Incubation Period
+In Vitro
+In Vivo
+Crude Mortality Rate
+Infant Mortality Rate
+Neonatal Mortality Rate
+Postneonatal Mortality
+Rate
+Normal Distribution
+Odds Ratio
+Outbreak
+Common-Source
+Outbreak
+Point-Source Outbreak
+Propagated Outbreak
+Pandemic
+Prevalence
+Reservoir
+Risk Communication
+Random Sample
+Representative Sample
+Standard Deviation
+Analytic Study
+Case-Control Study
+Cohort Study
+Experimental Study
+Observational Study
+Medical Surveillance
+Passive Surveillance
+Sentinel Surveillance
+Synergistic Effect
+Teratogen
+Airborne
+Transmission
+Vectorborne
+Transmissions
+Vehicleborne
+Transmissions
+Virulency
+Contact tracing
+Confidentiality
+Healthy lifestyle
+Measure of
+association
+12/13/25, 2:12 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEM
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEM
+5/20
+
+28. (1.00 pts)
+A study that evaluates the association between exposure to hazardous substances and disease by testing scientific hypotheses.
+29. (1.00 pts)
+Quantifies or assigns a numerical value to the strength of the statistical association between an exposure and outcome. Measures of association can be compared
+30. (1.00 pts)
+Selected reporting units, with a high probability of seeing cases of the disease in question, good laboratory facilities and experienced well-qualified staff, identify and notify on
+certain diseases.
+31. (1.00 pts)
+The duty to keep patient information, such as medical records, secure. Confidentiality deals with how information will be used and who has access to this information (e.g., health
+care workers should not share confidential information with roommates, neighbors, or family members without the verbal or written consent of the patient).
+32. (1.00 pts)
+A toxin or other foreign substance that induces an immune response in the body, especially the production of antibodies.
+33. (1.00 pts)
+The probability that infection occurs among susceptible persons within a reasonable incubation period following known contact with an infectious person or another infectious
+source.
+12/13/25, 2:12 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEM
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEM
+6/20
+
+34. (1.00 pts)
+Bias arising from measurement error.
+35. (1.00 pts)
+The choice of individuals, groups or data for analysis in such a way that proper randomization is not achieved.
+36. (1.00 pts)
+Gathers disease data from all potential reporting health care workers without prompting.
+37. (1.00 pts)
+The number of live births occurring among the population of a given geographical area during a given year, per 1,000 mid-year total population of the given geographical area durin
+the same year.
+38. (1.00 pts)
+A measure that is used to quantify the amount of variation of a set of data values.
+39. (1.00 pts)
+The initial patient in the population of an epidemiological investigation, or more generally, the first case of a condition or syndrome to be described in the medical literature.
+12/13/25, 2:12 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEM
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEM
+7/20
+
+40. (1.00 pts)
+A study that samples a group of people who share a defining characteristic, typically who experienced a common event in a selected period.
+41. (1.00 pts)
+A factor that must be present for a disease to occur.
+42. (1.00 pts)
+A factor (e.g., a microorganism or chemical substance) or form of energy whose presence, excessive presence, or in the case of deficiency diseases, relative absence is essential fo
+the occurrence of a disease or other adverse health outcome.
+43. (1.00 pts)
+The size of each class into which a range of a variable is divided, as represented by the divisions of a histogram or bar chart.
+44. (1.00 pts)
+Refers to the degree of damage caused by a microbe to its host.
+45. (1.00 pts)
+Calculated concentration of a substance in air, water, food, or soil that is unlikely to cause harmful health effects in exposed people.
+46. (1.00 pts)
+An outbreak in which persons are exposed to the same source over a brief time, such as through a single meal or at an event. The number of cases rises rapidly to a peak and falls
+gradually.
+12/13/25, 2:12 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEM
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEM
+8/20
+
+47. (1.00 pts)
+A study that compares exposures of people who have a disease or condition with people who do not have the disease or condition.
+48. (1.00 pts)
+A disease or an injury that happens as a result of exposures that might have occurred in the past.
+49. (1.00 pts)
+The lowest concentration of a chemical that can reliably be distinguished from a zero concentration.
+50. (1.00 pts)
+The relationship between the amount of exposure to a substance and the resulting changes in body function or health.
+51. (1.00 pts)
+The ability of an intervention or program to produce the intended or expected results under ideal conditions.
+52. (1.00 pts)
+The ability of an intervention or program to produce the intended or expected results with a minimum expenditure of time and resources.
+53. (1.00 pts)
+The amount of a particular disease that is usually present in a community.
+12/13/25, 2:12 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEM
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEM
+9/20
+
+54. (1.00 pts)
+Consists of an external agent, a host and an environment in which host and agent are brought together, causing the disease to occur in the host.
+55. (1.00 pts)
+The study of epidemiology that is concerned with the search for causes and effects, or the why and the how.
+56. (1.00 pts)
+The identification, monitoring, and support of a person who has been exposed to, and possibly infected with an infectious agent, such as a person who came in close contact with 
+person with a confirmed or probable case of disease.
+57. (1.00 pts)
+A way of living that lowers the risk for disease and improves physical, mental, and social well-being, such as through healthy eating, regular physical activity, avoiding tobacco use,
+and reducing stress.
+58. (1.00 pts)
+An outbreak which results from transmission from one person to another.
+59. (1.00 pts)
+Putting epidemiological research methods to use in public health practice.
+12/13/25, 2:12 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEM
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEM
+10/20
+
+60. (1.00 pts)
+The study of the amount and distribution of a disease in a specified population by person, place, and time.
+61. (1.00 pts)
+A method of estimating the amount of people's past exposure to hazardous substances.
+62. (1.00 pts)
+Any nonliving object or substance capable of carrying infectious organisms, such as germs or parasites, and hence transferring them from one individual to anothe
+63. (1.00 pts)
+A study where the researcher observes and systematically collects information, but does not try to change the people.
+64. (1.00 pts)
+The process of enabling people to increase control over, and to improve, their health.
+65. (1.00 pts)
+A phenomenon where workers usually exhibit lower overall death rates than the general population because the severely ill and chronically disabled are ordinarily excluded from
+employment.
+12/13/25, 2:12 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEM
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEM
+11/20
+
+66. (1.00 pts)
+A biologic response to multiple substances where one substance worsens the effect of another substance.
+67. (1.00 pts)
+Refers to the traits of an individual person or animal that affect susceptibility to disease, especially in comparison to other individuals.
+68. (1.00 pts)
+The immunity that results from the production of antibodies by the immune system in response to the presence of an antigen.
+69. (1.00 pts)
+A sample whose characteristics correspond to those of the original population or reference population.
+70. (1.00 pts)
+The immunity to a pathogen in a population based on the acquired immunity to it by a high proportion of members over time.
+71. (1.00 pts)
+A study where the researcher intervenes to change something (e.g., gives some patients a drug) and then observes what happens.
+72. (1.00 pts)
+The short-term immunity that results from the introduction of antibodies from another person or animal.
+12/13/25, 2:12 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEM
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEM
+12/20
+
+73. (1.00 pts)
+The number of new cases of disease in a defined population over a specific time period.
+74. (1.00 pts)
+The period between exposure and onset of clinical symptoms.
+75. (1.00 pts)
+The exchange of information to increase understanding of health risks.
+76. (1.00 pts)
+In an artificial environment outside a living organism or body.
+77. (1.00 pts)
+Infections transmitted by the bite of infected arthropod species.
+78. (1.00 pts)
+Within a living organism or body.
+79. (1.00 pts)
+The mortality rate from all causes of death for a population during a specified time period.
+12/13/25, 2:12 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEM
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEM
+13/20
+
+80. (1.00 pts)
+The habitat in which an infectious agent normally lives, grows and multiplies
+81. (1.00 pts)
+The number of deaths of infants under one year old per 1,000 live births.
+82. (1.00 pts)
+A substance that causes defects in development between conception and birth.
+83. (1.00 pts)
+A set of items that have been drawn from a population in such a way that each time an item was selected, every item in the population had an equal opportunity to appear in the
+sample.
+84. (1.00 pts)
+The number of deaths of children from 28 days up to, but not including, one year per 1,000 live births.
+85. (1.00 pts)
+A function that represents the distribution as a symmetrical bell-shaped graph.
+12/13/25, 2:12 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEM
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEM
+14/20
+
+86. (1.00 pts)
+Infections transmitted by an inanimate object or material.
+87. (1.00 pts)
+A measure of association between an exposure and an outcome.
+88. (1.00 pts)
+A sudden increase in occurrences of a disease in a particular time and place.
+89. (1.00 pts)
+An outbreak in which a group of persons are all exposed to an infectious agent or a toxin from the same source.
+90. (1.00 pts)
+An epidemic of infectious disease that has spread through human populations across a large region.
+91. (1.00 pts)
+When bacteria or viruses travel on dust particles or on small respiratory droplets that may become aerosolized when people sneeze, cough, laugh, or exhale.
+92. (1.00 pts)
+The number of existing disease cases in a defined population during a specific time period.
+12/13/25, 2:12 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEM
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEM
+15/20
+
+93. (1.00 pts)
+Exposure to the infectious agent marks the beginning of what stage?
+   A)
+Stage of susceptibility
+   B)
+Stage of subclinical disease
+   C)
+Stage of clinical disease
+   D)
+Stage of disability
+94. (1.00 pts)
+Tuberculosis
+   A)
+a
+   B)
+b,
+   C)
+c
+   D)
+d
+95. (1.00 pts)
+ Shigellosis
+   A)
+a
+   B)
+b
+   C)
+c
+   D)
+d
+96. (1.00 pts)
+SARS
+   A)
+a    
+   B)
+b
+   C)
+c
+   D)
+d
+97. (1.00 pts)
+Chagas disease
+   A)
+a
+Match the diseases with their respective modes of transmission for the next 10 questions:
+a. Airborne transmission
+b. Water-borne transmission
+c. Food-borne transmission
+d. Vector transmission
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+12/13/25, 2:12 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEM
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEM
+16/20
+
+   B)
+b
+   C)
+c
+   D)
+d
+98. (1.00 pts)
+Giardiasis
+   A)
+a
+   B)
+b
+   C)
+c
+   D)
+d
+99. (1.00 pts)
+Hepatitis
+   A)
+a
+   B)
+b
+   C)
+c
+   D)
+d
+100. (1.00 pts)
+ Lyme disease
+   A)
+a
+   B)
+b
+   C)
+c
+   D)
+d
+101. (1.00 pts)
+Varicella
+   A)
+a
+   B)
+b
+   C)
+c
+   D)
+d
+102. (1.00 pts)
+Typhoid fever
+   A)
+a
+   B)
+b
+   C)
+c
+   D)
+d
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+12/13/25, 2:12 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEM
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEM
+17/20
+
+103. (1.00 pts)
+Influenza
+   A)
+a
+   B)
+b
+   C)
+c
+   D)
+d
+104. (1.00 pts)
+Viruses, prions, and bacteria are examples of pathogens.
+105. (1.00 pts)
+A reservoir for infectious disease always shows symptoms of the disease.
+106. (1.00 pts)
+A respiratory infection is a result of indirect transmission.
+107. (1.00 pts)
+An example of a vector is the deer tick that transmits Lyme disease.
+108. (1.00 pts)
+The respiratory system can function as both a portal of entry and a portal of exit for disease transmission.
+109. (1.00 pts)
+With most pathogens, people are not infectious during the incubation stage.
+110. (1.00 pts)
+The clinical stage of infection is also called the acute stage.
+111. (1.00 pts)
+A vaccination is an example of naturally acquired immunity.
+112. (1.00 pts)
+Passively acquired immunity results when antibodies are introduced into the body.
+(Mark ALL correct answers)
+   True     
+   False
+   True     
+   False
+   True     
+   False
+   True     
+   False
+   True     
+   False
+   True     
+   False
+   True     
+   False
+   True     
+   False
+   True     
+   False
+12/13/25, 2:12 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEM
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEM
+18/20
+
+113. (1.00 pts)
+There is conclusive evidence that the MMR immunization causes autism.
+114. (1.00 pts)
+Heart Disease is still the number one killer in the world (not including Corona)
+115. (1.00 pts)
+People age 65 and older survive an average of 14 to 18 years after a diagnosis of Alzheimer’s dementia
+116. (1.00 pts)
+The flu virus, influenza, can live on surfaces for up to 5 hours
+117. (1.00 pts)
+A flu shot can lower your risk of contracting acute bronchitis as well
+118. (1.00 pts)
+Lung cancer is the biggest cancer killer in both men and women in the US.
+119. (1.00 pts)
+Breast cancer is the most common cancer in American women
+120. (1.00 pts)
+Cirrhosis is a disease that affects the liver
+121. (1.00 pts)
+Males tend to have a higher risk of developing Alzheimer's Disease
+122. (1.00 pts)
+In Parkinson's Disease, no two people have the same exact symptoms.
+123. (1.00 pts)
+Chronic obstructive pulmonary disease (COPD) is mainly caused by pollutants in the workplace
+   True     
+   False
+   True     
+   False
+   True     
+   False
+   True     
+   False
+   True     
+   False
+   True     
+   False
+   True     
+   False
+   True     
+   False
+   True     
+   False
+   True     
+   False
+   True     
+   False
+12/13/25, 2:12 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEM
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEM
+19/20
+
+124. (1.00 pts)
+Stroke is a leading cause of serious long-term disability.
+125. (2.00 pts)
+A key feature of a cross-sectional study is that
+   A)
+It usually provides information on prevalence rather than incidence
+   B)
+It is limited to health exposures and behaviors rather than health outcomes
+   C)
+It is more useful for descriptive epidemiology than it is for analytic epidemiology
+   D)
+It is synonymous with survey
+126. (2.00 pts)
+The Iowa Women’s Health Study, in which researchers enrolled 41,837 women in 1986 and collected exposure and lifestyle information to assess the relationship between these
+factors and subsequent occurrence of cancer, is an example of which type(s) of study?
+   A)
+Experimental
+   B)
+Observational
+   C)
+Cohort
+   D)
+Case-control
+   E)
+Clinical trial
+127. (3.00 pts)
+Explain what impact it could have on public health, disease surveillance, and outbreak responses if hundreds of CDC Disease Detectives are laid off - especially considering how
+this might affect students and future training opportunities in epidemiology and public health careers.
+   True     
+   False
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+© 2025 - powered by Scilympiad (https://scilympiad.com) | Tournaments (/monta-vista/Home/Subscribers?sort=t) | Support Us (/monta-vista/Give)
+Terms of Use (/ToS.html) | Privacy (/Privacy.html) | Cookie Policy (/CookiePolicy.html) | Support (/monta-vista/Support) | Contact (/monta-vista/Home/Contact)
+12/13/25, 2:12 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEM
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GEM
+20/20

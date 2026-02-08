@@ -1,0 +1,632 @@
+1. (3.00 pts)
+Which 4th century Roman artifact is an example of dichoric glass?
+   A)
+Mask of Agamemnon
+   B)
+Lycurgus Cup
+   C)
+Portland Vase
+   D)
+Standard of Ur
+   E)
+Venus of Willendorf
+   F)
+Bust of Pericles
+2. (3.00 pts)
+Who was the professor who coined the term "nanotechnology" and when?
+   A)
+Richard Feynman, 1959
+   B)
+Donald Eigler, 1989
+   C)
+Sumio Iijima, 1991
+   D)
+Norio Taniguchi, 1974
+   E)
+Paul Alivisatos, 1996
+   F)
+K. Eric Drexler, 1968
+3. (3.00 pts)
+What best describes the mechanism of photoablation?
+   A)
+Using the photoelectric effect to release electrons from a material surface
+   B)
+Chemical etching of surface atoms using reactive gases under UV exposure
+   C)
+Using a photosensitive material under light for selective removal to create a pattern
+   D)
+Using UV energy to break molecular bonds and remove material from a surface 
+4. (3.00 pts)
+Which of the following is not a carbon based nanomaterial?
+   A)
+Graphene
+   B)
+Fullerene
+   C)
+Carbon dots
+   D)
+Graphite
+   E)
+Diamond
+Materials Science C - Materials Science - Monta Vista Science Olympiad (Div. C) - 11-14-2025
+Student Answer Sheet (/monta-vista/SM/AnswerSheet?tid=000GCM)
+Instructions (shown before students start the test)
+good luck & show work for all math!
+Introduction (shown after students start the test)
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+12/13/25, 2:16 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GCM
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GCM
+1/12
+
+   F)
+Pyramid of Khufu
+5. (3.00 pts)
+Which of the following is a carbon nanotube structure?
+   A)
+Zig-zag
+   B)
+Armchair
+   C)
+Chrial
+6. (3.00 pts)
+Which of the following types of microscopy allows for a resolution of exactly 10
+ to 10 m?
+   A)
+Optical
+   B)
+SEM
+   C)
+TEM
+   D)
+AFM
+   E)
+SPM
+   F)
+SAM
+7. (3.00 pts)
+Young's modulus is also known as:
+   A)
+Bulk Modulus
+   B)
+Shear Modulus
+   C)
+Elastic Modulus
+   D)
+Flexural Modulus
+   E)
+Hardness
+   F)
+Toughness
+8. (3.00 pts)
+What type of structure is a fullerene?
+   A)
+0D
+   B)
+1D
+   C)
+2D
+   D)
+3D
+9. (3.00 pts)
+What type of structure is graphene?
+   A)
+0D
+   B)
+1D
+   C)
+2D
+   D)
+3D
+10. (3.00 pts)
+What are nanotrusses?
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+-10
+-7
+12/13/25, 2:16 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GCM
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GCM
+2/12
+
+   A)
+Ceramic nanoparticles sintered under high pressure to form bulk nanostructured ceramics with improved toughness.
+   B)
+Amorphous silica aerogels formed through sol–gel processing to achieve low thermal conductivity and low weight.
+   C)
+Nanocrystalline ceramic coatings produced by plasma spraying for enhanced wear and oxidation resistance.
+   D)
+Polycrystalline oxide fibers synthesized via electrospinning for reinforcement in ceramic matrix composites.
+   E)
+Nanoscale ceramic lattices with truss-like geometry that achieve high stiffness at extremely low density.
+   F)
+Porous ceramic membranes with interconnected nanopores used for selective molecular filtration in chemical processing.
+11. (3.00 pts)
+Which of the following is not used in photolithography?
+   A)
+Photomask
+   B)
+Photoresist
+   C)
+Photoablation
+   D)
+Substrate
+   E)
+Photograph
+   F)
+Pyramid of Khafre
+12. (3.00 pts)
+Which compound is known for aiding in UV/IR protection?
+   A)
+Silicon dioxide (SiO₂)
+   B)
+Titanium dioxide (TiO₂)
+   C)
+Calcium carbonate (CaCO₃)
+   D)
+Zinc sulfate (ZnSO₄)
+   E)
+Aluminum oxide (Al₂O₃)
+   F)
+Iron(III) oxide (Fe₂O₃)
+13. (3.00 pts)
+George Washington performs x-ray diffraction on a material and he observes that the peaks on his x-ray diffraction graph are very broad. What is the main reason for this?
+   A)
+Large crystal size
+   B)
+Small crystal size
+   C)
+Longer wavelength 
+   D)
+Shorter wavelength
+14. (3.00 pts)
+Which of the following is a 3D volume defect?
+   A)
+Precipitate
+   B)
+Interphase Boundary
+   C)
+Disclination
+   D)
+Dispiration
+   E)
+Faulted Region
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+12/13/25, 2:16 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GCM
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GCM
+3/12
+
+   F)
+Stacking Faults
+15. (3.00 pts)
+Oh no! Julius Caesar is about to be stabbed by a group of senators, but he knows that they wont be able to use their daggers. This is because last night, Caeser put all of their
+weapons through this very cheap, quick, and cost-effective method to reduce the edge of the sharp blades into tiny metal nanoparticles. Which process did Caeser employ to save
+his life?
+   A)
+Chemical etching
+   B)
+Physical vapor deposition
+   C)
+Extrusion
+   D)
+Ball milling
+   E)
+Molecular beam epitaxy
+   F)
+Electrospinning
+16. (3.00 pts)
+A ray of light hits a diamond (n=2.42) at a 30º angle from the material surface. What angle is the light ray refracted at relative to the normal?
+17. (5.00 pts)
+Ella Yao has a block of iron (BCC & radius = 1.26Å). What is her iron's unit cell length?
+18. (5.00 pts)
+Ella decides to perform x-ray diffraction on her block. She uses a Cu Kα laser (λ = 1.54Å) in the (1,1,1) direction on her block. At what angle will the laser diffract?
+19. (5.00 pts)
+Ella wants to find the density of her iron block, but she doesn't have a scale! Help Ella find the theoretical density of her iron block.
+20. (5.00 pts)
+In a metal, the vacancy formation energy is q=1.5eV (note 1 eV = 1.602E-19 J).  Calculate the concentration of vacancies (%) at T=1000K.
+(Mark ALL correct answers)
+12/13/25, 2:16 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GCM
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GCM
+4/12
+
+21. (3.00 pts)
+Which of the following best describes the Zener pinning effect?
+   A)
+The acceleration of grain boundary migration through enhanced boundary diffusion in the presence of fine precipitate atoms at high temperatures.
+   B)
+The stabilization of dislocation substructures through dynamic processes that reduce stored strain energy without significant boundary migration.
+   C)
+The alignment and elongation of second-phase particles along the direction of applied stress during plastic deformation.
+   D)
+The preferential nucleation of recrystallized grains on incoherent second-phase particles during annealing, promoting heterogeneous grain refinement.
+   E)
+The inhibition of grain boundary migration in a polycrystalline material caused by the interaction between fine particles or crystals.
+   F)
+Who's Zener?
+22. (3.00 pts)
+What compounds are often used in Chemical Vapor Deposition (CVD)?
+   A)
+metal hydrides
+   B)
+halides
+   C)
+carbonyls
+   D)
+alkyls
+23. (3.00 pts)
+Which of the following correctly matches the purpose of the following nanomaterials, often found in fabric, in that order: Nanoscale silver, silica, and zinc oxide?
+   A)
+Antimicrobial protection, stain resistance, and UV protection
+   B)
+UV protection, waterproofing, and antimicrobial protection
+   C)
+Antimicrobial protection, waterproofing, and UV protection
+   D)
+Waterproofing, antimicrobial protection, and stain resistance
+   E)
+UV protection, self-cleaning, and antimicrobial protection
+   F)
+Quartz
+24. (3.00 pts)
+For whom is buckministerfullerene named after?
+   A)
+R. Buckminster Fuller
+   B)
+B. Buckminster Fuller
+   C)
+Richard Buckman
+   D)
+John Fullerene
+   E)
+Buckminster Fullerene
+   F)
+William Backflip
+25. (3.00 pts)
+How many carbon atoms are present in the structure of buckministerfullerene?
+   A)
+32
+   B)
+48
+   C)
+60
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+12/13/25, 2:16 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GCM
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GCM
+5/12
+
+   D)
+72
+   E)
+84
+   F)
+1
+26. (3.00 pts)
+Ella, who is extremely interested in nanomaterials and nanotechnology, decides to meet with the one and only Mr. Fuller to discuss her interests. Mr. Fuller is fed up about her
+ranting on about how she uses fullerenes in her everyday life and asks her to instead talk about graphene. Ella then remembers that she has a friend named Young who has a
+modulus for graphene. Ella talks about this and mentions that Young's modulus for graphene is:
+   A)
+1 TPa
+   B)
+1 GPa
+   C)
+1 EPa
+   D)
+1 MPa
+   E)
+1 Pa
+   F)
+1 atm
+27. (3.00 pts)
+Unfortunately, Mr. Fuller is not amused, and in a cruel twist of fate, mentions his friend named Flexural. It turns out that Flexural also has a modulus, although it is quite different fro
+Young's modulus, which "is a mechanical property of solid materials that measures the tensile or compressive stiffness when the force is applied lengthwise." What is Flexural
+modulus?
+   A)
+The tendency for a material to resist compression.
+   B)
+The tendency for a material to resist fracturing.
+   C)
+The tendency for a material to resist twisting.
+   D)
+Tendency for a material to resist bending.
+   E)
+The tendency for a material to resist stretching.
+   F)
+The tendency for a material to resist the force of gravity.
+28. (3.00 pts)
+Which miller indices plane shown here?
+   A)
+100
+   B)
+101
+   C)
+102
+   D)
+002
+   E)
+010
+   F)
+020
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+12/13/25, 2:16 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GCM
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GCM
+6/12
+
+29. (3.00 pts)
+Which of the following best defines the pauli exclusion principle?
+   A)
+No two electrons in an atom can have the same set of four quantum numbers.
+   B)
+No two electrons in an atom can have the same set of three quantum numbers.
+   C)
+No two electrons in an atom can have the same set of two quantum numbers.
+   D)
+No three electrons in an atom can have the same set of four quantum numbers.
+   E)
+No three electrons in an atom can have the same set of two quantum numbers.
+   F)
+No electrons in an atom can have the same set of quantum numbers.
+30. (3.00 pts)
+At what rate does typical molecular beam epitaxy (MBE) occur at?
+   A)
+0.01–1 nanometer per second
+   B)
+1–10 micrometers per second
+   C)
+10–100 micrometers per minute
+   D)
+1–10 millimeters per hour
+   E)
+0.1–1 micrometer per hour
+   F)
+1 meter per minute
+31. (3.00 pts)
+How many dimensions of confinement is exhibited by carbon nanotubes?
+   A)
+0D
+   B)
+1D
+   C)
+2D
+   D)
+3D
+   E)
+4D
+32. (3.00 pts)
+What is the bandgap of a semiconductor?
+   A)
+The energy required to remove an electron completely from the atom.
+   B)
+The range of energies electrons can occupy within the valence band.
+   C)
+The potential barrier between two semiconductor junctions.
+   D)
+The energy difference between the valence band and the conduction band.
+   E)
+The energy difference between donor and acceptor impurity levels.
+   F)
+The energy required to add an electron to the atom.
+33. (3.00 pts)
+What is the bandgap of a semiconductor?
+   A)
+Eg = 0.001 – 0.05 eV
+   B)
+Eg = 0.1 – 3.0 eV
+   C)
+Eg = 3.5 – 8.0 eV
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+12/13/25, 2:16 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GCM
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GCM
+7/12
+
+   D)
+Eg = 2 – 4 meV
+   E)
+Eg = 0.1 – 0.8 meV
+   F)
+Eg = 0.5 – 1 MeV
+34. (3.00 pts)
+What is the curie temperature?
+   A)
+The temperature at which water melts and boils at the same time.
+   B)
+The critical temperature at which a ferromagnetic material loses its magnetization and becomes paramagnetic.
+   C)
+The temperature at which a metal transitions from a normal state to a superconducting state.
+   D)
+The critical temperature below which a semiconductor changes from insulating to conducting behavior.
+   E)
+The temperature above which a dielectric material undergoes electrical breakdown and becomes conductive.
+   F)
+The critical temperature above which a ferroelectric material becomes paraelectric and loses piezoelectricity.
+35. (3.00 pts)
+What are the benefits of wet etching?
+   A)
+It’s scalable, cost-effective, and suitable for batch processing.
+   B)
+It provides highly anisotropic profiles with atomic-level precision.
+   C)
+It offers high etch selectivity and fast etch rates for many materials.
+   D)
+It is simple to set up and can process multiple wafers simultaneously.
+   E)
+It eliminates the need for chemical waste handling.
+   F)
+It requires vacuum systems and plasma sources to achieve uniform etching.
+36. (3.00 pts)
+What are the downsides of dry etching?
+   A)
+It can cause surface damage and defects due to energetic ion bombardment.
+   B)
+It requires complex, expensive equipment and vacuum systems.
+   C)
+It offers extremely high selectivity between all materials under all conditions.
+   D)
+It may produce non-uniform etch rates and sidewall residues.
+   E)
+It can lead to contamination and redeposition of etched by-products.
+   F)
+It eliminates the need for hazardous or reactive gases.
+37. (3.00 pts)
+In the sol–gel process for fabricating oxide nanomaterials, which of the following statements most accurately explains the role of hydrolysis and condensation reactions in
+determining the final microstructure of the gel?
+   A)
+Condensation exclusively produces volatile by-products that limit network growth, while hydrolysis primarily reduces particle size through surface oxidation.
+   B)
+Hydrolysis and condensation govern the polymerization of metal–oxygen–metal networks; influencing the gel’s homogeneity, porosity, and particle connectivity.
+   C)
+Hydrolysis controls the degree of polymer cross-linking, while condensation determines the rate of solvent evaporation and the film’s porosity.
+   D)
+Both hydrolysis and condensation reactions occur only after the drying step, controlling densification during sintering, affecting the gel’s optical transparency.
+38. (3.00 pts)
+A type of Janus particle is
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+12/13/25, 2:16 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GCM
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GCM
+8/12
+
+   A)
+Hydrophobic
+   B)
+Hydrophilic
+   C)
+Hydrogen
+39. (3.00 pts)
+Ella is getting tired of material science, so she instead studies for her AP Statistics class, where they are learning about surface areas and volumes. In front of her is a cube with 6
+sides, a cylinder that is round, and a circular sphere. She must pick the one that has the highest surface to volume ratio given a radius/side of length r, or else she will have to eat a
+raw onion. Please help her pick, she really doesn't want to eat the onion.
+   A)
+Sphere
+   B)
+Cylinder
+   C)
+Cube
+   D)
+Hyperboloid
+40. (3.00 pts)
+Which of the following factors primarily determine the final film thickness in a spin coating process?
+   A)
+Spin speed, solution viscosity, and solvent evaporation rate.
+   B)
+Substrate temperature, grain size, and molecular weight of the solute.
+   C)
+Chamber pressure, deposition angle, and magnetic field strength.
+   D)
+Droplet size, electrical conductivity, and substrate reflectivity.
+   E)
+Surface charge, plasma power, and ion bombardment time.
+   F)
+Rainbow fish
+41. (3.00 pts)
+Use proper grammar please, all lowercase: Buckminsterfullerene is constructed from 12 [first blank] and 20 [second blank]
+42. (3.00 pts)
+SWNT stands for what in the context of nanomaterials? (1st blank = S, 2nd = W, 3rd plural = NT)
+I know there is one word missing technically, but just do the ones in the abbreviation.
+43. (3.00 pts)
+Fill in the blank so that is conforms to the conventions of standard English:
+A ________ is a substance that lowers the surface tension of a liquid, facilitating the formation of emulsions between liquids such as oil and water.
+44. (3.00 pts)
+A ___-type semiconductor is formed when a trivalent impurity like boron is added to a pure semiconductor like silicon. The impurity creates “holes” in the valence band, making
+holes the majority charge carriers.
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+(Mark ALL correct answers)
+     
+    
+     
+     
+    
+    
+    
+12/13/25, 2:16 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GCM
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GCM
+9/12
+
+45. (5.00 pts)
+A spherical gold nanoparticle has a diameter of 10nm.  Calculate its surface area to volume ratio.
+46. (5.00 pts)
+A CVD-grown multilayer graphene film on SiO₂ (n = 1.46 at 532 nm) is characterized by several instruments. AFM in tapping mode (spring constant 40 N/m, tip radius 8 nm, scan
+size 3 µm × 3 µm at 1024 lines, RMS roughness 0.18 nm) measures a step height between an oxygen-plasma–etched window and the pristine film of 1.005 nm. Raman
+spectroscopy (532 nm excitation, 1 mW at focus, 50× objective, spot ~0.9 µm) shows I₂D/IG = 0.42 and a 2D FWHM of 58 cm⁻¹. TEM cross-section imaging (200 kV, electron dose
+10³ e⁻/nm², magnification 200k×) confirms turbostratic alignment with an interlayer spacing of 0.335 nm. The substrate oxide thickness is 285 nm, contact angle is 64°, and sheet
+resistance is 820 Ω/m at 300 K.
+Assuming the AFM step height equals the graphene stack thickness and the interlayer spacing is uniform, how many graphene layers are present in the film?
+47. (5.00 pts)
+A nanowire of titanium dioxide (TiO₂) with a diameter of 80 nm and a length of 12 μm is subjected to a tensile load during nano-mechanical testing inside a TEM. The applied force
+increases linearly up to 24 μN, at which point the elongation measured is 18 nm. Assume the deformation is purely elastic, the cross-section is perfectly circular, and TiO₂ behaves
+isotropically at this scale.
+Determine the Young’s modulus (E) of the nanowire.
+48. (5.00 pts)
+Find the electrical conductivity of a semiconductor with carrier concentration of 5*10
+ / m
+and electron mobility of 1350m /V.
+49. (5.00 pts)
+A solid silicon nanowire has a diameter of 60 nm and a length of 10 μm. Silicon’s density is 2.33 g/cm³. Assuming the wire is a perfectly cylindrical, fully dense solid, what is the
+mass of one nanowire in picograms (pg)?
+15
+3  
+2
+12/13/25, 2:16 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GCM
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GCM
+10/12
+
+50. (5.00 pts)
+A 0.25kg block of material at 150ºC is placed in 0.2L of of water at 25ºC. The specific heat of the material is 0.385 J/g while the specific heat of water is 4.18 J/g. Find the final
+equilibrium temperature of the system.
+51. (5.00 pts)
+Ella meets with George Washingmachine to discuss issues with the federal bank. Alexander Hamilton admires Ella efforts in supporting the federalist party and gifts her 3 apples.
+Ella, excited by this gift, accidentally drop her hundred million dollar photolithography machine into the Chesapeake Bay. What is the positive difference in the number of apples sh
+has and the number of photolithography machines she has?
+52. (5.00 pts)
+My co-test writer gets carried away into writing test questions that are slightly off topic and he finds a green (λ = 550nm) photon of light exiting his computer! What is the energy of
+the photon in eV? (hint: 1eV = 1.602*10^-19 J)
+53. (5.00 pts)
+Find the atomic packing density of vanadium (BCC).
+54. (5.00 pts)
+A material sample has an original length of 0.70 m. When subjected to tension, it stretches to a maximum length of 0.75 m.
+Calculate the maximum strain experienced by the material.
+55. (1.00 pts)
+How do you ask a geologist to identify a rock?
+xkcd.com/3068 (pls dont go out of browser)
+   A)
+"Can you identify this rock that I found?"
+   B)
+"Can you identify this rock that I found wrapped in a $5 bill?"
+12/13/25, 2:16 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GCM
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GCM
+11/12
+
+https://xkcd.com/2856/
+© 2025 - powered by Scilympiad (https://scilympiad.com) | Tournaments (/monta-vista/Home/Subscribers?sort=t) | Support Us (/monta-vista/Give)
+Terms of Use (/ToS.html) | Privacy (/Privacy.html) | Cookie Policy (/CookiePolicy.html) | Support (/monta-vista/Support) | Contact (/monta-vista/Home/Contact)
+12/13/25, 2:16 PM
+scilympiad.com/monta-vista/Sm/PrevTest?tid=000GCM
+https://scilympiad.com/monta-vista/Sm/PrevTest?tid=000GCM
+12/12

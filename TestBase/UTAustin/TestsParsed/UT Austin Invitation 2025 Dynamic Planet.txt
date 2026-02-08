@@ -1,0 +1,1045 @@
+EVENT: Dynamic Planet
+SOURCE: UT Austin Invitational 2025 (Div. B/C)
+FORMAT: Multiple choice and short answer questions
+TOTAL POINTS: 118
+
+---QUESTION 1---
+ID: 1
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Ocean Chemistry | Seawater composition | Dissolved ions
+DIFFICULTY: Medium
+QUESTION: Sodium and chloride make up approximately what percentage of all dissolved ions in seawater by weight?
+OPTIONS:
+A) 70%
+B) 75%
+C) 80%
+D) 85%
+E) 90%
+
+---QUESTION 2---
+ID: 2
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Ocean Chemistry | Ocean acidification | pH decrease
+DIFFICULTY: Medium
+QUESTION: Name the major compound responsible for the decrease in pH in the ocean.
+OPTIONS:
+A) HCl
+B) CO2
+C) CH4
+D) H₃PO₄
+E) CO
+
+---QUESTION 3---
+ID: 3
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Ocean Circulation | Coriolis effect | Northern Hemisphere
+DIFFICULTY: Medium
+QUESTION: The Coriolis effect causes moving objects in the Northern Hemisphere to deflect:
+OPTIONS:
+A) To the left
+B) To the right
+C) Upward
+D) Downward
+E) Straight
+
+---QUESTION 4---
+ID: 4
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Ocean Circulation | Western intensification
+DIFFICULTY: Medium
+QUESTION: Western intensification results in:
+OPTIONS:
+A) Stronger currents on the western side of ocean basins
+B) Stronger currents on the eastern side of ocean basins
+C) Weaker gyres
+D) Reduced upwelling
+E) No significant effect
+
+---QUESTION 5---
+ID: 5
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Ocean Circulation | Ekman transport
+DIFFICULTY: Medium
+QUESTION: Ekman transport is the net movement of water at an angle of ____ to the wind.
+OPTIONS:
+A) 30°
+B) 45°
+C) 90°
+D) 180°
+E) 0°
+
+---QUESTION 6---
+ID: 6
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Ocean Circulation | North Atlantic Gyre
+DIFFICULTY: Medium
+QUESTION: The North Atlantic Gyre circulates:
+OPTIONS:
+A) Clockwise in the Northern Hemisphere
+B) Counterclockwise in the Northern Hemisphere
+C) Clockwise in the Southern Hemisphere
+D) Counterclockwise in the Southern Hemisphere
+E) There is no significant pattern of circulation
+
+---QUESTION 7---
+ID: 7
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Ocean Circulation | Surface currents | Drivers
+DIFFICULTY: Medium
+QUESTION: The main driver of surface ocean currents is:
+OPTIONS:
+A) Tides
+B) Thermohaline Circulation
+C) Earthquakes
+D) Wind
+E) Precipitation
+
+---QUESTION 8---
+ID: 8
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Ocean Circulation | Boundary currents | Warm currents
+DIFFICULTY: Medium
+QUESTION: Which of the following is a warm boundary current?
+OPTIONS:
+A) California Current
+B) Gulf Stream
+C) Canary Current
+D) Benguela Current
+E) Humboldt Current
+
+---QUESTION 9---
+ID: 9
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Ocean Mixing | Mechanical mixing | Surface layer
+DIFFICULTY: Medium
+QUESTION: Which of the following does not contribute to mechanical mixing in the surface layer?
+OPTIONS:
+A) Surface Waves
+B) Hurricanes
+C) Cold Polar Air Mass
+D) Rain
+E) None of the above
+
+---QUESTION 10---
+ID: 10
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Ocean Chemistry | Ocean pH | Current pH
+DIFFICULTY: Medium
+QUESTION: Approximately, what is the current pH of the ocean?
+OPTIONS:
+A) 8.0
+B) 8.1
+C) 8.2
+D) 8.3
+E) 8.4
+
+---QUESTION 11---
+ID: 11
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Waves | Wave shoaling
+DIFFICULTY: Medium
+QUESTION: Wave shoaling occurs when:
+OPTIONS:
+A) Waves slow down and increase in height near shallow water
+B) Waves break in deep water
+C) Currents interact with tides
+D) Waves increase in wavelength in the open ocean
+E) Tsunamis dissipates
+
+---QUESTION 12---
+ID: 12
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Waves | Deep-water waves | Speed
+DIFFICULTY: Medium
+QUESTION: Deep-water waves travel with a speed proportional to:
+OPTIONS:
+A) Wave period squared
+B) Square root of wavelength
+C) Water temperature
+D) Wind speed
+E) Wave height
+
+---QUESTION 13---
+ID: 13
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Tides | Spring tides | Syzygy
+DIFFICULTY: Medium
+QUESTION: Which of the following tides occur when the Earth, Sun, and Moon form a syzygy?
+OPTIONS:
+A) spring
+B) neap
+C) diurnal
+D) low
+E) high
+
+---QUESTION 14---
+ID: 14
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Waves | Wave refraction
+DIFFICULTY: Medium
+QUESTION: Wave refraction causes:
+OPTIONS:
+A) Even distribution of energy along coasts
+B) Dissipation of waves in deep ocean
+C) Formation of tsunamis
+D) Changes in salinity
+E) Concentration of wave energy on headlands
+
+---QUESTION 15---
+ID: 15
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Storms | Storm surge | Influencing factors
+DIFFICULTY: Medium
+QUESTION: Storm surge is most strongly influenced by:
+OPTIONS:
+A) Tsunami wave height
+B) Lunar phase
+C) Salinity gradients
+D) High winds and low atmosphere pressure
+E) Earthquakes
+
+---QUESTION 16---
+ID: 16
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Waves | Constructive interference
+DIFFICULTY: Medium
+QUESTION: Constructive interference of waves results in:
+OPTIONS:
+A) Larger wave heights
+B) Smaller wave heights
+C) Wave reflection
+D) Wave diffraction
+E) Formation of rip currents
+
+---QUESTION 17---
+ID: 17
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Ocean Circulation | Thermohaline circulation | North Atlantic
+DIFFICULTY: Medium
+QUESTION: Which process contributes to the southward flow of dense, cold water in the North Atlantic, helping drive the thermohaline circulation?
+OPTIONS:
+A) Western movement of ocean water caused by trade winds
+B) Northern intensification of the subtropical gyres
+C) Coastal upwelling in California
+D) Deep convection in the Labrador Sea
+E) Strengthened Antarctic Circumpolar Current
+
+---QUESTION 18---
+ID: 18
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Waves | Kelvin waves | Equatorial Pacific
+DIFFICULTY: Medium
+QUESTION: A Kelvin wave traveling along the equator in the Pacific Ocean always moves:
+OPTIONS:
+A) Northward
+B) Eastward
+C) Southward
+D) Westward
+E) Upward
+
+---QUESTION 19---
+ID: 19
+POINTS: 1.00
+FORMAT: Multiple Choice (select all)
+TOPIC: Coastal Processes | Headlands | Wave shadowing
+DIFFICULTY: Medium
+QUESTION: Which feature typically develops on the down-current side of a headland due to wave shadowing? Select all that apply.
+OPTIONS:
+A) Spit
+B) Rip current
+C) Tombolo
+D) Lagoon
+E) Delta
+
+---QUESTION 20---
+ID: 20
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Ocean Circulation | Boundary currents | Canary Current vs Gulf Stream
+DIFFICULTY: Medium
+QUESTION: The Canary Current differs from the Gulf Stream because it is:
+OPTIONS:
+A) Warm, deep, fast
+B) Warm, shallow, slow
+C) Cold, shallow, slow
+D) Cold, deep, fast
+E) A thermohaline current rather than a surface current
+
+---QUESTION 21---
+ID: 21
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Ocean Circulation | Coriolis effect | Gyres
+DIFFICULTY: Medium
+QUESTION: If the Coriolis effect were suddenly "turned off," surface ocean gyres would:
+OPTIONS:
+A) Reverse circulation direction
+B) Strengthen Ekman spirals
+C) Intensify into faster gyres
+D) Stop circulation and flow linearly
+E) Surface ocean gyres won't be effected
+
+---QUESTION 22---
+ID: 22
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Waves | Rossby waves | Scale
+DIFFICULTY: Medium
+QUESTION: Rossby waves typically span
+OPTIONS:
+A) A few meters
+B) Tens of meters
+C) A few kilometers
+D) Tens of kilometers
+E) Hundreds to thousands of kilometers
+
+---QUESTION 23---
+ID: 23
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Sedimentology | Turbidites | Flow type
+DIFFICULTY: Medium
+QUESTION: Turbidites are often deposited by what type of flow?
+OPTIONS:
+A) laminar
+B) frictional
+C) traditional
+D) density
+E) All of the above
+
+---QUESTION 24---
+ID: 24
+POINTS: 1.00
+FORMAT: Multiple Choice (select all)
+TOPIC: Oceanic Crust | Upper layer structures
+DIFFICULTY: Medium
+QUESTION: The upper layer of oceanic crust can be characterized by what structures? Select all that apply.
+OPTIONS:
+A) Pillow lavas
+B) Cumulate rocks
+C) Dikes
+D) Gabbro
+E) Troctolites
+
+---QUESTION 25---
+ID: 25
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Climate | El Niño | Thermocline
+DIFFICULTY: Medium
+QUESTION: During an El Niño event, the thermocline in the eastern Pacific is:
+OPTIONS:
+A) Shallower and weaker
+B) Shallower and stronger
+C) Deeper and weaker
+D) Deeper and stronger
+E) Unaffected
+
+---QUESTION 26---
+ID: 26
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Climate | Pacific Decadal Oscillation | ENSO comparison
+DIFFICULTY: Medium
+QUESTION: The Pacific Decadal Oscillation differs from ENSO mainly in:
+OPTIONS:
+A) Strength of trade winds
+B) Timescale and geographic footprint
+C) Influence of lunar cycles
+D) Dependence on volcanic activity
+E) Absence of sea surface temperature patterns
+
+---QUESTION 27---
+ID: 27
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Ocean Chemistry | Ocean deoxygenation | Severity
+DIFFICULTY: Medium
+QUESTION: Ocean deoxygenation is particularly severe in:
+OPTIONS:
+A) Coral reef lagoons
+B) Polar surface waters
+C) Deep trenches
+D) Oxygen minimum zones at mid-depths
+E) Fjords
+
+---QUESTION 28---
+ID: 28
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Ocean Chemistry | Ocean acidification | Coral calcification
+DIFFICULTY: Medium
+QUESTION: As the ocean absorbs more atmospheric CO2, carbonate ion availability declines. What threshold value is most critical for reef-building corals to continue effective calcification?
+OPTIONS:
+A) pH above 8.5
+B) Temperature below 26°C
+C) pH below 6.5
+D) Oxygen saturation below 50%
+E) Aragonite saturation state (Ωagar) of 3.0
+
+---QUESTION 29---
+ID: 29
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Sea Level Rise | Thermal expansion
+DIFFICULTY: Medium
+QUESTION: Thermal expansion contributes roughly what fraction of observed sea-level rise?
+OPTIONS:
+A) ¼
+B) ⅓
+C) ½
+D) ⅔
+E) ¾
+
+---QUESTION 30---
+ID: 30
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Oceanography | Research tools | Seafloor mapping
+DIFFICULTY: Medium
+QUESTION: A group of scientists needs to map the shape of the seafloor to identify a potential submarine canyon. Which research tool would provide the most effective data?
+OPTIONS:
+A) Sediment core sampler
+B) CTD device
+C) Sonar (multibeam or side-scan)
+D) Niskin bottle water sampler
+E) ADCP
+
+---QUESTION 31---
+ID: 31
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Oceanography | CTD | Conductivity measurement
+DIFFICULTY: Medium
+QUESTION: CTDs measure conductivity as a way to measure what?
+OPTIONS:
+A) Biodiversity
+B) Current Flow
+C) Underwater storms
+D) Salinity
+E) All of the above
+
+---QUESTION 32---
+ID: 32
+POINTS: 1.00
+FORMAT: Multiple Choice (select all)
+TOPIC: Ocean Circulation | Water masses | Common Water
+DIFFICULTY: Medium
+QUESTION: Which water masses mix to form the "Common Water"? Select all that apply.
+OPTIONS:
+A) NACSW
+B) NADW
+C) MIW
+D) MBW
+E) AABW
+
+---QUESTION 33---
+ID: 33
+POINTS: 1.00
+FORMAT: Multiple Choice (select all)
+TOPIC: Ocean Circulation | Upwelling | Drivers
+DIFFICULTY: Medium
+QUESTION: Which of the following are the main drivers of upwelling? Select all that apply.
+OPTIONS:
+A) Wind
+B) Coriolis Effect
+C) Lunar Gravity
+D) Ekman Transport
+E) Volcanoes
+
+---QUESTION 34---
+ID: 34
+POINTS: 1.00
+FORMAT: Multiple Choice (select all)
+TOPIC: Ocean Energy Balance | Surface energy balance
+DIFFICULTY: Medium
+QUESTION: Energy balance at the surface of the ocean is a combination of which of the following? Select all that apply.
+OPTIONS:
+A) Net shortwave radiation
+B) Net longwave radiation
+C) Net latent heat flux
+D) Net sensible heat flux
+E) Net ground heat transfer
+
+---QUESTION 35---
+ID: 35
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Continental Margins | Active margins | Characteristics
+DIFFICULTY: Medium
+QUESTION: Active continental margins are characterized by ____ and relatively _____ shelves.
+OPTIONS:
+A) Narrow; steep
+B) Wide; Steep
+C) Narrow; Shallow
+D) Wide; Shallow
+E) Shallow; Steep
+
+---QUESTION 36---
+ID: 36
+POINTS: 1.00
+FORMAT: Multiple Choice (select all)
+TOPIC: Ocean Chemistry | Salt sources
+DIFFICULTY: Medium
+QUESTION: Which of the following are the most common sources of salt in the ocean? Select all that apply.
+OPTIONS:
+A) Land
+B) Rain
+C) Meteorites
+D) Dead animals
+E) Hydrothermal vents
+
+---QUESTION 37---
+ID: 37
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Tides | Tidal resonance | Wavelength fraction
+DIFFICULTY: Medium
+QUESTION: At what fraction of a tide's wavelength would you observe the largest effect of tidal resonance?
+OPTIONS:
+A) 1/8
+B) 1/4
+C) 1/2
+D) 5/8
+E) 5/4
+
+---QUESTION 38---
+ID: 38
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Ocean Circulation | Geostrophic currents | Pressure
+DIFFICULTY: Medium
+QUESTION: A geostrophic current flows northward in the Northern Hemisphere. Where is the region of higher pressure relative to the current?
+OPTIONS:
+A) Directly ahead
+B) To the west
+C) Directly behind
+D) To the east
+E) Beneath the flow
+
+---QUESTION 39---
+ID: 39
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Waves | Rossby waves | Coriolis parameter
+DIFFICULTY: Medium
+QUESTION: Rossby waves exist because the Coriolis parameter (𝑓) changes with:
+OPTIONS:
+A) Depth of the ocean
+B) Temperature gradients
+C) Salinity
+D) Latitude
+E) Longitude
+
+---QUESTION 40---
+ID: 40
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Waves | Kelvin waves vs Rossby waves
+DIFFICULTY: Medium
+QUESTION: Which statement best distinguishes Kelvin waves from Rossby waves?
+OPTIONS:
+A) Kelvin waves move westward, Rossby waves move eastward
+B) Kelvin waves move eastward, Rossby waves move westward
+C) Kelvin waves and Rossby waves are the same thing.
+D) Kelvin waves move northward, Rossby waves move southward
+E) Kelvin waves move southward, Rossby waves move northward
+
+---QUESTION 41---
+ID: 41
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Ocean Circulation | Geostrophic balance | Circulation
+DIFFICULTY: Medium
+QUESTION: Geostrophic balance is most closely responsible for the circulation of:
+OPTIONS:
+A) Ocean currents
+B) Internal waves
+C) Atmospheric winds
+D) A and B
+E) A and C
+
+---QUESTION 42---
+ID: 42
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Waves | Rossby waves | Importance
+DIFFICULTY: Medium
+QUESTION: Which process best explains why Rossby waves are so important to large-scale ocean dynamics?
+OPTIONS:
+A) They dissipate energy from wind waves
+B) They maintain tidal resonance in coastal shelves
+C) They redistribute heat across entire ocean basins
+D) They are not important.
+E) They maintain tidal resonance in coastal shelves
+
+---QUESTION 43---
+ID: 43
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Oceanography | Research tools | Current measurement
+DIFFICULTY: Medium
+QUESTION: Which instrument is designed to measure the speed and direction of seawater currents throughout the water column?
+OPTIONS:
+A) Niskin bottle
+B) CTD
+C) ADCP
+D) Sediment corer
+E) Sonar
+
+---QUESTION 44---
+ID: 44
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Oceanography | Research tools | Ocean acidification study
+DIFFICULTY: Medium
+QUESTION: A researcher wants to study changes in ocean chemistry due to acidification over time. Which combination of tools would give the most complete data?
+OPTIONS:
+A) Sonar + ADCP
+B) Sonar + Niskin bottles
+C) ADCP + Niskin bottles
+D) Sonar + ADCP + Niskin bottles
+E) None of the above.
+
+---QUESTION 45---
+ID: 45
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Ocean Circulation | Geostrophic currents | Pressure location
+DIFFICULTY: Medium
+QUESTION: In the Northern Hemisphere, a geostrophic current flows northward. On which side of the current is higher pressure located?
+OPTIONS:
+A) Directly ahead
+B) East
+C) Directly behind
+D) West
+E) Beneath the flow
+
+---QUESTION 46---
+ID: 46
+POINTS: 1.00
+FORMAT: Multiple Choice (select all)
+TOPIC: Ocean Circulation | Mesoscale eddies | Types
+DIFFICULTY: Medium
+QUESTION: What are the different types of mesoscale eddies? Select all that apply.
+OPTIONS:
+A) Dynamic
+B) Static
+C) Transient
+D) Permanent
+E) Atmospheric
+
+---QUESTION 47---
+ID: 47
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Climate | SAM | Negative SAM event
+DIFFICULTY: Medium
+QUESTION: In which month would you expect to see the most negative SAM event?
+OPTIONS:
+A) January
+B) March
+C) May
+D) July
+E) November
+
+---QUESTION 48---
+ID: 48
+POINTS: 1.00
+FORMAT: Multiple Choice
+TOPIC: Ocean Circulation | Geostrophic balance | Fluid flow
+DIFFICULTY: Medium
+QUESTION: In geostrophic balance, how do fluids flow?
+OPTIONS:
+A) Low to high pressure
+B) High to low pressure
+C) Along latitude lines
+D) Along longitude lines
+E) Parallel to isobars
+
+---QUESTION 49---
+ID: 49
+POINTS: 3.00
+FORMAT: Short Answer
+TOPIC: Oceanography | ADCP | Frequencies
+DIFFICULTY: Medium
+QUESTION: ADCPs have multiple frequencies by which they operate. Explain when you would use low vs. high frequencies.
+
+---QUESTION 50---
+ID: 50
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Ocean Chemistry | Density | σt calculation
+DIFFICULTY: Medium
+QUESTION: At 277K and ~34.5 PSU, what is the density of the water? (Using provided diagram)
+
+---QUESTION 51---
+ID: 51
+POINTS: 2.00
+FORMAT: Calculation
+TOPIC: Ocean Chemistry | Density | σt calculation
+DIFFICULTY: Medium
+QUESTION: Calculate the σt of the density. (Using provided diagram)
+
+---QUESTION 52---
+ID: 52
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Ocean Chemistry | Density | σt usage
+DIFFICULTY: Medium
+QUESTION: Why do scientists opt to use the σt instead of density?
+
+---QUESTION 53---
+ID: 53
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Ocean Chemistry | Density | Isopycnals
+DIFFICULTY: Medium
+QUESTION: What word is used to indicate lines of equal density as shown in the diagram?
+
+---QUESTION 54---
+ID: 54
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Ocean Structure | Thermocline | Identification
+DIFFICULTY: Medium
+QUESTION: When can you tell you enter the thermocline of a body of water?
+
+---QUESTION 55---
+ID: 55
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Ocean Structure | Thermocline | Hurricane forecasting
+DIFFICULTY: Medium
+QUESTION: What role do thermoclines play in hurricane forecasting?
+
+---QUESTION 56---
+ID: 56
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Ocean Structure | Thermocline | Seasonal variation
+DIFFICULTY: Medium
+QUESTION: At mid-latitudes, what happens to the thermocline during winter vs summer?
+
+---QUESTION 57---
+ID: 57
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Tides | Tidal cycle | Stages
+DIFFICULTY: Medium
+QUESTION: What are the four stages in the tidal cycle in order?
+
+---QUESTION 58---
+ID: 58
+POINTS: 3.00
+FORMAT: Short Answer
+TOPIC: Oceanography | Argo floats | Mechanism
+DIFFICULTY: Medium
+QUESTION: What is the mechanism behind the Argo floats' ability to sink or rise?
+
+---QUESTION 59---
+ID: 59
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Oceanography | Argo floats | Current flow
+DIFFICULTY: Medium
+QUESTION: How are Argo floats able to help scientists determine flow of ocean currents?
+
+---QUESTION 60---
+ID: 60
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Ocean Heat Transport | OHT | Estimate types
+DIFFICULTY: Medium
+QUESTION: What are the three types of estimates for OHT?
+
+---QUESTION 61---
+ID: 61
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Ocean Heat Transport | OHT | Indirect estimations
+DIFFICULTY: Medium
+QUESTION: What are the advantages to indirect estimations of OHT?
+
+---QUESTION 62---
+ID: 62
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Ocean Heat Transport | OHT | Terminology
+DIFFICULTY: Medium
+QUESTION: Why don't we use the term temperature transport instead of heat transport?
+
+---QUESTION 63---
+ID: 63
+POINTS: 3.00
+FORMAT: Short Answer
+TOPIC: Ocean Floor | Structure A | Formation
+DIFFICULTY: Medium
+QUESTION: Identify structure A and explain how it forms. (Using provided diagram)
+
+---QUESTION 64---
+ID: 64
+POINTS: 3.00
+FORMAT: Short Answer
+TOPIC: Ocean Floor | Structure B | Formation
+DIFFICULTY: Medium
+QUESTION: Identify structure B and explain how it forms. (Using provided diagram)
+
+---QUESTION 65---
+ID: 65
+POINTS: 3.00
+FORMAT: Short Answer
+TOPIC: Ocean Floor | Structure C | Flatness
+DIFFICULTY: Medium
+QUESTION: Identify structure C and explain how it is so flat. (Using provided diagram)
+
+---QUESTION 66---
+ID: 66
+POINTS: 4.00
+FORMAT: Short Answer
+TOPIC: Ocean Circulation | AMOC | Weakening
+DIFFICULTY: High
+QUESTION: Explain how and why the AMOC's strength is diminishing.
+
+---QUESTION 67---
+ID: 67
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Climate | AMOC | Europe effects
+DIFFICULTY: Medium
+QUESTION: How will this affect Europe? (Referring to AMOC weakening)
+
+---QUESTION 68---
+ID: 68
+POINTS: 2.00
+FORMAT: Calculation
+TOPIC: Waves | Wave steepness
+DIFFICULTY: Medium
+QUESTION: Calculate the steepness of the wave. (Wave is 27m tall, has a wavelength of 300m, and a wave period of 10s)
+
+---QUESTION 69---
+ID: 69
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Waves | Deep vs shallow water waves
+DIFFICULTY: Medium
+QUESTION: Is this wave a deep or shallow water wave? (Wave is 27m tall, has a wavelength of 300m, and a wave period of 10s)
+
+---QUESTION 70---
+ID: 70
+POINTS: 3.00
+FORMAT: Short Answer
+TOPIC: Waves | Wind-generated waves | Height factors
+DIFFICULTY: Medium
+QUESTION: What are the 3 things that affect wave height in wind generated waves?
+
+---QUESTION 71---
+ID: 71
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Climate | El Niño | Effects
+DIFFICULTY: Medium
+QUESTION: Explain the effects of an El Niño event. (Using provided diagram)
+
+---QUESTION 72---
+ID: 72
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Climate | El Niño | Rossby waves
+DIFFICULTY: Medium
+QUESTION: Explain how equatorial Rossby waves contribute to the termination of an El Niño event. (Using provided diagram)
+
+---QUESTION 73---
+ID: 73
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Ocean Circulation | Trade winds | Equatorial Pacific
+DIFFICULTY: Medium
+QUESTION: Explain how the trade winds drive surface circulation in the equatorial Pacific under normal conditions. (Using provided diagram)
+
+---QUESTION 74---
+ID: 74
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Climate | El Niño | Ecological impacts
+DIFFICULTY: Medium
+QUESTION: Predict one ecological or climate impact of this altered circulation pattern. (Referring to El Niño)
+
+---QUESTION 75---
+ID: 75
+POINTS: 4.00
+FORMAT: Short Answer
+TOPIC: Ocean Circulation | Upwelling | Peru coast
+DIFFICULTY: Medium
+QUESTION: Why does the coast of Peru have such a rich abundance of fish?
+
+---QUESTION 76---
+ID: 76
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Climate | El Niño | Fishing impacts
+DIFFICULTY: Medium
+QUESTION: What natural phenomenon serves as a major factor in the decrease in harvests? (Referring to Peruvian fishing industry)
+
+---QUESTION 77---
+ID: 77
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Natural Disasters | Tsunamis | Earthquake magnitude
+DIFFICULTY: Medium
+QUESTION: How high on the Richter scale do you expect the earthquake that caused the tsunami to be? (Not looking for an exact number, just make an educated guess) (Referring to 2011 Japan tsunami)
+
+---QUESTION 78---
+ID: 78
+POINTS: 4.00
+FORMAT: Short Answer
+TOPIC: Natural Disasters | Tsunamis | Mechanism
+DIFFICULTY: High
+QUESTION: Explain the mechanism by which earthquakes cause tsunamis in terms of tectonics.
+
+---QUESTION 79---
+ID: 79
+POINTS: 4.00
+FORMAT: Short Answer
+TOPIC: Natural Disasters | Tsunamis | Shoaling
+DIFFICULTY: High
+QUESTION: Tsunamis in the ocean are quite short but increase in height drastically once they approach shore. Explain how this occurs.
+
+---QUESTION 80---
+ID: 80
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Plate Tectonics | Wilson Cycle | Red Sea
+DIFFICULTY: Medium
+QUESTION: What stage in the Wilson Cycle is the Red Sea in?
+
+---QUESTION 81---
+ID: 81
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Plate Tectonics | Wilson Cycle | Ocean basins
+DIFFICULTY: Medium
+QUESTION: Eventually, the Red Sea will enter the next stage in its life cycle, growing into an ocean basin with continental margins. Name an ocean that is currently in that next stage.
+
+---QUESTION 82---
+ID: 82
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Ocean Chemistry | Salinity | Red Sea
+DIFFICULTY: Medium
+QUESTION: What can you infer about the salinity of the Red Sea compared to the average salinity level based on the given information?
+
+---QUESTION 83---
+ID: 83
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Ocean Chemistry | Nutrients | Atlantic vs Pacific
+DIFFICULTY: Medium
+QUESTION: Between the Atlantic and Pacific Ocean, which has the higher nutrient concentration?
+
+---QUESTION 84---
+ID: 84
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Ocean Chemistry | Dissolved oxygen | Atlantic vs Pacific
+DIFFICULTY: Medium
+QUESTION: Between the Atlantic and Pacific Ocean, which has the lower dissolved oxygen content?
+
+---QUESTION 85---
+ID: 85
+POINTS: 4.00
+FORMAT: Short Answer
+TOPIC: Ocean Chemistry | Nutrients and oxygen | Differences
+DIFFICULTY: High
+QUESTION: Explain how the difference in dissolved oxygen and nutrient concentrations occur. (Between Atlantic and Pacific)
+
+---QUESTION 86---
+ID: 86
+POINTS: 3.00
+FORMAT: Short Answer
+TOPIC: Ocean Circulation | Gulf Stream | Formation mechanism
+DIFFICULTY: High
+QUESTION: Explain the mechanism by which the Gulf Stream forms and maintains its northward flow. Include the roles of wind patterns, the Coriolis effect, and density gradients.
+
+---QUESTION 87---
+ID: 87
+POINTS: 2.00
+FORMAT: Short Answer
+TOPIC: Ocean Circulation | Boundary currents | Western vs eastern
+DIFFICULTY: Medium
+QUESTION: Western boundary currents like the Gulf Stream are narrower, deeper, and faster than eastern boundary currents like the Canary Current. Explain why.
+
+---QUESTION 88---
+ID: 88
+POINTS: 3.00
+FORMAT: Short Answer
+TOPIC: Ocean Circulation | Thermohaline circulation | Climate change
+DIFFICULTY: High
+QUESTION: Climate change could increase freshwater input into the North Atlantic through melting ice sheets and precipitation. Explain how this freshwater input would disrupt thermohaline circulation.
+
+---QUESTION 89---
+ID: 89
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Tides | Tidal patterns | Neap tides
+DIFFICULTY: Medium
+QUESTION: What type of tide occurs when the Moon and Sun are at 90 degrees from each other?
+
+---QUESTION 90---
+ID: 90
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Tides | Tidal patterns | Range
+DIFFICULTY: Medium
+QUESTION: During this tidal configuration, does the tide reach its maximum or minimum range? (Referring to neap tides)
+
+---QUESTION 91---
+ID: 91
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Tides | Tidal patterns | Lunar position
+DIFFICULTY: Medium
+QUESTION: What lunar orbital position would cause this tide to have an even smaller range if it coincides with this timing? (Referring to neap tides)
+
+---QUESTION 92---
+ID: 92
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Oceanography | CTD | Acronym
+DIFFICULTY: Easy
+QUESTION: What do the letters "CTD" stand for?
+
+---QUESTION 93---
+ID: 93
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Oceanography | CTD | Temperature profile
+DIFFICULTY: Medium
+QUESTION: As a CTD device descends through the water column from surface to deep ocean, how would you expect the temperature reading to generally change?
+
+---QUESTION 94---
+ID: 94
+POINTS: 1.00
+FORMAT: Short Answer
+TOPIC: Oceanography | Niskin bottles | Purpose
+DIFFICULTY: Medium
+QUESTION: CTD devices are often deployed with a rosette of Niskin bottles. What is the primary purpose of these Niskin bottles?
+

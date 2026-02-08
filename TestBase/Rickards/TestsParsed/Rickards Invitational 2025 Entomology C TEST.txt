@@ -1,0 +1,814 @@
+EVENT: Entomology
+SOURCE: Rickards Invitational 2025 (Div. C)
+FORMAT: 100 questions (MC, Free Response, Image Analysis)
+TOTAL POINTS: 150
+
+---STATION 1: Insect A (Defoliator)---
+
+---QUESTION 1---
+ID: 1 | POINTS: 1.00 | FORMAT: Image Analysis / Free Response
+TOPIC: Insect Identification | Taxonomy | National Insect List
+DIFFICULTY: Medium
+QUESTION: Identify the individual in this image to the lowest taxonomic classification on the 2026 National Insect List.
+
+---QUESTION 2---
+ID: 2 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Population Ecology | Eruption | Species outbreaks
+DIFFICULTY: Medium
+QUESTION: Define an "eruption" of a species such as this.
+
+---QUESTION 3---
+ID: 3 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Feeding Behavior | Larvae | Leaf damage | Plant mortality
+DIFFICULTY: Medium
+QUESTION: Larvae of this species eat the perimeters of the leaves of their host plants first. This leaves the surfaces of the leaves jagged and scored. The physical damage itself does not kill the leaves, but this insect is able to cause high mortality rates in host plants anyway. How does this species' feeding habit kill the leaves?
+
+---QUESTION 4---
+ID: 4 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Feeding Behavior | Wasteful feeding | Defoliation
+DIFFICULTY: Medium
+QUESTION: Knowing the feeding habit of the larva (mentioned in the above question), why is this species considered "wasteful"?
+
+---QUESTION 5---
+ID: 5 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Feeding Behavior | Defoliator types | Miner | Skeletonizer | Chewer | Sucker
+DIFFICULTY: Medium
+QUESTION: Based on questions 3 and 4, which of the following types of defoliators is this insect most likely to be categorized as?
+OPTIONS:
+A) miner
+B) skeletonizer
+C) chewer
+D) sucker
+
+---QUESTION 6---
+ID: 6 | POINTS: 2.00 | FORMAT: Free Response (2 parts)
+TOPIC: Larvae | Dislodgment | Survival organs | Human nuisance
+DIFFICULTY: Medium
+QUESTION: Answer all parts of this question for full credit. As larvae, this species is easily dislodged from host plants despite being practiced climbers.
+A.) What organ is used by the larva to save itself when falling from its host plant?
+B.) Disregarding eruptiveness, why might Species A be a nuisance to the human population?
+
+---QUESTION 7---
+ID: 7 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Feeding Behavior | Winter activity | Temperature | Benefits
+DIFFICULTY: Medium
+QUESTION: This species is active during winter, where temperatures can reach 0 degrees Fahrenheit. Why might feeding during winter be beneficial to larvae? Give two reasons.
+
+---QUESTION 8---
+ID: 8 | POINTS: 2.00 | FORMAT: Free Response (2 parts)
+TOPIC: Population Ecology | Outbreaks | Mass starvation | Egg placement | Rain
+DIFFICULTY: Medium
+QUESTION: Multiple outbreaks of this species occurred in the United States; these outbreaks ended due to different causes.
+A.) Explain how an outbreak could culminate in mass starvation.
+B.) One outbreak ended due to heavy rains that killed the eggs. Though it obviously didn't work in this case, where (relative to the leaf) would a mother lay her eggs to protect them from the elements?
+
+---QUESTION 9---
+ID: 9 | POINTS: 5.00 | FORMAT: Free Response (2 parts)
+TOPIC: Taxonomy | Species differentiation | Life stages | Host specificity
+DIFFICULTY: High
+QUESTION: There is evidence to suggest that this species should be split into two species, or perhaps two subspecies.
+A.) The fact that the life stages of this order are wildly different from one another opens up a challenge—if you are trying to study morphological differences in individuals of this insect, should you study those in the larvae or those in the adults? Why?
+B.) What is host specificity, and is it a valid way to differentiate two species?
+
+---STATION 2: Plant-Feeding Insect---
+
+---QUESTION 10---
+ID: 10 | POINTS: 1.00 | FORMAT: Image Analysis / Free Response
+TOPIC: Insect Identification | Taxonomy | National Insect List
+DIFFICULTY: Medium
+QUESTION: Identify the individual in this image to the lowest taxonomic classification on the 2026 National Insect List.
+
+---QUESTION 11---
+ID: 11 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Oviposition | Ovipositor | Structure | Plant parts
+DIFFICULTY: Medium
+QUESTION: The insect pictured lays eggs inside plant parts. What does this suggest about the structure of the female ovipositor?
+
+---QUESTION 12---
+ID: 12 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Feeding Behavior | Host specificity | Monophagous | Stenophagous | Oligophagous | Polyphagous
+DIFFICULTY: Medium
+QUESTION: Which of the following best describes this taxon?
+OPTIONS:
+A) monophagous
+B) stenophagous
+C) oligophagous
+D) polyphagous
+
+---QUESTION 13---
+ID: 13 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Pest Management | Weeds | Alternative hosts | Garden invasion
+DIFFICULTY: Medium
+QUESTION: How might removing weeds prevent this insect from invading your garden, where its preferred host might be? Why would the presence of weeds benefit a population of this insect?
+
+---QUESTION 14---
+ID: 14 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Temperature | Activity | Environmental factors
+DIFFICULTY: Easy
+QUESTION: How do changes in temperature affect the activity of this insect?
+
+---QUESTION 15---
+ID: 15 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Pollination | Feeding behavior | Negative impacts
+DIFFICULTY: Medium
+QUESTION: This taxon has been observed unintentionally aiding hosts by pollinating. However, in this scenario, these insects are observed negatively impacting pollination. How might the feeding behavior of these insects negatively affect pollination?
+
+---QUESTION 16---
+ID: 16 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Mouthparts | Sucking | Plant tissue
+DIFFICULTY: Easy
+QUESTION: Name the mouthpart that is used to suck out the contents of plant tissue.
+
+---QUESTION 17---
+ID: 17 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Pest Monitoring | Sticky traps | Population monitoring | Effectiveness
+DIFFICULTY: Medium
+QUESTION: This insect is a prevalent pest. One way to monitor it is by using sticky traps, allowing farmers to see population trends. Which of the following would be most effective in accurately representing the actual number of insects present?
+OPTIONS:
+A) placing a trap that is yellow
+B) placing a trap that is green
+C) placing the trap at the base of the host plant
+D) placing the trap away from any floral tissue
+
+---QUESTION 18---
+ID: 18 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Pest Management | Growing degree-day model | Development models
+DIFFICULTY: Medium
+QUESTION: What is a growing degree-day model?
+
+---QUESTION 19---
+ID: 19 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Pest Management | Growing degree-day model | Population monitoring
+DIFFICULTY: Medium
+QUESTION: How can a growing degree-day model help monitor populations of this insect?
+
+---QUESTION 20---
+ID: 20 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Integrated Pest Management | Economic thresholds | Action thresholds | Defoliation thresholds
+DIFFICULTY: Medium
+QUESTION: The farmers monitoring these insects find that they can only really make field observations, as they are unable to establish a consistent relationship between the population density of these insects and the yield losses the farm suffers. Therefore, integrated pest management guidelines will rely on which of the following?
+OPTIONS:
+A) economic injury level
+B) economic thresholds
+C) defoliation thresholds
+D) action thresholds
+
+---QUESTION 21---
+ID: 21 | POINTS: 3.00 | FORMAT: Free Response
+TOPIC: Pest Management | Kaolin | Protection mechanisms
+DIFFICULTY: Medium
+QUESTION: Name three ways the use of kaolin protects hosts from pests.
+
+---SECTION 3: Invasive Species---
+
+---QUESTION 22---
+ID: 22 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Invasive Species | Traits | Establishment success
+DIFFICULTY: Medium
+QUESTION: Name two traits common to many insect species that can help with their success in becoming established as an invasive species.
+
+---QUESTION 23---
+ID: 23 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Invasive Species | Lag phase | Population bottlenecks | Establishment
+DIFFICULTY: Medium
+QUESTION: Invasive insect species often exhibit a "lag phase" after introduction. What best explains this phenomenon?
+OPTIONS:
+A) Initial population bottlenecks prevent immediate expansion
+B) Native predators immediately suppress their growth
+C) They must first hybridize with native insects
+D) The climate must first change to match their native habitat
+
+---QUESTION 24---
+ID: 24 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Invasive Species | Climate change | Habitat range | Success
+DIFFICULTY: Medium
+QUESTION: What role does climate change play in the success of invasive insect species?
+OPTIONS:
+A) It reduces their ability to reproduce in warmer temperatures
+B) It has no measurable impact on insect invasions
+C) It expands the suitable habitat range for many invasive insects
+D) It increases competition from native insect species
+
+---QUESTION 25---
+ID: 25 | POINTS: 3.00 | FORMAT: Free Response
+TOPIC: Biological Control | Mating disruption | Sterile insect technique | Similarities | Differences
+DIFFICULTY: High
+QUESTION: Often biological control is used to manage invasive insect species population. Two examples are mating disruption and sterile insect technique. Identify one similarity and two differences between these strategies.
+
+---QUESTION 26---
+ID: 26 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Pest Management | Trap crops | Effectiveness | Pesticides
+DIFFICULTY: Medium
+QUESTION: Another strategy people use to manage 'pests' is trap crops. However, why has this been largely ineffective without the use of pesticides?
+
+---QUESTION 27---
+ID: 27 | POINTS: 4.00 | FORMAT: Free Response (3 parts)
+TOPIC: Invasive Species | Emerald Ash Borer | Management | Introduction | Prevention
+DIFFICULTY: High
+QUESTION: The Emerald Ash Borer has been an extremely damaging invasive species for North American trees.
+a. What are two management methods that are currently being attempted?
+b. How do invasive species from the Emerald Ash Borer's family typically arrive in the U.S.?
+c. What would you propose to reduce the occurrences of this?
+
+---QUESTION 28---
+ID: 28 | POINTS: 3.00 | FORMAT: Free Response (3 parts)
+TOPIC: Invasive Species | Spotted Lanternfly | Family | Characteristics | Management critique
+DIFFICULTY: High
+QUESTION: An invasive species that has gained much media attention in recent times is the Spotted Lanternfly.
+a. What is the scientific name of the family this species is part of?
+b. What characteristic about this family makes the spread of Spotted Lanternflies a threat to agriculture?
+c. For a long time, people were encouraged to "squash on sight" with some even spending hours on a daily basis seeking lanternflies out to kill. What is one utilitarian critique of this concentration of effort?
+
+---STATION 4: Sensilla and Antennae---
+
+---QUESTION 29---
+ID: 29 | POINTS: 1.00 | FORMAT: Image Analysis / Free Response
+TOPIC: Insect Identification | Taxonomy | National Insect List
+DIFFICULTY: Medium
+QUESTION: Identify the individual in the image above to the lowest taxonomic classification on the 2026 National Insect List.
+
+---QUESTION 30---
+ID: 30 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Antennae | Antennomeres | Structure
+DIFFICULTY: Easy
+QUESTION: How many antennomeres do insects in this taxon possess?
+OPTIONS:
+A) 3
+B) 4
+C) 5
+D) 6
+
+---QUESTION 31---
+ID: 31 | POINTS: 3.00 | FORMAT: Free Response
+TOPIC: Antennae | Segments | Structure | Basal to distal
+DIFFICULTY: Medium
+QUESTION: Name the three main segments of an antenna, in order of most basal to most distal.
+
+---QUESTION 32---
+ID: 32 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Sensilla | Sensilla trichodea | Structure | Flexibility | Base
+DIFFICULTY: Medium
+QUESTION: A type of sensilla that members of this taxon have, known as sensilla trichodea, is able to move at the base. Describe the structure of the base of the sensilla that allows it to be so flexible.
+
+---QUESTION 33---
+ID: 33 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Sensilla | Sensilla trichodea | Function | Hygroreceptive | Thermoreceptive | Chemoreceptive | Mechanoreceptive
+DIFFICULTY: Medium
+QUESTION: Sensilla trichodea are ribbed and lack pores. Which of the following most likely describes sensilla trichodea?
+OPTIONS:
+A) hygroreceptive
+B) thermoreceptive
+C) chemoreceptive
+D) mechanoreceptive
+
+---QUESTION 34---
+ID: 34 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Sensilla | Pores | Function | Indication
+DIFFICULTY: Medium
+QUESTION: What does the presence of pores indicate about the function of the sensilla?
+
+---QUESTION 35---
+ID: 35 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Sensilla | Böhm's bristles | Proprioception | Flight | Mechanosensory
+DIFFICULTY: Medium
+QUESTION: A type of mechanosensory sensilla known as Böhm's bristles are considered proprioceptive. Proprioception is very important in many insect behaviors. How might proprioceptive sensilla aid in flight?
+
+---QUESTION 36---
+ID: 36 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Sensilla | Hygroreception | Definition
+DIFFICULTY: Easy
+QUESTION: Define hygroreception.
+
+---QUESTION 37---
+ID: 37 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Sensilla | Hygroreception | Hair hygrometer | Environmental change | Reaction
+DIFFICULTY: Medium
+QUESTION: Much like sensilla can be used to detect certain stimuli, humans have developed a tool known as a "hair hygrometer." Assuming that insect sensilla work much like the hair in a hair hygrometer does—which is a possible explanation for how insects can be so hygroreceptive—how do hygroreceptive sensilla react to the environmental change mentioned in question 8?
+
+---STATION 5: Three Specimens (A, B, C)---
+
+---QUESTION 38---
+ID: 38 | POINTS: 3.00 | FORMAT: Free Response / Image Analysis
+TOPIC: Insect Identification | Family names | Scientific names | Three specimens
+DIFFICULTY: Medium
+QUESTION: Provide the scientific name of the family of each of these individuals (A, B, C from left to right).
+
+---QUESTION 39---
+ID: 39 | POINTS: 1.00 | FORMAT: MC / Image Analysis
+TOPIC: Taxonomy | Superfamily | Relationships
+DIFFICULTY: Medium
+QUESTION: Two of these families are in the same superfamily, while one is not. Identify which one is not.
+OPTIONS:
+A) Specimen A
+B) Specimen B
+C) Specimen C
+
+---QUESTION 40---
+ID: 40 | POINTS: 1.00 | FORMAT: MC / Image Analysis
+TOPIC: Metamorphosis | Incomplete metamorphosis | Hemimetabola
+DIFFICULTY: Medium
+QUESTION: The specimen undergoes incomplete metamorphosis.
+OPTIONS:
+A) Specimen A
+B) Specimen B
+C) Specimen C
+D) All
+E) None
+
+---QUESTION 41---
+ID: 41 | POINTS: 1.00 | FORMAT: MC / Image Analysis
+TOPIC: Sound Production | Stridulation | Leg structures
+DIFFICULTY: Medium
+QUESTION: The specimen produces sound using specialized leg structures.
+OPTIONS:
+A) Specimen A
+B) Specimen B
+C) Specimen C
+D) All
+E) None
+
+---QUESTION 42---
+ID: 42 | POINTS: 1.00 | FORMAT: MC / Image Analysis
+TOPIC: Feeding Behavior | Neurotoxic saliva | Prey liquefaction | Predation
+DIFFICULTY: Medium
+QUESTION: The specimen injects prey with neurotoxic saliva to liquefy insides for consumption.
+OPTIONS:
+A) Specimen A
+B) Specimen B
+C) Specimen C
+D) All
+E) None
+
+---QUESTION 43---
+ID: 43 | POINTS: 1.00 | FORMAT: MC / Image Analysis
+TOPIC: Feeding Behavior | Bite | Cutting vs piercing | Pain
+DIFFICULTY: Medium
+QUESTION: The specimen has a painful bite due to its cutting rather than piercing feeding style.
+OPTIONS:
+A) Specimen A
+B) Specimen B
+C) Specimen C
+D) All
+E) None
+
+---QUESTION 44---
+ID: 44 | POINTS: 1.00 | FORMAT: MC / Image Analysis
+TOPIC: Wings | Halteres | Diptera | Wing reduction
+DIFFICULTY: Medium
+QUESTION: The specimen has one functional pair of wings and a second pair that is reduced to halteres.
+OPTIONS:
+A) Specimen A
+B) Specimen B
+C) Specimen C
+D) All
+E) None
+
+---QUESTION 45---
+ID: 45 | POINTS: 1.00 | FORMAT: MC / Image Analysis
+TOPIC: Morphology | Mystax | Facial protection | Hairs
+DIFFICULTY: Medium
+QUESTION: The specimen has a mystax to provide facial protection.
+OPTIONS:
+A) Specimen A
+B) Specimen B
+C) Specimen C
+D) All
+E) None
+
+---QUESTION 46---
+ID: 46 | POINTS: 1.00 | FORMAT: MC / Image Analysis
+TOPIC: Reproduction | Egg coating | Sand | Specialized structures
+DIFFICULTY: Medium
+QUESTION: The specimen may have a specialized structure it uses to coat eggs with sand before releasing them.
+OPTIONS:
+A) Specimen A
+B) Specimen B
+C) Specimen C
+D) All
+E) None
+
+---QUESTION 47---
+ID: 47 | POINTS: 1.00 | FORMAT: MC / Image Analysis
+TOPIC: Respiration | Spiracles | Lungs | Tracheal system
+DIFFICULTY: Easy
+QUESTION: The specimen lacks lungs and instead breathes through spiracles.
+OPTIONS:
+A) Specimen A
+B) Specimen B
+C) Specimen C
+D) All
+E) None
+
+---STATION 6: Bees (Insect A and Insect B)---
+
+---QUESTION 48---
+ID: 48 | POINTS: 1.00 | FORMAT: Image Analysis / Free Response
+TOPIC: Insect Identification | Taxonomy | National Insect List | Bees
+DIFFICULTY: Medium
+QUESTION: Identify the individuals in the images to the lowest taxonomic classification on the 2026 National Insect List.
+
+---QUESTION 49---
+ID: 49 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Etymology | Taxon name | Scopa | Abdomen | Mandibles | Ocelli
+DIFFICULTY: Medium
+QUESTION: Which of the following is most likely the reason for the etymology of this taxon name?
+OPTIONS:
+A) scopa
+B) abdomen
+C) mandibles
+D) ocelli
+
+---QUESTION 50---
+ID: 50 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Diapause | Photoperiod | Maternal effects | Offspring development
+DIFFICULTY: Medium
+QUESTION: In some situations, it has been observed that photoperiods experienced by mother insects during construction of their nests affect the diapause in their offspring. What does this suggest about how diapause develops in the offspring?
+
+---QUESTION 51---
+ID: 51 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Development | Larvae | Pupae | Photoperiod detection | Nest location
+DIFFICULTY: Medium
+QUESTION: It is also possible that while larvae and pupae of Insect A are developing, they are still able to detect photoperiod. Where do they develop? Knowing where they develop, how are they still able to detect photoperiod?
+
+---QUESTION 52---
+ID: 52 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Feeding Behavior | Larvae | Food acquisition | Bees
+DIFFICULTY: Medium
+QUESTION: How do larvae of this taxon get food?
+
+---QUESTION 53---
+ID: 53 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Diapause | Food quantity | Larvae | Behavior
+DIFFICULTY: Medium
+QUESTION: Researchers studying Insect A find that the amount of food provided to the larvae affects their diapause behavior. Based on your answer to question 5, what is a likely explanation for this?
+
+---QUESTION 54---
+ID: 54 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Diapause | Stress | Young insects | Behavior
+DIFFICULTY: Medium
+QUESTION: How might high stress in a young insect affect its diapause behavior?
+
+---QUESTION 55---
+ID: 55 | POINTS: 2.00 | FORMAT: Free Response
+TOPIC: Pollination | Polylecty | Oligolecty | Definitions | Differences
+DIFFICULTY: Medium
+QUESTION: What is the difference between "polylecty" and "oligolecty"?
+
+---QUESTION 56---
+ID: 56 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Behavior | Nest preparation | Tunnel cleaning | Offspring
+DIFFICULTY: Medium
+QUESTION: Insect B is seen spending long periods of time inside a nest tunnel and removing material from the inside of it. What does this most likely indicate?
+OPTIONS:
+A) Insect B is attempting to ambush a rival.
+B) Insect B is patrolling the area for threats.
+C) Insect B is preparing the nest for offspring.
+D) Insect B is attempting to find leftover food.
+
+---QUESTION 57---
+ID: 57 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Behavior | Nest entry | Backwards entry | Orientation
+DIFFICULTY: Medium
+QUESTION: Insect B is seen exiting from a nest tunnel, then re-entering the same tunnel backwards. What is the most likely reason for this behavior?
+
+---QUESTION 58---
+ID: 58 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Behavior | Sex determination | Nest behavior | Male vs Female
+DIFFICULTY: Medium
+QUESTION: Based on the information given in questions 9 and 10, is Insect B male or female?
+OPTIONS:
+A) male
+B) female
+
+---STATION 7: Beetle Family---
+
+---QUESTION 59---
+ID: 59 | POINTS: 1.00 | FORMAT: Image Analysis / Free Response
+TOPIC: Insect Identification | Family name | Scientific name
+DIFFICULTY: Medium
+QUESTION: What is the scientific name of the family of this individual?
+
+---QUESTION 60---
+ID: 60 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Flight | Elytra | Fused wings | Flightlessness | Adaptations
+DIFFICULTY: Medium
+QUESTION: Why are many members of this family unable to fly?
+OPTIONS:
+A) Their elytra are fused, preventing the wings from unfolding
+B) They lack functional compound eyes needed for aerial navigation
+C) Their muscles atrophy during metamorphosis due to energy allocation to armor
+D) They rely on chemical mimicry for defense, making flight unnecessary
+
+---QUESTION 61---
+ID: 61 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Materials Science | Biomimetics | Exoskeleton | Innovations
+DIFFICULTY: Medium
+QUESTION: Provide an example of an innovation in materials science that has been inspired by the exoskeleton of this family.
+
+---QUESTION 62---
+ID: 62 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Exoskeleton | Geometric shape | Strength | Structure
+DIFFICULTY: Medium
+QUESTION: How does the overall geometric shape of members of this family support the strength of their exoskeleton?
+
+---QUESTION 63---
+ID: 63 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Exoskeleton | Structural features | Strength | Adaptations
+DIFFICULTY: Medium
+QUESTION: Identify one other structural feature that contributes to exoskeleton strength for this family.
+
+---QUESTION 64---
+ID: 64 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Conservation | Habitat | Grasslands | Old-growth forests | Deserts | Marshes
+DIFFICULTY: Medium
+QUESTION: What primary habitat should be conserved to prevent species extinctions of this family?
+OPTIONS:
+A) Grasslands
+B) Old-growth Forests
+C) Deserts
+D) Freshwater Marshes
+
+---QUESTION 65---
+ID: 65 | POINTS: 3.00 | FORMAT: Free Response
+TOPIC: Ecology | Nutrient cycling | Habitat | Ecological niche | Adaptations
+DIFFICULTY: High
+QUESTION: Why would nutrient cycling in this habitat particularly be disrupted if populations of this family decreased in size? Consider their ecological niche and unique adaptations in your answer.
+
+---QUESTION 66---
+ID: 66 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Pollination | Economic value | Ecosystem services | Finance
+DIFFICULTY: Medium
+QUESTION: Your country's finance ministry is unconvinced about funding pollinator habitat restoration. They ask why insect pollinators should be treated as economic assets. What should you argue?
+OPTIONS:
+A) Pollinators form a vital part of national identity
+B) Pollinators provide measurable ecosystem services
+C) Pollinators help birds, which ecosystems need
+D) Most crops are wind-pollinated, which pollinators play a vital role in
+
+---STATION 8: Agricultural Economics---
+
+---QUESTION 67---
+ID: 67 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Agriculture | Monoculture | Pest management | Diversity | Policy
+DIFFICULTY: Medium
+QUESTION: The agriculture ministry wants to expand monoculture cash crops to respond to the increased demand for agriculture imports. Which of the following suggestions would you offer?
+OPTIONS:
+A) Monocultures are aesthetically unappealing and reduce tourist interest, so the ministry should not expand them
+B) Monocultures have a systematic structure that makes pest insect monitoring and management easier, so the ministry should expand them
+C) Monocultures reduce insect diversity which leads to more pest outbreaks, so the ministry should not expand them
+D) Monocultures attract more funding from international banks, so the ministry should expand them
+
+---QUESTION 68---
+ID: 68 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Pesticides | Resistance | Effectiveness | Adaptation
+DIFFICULTY: Medium
+QUESTION: Farmers report pesticides have been declining in effectiveness against major insect pests. They come to you to find out why. What explanation would you provide?
+OPTIONS:
+A) Insect populations adapt over time to become more resistant to pesticides
+B) Pesticides frequently expire due to storage issues
+C) The climate of your country has led to the growth larger insects, which require more pesticides to deal with
+D) Most modern pesticides are broad-spectrum instead of being narrow-spectrum
+
+---QUESTION 69---
+ID: 69 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Insect Protein | Subsidies | Economic benefits | GHG emissions
+DIFFICULTY: Medium
+QUESTION: Your government is considering subsidies for insect protein production. What would you tell them in support of this?
+OPTIONS:
+A) Insect protein is already dominant in global markets for economic reasons
+B) Insects are naturally disease-resistant so insect protein would be safer for consumption
+C) People prefer the taste of insects over other protein sources
+D) Raising insects on agricultural waste is an effective way to reduce national GHG emissions
+
+---QUESTION 70---
+ID: 70 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Economic Models | Insect decline | Quantification | Variables | Pollinator-dependent crops
+DIFFICULTY: Medium
+QUESTION: Your policy team asks for a model to quantify the economic impact of insect decline in your country. Which of the following variables would you prioritize to include?
+OPTIONS:
+A) The number of new insect species discovered in your country annually
+B) The amount of endangered bee species in your country
+C) Global insect biomass measures
+D) The per hectare loss of pollinator-dependent crop output
+
+---QUESTION 71---
+ID: 71 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Pest Management | Locusts | Population ecology | Long-term alternatives | Predatory birds
+DIFFICULTY: Medium
+QUESTION: The ministry of agriculture is considering pesticide subsidies to combat a recent locust outbreak. However, you propose a long-term alternative that considers insect population ecology. What do you propose?
+OPTIONS:
+A) Use biopesticides specifically to eliminate more locusts with pesticide use
+B) Accept that locusts are a natural part of the ecosystem and take no action
+C) Encourage conversion of farmland into pasture to prevent locust breeding
+D) Create models to anticipate outbreaks and support predatory bird populations in outbreak-prone locations
+
+---QUESTION 72---
+ID: 72 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Biological Control | Parasitoid wasps | Host specificity | Cost-benefit analysis
+DIFFICULTY: Medium
+QUESTION: You're evaluating a program that introduces parasitoid wasps to control a crop pest. What biological consideration must be factored into your ecological cost-benefit analysis?
+OPTIONS:
+A) The species of wasp's host specificity
+B) Whether farmers like working with the particular wasp species
+C) The ability of surplus wasps to be converted into animal feed
+D) If wasps will be accepted by the public as effective biocontrol
+
+---QUESTION 73---
+ID: 73 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Agriculture | Biodiversity | Economic stability | Resilience | Outbreaks
+DIFFICULTY: Medium
+QUESTION: A national resilience plan requires your help to decide agricultural policy. What would you say about the role of insect biodiversity with economic stability in agriculture?
+OPTIONS:
+A) Diverse insect communities reduce the chance of single-species outbreaks
+B) Valuable economic resources should not be expended on supporting insect populations
+C) Biodiversity increases GDP through the exotic insect trade
+D) Researchers need more funding to know if insects impact agriculture
+
+---QUESTION 74---
+ID: 74 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Biotechnology | Gene-edited insects | Sterile Insect Technique | Risks | Mating behavior
+DIFFICULTY: Medium
+QUESTION: A biotech firm that your government has hired proposes releasing gene-edited insects to suppress a pest population (e.g. Sterile Insect Technique). As an advisor, what biological and economic risk should you highlight?
+OPTIONS:
+A) GMO insects are more expensive than pesticide use
+B) Population suppression might not work if mating behavior is misunderstood
+C) Insects may mutate into more resistant pests overnight
+D) Insects may become more aggressive and voracious
+
+---QUESTION 75---
+ID: 75 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Urban Ecology | Food security | Pollination | Decomposition | Urban farms
+DIFFICULTY: Medium
+QUESTION: The environment ministry wants to improve food security in urban centers. What role would you say insect ecology can play to help?
+OPTIONS:
+A) Insects can be used as educational tools to teach children about nature
+B) Insects won't have a significant role outside of rural settings with large farms
+C) Insects can pollinate and assist decomposition in urban farms
+D) Insects are a threat to most stored foods in urban environments
+
+---STATION 9: Cockroaches and Bed Bugs---
+
+---QUESTION 76---
+ID: 76 | POINTS: 1.00 | FORMAT: Free Response / Image Analysis
+TOPIC: Insect Identification | Family name | Scientific name | Specimen A
+DIFFICULTY: Medium
+QUESTION: What is the scientific family name of Specimen A?
+
+---QUESTION 77---
+ID: 77 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Vision | Ommatidia | Mosaic vision | Compound eyes | Benefits
+DIFFICULTY: Medium
+QUESTION: Members of this family have ommatidia that give them a kind of vision known as mosaic vision. Why is this helpful for them?
+
+---QUESTION 78---
+ID: 78 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Human Health | Allergic reactions | Asthma | Triggers
+DIFFICULTY: Medium
+QUESTION: How can allergic reactions or asthma be triggered in humans by the presence of members of this family?
+
+---QUESTION 79---
+ID: 79 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Human Health | Disease-causing bacteria | Stepping on insects | Avoidance
+DIFFICULTY: Medium
+QUESTION: Considering the proclivity of members of this family to carry disease-causing bacteria, why should people avoid stepping on them?
+
+---QUESTION 80---
+ID: 80 | POINTS: 3.00 | FORMAT: Free Response (3 parts)
+TOPIC: Climbing | Adhesive pads | Tarsal claws | Van Der Waals Forces | Surface tension
+DIFFICULTY: High
+QUESTION: Members of this family have impressive climbing abilities, even managing to climb smooth surfaces at steep angles. Part of their ability to do this comes from adhesive pads located beneath their tarsal claws.
+a. What are these pads called?
+b. What feature of these pads allows members of this family to climb via Van Der Waals Forces?
+c. How do members of this family also use surface tension to bolster their climbing ability?
+
+---QUESTION 81---
+ID: 81 | POINTS: 1.00 | FORMAT: Free Response / Image Analysis
+TOPIC: Insect Identification | Family name | Scientific name | Specimen B
+DIFFICULTY: Medium
+QUESTION: What is the scientific family name of Specimen B?
+
+---QUESTION 82---
+ID: 82 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Chemical Ecology | Kairomones | Host attraction | Definition
+DIFFICULTY: Medium
+QUESTION: Along with heat, members of this family are attracted to hosts by kairomones. What is a kairomone?
+
+---QUESTION 83---
+ID: 83 | POINTS: 1.00 | FORMAT: Free Response
+TOPIC: Symbiosis | Bacterial symbionts | Mycetomes | Function
+DIFFICULTY: Medium
+QUESTION: What is the likely reason for all members of this family harboring bacterial symbionts in mycetomes?
+
+---QUESTION 84---
+ID: 84 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Phylogenetics | Relationships | Common ancestor | Hemipteroid assemblage | Evolution
+DIFFICULTY: Medium
+QUESTION: Which of the following best characterizes the phylogenetic relationship between these families?
+OPTIONS:
+A) They share a recent common ancestor and are closely related
+B) They are both part of the Hemipteroid assemblage
+C) They are distantly related insects from separate evolutionary lineages
+D) Specimen B evolved from a Specimen A-like ancestor
+
+---QUESTION 85---
+ID: 85 | POINTS: 1.00 | FORMAT: MC
+TOPIC: Human Habitats | Indoor environments | Associations | Common traits
+DIFFICULTY: Medium
+QUESTION: What do both families have in common regarding their association with human habitats?
+OPTIONS:
+A) Both require high humidity and sunlight for survival
+B) Both are obligate parasites that rely entirely on human blood
+C) Both live exclusively in human furniture
+D) Both thrive in indoor environments due to warmth and food availability
+
+---STATION 10: Image-Based Identification---
+
+---QUESTION 86---
+ID: 86 | POINTS: 1.00 | FORMAT: Image Analysis / Free Response
+TOPIC: Insect Identification | Taxonomy | National Insect List
+DIFFICULTY: Medium
+QUESTION: [Image-based identification question - content not fully extracted]
+
+---QUESTION 87---
+ID: 87 | POINTS: 1.00 | FORMAT: Image Analysis / Free Response
+TOPIC: Insect Identification | Taxonomy | National Insect List
+DIFFICULTY: Medium
+QUESTION: [Image-based identification question - content not fully extracted]
+
+---QUESTION 88---
+ID: 88 | POINTS: 1.00 | FORMAT: Image Analysis / Free Response
+TOPIC: Insect Identification | Taxonomy | National Insect List
+DIFFICULTY: Medium
+QUESTION: [Image-based identification question - content not fully extracted]
+
+---QUESTION 89---
+ID: 89 | POINTS: 1.00 | FORMAT: Image Analysis / Free Response
+TOPIC: Insect Identification | Taxonomy | National Insect List
+DIFFICULTY: Medium
+QUESTION: [Image-based identification question - content not fully extracted]
+
+---QUESTION 90---
+ID: 90 | POINTS: 1.00 | FORMAT: Image Analysis / Free Response
+TOPIC: Insect Identification | Taxonomy | National Insect List
+DIFFICULTY: Medium
+QUESTION: [Image-based identification question - content not fully extracted]
+
+---QUESTION 91---
+ID: 91 | POINTS: 1.00 | FORMAT: Image Analysis / Free Response
+TOPIC: Insect Identification | Taxonomy | National Insect List
+DIFFICULTY: Medium
+QUESTION: [Image-based identification question - content not fully extracted]
+
+---QUESTION 92---
+ID: 92 | POINTS: 1.00 | FORMAT: Image Analysis / Free Response
+TOPIC: Insect Identification | Taxonomy | National Insect List
+DIFFICULTY: Medium
+QUESTION: [Image-based identification question - content not fully extracted]
+
+---QUESTION 93---
+ID: 93 | POINTS: 1.00 | FORMAT: Image Analysis / Free Response
+TOPIC: Insect Identification | Taxonomy | National Insect List
+DIFFICULTY: Medium
+QUESTION: [Image-based identification question - content not fully extracted]
+
+---QUESTION 94---
+ID: 94 | POINTS: 1.00 | FORMAT: Image Analysis / Free Response
+TOPIC: Insect Identification | Taxonomy | National Insect List
+DIFFICULTY: Medium
+QUESTION: [Image-based identification question - content not fully extracted]
+
+---QUESTION 95---
+ID: 95 | POINTS: 1.00 | FORMAT: Image Analysis / Free Response
+TOPIC: Insect Identification | Taxonomy | National Insect List
+DIFFICULTY: Medium
+QUESTION: [Image-based identification question - content not fully extracted]
+
+---QUESTION 96---
+ID: 96 | POINTS: 1.00 | FORMAT: Image Analysis / Free Response
+TOPIC: Insect Identification | Taxonomy | National Insect List
+DIFFICULTY: Medium
+QUESTION: [Image-based identification question - content not fully extracted]
+
+---QUESTION 97---
+ID: 97 | POINTS: 1.00 | FORMAT: Image Analysis / Free Response
+TOPIC: Insect Identification | Taxonomy | National Insect List
+DIFFICULTY: Medium
+QUESTION: [Image-based identification question - content not fully extracted]
+
+---QUESTION 98---
+ID: 98 | POINTS: 1.00 | FORMAT: Image Analysis / Free Response
+TOPIC: Insect Identification | Taxonomy | National Insect List
+DIFFICULTY: Medium
+QUESTION: [Image-based identification question - content not fully extracted]
+
+---QUESTION 99---
+ID: 99 | POINTS: 1.00 | FORMAT: Image Analysis / Free Response
+TOPIC: Insect Identification | Taxonomy | National Insect List
+DIFFICULTY: Medium
+QUESTION: [Image-based identification question - content not fully extracted]
+
+---QUESTION 100---
+ID: 100 | POINTS: 1.00 | FORMAT: Image Analysis / Free Response
+TOPIC: Insect Identification | Taxonomy | National Insect List
+DIFFICULTY: Medium
+QUESTION: [Image-based identification question - content not fully extracted]
