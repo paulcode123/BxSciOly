@@ -11,7 +11,18 @@
 </div>
 
 <section class="section">
-    <div class="container">
+    <div class="container" style="display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start;">
+    <aside id="browseSidebar" style="flex: 0 0 280px; min-width: 260px; order: 2;">
+        <div class="card" style="background: white; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); padding: 18px; position: sticky; top: 20px;">
+            <h3 style="margin: 0 0 12px 0;"><i class="fas fa-folder-tree"></i> Browse by category</h3>
+            <div id="browseTree" style="max-height: 70vh; overflow-y: auto;">
+                <p id="browseLoading" style="color:#666; font-size: 0.9em;"><i class="fas fa-spinner fa-spin"></i> Loading...</p>
+                <div id="browseContent" style="display: none;"></div>
+                <p id="browseError" style="display: none; color: #c62828;">No categories. Run the category backfill first.</p>
+            </div>
+        </div>
+    </aside>
+    <div style="flex: 1; min-width: 0; order: 1;">
         <div class="card" style="background: white; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); padding: 24px;">
             <form method="GET" action="{{ url_for('wikiqa_routes.user_wikiqa') }}" style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
                 <input
@@ -115,6 +126,121 @@
             </div>
         {% endif %}
     </div>
+    </div>
 </section>
+
+<script>
+(function() {
+    const content = document.getElementById('browseContent');
+    const loading = document.getElementById('browseLoading');
+    const errEl = document.getElementById('browseError');
+
+    function renderNode(node, depth) {
+        const div = document.createElement('div');
+        div.style.marginLeft = (depth * 12) + 'px';
+        div.style.marginBottom = '4px';
+
+        const hasChildren = node.children && node.children.length > 0;
+        const hasPages = node.pages && node.pages.length > 0;
+
+        const header = document.createElement('div');
+        header.style.cursor = hasChildren ? 'pointer' : 'default';
+        header.style.display = 'flex';
+        header.style.alignItems = 'center';
+        header.style.gap = '6px';
+        header.style.padding = '4px 6px';
+        header.style.borderRadius = '6px';
+        header.innerHTML = (hasChildren ? '<span class="browse-toggle" style="width:16px;font-size:0.8em;">&#9654;</span>' : '<span style="width:16px;"></span>') +
+            '<span class="browse-name" style="flex:1;font-size:0.9em;">' + escapeHtml(node.display) + '</span>' +
+            '<span style="color:#666;font-size:0.8em;">(' + (node.count || 0) + ')</span>';
+        if (hasChildren) {
+            header.addEventListener('click', function() {
+                const child = div.querySelector('.browse-children');
+                const toggle = header.querySelector('.browse-toggle');
+                if (child.style.display === 'none') {
+                    child.style.display = 'block';
+                    if (toggle) toggle.textContent = '\u25BC';
+                } else {
+                    child.style.display = 'none';
+                    if (toggle) toggle.textContent = '\u9654';
+                }
+            });
+        }
+        div.appendChild(header);
+
+        if (hasChildren) {
+            const childDiv = document.createElement('div');
+            childDiv.className = 'browse-children';
+            childDiv.style.display = 'none';
+            node.children.forEach(function(c) { childDiv.appendChild(renderNode(c, depth + 1)); });
+            div.appendChild(childDiv);
+        }
+
+        if (hasPages) {
+            const pageWrap = document.createElement('div');
+            pageWrap.style.marginLeft = '8px';
+            pageWrap.style.marginTop = '4px';
+            const pageHeader = document.createElement('div');
+            pageHeader.style.cursor = 'pointer';
+            pageHeader.style.fontSize = '0.85em';
+            pageHeader.style.color = '#666';
+            pageHeader.textContent = 'Pages (' + node.pages.length + ') \u25B6';
+            pageList.style.display = 'none';
+            const pageList = document.createElement('div');
+            pageList.style.borderLeft = '2px solid #e0e0e0';
+            pageList.style.paddingLeft = '8px';
+            pageList.style.marginTop = '4px';
+            node.pages.forEach(function(p) {
+                const a = document.createElement('a');
+                a.href = p.url || '#';
+                a.target = '_blank';
+                a.rel = 'noopener noreferrer';
+                a.textContent = p.title;
+                a.style.display = 'block';
+                a.style.fontSize = '0.85em';
+                a.style.marginBottom = '2px';
+                a.style.color = 'var(--accent-color)';
+                a.style.textDecoration = 'none';
+                pageList.appendChild(a);
+            });
+            pageHeader.addEventListener('click', function() {
+                const hidden = pageList.style.display === 'none';
+                pageList.style.display = hidden ? 'block' : 'none';
+                pageHeader.textContent = 'Pages (' + node.pages.length + ') ' + (hidden ? '\u25B6' : '\u25BC');
+            });
+            pageWrap.appendChild(pageHeader);
+            pageWrap.appendChild(pageList);
+            div.appendChild(pageWrap);
+        }
+
+        return div;
+    }
+    function escapeHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+    fetch('/api/wikiqa/categories')
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+            loading.style.display = 'none';
+            if (data.ok && data.tree && data.tree.length > 0) {
+                content.style.display = 'block';
+                content.innerHTML = '';
+                data.tree.forEach(function(node) {
+                    content.appendChild(renderNode(node, 0));
+                });
+                const total = document.createElement('p');
+                total.style.marginTop = '8px'; total.style.fontSize = '0.85em'; total.style.color = '#666';
+                total.textContent = 'Total: ' + (data.total_pages || 0) + ' pages';
+                content.appendChild(total);
+            } else {
+                errEl.style.display = 'block';
+            }
+        })
+        .catch(function() {
+            loading.style.display = 'none';
+            errEl.style.display = 'block';
+            errEl.textContent = 'Failed to load categories.';
+        });
+})();
+</script>
 {% endblock %}
 

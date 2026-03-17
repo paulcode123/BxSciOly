@@ -1,0 +1,2664 @@
+{% extends "layout.html" %}
+
+{% block title %}Robot Tour Simulator - Bronx Science Olympiad{% endblock %}
+
+{% block extra_css %}
+<style>
+    .rt-simulator-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        overflow: hidden;
+        margin-top: 20px;
+        margin-bottom: 40px;
+    }
+
+    .rt-header {
+        background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%);
+        color: white;
+        padding: 30px;
+        text-align: center;
+    }
+
+    .rt-header h1 {
+        font-size: 2.2em;
+        margin-bottom: 8px;
+        color: white;
+    }
+
+    .rt-header p {
+        opacity: 0.95;
+        font-size: 1em;
+    }
+
+    .rt-content {
+        padding: 30px;
+        display: grid;
+        grid-template-columns: 340px 1fr;
+        gap: 24px;
+    }
+
+    .rt-panel {
+        background: #f8fafc;
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid #e2e8f0;
+    }
+
+    .rt-panel h2 {
+        color: #7c3aed;
+        margin-bottom: 16px;
+        font-size: 1.2em;
+    }
+
+    .form-group {
+        margin-bottom: 14px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 4px;
+        font-weight: 600;
+        color: #334155;
+        font-size: 0.9em;
+    }
+
+    .form-group input, .form-group select {
+        width: 100%;
+        padding: 10px 12px;
+        border: 2px solid #e2e8f0;
+        border-radius: 6px;
+        font-size: 1em;
+    }
+
+    .form-group input:focus, .form-group select:focus {
+        outline: none;
+        border-color: #a78bfa;
+    }
+
+    .form-group small {
+        display: block;
+        margin-top: 2px;
+        color: #64748b;
+        font-size: 0.8em;
+    }
+
+    .toolbar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 16px;
+    }
+
+    .tool-btn {
+        padding: 8px 14px;
+        border: 2px solid #e2e8f0;
+        border-radius: 6px;
+        background: white;
+        font-weight: 600;
+        font-size: 0.85em;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+
+    .tool-btn:hover {
+        border-color: #a78bfa;
+        background: #f5f3ff;
+    }
+
+    .tool-btn.active {
+        background: #7c3aed;
+        border-color: #7c3aed;
+        color: white;
+    }
+
+    .grid-container {
+        position: relative;
+        background: #f1f5f9;
+        border-radius: 10px;
+        border: 2px solid #e2e8f0;
+        overflow: hidden;
+        min-height: 400px;
+    }
+
+    #gridCanvas {
+        display: block;
+        width: 100%;
+        min-height: 400px;
+        cursor: crosshair;
+    }
+
+    .results-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        margin-top: 16px;
+    }
+
+    .result-card {
+        background: white;
+        padding: 12px;
+        border-radius: 8px;
+        border: 2px solid #a78bfa;
+        text-align: center;
+    }
+
+    .result-card .label {
+        font-size: 0.75em;
+        color: #64748b;
+        margin-bottom: 2px;
+    }
+
+    .result-card .value {
+        font-size: 1.3em;
+        font-weight: 700;
+        color: #7c3aed;
+    }
+
+    .result-card .unit {
+        font-size: 0.7em;
+        color: #64748b;
+    }
+
+    .legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 12px;
+        padding: 10px;
+        background: white;
+        border-radius: 6px;
+        font-size: 0.8em;
+    }
+
+    .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .legend-color {
+        width: 18px;
+        height: 14px;
+        border-radius: 3px;
+    }
+
+    .score-section {
+        margin-top: 20px;
+        padding-top: 16px;
+        border-top: 1px solid #e2e8f0;
+    }
+
+    .rt-formulas {
+        padding: 24px 30px 30px;
+        border-top: 1px solid #e2e8f0;
+        background: #f8fafc;
+    }
+
+    .rt-formulas h2 {
+        color: #7c3aed;
+        margin-bottom: 20px;
+        font-size: 1.3em;
+    }
+
+    .formulas-content p {
+        margin: 0 0 6px 0;
+        color: #334155;
+        font-size: 0.9em;
+    }
+
+    .formulas-content .formula {
+        margin: 6px 0;
+        padding: 10px 14px;
+        background: white;
+        border-radius: 8px;
+        border-left: 4px solid #a78bfa;
+        font-size: 1em;
+    }
+
+    @media (max-width: 900px) {
+        .rt-content {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .rt-readme-section {
+        margin: 20px 30px 0;
+        background: #f1f5f9;
+        border-radius: 8px;
+        border: 1px solid #e2e8f0;
+    }
+
+    .rt-readme-section details {
+        padding: 12px 16px;
+    }
+
+    .rt-readme-section summary {
+        font-weight: 600;
+        color: #7c3aed;
+        cursor: pointer;
+        list-style: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .rt-readme-section summary::-webkit-details-marker {
+        display: none;
+    }
+
+    .rt-readme-section .readme-content {
+        margin-top: 12px;
+        padding-top: 12px;
+        border-top: 1px solid #cbd5e1;
+        font-size: 0.9em;
+        line-height: 1.5;
+        color: #475569;
+    }
+
+    .rt-readme-section .readme-content h3 {
+        font-size: 1.1em;
+        color: #7c3aed;
+        margin: 16px 0 8px;
+    }
+
+    .rt-readme-section .readme-content h3:first-child {
+        margin-top: 0;
+    }
+
+    .rt-readme-section .readme-content ul {
+        margin-left: 20px;
+        margin-bottom: 12px;
+    }
+
+    .rt-readme-section .readme-content p {
+        margin-bottom: 12px;
+    }
+
+    .rt-tabs {
+        display: flex;
+        border-bottom: 2px solid #e2e8f0;
+        background: #f8fafc;
+        padding: 0 30px;
+        gap: 4px;
+    }
+
+    .rt-tab {
+        padding: 14px 24px;
+        font-weight: 600;
+        font-size: 0.95em;
+        color: #64748b;
+        background: none;
+        border: none;
+        border-bottom: 3px solid transparent;
+        cursor: pointer;
+        transition: all 0.2s;
+        margin-bottom: -2px;
+    }
+
+    .rt-tab:hover {
+        color: #7c3aed;
+    }
+
+    .rt-tab.active {
+        color: #7c3aed;
+        border-bottom-color: #7c3aed;
+    }
+
+    .rt-tab-panel {
+        display: none;
+        padding: 30px;
+        animation: rt-fadeIn 0.2s ease;
+    }
+
+    .rt-tab-panel.active {
+        display: block;
+    }
+
+    @keyframes rt-fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    /* Code tab — match ev_simulator styling */
+    .rt-flow-label {
+        font-weight: 600;
+        color: #334155;
+        margin-bottom: 8px;
+    }
+    .rt-pseudocode-block {
+        display: block;
+        padding: 16px 18px;
+        background: #f1f5f9;
+        color: #334155;
+        border: 2px solid #cbd5e1;
+        border-radius: 8px;
+        font-family: "Consolas", "Monaco", "Courier New", monospace;
+        font-size: 0.88em;
+        line-height: 1.45;
+        overflow-x: auto;
+        margin-bottom: 8px;
+    }
+    .rt-code-block {
+        display: block;
+        padding: 16px 18px;
+        background: #1e293b;
+        color: #e2e8f0;
+        border-radius: 8px;
+        font-family: "Consolas", "Monaco", "Courier New", monospace;
+        font-size: 0.85em;
+        line-height: 1.5;
+        overflow-x: auto;
+    }
+    .rt-code-copy-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 10px;
+    }
+    .rt-copy-code-btn {
+        padding: 8px 16px;
+        background: #7c3aed;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+    .rt-copy-code-btn:hover {
+        background: #6d28d9;
+    }
+    .rt-code-copy-row .copy-feedback {
+        font-size: 0.9em;
+        color: #059669;
+    }
+    .rt-code-container {
+        max-height: 520px;
+        overflow-y: auto;
+    }
+
+    .rt-strategy-tabs {
+        display: flex;
+        gap: 0;
+        margin-bottom: 20px;
+    }
+    .rt-strategy-tab {
+        padding: 10px 20px;
+        font-weight: 600;
+        font-size: 0.9em;
+        color: #64748b;
+        background: #e2e8f0;
+        border: none;
+        cursor: pointer;
+    }
+    .rt-strategy-tab:first-child { border-radius: 6px 0 0 6px; }
+    .rt-strategy-tab:last-child { border-radius: 0 6px 6px 0; }
+    .rt-strategy-tab:hover { color: #7c3aed; }
+    .rt-strategy-tab.active {
+        color: #7c3aed;
+        background: white;
+        box-shadow: 0 -2px 0 0 #e2e8f0;
+    }
+    .rt-strategy-content {
+        display: none;
+    }
+    .rt-strategy-content.active {
+        display: block;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container" style="padding-top: 40px; padding-bottom: 40px;">
+    <div class="rt-simulator-container">
+        <div class="rt-header">
+            <h1>🤖 Robot Tour C Simulator</h1>
+            <p>Design your track layout (2m × 2.5m), place objects, and calculate your run score</p>
+        </div>
+
+        <div class="rt-readme-section">
+            <details>
+                <summary>📖 How to use the Simulator (Click to expand)</summary>
+                <div class="readme-content">
+                    <h3>Purpose</h3>
+                    <p>This simulator is designed for the Science Olympiad "Robot Tour" event. It helps competitors design optimal track layouts, plan robot paths (including bonus actions like bottle drops and pickups), and calculate theoretical scores based on current event rules.</p>
+                    
+                    <h3>How to Use</h3>
+                    <ul>
+                        <li><strong>Set Parameters:</strong> Choose your Tournament Type (Regionals, States, Nationals) to set the appropriate target time range.</li>
+                        <li><strong>Design Track:</strong> Use the "Track Tools" to place your Start, Target, Waypoints, and Bonuses. Click a tool then click the grid to place/toggle items.</li>
+                        <li><strong>Analyze & Simulate:</strong> The simulator calculates distance, required speed, and collision status in real-time. Use the "Simulate" button to watch the robot's movement.</li>
+                        <li><strong>Export Code:</strong> Click "Export to C++" to generate path segment code for your Arduino or ESP32 robot controller.</li>
+                        <li><strong>Score Calculator:</strong> Test "what-if" scenarios by entering time and distance results in the calculator section.</li>
+                    </ul>
+
+                    <h3>Pro Tips</h3>
+                    <p>• Waypoints snap to zone centers, edge midpoints, or corners to ensure competition legality.<br>
+                       • "Bottle Drop" adds a 30cm reverse move. "Bottle Pickup" ensures the turn ends exactly at the bottle.<br>
+                       • Adjust "Turn radius" to match your robot's physical steering capabilities.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="rt-tabs">
+            <button type="button" class="rt-tab active" data-tab="trajectory">Trajectory</button>
+            <button type="button" class="rt-tab" data-tab="scoring">Scoring</button>
+            <button type="button" class="rt-tab" data-tab="code">Code</button>
+        </div>
+
+        <div id="tab-trajectory" class="rt-tab-panel active">
+            <div class="rt-content">
+                <div class="rt-panel">
+                    <h2>Create Path</h2>
+                    <div class="toolbar">
+                        <button type="button" class="tool-btn active" data-mode="start">Start</button>
+                        <button type="button" class="tool-btn" data-mode="target">Target</button>
+                        <button type="button" class="tool-btn" data-mode="waypoint">Waypoint</button>
+                        <button type="button" class="tool-btn" data-mode="bottleDrop">Bottle Drop</button>
+                        <button type="button" class="tool-btn" data-mode="bottlePickup">Bottle Pickup</button>
+                        <button type="button" class="tool-btn" data-mode="gate">Gate</button>
+                        <button type="button" class="tool-btn" data-mode="bottle">Bottle</button>
+                        <button type="button" class="tool-btn" data-mode="obstacle">Obstacle</button>
+                        <button type="button" class="tool-btn" data-mode="clear">Clear</button>
+                    </div>
+                    <p style="font-size: 0.85em; color: #64748b; margin-bottom: 8px;">Waypoints snap to zone center, edge midpoint, or corner. Bottle Drop: reverse 30cm, then turn. Bottle Pickup: turn ends at waypoint, then straight. Click waypoint to remove.</p>
+                    <div class="form-group" style="margin-bottom: 8px; display: none;">
+                        <label for="turnRadius">Turn radius at waypoints</label>
+                        <select id="turnRadius">
+                            <option value="0">Sharp (stop, turn, go)</option>
+                            <option value="10">Tight (10 cm)</option>
+                            <option value="25">Medium (25 cm)</option>
+                            <option value="50">Smooth (50 cm)</option>
+                        </select>
+                        <small>Lower = sharper corners; 0 = full stop and pivot</small>
+                    </div>
+
+                    <h2>Load / Save / Export Path</h2>
+                    <div class="form-group">
+                        <label for="trackSelector">Saved paths</label>
+                        <select id="trackSelector" style="margin-bottom: 8px;">
+                            <option value="">-- Select track --</option>
+                        </select>
+                        <div class="toolbar" style="margin-top: 8px;">
+                            <button type="button" class="tool-btn" id="btnLoadTrack">Load</button>
+                            <button type="button" class="tool-btn" id="btnSaveTrack">Save</button>
+                            <button type="button" class="tool-btn" id="btnSaveAsNew">Save as new</button>
+                            <button type="button" class="tool-btn" id="btnDeleteTrack">Delete</button>
+                            <button type="button" class="tool-btn" id="btnExportCpp">Export C++</button>
+                        </div>
+                        <pre id="exportedCpp" style="display: none; margin-top: 12px; padding: 14px; background: #1e293b; color: #e2e8f0; border-radius: 8px; font-size: 0.75em; overflow-x: auto; max-height: 300px; overflow-y: auto; cursor: pointer;"></pre>
+                    </div>
+
+                    <h2>Event Parameters</h2>
+                    <div class="form-group">
+                        <label for="tournamentType">Tournament Type</label>
+                        <select id="tournamentType">
+                            <option value="regionals">Regionals / Invitational</option>
+                            <option value="states">States</option>
+                            <option value="nationals">Nationals</option>
+                        </select>
+                        <small>Affects target time range and gate/bottle counts</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="targetTime">Target Time (sec)</label>
+                        <input type="number" id="targetTime" value="73" min="50" max="80" step="1">
+                        <small>60–80 (Regionals), 55–75 (States), 50–65 (Nationals)</small>
+                    </div>
+                </div>
+
+                <div class="rt-panel">
+                    <h2>Track Grid (200 cm × 250 cm)</h2>
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px; flex-wrap: wrap;">
+                        <button type="button" class="tool-btn" id="btnSimulate">Simulate</button>
+                        <button type="button" class="tool-btn" id="btnStressTest" title="Run 50 simulations with random noise to test reliability">Stress Test</button>
+                        <label style="display: flex; align-items: center; gap: 6px;">
+                            <span style="font-size: 0.9em;">Speed:</span>
+                            <select id="simSpeed" style="padding: 4px 8px;">
+                                <option value="1">1×</option>
+                                <option value="2">2×</option>
+                                <option value="4">4×</option>
+                                <option value="8">8×</option>
+                            </select>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 6px; margin-left: 12px; cursor: pointer;">
+                            <input type="checkbox" id="realisticMode">
+                            <span style="font-size: 0.9em;">Realistic Mode (PID/Drift/Slip)</span>
+                        </label>
+                    </div>
+                    <div id="realisticControls" style="display: none; background: #f1f5f9; padding: 10px; border-radius: 6px; margin-bottom: 12px; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px;">
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label style="font-size: 0.75em;">Gyro Drift (°/s)</label>
+                            <input type="number" id="gyroDrift" value="0.05" step="0.01" style="width: 100%; font-size: 0.85em;">
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label style="font-size: 0.75em;">Wheel Slip (max %)</label>
+                            <input type="number" id="wheelSlip" value="2" step="0.5" style="width: 100%; font-size: 0.85em;">
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label style="font-size: 0.75em;">Kp (Heading)</label>
+                            <input type="number" id="kpHeading" value="2.5" step="0.1" style="width: 100%; font-size: 0.85em;">
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label style="font-size: 0.75em;">Kp (Dist)</label>
+                            <input type="number" id="kpDist" value="0.8" step="0.1" style="width: 100%; font-size: 0.85em;">
+                        </div>
+                    </div>
+                    <div id="stressTestPanel" style="display: none; background: #fff7ed; padding: 12px; border: 1px solid #ffedd5; border-radius: 6px; margin-bottom: 12px;">
+                        <h3 style="font-size: 0.9em; color: #9a3412; margin-bottom: 8px; margin-top: 0;">🌋 Stress Test (50 Runs)</h3>
+                        <div id="stressProgress" style="width: 100%; height: 8px; background: #ffedd5; border-radius: 4px; overflow: hidden; margin-bottom: 8px;">
+                            <div id="stressProgressBar" style="width: 0%; height: 100%; background: #f97316; transition: width 0.1s;"></div>
+                        </div>
+                        <div id="stressResults" style="font-size: 0.85em; color: #431407; display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                            <div>Successes: <strong id="stressSuccess">0</strong> / 50</div>
+                            <div>Crashes: <strong id="stressCrashes">0</strong></div>
+                            <div>Avg Distance: <strong id="stressAvgDist">0</strong> cm</div>
+                            <div>Reliability: <strong id="stressReliability">0</strong>%</div>
+                        </div>
+                    </div>
+                    <div class="grid-container">
+                        <canvas id="gridCanvas"></canvas>
+                    </div>
+                    <div class="legend">
+                        <div class="legend-item">
+                            <span class="legend-color" style="background: #059669;"></span>
+                            Start
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background: #16a34a;"></span>
+                            Path
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background: #dc2626;"></span>
+                            Collision
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background: #dc2626;"></span>
+                            Target
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background: #7c3aed; opacity: 0.6;"></span>
+                            Gate Zone
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background: #0ea5e9;"></span>
+                            Water Bottle
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background: #06b6d4;"></span>
+                            Bottle Drop (rev 30cm)
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background: #c2410c;"></span>
+                            Bottle Pickup (turn ends at waypoint)
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background: #92400e;"></span>
+                            2×4 Obstacle
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-scoring" class="rt-tab-panel">
+            <div class="rt-content">
+                <div class="rt-panel">
+                    <h2>Select Path</h2>
+                    <div class="form-group">
+                        <label for="trackSelectorScoring">Path to score</label>
+                        <select id="trackSelectorScoring" style="margin-bottom: 8px;">
+                            <option value="">-- Select track --</option>
+                        </select>
+                        <div class="toolbar" style="margin-top: 8px;">
+                            <button type="button" class="tool-btn" id="btnLoadTrackScoring">Load Path</button>
+                        </div>
+                    </div>
+
+                    <div class="score-section">
+                        <h2>Score Calculator</h2>
+                        <div class="form-group">
+                            <label for="runTime">Run Time (sec)</label>
+                            <input type="number" id="runTime" value="65" min="0" step="0.01" placeholder="e.g. 62.53">
+                        </div>
+                        <div class="form-group">
+                            <label for="distanceCm">Distance from Target (cm)</label>
+                            <input type="number" id="distanceCm" value="21.7" min="0" step="0.1" placeholder="e.g. 21.7">
+                        </div>
+                        <div class="form-group">
+                            <label for="gatesEntered">Gate Zones Entered</label>
+                            <input type="number" id="gatesEntered" value="3" min="0" max="6" step="1">
+                        </div>
+                        <div class="form-group">
+                            <label for="bottlesInGates">Water Bottles in Gate Zones</label>
+                            <input type="number" id="bottlesInGates" value="2" min="0" max="5" step="1">
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="withObstacles" checked> Ran with 2×4 Obstacles
+                            </label>
+                            <small>If unchecked: +50 pt penalty (easier run)</small>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="contactPenalty"> Contact with 2×4 Obstacle (+70 pts)
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="stallingPenalty"> Stalling Action (+20 pts)
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="failedRun"> Failed Run (1000 pts base)
+                            </label>
+                        </div>
+
+                        <h3 style="margin-top: 16px; color: #7c3aed; font-size: 1.1em;">Results</h3>
+                        <div class="results-grid">
+                            <div class="result-card">
+                                <div class="label">Run Score</div>
+                                <div class="value" id="runScore">—</div>
+                                <div class="unit">points (low wins)</div>
+                            </div>
+                            <div class="result-card">
+                                <div class="label">Time Score</div>
+                                <div class="value" id="timeScore">—</div>
+                                <div class="unit">points</div>
+                            </div>
+                            <div class="result-card">
+                                <div class="label">Distance Score</div>
+                                <div class="value" id="distScore">—</div>
+                                <div class="unit">points</div>
+                            </div>
+                            <div class="result-card">
+                                <div class="label">Bonuses</div>
+                                <div class="value" id="bonusScore">—</div>
+                                <div class="unit">points</div>
+                            </div>
+                        </div>
+                    </div>
+
+                <div class="score-section">
+                    <h2>Max Score (current path)</h2>
+                    <p style="font-size: 0.85em; color: #64748b; margin-bottom: 8px;">Best possible score if robot follows waypoints exactly. Design path in Trajectory tab.</p>
+                    <div class="form-group">
+                        <label>Path stats</label>
+                        <div id="pathStats" style="font-size: 0.9em; color: #64748b; margin-top: 4px;">Add waypoints in Trajectory tab to see path.</div>
+                    </div>
+                    <div class="form-group">
+                        <label>Collisions</label>
+                        <div id="pathCollisions" style="font-size: 0.9em; margin-top: 4px;"></div>
+                    </div>
+                    <div class="form-group">
+                        <label>Gates on path</label>
+                        <div id="pathGates" style="font-size: 0.9em; margin-top: 4px;"></div>
+                    </div>
+                    <div class="result-card" style="margin-top: 12px;">
+                        <div class="label">Maximum score (perfect execution)</div>
+                        <div class="value" id="maxScore">—</div>
+                        <div class="unit">points (low wins)</div>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="rt-panel">
+                    <h2>Scoring Rules</h2>
+                    <div class="formulas-content" style="background: white; padding: 16px; border-radius: 8px; border: 1px solid #e2e8f0;">
+                        <p><strong>Run Score</strong> = 200 + Time Score + Distance Score + Bonuses + Run Penalties</p>
+                        <p class="formula">Time: Run &lt; Target → (Target − Run) × 2 &nbsp;&nbsp;|&nbsp;&nbsp; Run ≥ Target → (Run − Target)</p>
+                        <p class="formula">Distance = 2.0 pt/cm × robot distance from target</p>
+                        <p class="formula">Gate Bonus = −15 pts per gate entered &nbsp;|&nbsp; Water Bottle Bonus = −15 pts per bottle in gate zone</p>
+                        <p class="formula">Penalties: Contact +70, No 2×4 +50, Stalling +20, Competition +150, Construction +300</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-code" class="rt-tab-panel">
+            <div class="rt-formulas" style="margin: 0;">
+            <h2>Strategy</h2>
+            <div class="rt-strategy-tabs">
+                <button type="button" class="rt-strategy-tab active" data-rt-strategy="pathfollower">Path Follower</button>
+                <button type="button" class="rt-strategy-tab" data-rt-strategy="sensortest">Sensor Test</button>
+            </div>
+
+            <div id="rt-strategy-pathfollower" class="rt-strategy-content active">
+            <p style="margin-bottom: 12px; color: #64748b;">This logic runs in the simulator’s <strong>Realistic Mode</strong> and Stress Test. Use the path from Export C++ in the Trajectory tab.</p>
+
+            <p style="margin-bottom: 12px;"><strong>Strategy:</strong> The robot follows a precomputed path of line and arc segments. Each loop, it compares its estimated position to the current segment, computes a target heading and cross-track error, then corrects with a steering term plus feedforward (velocity ratio on arcs). Motor commands are proportional to a base speed chosen to hit the target time. The robot trusts the gyro for heading and uses encoders for distance to update (x, y).</p>
+
+            <p style="margin-bottom: 16px;"><strong>Sensors:</strong></p>
+            <ul style="margin: 0 0 16px 24px; color: #334155; line-height: 1.5;">
+                <li><strong>Wheel encoders</strong> — Distance traveled by each wheel (Δd<sub>L</sub>, Δd<sub>R</sub>) for odometry and speed.</li>
+                <li><strong>IMU gyro</strong> — Heading θ (degrees). Used as the source of truth for rotation instead of integrating wheel diff, to avoid drift in turns.</li>
+            </ul>
+
+            <div class="rt-flow-label">Pseudocode (path follower)</div>
+            <pre class="rt-pseudocode-block">LOOP (every 10–20 ms):
+
+    seg = path[currentSegmentIdx]
+    IF currentSegmentIdx &gt;= pathLen: stop; DONE
+
+    // 1. Target heading, cross-track error, segment done?
+    IF seg == LINE:
+        targetHeading = direction of line (+180° if reverse)
+        crossTrackError = signed distance from robot to line
+        segmentDone = past end or very close
+    ELSE IF seg == ARC:
+        targetHeading = tangent to circle at robot
+        crossTrackError = (distToCenter − radius) × side
+        segmentDone = past end angle
+
+    IF segmentDone: currentSegmentIdx++; continue
+
+    // 2. Steering correction (P control)
+    headingError = targetHeading − estHeading
+    steering = Kp_h × headingError − Kp_d × crossTrackError
+    power = −1 if reverse else 1
+
+    // 3. Feedforward for arcs (wheel speed ratio)
+    leftFF, rightFF = 1, 1
+    IF arc: set by (R ± W/2)/(R ∓ W/2), normalize avg
+
+    // 4. Motor commands
+    leftCmd  = (power × leftFF  − steering/100) × baseSpeed
+    rightCmd = (power × rightFF + steering/100) × baseSpeed
+
+    // 5. Odometry
+    dDist = (ΔdLeft + ΔdRight) / 2
+    estHeading = gyroθ
+    estX += dDist × cos(estHeading)
+    estY += dDist × sin(estHeading)
+
+    drive(leftCmd, rightCmd)</pre>
+
+            <div class="rt-flow-label" style="margin-top: 20px;">Arduino/C++ code (path follower)</div>
+            <div class="rt-code-copy-row">
+                <button type="button" class="rt-copy-code-btn" onclick="copyRtCode('rtCodeSrc')">Copy code</button>
+                <span class="copy-feedback" id="rtCopyFeedback"></span>
+            </div>
+            <div class="rt-code-container">
+                <pre class="rt-code-block" id="rtCodeDisplay"></pre>
+            </div>
+            </div>
+
+            <div id="rt-strategy-sensortest" class="rt-strategy-content">
+            <p style="margin-bottom: 12px; color: #64748b;">Run this before tuning the path follower. Hold still 2 s to measure IMU drift, then drive a square. Compares encoder heading with drift-corrected IMU to find additional variance.</p>
+
+            <p style="margin-bottom: 12px;"><strong>Strategy:</strong> (1) Hold still 2 s—any change in IMU heading is drift; compute drift_rate (°/s). (2) Drive square (4 × 50 cm, 4 × 90°). Use imu_corrected = imu − drift_rate × time and compare to encoder heading. The residual (|imu_corrected − heading_enc|) is variance beyond drift—scale error, turn inconsistency, etc.</p>
+
+            <p style="margin-bottom: 16px;"><strong>Sensors tested:</strong></p>
+            <ul style="margin: 0 0 16px 24px; color: #334155; line-height: 1.5;">
+                <li><strong>Encoders</strong> — Heading from wheel differential; position from dead reckoning.</li>
+                <li><strong>IMU gyro</strong> — Raw heading. Drift measured when still; corrected during run for residual analysis.</li>
+            </ul>
+
+            <div class="rt-flow-label">Pseudocode (sensor test)</div>
+            <pre class="rt-pseudocode-block">// 1. Drift calibration (robot still 2 s)
+imu_start = readGyro()
+delay(2000)
+drift_rate = (readGyro() − imu_start) / 2.0   // °/s
+
+// 2. Square run
+FOR each of 4 sides:
+    drive straight 50 cm, turn 90° CW
+    imu_corrected = readGyro() − drift_rate × elapsed
+    residual = |imu_corrected − heading_enc|
+    max_residual = max(max_residual, residual)
+
+// 3. Report
+Serial: drift_rate, max_residual, final_pos_error</pre>
+
+            <div class="rt-flow-label" style="margin-top: 20px;">Arduino/C++ code (sensor test)</div>
+            <div class="rt-code-copy-row">
+                <button type="button" class="rt-copy-code-btn" onclick="copyRtCode('rtCodeSensorTestSrc')">Copy code</button>
+                <span class="copy-feedback" id="rtCopySensorTestFeedback"></span>
+            </div>
+            <div class="rt-code-container">
+                <pre class="rt-code-block" id="rtCodeSensorTestDisplay"></pre>
+            </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script type="text/plain" id="rtCodeSrc">/*
+ROBOT TOUR C — PATH FOLLOWER (Arduino/ESP32)
+Segment-based path following with heading + cross-track feedback.
+Paste path[] from Export C++ in Trajectory tab.
+Requires: encoders, IMU (MPU6050/BNO055), differential drive motors.
+*/
+
+#include &lt;math.h&gt;
+
+#define SEG_LINE 0
+#define SEG_ARC  1
+#define PI 3.14159265f
+
+struct PathSegment {
+  uint8_t type;
+  float x1, y1, x2, y2;
+  float cx, cy, r;
+  float len;
+  uint8_t reverse;
+};
+
+// Replace with path from Export C++ in Trajectory tab
+const PathSegment path[] = {
+  { SEG_LINE, 100, 0, 100, 50, 0, 0, 0, 50.0f, 0 },
+  { SEG_LINE, 100, 50, 50, 125, 0, 0, 0, 78.1f, 0 }
+};
+const int pathLen = 2;
+
+#define WHEELBASE 15.0f
+#define KP_HEADING 2.5f
+#define KP_CROSSTRACK 0.8f
+#define TARGET_TIME 73.0f
+
+float estX, estY, estHeading;
+volatile long leftTicks, rightTicks;
+long lastLeftTicks, lastRightTicks;
+float gyroHeadingDeg;
+int currentSegmentIdx = 0;
+float totalPathLen = 0;
+float baseSpeed;
+
+void setup() {
+  Serial.begin(9600);
+  // Init encoders, IMU, motors
+  totalPathLen = 0;
+  for (int i = 0; i < pathLen; i++) totalPathLen += path[i].len;
+  baseSpeed = totalPathLen / TARGET_TIME;
+  estX = path[0].x1;
+  estY = path[0].y1;
+  estHeading = atan2(path[0].y2 - path[0].y1, path[0].x2 - path[0].x1) * 180.0f / PI;
+  if (path[0].reverse) estHeading += 180.0f;
+  currentSegmentIdx = 0;
+}
+
+float normalizeAngle(float deg) {
+  while (deg > 180.0f) deg -= 360.0f;
+  while (deg < -180.0f) deg += 360.0f;
+  return deg;
+}
+
+void loop() {
+  if (currentSegmentIdx >= pathLen) {
+    stopMotors();
+    return;
+  }
+
+  PathSegment seg = path[currentSegmentIdx];
+  float targetHeading = 0, crossTrackError = 0;
+  bool segmentDone = false;
+
+  if (seg.type == SEG_LINE) {
+    float dx = seg.x2 - seg.x1, dy = seg.y2 - seg.y1;
+    float lineLen = sqrt(dx*dx + dy*dy);
+    if (lineLen < 0.001f) lineLen = 0.001f;
+
+    targetHeading = atan2(dy, dx) * 180.0f / PI;
+    if (seg.reverse) targetHeading += 180.0f;
+
+    crossTrackError = (dx*(estY - seg.y1) - dy*(estX - seg.x1)) / lineLen;
+
+    float dot = ((estX - seg.x1)*dx + (estY - seg.y1)*dy) / (lineLen * lineLen);
+    float distToEnd = sqrt((seg.x2-estX)*(seg.x2-estX) + (seg.y2-estY)*(seg.y2-estY));
+    if (dot >= 1.0f || distToEnd < 1.0f) segmentDone = true;
+
+  } else if (seg.type == SEG_ARC) {
+    float angleToRobot = atan2(estY - seg.cy, estX - seg.cx) * 180.0f / PI;
+    float distToCenter = sqrt((estX-seg.cx)*(estX-seg.cx) + (estY-seg.cy)*(estY-seg.cy));
+    float sa = atan2(seg.y1 - seg.cy, seg.x1 - seg.cx) * 180.0f / PI;
+    float ea = atan2(seg.y2 - seg.cy, seg.x2 - seg.cx) * 180.0f / PI;
+    float delta = normalizeAngle(ea - sa);
+    bool clockwise = (delta < 0);
+    float side = clockwise ? 1.0f : -1.0f;
+
+    targetHeading = angleToRobot + (clockwise ? -90.0f : 90.0f);
+    crossTrackError = (distToCenter - seg.r) * side;
+
+    float angDiff = normalizeAngle(ea - angleToRobot);
+    if (clockwise) segmentDone = (angDiff >= 0 || fabs(angDiff) < 5.0f);
+    else           segmentDone = (angDiff <= 0 || fabs(angDiff) < 5.0f);
+  }
+
+  if (segmentDone) {
+    currentSegmentIdx++;
+    return;
+  }
+
+  float headingError = normalizeAngle(targetHeading - gyroHeadingDeg);
+  float steeringCorrection = headingError * KP_HEADING - crossTrackError * KP_CROSSTRACK;
+  float power = seg.reverse ? -1.0f : 1.0f;
+
+  float leftFF = 1.0f, rightFF = 1.0f;
+  if (seg.type == SEG_ARC) {
+    float R = seg.r;
+    float ratio = (R + WHEELBASE/2.0f) / (R - WHEELBASE/2.0f);
+    if (ratio < 1.0f) ratio = 1.0f / ratio;
+    float sa = atan2(seg.y1 - seg.cy, seg.x1 - seg.cx);
+    float ea = atan2(seg.y2 - seg.cy, seg.x2 - seg.cx);
+    float d = ea - sa;
+    if (d > PI) d -= 2*PI;
+    if (d < -PI) d += 2*PI;
+    bool cw = (d < 0);
+    if (cw) { leftFF = ratio; rightFF = 1.0f; }
+    else    { leftFF = 1.0f; rightFF = ratio; }
+    float avg = (leftFF + rightFF) / 2.0f;
+    leftFF /= avg; rightFF /= avg;
+  }
+
+  float leftCmd = (power * leftFF - steeringCorrection/100.0f) * baseSpeed;
+  float rightCmd = (power * rightFF + steeringCorrection/100.0f) * baseSpeed;
+
+  setMotors(leftCmd, rightCmd);
+
+  float dLeft = (leftTicks - lastLeftTicks) / 1200.0f * 22.9f;
+  float dRight = (rightTicks - lastRightTicks) / 1200.0f * 22.9f;
+  lastLeftTicks = leftTicks;
+  lastRightTicks = rightTicks;
+  gyroHeadingDeg = readGyroHeadingDeg();
+  float dDist = (dLeft + dRight) / 2.0f;
+  float rad = gyroHeadingDeg * PI / 180.0f;
+  estX += dDist * cos(rad);
+  estY += dDist * sin(rad);
+  estHeading = gyroHeadingDeg;
+
+  delay(15);
+}
+
+void setMotors(float leftCmPerSec, float rightCmPerSec) {
+  int leftPwm = constrain((int)(leftCmPerSec * 2.0f), -255, 255);
+  int rightPwm = constrain((int)(rightCmPerSec * 2.0f), -255, 255);
+  // motorLeft.write(leftPwm);
+  // motorRight.write(rightPwm);
+}
+float readGyroHeadingDeg() {
+  // Implement: return IMU heading in degrees (e.g. mpu.getYaw())
+  return estHeading;
+}
+void stopMotors() { /* motorLeft.write(0); motorRight.write(0); */ }
+</script>
+<script type="text/plain" id="rtCodeSensorTestSrc">/*
+ROBOT TOUR C — SENSOR TEST (Arduino/ESP32)
+Optimized for: TB6612FNG Driver + Geared Motors (11 PPR)
+1. Hold still 2s: measure IMU drift.
+2. Drive square: compare encoder vs drift-corrected IMU.
+*/
+
+#include &lt;math.h&gt;
+
+// ----- PIN DEFINITIONS (Adjust for TB6612FNG) -----
+#define MOTOR_L_PWM 10  // PWMA
+#define MOTOR_L_IN1 9   // AIN1
+#define MOTOR_L_IN2 8   // AIN2
+#define MOTOR_R_PWM 5   // PWMB
+#define MOTOR_R_IN3 7   // BIN1
+#define MOTOR_R_IN4 6   // BIN2
+#define MOTOR_STBY 12   // STBY (Must be HIGH to run)
+
+#define ENC_L_A 2       // Interrupt pin (Yellow)
+#define ENC_L_B 4       // (Green)
+#define ENC_R_A 3       // Interrupt pin (Yellow)
+#define ENC_R_B 11      // (Green)
+
+// ----- ROBOT CONFIGURATION -----
+#define WHEELBASE 15.0f      
+#define WHEEL_DIAMETER 6.5f  
+#define GEAR_RATIO 30.0f     
+#define TICKS_PER_REV (11.0f * GEAR_RATIO) 
+#define PI 3.14159265f
+
+// ----- TEST PARAMETERS -----
+#define STRAIGHT_CM 50.0f
+#define TURN_DEG 90.0f
+#define DRIFT_CALIB_MS 2000
+#define TEST_SPEED_PWM 60    // Low speed for slow/precise movement
+
+volatile long leftTicks = 0, rightTicks = 0;
+long lastLeftTicks = 0, lastRightTicks = 0;
+float headingEnc = 0, headingImu = 0;
+float xEnc = 0, yEnc = 0;
+unsigned long startTime, runStartTime;
+int phase = -1; 
+float turnStartHeading = 0;
+float driftRate = 0;           
+float imuAtCalibStart = 0;
+float maxResidual = 0;         
+
+float encToCm(long ticks) { 
+  return ((float)ticks / TICKS_PER_REV) * (WHEEL_DIAMETER * PI); 
+}
+
+float readGyroDeg() { 
+  // TODO: Replace with your IMU library call
+  return 0; 
+}
+
+void setup() {
+  Serial.begin(115200);
+  
+  pinMode(MOTOR_L_PWM, OUTPUT); pinMode(MOTOR_L_IN1, OUTPUT); pinMode(MOTOR_L_IN2, OUTPUT);
+  pinMode(MOTOR_R_PWM, OUTPUT); pinMode(MOTOR_R_IN3, OUTPUT); pinMode(MOTOR_R_IN4, OUTPUT);
+  pinMode(MOTOR_STBY, OUTPUT);
+  
+  // Safety: Ensure STBY is HIGH to enable driver
+  digitalWrite(MOTOR_STBY, HIGH); 
+  
+  pinMode(ENC_L_A, INPUT_PULLUP); pinMode(ENC_L_B, INPUT_PULLUP);
+  pinMode(ENC_R_A, INPUT_PULLUP); pinMode(ENC_R_B, INPUT_PULLUP);
+  
+  attachInterrupt(digitalPinToInterrupt(ENC_L_A), countLeft, RISING);
+  attachInterrupt(digitalPinToInterrupt(ENC_R_A), countRight, RISING);
+
+  Serial.println("SENSOR TEST: 2s drift calib...");
+  imuAtCalibStart = readGyroDeg();
+  startTime = millis();
+}
+
+void loop() {
+  headingImu = readGyroDeg();
+
+  if (phase == -1) {
+    stopMotors();
+    if (millis() - startTime >= DRIFT_CALIB_MS) {
+      driftRate = (headingImu - imuAtCalibStart) / (DRIFT_CALIB_MS / 1000.0f);
+      Serial.print("Measured Static Drift: "); Serial.print(driftRate, 4); Serial.println(" deg/s");
+      phase = 0;
+      runStartTime = millis();
+    }
+    return;
+  }
+
+  if (phase >= 8) {
+    stopMotors();
+    float runElapsed = (millis() - runStartTime) / 1000.0f;
+    float imuCorrected = headingImu - (driftRate * runElapsed);
+    Serial.println("\n--- TEST COMPLETE ---");
+    Serial.print("Max Dynamic Var: "); Serial.print(maxResidual, 2); Serial.println(" deg");
+    Serial.print("Final Pos Error: "); Serial.print(sqrt(xEnc*xEnc + yEnc*yEnc), 2); Serial.println(" cm");
+    while(1) delay(1000);
+  }
+
+  // Odometry Update
+  long dL = leftTicks - lastLeftTicks;
+  long dR = rightTicks - lastRightTicks;
+  lastLeftTicks = leftTicks; lastRightTicks = rightTicks;
+
+  float dLCm = encToCm(dL); float dRCm = encToCm(dR);
+  float dTheta = (dRCm - dLCm) / WHEELBASE * 180.0f / PI;
+  headingEnc += dTheta;
+  
+  float dDist = (dLCm + dRCm) / 2.0f;
+  xEnc += dDist * cos(headingEnc * PI / 180.0f);
+  yEnc += dDist * sin(headingEnc * PI / 180.0f);
+
+  float runElapsed = (millis() - runStartTime) / 1000.0f;
+  float imuCorrected = headingImu - (driftRate * runElapsed);
+  float residual = fabs(imuCorrected - headingEnc);
+  if (residual > maxResidual) maxResidual = residual;
+
+  if (phase % 2 == 0) { // Straight
+    float traveled = (encToCm(leftTicks) + encToCm(rightTicks)) / 2.0f;
+    if (traveled >= (phase/2 + 1) * STRAIGHT_CM) {
+      stopMotors(); delay(500);
+      turnStartHeading = headingEnc;
+      phase++;
+    } else {
+      setRawMotors(TEST_SPEED_PWM, TEST_SPEED_PWM);
+    }
+  } else { // Turn 90 CW
+    if (fabs(headingEnc - turnStartHeading) >= TURN_DEG - 2.0f) {
+      stopMotors(); delay(500);
+      phase++;
+    } else {
+      setRawMotors(TEST_SPEED_PWM, -TEST_SPEED_PWM);
+    }
+  }
+
+  delay(20);
+}
+
+void setRawMotors(int leftPWM, int rightPWM) {
+  digitalWrite(MOTOR_STBY, HIGH);
+  
+  // Left Motor (AIN1, AIN2)
+  if (leftPWM >= 0) { digitalWrite(MOTOR_L_IN1, HIGH); digitalWrite(MOTOR_L_IN2, LOW); }
+  else { digitalWrite(MOTOR_L_IN1, LOW); digitalWrite(MOTOR_L_IN2, HIGH); }
+  analogWrite(MOTOR_L_PWM, abs(leftPWM));
+
+  // Right Motor (BIN1, BIN2)
+  if (rightPWM >= 0) { digitalWrite(MOTOR_R_IN3, HIGH); digitalWrite(MOTOR_R_IN4, LOW); }
+  else { digitalWrite(MOTOR_R_IN3, LOW); digitalWrite(MOTOR_R_IN4, HIGH); }
+  analogWrite(MOTOR_R_PWM, abs(rightPWM));
+}
+
+void stopMotors() {
+  analogWrite(MOTOR_L_PWM, 0); analogWrite(MOTOR_R_PWM, 0);
+}
+
+void countLeft() {
+  if (digitalRead(ENC_L_B) == LOW) leftTicks++; else leftTicks--;
+}
+
+void countRight() {
+  if (digitalRead(ENC_R_B) == LOW) rightTicks++; else rightTicks--;
+}
+</script>
+<script>
+(function() {
+    function copyRtCode(srcId) {
+        srcId = srcId || 'rtCodeSrc';
+        var src = document.getElementById(srcId);
+        var fb = (srcId === 'rtCodeSensorTestSrc') ? document.getElementById('rtCopySensorTestFeedback') : document.getElementById('rtCopyFeedback');
+        if (src && navigator.clipboard) {
+            navigator.clipboard.writeText(src.textContent).then(function() {
+                if (fb) { fb.textContent = 'Copied!'; setTimeout(function() { fb.textContent = ''; }, 2000); }
+            });
+        }
+    }
+    window.copyRtCode = copyRtCode;
+
+    const TRACK_W = 200;
+    const TRACK_H = 250;
+    const ZONE = 50;
+    const COLS = 4;
+    const ROWS = 5;
+
+    const state = {
+        mode: 'start',
+        start: { x: 100, y: 0 },
+        target: null,
+        waypoints: [],
+        gates: [],
+        bottles: [],
+        obstacles: []
+    };
+
+    const OBSTACLE_LEN = 40.6;
+    const BOTTLE_RADIUS = 3.5;
+
+    let canvas, ctx, scale, offsetX, offsetY;
+
+    function toGrid(clientX, clientY) {
+        const rect = canvas.getBoundingClientRect();
+        const x = (clientX - rect.left - offsetX) / scale;
+        const y = (clientY - rect.top - offsetY) / scale;
+        return { x, y };
+    }
+
+    function nearestZoneCenter(x, y) {
+        const cx = Math.round((x - 25) / 50) * 50 + 25;
+        const cy = Math.round((y - 25) / 50) * 50 + 25;
+        return {
+            x: Math.max(25, Math.min(TRACK_W - 25, cx)),
+            y: Math.max(25, Math.min(TRACK_H - 25, cy))
+        };
+    }
+
+    function nearestEdgePoint(x, y) {
+        const toLeft = x;
+        const toRight = TRACK_W - x;
+        const toTop = y;
+        const toBottom = TRACK_H - y;
+        const min = Math.min(toLeft, toRight, toTop, toBottom);
+        const snap = (v, size) => Math.round((v - size / 2) / size) * size + size / 2;
+        if (min === toLeft && x >= 0 && x <= TRACK_W) return { x: 0, y: Math.max(25, Math.min(TRACK_H - 25, snap(y, ZONE))) };
+        if (min === toRight && x >= 0 && x <= TRACK_W) return { x: TRACK_W, y: Math.max(25, Math.min(TRACK_H - 25, snap(y, ZONE))) };
+        if (min === toTop && y >= 0 && y <= TRACK_H) return { x: Math.max(25, Math.min(TRACK_W - 25, snap(x, ZONE))), y: 0 };
+        if (min === toBottom && y >= 0 && y <= TRACK_H) return { x: Math.max(25, Math.min(TRACK_W - 25, snap(x, ZONE))), y: TRACK_H };
+        return { x: Math.max(0, Math.min(TRACK_W, x)), y: Math.max(0, Math.min(TRACK_H, y)) };
+    }
+
+    function nearestBottlePosition(x, y) {
+        const positions = [];
+        for (let i = 0; i < COLS; i++) {
+            for (let j = 0; j <= ROWS; j++) {
+                positions.push({ x: i * ZONE + 25, y: j * ZONE });
+            }
+        }
+        for (let j = 0; j < ROWS; j++) {
+            for (let i = 0; i <= COLS; i++) {
+                positions.push({ x: i * ZONE, y: j * ZONE + 25 });
+            }
+        }
+        let best = positions[0];
+        let bestD = 1e9;
+        for (const p of positions) {
+            const d = (p.x - x) ** 2 + (p.y - y) ** 2;
+            if (d < bestD) { bestD = d; best = p; }
+        }
+        return best;
+    }
+
+    function nearestObstacleSegment(x, y) {
+        const segments = [];
+        for (let i = 0; i <= COLS; i++) {
+            for (let j = 0; j < ROWS; j++) {
+                segments.push({ ax: i * ZONE, ay: j * ZONE, bx: i * ZONE, by: (j + 1) * ZONE });
+            }
+        }
+        for (let j = 0; j <= ROWS; j++) {
+            for (let i = 0; i < COLS; i++) {
+                segments.push({ ax: i * ZONE, ay: j * ZONE, bx: (i + 1) * ZONE, by: j * ZONE });
+            }
+        }
+        let best = segments[0];
+        let bestD = 1e9;
+        for (const s of segments) {
+            const mx = (s.ax + s.bx) / 2;
+            const my = (s.ay + s.by) / 2;
+            const d = (mx - x) ** 2 + (my - y) ** 2;
+            if (d < bestD) { bestD = d; best = s; }
+        }
+        return best;
+    }
+
+    function keyForObstacle(seg) {
+        return [seg.ax, seg.ay, seg.bx, seg.by].join(',');
+    }
+
+    function zoneAt(x, y) {
+        const col = Math.floor(x / ZONE);
+        const row = Math.floor(y / ZONE);
+        if (col >= 0 && col < COLS && row >= 0 && row < ROWS) {
+            return { col, row, cx: col * ZONE + 25, cy: row * ZONE + 25 };
+        }
+        return null;
+    }
+
+    function getWaypointSnapPositions() {
+        const positions = [];
+        for (let col = 0; col < COLS; col++) {
+            for (let row = 0; row < ROWS; row++) {
+                positions.push({ x: col * ZONE + 25, y: row * ZONE + 25 });
+            }
+        }
+        for (let i = 0; i <= COLS; i++) {
+            for (let j = 0; j < ROWS; j++) {
+                positions.push({ x: i * ZONE, y: j * ZONE + 25 });
+            }
+        }
+        for (let j = 0; j <= ROWS; j++) {
+            for (let i = 0; i < COLS; i++) {
+                positions.push({ x: i * ZONE + 25, y: j * ZONE });
+            }
+        }
+        for (let i = 0; i <= COLS; i++) {
+            for (let j = 0; j <= ROWS; j++) {
+                positions.push({ x: i * ZONE, y: j * ZONE });
+            }
+        }
+        return positions;
+    }
+
+    function nearestWaypointPosition(x, y) {
+        const positions = getWaypointSnapPositions();
+        let best = positions[0];
+        let bestD = 1e9;
+        for (const p of positions) {
+            const d = (p.x - x) ** 2 + (p.y - y) ** 2;
+            if (d < bestD) { bestD = d; best = p; }
+        }
+        return { x: best.x, y: best.y };
+    }
+
+    function handleClick(e) {
+        const { x, y } = toGrid(e.clientX, e.clientY);
+        if (x < -5 || x > TRACK_W + 5 || y < -5 || y > TRACK_H + 5) return;
+
+        switch (state.mode) {
+            case 'start': {
+                const onEdge = (x <= 2 || x >= TRACK_W - 2 || y <= 2 || y >= TRACK_H - 2);
+                if (onEdge) {
+                    const p = nearestEdgePoint(x, y);
+                    state.start = { x: p.x, y: p.y };
+                }
+                break;
+            }
+            case 'target': {
+                const z = zoneAt(x, y);
+                if (z) state.target = { x: z.cx, y: z.cy };
+                break;
+            }
+            case 'gate': {
+                const z = zoneAt(x, y);
+                if (z) {
+                    const key = `${z.col},${z.row}`;
+                    const idx = state.gates.findIndex(g => g.key === key);
+                    if (idx >= 0) state.gates.splice(idx, 1);
+                    else {
+                        const letter = String.fromCharCode(65 + state.gates.length);
+                        state.gates.push({ ...z, key, letter });
+                    }
+                }
+                break;
+            }
+            case 'bottle': {
+                const p = nearestBottlePosition(x, y);
+                const key = `${p.x},${p.y}`;
+                const idx = state.bottles.findIndex(b => b.key === key);
+                if (idx >= 0) state.bottles.splice(idx, 1);
+                else state.bottles.push({ ...p, key });
+                break;
+            }
+            case 'obstacle': {
+                const seg = nearestObstacleSegment(x, y);
+                const key = keyForObstacle(seg);
+                const idx = state.obstacles.findIndex(o => keyForObstacle(o) === key);
+                if (idx >= 0) state.obstacles.splice(idx, 1);
+                else state.obstacles.push(seg);
+                break;
+            }
+            case 'waypoint':
+            case 'bottleDrop':
+            case 'bottlePickup': {
+                const snapped = nearestWaypointPosition(x, y);
+                const hit = state.waypoints.findIndex(w => w.x === snapped.x && w.y === snapped.y);
+                if (hit >= 0) state.waypoints.splice(hit, 1);
+                else if (state.start && Math.hypot(state.start.x - snapped.x, state.start.y - snapped.y) < 15) { /* skip */ }
+                else if (state.target && Math.hypot(state.target.x - snapped.x, state.target.y - snapped.y) < 15) { /* skip */ }
+                else state.waypoints.push({
+                    x: snapped.x, y: snapped.y,
+                    bottleDrop: state.mode === 'bottleDrop',
+                    bottlePickup: state.mode === 'bottlePickup'
+                });
+                break;
+            }
+            case 'clear':
+                state.start = { x: 100, y: 0 };
+                state.target = null;
+                state.waypoints = [];
+                state.gates = [];
+                state.bottles = [];
+                state.obstacles = [];
+                break;
+        }
+        updatePathAnalysis();
+        draw();
+    }
+
+    let lastPathSegments = [];
+    let lastCollidingKeys = new Set();
+
+    const BOTTLE_DROP_REVERSE = 30;
+
+    const simState = { 
+        running: false, 
+        startTime: 0, 
+        endPos: null,
+        lastTime: 0,
+        // Realistic state
+        realistic: false,
+        trueX: 0, trueY: 0, trueHeading: 0,
+        estX: 0, estY: 0, estHeading: 0,
+        currentSegmentIdx: 0,
+        ghostRobot: null, // Estimated position
+        stressTesting: false,
+        stressRuns: [],   // Array of {x, y, success, distance}
+        stressCount: 0,
+        stressMax: 50
+    };
+
+    function stepRealisticSimulation(dt) {
+        if (!simState.running || !simState.realistic) return;
+        
+        const segments = lastPathSegments;
+        if (simState.currentSegmentIdx >= segments.length) {
+            simState.running = false;
+            simState.endPos = { x: simState.trueX, y: simState.trueY, heading: simState.trueHeading };
+            simState.ghostRobot = { x: simState.estX, y: simState.estY, heading: simState.estHeading };
+            return;
+        }
+
+        const seg = segments[simState.currentSegmentIdx];
+        const targetTime = parseFloat(document.getElementById('targetTime').value) || 73;
+        const totalDist = segments.reduce((s, x) => s + (x.len || 0), 0);
+        const baseSpeed = totalDist / targetTime;
+        const speedMult = parseInt(document.getElementById('simSpeed').value, 10) || 1;
+        const Kp_h = parseFloat(document.getElementById('kpHeading').value) || 2.5;
+        const Kp_d = parseFloat(document.getElementById('kpDist').value) || 0.8;
+        const maxSlip = (parseFloat(document.getElementById('wheelSlip').value) || 2) / 100.0;
+        const drift = (parseFloat(document.getElementById('gyroDrift').value) || 0.05) * (Math.PI / 180.0);
+
+        // --- Arduino-like Path Control Logic (Using ESTIMATED state) ---
+        let targetHeading = 0;
+        let crossTrackError = 0;
+        let segmentDone = false;
+
+        if (seg.type === 'line') {
+            targetHeading = Math.atan2(seg.by - seg.ay, seg.bx - seg.ax);
+            const dx = seg.bx - seg.ax, dy = seg.by - seg.ay;
+            const lineLen = seg.len || 0.001;
+            // Cross-track error: positive if robot is to the left of the line
+            crossTrackError = (dx * (simState.estY - seg.ay) - dy * (simState.estX - seg.ax)) / lineLen;
+            
+            const distRemaining = Math.hypot(seg.bx - simState.estX, seg.by - simState.estY);
+            // Projection check: if we've passed the end point's perpendicular plane
+            const dot = ((simState.estX - seg.ax) * dx + (simState.estY - seg.ay) * dy) / (lineLen * lineLen);
+            if (dot >= 1.0 || distRemaining < 1.0) segmentDone = true;
+            
+            if (seg.reverse) targetHeading += Math.PI;
+        } else if (seg.type === 'arc') {
+            const angleToRobot = Math.atan2(simState.estY - seg.cy, simState.estX - seg.cx);
+            const distToCenter = Math.hypot(simState.estX - seg.cx, simState.estY - seg.cy);
+            const sa = Math.atan2(seg.start.y - seg.cy, seg.start.x - seg.cx);
+            const ea = Math.atan2(seg.end.y - seg.cy, seg.end.x - seg.cx);
+            
+            let delta = ea - sa;
+            while (delta > Math.PI) delta -= 2 * Math.PI;
+            while (delta < -Math.PI) delta += 2 * Math.PI;
+            const clockwise = delta < 0;
+            
+            targetHeading = angleToRobot + (clockwise ? -Math.PI / 2 : Math.PI / 2);
+            // Cross-track error: positive if outside the circle for CW, or inside for CCW? 
+            // Let's simplify: error = (dist - r). If outside (dist > r), we need to turn TOWARD center.
+            // For CW, turn toward center = turn right (negative SC). 
+            // For CCW, turn toward center = turn left (positive SC).
+            const side = clockwise ? 1 : -1;
+            crossTrackError = (distToCenter - seg.r) * side;
+
+            let angDiff = ea - angleToRobot;
+            while (angDiff > Math.PI) angDiff -= 2 * Math.PI;
+            while (angDiff < -Math.PI) angDiff += 2 * Math.PI;
+            
+            // If we've reached or passed the end angle
+            if (clockwise) {
+                if (angDiff >= 0 || Math.abs(angDiff) < 0.1) segmentDone = true;
+            } else {
+                if (angDiff <= 0 || Math.abs(angDiff) < 0.1) segmentDone = true;
+            }
+        }
+
+        if (segmentDone) {
+            simState.currentSegmentIdx++;
+            return;
+        }
+
+        let headingError = targetHeading - simState.estHeading;
+        while (headingError > Math.PI) headingError -= 2 * Math.PI;
+        while (headingError < -Math.PI) headingError += 2 * Math.PI;
+
+        const steeringCorrection = (headingError * (Kp_h * 180 / Math.PI)) - (crossTrackError * Kp_d);
+        const power = seg.reverse ? -1 : 1;
+        
+        // --- Feedforward Logic ---
+        // Calculate the theoretical power difference needed for this curvature
+        let leftFF = 1.0, rightFF = 1.0;
+        if (seg.type === 'arc') {
+            const R = seg.r;
+            const W = 15.0; // Wheelbase in cm
+            const sa = Math.atan2(seg.start.y - seg.cy, seg.start.x - seg.cx);
+            const ea = Math.atan2(seg.end.y - seg.cy, seg.end.x - seg.cx);
+            let delta = ea - sa;
+            while (delta > Math.PI) delta -= 2 * Math.PI;
+            while (delta < -Math.PI) delta += 2 * Math.PI;
+            const clockwise = delta < 0;
+
+            // Theoretical velocity ratio for a differential drive robot on a circle
+            const ratio = (R + W / 2) / (R - W / 2);
+            if (clockwise) {
+                leftFF = ratio;  // Left wheel is outside
+                rightFF = 1.0;
+            } else {
+                leftFF = 1.0;
+                rightFF = ratio; // Right wheel is outside
+            }
+            // Normalize so average power is 1.0
+            const avg = (leftFF + rightFF) / 2;
+            leftFF /= avg;
+            rightFF /= avg;
+        }
+
+        // Motor commands: Feedforward + Feedback (PID)
+        let leftCmd = (power * leftFF - steeringCorrection / 100) * baseSpeed * speedMult;
+        let rightCmd = (power * rightFF + steeringCorrection / 100) * baseSpeed * speedMult;
+
+        // --- Realistic Physics Update (TRUTH State) ---
+        // Apply random wheel slip
+        const leftSlip = 1 - Math.random() * maxSlip;
+        const rightSlip = 1 - Math.random() * maxSlip;
+        const leftActual = leftCmd * leftSlip * dt;
+        const rightActual = rightCmd * rightSlip * dt;
+
+        const dDist = (leftActual + rightActual) / 2;
+        const dHeading = (rightActual - leftActual) / 15.0; // 15cm wheelbase
+
+        simState.trueHeading += dHeading;
+        simState.trueX += dDist * Math.cos(simState.trueHeading);
+        simState.trueY += dDist * Math.sin(simState.trueHeading);
+
+        // --- Sensor Feedback (ESTIMATED State with noise) ---
+        // Gyro drift accumulates in the estimation
+        simState.estHeading = simState.trueHeading + (drift * dt * (Math.random() > 0.5 ? 1 : -1)); 
+        // Encoders are typically used for distance, but here we estimate (X,Y) 
+        // assuming robot trusts its encoders (which don't know about slip)
+        const dDistEst = (leftCmd + rightCmd) / 2 * dt;
+        simState.estX += dDistEst * Math.cos(simState.estHeading);
+        simState.estY += dDistEst * Math.sin(simState.estHeading);
+    }
+
+    function startStressTest() {
+        if (lastPathSegments.length === 0) return;
+        simState.stressTesting = true;
+        simState.stressRuns = [];
+        simState.stressCount = 0;
+        simState.running = false; // Stop regular simulation
+        document.getElementById('stressTestPanel').style.display = 'block';
+        runStressRun();
+    }
+
+    function runStressRun() {
+        if (!simState.stressTesting) return;
+        if (simState.stressCount >= simState.stressMax) {
+            simState.stressTesting = false;
+            updateStressStats();
+            return;
+        }
+
+        // Initialize a single run state
+        const segments = lastPathSegments;
+        const startPos = segments[0].type === 'line' ? 
+            { x: segments[0].ax, y: segments[0].ay } : 
+            { x: segments[0].start.x, y: segments[0].start.y };
+        
+        const dx = segments[0].type === 'line' ? 
+            segments[0].bx - segments[0].ax : 
+            segments[0].end.x - segments[0].start.x;
+        const dy = segments[0].type === 'line' ? 
+            segments[0].by - segments[0].ay : 
+            segments[0].end.y - segments[0].start.y;
+
+        simState.trueX = startPos.x;
+        simState.trueY = startPos.y;
+        simState.trueHeading = getStartHeading();
+        simState.estX = startPos.x;
+        simState.estY = startPos.y;
+        simState.estHeading = simState.trueHeading;
+        simState.currentSegmentIdx = 0;
+        simState.running = true;
+        simState.realistic = true;
+
+        // Run the simulation at super-speed until done
+        const dt = 0.016; 
+        let safetyCounter = 0;
+        let crashed = false;
+
+        while (simState.running && safetyCounter < 10000) {
+            stepRealisticSimulation(dt);
+            safetyCounter++;
+            
+            // Real-time collision check
+            const { collisions } = checkPathCollisions([{
+                type: 'line', ax: simState.trueX, ay: simState.trueY, 
+                bx: simState.trueX, by: simState.trueY, len: 0.1 
+            }]);
+            if (collisions.length > 0) {
+                crashed = true;
+                simState.running = false;
+                break;
+            }
+        }
+
+        const distToTarget = state.target ? Math.hypot(simState.trueX - state.target.x, simState.trueY - state.target.y) : 0;
+        simState.stressRuns.push({
+            x: simState.trueX,
+            y: simState.trueY,
+            success: !crashed && distToTarget < 10, // Hit within 10cm
+            distance: distToTarget,
+            crashed: crashed
+        });
+
+        simState.stressCount++;
+        document.getElementById('stressProgressBar').style.width = (simState.stressCount / simState.stressMax * 100) + '%';
+        updateStressStats();
+        
+        // Use setTimeout to yield and keep the UI responsive
+        setTimeout(runStressRun, 10);
+        draw(); // Show the accumulating traces
+    }
+
+    function updateStressStats() {
+        const successes = simState.stressRuns.filter(r => r.success).length;
+        const crashes = simState.stressRuns.filter(r => r.crashed).length;
+        const sumDist = simState.stressRuns.reduce((s, r) => s + r.distance, 0);
+        const avgDist = (sumDist / simState.stressRuns.length) || 0;
+        
+        document.getElementById('stressSuccess').textContent = successes;
+        document.getElementById('stressCrashes').textContent = crashes;
+        document.getElementById('stressAvgDist').textContent = avgDist.toFixed(1);
+        document.getElementById('stressReliability').textContent = (successes / simState.stressMax * 100).toFixed(0);
+    }
+
+    function getPosFromDistance(segments, dist) {
+        let acc = 0;
+        for (const seg of segments) {
+            const len = seg.len || 0;
+            if (dist <= acc + len) {
+                const t = len > 0.001 ? (dist - acc) / len : 1;
+                if (seg.type === 'line') {
+                    const x = seg.ax + t * (seg.bx - seg.ax);
+                    const y = seg.ay + t * (seg.by - seg.ay);
+                    const dx = seg.bx - seg.ax, dy = seg.by - seg.ay;
+                    let heading = Math.atan2(dy, dx);
+                    if (seg.reverse) heading += Math.PI;
+                    return { x, y, heading };
+                } else {
+                    const sa = Math.atan2(seg.start.y - seg.cy, seg.start.x - seg.cx);
+                    const ea = Math.atan2(seg.end.y - seg.cy, seg.end.x - seg.cx);
+                    let delta = ea - sa;
+                    if (delta > Math.PI) delta -= 2 * Math.PI;
+                    if (delta < -Math.PI) delta += 2 * Math.PI;
+                    const ang = sa + delta * t;
+                    const x = seg.cx + seg.r * Math.cos(ang);
+                    const y = seg.cy + seg.r * Math.sin(ang);
+                    const heading = ang + (delta >= 0 ? Math.PI / 2 : -Math.PI / 2);
+                    return { x, y, heading };
+                }
+            }
+            acc += len;
+        }
+        const last = segments[segments.length - 1];
+        if (last?.type === 'line') {
+            let h = Math.atan2(last.by - last.ay, last.bx - last.ax);
+            if (last.reverse) h += Math.PI;
+            return { x: last.bx, y: last.by, heading: h };
+        }
+        if (last?.type === 'arc') return { x: last.end.x, y: last.end.y, heading: Math.atan2(last.end.y - last.cy, last.end.x - last.cx) + Math.PI / 2 };
+        return null;
+    }
+
+    function getStartHeading() {
+        if (!state.start) return Math.PI / 2;
+        const { x, y } = state.start;
+        if (y <= 1)            return Math.PI / 2;   // top wall → face down
+        if (y >= TRACK_H - 1)  return -Math.PI / 2;  // bottom wall → face up
+        if (x <= 1)            return 0;              // left wall → face right
+        if (x >= TRACK_W - 1)  return Math.PI;        // right wall → face left
+        return Math.PI / 2;
+    }
+
+    function getPathPoints() {
+        const pts = [];
+        if (state.start) pts.push({ ...state.start });
+        pts.push(...state.waypoints.map(w => ({ ...w })));
+        if (state.target) pts.push({ ...state.target });
+        return pts;
+    }
+
+    function buildPathSegments() {
+        const pts = getPathPoints();
+        const R = parseFloat(document.getElementById('turnRadius').value) || 0;
+        if (pts.length < 2) return [];
+        
+        if (R <= 0) {
+            const segments = [];
+            let prev = pts[0];
+            for (let i = 1; i < pts.length - 1; i++) {
+                const A = pts[i - 1], B = pts[i], C = pts[i + 1];
+                if (B.bottleDrop) {
+                    const v1x = B.x - A.x, v1y = B.y - A.y;
+                    const L1 = Math.hypot(v1x, v1y) || 0.001;
+                    const d1x = v1x / L1, d1y = v1y / L1;
+                    const P = { x: B.x - d1x * BOTTLE_DROP_REVERSE, y: B.y - d1y * BOTTLE_DROP_REVERSE };
+                    const l1 = Math.hypot(B.x - prev.x, B.y - prev.y);
+                    if (l1 > 0.01) segments.push({ type: 'line', ax: prev.x, ay: prev.y, bx: B.x, by: B.y, len: l1 });
+                    segments.push({ type: 'line', ax: B.x, ay: B.y, bx: P.x, by: P.y, len: BOTTLE_DROP_REVERSE, reverse: true });
+                    prev = P;
+                } else if (B.bottlePickup) {
+                    const len = Math.hypot(B.x - prev.x, B.y - prev.y);
+                    if (len > 0.01) segments.push({ type: 'line', ax: prev.x, ay: prev.y, bx: B.x, by: B.y, len });
+                    prev = B;
+                } else {
+                    const len = Math.hypot(B.x - prev.x, B.y - prev.y);
+                    if (len > 0.01) segments.push({ type: 'line', ax: prev.x, ay: prev.y, bx: B.x, by: B.y, len });
+                    prev = B;
+                }
+            }
+            const lastLen = Math.hypot(pts[pts.length - 1].x - prev.x, pts[pts.length - 1].y - prev.y);
+            if (lastLen > 0.01) segments.push({ type: 'line', ax: prev.x, ay: prev.y, bx: pts[pts.length - 1].x, by: pts[pts.length - 1].y, len: lastLen });
+            return segments;
+        }
+
+        const segments = [];
+        let lastT2 = pts[0];
+
+        // Initial arc: robot starts facing straight down (π/2), arcs toward first waypoint
+        const start = pts[0];
+        const firstDest = pts[1];
+        const v1x = firstDest.x - start.x, v1y = firstDest.y - start.y;
+        const L1 = Math.hypot(v1x, v1y) || 0.001;
+        const d1x = v1x / L1, d1y = v1y / L1;
+        const startHeading = getStartHeading();
+        const d1Angle = Math.atan2(d1y, d1x);
+        let turnTheta = d1Angle - startHeading;
+        while (turnTheta > Math.PI) turnTheta -= 2 * Math.PI;
+        while (turnTheta < -Math.PI) turnTheta += 2 * Math.PI;
+        if (Math.abs(turnTheta) > 0.01) {
+            const side = turnTheta > 0 ? -1 : 1;  // CCW: center left; CW: center right
+            const cx = start.x + side * R;  // CCW: center left (cx - R); CW: center right (cx + R)
+            const cy = start.y;
+            const sa = Math.atan2(start.y - cy, start.x - cx);
+            const theta = Math.abs(turnTheta);
+            const ea = sa + (turnTheta > 0 ? theta : -theta);
+            const arcEndX = cx + R * Math.cos(ea);
+            const arcEndY = cy + R * Math.sin(ea);
+            segments.push({ type: 'arc', cx, cy, r: R, start: { x: start.x, y: start.y }, end: { x: arcEndX, y: arcEndY }, theta, len: R * theta });
+            lastT2 = { x: arcEndX, y: arcEndY };
+        }
+
+        for (let i = 1; i < pts.length - 1; i++) {
+            const A = pts[i - 1], B = pts[i], C = pts[i + 1];
+            const v1x = B.x - A.x, v1y = B.y - A.y;
+            const v2x = C.x - B.x, v2y = C.y - B.y;
+            const L1 = Math.hypot(v1x, v1y) || 0.001;
+            const L2 = Math.hypot(v2x, v2y) || 0.001;
+            const d1x = v1x / L1, d1y = v1y / L1;
+            const d2x = v2x / L2, d2y = v2y / L2;
+
+            if (B.bottleDrop) {
+                const P = { x: B.x - d1x * BOTTLE_DROP_REVERSE, y: B.y - d1y * BOTTLE_DROP_REVERSE };
+                const line1 = Math.hypot(B.x - lastT2.x, B.y - lastT2.y);
+                if (line1 > 0.01) segments.push({ type: 'line', ax: lastT2.x, ay: lastT2.y, bx: B.x, by: B.y, len: line1 });
+                segments.push({ type: 'line', ax: B.x, ay: B.y, bx: P.x, by: P.y, len: BOTTLE_DROP_REVERSE, reverse: true });
+                /* After reverse: arc starts immediately at P with heading d1 (forward).
+                   Center is perpendicular to d1 at P; exit tangent follows from d2. */
+                const dot = d1x * d2x + d1y * d2y;
+                const theta = Math.acos(Math.max(-1, Math.min(1, dot)));
+                if (theta < 0.01 || R <= 0) {
+                    lastT2 = P;
+                } else {
+                    const cross = d1x * d2y - d1y * d2x;
+                    const side = cross > 0 ? 1 : -1;
+                    const ox = P.x + (-d1y * side) * R;
+                    const oy = P.y + ( d1x * side) * R;
+                    const t2x = ox + ( d2y * side) * R;
+                    const t2y = oy + (-d2x * side) * R;
+                    segments.push({ type: 'arc', cx: ox, cy: oy, r: R, start: { x: P.x, y: P.y }, end: { x: t2x, y: t2y }, theta, len: R * theta });
+                    lastT2 = { x: t2x, y: t2y };
+                }
+                continue;
+            }
+            if (B.bottlePickup) {
+                /* Turn ends at B (bottle): arc exit tangent is B, then proceed straight. */
+                const dot = d1x * d2x + d1y * d2y;
+                const theta = Math.acos(Math.max(-1, Math.min(1, dot)));
+                if (theta < 0.01 || R <= 0) {
+                    const lineLen = Math.hypot(B.x - lastT2.x, B.y - lastT2.y);
+                    if (lineLen > 0.01) segments.push({ type: 'line', ax: lastT2.x, ay: lastT2.y, bx: B.x, by: B.y, len: lineLen });
+                    lastT2 = B;
+                } else {
+                    const cross = d1x * d2y - d1y * d2x;
+                    const side = cross > 0 ? 1 : -1;
+                    const n2x = -d2y * side, n2y = d2x * side;
+                    const ox = B.x + R * n2x, oy = B.y + R * n2y;
+                    const n1x = -d1y * side, n1y = d1x * side;
+                    const t1x = ox - R * n1x, t1y = oy - R * n1y;
+                    const lineLen = Math.hypot(t1x - lastT2.x, t1y - lastT2.y);
+                    if (lineLen > 0.01) segments.push({ type: 'line', ax: lastT2.x, ay: lastT2.y, bx: t1x, by: t1y, len: lineLen });
+                    segments.push({ type: 'arc', cx: ox, cy: oy, r: R, start: { x: t1x, y: t1y }, end: { x: B.x, y: B.y }, theta, len: R * theta });
+                    lastT2 = B;
+                }
+                continue;
+            }
+            
+            const dot = d1x * d2x + d1y * d2y;
+            const theta = Math.acos(Math.max(-1, Math.min(1, dot)));
+            
+            if (theta < 0.01) {
+                const lineLen = Math.hypot(B.x - lastT2.x, B.y - lastT2.y);
+                if (lineLen > 0.01) segments.push({ type: 'line', ax: lastT2.x, ay: lastT2.y, bx: B.x, by: B.y, len: lineLen });
+                lastT2 = B;
+                continue;
+            }
+
+            const cross = d1x * d2y - d1y * d2x;
+            const side = cross > 0 ? 1 : -1;
+            const vmx = d1x + d2x, vmy = d1y + d2y;
+            const vmL = Math.hypot(vmx, vmy) || 0.001;
+            const dmx = vmx / vmL, dmy = vmy / vmL;
+            const nx = -dmy * side, ny = dmx * side;
+            const ox = B.x + R * nx, oy = B.y + R * ny;
+            const n1x = -d1y * side, n1y = d1x * side;
+            const t1x = ox - R * n1x, t1y = oy - R * n1y;
+            const n2x = -d2y * side, n2y = d2x * side;
+            const t2x = ox - R * n2x, t2y = oy - R * n2y;
+
+            const lineLen = Math.hypot(t1x - lastT2.x, t1y - lastT2.y);
+            if (lineLen > 0.01) segments.push({ type: 'line', ax: lastT2.x, ay: lastT2.y, bx: t1x, by: t1y, len: lineLen });
+            segments.push({ type: 'arc', cx: ox, cy: oy, r: R, start: { x: t1x, y: t1y }, end: { x: t2x, y: t2y }, theta, len: R * theta });
+            lastT2 = { x: t2x, y: t2y };
+        }
+
+        const lastPt = pts[pts.length - 1];
+        const lastLen = Math.hypot(lastPt.x - lastT2.x, lastPt.y - lastT2.y);
+        if (lastLen > 0.01) segments.push({ type: 'line', ax: lastT2.x, ay: lastT2.y, bx: lastPt.x, by: lastPt.y, len: lastLen });
+        
+        return segments;
+    }
+
+    function distToSegment(px, py, ax, ay, bx, by) {
+        const dx = bx - ax, dy = by - ay;
+        const len = Math.hypot(dx, dy) || 0.001;
+        const t = Math.max(0, Math.min(1, ((px - ax) * dx + (py - ay) * dy) / (len * len)));
+        const qx = ax + t * dx, qy = ay + t * dy;
+        return Math.hypot(px - qx, py - qy);
+    }
+
+    function segmentIntersectsSegment(a1x, a1y, a2x, a2y, b1x, b1y, b2x, b2y) {
+        const dax = a2x - a1x, day = a2y - a1y;
+        const dbx = b2x - b1x, dby = b2y - b1y;
+        const det = dax * dby - day * dbx;
+        if (Math.abs(det) < 1e-9) return false;
+        const t = ((b1x - a1x) * dby - (b1y - a1y) * dbx) / det;
+        const u = ((b1x - a1x) * day - (b1y - a1y) * dax) / det;
+        return t >= 0 && t <= 1 && u >= 0 && u <= 1;
+    }
+
+    function segKey(seg) {
+        if (seg.type === 'line') return `L:${seg.ax.toFixed(1)},${seg.ay.toFixed(1)},${seg.bx.toFixed(1)},${seg.by.toFixed(1)}`;
+        return `A:${seg.cx.toFixed(1)},${seg.cy.toFixed(1)},${seg.theta.toFixed(3)}`;
+    }
+
+    function exportPathToCpp() {
+        if (!lastPathSegments.length) return '';
+        const SIM_TRACK_W_CM = 200.0;
+        const REAL_TRACK_W_CM = 164.2;
+        const TRACK_SCALE = REAL_TRACK_W_CM / SIM_TRACK_W_CM;
+        const targetTime = parseFloat(document.getElementById('targetTime').value) || 73;
+        const totalDist = lastPathSegments.reduce((s, x) => s + (x.len || 0), 0);
+        const totalDistScaled = totalDist * TRACK_SCALE;
+        const speedCmS = targetTime > 0 ? totalDistScaled / targetTime : 20.0;
+
+        // Build PathStep entries: {true, angleDeg} = turn in place, {false, distCm} = drive straight
+        const steps = [];
+        let currentHeading = getStartHeading();
+
+        for (const seg of lastPathSegments) {
+            if (seg.type !== 'line') continue;  // arc segments only appear when R>0 (disabled)
+
+            let segHeading = Math.atan2(seg.by - seg.ay, seg.bx - seg.ax);
+            if (seg.reverse) segHeading += Math.PI;
+            while (segHeading > Math.PI) segHeading -= 2 * Math.PI;
+            while (segHeading < -Math.PI) segHeading += 2 * Math.PI;
+
+            let turnAngle = segHeading - currentHeading;
+            while (turnAngle > Math.PI) turnAngle -= 2 * Math.PI;
+            while (turnAngle < -Math.PI) turnAngle += 2 * Math.PI;
+
+            const turnDeg = turnAngle * 180 / Math.PI;
+            if (Math.abs(turnDeg) > 0.1) {
+                const dir = turnDeg > 0 ? 'CW' : 'CCW';
+                steps.push(`  {true, ${turnDeg.toFixed(1)}f},   // Turn ${Math.abs(turnDeg).toFixed(1)}° ${dir}`);
+            }
+
+            const distCm = (seg.len || 0) * TRACK_SCALE;
+            const signedDist = seg.reverse ? -distCm : distCm;
+            const label = seg.reverse ? 'Reverse' : 'Straight';
+            steps.push(`  {false, ${signedDist.toFixed(1)}f},  // ${label} ${distCm.toFixed(1)} cm`);
+
+            currentHeading = segHeading;
+        }
+
+        const lines = [
+            `// Total path: ${totalDistScaled.toFixed(1)} cm  speed: ${speedCmS.toFixed(2)} cm/s  target: ${targetTime}s`,
+            '// Replace this with your tour sequence',
+            'const PathStep path[] = {',
+            ...steps,
+            '};',
+            `const int pathLen = sizeof(path) / sizeof(path[0]);`
+        ];
+        return lines.join('\n');
+    }
+
+    function bottleAtPickupWaypoint(b) {
+        return state.waypoints.some(w => w.bottlePickup && Math.hypot(w.x - b.x, w.y - b.y) < 15);
+    }
+
+    function checkPathCollisions(segments) {
+        const collisions = [];
+        const collidingKeys = new Set();
+        const obsHalf = OBSTACLE_LEN / 2;
+        segments.forEach(seg => {
+            if (seg.type === 'line') {
+                state.obstacles.forEach(o => {
+                    const dx = o.bx - o.ax, dy = o.by - o.ay;
+                    const len = Math.hypot(dx, dy) || 1;
+                    const ux = dx / len, uy = dy / len;
+                    const mx = (o.ax + o.bx) / 2, my = (o.ay + o.by) / 2;
+                    const o1x = mx - ux * obsHalf, o1y = my - uy * obsHalf;
+                    const o2x = mx + ux * obsHalf, o2y = my + uy * obsHalf;
+                    if (segmentIntersectsSegment(seg.ax, seg.ay, seg.bx, seg.by, o1x, o1y, o2x, o2y)) {
+                        collisions.push({ type: 'obstacle', seg });
+                        collidingKeys.add(segKey(seg));
+                    }
+                });
+                state.bottles.forEach(b => {
+                    if (bottleAtPickupWaypoint(b)) return;
+                    const d = distToSegment(b.x, b.y, seg.ax, seg.ay, seg.bx, seg.by);
+                    if (d < BOTTLE_RADIUS) { collisions.push({ type: 'bottle', seg, bottle: b }); collidingKeys.add(segKey(seg)); }
+                });
+            } else {
+                const n = 20;
+                const sa = Math.atan2(seg.start.y - seg.cy, seg.start.x - seg.cx);
+                const ea = Math.atan2(seg.end.y - seg.cy, seg.end.x - seg.cx);
+                let delta = ea - sa;
+                if (delta > Math.PI) delta -= 2 * Math.PI;
+                if (delta < -Math.PI) delta += 2 * Math.PI;
+                for (let i = 0; i <= n; i++) {
+                    const ang = sa + delta * i / n;
+                    const px = seg.cx + seg.r * Math.cos(ang), py = seg.cy + seg.r * Math.sin(ang);
+                    state.obstacles.forEach(o => {
+                        const dx = o.bx - o.ax, dy = o.by - o.ay;
+                        const len = Math.hypot(dx, dy) || 1;
+                        const ux = dx / len, uy = dy / len;
+                        const mx = (o.ax + o.bx) / 2, my = (o.ay + o.by) / 2;
+                        const o1x = mx - ux * obsHalf, o1y = my - uy * obsHalf;
+                        const o2x = mx + ux * obsHalf, o2y = my + uy * obsHalf;
+                        const d = distToSegment(px, py, o1x, o1y, o2x, o2y);
+                        if (d < 5) { collisions.push({ type: 'obstacle', seg }); collidingKeys.add(segKey(seg)); }
+                    });
+                    state.bottles.forEach(b => {
+                        if (bottleAtPickupWaypoint(b)) return;
+                        if (Math.hypot(px - b.x, py - b.y) < BOTTLE_RADIUS) { collisions.push({ type: 'bottle', seg, bottle: b }); collidingKeys.add(segKey(seg)); }
+                    });
+                }
+            }
+        });
+        return { collisions, collidingKeys };
+    }
+
+    function pointInGate(x, y, g) {
+        return x >= g.col * ZONE && x <= (g.col + 1) * ZONE && y >= g.row * ZONE && y <= (g.row + 1) * ZONE;
+    }
+
+    function segmentInGate(ax, ay, bx, by, gates) {
+        const hit = [];
+        const n = 15;
+        for (let i = 0; i <= n; i++) {
+            const x = ax + (bx - ax) * i / n, y = ay + (by - ay) * i / n;
+            gates.forEach(g => {
+                if (pointInGate(x, y, g) && !hit.includes(g.key)) hit.push(g.key);
+            });
+        }
+        return hit;
+    }
+
+    function getGatesOnPath(segments) {
+        const gatesHit = new Set();
+        segments.forEach(seg => {
+            if (seg.type === 'line') {
+                segmentInGate(seg.ax, seg.ay, seg.bx, seg.by, state.gates).forEach(k => gatesHit.add(k));
+            } else {
+                const n = 15;
+                const sa = Math.atan2(seg.start.y - seg.cy, seg.start.x - seg.cx);
+                const ea = Math.atan2(seg.end.y - seg.cy, seg.end.x - seg.cx);
+                let delta = ea - sa;
+                if (delta > Math.PI) delta -= 2 * Math.PI;
+                if (delta < -Math.PI) delta += 2 * Math.PI;
+                for (let i = 0; i <= n; i++) {
+                    const ang = sa + delta * i / n;
+                    const x = seg.cx + seg.r * Math.cos(ang), y = seg.cy + seg.r * Math.sin(ang);
+                    state.gates.forEach(g => {
+                        if (pointInGate(x, y, g)) gatesHit.add(g.key);
+                    });
+                }
+            }
+        });
+        return Array.from(gatesHit).map(k => state.gates.find(g => g.key === k)).filter(Boolean);
+    }
+
+    function updatePathAnalysis() {
+        simState.endPos = null;
+        simState.ghostRobot = null;
+        const pts = getPathPoints();
+        const targetTime = parseFloat(document.getElementById('targetTime').value) || 73;
+        const withObstacles = document.getElementById('withObstacles').checked;
+        if (pts.length < 2 || !state.target) {
+            lastPathSegments = [];
+            lastCollidingKeys = new Set();
+            document.getElementById('pathStats').textContent = 'Add start, target, and waypoints to see path.';
+            document.getElementById('pathCollisions').innerHTML = '';
+            document.getElementById('pathGates').innerHTML = '';
+            document.getElementById('maxScore').textContent = '—';
+            return;
+        }
+        const segments = buildPathSegments();
+        lastPathSegments = segments;
+        const totalDist = segments.reduce((s, x) => s + (x.len || 0), 0);
+        const speed = totalDist / targetTime;
+        const { collisions, collidingKeys } = checkPathCollisions(segments);
+        lastCollidingKeys = collidingKeys;
+        const obstacleHits = collisions.filter(c => c.type === 'obstacle').length;
+        const bottleHits = collisions.filter(c => c.type === 'bottle').length;
+        const gatesOnPath = getGatesOnPath(segments);
+        const bottleDropInGates = state.waypoints.filter(w => w.bottleDrop && state.gates.some(g => pointInGate(w.x, w.y, g))).length;
+        const contactPenalty = (obstacleHits > 0 && withObstacles) ? 70 : 0;
+        const noObstaclePenalty = !withObstacles ? 50 : 0;
+        const gateBonus = -15 * gatesOnPath.length;
+        const bottleBonus = -15 * Math.min(bottleHits + bottleDropInGates, gatesOnPath.length);
+        let maxScore = 200 + 0 + 0 + gateBonus + bottleBonus + contactPenalty + noObstaclePenalty;
+        document.getElementById('pathStats').innerHTML = `Distance: <strong>${totalDist.toFixed(1)} cm</strong><br>Speed: <strong>${speed.toFixed(2)} cm/s</strong> (to hit target time)<br>Run time: <strong>${targetTime.toFixed(1)} s</strong>`;
+        document.getElementById('pathCollisions').innerHTML = obstacleHits > 0 || bottleHits > 0
+            ? `<span style="color:#dc2626;">⚠ ${obstacleHits > 0 ? obstacleHits + ' obstacle collision(s)' : ''} ${bottleHits > 0 ? bottleHits + ' bottle collision(s)' : ''}</span>`
+            : '<span style="color:#059669;">✓ No collisions</span>';
+        document.getElementById('pathGates').innerHTML = gatesOnPath.length > 0
+            ? `<span style="color:#059669;">${gatesOnPath.map(g => g.letter).join(', ')} (${gatesOnPath.length})</span>`
+            : 'None on path';
+        document.getElementById('maxScore').textContent = maxScore.toFixed(1);
+    }
+
+    function draw() {
+        const rect = canvas.getBoundingClientRect();
+        const dpr = window.devicePixelRatio || 1;
+        canvas.width = rect.width * dpr;
+        canvas.height = rect.height * dpr;
+        canvas.style.width = rect.width + 'px';
+        canvas.style.height = rect.height + 'px';
+        ctx.scale(dpr, dpr);
+
+        const w = rect.width;
+        const h = rect.height;
+        const padding = 20;
+        const drawW = w - 2 * padding;
+        const drawH = h - 2 * padding;
+        scale = Math.min(drawW / TRACK_W, drawH / TRACK_H);
+        offsetX = padding + (drawW - TRACK_W * scale) / 2;
+        offsetY = padding + (drawH - TRACK_H * scale) / 2;
+
+        function toScreen(gx, gy) {
+            return {
+                x: offsetX + gx * scale,
+                y: offsetY + gy * scale
+            };
+        }
+
+        ctx.fillStyle = '#f8fafc';
+        ctx.fillRect(0, 0, w, h);
+
+        ctx.strokeStyle = '#cbd5e1';
+        ctx.lineWidth = 1;
+        for (let i = 0; i <= COLS; i++) {
+            const a = toScreen(i * ZONE, 0);
+            const b = toScreen(i * ZONE, TRACK_H);
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.stroke();
+        }
+        for (let j = 0; j <= ROWS; j++) {
+            const a = toScreen(0, j * ZONE);
+            const b = toScreen(TRACK_W, j * ZONE);
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.stroke();
+        }
+
+        ctx.strokeStyle = '#64748b';
+        ctx.lineWidth = 3;
+        ctx.strokeRect(offsetX, offsetY, TRACK_W * scale, TRACK_H * scale);
+
+        state.gates.forEach(g => {
+            const tl = toScreen(g.col * ZONE, g.row * ZONE);
+            ctx.fillStyle = 'rgba(124, 58, 237, 0.35)';
+            ctx.fillRect(tl.x, tl.y, ZONE * scale, ZONE * scale);
+            ctx.fillStyle = '#7c3aed';
+            ctx.font = 'bold ' + (14 * scale / 2) + 'px sans-serif';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(g.letter, tl.x + (ZONE * scale) / 2, tl.y + (ZONE * scale) / 2);
+        });
+
+        const OBSTACLE_LEN = 40.6;
+        state.obstacles.forEach(seg => {
+            const dx = seg.bx - seg.ax, dy = seg.by - seg.ay;
+            const len = Math.sqrt(dx * dx + dy * dy) || 1;
+            const half = OBSTACLE_LEN / 2;
+            const mx = (seg.ax + seg.bx) / 2, my = (seg.ay + seg.by) / 2;
+            const ux = dx / len, uy = dy / len;
+            const a = toScreen(mx - ux * half, my - uy * half);
+            const b = toScreen(mx + ux * half, my + uy * half);
+            ctx.strokeStyle = '#92400e';
+            ctx.lineWidth = Math.max(4, 8 * scale / 50);
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.stroke();
+        });
+
+        state.bottles.forEach(b => {
+            const p = toScreen(b.x, b.y);
+            const r = 6 * scale / 2;
+            ctx.fillStyle = '#0ea5e9';
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.strokeStyle = '#0284c7';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+        });
+
+        lastPathSegments.forEach(seg => {
+            const isColliding = lastCollidingKeys.has(segKey(seg));
+            ctx.strokeStyle = isColliding ? '#dc2626' : '#16a34a';
+            ctx.lineWidth = Math.max(3, 5 * scale / 50);
+            if (seg.type === 'line') {
+                const a = toScreen(seg.ax, seg.ay);
+                const b = toScreen(seg.bx, seg.by);
+                ctx.beginPath();
+                ctx.moveTo(a.x, a.y);
+                ctx.lineTo(b.x, b.y);
+                ctx.stroke();
+            } else {
+                const sa = Math.atan2(seg.start.y - seg.cy, seg.start.x - seg.cx);
+                const ea = Math.atan2(seg.end.y - seg.cy, seg.end.x - seg.cx);
+                let delta = ea - sa;
+                if (delta > Math.PI) delta -= 2 * Math.PI;
+                if (delta < -Math.PI) delta += 2 * Math.PI;
+                const n = Math.max(8, Math.ceil(seg.theta * 4));
+                ctx.beginPath();
+                const p0 = toScreen(seg.start.x, seg.start.y);
+                ctx.moveTo(p0.x, p0.y);
+                for (let i = 1; i <= n; i++) {
+                    const t = i / n;
+                    const ang = sa + delta * t;
+                    const px = seg.cx + seg.r * Math.cos(ang), py = seg.cy + seg.r * Math.sin(ang);
+                    const p = toScreen(px, py);
+                    ctx.lineTo(p.x, p.y);
+                }
+                ctx.stroke();
+            }
+        });
+
+        state.waypoints.forEach((w, i) => {
+            const p = toScreen(w.x, w.y);
+            ctx.fillStyle = w.bottleDrop ? '#06b6d4' : (w.bottlePickup ? '#c2410c' : '#16a34a');
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, 8, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.strokeStyle = w.bottleDrop ? '#0891b2' : (w.bottlePickup ? '#ea580c' : '#15803d');
+            ctx.lineWidth = 2;
+            ctx.stroke();
+            ctx.fillStyle = '#334155';
+            ctx.font = 'bold 10px sans-serif';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            const label = w.bottleDrop ? 'B' : (w.bottlePickup ? 'P' : String(i + 1));
+            ctx.fillText(label, p.x, p.y);
+        });
+
+        if (state.start) {
+            const p = toScreen(state.start.x, state.start.y);
+            ctx.fillStyle = '#059669';
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, 10, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.strokeStyle = '#047857';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+            ctx.fillStyle = '#334155';
+            ctx.font = '10px sans-serif';
+            ctx.textAlign = 'left';
+            ctx.fillText('START', p.x + 12, p.y);
+        }
+
+        if (state.target) {
+            const p = toScreen(state.target.x, state.target.y);
+            ctx.fillStyle = '#dc2626';
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, 12, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.strokeStyle = '#b91c1c';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+            ctx.fillStyle = '#334155';
+            ctx.font = '10px sans-serif';
+            ctx.textAlign = 'left';
+            ctx.fillText('TARGET', p.x + 14, p.y);
+        }
+
+        let robotPos = null;
+        if (simState.running && lastPathSegments.length > 0) {
+            const now = performance.now();
+            const dt = simState.lastTime ? (now - simState.lastTime) / 1000 : 0.016;
+            simState.lastTime = now;
+
+            if (simState.realistic) {
+                // Realistic physics simulation
+                const steps = 4; // Multiple steps for stability
+                for (let i = 0; i < steps; i++) stepRealisticSimulation(dt / steps);
+                robotPos = { x: simState.trueX, y: simState.trueY, heading: simState.trueHeading };
+                simState.ghostRobot = { x: simState.estX, y: simState.estY, heading: simState.estHeading };
+            } else {
+                // Perfect trajectory simulation
+                const totalDist = lastPathSegments.reduce((s, x) => s + (x.len || 0), 0);
+                const targetTime = parseFloat(document.getElementById('targetTime').value) || 73;
+                const baseSpeed = totalDist / targetTime;
+                const speedMult = parseInt(document.getElementById('simSpeed').value, 10) || 1;
+                const elapsed = (now - simState.startTime) / 1000;
+                const dist = Math.min(baseSpeed * speedMult * elapsed, totalDist);
+                if (dist >= totalDist) {
+                    simState.running = false;
+                    simState.endPos = getPosFromDistance(lastPathSegments, totalDist);
+                }
+                robotPos = simState.running ? getPosFromDistance(lastPathSegments, dist) : null;
+            }
+        } else if (simState.endPos) {
+            robotPos = simState.endPos;
+        }
+
+        if (robotPos) {
+            // Draw TRUTH robot
+            const sp = toScreen(robotPos.x, robotPos.y);
+            const sz = Math.max(8, 12 * scale / 50);
+            ctx.save();
+            ctx.translate(sp.x, sp.y);
+            ctx.rotate(robotPos.heading);
+            ctx.fillStyle = '#0f172a';
+            ctx.beginPath();
+            ctx.moveTo(sz, 0);
+            ctx.lineTo(-sz * 0.7, sz * 0.6);
+            ctx.lineTo(-sz * 0.5, 0);
+            ctx.lineTo(-sz * 0.7, -sz * 0.6);
+            ctx.closePath();
+            ctx.fill();
+            ctx.strokeStyle = '#64748b';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+            ctx.restore();
+
+            // Draw GHOST robot (estimated position)
+            if (simState.ghostRobot && simState.running) {
+                const gsp = toScreen(simState.ghostRobot.x, simState.ghostRobot.y);
+                ctx.save();
+                ctx.translate(gsp.x, gsp.y);
+                ctx.rotate(simState.ghostRobot.heading);
+                ctx.fillStyle = 'rgba(124, 58, 237, 0.4)'; // Transparent purple
+                ctx.beginPath();
+                ctx.moveTo(sz, 0);
+                ctx.lineTo(-sz * 0.7, sz * 0.6);
+                ctx.lineTo(-sz * 0.5, 0);
+                ctx.lineTo(-sz * 0.7, -sz * 0.6);
+                ctx.closePath();
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        // Draw Stress Test Heat Map
+        if (simState.stressRuns.length > 0) {
+            simState.stressRuns.forEach(r => {
+                const sp = toScreen(r.x, r.y);
+                ctx.fillStyle = r.success ? 'rgba(22, 163, 74, 0.6)' : (r.crashed ? 'rgba(220, 38, 38, 0.6)' : 'rgba(249, 115, 22, 0.6)');
+                ctx.beginPath();
+                ctx.arc(sp.x, sp.y, 4, 0, Math.PI * 2);
+                ctx.fill();
+            });
+        }
+
+        ctx.fillStyle = '#64748b';
+        ctx.font = '10px sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillText('200 cm × 250 cm | 50 cm zones', padding, h - 4);
+
+        if (simState.running) requestAnimationFrame(draw);
+    }
+
+    function calculateScore() {
+        const runTime = parseFloat(document.getElementById('runTime').value);
+        const distance = parseFloat(document.getElementById('distanceCm').value);
+        const gates = parseInt(document.getElementById('gatesEntered').value, 10) || 0;
+        const bottles = parseInt(document.getElementById('bottlesInGates').value, 10) || 0;
+        const targetTime = parseFloat(document.getElementById('targetTime').value);
+        const withObstacles = document.getElementById('withObstacles').checked;
+        const contact = document.getElementById('contactPenalty').checked;
+        const stalling = document.getElementById('stallingPenalty').checked;
+        const failed = document.getElementById('failedRun').checked;
+
+        if (failed) {
+            let score = 1000;
+            if (contact) score += 70;
+            if (stalling) score += 20;
+            return { runScore: score, timeScore: 0, distScore: 0, bonusScore: 0 };
+        }
+
+        let timeScore;
+        if (runTime < targetTime) {
+            timeScore = (targetTime - runTime) * 2;
+        } else {
+            timeScore = runTime - targetTime;
+        }
+        const distScore = 2.0 * (isNaN(distance) ? 0 : distance);
+        const gateBonus = -15 * gates;
+        const bottleBonus = -15 * bottles;
+        const bonusScore = gateBonus + bottleBonus;
+
+        let runScore = 200 + timeScore + distScore + bonusScore;
+        if (!withObstacles) runScore += 50;
+        if (contact) runScore += 70;
+        if (stalling) runScore += 20;
+
+        return {
+            runScore: Math.round(runScore * 100) / 100,
+            timeScore: Math.round(timeScore * 100) / 100,
+            distScore: Math.round(distScore * 100) / 100,
+            bonusScore
+        };
+    }
+
+    function updateScore() {
+        const r = calculateScore();
+        document.getElementById('runScore').textContent = r.runScore;
+        document.getElementById('timeScore').textContent = r.timeScore;
+        document.getElementById('distScore').textContent = r.distScore;
+        document.getElementById('bonusScore').textContent = r.bonusScore;
+    }
+
+    function updateTargetTimeRange() {
+        const t = document.getElementById('tournamentType').value;
+        const inp = document.getElementById('targetTime');
+        if (t === 'regionals') { inp.min = 60; inp.max = 80; if (inp.value < 60 || inp.value > 80) inp.value = 73; }
+        else if (t === 'states') { inp.min = 55; inp.max = 75; if (inp.value < 55 || inp.value > 75) inp.value = 65; }
+        else { inp.min = 50; inp.max = 65; if (inp.value < 50 || inp.value > 65) inp.value = 58; }
+    }
+
+    let tracks = [];
+
+    function getCurrentConfig() {
+        return {
+            start: state.start ? { ...state.start } : { x: 100, y: 0 },
+            target: state.target ? { ...state.target } : null,
+            waypoints: state.waypoints.map(w => ({ ...w })),
+            gates: state.gates.map(g => ({ ...g })),
+            bottles: state.bottles.map(b => ({ ...b })),
+            obstacles: state.obstacles.map(o => ({ ...o })),
+            targetTime: parseFloat(document.getElementById('targetTime').value) || 73,
+            tournamentType: document.getElementById('tournamentType').value || 'regionals',
+            turnRadius: parseFloat(document.getElementById('turnRadius').value) || 0
+        };
+    }
+
+    function applyConfig(cfg) {
+        if (!cfg) return;
+        state.start = cfg.start ? { ...cfg.start } : { x: 100, y: 0 };
+        state.target = cfg.target ? { ...cfg.target } : null;
+        state.waypoints = (cfg.waypoints || []).map(w => ({ ...w }));
+        state.gates = (cfg.gates || []).map(g => ({ ...g }));
+        state.bottles = (cfg.bottles || []).map(b => ({ ...b }));
+        state.obstacles = (cfg.obstacles || []).map(o => ({ ...o }));
+        if (cfg.targetTime != null) document.getElementById('targetTime').value = cfg.targetTime;
+        if (cfg.tournamentType) document.getElementById('tournamentType').value = cfg.tournamentType;
+        if (cfg.turnRadius != null) document.getElementById('turnRadius').value = cfg.turnRadius;
+        updateTargetTimeRange();
+        updatePathAnalysis();
+        draw();
+        updateScore();
+    }
+
+    function updateTrackSelector() {
+        const updateSel = (sel) => {
+            if (!sel) return;
+            const cur = sel.value;
+            sel.innerHTML = '<option value="">-- Select track --</option>';
+            tracks.forEach(t => {
+                const opt = document.createElement('option');
+                opt.value = t.id;
+                opt.textContent = t.name || ('Track ' + t.id);
+                sel.appendChild(opt);
+            });
+            if (cur && tracks.some(t => t.id === cur)) sel.value = cur;
+        };
+        updateSel(document.getElementById('trackSelector'));
+        updateSel(document.getElementById('trackSelectorScoring'));
+    }
+
+    async function fetchTracks() {
+        try {
+            const res = await fetch('/api/robot-tour/tracks');
+            const data = await res.json();
+            tracks = data.tracks || [];
+            updateTrackSelector();
+        } catch (e) {
+            console.error('Failed to fetch tracks:', e);
+        }
+    }
+
+    async function saveTracksToServer() {
+        try {
+            const res = await fetch('/api/robot-tour/tracks', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ tracks })
+            });
+            if (!res.ok) throw new Error('Save failed');
+        } catch (e) {
+            console.error('Failed to save tracks:', e);
+            alert('Failed to save tracks.');
+        }
+    }
+
+    function loadTrack() {
+        const id = document.getElementById('trackSelector').value;
+        const t = tracks.find(tr => tr.id === id);
+        if (t) applyConfig(t);
+    }
+
+    async function saveTrack() {
+        const id = document.getElementById('trackSelector').value;
+        const cfg = getCurrentConfig();
+        if (id) {
+            const t = tracks.find(tr => tr.id === id);
+            if (t) {
+                Object.assign(t, cfg);
+                await saveTracksToServer();
+                updateTrackSelector();
+            } else {
+                await saveAsNewTrack();
+            }
+        } else {
+            await saveAsNewTrack();
+        }
+    }
+
+    async function saveAsNewTrack() {
+        const name = prompt('Name for this track:', '');
+        if (name == null || !name.trim()) return;
+        const cfg = getCurrentConfig();
+        const id = 'rt_' + Date.now();
+        const t = { id, name: name.trim(), createdAt: new Date().toISOString(), ...cfg };
+        tracks.push(t);
+        updateTrackSelector();
+        document.getElementById('trackSelector').value = id;
+        const selScoring = document.getElementById('trackSelectorScoring');
+        if (selScoring) selScoring.value = id;
+        await saveTracksToServer();
+    }
+
+    async function deleteTrack() {
+        const id = document.getElementById('trackSelector').value;
+        if (!id) return;
+        if (!confirm('Delete this track?')) return;
+        tracks = tracks.filter(tr => tr.id !== id);
+        updateTrackSelector();
+        document.getElementById('trackSelector').value = '';
+        state.start = { x: 100, y: 0 };
+        state.target = null;
+        state.waypoints = [];
+        state.gates = [];
+        state.bottles = [];
+        state.obstacles = [];
+        updatePathAnalysis();
+        draw();
+        await saveTracksToServer();
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+        if (!currentUser) {
+            window.location.href = '/login?next=' + encodeURIComponent(window.location.pathname);
+            return;
+        }
+
+        // Tab switching
+        document.querySelectorAll('.rt-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.rt-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.rt-tab-panel').forEach(p => p.classList.remove('active'));
+                tab.classList.add('active');
+                const panel = document.getElementById('tab-' + tab.dataset.tab);
+                if (panel) panel.classList.add('active');
+                if (tab.dataset.tab === 'trajectory') draw();
+            });
+        });
+
+        canvas = document.getElementById('gridCanvas');
+        ctx = canvas.getContext('2d');
+
+        const container = canvas.parentElement;
+        const resize = () => {
+            const w = container.clientWidth;
+            const h = Math.min(500, window.innerHeight * 0.5);
+            canvas.style.width = w + 'px';
+            canvas.style.height = h + 'px';
+            draw();
+        };
+        resize();
+        window.addEventListener('resize', resize);
+
+        canvas.addEventListener('click', handleClick);
+
+        document.querySelectorAll('.tool-btn[data-mode]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tool-btn[data-mode]').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                state.mode = btn.dataset.mode;
+            });
+        });
+
+        document.getElementById('btnExportCpp').addEventListener('click', () => {
+            updatePathAnalysis();
+            const code = exportPathToCpp();
+            const pre = document.getElementById('exportedCpp');
+            if (code) {
+                pre.textContent = code;
+                pre.style.display = 'block';
+                pre.onclick = () => { navigator.clipboard?.writeText(code).then(() => { pre.title = 'Copied!'; setTimeout(() => { pre.title = 'Click to copy'; }, 1500); }); };
+                pre.title = 'Click to copy';
+            } else {
+                pre.style.display = 'none';
+            }
+        });
+        document.getElementById('btnSimulate').addEventListener('click', () => {
+            document.getElementById('stressTestPanel').style.display = 'none';
+            simState.stressRuns = [];
+            updatePathAnalysis();
+            if (lastPathSegments.length > 0) {
+                simState.running = true;
+                simState.startTime = performance.now();
+                simState.lastTime = performance.now();
+                simState.endPos = null;
+                simState.realistic = document.getElementById('realisticMode').checked;
+                
+                if (simState.realistic) {
+                    const segments = lastPathSegments;
+                    const startPos = segments[0].type === 'line' ? 
+                        { x: segments[0].ax, y: segments[0].ay } : 
+                        { x: segments[0].start.x, y: segments[0].start.y };
+                    
+                    const dx = segments[0].type === 'line' ? 
+                        segments[0].bx - segments[0].ax : 
+                        segments[0].end.x - segments[0].start.x;
+                    const dy = segments[0].type === 'line' ? 
+                        segments[0].by - segments[0].ay : 
+                        segments[0].end.y - segments[0].start.y;
+                    
+                    simState.trueX = startPos.x;
+                    simState.trueY = startPos.y;
+                    simState.trueHeading = getStartHeading();
+                    simState.estX = startPos.x;
+                    simState.estY = startPos.y;
+                    simState.estHeading = simState.trueHeading;
+                    simState.currentSegmentIdx = 0;
+                    simState.ghostRobot = null;
+                }
+                draw();
+            }
+        });
+        
+        document.getElementById('btnStressTest').addEventListener('click', () => {
+            startStressTest();
+        });
+        
+        document.getElementById('realisticMode').addEventListener('change', (e) => {
+            document.getElementById('realisticControls').style.display = e.target.checked ? 'grid' : 'none';
+        });
+        document.getElementById('btnLoadTrack').addEventListener('click', loadTrack);
+        document.getElementById('btnLoadTrackScoring').addEventListener('click', () => {
+            const id = document.getElementById('trackSelectorScoring').value;
+            const t = tracks.find(tr => tr.id === id);
+            if (t) applyConfig(t);
+        });
+        document.getElementById('trackSelectorScoring').addEventListener('change', () => {
+            const id = document.getElementById('trackSelectorScoring').value;
+            document.getElementById('trackSelector').value = id || '';
+        });
+        document.getElementById('trackSelector').addEventListener('change', () => {
+            const id = document.getElementById('trackSelector').value;
+            document.getElementById('trackSelectorScoring').value = id || '';
+        });
+        document.getElementById('btnSaveTrack').addEventListener('click', saveTrack);
+        document.getElementById('btnSaveAsNew').addEventListener('click', saveAsNewTrack);
+        document.getElementById('btnDeleteTrack').addEventListener('click', deleteTrack);
+
+        fetchTracks();
+
+        ['runTime', 'distanceCm', 'gatesEntered', 'bottlesInGates', 'targetTime', 'withObstacles', 'contactPenalty', 'stallingPenalty', 'failedRun'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.addEventListener('input', updateScore);
+            if (el) el.addEventListener('change', updateScore);
+        });
+        document.getElementById('tournamentType').addEventListener('change', () => {
+            updateTargetTimeRange();
+            updateScore();
+        });
+        document.getElementById('turnRadius').addEventListener('change', () => {
+            updatePathAnalysis();
+            draw();
+        });
+        document.getElementById('targetTime').addEventListener('input', () => { updatePathAnalysis(); draw(); });
+        document.getElementById('targetTime').addEventListener('change', () => { updatePathAnalysis(); draw(); });
+
+        updateTargetTimeRange();
+        updateScore();
+        updatePathAnalysis();
+
+        var rtSrc = document.getElementById('rtCodeSrc');
+        var rtDisplay = document.getElementById('rtCodeDisplay');
+        if (rtSrc && rtDisplay) rtDisplay.textContent = rtSrc.textContent;
+        var rtSensorSrc = document.getElementById('rtCodeSensorTestSrc');
+        var rtSensorDisplay = document.getElementById('rtCodeSensorTestDisplay');
+        if (rtSensorSrc && rtSensorDisplay) rtSensorDisplay.textContent = rtSensorSrc.textContent;
+
+        document.querySelectorAll('.rt-strategy-tab').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var stratId = btn.getAttribute('data-rt-strategy');
+                document.querySelectorAll('.rt-strategy-tab').forEach(function(t) { t.classList.remove('active'); });
+                document.querySelectorAll('.rt-strategy-content').forEach(function(c) { c.classList.remove('active'); });
+                var tab = document.querySelector('.rt-strategy-tab[data-rt-strategy="' + stratId + '"]');
+                var content = document.getElementById('rt-strategy-' + stratId);
+                if (tab) tab.classList.add('active');
+                if (content) content.classList.add('active');
+            });
+        });
+    });
+})();
+</script>
+{% endblock %}

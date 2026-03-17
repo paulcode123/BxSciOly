@@ -88,10 +88,11 @@ def fetch_page_extracts(
     params = {
         "action": "query",
         "format": "json",
-        "prop": "extracts|info",
+        "prop": "extracts|info|categories",
         "explaintext": 1,
         "redirects": 1,
         "inprop": "url",
+        "cllimit": 500,
         "titles": "|".join(titles),
     }
     data = mw_get(params, session=session, min_delay_s=0.1)
@@ -107,14 +108,20 @@ def fetch_page_extracts(
         title = _normalize_title(str(p.get("title") or ""))
         extract = _clean_extract(str(p.get("extract") or ""))
         fullurl = str(p.get("fullurl") or "")
-        out.append(
-            {
-                "pageid": pageid,
-                "title": title,
-                "url": fullurl,
-                "extract": extract,
-            }
-        )
+        cats = [
+            str(c.get("title") or "").strip()
+            for c in (p.get("categories") or [])
+            if str(c.get("title") or "").strip().startswith("Category:")
+        ]
+        rec: Dict[str, object] = {
+            "pageid": pageid,
+            "title": title,
+            "url": fullurl,
+            "extract": extract,
+        }
+        if cats:
+            rec["categories"] = cats
+        out.append(rec)
     return out
 
 
@@ -147,6 +154,24 @@ def download_wikipedia_corpus(
     pages_seen = 0
     bytes_written = 0
 
+    # When appending: load existing pageids and file size so we resume correctly
+    if append and out_jsonl.exists():
+        with out_jsonl.open("r", encoding="utf-8") as f:
+            for line in f:
+                line_stripped = line.rstrip("\n")
+                if not line_stripped:
+                    continue
+                try:
+                    rec = json.loads(line_stripped)
+                    pid = rec.get("pageid")
+                    if isinstance(pid, int):
+                        seen_pages.add(pid)
+                except Exception:
+                    pass
+        bytes_written = out_jsonl.stat().st_size
+        if seen_pages or bytes_written:
+            print(f"[resume] existing: {len(seen_pages)} pages, {bytes_written:,} bytes", file=sys.stderr)
+
     session = requests.Session()
     session.headers.update({"User-Agent": "BxSciOly-AstroWikiQA/1.0 (offline QA indexer)"})
 
@@ -160,8 +185,19 @@ def download_wikipedia_corpus(
         return False
 
     mode = "a" if append else "w"
+    last_status_at = time.time()
     with out_jsonl.open(mode, encoding="utf-8") as f:
         while cat_queue and not should_stop():
+            # Heartbeat so user sees activity even when mostly skipping known pages
+            now = time.time()
+            if now - last_status_at >= 30:
+                print(
+                    f"[scan] checked={pages_seen:,} new={pages_written} total={bytes_written:,} bytes "
+                    f"cats={len(seen_cats)} queue={len(cat_queue)}",
+                    file=sys.stderr,
+                )
+                last_status_at = now
+
             cat = cat_queue.pop(0)
             if cat in seen_cats:
                 continue
@@ -186,6 +222,11 @@ def download_wikipedia_corpus(
 
                 # ns=0 is main/article namespace.
                 if ns != 0:
+                    continue
+
+                # Skip pages we already have (categorymembers returns pageid) - avoids re-fetching
+                pid = m.get("pageid")
+                if isinstance(pid, int) and pid in seen_pages:
                     continue
 
                 # Accumulate titles to fetch extracts in batches (MediaWiki supports many).
@@ -216,6 +257,8 @@ def download_wikipedia_corpus(
                             "source": "enwiki",
                             "downloaded_at_unix": int(time.time()),
                         }
+                        if page.get("categories"):
+                            record["categories"] = page["categories"]
                         line = json.dumps(record, ensure_ascii=False) + "\n"
                         f.write(line)
                         bytes_written += len(line.encode("utf-8"))
@@ -227,6 +270,15 @@ def download_wikipedia_corpus(
                                 f"cats={len(seen_cats)} queue={len(cat_queue)}",
                                 file=sys.stderr,
                             )
+                    # Heartbeat: print every 30s so user sees activity when mostly skipping
+                    now = time.time()
+                    if now - last_status_at >= 30:
+                        print(
+                            f"[scan] checked={pages_seen:,} new={pages_written} total={bytes_written:,} bytes "
+                            f"cats={len(seen_cats)} queue={len(cat_queue)}",
+                            file=sys.stderr,
+                        )
+                        last_status_at = now
 
                     batch_titles = []
 
@@ -257,6 +309,8 @@ def download_wikipedia_corpus(
                         "source": "enwiki",
                         "downloaded_at_unix": int(time.time()),
                     }
+                    if page.get("categories"):
+                        record["categories"] = page["categories"]
                     line = json.dumps(record, ensure_ascii=False) + "\n"
                     f.write(line)
                     bytes_written += len(line.encode("utf-8"))
@@ -268,6 +322,15 @@ def download_wikipedia_corpus(
                             f"cats={len(seen_cats)} queue={len(cat_queue)}",
                             file=sys.stderr,
                         )
+                # Heartbeat for remaining batch
+                now = time.time()
+                if now - last_status_at >= 30:
+                    print(
+                        f"[scan] checked={pages_seen:,} new={pages_written} total={bytes_written:,} bytes "
+                        f"cats={len(seen_cats)} queue={len(cat_queue)}",
+                        file=sys.stderr,
+                    )
+                    last_status_at = now
 
     return DownloadStats(
         pages_written=pages_written,

@@ -877,7 +877,55 @@ Registration Opens: January 25, 2026
 Registration Closes: January 29, 2026
 Roster Released: February 1, 2026
 
-Roster: Pending roster release
+Team A:
+Anatomy and Physiology: Noelle Delosreyes, Sophia Zheng
+Astronomy: Johnny Lin (11th), Itamar Goshen
+Boomilever: Atef Istiaque, Cielle Voulgarides
+Bungee Drop: Aidan Wong, Atef Istiaque
+Chemistry Lab: Queenie Tang, Stanley Zhao
+Circuit Lab: Paul Nieuwerburgh, Lia Skarabot
+Codebusters: Queenie Tang, Andrew Lin, Simeon Chen
+Designer Genes: Stanley Zhao, Noelle Delosreyes
+Disease Detectives: Noelle Delosreyes, Stanley Zhao
+Dynamic Planet: Johnny Lin (11th), Simeon Chen
+Electric Vehicle: Andrew Lin, Lia Skarabot
+Entomology: Anushka Biswas, Cielle Voulgarides
+Engineering CAD: Paul Nieuwerburgh, Aidan Wong
+Experimental Design: Simeon Chen, Stanley Zhao, Ryan Chen
+Forensics: Queenie Tang, Andrew Lin
+Helicopter: Aidan Wong, Atef Istiaque
+Hovercraft: Aidan Wong, Atef Istiaque
+Machines: Aidan Wong, Paul Nieuwerburgh
+Material Science: Paul Nieuwerburgh, Lia Skarabot
+Remote Sensing: Itamar Goshen, Ryan Chen
+Robot Tour: Andrew Lin, Lia Skarabot
+Rocks and Minerals: Anushka Biswas, Itamar Goshen
+Water Quality: Noelle Delosreyes, Cielle Voulgarides
+
+Team B:
+Anatomy and Physiology: Ileene Ng, Vincent Zhao
+Astronomy: Brandon Lin, Vincent Zhao
+Boomilever: Senna Shiau, Chase Li
+Bungee Drop: Wilson Shao, Chase Li
+Chemistry Lab: Wilson Shao, Vincent Zhao
+Circuit Lab: Rishav Banik, Haylie Leong
+Codebusters: Elyn Wang, Jacob Berner, Sherman Wong
+Designer Genes: Ileene Ng, Xingtong Chen
+Disease Detectives: Ileene Ng, Xingtong Chen
+Dynamic Planet: Brandon Lin, Johnny Lin (10th)
+Electric Vehicle: Wilson Shao, Rishav Banik
+Entomology: Johnny Lin (10th), Elyn Wang
+Engineering CAD: Ethan Wang, Wilson Shao
+Experimental Design: Sherman Wong, Xingtong Chen, Ethan Wang
+Forensics: Elyn Wang, Xin Yue Wen
+Helicopter: Haylie Leong, Senna Shiau
+Hovercraft: Haylie Leong, Chase Li
+Machines: Senna Shiau, Jacob Berner
+Material Science: Brandon Lin, Xin Yue Wen
+Remote Sensing: Xin Yue Wen, Vincent Zhao
+Robot Tour: Rishav Banik, Jacob Berner
+Rocks and Minerals: Johnny Lin (10th), Chase Li
+Water Quality: Xin Yue Wen, Ethan Wang
 
 ================================================================================
 

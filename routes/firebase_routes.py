@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, session
 import firebase_admin
 from firebase_admin import credentials, firestore, storage
 import json
@@ -150,6 +150,22 @@ def reset_password():
         return jsonify({"message": "Password has been reset successfully"}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
+
+@firebase_routes.route('/api/auth/sync-session', methods=['POST'])
+def sync_session():
+    """Sync client-side session with Flask server-side session."""
+    try:
+        data = request.get_json() or {}
+        user_info = data.get('user')
+        
+        if user_info:
+            session['currentUser'] = user_info
+            return jsonify({"status": "success", "message": "Session synced"}), 200
+        else:
+            return jsonify({"status": "error", "message": "No user info provided"}), 400
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
 
 
 def _send_password_reset_email(to_email: str, reset_link: str) -> None:

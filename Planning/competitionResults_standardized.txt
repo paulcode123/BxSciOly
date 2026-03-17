@@ -971,8 +971,59 @@ Teams: 2
 Registration Opens: January 25, 2026
 Registration Closes: January 29, 2026
 Roster Released: February 1, 2026
+Duosmium: https://www.duosmium.org/results/2026-02-07_yale_invitational_c/
 
-Results: Pending competition
+Team A Results:
+Anatomy and Physiology: 2
+Astronomy: 3
+Boomilever: 15
+Bungee Drop: 15
+Chemistry Lab: 2
+Circuit Lab: 17
+Codebusters: 4
+Designer Genes: 4
+Disease Detectives: 2
+Dynamic Planet: 6
+Electric Vehicle: 6
+Engineering CAD: 20
+Entomology: 16
+Experimental Design: 5
+Forensics: 3
+Helicopter: 9
+Hovercraft: 12
+Machines: 15
+Material Science: 20
+Remote Sensing: 11
+Robot Tour: 8
+Rocks and Minerals: 4
+Water Quality: 4
+Overall: 1st out of 52 teams
+
+Team B Results:
+Anatomy and Physiology: 1
+Astronomy: 8
+Boomilever: 10
+Bungee Drop: 20
+Chemistry Lab: 19
+Circuit Lab: 16
+Codebusters: 13
+Designer Genes: 9
+Disease Detectives: 6
+Dynamic Planet: 11
+Electric Vehicle: 3
+Engineering CAD: 23
+Entomology: 5
+Experimental Design: 14
+Forensics: 2
+Helicopter: 4
+Hovercraft: 14
+Machines: 34
+Material Science: 4
+Remote Sensing: 20
+Robot Tour: 19
+Rocks and Minerals: 12
+Water Quality: 9
+Overall: 8th out of 52 teams
 
 ================================================================================
 

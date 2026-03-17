@@ -291,7 +291,7 @@
         
         // Get redirect URL from query parameter
         const urlParams = new URLSearchParams(window.location.search);
-        const redirectUrl = urlParams.get('redirect');
+        const redirectUrl = urlParams.get('redirect') || urlParams.get('next');
         
         loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -348,6 +348,7 @@
                     // Store complete user info in session storage
                     const userInfo = {
                         id: memberId,
+                        uid: memberId,
                         ...memberData  // Include all fields from the database
                     };
                     

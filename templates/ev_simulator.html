@@ -1,0 +1,1992 @@
+{% extends "layout.html" %}
+
+{% block title %}Electric Vehicle Simulator - Bronx Science Olympiad{% endblock %}
+
+{% block extra_css %}
+<style>
+    .ev-simulator-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        overflow: hidden;
+        margin-top: 20px;
+        margin-bottom: 40px;
+    }
+
+    .ev-header {
+        background: linear-gradient(135deg, #0f766e 0%, #14b8a6 100%);
+        color: white;
+        padding: 30px;
+        text-align: center;
+    }
+
+    .ev-header h1 {
+        font-size: 2.2em;
+        margin-bottom: 8px;
+        color: white;
+    }
+
+    .ev-header p {
+        opacity: 0.95;
+        font-size: 1em;
+    }
+
+    .ev-content {
+        padding: 30px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+    }
+
+    .ev-panel {
+        background: #f8fafc;
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid #e2e8f0;
+    }
+
+    .ev-panel h2 {
+        color: #0f766e;
+        margin-bottom: 20px;
+        font-size: 1.3em;
+    }
+
+    .form-group {
+        margin-bottom: 18px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 600;
+        color: #334155;
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 12px;
+        border: 2px solid #e2e8f0;
+        border-radius: 6px;
+        font-size: 1em;
+    }
+
+    .form-group input:focus {
+        outline: none;
+        border-color: #14b8a6;
+    }
+
+    .form-group small {
+        display: block;
+        margin-top: 4px;
+        color: #64748b;
+        font-size: 0.85em;
+    }
+
+    .results-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin-top: 20px;
+    }
+
+    .result-card {
+        background: white;
+        padding: 16px;
+        border-radius: 8px;
+        border: 2px solid #14b8a6;
+        text-align: center;
+    }
+
+    .result-card .label {
+        font-size: 0.8em;
+        color: #64748b;
+        margin-bottom: 4px;
+    }
+
+    .result-card .value {
+        font-size: 1.5em;
+        font-weight: 700;
+        color: #0f766e;
+    }
+
+    .result-card .unit {
+        font-size: 0.75em;
+        color: #64748b;
+    }
+
+    .trajectory-container {
+        position: relative;
+        background: #f1f5f9;
+        border-radius: 10px;
+        border: 2px solid #e2e8f0;
+        overflow: hidden;
+    }
+
+    #trajectoryCanvas {
+        display: block;
+        width: 100%;
+        height: min(85vh, 950px);
+    }
+
+    .info-box {
+        background: #ecfdf5;
+        padding: 12px 16px;
+        border-radius: 6px;
+        border-left: 4px solid #14b8a6;
+        margin-top: 16px;
+        font-size: 0.9em;
+        color: #065f46;
+    }
+
+    .legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-top: 8px;
+        padding: 8px;
+        background: white;
+        border-radius: 6px;
+        font-size: 0.8em;
+    }
+
+    .constants-toggle {
+        width: 100%;
+        padding: 10px 14px;
+        text-align: left;
+        border: 2px solid #e2e8f0;
+        border-radius: 6px;
+        background: white;
+        font-weight: 600;
+        color: #334155;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0;
+    }
+
+    .constants-toggle:hover {
+        border-color: #14b8a6;
+    }
+
+    .constants-dropdown {
+        display: none;
+        padding: 16px;
+        background: white;
+        border: 2px solid #e2e8f0;
+        border-top: none;
+        border-radius: 0 0 6px 6px;
+        margin-top: -1px;
+    }
+
+    .constants-dropdown.open {
+        display: block;
+    }
+
+    .error-message {
+        color: #dc2626;
+        font-size: 0.9em;
+        font-weight: 500;
+        margin-top: 8px;
+        padding: 8px 12px;
+        background: #fef2f2;
+        border-radius: 6px;
+        border-left: 4px solid #dc2626;
+        display: none;
+    }
+
+    .error-message.visible {
+        display: block;
+    }
+
+    .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .wheel-sighting-only {
+        display: none;
+    }
+    .show-wheel-sighting .wheel-sighting-only {
+        display: block;
+    }
+
+    .legend-color {
+        width: 20px;
+        height: 12px;
+        border-radius: 3px;
+    }
+
+    .ev-formulas {
+        padding: 30px 40px 40px;
+        border-top: 1px solid #e2e8f0;
+        background: #f8fafc;
+    }
+
+    .ev-formulas h2 {
+        color: #0f766e;
+        margin-bottom: 24px;
+        font-size: 1.4em;
+    }
+
+    .formulas-content {
+        max-width: 700px;
+    }
+
+    .formulas-content p {
+        margin: 0 0 8px 0;
+        color: #334155;
+        font-size: 0.95em;
+    }
+
+    .formulas-content .formula {
+        margin: 8px 0 4px 0;
+        padding: 12px 16px;
+        background: white;
+        border-radius: 8px;
+        border-left: 4px solid #14b8a6;
+        font-size: 1.1em;
+        overflow-x: auto;
+    }
+
+    .formulas-content .formula-desc {
+        color: #64748b;
+        font-size: 0.9em;
+        margin-bottom: 20px;
+    }
+
+    .ev-tabs {
+        display: flex;
+        gap: 0;
+        padding: 0 30px;
+        background: #e2e8f0;
+        border-bottom: 2px solid #cbd5e1;
+    }
+
+    .ev-tab {
+        padding: 14px 24px;
+        font-weight: 600;
+        font-size: 1em;
+        color: #64748b;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .ev-tab:hover {
+        color: #0f766e;
+    }
+
+    .ev-tab.active {
+        color: #0f766e;
+        background: white;
+        border-bottom: 2px solid white;
+        margin-bottom: -2px;
+    }
+
+    .ev-tab-content {
+        display: none;
+        padding: 30px;
+    }
+
+    .ev-tab-content.active {
+        display: block;
+    }
+
+    .ev-motor-control {
+        max-width: 900px;
+    }
+
+    .strategy-tabs {
+        display: flex;
+        gap: 0;
+        margin-bottom: 16px;
+    }
+
+    .strategy-tab {
+        padding: 10px 20px;
+        font-weight: 600;
+        font-size: 0.95em;
+        color: #64748b;
+        background: #e2e8f0;
+        border: 2px solid #cbd5e1;
+        cursor: pointer;
+    }
+
+    .strategy-tab:first-child { border-radius: 6px 0 0 6px; }
+    .strategy-tab:last-child { border-radius: 0 6px 6px 0; }
+
+    .strategy-tab:hover {
+        color: #0f766e;
+    }
+
+    .strategy-tab.active {
+        color: #0f766e;
+        background: white;
+        border-color: #14b8a6;
+    }
+
+    .strategy-intro {
+        margin-bottom: 20px;
+    }
+
+    .strategy-content {
+        display: none;
+    }
+
+    .strategy-content.active {
+        display: block;
+    }
+
+    .phase-cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin: 20px 0 24px 0;
+    }
+
+    .phase-card {
+        background: white;
+        border-radius: 8px;
+        border: 2px solid #e2e8f0;
+        overflow: hidden;
+    }
+
+    .phase-card .phase-header {
+        padding: 12px 14px;
+        font-weight: 700;
+        font-size: 0.95em;
+        color: white;
+    }
+
+    .phase-card.phase-1 .phase-header { background: #0d9488; }
+    .phase-card.phase-2 .phase-header { background: #0891b2; }
+    .phase-card.phase-3 .phase-header { background: #0e7490; }
+
+    .phase-card .phase-body {
+        padding: 14px;
+    }
+
+    .phase-card .phase-body p {
+        margin: 0 0 8px 0;
+        font-size: 0.9em;
+    }
+
+    .phase-card .phase-desc {
+        color: #64748b !important;
+        font-size: 0.82em !important;
+    }
+
+    .phase-flow {
+        margin-top: 20px;
+    }
+
+    .phase-flow .flow-label {
+        font-weight: 600;
+        color: #334155;
+        margin-bottom: 8px;
+    }
+
+    .phase-pseudocode {
+        display: block;
+        padding: 16px 18px;
+        background: #1e293b;
+        color: #e2e8f0;
+        border-radius: 8px;
+        font-family: "Consolas", "Monaco", "Courier New", monospace;
+        font-size: 0.85em;
+        line-height: 1.5;
+        overflow-x: auto;
+    }
+
+    .phase-pseudocode .code-comment {
+        color: #94a3b8;
+    }
+
+    .pseudocode-block {
+        display: block;
+        padding: 16px 18px;
+        background: #f1f5f9;
+        color: #334155;
+        border: 2px solid #cbd5e1;
+        border-radius: 8px;
+        font-family: "Consolas", "Monaco", "Courier New", monospace;
+        font-size: 0.88em;
+        line-height: 1.45;
+        overflow-x: auto;
+        margin-bottom: 8px;
+    }
+
+    .code-copy-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 10px;
+    }
+
+    .copy-code-btn {
+        padding: 8px 16px;
+        background: #0f766e;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .copy-code-btn:hover {
+        background: #0d9488;
+    }
+
+    .copy-feedback {
+        font-size: 0.9em;
+        color: #059669;
+    }
+
+    .code-container {
+        max-height: 520px;
+        overflow-y: auto;
+    }
+
+    @media (max-width: 900px) {
+        .ev-content {
+            grid-template-columns: 1fr;
+        }
+
+        .phase-cards {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container" style="padding-top: 40px; padding-bottom: 40px;">
+    <div class="ev-simulator-container">
+        <div class="ev-header">
+            <h1>⚡ Electric Vehicle C Simulator</h1>
+            <p>Path through the gap between cans (inside), then back to the target — outer can fixed at 100 cm</p>
+        </div>
+
+        <div class="ev-tabs">
+            <button type="button" class="ev-tab active" data-tab="trajectory">Trajectory</button>
+            <button type="button" class="ev-tab" data-tab="motor">Motor Control</button>
+        </div>
+
+        <div id="tab-trajectory" class="ev-tab-content active">
+        <div class="ev-content">
+            <div class="ev-panel">
+                <h2>Parameters</h2>
+
+                <div class="form-group">
+                    <label for="trackDistance">Target Distance (cm)</label>
+                    <input type="number" id="trackDistance" value="800" min="700" max="1000" step="10">
+                    <small>Full distance from start to target (7–10 m per rules)</small>
+                </div>
+
+                <div class="form-group">
+                    <label id="marginDistanceLabel" for="marginDistance">Min clearance inside gap (cm)</label>
+                    <input type="number" id="marginDistance" value="4" min="4" max="95" step="0.5">
+                    <small id="marginDistanceHelp">Find the discrete angle that minimizes clearance while staying above this minimum</small>
+                </div>
+
+                <div class="form-group" style="margin-top: 12px;">
+                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                        <input type="checkbox" id="discreteAngles" checked>
+                        <span>Discrete wheel angles</span>
+                    </label>
+                    <small>When checked, find the discrete angle that minimizes clearance while staying above the minimum</small>
+                </div>
+
+                <div class="form-group">
+                    <button type="button" class="constants-toggle" id="constantsToggle" onclick="toggleConstants()">
+                        <span>Constants</span>
+                        <span id="constantsIcon">▼</span>
+                    </button>
+                    <div class="constants-dropdown" id="constantsDropdown">
+                        <div class="form-group">
+                            <label for="wheelbase">Wheelbase (cm)</label>
+                            <input type="number" id="wheelbase" value="50" min="20" max="70" step="1">
+                            <small>Distance between front and rear axles</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="scopeAngle">Scope angle γ (degrees)</label>
+                            <input type="number" id="scopeAngle" value="22.5" min="-30" max="30" step="0.5">
+                            <small>Angle scope makes with EV axis (positive = right of forward)</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="wheelsSightingAngle">Wheels sighting line angle (degrees)</label>
+                            <input type="number" id="wheelsSightingAngle" value="20" min="-30" max="30" step="0.5">
+                            <small>Angle wheels sight line makes with wheel direction (positive = right of wheel)</small>
+                        </div>
+                        <div class="form-group" id="discreteAnglesListGroup">
+                            <label for="discreteAnglesList">Discrete angle values (degrees, comma separated)</label>
+                            <input type="text" id="discreteAnglesList" value="0.976, 1.308, 1.544, 1.884, 2.225, 2.579, 3.042, 3.814">
+                            <small>List of possible steering angles (\(\delta\)) from holes/pegs</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-top: 12px;">
+                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                        <input type="checkbox" id="showWheelSighting">
+                        <span>Show wheel sighting</span>
+                    </label>
+                    <small>When checked, show wheel sighting line angle, block location calculation, and block on simulation</small>
+                </div>
+
+                <div id="errorMessage" class="error-message"></div>
+
+                <div id="resultsSection" style="display: none;">
+                    <h3 style="margin-top: 24px; color: #0f766e;">Results</h3>
+                    <div class="results-grid">
+                        <div class="result-card">
+                            <div class="label">Initial Angle θ₀</div>
+                            <div class="value" id="resultTheta">—</div>
+                            <div class="unit">degrees</div>
+                        </div>
+                        <div class="result-card" id="resultDiscreteIndexCard" style="display: none;">
+                            <div class="label">Discrete Angle Index</div>
+                            <div class="value" id="resultDiscreteIndex">—</div>
+                            <div class="unit"># in list</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="label">Wheel Angle δ</div>
+                            <div class="value" id="resultDelta">—</div>
+                            <div class="unit">degrees</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="label" id="resultClearanceLabel">Clearance inside gap</div>
+                            <div class="value" id="resultClearance">—</div>
+                            <div class="unit">cm</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="label">Turning Radius R</div>
+                            <div class="value" id="resultRadius">—</div>
+                            <div class="unit">cm</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="label">Total Path Distance</div>
+                            <div class="value" id="resultPathLength">—</div>
+                            <div class="unit">cm</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="label">Lateral Offset (scope sighting block)</div>
+                            <div class="value" id="resultLateralOffset">—</div>
+                            <div class="unit">cm</div>
+                        </div>
+                        <div class="result-card wheel-sighting-only" id="resultWheelLateralOffsetCard">
+                            <div class="label">Lateral Offset (wheel sighting block)</div>
+                            <div class="value" id="resultWheelLateralOffset">—</div>
+                            <div class="unit">cm</div>
+                        </div>
+                        <div class="result-card wheel-sighting-only" id="resultWheelSightingAngleCard">
+                            <div class="label">Wheel sighting line angle</div>
+                            <div class="value" id="resultWheelSightingAngle">—</div>
+                            <div class="unit">degrees</div>
+                        </div>
+                    </div>
+                    <div class="info-box wheel-sighting-calc" id="wheelSightingCalcBox" style="display: none;">
+                        <strong>Wheel sighting block location:</strong> Ray from front axle in wheel sight line direction (θ₀ − δ − β) to target line. Lateral offset = <span id="wheelSightingFormula">—</span> cm
+                    </div>
+                    <div class="info-box">
+                        <strong>Setup:</strong> Point the vehicle <span id="setupAngle">—</span>° to the left at the start. Set the front wheels to <span id="setupWheel">—</span>°. Place scope sighting block at <span id="setupScopeBlock">—</span> cm<span id="setupWheelBlockSpan" class="wheel-sighting-only">; wheel sighting block at <span id="setupWheelBlock">—</span> cm</span> (lateral offset from target).
+                    </div>
+                </div>
+            </div>
+
+            <div class="ev-panel">
+                <h2>Trajectory</h2>
+                <div class="trajectory-container">
+                    <canvas id="trajectoryCanvas"></canvas>
+                </div>
+                <div class="legend">
+                    <div class="legend-item">
+                        <span class="legend-color" style="background: #0f766e;"></span>
+                        Path
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color" style="background: #dc2626;"></span>
+                        Outer can (fixed)
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color" style="background: #059669;"></span>
+                        Target
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color" style="background: #7c3aed;"></span>
+                        Scope sighting block
+                    </div>
+                    <div class="legend-item wheel-sighting-only">
+                        <span class="legend-color" style="background: #ea580c; border: 1px solid #c2410c;"></span>
+                        Wheel sighting block & line
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ev-formulas">
+            <h2>Formulas</h2>
+            <div class="formulas-content">
+                <p><strong>Pass point</strong> (path goes through the gap, inside the cans):</p>
+                <p class="formula">\[ y_{\mathrm{pass}} = 100 - m \]</p>
+                <p class="formula-desc">where \(m\) = clearance from outer can edge (cm)</p>
+
+                <p><strong>Circle center</strong> (vertical layout: \(c_y\) = center along track, \(c_x\) = center perpendicular):</p>
+                <p class="formula">\[ c_y = D/2 \quad \text{(vertical)}, \qquad c_x = \frac{y_{\mathrm{pass}}^2 - D^2/4}{2\,y_{\mathrm{pass}}} \quad \text{(horizontal)} \]</p>
+
+                <p><strong>Turning radius</strong>:</p>
+                <p class="formula">\[ R = \sqrt{c_y^2 + c_x^2} \]</p>
+
+                <p><strong>Initial heading angle</strong> \(\theta_0\) (point left at start):</p>
+                <p class="formula">\[ \theta_0 = \arctan\left(\frac{c_y}{-c_x}\right) \]</p>
+
+                <p><strong>Wheel steering angle</strong> \(\delta\):</p>
+                <p class="formula">\[ \tan\delta = \frac{L}{R} \quad \Rightarrow \quad \delta = \arctan\left(\frac{L}{R}\right) \]</p>
+                <p class="formula-desc">where \(L\) = wheelbase (cm)</p>
+
+                <p><strong>Total path distance</strong> (arc length):</p>
+                <p class="formula">\[ s = R \cdot |\phi_{\mathrm{target}} - \phi_{\mathrm{start}}| \]</p>
+                <p class="formula-desc">where \(\phi\) = angle from circle center to point (radians)</p>
+
+                <p><strong>Lateral offset</strong> (place sighting block at target line, scope at middle):</p>
+                <p class="formula">\[ \text{Lateral offset} = D \cdot \tan(\theta_0 - \gamma) + \frac{L}{2}\left(\cos\theta_0 \cdot \tan(\theta_0 - \gamma) - \sin\theta_0\right) \]</p>
+                <p class="formula-desc">where \(\gamma\) = scope angle (positive = right of forward), \(L\) = wheelbase. Scope assumed at middle of robot (\(L/2\) behind MP).</p>
+            </div>
+        </div>
+        </div>
+
+        <div id="tab-motor" class="ev-tab-content">
+        <div class="ev-formulas ev-motor-control">
+            <h2>Motor Control Strategy</h2>
+            <div class="strategy-tabs">
+                <button type="button" class="strategy-tab active" data-strategy="3phase">3-Phase</button>
+                <button type="button" class="strategy-tab" data-strategy="constantspeed">Constant Speed</button>
+                <button type="button" class="strategy-tab" data-strategy="simple">Simple</button>
+            </div>
+            <p class="strategy-intro">Use the <strong>Total Path Distance</strong> from the Trajectory tab as the target distance for encoder-based control.</p>
+
+            <div id="strategy-3phase" class="strategy-content active">
+                <div class="phase-cards">
+                    <div class="phase-card phase-1">
+                        <div class="phase-header">Phase 1 — Ramp Up</div>
+                        <div class="phase-body">
+                            <p>Over ~2 s, ramp power from standstill to 40%.</p>
+                            <p class="phase-desc">Prevents wheel slip on launch; keeps encoder readings accurate.</p>
+                        </div>
+                    </div>
+                    <div class="phase-card phase-2">
+                        <div class="phase-header">Phase 2 — Targeting Loop</div>
+                        <div class="phase-body">
+                            <p><strong>Goal:</strong> Reach 1 m left with 4 s remaining.</p>
+                            <p>In a loop: measure current speed and distance; adjust power to hit that point at exactly the right time.</p>
+                            <p class="phase-desc">Target speed ≈ 25 cm/s. Compensates for battery sag and friction.</p>
+                        </div>
+                    </div>
+                    <div class="phase-card phase-3">
+                        <div class="phase-header">Phase 3 — Precision Stop</div>
+                        <div class="phase-body">
+                            <p>From Phase 2 (without stopping), reduce power and creep slowly until robot is 2 cm from target distance, then cut power.</p>
+                            <p class="phase-desc">Account for drift/inertia; measure braking distance and offset stop trigger if needed.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="phase-flow">
+                    <div class="flow-label">Pseudocode (3-phase)</div>
+                    <pre class="pseudocode-block">
+START_RUN:
+    startTime = now()
+    rampStartTime = now()
+    currentPower = 0
+
+PHASE_1_RAMP_UP:  // ~2 s, 0→40%
+    WHILE rampElapsed &lt; 2.0:
+        currentPower = 40 × (rampElapsed / 2.0)
+        drive(currentPower)
+    currentPower = 40
+    lastSpeedTime = now()
+    lastCounter = encoderCount
+
+PHASE_2_TARGETING_LOOP:  // Goal: 1 m left with 4 s remaining
+    WHILE distanceRemaining &gt; 100:
+        distanceTraveled = encoderToCm(encoderCount)
+        distanceRemaining = arcLength - distanceTraveled
+        elapsed = now() - startTime
+        timeLeft = targetTime - elapsed
+        neededSpeed = distanceRemaining / timeLeft
+        neededSpeed = clamp(neededSpeed, 5, 150)
+
+        every 100 ms:
+            currentSpeed = (Δencoder / pulsesPerRev) × wheelCircumfrence / Δt
+            speedError = neededSpeed - currentSpeed
+            IF speedError &gt; 5:  currentPower += 2
+            ELSE IF speedError &lt; -5:  currentPower -= 2
+            currentPower = clamp(currentPower, 25, 60)
+
+        drive(currentPower)
+
+PHASE_3_PRECISION_STOP:  // Creep until 2 cm from target
+    drive(8)  // slow creep power
+    WHILE distanceRemaining &gt; 2:
+        drive(8)
+    drive(0)  // STOP
+
+DONE: display results
+                    </pre>
+                    <div class="flow-label" style="margin-top: 20px;">Arduino code (3-phase)</div>
+                    <div class="code-copy-row">
+                        <button type="button" class="copy-code-btn" onclick="copyEvCode('evCodeSrc')">Copy code</button>
+                        <span class="copy-feedback" id="evCopyFeedback"></span>
+                    </div>
+                    <div class="code-container">
+                        <pre class="phase-pseudocode" id="evCodeDisplay"></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div id="strategy-constantspeed" class="strategy-content">
+                <div class="phase-cards">
+                    <div class="phase-card phase-2" style="grid-column: 1 / -1;">
+                        <div class="phase-header">Targeting Loop</div>
+                        <div class="phase-body">
+                            <p><strong>Goal:</strong> Reach 6 cm before the end with 0.3 s remaining.</p>
+                            <p>Single phase: no ramp up or ramp down. A loop measures speed and adjusts power proportionally to the speed error (power change = Kp × error). Stops at 6 cm remaining.</p>
+                            <p class="phase-desc">Proportional control for precise speed tracking. Kp = 0.5, max change ±6% per 100 ms.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="phase-flow">
+                    <div class="flow-label">Pseudocode (constant speed)</div>
+                    <pre class="pseudocode-block">
+START_RUN:
+    startTime = now()
+    lastSpeedTime = now()
+    lastCounter = encoderCount
+    currentPower = 40  // initial guess
+
+TARGETING_LOOP:  // Goal: 6 cm left with 0.3 s remaining
+    WHILE distanceRemaining &gt; 6:
+        distanceTraveled = encoderToCm(encoderCount)
+        distanceRemaining = arcLength - distanceTraveled
+        elapsed = now() - startTime
+        timeLeft = targetTime - elapsed
+
+        // Target the (6 cm, 0.3 s) point
+        distToTarget = distanceRemaining - 6
+        timeToTarget = timeLeft - 0.3
+        timeToTarget = max(timeToTarget, 0.05)  // avoid div by zero
+        neededSpeed = distToTarget / timeToTarget
+        neededSpeed = clamp(neededSpeed, 5, 150)
+
+        every 100 ms:
+            currentSpeed = (Δencoder / pulsesPerRev) × wheelCircumfrence / Δt
+            speedError = neededSpeed - currentSpeed
+            powerChange = Kp × speedError        // Kp = 0.5, proportional
+            powerChange = clamp(powerChange, -6, 6)  // cap per cycle
+            currentPower += powerChange
+            currentPower = clamp(currentPower, 25, 75)
+
+        drive(currentPower)
+
+    drive(0)  // STOP (reached 6 cm)
+
+DONE: display results
+                    </pre>
+                    <div class="flow-label" style="margin-top: 20px;">Arduino code (constant speed)</div>
+                    <div class="code-copy-row">
+                        <button type="button" class="copy-code-btn" onclick="copyEvCode('evCodeConstSpeedSrc')">Copy code</button>
+                        <span class="copy-feedback" id="evCopyConstSpeedFeedback"></span>
+                    </div>
+                    <div class="code-container">
+                        <pre class="phase-pseudocode" id="evCodeConstSpeedDisplay"></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div id="strategy-simple" class="strategy-content">
+                <div class="phase-cards">
+                    <div class="phase-card phase-1" style="grid-column: 1 / -1;">
+                        <div class="phase-header">Power + Time</div>
+                        <div class="phase-body">
+                            <p>Set motor power (0–100%) and run duration (seconds). Press start — motor runs at that power for that time, then stops.</p>
+                            <p class="phase-desc">No encoders, no ramps, no feedback. Good for quick tests and calibration.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="phase-flow">
+                    <div class="flow-label">Pseudocode (simple)</div>
+                    <pre class="pseudocode-block">
+SETUP_PHASE:
+    runPower = user_selected_power   // 0–100 %
+    runTimeSec = user_selected_time  // seconds
+    (via dial + Set button)
+
+START_RUN:
+    runStartTime = now()
+    drive(runPower)
+
+RUN_LOOP:
+    WHILE elapsed &lt; runTimeSec:
+        elapsed = (now() - runStartTime) / 1000
+        drive(runPower)   // hold constant power
+
+    drive(0)  // STOP
+
+DONE:
+    display elapsed time
+    (no encoder, no feedback, no ramps)
+                    </pre>
+                    <div class="flow-label" style="margin-top: 20px;">Arduino code (simple)</div>
+                    <div class="code-copy-row">
+                        <button type="button" class="copy-code-btn" onclick="copyEvCode('evCodeSimpleSrc')">Copy code</button>
+                        <span class="copy-feedback" id="evCopySimpleFeedback"></span>
+                    </div>
+                    <div class="code-container">
+                        <pre class="phase-pseudocode" id="evCodeSimpleDisplay"></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script type="text/plain" id="evCodeSrc">/*
+UNPHAYZED ELECTRIC CHAMPION KIT 2025-2026
+3-PHASE MOTOR CONTROL
+Phase 1: Ramp 0→40% over ~2s
+Phase 2: Target 1m left with 4s remaining (adjust power in loop)
+Phase 3: Creep slowly until 2cm from target, stop
+*/
+
+#include &lt;Wire.h&gt;
+#include &lt;LiquidCrystal_I2C.h&gt;
+#include &lt;RobojaxBTS7960.h&gt;
+#include &lt;math.h&gt;
+
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+#define RPWM 10
+#define R_EN 11
+#define R_IS 13
+#define LPWM 9
+#define L_EN 8
+#define L_IS 12
+#define CW 1
+#define CCW 0
+#define debug 1
+RobojaxBTS7960 motor(R_EN,RPWM,R_IS, L_EN,LPWM,L_IS,debug);
+#define ENCA 2
+#define ENCB 3
+#define DialCLK 5
+#define DialDT 4
+#define StartButtonPin 6
+#define SetButtonPin 7
+#define DialButtonPin A0
+
+volatile unsigned long counter = 0;
+int pos = 2;
+float inc = 1;
+int set = -1;
+double TargetDistance = 10.000;
+double TargetDistanceCM = TargetDistance * 100;
+double ArcLength;
+double TargetTime = 20.00;
+double wheelDiameter = 7.3025;
+double wheelCircumfrence = wheelDiameter * 3.14159;
+
+// 3-PHASE CONSTANTS
+const double RAMP_DURATION_SEC = 2.0;
+const double RAMP_END_POWER = 40.0;
+const double TARGET_POINT_CM = 100.0;
+const double ARRIVE_WITH_TIME_REMAINING = 4.0;
+const double FINAL_STOP_CM = 2.0;
+const int CREEP_POWER = 8;
+
+double pulsesPerRev = 1200;
+bool straightMode = true;
+int phase = 0;
+double targetEncoderValue, targetPointEncoder, finalStopEncoder, maxEncoderValue;
+unsigned long startTime = 0, rampStartTime = 0, lastSpeedTime = 0, lastCounter = 0;
+double currentMotorPower = 0, currentSpeed = 0;
+bool reachedTargetDistance = false;
+double finalDist;
+
+void setup() {
+  Serial.begin(9600);
+  motor.begin();
+  set = -1; pos = 2; inc = 1;
+  lcd.init();
+  lcd.backlight();
+  lcd.setCursor(0,0); lcd.print("Select Mode:    ");
+  lcd.setCursor(0,1); lcd.print("Mode: STRAIGHT  ");
+  pinMode(SetButtonPin, INPUT); digitalWrite(SetButtonPin, HIGH);
+  pinMode(StartButtonPin, INPUT); digitalWrite(StartButtonPin, HIGH);
+  pinMode(DialCLK, INPUT); pinMode(DialDT, INPUT);
+  digitalWrite(DialCLK, HIGH); digitalWrite(DialDT, HIGH);
+  pinMode(ENCA, INPUT); pinMode(ENCB, INPUT);
+  digitalWrite(ENCA, HIGH); digitalWrite(ENCB, HIGH);
+  attachInterrupt(0, ai0, RISING);
+  attachInterrupt(1, ai1, RISING);
+}
+
+void loop() {
+  if (set == -1) {
+    if (digitalRead(DialCLK) == LOW || digitalRead(DialDT) == LOW) {
+      straightMode = !straightMode;
+      lcd.setCursor(0,1);
+      lcd.print(straightMode ? "Mode: STRAIGHT  " : "Mode: ARC       ");
+      delay(300);
+    }
+    if (digitalRead(SetButtonPin) == LOW) {
+      lcd.setCursor(0,0); lcd.print("Tgt Dist:      m");
+      lcd.setCursor(9, 0); lcd.print(TargetDistance);
+      lcd.setCursor(0,1); lcd.print("Increment: "); lcd.print(inc);
+      set = 0;
+      delay(300);
+    }
+  }
+
+  if (set == 0) {
+    if (digitalRead(SetButtonPin) == LOW) {
+      TargetDistanceCM = TargetDistance * 100;
+      ArcLength = straightMode ? TargetDistanceCM : getArcLength(TargetDistanceCM);
+      targetEncoderValue = getEncoderValue(ArcLength, wheelDiameter);
+      targetPointEncoder = getEncoderValue(ArcLength - TARGET_POINT_CM, wheelDiameter);
+      finalStopEncoder = getEncoderValue(ArcLength - FINAL_STOP_CM, wheelDiameter);
+      maxEncoderValue = getEncoderValue(ArcLength * 2, wheelDiameter);
+      lcd.setCursor(0,0); lcd.print("Tgt Time:      s");
+      lcd.setCursor(9, 0); lcd.print(TargetTime, 3);
+      inc = 5; pos = 2;
+      lcd.setCursor(11, 1); lcd.print("     ");
+      lcd.setCursor(11, 1); lcd.print(inc);
+      set = 1;
+      delay(300);
+    }
+    if (analogRead(DialButtonPin) == 0) {
+      if (pos == 1) { inc = 1; pos++; } else if (pos == 2) { inc = 0.5; pos++; }
+      else if (pos == 3) { inc = 0.1; pos++; } else if (pos == 4) { inc = 0.01; pos++; }
+      else if (pos == 5) { inc = 0.001; pos = 1; }
+      lcd.setCursor(11, 1); lcd.print("    "); lcd.setCursor(11, 1); lcd.print(inc, 3);
+      delay(400);
+    }
+    if (digitalRead(DialDT) == LOW) {
+      TargetDistance -= inc;
+      lcd.setCursor(9, 0); lcd.print("      "); lcd.setCursor(9, 0); lcd.print(TargetDistance, 3);
+      delay(250);
+    }
+    if (digitalRead(DialCLK) == LOW) {
+      TargetDistance += inc;
+      lcd.setCursor(9, 0); lcd.print("      "); lcd.setCursor(9, 0); lcd.print(TargetDistance, 3);
+      delay(250);
+    }
+  }
+
+  if (set == 1) {
+    if (digitalRead(SetButtonPin) == LOW) {
+      lcd.setCursor(0,0); lcd.print("Tgt Dist:      m");
+      lcd.setCursor(9, 0); lcd.print(TargetDistance, 3);
+      lcd.setCursor(0,1); lcd.print("Tgt Time:      s");
+      lcd.setCursor(9, 1); lcd.print(TargetTime, 3);
+      set = 2;
+      delay(300);
+    }
+    if (analogRead(DialButtonPin) == 0) {
+      if (pos == 1) { inc = 5; pos++; } else if (pos == 2) { inc = 1; pos++; }
+      else if (pos == 3) { inc = 0.5; pos++; } else if (pos == 4) { inc = 0.1; pos++; }
+      else if (pos == 5) { inc = 0.01; pos = 1; }
+      lcd.setCursor(11, 1); lcd.print("    "); lcd.setCursor(11, 1); lcd.print(inc, 3);
+      delay(400);
+    }
+    if (digitalRead(DialDT) == LOW) {
+      TargetTime -= inc;
+      lcd.setCursor(9, 1); lcd.print("      "); lcd.setCursor(9, 1); lcd.print(TargetTime, 3);
+      delay(250);
+    }
+    if (digitalRead(DialCLK) == LOW) {
+      TargetTime += inc;
+      lcd.setCursor(9, 1); lcd.print("      "); lcd.setCursor(9, 1); lcd.print(TargetTime, 3);
+      delay(250);
+    }
+  }
+
+  if (set == 2) {
+    if (digitalRead(SetButtonPin) == LOW) {
+      inc = 1; pos = 2;
+      lcd.setCursor(0,0); lcd.print("Select Mode:    ");
+      lcd.setCursor(0,1); lcd.print(straightMode ? "Mode: STRAIGHT  " : "Mode: ARC       ");
+      set = -1;
+      delay(300);
+    }
+
+    if (digitalRead(StartButtonPin) == LOW && phase == 0) {
+      startTime = millis();
+      rampStartTime = millis();
+      lastSpeedTime = millis();
+      lastCounter = counter;
+      phase = 1;
+      currentMotorPower = 0;
+      motor.stop();
+      delay(100);
+    }
+
+    if (phase == 1) {
+      double rampElapsed = (millis() - rampStartTime) / 1000.0;
+      if (rampElapsed >= RAMP_DURATION_SEC) {
+        currentMotorPower = RAMP_END_POWER;
+        phase = 2;
+        lastSpeedTime = millis();
+        lastCounter = counter;
+      } else {
+        currentMotorPower = RAMP_END_POWER * (rampElapsed / RAMP_DURATION_SEC);
+      }
+      motor.rotate((int)currentMotorPower, CW);
+    }
+
+    if (phase == 2) {
+      double distanceTraveled = (counter / pulsesPerRev) * wheelCircumfrence;
+      double distanceRemaining = ArcLength - distanceTraveled;
+      double elapsed = (millis() - startTime) / 1000.0;
+      double timeLeft = TargetTime - elapsed;
+
+      if (distanceRemaining <= TARGET_POINT_CM) {
+        phase = 3;
+      } else {
+        unsigned long now = millis();
+        if (now - lastSpeedTime >= 100) {
+          double dt = (now - lastSpeedTime) / 1000.0;
+          currentSpeed = ((counter - lastCounter) / pulsesPerRev) * wheelCircumfrence / dt;
+          lastCounter = counter;
+          lastSpeedTime = now;
+        }
+        double neededSpeed = distanceRemaining / timeLeft;
+        if (neededSpeed > 150) neededSpeed = 150;
+        if (neededSpeed < 5) neededSpeed = 5;
+        double speedError = neededSpeed - currentSpeed;
+        if (speedError > 5) currentMotorPower += 2;
+        else if (speedError < -5) currentMotorPower -= 2;
+        currentMotorPower = constrain(currentMotorPower, 25, 60);
+        motor.rotate((int)currentMotorPower, CW);
+      }
+    }
+
+    if (phase == 3) {
+      motor.rotate(CREEP_POWER, CW);
+      if (counter >= finalStopEncoder) {
+        motor.stop();
+        phase = 4;
+        reachedTargetDistance = true;
+      }
+    }
+
+    if (reachedTargetDistance) {
+      delay(1000);
+      double runTime = (millis() - startTime) / 1000.0;
+      finalDist = (ArcLength - FINAL_STOP_CM) / 100.0;
+      lcd.setCursor(0,0); lcd.print("Fin Dist:      m");
+      lcd.setCursor(9, 0); lcd.print(finalDist, 3);
+      lcd.setCursor(0,1); lcd.print("Fin Time:      s");
+      lcd.setCursor(9, 1); lcd.print(runTime, 3);
+      phase = 0;
+      reachedTargetDistance = false;
+      counter = 0;
+      startTime = 0;
+    }
+  }
+}
+
+void ai0() {
+  if (digitalRead(3) == LOW) counter--;
+  else counter++;
+}
+void ai1() {
+  if (digitalRead(2) == LOW) counter++;
+  else counter--;
+}
+
+double getEncoderValue(double TD, double WD) {
+  double PPR = 1200;
+  double WheelCircumfrence = 3.14159 * WD;
+  return (TD / WheelCircumfrence) * PPR;
+}
+
+double getArcLength(double TargetDist) {
+  double vehicleWidth = 13.00;
+  double canBonusError = 2.00;
+  double arcHeight = 100.00 - (vehicleWidth + canBonusError) / 2;
+  double arcRadius = (arcHeight/2) + (TargetDist*TargetDist) / (8*arcHeight);
+  double arcAngle = 2 * asin(TargetDist / (2*arcRadius));
+  return arcRadius * arcAngle;
+}</script>
+<script type="text/plain" id="evCodeConstSpeedSrc">/*
+UNPHAYZED ELECTRIC CHAMPION KIT 2025-2026
+CONSTANT-SPEED MOTOR CONTROL
+Single phase: Targeting loop — measure speed, adjust power to reach
+6cm before end with 0.3s remaining. No ramp up/down.
+*/
+
+#include &lt;Wire.h&gt;
+#include &lt;LiquidCrystal_I2C.h&gt;
+#include &lt;RobojaxBTS7960.h&gt;
+#include &lt;math.h&gt;
+
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+#define RPWM 10
+#define R_EN 11
+#define R_IS 13
+#define LPWM 9
+#define L_EN 8
+#define L_IS 12
+#define CW 1
+#define CCW 0
+#define debug 1
+RobojaxBTS7960 motor(R_EN,RPWM,R_IS, L_EN,LPWM,L_IS,debug);
+#define ENCA 2
+#define ENCB 3
+#define DialCLK 5
+#define DialDT 4
+#define StartButtonPin 6
+#define SetButtonPin 7
+#define DialButtonPin A0
+
+volatile unsigned long counter = 0;
+int pos = 2;
+float inc = 1;
+int set = -1;
+double TargetDistance = 10.000;
+double TargetDistanceCM = TargetDistance * 100;
+double ArcLength;
+double TargetTime = 20.00;
+double wheelDiameter = 7.3025;
+double wheelCircumfrence = wheelDiameter * 3.14159;
+
+// CONSTANT-SPEED CONSTANTS
+const double STOP_CM_BEFORE = 6.0;
+const double TIME_REMAINING_AT_STOP = 0.3;
+const double KP_SPEED = 0.5;
+const double MAX_POWER_CHANGE = 6.0;
+
+double pulsesPerRev = 1200;
+bool straightMode = true;
+int phase = 0;
+double targetEncoderValue;
+double arriveEncoder;
+unsigned long startTime = 0;
+unsigned long lastSpeedTime = 0;
+unsigned long lastCounter = 0;
+double currentMotorPower = 40;
+double currentSpeed = 0;
+bool reachedTargetDistance = false;
+double finalDist;
+
+void setup() {
+  Serial.begin(9600);
+  motor.begin();
+  set = -1; pos = 2; inc = 1;
+  lcd.init();
+  lcd.backlight();
+  lcd.setCursor(0,0); lcd.print("Select Mode:    ");
+  lcd.setCursor(0,1); lcd.print("Mode: STRAIGHT  ");
+  pinMode(SetButtonPin, INPUT); digitalWrite(SetButtonPin, HIGH);
+  pinMode(StartButtonPin, INPUT); digitalWrite(StartButtonPin, HIGH);
+  pinMode(DialCLK, INPUT); pinMode(DialDT, INPUT);
+  digitalWrite(DialCLK, HIGH); digitalWrite(DialDT, HIGH);
+  pinMode(ENCA, INPUT); pinMode(ENCB, INPUT);
+  digitalWrite(ENCA, HIGH); digitalWrite(ENCB, HIGH);
+  attachInterrupt(0, ai0, RISING);
+  attachInterrupt(1, ai1, RISING);
+}
+
+void loop() {
+  if (set == -1) {
+    if (digitalRead(DialCLK) == LOW || digitalRead(DialDT) == LOW) {
+      straightMode = !straightMode;
+      lcd.setCursor(0,1);
+      lcd.print(straightMode ? "Mode: STRAIGHT  " : "Mode: ARC       ");
+      delay(300);
+    }
+    if (digitalRead(SetButtonPin) == LOW) {
+      lcd.setCursor(0,0); lcd.print("Tgt Dist:      m");
+      lcd.setCursor(9, 0); lcd.print(TargetDistance);
+      lcd.setCursor(0,1); lcd.print("Increment: "); lcd.print(inc);
+      set = 0;
+      delay(300);
+    }
+  }
+
+  if (set == 0) {
+    if (digitalRead(SetButtonPin) == LOW) {
+      TargetDistanceCM = TargetDistance * 100;
+      ArcLength = straightMode ? TargetDistanceCM : getArcLength(TargetDistanceCM);
+      targetEncoderValue = getEncoderValue(ArcLength, wheelDiameter);
+      arriveEncoder = getEncoderValue(ArcLength - STOP_CM_BEFORE, wheelDiameter);
+      lcd.setCursor(0,0); lcd.print("Tgt Time:      s");
+      lcd.setCursor(9, 0); lcd.print(TargetTime, 3);
+      inc = 5; pos = 2;
+      lcd.setCursor(11, 1); lcd.print("     ");
+      lcd.setCursor(11, 1); lcd.print(inc);
+      set = 1;
+      delay(300);
+    }
+    if (analogRead(DialButtonPin) == 0) {
+      if (pos == 1) { inc = 1; pos++; } else if (pos == 2) { inc = 0.5; pos++; }
+      else if (pos == 3) { inc = 0.1; pos++; } else if (pos == 4) { inc = 0.01; pos++; }
+      else if (pos == 5) { inc = 0.001; pos = 1; }
+      lcd.setCursor(11, 1); lcd.print("    "); lcd.setCursor(11, 1); lcd.print(inc, 3);
+      delay(400);
+    }
+    if (digitalRead(DialDT) == LOW) {
+      TargetDistance -= inc;
+      lcd.setCursor(9, 0); lcd.print("      "); lcd.setCursor(9, 0); lcd.print(TargetDistance, 3);
+      delay(250);
+    }
+    if (digitalRead(DialCLK) == LOW) {
+      TargetDistance += inc;
+      lcd.setCursor(9, 0); lcd.print("      "); lcd.setCursor(9, 0); lcd.print(TargetDistance, 3);
+      delay(250);
+    }
+  }
+
+  if (set == 1) {
+    if (digitalRead(SetButtonPin) == LOW) {
+      lcd.setCursor(0,0); lcd.print("Tgt Dist:      m");
+      lcd.setCursor(9, 0); lcd.print(TargetDistance, 3);
+      lcd.setCursor(0,1); lcd.print("Tgt Time:      s");
+      lcd.setCursor(9, 1); lcd.print(TargetTime, 3);
+      set = 2;
+      delay(300);
+    }
+    if (analogRead(DialButtonPin) == 0) {
+      if (pos == 1) { inc = 5; pos++; } else if (pos == 2) { inc = 1; pos++; }
+      else if (pos == 3) { inc = 0.5; pos++; } else if (pos == 4) { inc = 0.1; pos++; }
+      else if (pos == 5) { inc = 0.01; pos = 1; }
+      lcd.setCursor(11, 1); lcd.print("    "); lcd.setCursor(11, 1); lcd.print(inc, 3);
+      delay(400);
+    }
+    if (digitalRead(DialDT) == LOW) {
+      TargetTime -= inc;
+      lcd.setCursor(9, 1); lcd.print("      "); lcd.setCursor(9, 1); lcd.print(TargetTime, 3);
+      delay(250);
+    }
+    if (digitalRead(DialCLK) == LOW) {
+      TargetTime += inc;
+      lcd.setCursor(9, 1); lcd.print("      "); lcd.setCursor(9, 1); lcd.print(TargetTime, 3);
+      delay(250);
+    }
+  }
+
+  if (set == 2) {
+    if (digitalRead(SetButtonPin) == LOW) {
+      inc = 1; pos = 2;
+      lcd.setCursor(0,0); lcd.print("Select Mode:    ");
+      lcd.setCursor(0,1); lcd.print(straightMode ? "Mode: STRAIGHT  " : "Mode: ARC       ");
+      set = -1;
+      delay(300);
+    }
+
+    if (digitalRead(StartButtonPin) == LOW && phase == 0) {
+      startTime = millis();
+      lastSpeedTime = millis();
+      lastCounter = counter;
+      currentMotorPower = 40;
+      phase = 1;
+      motor.stop();
+      delay(100);
+    }
+
+    if (phase == 1) {
+      double distanceTraveled = (counter / pulsesPerRev) * wheelCircumfrence;
+      double distanceRemaining = ArcLength - distanceTraveled;
+      double elapsed = (millis() - startTime) / 1000.0;
+      double timeLeft = TargetTime - elapsed;
+
+      if (distanceRemaining <= STOP_CM_BEFORE) {
+        motor.stop();
+        phase = 2;
+        reachedTargetDistance = true;
+      } else {
+        unsigned long now = millis();
+        if (now - lastSpeedTime >= 100) {
+          double dt = (now - lastSpeedTime) / 1000.0;
+          currentSpeed = ((counter - lastCounter) / pulsesPerRev) * wheelCircumfrence / dt;
+          lastCounter = counter;
+          lastSpeedTime = now;
+          double distToTarget = distanceRemaining - STOP_CM_BEFORE;
+          double timeToTarget = timeLeft - TIME_REMAINING_AT_STOP;
+          if (timeToTarget < 0.05) timeToTarget = 0.05;
+          double neededSpeed = distToTarget / timeToTarget;
+          if (neededSpeed > 150) neededSpeed = 150;
+          if (neededSpeed < 5) neededSpeed = 5;
+          double speedError = neededSpeed - currentSpeed;
+          double powerChange = KP_SPEED * speedError;
+          if (powerChange > MAX_POWER_CHANGE) powerChange = MAX_POWER_CHANGE;
+          if (powerChange < -MAX_POWER_CHANGE) powerChange = -MAX_POWER_CHANGE;
+          currentMotorPower += powerChange;
+          currentMotorPower = constrain(currentMotorPower, 25, 75);
+        }
+        motor.rotate((int)currentMotorPower, CW);
+      }
+    }
+
+    if (reachedTargetDistance) {
+      delay(1000);
+      double runTime = (millis() - startTime) / 1000.0;
+      double distanceCm = (counter / pulsesPerRev) * wheelCircumfrence;
+      finalDist = distanceCm / 100.0;
+      lcd.setCursor(0,0); lcd.print("Fin Dist:      m");
+      lcd.setCursor(9, 0); lcd.print(finalDist, 3);
+      lcd.setCursor(0,1); lcd.print("Fin Time:      s");
+      lcd.setCursor(9, 1); lcd.print(runTime, 3);
+      phase = 0;
+      reachedTargetDistance = false;
+      counter = 0;
+      startTime = 0;
+    }
+  }
+}
+
+void ai0() {
+  if (digitalRead(3) == LOW) counter--;
+  else counter++;
+}
+void ai1() {
+  if (digitalRead(2) == LOW) counter++;
+  else counter--;
+}
+
+double getEncoderValue(double TD, double WD) {
+  double PPR = 1200;
+  double WheelCircumfrence = 3.14159 * WD;
+  return (TD / WheelCircumfrence) * PPR;
+}
+
+double getArcLength(double TargetDist) {
+  double vehicleWidth = 13.00;
+  double canBonusError = 2.00;
+  double arcHeight = 100.00 - (vehicleWidth + canBonusError) / 2;
+  double arcRadius = (arcHeight/2) + (TargetDist*TargetDist) / (8*arcHeight);
+  double arcAngle = 2 * asin(TargetDist / (2*arcRadius));
+  return arcRadius * arcAngle;
+}</script>
+<script type="text/plain" id="evCodeSimpleSrc">/*
+UNPHAYZED ELECTRIC CHAMPION KIT 2025-2026
+SIMPLE MOTOR CONTROL
+Run at a given power for a given time. That's it.
+*/
+
+#include &lt;Wire.h&gt;
+#include &lt;LiquidCrystal_I2C.h&gt;
+#include &lt;RobojaxBTS7960.h&gt;
+
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+#define RPWM 10
+#define R_EN 11
+#define R_IS 13
+#define LPWM 9
+#define L_EN 8
+#define L_IS 12
+#define CW 1
+#define CCW 0
+#define debug 1
+RobojaxBTS7960 motor(R_EN,RPWM,R_IS, L_EN,LPWM,L_IS,debug);
+#define StartButtonPin 6
+#define SetButtonPin 7
+#define DialCLK 5
+#define DialDT 4
+#define DialButtonPin A0
+
+int pos = 1;
+float inc = 1;
+int set = -1;
+int runPower = 50;
+float runTimeSec = 12.0;
+bool running = false;
+unsigned long runStartTime = 0;
+
+void setup() {
+  Serial.begin(9600);
+  motor.begin();
+  set = 0;
+  lcd.init();
+  lcd.backlight();
+  lcd.setCursor(0,0); lcd.print("Power:    %");
+  lcd.setCursor(7, 0); lcd.print(runPower);
+  lcd.setCursor(0,1); lcd.print("Time:     s");
+  lcd.setCursor(7, 1); lcd.print(runTimeSec, 1);
+  pinMode(SetButtonPin, INPUT);
+  digitalWrite(SetButtonPin, HIGH);
+  pinMode(StartButtonPin, INPUT);
+  digitalWrite(StartButtonPin, HIGH);
+  pinMode(DialCLK, INPUT);
+  pinMode(DialDT, INPUT);
+  digitalWrite(DialCLK, HIGH);
+  digitalWrite(DialDT, HIGH);
+}
+
+void loop() {
+  if (set == 0) {
+    if (digitalRead(SetButtonPin) == LOW) {
+      lcd.setCursor(0,0); lcd.print("Power:    %");
+      lcd.setCursor(7, 0); lcd.print(runPower);
+      lcd.setCursor(0,1); lcd.print("Time:     s");
+      lcd.setCursor(7, 1); lcd.print(runTimeSec, 1);
+      set = 1;
+      delay(300);
+    }
+    if (analogRead(DialButtonPin) == 0) {
+      inc = (inc == 5) ? 1 : 5;
+      delay(300);
+    }
+    if (digitalRead(DialDT) == LOW) {
+      runPower -= inc;
+      runPower = constrain(runPower, 0, 100);
+      lcd.setCursor(7, 0); lcd.print("   ");
+      lcd.setCursor(7, 0); lcd.print(runPower);
+      delay(150);
+    }
+    if (digitalRead(DialCLK) == LOW) {
+      runPower += inc;
+      runPower = constrain(runPower, 0, 100);
+      lcd.setCursor(7, 0); lcd.print("   ");
+      lcd.setCursor(7, 0); lcd.print(runPower);
+      delay(150);
+    }
+  }
+
+  if (set == 1) {
+    if (digitalRead(SetButtonPin) == LOW) {
+      lcd.setCursor(0,0); lcd.print("Ready. START!   ");
+      lcd.setCursor(0,1); lcd.print("P:");
+      lcd.print(runPower);
+      lcd.print("% T:");
+      lcd.print(runTimeSec, 1);
+      lcd.print("s ");
+      set = 2;
+      delay(300);
+    }
+    if (analogRead(DialButtonPin) == 0) {
+      inc = (inc == 1.0) ? 0.5 : (inc == 0.5) ? 0.1 : 1.0;
+      delay(300);
+    }
+    if (digitalRead(DialDT) == LOW) {
+      runTimeSec -= inc;
+      runTimeSec = max(0.1f, runTimeSec);
+      lcd.setCursor(7, 1); lcd.print("      ");
+      lcd.setCursor(7, 1); lcd.print(runTimeSec, 1);
+      delay(150);
+    }
+    if (digitalRead(DialCLK) == LOW) {
+      runTimeSec += inc;
+      lcd.setCursor(7, 1); lcd.print("      ");
+      lcd.setCursor(7, 1); lcd.print(runTimeSec, 1);
+      delay(150);
+    }
+  }
+
+  if (set == 2) {
+    if (digitalRead(SetButtonPin) == LOW) {
+      lcd.setCursor(0,0); lcd.print("Power:    %");
+      lcd.setCursor(0,1); lcd.print("Time:     s");
+      set = 0;
+      delay(300);
+    }
+    if (digitalRead(StartButtonPin) == LOW && !running) {
+      running = true;
+      runStartTime = millis();
+      motor.rotate(runPower, CW);
+    }
+    if (running) {
+      float elapsed = (millis() - runStartTime) / 1000.0;
+      if (elapsed >= runTimeSec) {
+        motor.stop();
+        running = false;
+        lcd.setCursor(0,0); lcd.print("Done!           ");
+        lcd.setCursor(0,1); lcd.print("Ran ");
+        lcd.print(elapsed, 1);
+        lcd.print("s    ");
+        delay(2000);
+        lcd.setCursor(0,0); lcd.print("Ready. START!   ");
+        lcd.setCursor(0,1); lcd.print("P:");
+        lcd.print(runPower);
+        lcd.print("% T:");
+        lcd.print(runTimeSec, 1);
+        lcd.print("s ");
+      }
+    }
+  }
+}</script>
+<script>
+    function copyEvCode(srcId) {
+        srcId = srcId || 'evCodeSrc';
+        var raw = document.getElementById(srcId).textContent;
+        var fbId = (srcId === 'evCodeConstSpeedSrc') ? 'evCopyConstSpeedFeedback' :
+                   (srcId === 'evCodeSimpleSrc') ? 'evCopySimpleFeedback' : 'evCopyFeedback';
+        var fb = document.getElementById(fbId);
+        function showCopied() {
+            fb.textContent = 'Copied!';
+            setTimeout(function() { fb.textContent = ''; }, 2000);
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(raw).then(showCopied).catch(function() {
+                copyFallback(raw, showCopied);
+            });
+        } else {
+            copyFallback(raw, showCopied);
+        }
+    }
+    function copyFallback(text, done) {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try {
+            document.execCommand('copy');
+            done();
+        } catch (e) {}
+        document.body.removeChild(ta);
+    }
+
+    function toggleConstants() {
+        const dd = document.getElementById('constantsDropdown');
+        const icon = document.getElementById('constantsIcon');
+        dd.classList.toggle('open');
+        icon.textContent = dd.classList.contains('open') ? '▲' : '▼';
+    }
+
+    function calculateAndDraw() {
+        const D = parseFloat(document.getElementById('trackDistance').value);
+        let margin = parseFloat(document.getElementById('marginDistance').value);
+        const L = parseFloat(document.getElementById('wheelbase').value);
+        const scopeAngleDeg = parseFloat(document.getElementById('scopeAngle').value) || 0;
+        const gamma = scopeAngleDeg * Math.PI / 180;
+        const wheelsSightingAngleDeg = parseFloat(document.getElementById('wheelsSightingAngle').value) || 0;
+        const wheelsSightingAngleRad = wheelsSightingAngleDeg * Math.PI / 180;
+
+        const isDiscrete = document.getElementById('discreteAngles').checked;
+        const discreteAnglesListEl = document.getElementById('discreteAnglesList');
+        const marginLabel = document.getElementById('marginDistanceLabel');
+        const marginHelp = document.getElementById('marginDistanceHelp');
+
+        if (isDiscrete) {
+            marginLabel.textContent = 'Min clearance inside gap (cm)';
+            marginHelp.textContent = 'Find the discrete angle that minimizes clearance while staying above this minimum';
+            document.getElementById('resultDiscreteIndexCard').style.display = 'block';
+            document.getElementById('resultClearanceLabel').textContent = 'Resulting Clearance';
+        } else {
+            marginLabel.textContent = 'Clearance inside gap (cm)';
+            marginHelp.textContent = 'Distance from outer can\'s inside edge — path passes inside the gap';
+            document.getElementById('resultDiscreteIndexCard').style.display = 'none';
+            document.getElementById('resultClearanceLabel').textContent = 'Clearance inside gap';
+        }
+
+        // Outer can is fixed at 100 cm from center (inside edge per rules)
+        const CAN_OFFSET = 100;
+
+        const errEl = document.getElementById('errorMessage');
+        errEl.classList.remove('visible');
+        errEl.textContent = '';
+
+        if (isNaN(D) || D <= 0) {
+            errEl.textContent = 'Please enter a valid track distance.';
+            errEl.classList.add('visible');
+            return;
+        }
+
+        let theta0, delta, R, cx, cy, passY;
+        cy = D / 2;
+
+        if (isDiscrete) {
+            const angleStr = discreteAnglesListEl.value;
+            const angles = angleStr.split(',').map(s => parseFloat(s.trim())).filter(n => !isNaN(n));
+            if (angles.length === 0) {
+                errEl.textContent = 'Please enter at least one discrete angle value.';
+                errEl.classList.add('visible');
+                return;
+            }
+
+            let bestDelta = null;
+            let bestPassY = -Infinity;
+            let bestIndex = -1;
+
+            angles.forEach((dDeg, idx) => {
+                const dRad = dDeg * Math.PI / 180;
+                const rCur = L / Math.tan(dRad);
+                if (rCur < D / 2) return; // Cannot reach target
+
+                const cxCur = -Math.sqrt(rCur * rCur - cy * cy);
+                const pyCur = rCur + cxCur;
+                const mCur = CAN_OFFSET - pyCur;
+
+                if (mCur >= margin) {
+                    if (pyCur > bestPassY) {
+                        bestPassY = pyCur;
+                        bestDelta = dRad;
+                        bestIndex = idx + 1;
+                    }
+                }
+            });
+
+            if (bestDelta === null) {
+                errEl.textContent = 'No discrete angle found that stays above the minimum clearance.';
+                errEl.classList.add('visible');
+                return;
+            }
+
+            delta = bestDelta;
+            passY = bestPassY;
+            R = L / Math.tan(delta);
+            cx = -Math.sqrt(R * R - cy * cy);
+            theta0 = Math.atan2(cy, -cx);
+            margin = CAN_OFFSET - passY;
+
+            document.getElementById('resultDiscreteIndex').textContent = bestIndex;
+        } else {
+            if (isNaN(margin) || margin < 4) {
+                errEl.textContent = 'Clearance must be at least 4 cm from the outer can edge.';
+                errEl.classList.add('visible');
+                return;
+            }
+            if (margin >= CAN_OFFSET) {
+                errEl.textContent = 'Clearance must be less than 100 cm to pass inside the gap.';
+                errEl.classList.add('visible');
+                return;
+            }
+
+            // Path passes INSIDE the gap — through (D/2, CAN_OFFSET - margin)
+            passY = CAN_OFFSET - margin;
+            cx = (passY * passY - cy * cy) / (2 * passY);
+            R = Math.sqrt(cy * cy + cx * cx);
+            theta0 = Math.atan2(cy, -cx);
+            delta = Math.atan(L / R);
+        }
+
+        // Arc length from start to target
+        const phiStart = Math.atan2(0 - cx, 0 - cy);
+        const phiTarget = Math.atan2(0 - cx, D - cy);
+        const pathLength = R * Math.abs(phiTarget - phiStart);
+
+        // Lateral offset: scope at middle (d = L/2 behind MP). Ray from scope through target at (D, offset).
+        const d = L / 2;  // scope at middle of robot
+        const tanTheta0Gamma = Math.tan(theta0 - gamma);
+        const lateralOffset = D * tanTheta0Gamma + d * (Math.cos(theta0) * tanTheta0Gamma - Math.sin(theta0));
+
+        // Wheel sighting block
+        const wheelDir = theta0 - delta - wheelsSightingAngleRad;
+        const frontAxleX = L * Math.cos(theta0);
+        const frontAxleY = L * Math.sin(theta0);
+        const cosWheel = Math.cos(wheelDir);
+        const t = (D - frontAxleX) / cosWheel;
+        const wheelLateralOffset = frontAxleY + t * Math.sin(wheelDir);
+
+        // Display results
+        document.getElementById('resultsSection').style.display = 'block';
+        document.getElementById('resultTheta').textContent = (theta0 * 180 / Math.PI).toFixed(2);
+        document.getElementById('resultDelta').textContent = (delta * 180 / Math.PI).toFixed(2);
+        document.getElementById('resultRadius').textContent = R.toFixed(1);
+        document.getElementById('resultPathLength').textContent = pathLength.toFixed(1);
+        document.getElementById('resultLateralOffset').textContent = lateralOffset.toFixed(1);
+        document.getElementById('resultWheelLateralOffset').textContent = wheelLateralOffset.toFixed(1);
+        document.getElementById('resultClearance').textContent = margin.toFixed(2);
+        
+        document.getElementById('setupAngle').textContent = (theta0 * 180 / Math.PI).toFixed(1);
+        document.getElementById('setupWheel').textContent = (delta * 180 / Math.PI).toFixed(1);
+        document.getElementById('setupScopeBlock').textContent = lateralOffset.toFixed(1);
+        document.getElementById('setupWheelBlock').textContent = wheelLateralOffset.toFixed(1);
+
+        const showWheelSighting = document.getElementById('showWheelSighting').checked;
+        const tabTrajectory = document.getElementById('tab-trajectory');
+        if (showWheelSighting) {
+            tabTrajectory.classList.add('show-wheel-sighting');
+            document.getElementById('resultWheelSightingAngle').textContent = (wheelDir * 180 / Math.PI).toFixed(2);
+            const calcBox = document.getElementById('wheelSightingCalcBox');
+            calcBox.style.display = 'block';
+            document.getElementById('wheelSightingFormula').textContent = 'frontAxleY + (D − frontAxleX) × tan(θ₀ − δ − β) = ' + wheelLateralOffset.toFixed(1);
+        } else {
+            tabTrajectory.classList.remove('show-wheel-sighting');
+            document.getElementById('wheelSightingCalcBox').style.display = 'none';
+        }
+
+        // Draw trajectory
+        drawTrajectory(D, CAN_OFFSET, passY, L, theta0, R, cx, cy, lateralOffset, wheelLateralOffset, delta, wheelsSightingAngleRad, showWheelSighting);
+    }
+
+    function drawTrajectory(D, targetOffset, passY, L, theta0, R, cx, cy, lateralOffset, wheelLateralOffset, delta, wheelsSightingAngleRad, showWheelSighting) {
+        const canvas = document.getElementById('trajectoryCanvas');
+        const ctx = canvas.getContext('2d');
+
+        const rect = canvas.getBoundingClientRect();
+        const dpr = window.devicePixelRatio || 1;
+        canvas.width = rect.width * dpr;
+        canvas.height = rect.height * dpr;
+        canvas.style.width = rect.width + 'px';
+        canvas.style.height = rect.height + 'px';
+        ctx.scale(dpr, dpr);
+
+        const w = rect.width;
+        const h = rect.height;
+        const padding = 30;
+        const drawW = w - 2 * padding;
+        const drawH = h - 2 * padding;
+
+        // VERTICAL: start at bottom, target at top. FLIPPED: robot curves clockwise from left to right.
+        const xMin = 0;
+        const xMax = D;
+        // Flip over centerline: negate all y values for display
+        const flipY = (y) => -y;
+        const yMin = Math.min(-30, flipY(lateralOffset) - 20, flipY(wheelLateralOffset || 0) - 20);
+        const yMax = Math.max(flipY(passY), flipY(targetOffset), flipY(lateralOffset), flipY(wheelLateralOffset || 0)) + 50;
+
+        const scaleY = drawH / (xMax - xMin);
+        const scaleX = drawW / (yMax - yMin);
+        const scale = Math.min(scaleX, scaleY);
+
+        const offsetX = padding + (drawW - (yMax - yMin) * scale) / 2;
+
+        function toScreen(x, y) {
+            return {
+                x: offsetX + (flipY(y) - yMin) * scale,
+                y: h - padding - (x - xMin) * scale
+            };
+        }
+
+        ctx.fillStyle = '#f8fafc';
+        ctx.fillRect(0, 0, w, h);
+
+        // Grid — vertical layout: constant x = horizontal lines, constant y = vertical lines
+        ctx.strokeStyle = '#e2e8f0';
+        ctx.lineWidth = 0.5;
+        for (let x = 0; x <= xMax; x += 100) {
+            const p1 = toScreen(x, yMin);
+            const p2 = toScreen(x, yMax);
+            ctx.beginPath();
+            ctx.moveTo(p1.x, p1.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.stroke();
+        }
+        for (let y = yMin; y <= yMax; y += 50) {
+            const p1 = toScreen(xMin, y);
+            const p2 = toScreen(xMax, y);
+            ctx.beginPath();
+            ctx.moveTo(p1.x, p1.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.stroke();
+        }
+
+        // Centerline (y=0) — vertical line at center
+        const clStart = toScreen(0, 0);
+        const clEnd = toScreen(D, 0);
+        ctx.strokeStyle = '#94a3b8';
+        ctx.lineWidth = 2;
+        ctx.setLineDash([8, 4]);
+        ctx.beginPath();
+        ctx.moveTo(clStart.x, clStart.y);
+        ctx.lineTo(clEnd.x, clEnd.y);
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        // Arc from start (0,0) through pass point (D/2, passY) to target (D, 0)
+        // Center at (cy, cx) in (forward, left); phi = atan2(y-cx, x-cy)
+        const phiStart = Math.atan2(0 - cx, 0 - cy);
+        const phiTarget = Math.atan2(0 - cx, D - cy);
+
+        const numPoints = 100;
+        ctx.strokeStyle = '#0f766e';
+        ctx.lineWidth = 4;
+        ctx.beginPath();
+
+        for (let i = 0; i <= numPoints; i++) {
+            const t = i / numPoints;
+            const phi = phiStart + t * (phiTarget - phiStart);
+            const x = cy + R * Math.cos(phi);
+            const y = cx + R * Math.sin(phi);
+            const p = toScreen(x, y);
+            if (i === 0) ctx.moveTo(p.x, p.y);
+            else ctx.lineTo(p.x, p.y);
+        }
+        ctx.stroke();
+
+        // Start point
+        const startP = toScreen(0, 0);
+        ctx.fillStyle = '#0f766e';
+        ctx.beginPath();
+        ctx.arc(startP.x, startP.y, 10, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = '#065f46';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        // Vehicle at start — point in direction of motion (forward = up, curving clockwise right)
+        const vLen = 30;
+        const vWid = 8;
+        ctx.save();
+        ctx.translate(startP.x, startP.y);
+        ctx.rotate(-theta0 - Math.PI / 2);
+        ctx.strokeStyle = '#0f766e';
+        ctx.lineWidth = 2;
+        ctx.strokeRect(-vLen/2, -vWid/2, vLen, vWid);
+        ctx.restore();
+
+        // Outer can (fixed at 100 cm from center, inside edge; center ~104 cm)
+        const canCenterY = targetOffset + 4;  // 4 cm radius
+        const canP = toScreen(D/2, canCenterY);
+        const canRadiusPx = Math.max(4 * scale, 6);
+        ctx.fillStyle = 'rgba(220, 38, 38, 0.3)';
+        ctx.beginPath();
+        ctx.arc(canP.x, canP.y, canRadiusPx, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = '#dc2626';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        // Pass point (path goes through here, margin from can)
+        const passP = toScreen(D/2, passY);
+        ctx.fillStyle = '#0f766e';
+        ctx.beginPath();
+        ctx.arc(passP.x, passP.y, 6, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = '#065f46';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        // Scope sighting block (place at target line, lateral offset from target)
+        const sightP = toScreen(D, lateralOffset);
+        ctx.fillStyle = '#7c3aed';
+        ctx.beginPath();
+        ctx.arc(sightP.x, sightP.y, 10, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = '#5b21b6';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        // Wheel sighting block and sighting line (when enabled)
+        if (showWheelSighting && wheelLateralOffset != null && !isNaN(wheelLateralOffset)) {
+            const wheelSightP = toScreen(D, wheelLateralOffset);
+            const frontAxleX = L * Math.cos(theta0);
+            const frontAxleY = L * Math.sin(theta0);
+            const frontAxleP = toScreen(frontAxleX, frontAxleY);
+            // Wheel sighting line: from front axle to block location on target line
+            ctx.strokeStyle = '#ea580c';
+            ctx.lineWidth = 2;
+            ctx.setLineDash([6, 4]);
+            ctx.beginPath();
+            ctx.moveTo(frontAxleP.x, frontAxleP.y);
+            ctx.lineTo(wheelSightP.x, wheelSightP.y);
+            ctx.stroke();
+            ctx.setLineDash([]);
+            // Wheel sighting block
+            ctx.fillStyle = '#ea580c';
+            ctx.beginPath();
+            ctx.arc(wheelSightP.x, wheelSightP.y, 10, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.strokeStyle = '#c2410c';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+        }
+
+        // Target point (end of track)
+        const targetP = toScreen(D, 0);
+        ctx.fillStyle = '#059669';
+        ctx.beginPath();
+        ctx.arc(targetP.x, targetP.y, 12, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = '#047857';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        // Vehicle at target — point in direction of motion (forward = up, coming from clockwise curve)
+        const endTangent = Math.atan2(0 - cx, D - cy) - Math.PI/2;
+        ctx.save();
+        ctx.translate(targetP.x, targetP.y);
+        ctx.rotate(-endTangent - Math.PI / 2);
+        ctx.strokeStyle = '#0f766e';
+        ctx.lineWidth = 2;
+        ctx.strokeRect(-vLen/2, -vWid/2, vLen, vWid);
+        ctx.restore();
+
+        // Labels (vertical: start bottom, target top)
+        ctx.fillStyle = '#334155';
+        ctx.font = 'bold 12px sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillText('START', startP.x + 14, startP.y);
+        ctx.fillText('Outer can', canP.x + canRadiusPx + 6, canP.y);
+        ctx.fillText('TARGET', targetP.x + 14, targetP.y);
+        ctx.fillText('Centerline', clEnd.x + 8, (clStart.y + clEnd.y) / 2);
+
+        // Scale bar — vertical, show distance along track
+        const maxBarPx = drawH * 0.25;
+        const scaleBarCm = [500, 200, 100, 50, 25].find(x => x * scale <= maxBarPx) || Math.max(10, Math.round(maxBarPx / scale / 25) * 25);
+        const scaleBarPx = scaleBarCm * scale;
+        const barX = padding + 10;
+        const barY = h - padding - 30;
+        ctx.strokeStyle = '#334155';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(barX, barY);
+        ctx.lineTo(barX, barY - scaleBarPx);
+        ctx.stroke();
+        ctx.fillStyle = '#334155';
+        ctx.font = '11px sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillText(scaleBarCm + ' cm', barX + 8, barY - scaleBarPx / 2 + 4);
+    }
+
+    function switchTab(tabId) {
+        document.querySelectorAll('.ev-tab').forEach(function(t) { t.classList.remove('active'); });
+        document.querySelectorAll('.ev-tab-content').forEach(function(c) { c.classList.remove('active'); });
+        var tab = document.querySelector('.ev-tab[data-tab="' + tabId + '"]');
+        var content = document.getElementById('tab-' + tabId);
+        if (tab) tab.classList.add('active');
+        if (content) content.classList.add('active');
+    }
+
+    function switchStrategy(stratId) {
+        document.querySelectorAll('.strategy-tab').forEach(function(t) { t.classList.remove('active'); });
+        document.querySelectorAll('.strategy-content').forEach(function(c) { c.classList.remove('active'); });
+        var tab = document.querySelector('.strategy-tab[data-strategy="' + stratId + '"]');
+        var content = document.getElementById('strategy-' + stratId);
+        if (tab) tab.classList.add('active');
+        if (content) content.classList.add('active');
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var codeSrc = document.getElementById('evCodeSrc');
+        var codeDisplay = document.getElementById('evCodeDisplay');
+        if (codeSrc && codeDisplay) codeDisplay.textContent = codeSrc.textContent;
+        var constSrc = document.getElementById('evCodeConstSpeedSrc');
+        var constDisplay = document.getElementById('evCodeConstSpeedDisplay');
+        if (constSrc && constDisplay) constDisplay.textContent = constSrc.textContent;
+        var simpleSrc = document.getElementById('evCodeSimpleSrc');
+        var simpleDisplay = document.getElementById('evCodeSimpleDisplay');
+        if (simpleSrc && simpleDisplay) simpleDisplay.textContent = simpleSrc.textContent;
+
+        document.querySelectorAll('.strategy-tab').forEach(function(btn) {
+            btn.addEventListener('click', function() { switchStrategy(btn.getAttribute('data-strategy')); });
+        });
+
+        const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+        if (!currentUser) {
+            window.location.href = '/login?next=' + encodeURIComponent(window.location.pathname);
+            return;
+        }
+        document.querySelectorAll('.ev-tab').forEach(function(btn) {
+            btn.addEventListener('click', function() { switchTab(btn.getAttribute('data-tab')); });
+        });
+        ['trackDistance', 'marginDistance', 'wheelbase', 'scopeAngle', 'wheelsSightingAngle', 'showWheelSighting', 'discreteAngles', 'discreteAnglesList'].forEach(function(id) {
+            const el = document.getElementById(id);
+            if (el) {
+                el.addEventListener('input', calculateAndDraw);
+                el.addEventListener('change', calculateAndDraw);
+            }
+        });
+        calculateAndDraw();
+    });
+</script>
+{% endblock %}

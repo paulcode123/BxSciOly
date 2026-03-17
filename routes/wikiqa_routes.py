@@ -7,11 +7,13 @@ from flask import Blueprint, jsonify, render_template, request
 
 try:
     from astronomy_search import config
+    from astronomy_search.category_index import get_category_index
     from astronomy_search.search_engine import WikiQASearcher
     ASTRONOMY_SEARCH_AVAILABLE = True
 except ImportError:
     ASTRONOMY_SEARCH_AVAILABLE = False
     config = None
+    get_category_index = None  # type: ignore
     WikiQASearcher = None
 
 
@@ -127,4 +129,20 @@ def api_wikiqa_search():
         )
     except Exception as e:
         return jsonify({"ok": False, "error": "search_failed", "message": str(e), "status": status}), 500
+
+
+@wikiqa_routes.route("/api/wikiqa/categories", methods=["GET"])
+def api_wikiqa_categories():
+    """Return the category tree for browsing."""
+    if not ASTRONOMY_SEARCH_AVAILABLE or get_category_index is None:
+        return jsonify({"ok": False, "error": "module_unavailable", "tree": [], "total_pages": 0}), 500
+    try:
+        idx = get_category_index()
+        return jsonify({
+            "ok": True,
+            "tree": idx["tree"],
+            "total_pages": idx["total_pages"],
+        })
+    except Exception as e:
+        return jsonify({"ok": False, "error": str(e), "tree": [], "total_pages": 0}), 500
 

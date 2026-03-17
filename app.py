@@ -252,6 +252,14 @@ def diag_results():
 def bungee_calculator():
     return render_template('bungee_drop_calculator.html')
 
+@app.route('/user/ev-simulator')
+def ev_simulator():
+    return render_template('ev_simulator.html')
+
+@app.route('/user/robot-tour-simulator')
+def robot_tour_simulator():
+    return render_template('robot_tour_simulator.html')
+
 @app.route('/api/roster-status/<user_id>')
 def api_roster_status(user_id):
     """Check if a user is on the team roster"""
@@ -420,12 +428,25 @@ def export_bungee_model():
         gamma = float(data.get('gamma', 0.95))
         bottle_height = float(data.get('bottleHeight', 30.0))
         target_dist = float(data.get('targetDistance', 2.0))
+        area_m2 = float(data.get('bottleArea', 0.0045))
+        cd = float(data.get('dragCoefficient', 1.0))
         
         if not calibration_data:
             return jsonify({'error': 'No calibration data provided'}), 400
+
+        # Validate calibration data format (expects strain, force keys)
+        valid_data = []
+        for p in calibration_data:
+            if isinstance(p, dict) and 'strain' in p and 'force' in p:
+                valid_data.append({
+                    'strain': float(p['strain']),
+                    'force': float(p['force'])
+                })
+        if not valid_data:
+            return jsonify({'error': 'Calibration data must have strain and force values'}), 400
             
         result = bungee_utils.generate_bungee_export(
-            calibration_data, method, gamma, bottle_height, target_dist
+            valid_data, method, gamma, bottle_height, target_dist, area_m2, cd
         )
         return jsonify(result), 200
     except Exception as e:
@@ -485,6 +506,59 @@ def save_bungee_data():
         print(f"Error saving bungee data: {e}")
         return jsonify({'error': str(e)}), 500
 
+# ----------------------- Robot Tour Simulator -----------------------
+ROBOT_TOUR_DOC_ID = 'shared'
+
+def _serialize_robot_tour_track(t):
+    """Make track JSON-serializable (Firestore Timestamp -> ISO string)"""
+    t = dict(t)
+    ca = t.get('createdAt')
+    if ca and not isinstance(ca, str):
+        try:
+            if hasattr(ca, 'isoformat'):
+                t['createdAt'] = ca.isoformat()
+        except Exception:
+            t['createdAt'] = str(ca)
+    return t
+
+@app.route('/api/robot-tour/tracks', methods=['GET'])
+def get_robot_tour_tracks():
+    """Fetch the shared Robot Tour track configs"""
+    try:
+        doc_ref = firebase_db.collection('RobotTourTracks').document(ROBOT_TOUR_DOC_ID)
+        doc = doc_ref.get()
+        if doc.exists:
+            data = doc.to_dict()
+            tracks = [_serialize_robot_tour_track(t) for t in data.get('tracks', [])]
+            return jsonify({'tracks': tracks}), 200
+        return jsonify({'tracks': []}), 200
+    except Exception as e:
+        print(f"Error fetching Robot Tour tracks: {e}")
+        return jsonify({'error': str(e), 'tracks': []}), 500
+
+@app.route('/api/robot-tour/tracks', methods=['POST'])
+def save_robot_tour_tracks():
+    """Save the shared Robot Tour track configs"""
+    try:
+        data = request.get_json()
+        if not data or 'tracks' not in data:
+            return jsonify({'error': 'No tracks data provided'}), 400
+        payload = {
+            'tracks': data['tracks'],
+            'updatedAt': firestore.SERVER_TIMESTAMP
+        }
+        doc_ref = firebase_db.collection('RobotTourTracks').document(ROBOT_TOUR_DOC_ID)
+        doc = doc_ref.get()
+        if doc.exists:
+            doc_ref.update(payload)
+        else:
+            payload['createdAt'] = firestore.SERVER_TIMESTAMP
+            doc_ref.set(payload)
+        return jsonify({'id': ROBOT_TOUR_DOC_ID, 'message': 'Tracks saved successfully'}), 200
+    except Exception as e:
+        print(f"Error saving Robot Tour tracks: {e}")
+        return jsonify({'error': str(e)}), 500
+
 @app.route('/admin/login')
 def admin_login():
     return render_template('admin_login.html')
@@ -524,6 +598,10 @@ def admin_learning_conversations():
 @app.route('/admin/competitions')
 def admin_competitions():
     return render_template('admin_competitions.html')
+
+@app.route('/admin/event-placements')
+def admin_event_placements():
+    return render_template('admin_event_placements.html')
 
 @app.route('/admin/house-cup')
 def admin_house_cup():
