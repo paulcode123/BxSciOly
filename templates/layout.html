@@ -133,13 +133,14 @@
             <nav>
                 <ul>
                     <li class="dropdown">
-                        <a href="#" {% if request.path.startswith('/about') or request.path == url_for('leadership') or request.path == url_for('our_team') or request.path == url_for('what_we_do') or request.path == url_for('faq') or request.path == url_for('sponsors') %}class="active"{% endif %}><i class="fas fa-info-circle"></i> About Us</a>
+                        <a href="#" {% if request.path.startswith('/about') or request.path == url_for('leadership') or request.path == url_for('our_team') or request.path == url_for('what_we_do') or request.path == url_for('faq') or request.path == url_for('sponsors') or request.path == url_for('calendar') %}class="active"{% endif %}><i class="fas fa-info-circle"></i> About Us</a>
                         <div class="dropdown-content">
                             <a href="{{ url_for('leadership') }}" {% if request.path == url_for('leadership') %}class="active"{% endif %}><i class="fas fa-users"></i> Leadership</a>
                             <a href="{{ url_for('our_team') }}" {% if request.path == url_for('our_team') %}class="active"{% endif %}><i class="fas fa-trophy"></i> Our Team</a>
                             <a href="{{ url_for('what_we_do') }}" {% if request.path == url_for('what_we_do') %}class="active"{% endif %}><i class="fas fa-flask"></i> What We Do</a>
                             <a href="{{ url_for('faq') }}" {% if request.path == url_for('faq') %}class="active"{% endif %}><i class="fas fa-question-circle"></i> FAQ</a>
                             <a href="{{ url_for('sponsors') }}" {% if request.path == url_for('sponsors') %}class="active"{% endif %}><i class="fas fa-handshake"></i> Sponsors</a>
+                            <a href="{{ url_for('calendar') }}" {% if request.path == url_for('calendar') %}class="active"{% endif %}><i class="fas fa-calendar-alt"></i> Calendar</a>
                         </div>
                     </li>
                     <li class="dropdown">
@@ -152,19 +153,14 @@
                             <a href="{{ url_for('classification_compilation') }}" {% if request.path == url_for('classification_compilation') %}class="active"{% endif %}><i class="fas fa-search"></i> Classification & Compilation</a>
                             <a href="{{ url_for('events_biology') }}" {% if request.path == url_for('events_biology') %}class="active"{% endif %}><i class="fas fa-dna"></i> Biology</a>
                             <a href="{{ url_for('chemistry_inquiry') }}" {% if request.path == url_for('chemistry_inquiry') %}class="active"{% endif %}><i class="fas fa-flask"></i> Chemistry & Inquiry</a>
-                            <a href="{{ url_for('bungee_calculator') }}" {% if request.path == url_for('bungee_calculator') %}class="active"{% endif %}><i class="fas fa-calculator"></i> Bungee Calculator</a>
-                            <a href="{{ url_for('ev_simulator') }}" {% if request.path == url_for('ev_simulator') %}class="active"{% endif %}><i class="fas fa-car"></i> EV Simulator</a>
-                            <a href="{{ url_for('robot_tour_simulator') }}" {% if request.path == url_for('robot_tour_simulator') %}class="active"{% endif %}><i class="fas fa-robot"></i> Robot Tour Simulator</a>
                         </div>
                     </li>
                     <li class="dropdown">
-                        <a href="#" {% if request.path.startswith('/info/') or request.path == url_for('calendar') or request.path == url_for('house_cup') or request.path == url_for('summer_learning_project') or request.path == url_for('bug_submission') %}class="active"{% endif %}><i class="fas fa-info-circle"></i> Info</a>
+                        <a href="#" {% if request.path == url_for('bungee_calculator') or request.path == url_for('ev_simulator') or request.path == url_for('robot_tour_simulator') %}class="active"{% endif %}><i class="fas fa-microchip"></i> Simulators</a>
                         <div class="dropdown-content">
-                            <a href="{{ url_for('calendar') }}" {% if request.path == url_for('calendar') %}class="active"{% endif %}><i class="fas fa-calendar-alt"></i> Calendar</a>
-                            <a href="{{ url_for('house_cup') }}" {% if request.path == url_for('house_cup') %}class="active"{% endif %}><i class="fas fa-home"></i> House Cup</a>
-                            <a href="{{ url_for('summer_learning_project') }}" {% if request.path == url_for('summer_learning_project') %}class="active"{% endif %}><i class="fas fa-graduation-cap"></i> Summer Learning Project</a>
-                            <a href="{{ url_for('bug_submission') }}" {% if request.path == url_for('bug_submission') %}class="active"{% endif %}><i class="fas fa-bug"></i> Bug Submission</a>
-                            <a href="{{ url_for('strategic_plan') }}" {% if request.path == url_for('strategic_plan') %}class="active"{% endif %}><i class="fas fa-chart-line"></i> Strategic Plan</a>
+                            <a href="{{ url_for('bungee_calculator') }}" {% if request.path == url_for('bungee_calculator') %}class="active"{% endif %}><i class="fas fa-calculator"></i> Bungee Calculator</a>
+                            <a href="{{ url_for('ev_simulator') }}" {% if request.path == url_for('ev_simulator') %}class="active"{% endif %}><i class="fas fa-car"></i> EV Simulator</a>
+                            <a href="{{ url_for('robot_tour_simulator') }}" {% if request.path == url_for('robot_tour_simulator') %}class="active"{% endif %}><i class="fas fa-robot"></i> Robot Tour Simulator</a>
                         </div>
                     </li>
                     <li id="loginLink"><a href="{{ url_for('login') }}" {% if request.path == url_for('login') %}class="active"{% endif %}><i class="fas fa-sign-in-alt"></i> Login</a></li>
@@ -189,11 +185,11 @@
             <div class="social-links">
                 <a href="https://www.instagram.com/bxscioly/" class="social-link"><i class="fab fa-instagram"></i></a>
                 <a href="https://www.youtube.com/@bxscioly" class="social-link"><i class="fab fa-youtube"></i></a>
-                <a href="{{ url_for('bug_submission') }}" class="social-link bug-report"><i class="fas fa-bug"></i> Report Bug</a>
             </div>
         </div>
     </footer>
 
+    <script src="{{ url_for('static', filename='js/auth.js') }}"></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
     <script>
         // Mobile dropdown functionality
@@ -259,8 +255,7 @@
             const userName = document.getElementById('userName');
             const userDropdownMenu = document.getElementById('userDropdownMenu');
             
-            // Check if user data exists in session storage
-            const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+            const currentUser = BxSciOlyAuth.parseUser();
             
             // Debug: Log user data to console
             console.log('Current user data:', currentUser);
@@ -294,7 +289,7 @@
                         
                         // Show admin console only for full admins
                         if (currentUser.adminStatus && currentUser.adminStatus === 'full') {
-                            menuHTML += '<a href="/admin/login"><i class="fas fa-user-shield"></i> Admin Console</a>';
+                            menuHTML += '<a href="/admin/dashboard"><i class="fas fa-user-shield"></i> Admin Console</a>';
                         }
                         
                         // Always show settings and logout
@@ -307,7 +302,7 @@
                         const logoutBtn = document.getElementById('logoutBtn');
                         logoutBtn.addEventListener('click', function(e) {
                             e.preventDefault();
-                            sessionStorage.removeItem('currentUser');
+                            BxSciOlyAuth.clearUser();
                             window.location.href = '/';
                         });
                     })
@@ -316,7 +311,7 @@
                         // Default to showing application menu if error
                         let menuHTML = '<a href="/user/application"><i class="fas fa-file-alt"></i> Application</a>';
                         if (currentUser.adminStatus && currentUser.adminStatus === 'full') {
-                            menuHTML += '<a href="/admin/login"><i class="fas fa-user-shield"></i> Admin Console</a>';
+                            menuHTML += '<a href="/admin/dashboard"><i class="fas fa-user-shield"></i> Admin Console</a>';
                         }
                         menuHTML += '<a href="/user/settings"><i class="fas fa-cog"></i> Settings</a>';
                         menuHTML += '<a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>';
@@ -325,7 +320,7 @@
                         const logoutBtn = document.getElementById('logoutBtn');
                         logoutBtn.addEventListener('click', function(e) {
                             e.preventDefault();
-                            sessionStorage.removeItem('currentUser');
+                            BxSciOlyAuth.clearUser();
                             window.location.href = '/';
                         });
                     });

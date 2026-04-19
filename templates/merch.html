@@ -402,7 +402,7 @@ const designs = [
 
 document.addEventListener('DOMContentLoaded', async function() {
     // Check if user is logged in
-    const currentUserStr = sessionStorage.getItem('currentUser');
+    const currentUserStr = BxSciOlyAuth.getRaw();
     
     if (!currentUserStr) {
         const returnUrl = encodeURIComponent(window.location.pathname);

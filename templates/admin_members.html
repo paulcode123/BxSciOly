@@ -793,8 +793,11 @@
             const competitionsData = await competitionsResponse.json();
             const membersData = await membersResponse.json();
             
-            // Process competition results using the same logic as competitions.html
-            data.competitionPlacements = processCompetitionResults(memberId, data.basicInfo, competitionsData, membersData);
+            // /full already loads placements from Firestore; do not replace with file-based /api/Competitions
+            // (parser may be empty or out of sync — that was clearing real results on this page).
+            const serverPlacements = Array.isArray(data.competitionPlacements) ? data.competitionPlacements : [];
+            const clientPlacements = processCompetitionResults(memberId, data.basicInfo, competitionsData, membersData);
+            data.competitionPlacements = serverPlacements.length > 0 ? serverPlacements : clientPlacements;
             
             console.log('Member data received:', data);
             console.log('Competition placements:', data.competitionPlacements);
@@ -1414,11 +1417,8 @@
 
     function logout() {
         if (confirm('Are you sure you want to logout?')) {
-            sessionStorage.removeItem('adminId');
-            sessionStorage.removeItem('adminRole');
-            sessionStorage.removeItem('adminPermissions');
-            sessionStorage.removeItem('adminUserInfo');
-            window.location.href = '/admin/login';
+            BxSciOlyAuth.clearUser();
+            window.location.href = '/';
         }
     }
 </script>

@@ -77,7 +77,7 @@
 
 {% block extra_js %}
 <script>
-    const currentUser = JSON.parse(sessionStorage.getItem('currentUser') || 'null');
+    const currentUser = BxSciOlyAuth.parseUser();
 
     async function loadEvents() {
         const res = await fetch('/api/Events');

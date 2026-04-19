@@ -82,7 +82,7 @@
 <script>
 document.addEventListener('DOMContentLoaded', async function() {
   const eventSlug = '{{ event_slug }}';
-  const currentUser = JSON.parse(sessionStorage.getItem('currentUser') || 'null');
+  const currentUser = BxSciOlyAuth.parseUser();
 
   // Hide auth-only tabs when not logged in
   document.querySelectorAll('.auth-only').forEach(btn => {

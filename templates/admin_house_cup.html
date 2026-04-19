@@ -457,12 +457,12 @@
             // Check admin authentication
             const adminId = sessionStorage.getItem('adminId');
             if (!adminId) {
-                window.location.href = '/admin/login';
+                window.location.href = BxSciOlyAuth.getLoginRedirectUrl();
                 return;
             }
             
             // Load current user data
-            const userData = sessionStorage.getItem('currentUser');
+            const userData = BxSciOlyAuth.getRaw();
             if (userData) {
                 currentAdmin = JSON.parse(userData);
             }
@@ -676,8 +676,10 @@
     }
     
     function logout() {
-        sessionStorage.clear();
-        window.location.href = '/login';
+        if (confirm('Are you sure you want to logout?')) {
+            BxSciOlyAuth.clearUser();
+            window.location.href = '/';
+        }
     }
     
     // Initialize when DOM is ready

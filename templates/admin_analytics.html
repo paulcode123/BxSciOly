@@ -229,8 +229,8 @@
 <script>
     function logout() {
         if (confirm('Are you sure you want to logout?')) {
-            sessionStorage.removeItem('admin_token');
-            window.location.href = '/admin/login';
+            BxSciOlyAuth.clearUser();
+            window.location.href = '/';
         }
     }
 </script>

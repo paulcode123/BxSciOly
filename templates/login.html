@@ -298,6 +298,7 @@
             
             const doeEmail = document.getElementById('doeEmail').value;
             const password = document.getElementById('password').value;
+            const rememberMe = document.getElementById('remember').checked;
             const loginBtn = document.querySelector('.login-btn');
             
             // Reset error
@@ -352,13 +353,15 @@
                         ...memberData  // Include all fields from the database
                     };
                     
-                    sessionStorage.setItem('currentUser', JSON.stringify(userInfo));
+                    BxSciOlyAuth.setUser(userInfo, rememberMe);
+                    BxSciOlyAuth.syncAdminSessionFromUser();
                     
-                    // Redirect to the original page or dashboard
                     if (redirectUrl) {
                         window.location.href = redirectUrl;
+                    } else if (memberData.adminStatus === 'full') {
+                        window.location.href = '/admin/dashboard';
                     } else {
-                        window.location.href = '/'; // Or a dashboard page
+                        window.location.href = '/';
                     }
                 })
                 .catch(error => {

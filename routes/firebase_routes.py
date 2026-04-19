@@ -844,63 +844,6 @@ def parse_duosmium():
         return jsonify({"error": str(e)}), 500
 
 # Admin Authentication Routes
-@firebase_routes.route('/api/admin/login', methods=['POST'])
-def admin_login():
-    """Admin login endpoint"""
-    try:
-        data = request.get_json()
-        if not data or 'email' not in data or 'password' not in data:
-            return jsonify({"error": "Email and password required"}), 400
-        
-        email = data['email']
-        password = data['password']
-        
-        # Find member by email
-        member_query = db.collection('Members').where('doeEmail', '==', email).limit(1).stream()
-        members = list(member_query)
-        
-        if not members:
-            return jsonify({"error": "Invalid credentials"}), 401
-        
-        member = members[0]
-        member_data = member.to_dict()
-        
-        # Check if member has full admin status (only full admins can access admin console)
-        admin_status = member_data.get('adminStatus', 'none')
-        if admin_status != 'full':
-            return jsonify({"error": "Access denied. Full admin privileges required."}), 403
-        
-        # In production, you should hash and verify passwords properly
-        # For now, we'll do a simple check (replace with proper authentication)
-        if member_data.get('password') != password:
-            return jsonify({"error": "Invalid credentials"}), 401
-        
-        # Determine admin role and permissions based on adminStatus
-        admin_role = admin_status
-        permissions = []
-        
-        if admin_status == 'full':
-            permissions = ['all']
-        elif admin_status == 'EM':
-            permissions = ['events', 'members', 'attendance']
-        elif admin_status == 'SD/BD':
-            permissions = ['content', 'learning_modules', 'calendar']
-        
-        return jsonify({
-            "adminId": member.id,  # Use member ID as admin ID
-            "userId": member.id,
-            "role": admin_role,
-            "permissions": permissions,
-            "userInfo": {
-                "firstName": member_data['firstName'],
-                "lastName": member_data['lastName'],
-                "email": member_data['doeEmail']
-            }
-        }), 200
-        
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
-
 @firebase_routes.route('/api/admin/check-auth', methods=['GET'])
 def check_admin_auth():
     """Check if user has admin privileges"""

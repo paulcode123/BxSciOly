@@ -25,7 +25,7 @@
     async function fetchTokenUrl() {
         const adminId = sessionStorage.getItem('adminId');
         if (!adminId) {
-            window.location.href = '/admin/login';
+            window.location.href = BxSciOlyAuth.getLoginRedirectUrl();
             throw new Error('no_admin');
         }
         const res = await fetch('/api/interest/token', {
@@ -87,7 +87,7 @@
 
     // Redirect to login if missing admin id
     if (!sessionStorage.getItem('adminId')) {
-        window.location.href = '/admin/login';
+        window.location.href = BxSciOlyAuth.getLoginRedirectUrl();
     } else {
         renderQR();
     }

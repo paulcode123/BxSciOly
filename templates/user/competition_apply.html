@@ -628,7 +628,7 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Check if user is logged in
-        const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+        const currentUser = BxSciOlyAuth.parseUser();
         if (!currentUser) {
             window.location.href = '{{ url_for("login") }}';
             return;

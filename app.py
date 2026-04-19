@@ -1,4 +1,5 @@
-from flask import Flask, render_template, url_for, send_from_directory, request, jsonify, make_response
+from flask import Flask, render_template, url_for, send_from_directory, request, jsonify, make_response, redirect
+from urllib.parse import quote
 from datetime import datetime, timedelta
 import os
 import secrets
@@ -91,26 +92,6 @@ def calendar():
 @app.route('/faq')
 def faq():
     return render_template('faq.html')
-
-@app.route('/bug-submission')
-def bug_submission():
-    return render_template('bug_submission.html')
-
-@app.route('/strategic-plan')
-def strategic_plan():
-    return render_template('strategic_plan.html')
-
-@app.route('/house-cup')
-def house_cup():
-    return render_template('house_cup.html')
-
-@app.route('/HouseCupTheme')
-def house_cup_theme():
-    return render_template('house_cup_theme.html')
-
-@app.route('/summer-learning-project')
-def summer_learning_project():
-    return render_template('summer_learning_project.html')
 
 # New subject-based event routes
 @app.route('/events/construction-build')
@@ -561,7 +542,8 @@ def save_robot_tour_tracks():
 
 @app.route('/admin/login')
 def admin_login():
-    return render_template('admin_login.html')
+    """Legacy URL: send users to the main login, then back to the admin dashboard."""
+    return redirect(url_for('login') + '?redirect=' + quote('/admin/dashboard', safe=''))
 
 @app.route('/admin/dashboard')
 def admin_dashboard():
@@ -571,17 +553,9 @@ def admin_dashboard():
 def admin_attendance():
     return render_template('admin_attendance.html')
 
-@app.route('/admin/events')
-def admin_events():
-    return render_template('admin_events.html')
-
 @app.route('/admin/content')
 def admin_content():
     return render_template('admin_content.html')
-
-@app.route('/admin/calendar')
-def admin_calendar():
-    return render_template('admin_calendar.html')
 
 @app.route('/admin/members')
 def admin_members():
@@ -590,14 +564,6 @@ def admin_members():
 @app.route('/admin/analytics')
 def admin_analytics():
     return render_template('admin_analytics.html')
-
-@app.route('/admin/learning-conversations')
-def admin_learning_conversations():
-    return render_template('admin_learning_conversations.html')
-
-@app.route('/admin/competitions')
-def admin_competitions():
-    return render_template('admin_competitions.html')
 
 @app.route('/admin/event-placements')
 def admin_event_placements():

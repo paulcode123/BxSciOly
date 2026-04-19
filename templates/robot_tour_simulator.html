@@ -2501,7 +2501,7 @@ void countRight() {
     }
 
     document.addEventListener('DOMContentLoaded', function() {
-        const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+        const currentUser = BxSciOlyAuth.parseUser();
         if (!currentUser) {
             window.location.href = '/login?next=' + encodeURIComponent(window.location.pathname);
             return;

@@ -974,7 +974,7 @@
     // Get current user from sessionStorage (matches login.html and layout.html pattern)
     let currentUser = null;
     try {
-        const userData = sessionStorage.getItem('currentUser');
+        const userData = BxSciOlyAuth.getRaw();
         currentUser = userData ? JSON.parse(userData) : null;
     } catch (e) {
         console.error('Error parsing user data:', e);
