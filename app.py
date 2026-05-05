@@ -1,3 +1,7 @@
+from dotenv import load_dotenv
+
+load_dotenv()
+
 from flask import Flask, render_template, url_for, send_from_directory, request, jsonify, make_response, redirect
 from urllib.parse import quote
 from datetime import datetime, timedelta
@@ -13,7 +17,6 @@ except Exception:
     # Fallback to the db client initialized in firebase routes
     from routes.firebase_routes import db as firebase_db
 from firebase_admin import firestore
-from routes.test_parsing_routes import test_parsing_routes
 try:
     from routes.wikiqa_routes import wikiqa_routes
     WIKIQA_AVAILABLE = True
@@ -23,7 +26,6 @@ except ImportError:
 
 app = Flask(__name__)
 app.register_blueprint(firebase_routes)
-app.register_blueprint(test_parsing_routes)
 if WIKIQA_AVAILABLE:
     app.register_blueprint(wikiqa_routes)
 
@@ -139,10 +141,6 @@ def user_events_learning_path():
 def user_events_binder_editor():
     return render_template('user/binder_editor.html')
 
-@app.route('/user/events/test')
-def user_events_test_viewer():
-    return render_template('user/test_viewer.html')
-
 @app.route('/events/academic')
 def academic_events():
     return render_template('events/academic_events.html')
@@ -188,18 +186,6 @@ def competition_apply():
 @app.route('/Merch')
 def merch():
     return render_template('merch.html')
-
-@app.route('/user/topic-space')
-def topic_space():
-    return render_template('user/topic_space.html')
-
-@app.route('/user/topic-space/<parsed_test_id>')
-def topic_space_visualization(parsed_test_id):
-    return render_template('user/topic_space.html', parsed_test_id=parsed_test_id)
-
-@app.route('/user/parsed-test/<parsed_test_id>')
-def parsed_test_view(parsed_test_id):
-    return render_template('user/parsed_test.html', parsed_test_id=parsed_test_id)
 
 @app.route('/user/attendance')
 def user_attendance():
@@ -568,6 +554,10 @@ def admin_analytics():
 @app.route('/admin/event-placements')
 def admin_event_placements():
     return render_template('admin_event_placements.html')
+
+@app.route('/admin/competition-placer')
+def admin_competition_placer():
+    return render_template('admin_competition_placer.html')
 
 @app.route('/admin/house-cup')
 def admin_house_cup():

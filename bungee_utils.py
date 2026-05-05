@@ -2,9 +2,6 @@ import numpy as np
 import pandas as pd
 from scipy.optimize import curve_fit
 from scipy.interpolate import interp1d, CubicSpline
-import matplotlib.pyplot as plt
-import io
-import base64
 
 def get_interpolator(calibration_data, method):
     """

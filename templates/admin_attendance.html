@@ -84,6 +84,30 @@
             </div>
         </div>
 
+        <!-- Google Sheet attendance -->
+        <div class="panel">
+            <div class="panel-header">
+                <div>
+                    <h2 style="margin: 0;">Google Sheet attendance</h2>
+                    <p style="margin: 0.25rem 0 0 0; color: #64748b; font-size: 0.875rem;">Each event has its own tab (members × meetings). The Codes tab lists codes by day; Members lists attendance percentages (from the sheets, including manual edits).</p>
+                </div>
+                <div class="panel-actions">
+                    <button type="button" class="btn-outline" onclick="loadAttendanceSheetStatus()">
+                        <i class="fas fa-sync-alt"></i> Status
+                    </button>
+                    <button type="button" class="btn-primary" onclick="refreshAttendanceMembersSheet()">
+                        <i class="fas fa-percent"></i> Update member %
+                    </button>
+                    <button type="button" class="btn-info" onclick="initAttendanceWorkbook()">
+                        <i class="fas fa-table"></i> Sync workbook from Firestore
+                    </button>
+                </div>
+            </div>
+            <div class="panel-body">
+                <p id="attendanceSheetStatus" style="margin: 0; color: #64748b; font-size: 0.9rem;">Checking configuration…</p>
+            </div>
+        </div>
+
         <!-- Event and Meeting Selection Panel -->
         <div class="panel">
             <div class="panel-header">
@@ -913,7 +937,80 @@
         loadMembers();
         loadTodaysCodes();
         loadExcusedAbsences();
+        loadAttendanceSheetStatus();
     });
+
+    async function loadAttendanceSheetStatus() {
+        const el = document.getElementById('attendanceSheetStatus');
+        if (!el) return;
+        const adminId = sessionStorage.getItem('adminId');
+        try {
+            const r = await fetch('/api/admin/attendance/sheets/status', {
+                headers: { 'X-Admin-ID': adminId || '' }
+            });
+            const d = await r.json().catch(() => ({}));
+            if (!r.ok) {
+                el.textContent = d.error || 'Could not read sheet status. Use an admin account (EM or full).';
+                el.style.color = '#b91c1c';
+                return;
+            }
+            el.style.color = d.configured ? '#065f46' : '#92400e';
+            el.textContent = d.configured
+                ? 'Google Sheets sync is on: check-ins and admin attendance changes update the spreadsheet.'
+                : 'Not configured on the server: set ATTENDANCE_SPREADSHEET_ID and GOOGLE_SHEETS_CREDENTIALS (or GOOGLE_SHEETS_SERVICE_ACCOUNT_JSON). Share the spreadsheet with the service account email.';
+        } catch (e) {
+            el.textContent = 'Network error checking sheet status.';
+            el.style.color = '#b91c1c';
+        }
+    }
+
+    async function refreshAttendanceMembersSheet() {
+        const adminId = sessionStorage.getItem('adminId');
+        if (!adminId) {
+            alert('Admin session missing. Sign in from the admin dashboard first.');
+            return;
+        }
+        try {
+            const r = await fetch('/api/admin/attendance/sheets/refresh-members', {
+                method: 'POST',
+                headers: { 'X-Admin-ID': adminId }
+            });
+            const d = await r.json().catch(() => ({}));
+            if (r.ok) {
+                alert(`Members sheet updated (${d.membersWritten} members, ${d.events} event columns in summary).`);
+            } else {
+                alert(d.error || 'Failed to update Members sheet');
+            }
+        } catch (e) {
+            alert('Network error');
+        }
+    }
+
+    async function initAttendanceWorkbook() {
+        if (!confirm('Rebuild the Codes tab from all Firestore meetings and ensure every meeting has a column on its event tab? This does not delete event attendance cells, but replaces the Codes sheet contents.')) {
+            return;
+        }
+        const adminId = sessionStorage.getItem('adminId');
+        if (!adminId) {
+            alert('Admin session missing. Sign in from the admin dashboard first.');
+            return;
+        }
+        try {
+            const r = await fetch('/api/admin/attendance/sheets/init', {
+                method: 'POST',
+                headers: { 'X-Admin-ID': adminId }
+            });
+            const d = await r.json().catch(() => ({}));
+            if (r.ok) {
+                alert(`Workbook synced (${d.meetingsProcessed} meetings processed).`);
+                loadAttendanceSheetStatus();
+            } else {
+                alert(d.error || 'Failed to sync workbook');
+            }
+        } catch (e) {
+            alert('Network error');
+        }
+    }
 
     async function loadStats() {
         try {

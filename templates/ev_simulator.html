@@ -116,20 +116,6 @@
         color: #64748b;
     }
 
-    .trajectory-container {
-        position: relative;
-        background: #f1f5f9;
-        border-radius: 10px;
-        border: 2px solid #e2e8f0;
-        overflow: hidden;
-    }
-
-    #trajectoryCanvas {
-        display: block;
-        width: 100%;
-        height: min(85vh, 950px);
-    }
-
     .info-box {
         background: #ecfdf5;
         padding: 12px 16px;
@@ -452,6 +438,92 @@
         overflow-y: auto;
     }
 
+    .arc-data-textarea {
+        width: 100%;
+        min-height: 220px;
+        padding: 12px;
+        border: 2px solid #e2e8f0;
+        border-radius: 6px;
+        font-family: "Consolas", "Monaco", "Courier New", monospace;
+        font-size: 0.9em;
+        line-height: 1.45;
+        resize: vertical;
+        box-sizing: border-box;
+    }
+
+    .arc-data-textarea:focus {
+        outline: none;
+        border-color: #14b8a6;
+    }
+
+    .arc-fit-btn {
+        padding: 12px 20px;
+        background: #0f766e;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 1em;
+        cursor: pointer;
+    }
+
+    .arc-fit-btn:hover {
+        background: #0d9488;
+    }
+
+    .arc-results-table-wrap {
+        margin-top: 16px;
+        overflow-x: auto;
+    }
+
+    .arc-results-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9em;
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid #e2e8f0;
+    }
+
+    .arc-results-table th,
+    .arc-results-table td {
+        padding: 10px 12px;
+        text-align: left;
+        border-bottom: 1px solid #e2e8f0;
+    }
+
+    .arc-results-table th {
+        background: #ecfdf5;
+        color: #065f46;
+        font-weight: 600;
+    }
+
+    .arc-stat-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 10px;
+        margin-top: 14px;
+    }
+
+    #arcCalibrationCanvas {
+        display: block;
+        width: 100%;
+        height: min(85vh, 950px);
+        background: #f1f5f9;
+        border-radius: 10px;
+        border: 2px solid #e2e8f0;
+    }
+
+    #trajectoryPlanCanvas {
+        display: block;
+        width: 100%;
+        height: clamp(220px, min(32vh, 36vw), 400px);
+        background: #f1f5f9;
+        border-radius: 10px;
+        border: 2px solid #e2e8f0;
+    }
+
     @media (max-width: 900px) {
         .ev-content {
             grid-template-columns: 1fr;
@@ -469,193 +541,194 @@
     <div class="ev-simulator-container">
         <div class="ev-header">
             <h1>⚡ Electric Vehicle C Simulator</h1>
-            <p>Path through the gap between cans (inside), then back to the target — outer can fixed at 100 cm</p>
+            <p>Trajectory tools and motor strategies for Electric Vehicle</p>
         </div>
 
         <div class="ev-tabs">
-            <button type="button" class="ev-tab active" data-tab="trajectory">Trajectory</button>
+            <button type="button" class="ev-tab active" data-tab="arc-calibration">Arc calibration</button>
+            <button type="button" class="ev-tab" data-tab="trajectory">Trajectory</button>
             <button type="button" class="ev-tab" data-tab="motor">Motor Control</button>
         </div>
 
-        <div id="tab-trajectory" class="ev-tab-content active">
+        <div id="tab-arc-calibration" class="ev-tab-content active">
         <div class="ev-content">
             <div class="ev-panel">
-                <h2>Parameters</h2>
+                <h2>Arc calibration</h2>
+                <p class="strategy-intro" style="margin-bottom: 16px;">
+                    Lay out a <strong>centerline</strong> ending at a block and aim the <strong>riflescope</strong> along that line (<strong>+</strong><em>y</em>, toward the block). Start the EV at (0, 0). Use each <strong>check-slot</strong> tab position for a fixed turn radius; vary run distance so the vehicle stops at different places. Record stop coordinates in cm — <em>x</em> = lateral (positive = left when facing +<em>y</em>), <em>y</em> = distance along the centerline forward from the start. Enter each trial below with its slot number.
+                </p>
 
                 <div class="form-group">
-                    <label for="trackDistance">Target Distance (cm)</label>
-                    <input type="number" id="trackDistance" value="800" min="700" max="1000" step="10">
-                    <small>Full distance from start to target (7–10 m per rules)</small>
+                    <label for="arcDataInput">Measured stops — one per line: <code>y</code><sub>fwd</sub>, <code>slot</code>, <code>x</code><sub>lat</sub> (sheet style) or <code>x</code><sub>lat</sub>, <code>y</code><sub>fwd</sub>, <code>slot</code></label>
+                    <textarea id="arcDataInput" class="arc-data-textarea" spellcheck="false"># EV calibration — sheet order: y_cm, slot, x_cm (L / minus = left = −x when using magnitude; R = +x). Slot may be 8 or 8th.
+800, 8, 48
+800, 6, -41
+700, 6, -52.5
+700, 7, -24.5
+700, 8, 15.5
+900, 6, -9
+900, 7, 43
+600, 5, -87.3
+600, 6, -60.6
+600, 7, -47
+600, 8, -8.5
+600, 9, 3.7
+800, 8, 51
+800, 7, 4.1</textarea>
+                    <small>Comma- or space-separated. Lines starting with <code>#</code> are ignored. <strong>Sheet:</strong> forward distance <code>y</code>, then slot (e.g. <code>8th</code>), then lateral <code>x</code> — use a minus sign, or suffix <code>L</code>/<code>R</code> on the magnitude. <strong>Alternate:</strong> <code>x</code>, <code>y</code>, <code>slot</code> when the middle column is not a slot number.</small>
                 </div>
 
                 <div class="form-group">
-                    <label id="marginDistanceLabel" for="marginDistance">Min clearance inside gap (cm)</label>
-                    <input type="number" id="marginDistance" value="4" min="4" max="95" step="0.5">
-                    <small id="marginDistanceHelp">Find the discrete angle that minimizes clearance while staying above this minimum</small>
-                </div>
-
-                <div class="form-group" style="margin-top: 12px;">
-                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
-                        <input type="checkbox" id="discreteAngles" checked>
-                        <span>Discrete wheel angles</span>
-                    </label>
-                    <small>When checked, find the discrete angle that minimizes clearance while staying above the minimum</small>
+                    <label for="arcTurnDirection">Curve direction (physics convention)</label>
+                    <select id="arcTurnDirection">
+                        <option value="left" selected>Left / CCW — positive lateral <em>x</em> grows along the arc</option>
+                        <option value="right">Right / CW — use if your stops bend the other way</option>
+                    </select>
                 </div>
 
                 <div class="form-group">
-                    <button type="button" class="constants-toggle" id="constantsToggle" onclick="toggleConstants()">
-                        <span>Constants</span>
-                        <span id="constantsIcon">▼</span>
-                    </button>
-                    <div class="constants-dropdown" id="constantsDropdown">
-                        <div class="form-group">
-                            <label for="wheelbase">Wheelbase (cm)</label>
-                            <input type="number" id="wheelbase" value="50" min="20" max="70" step="1">
-                            <small>Distance between front and rear axles</small>
-                        </div>
-                        <div class="form-group">
-                            <label for="scopeAngle">Scope angle γ (degrees)</label>
-                            <input type="number" id="scopeAngle" value="22.5" min="-30" max="30" step="0.5">
-                            <small>Angle scope makes with EV axis (positive = right of forward)</small>
-                        </div>
-                        <div class="form-group">
-                            <label for="wheelsSightingAngle">Wheels sighting line angle (degrees)</label>
-                            <input type="number" id="wheelsSightingAngle" value="20" min="-30" max="30" step="0.5">
-                            <small>Angle wheels sight line makes with wheel direction (positive = right of wheel)</small>
-                        </div>
-                        <div class="form-group" id="discreteAnglesListGroup">
-                            <label for="discreteAnglesList">Discrete angle values (degrees, comma separated)</label>
-                            <input type="text" id="discreteAnglesList" value="0.976, 1.308, 1.544, 1.884, 2.225, 2.579, 3.042, 3.814">
-                            <small>List of possible steering angles (\(\delta\)) from holes/pegs</small>
-                        </div>
-                    </div>
+                    <button type="button" class="arc-fit-btn" id="arcFitButton">Fit shared heading &amp; radii</button>
                 </div>
 
-                <div class="form-group" style="margin-top: 12px;">
-                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
-                        <input type="checkbox" id="showWheelSighting">
-                        <span>Show wheel sighting</span>
-                    </label>
-                    <small>When checked, show wheel sighting line angle, block location calculation, and block on simulation</small>
-                </div>
+                <div id="arcFitError" class="error-message"></div>
 
-                <div id="errorMessage" class="error-message"></div>
-
-                <div id="resultsSection" style="display: none;">
-                    <h3 style="margin-top: 24px; color: #0f766e;">Results</h3>
-                    <div class="results-grid">
+                <div id="arcFitResults" style="display: none;">
+                    <h3 style="margin-top: 20px; color: #0f766e;">Fit summary</h3>
+                    <div class="arc-stat-grid">
                         <div class="result-card">
-                            <div class="label">Initial Angle θ₀</div>
-                            <div class="value" id="resultTheta">—</div>
-                            <div class="unit">degrees</div>
-                        </div>
-                        <div class="result-card" id="resultDiscreteIndexCard" style="display: none;">
-                            <div class="label">Discrete Angle Index</div>
-                            <div class="value" id="resultDiscreteIndex">—</div>
-                            <div class="unit"># in list</div>
+                            <div class="label">α — riflescope vs initial heading</div>
+                            <div class="value" id="arcResultAlpha">—</div>
+                            <div class="unit">degrees (+ = toward +x from +y)</div>
                         </div>
                         <div class="result-card">
-                            <div class="label">Wheel Angle δ</div>
-                            <div class="value" id="resultDelta">—</div>
-                            <div class="unit">degrees</div>
-                        </div>
-                        <div class="result-card">
-                            <div class="label" id="resultClearanceLabel">Clearance inside gap</div>
-                            <div class="value" id="resultClearance">—</div>
+                            <div class="label">Radial RMSE to circles</div>
+                            <div class="value" id="arcResultRmse">—</div>
                             <div class="unit">cm</div>
-                        </div>
-                        <div class="result-card">
-                            <div class="label">Turning Radius R</div>
-                            <div class="value" id="resultRadius">—</div>
-                            <div class="unit">cm</div>
-                        </div>
-                        <div class="result-card">
-                            <div class="label">Total Path Distance</div>
-                            <div class="value" id="resultPathLength">—</div>
-                            <div class="unit">cm</div>
-                        </div>
-                        <div class="result-card">
-                            <div class="label">Lateral Offset (scope sighting block)</div>
-                            <div class="value" id="resultLateralOffset">—</div>
-                            <div class="unit">cm</div>
-                        </div>
-                        <div class="result-card wheel-sighting-only" id="resultWheelLateralOffsetCard">
-                            <div class="label">Lateral Offset (wheel sighting block)</div>
-                            <div class="value" id="resultWheelLateralOffset">—</div>
-                            <div class="unit">cm</div>
-                        </div>
-                        <div class="result-card wheel-sighting-only" id="resultWheelSightingAngleCard">
-                            <div class="label">Wheel sighting line angle</div>
-                            <div class="value" id="resultWheelSightingAngle">—</div>
-                            <div class="unit">degrees</div>
                         </div>
                     </div>
-                    <div class="info-box wheel-sighting-calc" id="wheelSightingCalcBox" style="display: none;">
-                        <strong>Wheel sighting block location:</strong> Ray from front axle in wheel sight line direction (θ₀ − δ − β) to target line. Lateral offset = <span id="wheelSightingFormula">—</span> cm
+                    <div class="arc-results-table-wrap">
+                        <table class="arc-results-table">
+                            <thead>
+                                <tr>
+                                    <th>Slot</th>
+                                    <th>Fitted radius R (cm)</th>
+                                    <th># points</th>
+                                </tr>
+                            </thead>
+                            <tbody id="arcRadiiTableBody"></tbody>
+                        </table>
                     </div>
-                    <div class="info-box">
-                        <strong>Setup:</strong> Point the vehicle <span id="setupAngle">—</span>° to the left at the start. Set the front wheels to <span id="setupWheel">—</span>°. Place scope sighting block at <span id="setupScopeBlock">—</span> cm<span id="setupWheelBlockSpan" class="wheel-sighting-only">; wheel sighting block at <span id="setupWheelBlock">—</span> cm</span> (lateral offset from target).
+                    <div class="info-box" style="margin-top: 14px;">
+                        <strong>Interpretation:</strong> α is the angle from the centerline (+y, toward the block) to the robot’s initial heading at <em>t</em>=0 (positive α rotates toward +x). Each slot gets its own radius <em>R<sub>k</sub></em>; all arcs share α. If the fit looks mirrored, switch curve direction or flip the sign of lateral <em>x</em>.
                     </div>
                 </div>
             </div>
 
             <div class="ev-panel">
-                <h2>Trajectory</h2>
-                <div class="trajectory-container">
-                    <canvas id="trajectoryCanvas"></canvas>
-                </div>
-                <div class="legend">
-                    <div class="legend-item">
-                        <span class="legend-color" style="background: #0f766e;"></span>
-                        Path
-                    </div>
-                    <div class="legend-item">
-                        <span class="legend-color" style="background: #dc2626;"></span>
-                        Outer can (fixed)
-                    </div>
-                    <div class="legend-item">
-                        <span class="legend-color" style="background: #059669;"></span>
-                        Target
-                    </div>
-                    <div class="legend-item">
-                        <span class="legend-color" style="background: #7c3aed;"></span>
-                        Scope sighting block
-                    </div>
-                    <div class="legend-item wheel-sighting-only">
-                        <span class="legend-color" style="background: #ea580c; border: 1px solid #c2410c;"></span>
-                        Wheel sighting block & line
-                    </div>
-                </div>
+                <h2>Data &amp; fitted arcs</h2>
+                <canvas id="arcCalibrationCanvas" width="800" height="700"></canvas>
+                <div class="legend" id="arcPlotLegend"></div>
             </div>
         </div>
 
         <div class="ev-formulas">
-            <h2>Formulas</h2>
+            <h2>Model</h2>
             <div class="formulas-content">
-                <p><strong>Pass point</strong> (path goes through the gap, inside the cans):</p>
-                <p class="formula">\[ y_{\mathrm{pass}} = 100 - m \]</p>
-                <p class="formula-desc">where \(m\) = clearance from outer can edge (cm)</p>
+                <p><strong>Coordinates.</strong> Origin at the start; +<em>y</em> along the riflescope / centerline toward the block; +<em>x</em> lateral (left when facing +<em>y</em>).</p>
+                <p><strong>Shared heading.</strong> Let α be the angle from +<em>y</em> toward +<em>x</em> to the initial velocity direction (same for every slot). Initially \( \mathbf{\hat{t}} = (\sin\alpha,\,\cos\alpha) \) in (\(x\), \(y\)).</p>
+                <p><strong>Circular arc through the origin.</strong> For a left (CCW) turn with radius <em>R</em>, the circle center is at \( (R\cos\alpha,\,-R\sin\alpha) \). Every stop satisfies:</p>
+                <p class="formula">\[ x^2 + y^2 = 2R\,(x\cos\alpha - y\sin\alpha) \]</p>
+                <p class="formula-desc">For a right (CW) turn, use \(x^2 + y^2 = 2R\,(y\sin\alpha - x\cos\alpha)\).</p>
+                <p><strong>Fitting.</strong> With α fixed, each slot’s radius is chosen by linear least squares so the above holds for all points in that slot. α is scanned on [−89°, 89°] and refined to minimize the sum of squared residuals of \(x^2+y^2 - 2R_k(\cdots)\).</p>
+            </div>
+        </div>
+        </div>
 
-                <p><strong>Circle center</strong> (vertical layout: \(c_y\) = center along track, \(c_x\) = center perpendicular):</p>
-                <p class="formula">\[ c_y = D/2 \quad \text{(vertical)}, \qquad c_x = \frac{y_{\mathrm{pass}}^2 - D^2/4}{2\,y_{\mathrm{pass}}} \quad \text{(horizontal)} \]</p>
+        <div id="tab-trajectory" class="ev-tab-content">
+        <div class="ev-content">
+            <div class="ev-panel">
+                <h2>Trajectory planner</h2>
+                <p class="strategy-intro" style="margin-bottom: 16px;">
+                    Uses calibration <strong>α</strong> and per-slot <strong>R</strong>. For each slot, the fitted arc is rotated in-plane about the start until it passes through the target <strong>(0, D)</strong> on the centerline (+<em>y</em>). Centers use the branch with <strong>cx &gt; 0</strong> so the path bows toward +<em>x</em>. The <strong>can</strong> reference is fixed at <strong>(−100, D/2)</strong> cm. The table lists tangent <strong>ψ</strong> from +<em>y</em>, <strong>ψ − α</strong>, block lateral <strong>x = D tan(ψ − α)</strong> at <strong>y = D</strong>, and lateral clearance from the arc at <strong>y = D/2</strong> to that can point.
+                </p>
 
-                <p><strong>Turning radius</strong>:</p>
-                <p class="formula">\[ R = \sqrt{c_y^2 + c_x^2} \]</p>
+                <div class="form-group">
+                    <button type="button" class="arc-fit-btn" id="trajSyncCalibBtn">Load α &amp; radii from last arc fit</button>
+                    <small>Run <strong>Arc calibration</strong> and fit first, or enter α and R manually.</small>
+                </div>
 
-                <p><strong>Initial heading angle</strong> \(\theta_0\) (point left at start):</p>
-                <p class="formula">\[ \theta_0 = \arctan\left(\frac{c_y}{-c_x}\right) \]</p>
+                <div class="form-group">
+                    <label for="trajAlphaDeg">Calibration α (deg)</label>
+                    <input type="number" id="trajAlphaDeg" step="0.0001" placeholder="From arc fit">
+                    <small>Angle from +<em>y</em> toward +<em>x</em> to initial heading (same α as calibration).</small>
+                </div>
 
-                <p><strong>Wheel steering angle</strong> \(\delta\):</p>
-                <p class="formula">\[ \tan\delta = \frac{L}{R} \quad \Rightarrow \quad \delta = \arctan\left(\frac{L}{R}\right) \]</p>
-                <p class="formula-desc">where \(L\) = wheelbase (cm)</p>
+                <div class="form-group">
+                    <label for="trajTargetD">Target distance D (cm)</label>
+                    <input type="number" id="trajTargetD" value="800" min="50" max="1200" step="10">
+                    <small>Target on centerline at (<em>x</em>, <em>y</em>) = (0, <em>D</em>).</small>
+                </div>
 
-                <p><strong>Total path distance</strong> (arc length):</p>
-                <p class="formula">\[ s = R \cdot |\phi_{\mathrm{target}} - \phi_{\mathrm{start}}| \]</p>
-                <p class="formula-desc">where \(\phi\) = angle from circle center to point (radians)</p>
+                <div class="form-group">
+                    <label for="trajTurnLeft">Turn sense (match calibration)</label>
+                    <select id="trajTurnLeft">
+                        <option value="left" selected>Left / CCW</option>
+                        <option value="right">Right / CW</option>
+                    </select>
+                </div>
 
-                <p><strong>Lateral offset</strong> (place sighting block at target line, scope at middle):</p>
-                <p class="formula">\[ \text{Lateral offset} = D \cdot \tan(\theta_0 - \gamma) + \frac{L}{2}\left(\cos\theta_0 \cdot \tan(\theta_0 - \gamma) - \sin\theta_0\right) \]</p>
-                <p class="formula-desc">where \(\gamma\) = scope angle (positive = right of forward), \(L\) = wheelbase. Scope assumed at middle of robot (\(L/2\) behind MP).</p>
+                <p class="strategy-intro" style="margin-top: 12px; margin-bottom: 0; font-size: 0.9em; color: #64748b;">
+                    Can marker on the plot: <strong>(−100, D/2)</strong> cm (fixed).
+                </p>
+
+                <h3 style="margin-top: 18px; color: #0f766e;">Slot radii R (cm)</h3>
+                <div class="arc-results-table-wrap">
+                    <table class="arc-results-table">
+                        <thead>
+                            <tr>
+                                <th>Slot</th>
+                                <th>R</th>
+                            </tr>
+                        </thead>
+                        <tbody id="trajRadiiTableBody"></tbody>
+                    </table>
+                </div>
+
+                <div class="form-group" style="margin-top: 16px;">
+                    <button type="button" class="arc-fit-btn" id="trajComputeBtn">Update graph &amp; sighting table</button>
+                </div>
+
+                <div id="trajError" class="error-message"></div>
+
+                <h3 style="margin-top: 22px; color: #0f766e;">Sighting &amp; headings</h3>
+                <div class="arc-results-table-wrap">
+                    <table class="arc-results-table">
+                        <thead>
+                            <tr>
+                                <th>Slot</th>
+                                <th>Tangent ψ from +y (deg)</th>
+                                <th>ψ − α (deg)</th>
+                                <th>Block <code>x</code> = <em>D</em> tan(ψ − α) (cm)</th>
+                                <th>Mid clearance to can (cm)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="trajPlanTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="ev-panel">
+                <h2>Arcs through target</h2>
+                <canvas id="trajectoryPlanCanvas" width="1000" height="340"></canvas>
+                <div class="legend" id="trajectoryPlanLegend"></div>
+            </div>
+        </div>
+
+        <div class="ev-formulas">
+            <h2>Trajectory geometry</h2>
+            <div class="formulas-content">
+                <p>An arc of radius <em>R</em> through (0,0) and (0,<em>D</em>) has center on <em>y = D/2</em> with \(|cx|=\sqrt{R^2-(D/2)^2}\). We take <strong>cx positive</strong> so the bulge is toward +<em>x</em> (outer-can side).</p>
+                <p>Let \( \mathbf{c}_{\mathrm{cal}} \) be the calibrated center for that slot. Rotation \(\phi\) about the origin maps \(\mathbf{c}_{\mathrm{cal}}\) to \(\mathbf{c}_{\mathrm{tgt}}\) (same length \(R\)). The calibrated tangent \((\sin\alpha,\cos\alpha)\) rotates to \(\mathbf{t}'\); \(\psi=\mathrm{atan2}(t'_x,t'_y)\) from +\(y\). The sighting table uses \(\psi-\alpha\) and block lateral \(x = D\tan(\psi-\alpha)\) at \(y=D\). Mid-clearance uses the arc’s \(x\) at \(y=D/2\) on the path from \((0,0)\) to \((0,D)\); the can reference is fixed at \((-100,\,D/2)\), so clearance is \(x_{\mathrm{curve}}(D/2) - (-100) = x_{\mathrm{curve}}(D/2)+100\).</p>
             </div>
         </div>
         </div>
@@ -668,7 +741,7 @@
                 <button type="button" class="strategy-tab" data-strategy="constantspeed">Constant Speed</button>
                 <button type="button" class="strategy-tab" data-strategy="simple">Simple</button>
             </div>
-            <p class="strategy-intro">Use the <strong>Total Path Distance</strong> from the Trajectory tab as the target distance for encoder-based control.</p>
+            <p class="strategy-intro">Use your measured <strong>arc length</strong> (encoder distance along the path) from calibration runs as the target distance for encoder-based control.</p>
 
             <div id="strategy-3phase" class="strategy-content active">
                 <div class="phase-cards">
@@ -1554,388 +1627,925 @@ void loop() {
         document.body.removeChild(ta);
     }
 
-    function toggleConstants() {
-        const dd = document.getElementById('constantsDropdown');
-        const icon = document.getElementById('constantsIcon');
-        dd.classList.toggle('open');
-        icon.textContent = dd.classList.contains('open') ? '▲' : '▼';
+    var ARC_SLOT_COLORS = ['#0f766e', '#7c3aed', '#ea580c', '#0891b2', '#dc2626', '#ca8a04', '#db2777', '#4f46e5'];
+    window.__evArcCalibLastFit = null;
+    window.__evTrajPlanState = null;
+
+    /** Slot label: 8, 8th → integer slot (1–99). */
+    function parseArcSlotToken(tok) {
+        var m = String(tok).trim().match(/^(\d+)(?:th|st|nd|rd)?$/i);
+        if (!m) return NaN;
+        var s = parseInt(m[1], 10);
+        if (s < 1 || s > 99) return NaN;
+        return s;
     }
 
-    function calculateAndDraw() {
-        const D = parseFloat(document.getElementById('trackDistance').value);
-        let margin = parseFloat(document.getElementById('marginDistance').value);
-        const L = parseFloat(document.getElementById('wheelbase').value);
-        const scopeAngleDeg = parseFloat(document.getElementById('scopeAngle').value) || 0;
-        const gamma = scopeAngleDeg * Math.PI / 180;
-        const wheelsSightingAngleDeg = parseFloat(document.getElementById('wheelsSightingAngle').value) || 0;
-        const wheelsSightingAngleRad = wheelsSightingAngleDeg * Math.PI / 180;
-
-        const isDiscrete = document.getElementById('discreteAngles').checked;
-        const discreteAnglesListEl = document.getElementById('discreteAnglesList');
-        const marginLabel = document.getElementById('marginDistanceLabel');
-        const marginHelp = document.getElementById('marginDistanceHelp');
-
-        if (isDiscrete) {
-            marginLabel.textContent = 'Min clearance inside gap (cm)';
-            marginHelp.textContent = 'Find the discrete angle that minimizes clearance while staying above this minimum';
-            document.getElementById('resultDiscreteIndexCard').style.display = 'block';
-            document.getElementById('resultClearanceLabel').textContent = 'Resulting Clearance';
-        } else {
-            marginLabel.textContent = 'Clearance inside gap (cm)';
-            marginHelp.textContent = 'Distance from outer can\'s inside edge — path passes inside the gap';
-            document.getElementById('resultDiscreteIndexCard').style.display = 'none';
-            document.getElementById('resultClearanceLabel').textContent = 'Clearance inside gap';
-        }
-
-        // Outer can is fixed at 100 cm from center (inside edge per rules)
-        const CAN_OFFSET = 100;
-
-        const errEl = document.getElementById('errorMessage');
-        errEl.classList.remove('visible');
-        errEl.textContent = '';
-
-        if (isNaN(D) || D <= 0) {
-            errEl.textContent = 'Please enter a valid track distance.';
-            errEl.classList.add('visible');
-            return;
-        }
-
-        let theta0, delta, R, cx, cy, passY;
-        cy = D / 2;
-
-        if (isDiscrete) {
-            const angleStr = discreteAnglesListEl.value;
-            const angles = angleStr.split(',').map(s => parseFloat(s.trim())).filter(n => !isNaN(n));
-            if (angles.length === 0) {
-                errEl.textContent = 'Please enter at least one discrete angle value.';
-                errEl.classList.add('visible');
-                return;
-            }
-
-            let bestDelta = null;
-            let bestPassY = -Infinity;
-            let bestIndex = -1;
-
-            angles.forEach((dDeg, idx) => {
-                const dRad = dDeg * Math.PI / 180;
-                const rCur = L / Math.tan(dRad);
-                if (rCur < D / 2) return; // Cannot reach target
-
-                const cxCur = -Math.sqrt(rCur * rCur - cy * cy);
-                const pyCur = rCur + cxCur;
-                const mCur = CAN_OFFSET - pyCur;
-
-                if (mCur >= margin) {
-                    if (pyCur > bestPassY) {
-                        bestPassY = pyCur;
-                        bestDelta = dRad;
-                        bestIndex = idx + 1;
-                    }
-                }
-            });
-
-            if (bestDelta === null) {
-                errEl.textContent = 'No discrete angle found that stays above the minimum clearance.';
-                errEl.classList.add('visible');
-                return;
-            }
-
-            delta = bestDelta;
-            passY = bestPassY;
-            R = L / Math.tan(delta);
-            cx = -Math.sqrt(R * R - cy * cy);
-            theta0 = Math.atan2(cy, -cx);
-            margin = CAN_OFFSET - passY;
-
-            document.getElementById('resultDiscreteIndex').textContent = bestIndex;
-        } else {
-            if (isNaN(margin) || margin < 4) {
-                errEl.textContent = 'Clearance must be at least 4 cm from the outer can edge.';
-                errEl.classList.add('visible');
-                return;
-            }
-            if (margin >= CAN_OFFSET) {
-                errEl.textContent = 'Clearance must be less than 100 cm to pass inside the gap.';
-                errEl.classList.add('visible');
-                return;
-            }
-
-            // Path passes INSIDE the gap — through (D/2, CAN_OFFSET - margin)
-            passY = CAN_OFFSET - margin;
-            cx = (passY * passY - cy * cy) / (2 * passY);
-            R = Math.sqrt(cy * cy + cx * cx);
-            theta0 = Math.atan2(cy, -cx);
-            delta = Math.atan(L / R);
-        }
-
-        // Arc length from start to target
-        const phiStart = Math.atan2(0 - cx, 0 - cy);
-        const phiTarget = Math.atan2(0 - cx, D - cy);
-        const pathLength = R * Math.abs(phiTarget - phiStart);
-
-        // Lateral offset: scope at middle (d = L/2 behind MP). Ray from scope through target at (D, offset).
-        const d = L / 2;  // scope at middle of robot
-        const tanTheta0Gamma = Math.tan(theta0 - gamma);
-        const lateralOffset = D * tanTheta0Gamma + d * (Math.cos(theta0) * tanTheta0Gamma - Math.sin(theta0));
-
-        // Wheel sighting block
-        const wheelDir = theta0 - delta - wheelsSightingAngleRad;
-        const frontAxleX = L * Math.cos(theta0);
-        const frontAxleY = L * Math.sin(theta0);
-        const cosWheel = Math.cos(wheelDir);
-        const t = (D - frontAxleX) / cosWheel;
-        const wheelLateralOffset = frontAxleY + t * Math.sin(wheelDir);
-
-        // Display results
-        document.getElementById('resultsSection').style.display = 'block';
-        document.getElementById('resultTheta').textContent = (theta0 * 180 / Math.PI).toFixed(2);
-        document.getElementById('resultDelta').textContent = (delta * 180 / Math.PI).toFixed(2);
-        document.getElementById('resultRadius').textContent = R.toFixed(1);
-        document.getElementById('resultPathLength').textContent = pathLength.toFixed(1);
-        document.getElementById('resultLateralOffset').textContent = lateralOffset.toFixed(1);
-        document.getElementById('resultWheelLateralOffset').textContent = wheelLateralOffset.toFixed(1);
-        document.getElementById('resultClearance').textContent = margin.toFixed(2);
-        
-        document.getElementById('setupAngle').textContent = (theta0 * 180 / Math.PI).toFixed(1);
-        document.getElementById('setupWheel').textContent = (delta * 180 / Math.PI).toFixed(1);
-        document.getElementById('setupScopeBlock').textContent = lateralOffset.toFixed(1);
-        document.getElementById('setupWheelBlock').textContent = wheelLateralOffset.toFixed(1);
-
-        const showWheelSighting = document.getElementById('showWheelSighting').checked;
-        const tabTrajectory = document.getElementById('tab-trajectory');
-        if (showWheelSighting) {
-            tabTrajectory.classList.add('show-wheel-sighting');
-            document.getElementById('resultWheelSightingAngle').textContent = (wheelDir * 180 / Math.PI).toFixed(2);
-            const calcBox = document.getElementById('wheelSightingCalcBox');
-            calcBox.style.display = 'block';
-            document.getElementById('wheelSightingFormula').textContent = 'frontAxleY + (D − frontAxleX) × tan(θ₀ − δ − β) = ' + wheelLateralOffset.toFixed(1);
-        } else {
-            tabTrajectory.classList.remove('show-wheel-sighting');
-            document.getElementById('wheelSightingCalcBox').style.display = 'none';
-        }
-
-        // Draw trajectory
-        drawTrajectory(D, CAN_OFFSET, passY, L, theta0, R, cx, cy, lateralOffset, wheelLateralOffset, delta, wheelsSightingAngleRad, showWheelSighting);
+    /** L / minus → negative lateral when magnitude is unsigned; signed numbers unchanged. */
+    function parseArcLatToken(tok) {
+        var t = String(tok).trim();
+        if (!t) return NaN;
+        var last = t.charAt(t.length - 1).toUpperCase();
+        var hasSuf = last === 'L' || last === 'R';
+        if (hasSuf) t = t.slice(0, -1).trim();
+        var v = parseFloat(t);
+        if (isNaN(v)) return NaN;
+        if (hasSuf) return last === 'L' ? -Math.abs(v) : Math.abs(v);
+        return v;
     }
 
-    function drawTrajectory(D, targetOffset, passY, L, theta0, R, cx, cy, lateralOffset, wheelLateralOffset, delta, wheelsSightingAngleRad, showWheelSighting) {
-        const canvas = document.getElementById('trajectoryCanvas');
-        const ctx = canvas.getContext('2d');
+    /**
+     * Accepts:
+     *   y, slot, x — sheet order when slot parses as 1–99 (middle column).
+     *   x, y, slot — alternate order otherwise (middle is forward distance).
+     */
+    function parseArcData(text) {
+        var lines = text.split(/\r?\n/);
+        var pts = [];
+        for (var i = 0; i < lines.length; i++) {
+            var line = lines[i].trim();
+            if (!line || line.charAt(0) === '#') continue;
+            var parts = line.split(/[\s,]+/).filter(Boolean);
+            if (parts.length < 3) continue;
 
-        const rect = canvas.getBoundingClientRect();
-        const dpr = window.devicePixelRatio || 1;
-        canvas.width = rect.width * dpr;
-        canvas.height = rect.height * dpr;
-        canvas.style.width = rect.width + 'px';
-        canvas.style.height = rect.height + 'px';
-        ctx.scale(dpr, dpr);
+            var slotMid = parseArcSlotToken(parts[1]);
+            var x;
+            var y;
+            var slot;
 
-        const w = rect.width;
-        const h = rect.height;
-        const padding = 30;
-        const drawW = w - 2 * padding;
-        const drawH = h - 2 * padding;
+            if (!isNaN(slotMid)) {
+                y = parseFloat(parts[0]);
+                slot = slotMid;
+                x = parseArcLatToken(parts[2]);
+            } else {
+                x = parseArcLatToken(parts[0]);
+                y = parseFloat(parts[1]);
+                slot = parseArcSlotToken(parts[2]);
+            }
 
-        // VERTICAL: start at bottom, target at top. FLIPPED: robot curves clockwise from left to right.
-        const xMin = 0;
-        const xMax = D;
-        // Flip over centerline: negate all y values for display
-        const flipY = (y) => -y;
-        const yMin = Math.min(-30, flipY(lateralOffset) - 20, flipY(wheelLateralOffset || 0) - 20);
-        const yMax = Math.max(flipY(passY), flipY(targetOffset), flipY(lateralOffset), flipY(wheelLateralOffset || 0)) + 50;
-
-        const scaleY = drawH / (xMax - xMin);
-        const scaleX = drawW / (yMax - yMin);
-        const scale = Math.min(scaleX, scaleY);
-
-        const offsetX = padding + (drawW - (yMax - yMin) * scale) / 2;
-
-        function toScreen(x, y) {
-            return {
-                x: offsetX + (flipY(y) - yMin) * scale,
-                y: h - padding - (x - xMin) * scale
-            };
+            if (isNaN(x) || isNaN(y) || isNaN(slot) || slot < 1) continue;
+            pts.push({ x: x, y: y, slot: slot });
         }
+        return pts;
+    }
 
-        ctx.fillStyle = '#f8fafc';
+    function groupPointsBySlot(points) {
+        var slots = {};
+        for (var i = 0; i < points.length; i++) {
+            var s = points[i].slot;
+            if (!slots[s]) slots[s] = [];
+            slots[s].push(points[i]);
+        }
+        return slots;
+    }
+
+    /** Linear least-squares R_k for fixed alpha; returns null if invalid */
+    function fitRadiiForAlpha(alphaRad, slotsMap, turnLeft) {
+        var slotIds = Object.keys(slotsMap).map(Number).sort(function(a, b) { return a - b; });
+        var radii = {};
+        var sse = 0;
+
+        for (var si = 0; si < slotIds.length; si++) {
+            var sid = slotIds[si];
+            var pts = slotsMap[sid];
+            var sumAB = 0;
+            var sumAA = 0;
+            for (var j = 0; j < pts.length; j++) {
+                var x = pts[j].x;
+                var y = pts[j].y;
+                var b = x * x + y * y;
+                var a = turnLeft
+                    ? (x * Math.cos(alphaRad) - y * Math.sin(alphaRad))
+                    : (y * Math.sin(alphaRad) - x * Math.cos(alphaRad));
+                if (Math.abs(a) < 1e-12) return null;
+                sumAB += a * b;
+                sumAA += a * a;
+            }
+            if (sumAA < 1e-18) return null;
+            var Rk = sumAB / (2 * sumAA);
+            if (!(Rk > 0)) return null;
+            radii[sid] = Rk;
+
+            for (var j = 0; j < pts.length; j++) {
+                var x = pts[j].x;
+                var y = pts[j].y;
+                var b = x * x + y * y;
+                var a = turnLeft
+                    ? (x * Math.cos(alphaRad) - y * Math.sin(alphaRad))
+                    : (y * Math.sin(alphaRad) - x * Math.cos(alphaRad));
+                var res = b - 2 * Rk * a;
+                sse += res * res;
+            }
+        }
+        return { radii: radii, sse: sse, slotIds: slotIds };
+    }
+
+    /** Point (x,y): x = lateral, y = forward (+y centerline). */
+    function circleCenter(alphaRad, Rk, turnLeft) {
+        if (turnLeft) return { cx: Rk * Math.cos(alphaRad), cy: -Rk * Math.sin(alphaRad) };
+        return { cx: -Rk * Math.cos(alphaRad), cy: Rk * Math.sin(alphaRad) };
+    }
+
+    function radialResiduals(points, alphaRad, radii, turnLeft) {
+        var list = [];
+        for (var i = 0; i < points.length; i++) {
+            var p = points[i];
+            var Rk = radii[p.slot];
+            var c = circleCenter(alphaRad, Rk, turnLeft);
+            var dx = p.x - c.cx;
+            var dy = p.y - c.cy;
+            var dist = Math.sqrt(dx * dx + dy * dy);
+            list.push(dist - Rk);
+        }
+        return list;
+    }
+
+    function fitSharedAlpha(points, turnLeft) {
+        var slotsMap = groupPointsBySlot(points);
+        var slotIds = Object.keys(slotsMap).map(Number);
+        if (slotIds.length === 0) return null;
+
+        var best = null;
+        var coarseDeg = 0.25;
+        for (var deg = -89; deg <= 89; deg += coarseDeg) {
+            var a = deg * Math.PI / 180;
+            var fit = fitRadiiForAlpha(a, slotsMap, turnLeft);
+            if (!fit) continue;
+            if (!best || fit.sse < best.sse) best = { alpha: a, sse: fit.sse, radii: fit.radii, slotIds: fit.slotIds };
+        }
+        if (!best) return null;
+
+        var centerDeg = best.alpha * 180 / Math.PI;
+        var refineLo = Math.max(-89, centerDeg - 1.5);
+        var refineHi = Math.min(89, centerDeg + 1.5);
+        for (var step = 0.02; step >= 0.005; step /= 2) {
+            for (var d = refineLo; d <= refineHi + 1e-9; d += step) {
+                var ar = d * Math.PI / 180;
+                var fit = fitRadiiForAlpha(ar, slotsMap, turnLeft);
+                if (!fit) continue;
+                if (fit.sse < best.sse) best = { alpha: ar, sse: fit.sse, radii: fit.radii, slotIds: fit.slotIds };
+            }
+            refineLo = Math.max(-89, best.alpha * 180 / Math.PI - 2 * step);
+            refineHi = Math.min(89, best.alpha * 180 / Math.PI + 2 * step);
+        }
+        return best;
+    }
+
+    function unwrapPsi(psi, psiRef) {
+        var d = psi - psiRef;
+        while (d > Math.PI) d -= 2 * Math.PI;
+        while (d < -Math.PI) d += 2 * Math.PI;
+        return psiRef + d;
+    }
+
+    /** ψ interval covering the origin (ψ0) and all stops on this slot's circle */
+    function slotArcPsiSpan(psi0, ptsSlot, cx, cy) {
+        var arr = [psi0];
+        for (var i = 0; i < ptsSlot.length; i++) {
+            var pj = Math.atan2(ptsSlot[i].y - cy, ptsSlot[i].x - cx);
+            arr.push(unwrapPsi(pj, psi0));
+        }
+        var psiLo = Math.min.apply(null, arr);
+        var psiHi = Math.max.apply(null, arr);
+        var span = psiHi - psiLo;
+        if (span < 1e-5) {
+            psiLo -= 0.02;
+            psiHi += 0.02;
+            span = psiHi - psiLo;
+        }
+        /* Avoid atan2 / wrapping bugs drawing an almost-complete stray circle */
+        var spanCap = 1.92 * Math.PI;
+        if (span > spanCap) {
+            var mid = (psiLo + psiHi) / 2;
+            psiLo = mid - spanCap / 2;
+            psiHi = mid + spanCap / 2;
+        }
+        return { psiLo: psiLo, psiHi: psiHi };
+    }
+
+    /** x-coordinate where the trajectory arc (circle segment psiLo…psiHi) crosses y = yLine */
+    function arcXAtYOnSpan(cx, cy, R, psiLo, psiHi, yLine) {
+        function yPsi(ps) {
+            return cy + R * Math.sin(ps);
+        }
+        var yLo = yPsi(psiLo);
+        var yHi = yPsi(psiHi);
+        var ymin = Math.min(yLo, yHi);
+        var ymax = Math.max(yLo, yHi);
+        if (yLine < ymin - 1e-6 || yLine > ymax + 1e-6) return NaN;
+        var inc = yHi >= yLo;
+        var lo = psiLo;
+        var hi = psiHi;
+        for (var it = 0; it < 56; it++) {
+            var mid = (lo + hi) * 0.5;
+            var ym = yPsi(mid);
+            if (inc) {
+                if (ym < yLine) lo = mid;
+                else hi = mid;
+            } else {
+                if (ym > yLine) lo = mid;
+                else hi = mid;
+            }
+        }
+        var psi = (lo + hi) * 0.5;
+        return cx + R * Math.cos(psi);
+    }
+
+    /** Hidden tabs give getBoundingClientRect() 0×0 — need fallbacks so the canvas is drawable. */
+    function canvasCssSizeForDraw(canvas, minW, minH) {
+        minW = minW || 640;
+        minH = minH || 480;
+        var rect = canvas.getBoundingClientRect();
+        var w = rect.width;
+        var h = rect.height;
+        if (w < 2 || h < 2) {
+            var p = canvas.parentElement;
+            if (p) {
+                w = Math.max(p.clientWidth || 0, p.offsetWidth || 0, w);
+                h = Math.max(p.clientHeight || 0, p.offsetHeight || 0, h);
+            }
+        }
+        if (w < 2) w = Math.min(920, Math.max(minW, (window.innerWidth || 900) - 100));
+        if (h < 2) h = Math.min(900, Math.max(minH, Math.floor((window.innerHeight || 800) * 0.65)));
+        return { w: w, h: h };
+    }
+
+    function drawArcCalibration(fitBundle, points, turnLeft) {
+        var canvas = document.getElementById('arcCalibrationCanvas');
+        if (!canvas) return;
+        var ctx = canvas.getContext('2d');
+        var dpr = window.devicePixelRatio || 1;
+        var css = canvasCssSizeForDraw(canvas, 720, 560);
+        var w = css.w;
+        var h = css.h;
+        canvas.width = Math.max(1, Math.floor(w * dpr));
+        canvas.height = Math.max(1, Math.floor(h * dpr));
+        canvas.style.width = w + 'px';
+        canvas.style.height = h + 'px';
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+        var pad = 44;
+        ctx.fillStyle = '#f1f5f9';
         ctx.fillRect(0, 0, w, h);
 
-        // Grid — vertical layout: constant x = horizontal lines, constant y = vertical lines
+        function expandBounds(mm, x, y) {
+            mm.minX = Math.min(mm.minX, x);
+            mm.maxX = Math.max(mm.maxX, x);
+            mm.minY = Math.min(mm.minY, y);
+            mm.maxY = Math.max(mm.maxY, y);
+        }
+
+        function dataBounds() {
+            var mm = { minX: 0, maxX: 0, minY: 0, maxY: 0 };
+            if (points.length === 0) {
+                mm.minX = -15;
+                mm.maxX = 40;
+                mm.minY = -15;
+                mm.maxY = 40;
+            } else {
+                mm.minX = mm.maxX = points[0].x;
+                mm.minY = mm.maxY = points[0].y;
+                for (var i = 1; i < points.length; i++) expandBounds(mm, points[i].x, points[i].y);
+            }
+            expandBounds(mm, 0, 0);
+            if (fitBundle) {
+                var alpha = fitBundle.alpha;
+                var radii = fitBundle.radii;
+                var sortedSlots = Object.keys(radii).map(Number).sort(function(a, b) { return a - b; });
+                var arcSteps = 48;
+                for (var si = 0; si < sortedSlots.length; si++) {
+                    var sid = sortedSlots[si];
+                    var Rk = radii[sid];
+                    var c = circleCenter(alpha, Rk, turnLeft);
+                    var psi0 = Math.atan2(0 - c.cy, 0 - c.cx);
+                    var ptsSlot = points.filter(function(q) { return q.slot === sid; });
+                    var span = slotArcPsiSpan(psi0, ptsSlot, c.cx, c.cy);
+                    for (var t = 0; t <= arcSteps; t++) {
+                        var psi = span.psiLo + (t / arcSteps) * (span.psiHi - span.psiLo);
+                        var ax = c.cx + Rk * Math.cos(psi);
+                        var ay = c.cy + Rk * Math.sin(psi);
+                        expandBounds(mm, ax, ay);
+                    }
+                }
+            }
+            mm.minX -= 18;
+            mm.maxX += 22;
+            mm.minY -= 18;
+            mm.maxY += 28;
+            return mm;
+        }
+
+        var b = dataBounds();
+        var rw = Math.max(b.maxX - b.minX, 1e-6);
+        var rh = Math.max(b.maxY - b.minY, 1e-6);
+        var scale = Math.min((w - 2 * pad) / rw, (h - 2 * pad) / rh);
+
+        function sx(x) {
+            return pad + (x - b.minX) * scale;
+        }
+        function sy(y) {
+            return h - pad - (y - b.minY) * scale;
+        }
+
         ctx.strokeStyle = '#e2e8f0';
-        ctx.lineWidth = 0.5;
-        for (let x = 0; x <= xMax; x += 100) {
-            const p1 = toScreen(x, yMin);
-            const p2 = toScreen(x, yMax);
+        ctx.lineWidth = 1;
+        var gx0 = Math.floor(b.minX / 50) * 50;
+        for (var gx = gx0; gx <= b.maxX + 1; gx += 50) {
             ctx.beginPath();
-            ctx.moveTo(p1.x, p1.y);
-            ctx.lineTo(p2.x, p2.y);
+            ctx.moveTo(sx(gx), sy(b.minY));
+            ctx.lineTo(sx(gx), sy(b.maxY));
             ctx.stroke();
         }
-        for (let y = yMin; y <= yMax; y += 50) {
-            const p1 = toScreen(xMin, y);
-            const p2 = toScreen(xMax, y);
+        var gy0 = Math.floor(b.minY / 50) * 50;
+        for (var gy = gy0; gy <= b.maxY + 1; gy += 50) {
             ctx.beginPath();
-            ctx.moveTo(p1.x, p1.y);
-            ctx.lineTo(p2.x, p2.y);
+            ctx.moveTo(sx(b.minX), sy(gy));
+            ctx.lineTo(sx(b.maxX), sy(gy));
             ctx.stroke();
         }
 
-        // Centerline (y=0) — vertical line at center
-        const clStart = toScreen(0, 0);
-        const clEnd = toScreen(D, 0);
-        ctx.strokeStyle = '#94a3b8';
-        ctx.lineWidth = 2;
-        ctx.setLineDash([8, 4]);
+        ctx.strokeStyle = '#cbd5e1';
+        ctx.lineWidth = 1;
+        ctx.setLineDash([4, 6]);
         ctx.beginPath();
-        ctx.moveTo(clStart.x, clStart.y);
-        ctx.lineTo(clEnd.x, clEnd.y);
+        ctx.moveTo(sx(b.minX), sy(0));
+        ctx.lineTo(sx(b.maxX), sy(0));
         ctx.stroke();
         ctx.setLineDash([]);
+        ctx.fillStyle = '#64748b';
+        ctx.font = '11px sans-serif';
+        ctx.fillText('+x (lateral)', sx(b.maxX) - 88, sy(0) + 14);
 
-        // Arc from start (0,0) through pass point (D/2, passY) to target (D, 0)
-        // Center at (cy, cx) in (forward, left); phi = atan2(y-cx, x-cy)
-        const phiStart = Math.atan2(0 - cx, 0 - cy);
-        const phiTarget = Math.atan2(0 - cx, D - cy);
-
-        const numPoints = 100;
-        ctx.strokeStyle = '#0f766e';
-        ctx.lineWidth = 4;
+        ctx.strokeStyle = '#64748b';
+        ctx.lineWidth = 2;
+        ctx.setLineDash([6, 5]);
         ctx.beginPath();
+        ctx.moveTo(sx(0), sy(b.minY));
+        ctx.lineTo(sx(0), sy(b.maxY));
+        ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.fillStyle = '#475569';
+        ctx.font = '12px sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillText('+y → block', sx(0) + 8, sy((b.minY + b.maxY) * 0.55));
 
-        for (let i = 0; i <= numPoints; i++) {
-            const t = i / numPoints;
-            const phi = phiStart + t * (phiTarget - phiStart);
-            const x = cy + R * Math.cos(phi);
-            const y = cx + R * Math.sin(phi);
-            const p = toScreen(x, y);
-            if (i === 0) ctx.moveTo(p.x, p.y);
-            else ctx.lineTo(p.x, p.y);
+        var yArrow = Math.min(b.maxY, Math.max(28, (b.maxY - b.minY) * 0.06));
+        ctx.strokeStyle = '#0f766e';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(sx(0), sy(0));
+        ctx.lineTo(sx(0), sy(yArrow));
+        ctx.stroke();
+        var tipYscr = sy(yArrow);
+        ctx.beginPath();
+        ctx.moveTo(sx(0) - 7, tipYscr + 10);
+        ctx.lineTo(sx(0), tipYscr);
+        ctx.lineTo(sx(0) + 7, tipYscr + 10);
+        ctx.stroke();
+
+        if (fitBundle) {
+            var alpha = fitBundle.alpha;
+            var radii = fitBundle.radii;
+            var sortedSlots = Object.keys(radii).map(Number).sort(function(a, b) { return a - b; });
+
+            for (var si = 0; si < sortedSlots.length; si++) {
+                var sid = sortedSlots[si];
+                var Rk = radii[sid];
+                var col = ARC_SLOT_COLORS[Math.abs(sid) % ARC_SLOT_COLORS.length];
+                var c = circleCenter(alpha, Rk, turnLeft);
+                var psi0 = Math.atan2(0 - c.cy, 0 - c.cx);
+                var ptsSlot = points.filter(function(q) { return q.slot === sid; });
+                var span = slotArcPsiSpan(psi0, ptsSlot, c.cx, c.cy);
+                var steps = 96;
+                ctx.strokeStyle = col;
+                ctx.lineWidth = 3;
+                ctx.setLineDash([]);
+                ctx.globalAlpha = 0.9;
+                ctx.beginPath();
+                for (var t = 0; t <= steps; t++) {
+                    var psi = span.psiLo + (t / steps) * (span.psiHi - span.psiLo);
+                    var x = c.cx + Rk * Math.cos(psi);
+                    var y = c.cy + Rk * Math.sin(psi);
+                    var px = sx(x);
+                    var py = sy(y);
+                    if (t === 0) ctx.moveTo(px, py);
+                    else ctx.lineTo(px, py);
+                }
+                ctx.stroke();
+                ctx.globalAlpha = 1;
+            }
         }
-        ctx.stroke();
 
-        // Start point
-        const startP = toScreen(0, 0);
-        ctx.fillStyle = '#0f766e';
+        for (var i = 0; i < points.length; i++) {
+            var col = ARC_SLOT_COLORS[Math.abs(points[i].slot) % ARC_SLOT_COLORS.length];
+            ctx.fillStyle = col;
+            ctx.strokeStyle = '#1e293b';
+            ctx.lineWidth = 1.5;
+            ctx.beginPath();
+            ctx.arc(sx(points[i].x), sy(points[i].y), 6, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+        }
+
+        ctx.fillStyle = '#0f172a';
         ctx.beginPath();
-        ctx.arc(startP.x, startP.y, 10, 0, Math.PI * 2);
+        ctx.arc(sx(0), sy(0), 7, 0, Math.PI * 2);
         ctx.fill();
-        ctx.strokeStyle = '#065f46';
+        ctx.strokeStyle = '#fff';
         ctx.lineWidth = 2;
         ctx.stroke();
 
-        // Vehicle at start — point in direction of motion (forward = up, curving clockwise right)
-        const vLen = 30;
-        const vWid = 8;
-        ctx.save();
-        ctx.translate(startP.x, startP.y);
-        ctx.rotate(-theta0 - Math.PI / 2);
-        ctx.strokeStyle = '#0f766e';
-        ctx.lineWidth = 2;
-        ctx.strokeRect(-vLen/2, -vWid/2, vLen, vWid);
-        ctx.restore();
+        if (fitBundle) {
+            var alpha = fitBundle.alpha;
+            var ahLen = Math.min(55, 0.12 * Math.max(b.maxY - b.minY, b.maxX - b.minX));
+            var hx = ahLen * Math.sin(alpha);
+            var hy = ahLen * Math.cos(alpha);
+            ctx.strokeStyle = '#be185d';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(sx(0), sy(0));
+            ctx.lineTo(sx(hx), sy(hy));
+            ctx.stroke();
+            var ux = Math.sin(alpha);
+            var uy = Math.cos(alpha);
+            ctx.beginPath();
+            ctx.moveTo(sx(hx), sy(hy));
+            ctx.lineTo(sx(hx - 6 * ux + 4 * (-uy)), sy(hy - 6 * uy + 4 * ux));
+            ctx.moveTo(sx(hx), sy(hy));
+            ctx.lineTo(sx(hx - 6 * ux - 4 * (-uy)), sy(hy - 6 * uy - 4 * ux));
+            ctx.stroke();
+            ctx.fillStyle = '#9d174d';
+            ctx.font = '11px sans-serif';
+            ctx.textAlign = 'left';
+            ctx.fillText('Initial heading α', sx(hx) + (hx >= 0 ? 8 : -82), sy(hy) + (hy >= 0 ? -8 : 16));
+        }
 
-        // Outer can (fixed at 100 cm from center, inside edge; center ~104 cm)
-        const canCenterY = targetOffset + 4;  // 4 cm radius
-        const canP = toScreen(D/2, canCenterY);
-        const canRadiusPx = Math.max(4 * scale, 6);
-        ctx.fillStyle = 'rgba(220, 38, 38, 0.3)';
+        ctx.fillStyle = '#334155';
+        ctx.font = '600 13px sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillText('Start (0, 0)', sx(0) - 48, sy(0) + 22);
+
+        var legendEl = document.getElementById('arcPlotLegend');
+        if (legendEl && fitBundle) {
+            var ids = Object.keys(fitBundle.radii).map(Number).sort(function(a, b) { return a - b; });
+            legendEl.innerHTML = '';
+            for (var li = 0; li < ids.length; li++) {
+                var sid = ids[li];
+                var col = ARC_SLOT_COLORS[Math.abs(sid) % ARC_SLOT_COLORS.length];
+                var item = document.createElement('div');
+                item.className = 'legend-item';
+                item.innerHTML = '<span class="legend-color" style="background:' + col + ';"></span> Slot ' + sid + ' — R ≈ ' + fitBundle.radii[sid].toFixed(1) + ' cm';
+                legendEl.appendChild(item);
+            }
+            var ptLeg = document.createElement('div');
+            ptLeg.className = 'legend-item';
+            ptLeg.innerHTML = '<span class="legend-color" style="background:#0f172a;border:2px solid #fff;"></span> Measured stops';
+            legendEl.appendChild(ptLeg);
+        } else if (legendEl) {
+            legendEl.innerHTML = '<div class="legend-item"><span class="legend-color" style="background:#64748b;"></span> Enter data and click <strong>Fit</strong></div>';
+        }
+
+        var barCm = [100, 50, 25, 10].find(function(cm) { return cm * scale <= 110; }) || 10;
+        var bx = sx(b.minX) + 10;
+        var barBot = h - pad - 14;
+        ctx.strokeStyle = '#1e293b';
+        ctx.lineWidth = 3;
         ctx.beginPath();
-        ctx.arc(canP.x, canP.y, canRadiusPx, 0, Math.PI * 2);
+        ctx.moveTo(bx, barBot);
+        ctx.lineTo(bx, barBot - barCm * scale);
+        ctx.stroke();
+        ctx.font = '11px sans-serif';
+        ctx.fillStyle = '#1e293b';
+        ctx.textAlign = 'left';
+        ctx.fillText(barCm + ' cm (+y)', bx + 8, barBot - barCm * scale / 2 + 4);
+    }
+
+    function populateTrajectoryRadiiTable() {
+        var fit = window.__evArcCalibLastFit;
+        var tbody = document.getElementById('trajRadiiTableBody');
+        if (!tbody) return;
+        var ids = fit ? Object.keys(fit.radii).map(Number).sort(function(a, b) { return a - b; }) : [5, 6, 7, 8, 9];
+        tbody.innerHTML = '';
+        if (fit) {
+            var aEl = document.getElementById('trajAlphaDeg');
+            var tEl = document.getElementById('trajTurnLeft');
+            if (aEl) aEl.value = (fit.alphaRad * 180 / Math.PI).toFixed(4);
+            if (tEl) tEl.value = fit.turnLeft ? 'left' : 'right';
+        }
+        for (var i = 0; i < ids.length; i++) {
+            var sid = ids[i];
+            var val = fit && fit.radii[sid] != null ? Number(fit.radii[sid]).toFixed(2) : '';
+            var tr = document.createElement('tr');
+            var tdS = document.createElement('td');
+            tdS.textContent = String(sid);
+            var tdR = document.createElement('td');
+            var inp = document.createElement('input');
+            inp.type = 'number';
+            inp.step = '0.01';
+            inp.min = '1';
+            inp.setAttribute('data-slot', String(sid));
+            inp.value = val;
+            inp.style.cssText = 'width:100%;padding:8px;border:2px solid #e2e8f0;border-radius:6px;font-size:1em;box-sizing:border-box;';
+            tdR.appendChild(inp);
+            tr.appendChild(tdS);
+            tr.appendChild(tdR);
+            tbody.appendChild(tr);
+        }
+    }
+
+    function gatherTrajectoryRadii() {
+        var out = {};
+        var inputs = document.querySelectorAll('#trajRadiiTableBody input[data-slot]');
+        for (var i = 0; i < inputs.length; i++) {
+            var sid = parseInt(inputs[i].getAttribute('data-slot'), 10);
+            var v = parseFloat(inputs[i].value);
+            if (!isNaN(sid) && !isNaN(v) && v > 0) out[sid] = v;
+        }
+        return out;
+    }
+
+    function showTrajError(msg) {
+        var el = document.getElementById('trajError');
+        if (!el) return;
+        el.textContent = msg || '';
+        el.classList.toggle('visible', !!msg);
+    }
+
+    /** Fixed can reference for trajectory plot & mid clearance (cm). */
+    var TRAJ_CAN_REF_X = -100;
+    /** Horizontal px/cm vs vertical — uniform scale ignored canvas aspect; this elongates +x. */
+    var TRAJ_PLOT_X_STRETCH = 2;
+
+    function computeTrajectoryRow(slot, R, alphaRad, D, turnLeft) {
+        var half = D / 2;
+        if (!(R >= half - 1e-9)) {
+            return { slot: slot, valid: false, error: 'Need R ≥ D/2 (radius too small for this target).' };
+        }
+        var cx_t = Math.sqrt(R * R - half * half);
+        var cy_t = half;
+        var cCal = circleCenter(alphaRad, R, turnLeft);
+        var phi = Math.atan2(cCal.cx * cy_t - cCal.cy * cx_t, cx_t * cCal.cx + cy_t * cCal.cy);
+        var vx = Math.cos(phi) * Math.sin(alphaRad) - Math.sin(phi) * Math.cos(alphaRad);
+        var vy = Math.sin(phi) * Math.sin(alphaRad) + Math.cos(phi) * Math.cos(alphaRad);
+        var psiRad = Math.atan2(vx, vy);
+        var psiMinusAlphaRad = psiRad - alphaRad;
+        var xBlock = NaN;
+        if (Math.abs(Math.cos(psiMinusAlphaRad)) > 1e-9) xBlock = D * Math.tan(psiMinusAlphaRad);
+        var psi0arc = Math.atan2(0 - cy_t, 0 - cx_t);
+        var spanArc = slotArcPsiSpan(psi0arc, [{ x: 0, y: D }], cx_t, cy_t);
+        var arcXAtMidY = arcXAtYOnSpan(cx_t, cy_t, R, spanArc.psiLo, spanArc.psiHi, half);
+        var canMarginCm = NaN;
+        if (isFinite(arcXAtMidY)) canMarginCm = arcXAtMidY - TRAJ_CAN_REF_X;
+        return {
+            slot: slot,
+            R: R,
+            valid: true,
+            cx_t: cx_t,
+            cy_t: cy_t,
+            phiDeg: phi * 180 / Math.PI,
+            psiDeg: psiRad * 180 / Math.PI,
+            scopeDeg: (psiRad + alphaRad) * 180 / Math.PI,
+            psiMinusAlphaDeg: psiMinusAlphaRad * 180 / Math.PI,
+            arcXAtMidY: arcXAtMidY,
+            canMarginCm: canMarginCm,
+            xBlock: xBlock
+        };
+    }
+
+    function drawTrajectoryPlan(rows, D) {
+        var canvas = document.getElementById('trajectoryPlanCanvas');
+        if (!canvas) return;
+        var ctx = canvas.getContext('2d');
+        var dpr = window.devicePixelRatio || 1;
+        var css = canvasCssSizeForDraw(canvas, 1020, 280);
+        var w = css.w;
+        var h = css.h;
+        canvas.width = Math.max(1, Math.floor(w * dpr));
+        canvas.height = Math.max(1, Math.floor(h * dpr));
+        canvas.style.width = w + 'px';
+        canvas.style.height = h + 'px';
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+        var pad = 44;
+        if (!isFinite(D) || D <= 0) D = 800;
+
+        ctx.fillStyle = '#f1f5f9';
+        ctx.fillRect(0, 0, w, h);
+
+        function expand(mm, x, y) {
+            mm.minX = Math.min(mm.minX, x);
+            mm.maxX = Math.max(mm.maxX, x);
+            mm.minY = Math.min(mm.minY, y);
+            mm.maxY = Math.max(mm.maxY, y);
+        }
+
+        var mm = { minX: 0, maxX: 0, minY: 0, maxY: D };
+        expand(mm, 0, 0);
+        expand(mm, 0, D);
+        expand(mm, TRAJ_CAN_REF_X, D / 2);
+
+        var valid = (rows || []).filter(function(r) { return r.valid; });
+        var arcSteps = 40;
+        for (var ri = 0; ri < valid.length; ri++) {
+            var rw = valid[ri];
+            var psi0 = Math.atan2(0 - rw.cy_t, 0 - rw.cx_t);
+            var span = slotArcPsiSpan(psi0, [{ x: 0, y: D }], rw.cx_t, rw.cy_t);
+            for (var t = 0; t <= arcSteps; t++) {
+                var psi = span.psiLo + (t / arcSteps) * (span.psiHi - span.psiLo);
+                var ax = rw.cx_t + rw.R * Math.cos(psi);
+                var ay = rw.cy_t + rw.R * Math.sin(psi);
+                expand(mm, ax, ay);
+            }
+            if (!isNaN(rw.xBlock)) expand(mm, rw.xBlock, D);
+            if (isFinite(rw.arcXAtMidY)) expand(mm, rw.arcXAtMidY, D / 2);
+        }
+
+        mm.minX -= 22;
+        mm.maxX += 28;
+        mm.minY -= 22;
+        mm.maxY += 28;
+
+        var rwid = Math.max(mm.maxX - mm.minX, 1e-6);
+        var rhgt = Math.max(mm.maxY - mm.minY, 1e-6);
+        /* Horizontal stretch: +x gets TRAJ_PLOT_X_STRETCH× more px/cm than +y (circles look elliptical). */
+        var scaleY = Math.min((w - 2 * pad) / (TRAJ_PLOT_X_STRETCH * rwid), (h - 2 * pad) / rhgt);
+        var scaleX = TRAJ_PLOT_X_STRETCH * scaleY;
+
+        function sx(x) {
+            return pad + (x - mm.minX) * scaleX;
+        }
+        function sy(y) {
+            return h - pad - (y - mm.minY) * scaleY;
+        }
+
+        ctx.strokeStyle = '#e2e8f0';
+        ctx.lineWidth = 1;
+        var gx0 = Math.floor(mm.minX / 50) * 50;
+        for (var gx = gx0; gx <= mm.maxX + 1; gx += 50) {
+            ctx.beginPath();
+            ctx.moveTo(sx(gx), sy(mm.minY));
+            ctx.lineTo(sx(gx), sy(mm.maxY));
+            ctx.stroke();
+        }
+        var gy0 = Math.floor(mm.minY / 50) * 50;
+        for (var gy = gy0; gy <= mm.maxY + 1; gy += 50) {
+            ctx.beginPath();
+            ctx.moveTo(sx(mm.minX), sy(gy));
+            ctx.lineTo(sx(mm.maxX), sy(gy));
+            ctx.stroke();
+        }
+
+        ctx.strokeStyle = '#cbd5e1';
+        ctx.lineWidth = 1;
+        ctx.setLineDash([4, 6]);
+        ctx.beginPath();
+        ctx.moveTo(sx(mm.minX), sy(0));
+        ctx.lineTo(sx(mm.maxX), sy(0));
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(sx(mm.minX), sy(D));
+        ctx.lineTo(sx(mm.maxX), sy(D));
+        ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.fillStyle = '#64748b';
+        ctx.font = '11px sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillText('+x (lateral)', sx(mm.maxX) - 92, sy(0) + 14);
+        ctx.fillText('y = D', sx(mm.minX) + 6, sy(D) - 6);
+
+        ctx.strokeStyle = '#64748b';
+        ctx.lineWidth = 2;
+        ctx.setLineDash([6, 5]);
+        ctx.beginPath();
+        ctx.moveTo(sx(0), sy(mm.minY));
+        ctx.lineTo(sx(0), sy(mm.maxY));
+        ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.fillStyle = '#475569';
+        ctx.font = '12px sans-serif';
+        ctx.fillText('+y → block', sx(4), sy((mm.minY + mm.maxY) * 0.62));
+
+        ctx.strokeStyle = '#0f766e';
+        ctx.lineWidth = 3;
+        var yArr = Math.min(D * 0.12, (mm.maxY - mm.minY) * 0.08);
+        yArr = Math.max(yArr, 25);
+        ctx.beginPath();
+        ctx.moveTo(sx(0), sy(0));
+        ctx.lineTo(sx(0), sy(yArr));
+        ctx.stroke();
+        var tip = sy(yArr);
+        ctx.beginPath();
+        ctx.moveTo(sx(0) - 7, tip + 10);
+        ctx.lineTo(sx(0), tip);
+        ctx.lineTo(sx(0) + 7, tip + 10);
+        ctx.stroke();
+
+        for (var ai = 0; ai < valid.length; ai++) {
+            var rr = valid[ai];
+            var col = ARC_SLOT_COLORS[Math.abs(rr.slot) % ARC_SLOT_COLORS.length];
+            var psi0b = Math.atan2(0 - rr.cy_t, 0 - rr.cx_t);
+            var spn = slotArcPsiSpan(psi0b, [{ x: 0, y: D }], rr.cx_t, rr.cy_t);
+            ctx.strokeStyle = col;
+            ctx.lineWidth = 3;
+            ctx.globalAlpha = 0.92;
+            ctx.beginPath();
+            for (var tt = 0; tt <= 96; tt++) {
+                var ps = spn.psiLo + (tt / 96) * (spn.psiHi - spn.psiLo);
+                var xa = rr.cx_t + rr.R * Math.cos(ps);
+                var ya = rr.cy_t + rr.R * Math.sin(ps);
+                var px = sx(xa);
+                var py = sy(ya);
+                if (tt === 0) ctx.moveTo(px, py);
+                else ctx.lineTo(px, py);
+            }
+            ctx.stroke();
+            ctx.globalAlpha = 1;
+        }
+
+        var canPx = sx(TRAJ_CAN_REF_X);
+        var canPy = sy(D / 2);
+        ctx.fillStyle = 'rgba(220, 38, 38, 0.35)';
+        ctx.beginPath();
+        ctx.arc(canPx, canPy, Math.max(6, scaleY * 4), 0, Math.PI * 2);
         ctx.fill();
         ctx.strokeStyle = '#dc2626';
         ctx.lineWidth = 2;
         ctx.stroke();
 
-        // Pass point (path goes through here, margin from can)
-        const passP = toScreen(D/2, passY);
-        ctx.fillStyle = '#0f766e';
-        ctx.beginPath();
-        ctx.arc(passP.x, passP.y, 6, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.strokeStyle = '#065f46';
-        ctx.lineWidth = 1;
-        ctx.stroke();
-
-        // Scope sighting block (place at target line, lateral offset from target)
-        const sightP = toScreen(D, lateralOffset);
-        ctx.fillStyle = '#7c3aed';
-        ctx.beginPath();
-        ctx.arc(sightP.x, sightP.y, 10, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.strokeStyle = '#5b21b6';
-        ctx.lineWidth = 2;
-        ctx.stroke();
-
-        // Wheel sighting block and sighting line (when enabled)
-        if (showWheelSighting && wheelLateralOffset != null && !isNaN(wheelLateralOffset)) {
-            const wheelSightP = toScreen(D, wheelLateralOffset);
-            const frontAxleX = L * Math.cos(theta0);
-            const frontAxleY = L * Math.sin(theta0);
-            const frontAxleP = toScreen(frontAxleX, frontAxleY);
-            // Wheel sighting line: from front axle to block location on target line
-            ctx.strokeStyle = '#ea580c';
-            ctx.lineWidth = 2;
-            ctx.setLineDash([6, 4]);
-            ctx.beginPath();
-            ctx.moveTo(frontAxleP.x, frontAxleP.y);
-            ctx.lineTo(wheelSightP.x, wheelSightP.y);
-            ctx.stroke();
-            ctx.setLineDash([]);
-            // Wheel sighting block
-            ctx.fillStyle = '#ea580c';
-            ctx.beginPath();
-            ctx.arc(wheelSightP.x, wheelSightP.y, 10, 0, Math.PI * 2);
-            ctx.fill();
-            ctx.strokeStyle = '#c2410c';
-            ctx.lineWidth = 2;
-            ctx.stroke();
-        }
-
-        // Target point (end of track)
-        const targetP = toScreen(D, 0);
+        var tgtX = sx(0);
+        var tgtY = sy(D);
         ctx.fillStyle = '#059669';
         ctx.beginPath();
-        ctx.arc(targetP.x, targetP.y, 12, 0, Math.PI * 2);
+        ctx.arc(tgtX, tgtY, 11, 0, Math.PI * 2);
         ctx.fill();
         ctx.strokeStyle = '#047857';
         ctx.lineWidth = 2;
         ctx.stroke();
+        ctx.fillStyle = '#065f46';
+        ctx.font = '11px sans-serif';
+        ctx.fillText('Target (0, D)', tgtX + 12, tgtY + 4);
 
-        // Vehicle at target — point in direction of motion (forward = up, coming from clockwise curve)
-        const endTangent = Math.atan2(0 - cx, D - cy) - Math.PI/2;
-        ctx.save();
-        ctx.translate(targetP.x, targetP.y);
-        ctx.rotate(-endTangent - Math.PI / 2);
-        ctx.strokeStyle = '#0f766e';
+        ctx.fillStyle = '#0f172a';
+        ctx.beginPath();
+        ctx.arc(sx(0), sy(0), 7, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = '#fff';
         ctx.lineWidth = 2;
-        ctx.strokeRect(-vLen/2, -vWid/2, vLen, vWid);
-        ctx.restore();
+        ctx.stroke();
 
-        // Labels (vertical: start bottom, target top)
         ctx.fillStyle = '#334155';
-        ctx.font = 'bold 12px sans-serif';
-        ctx.textAlign = 'left';
-        ctx.fillText('START', startP.x + 14, startP.y);
-        ctx.fillText('Outer can', canP.x + canRadiusPx + 6, canP.y);
-        ctx.fillText('TARGET', targetP.x + 14, targetP.y);
-        ctx.fillText('Centerline', clEnd.x + 8, (clStart.y + clEnd.y) / 2);
+        ctx.font = '600 12px sans-serif';
+        ctx.fillText('Start', sx(0) + 10, sy(0) + 18);
 
-        // Scale bar — vertical, show distance along track
-        const maxBarPx = drawH * 0.25;
-        const scaleBarCm = [500, 200, 100, 50, 25].find(x => x * scale <= maxBarPx) || Math.max(10, Math.round(maxBarPx / scale / 25) * 25);
-        const scaleBarPx = scaleBarCm * scale;
-        const barX = padding + 10;
-        const barY = h - padding - 30;
-        ctx.strokeStyle = '#334155';
+        var leg = document.getElementById('trajectoryPlanLegend');
+        if (leg) {
+            leg.innerHTML = '';
+            for (var li = 0; li < valid.length; li++) {
+                var rr2 = valid[li];
+                var c2 = ARC_SLOT_COLORS[Math.abs(rr2.slot) % ARC_SLOT_COLORS.length];
+                var div = document.createElement('div');
+                div.className = 'legend-item';
+                div.innerHTML = '<span class="legend-color" style="background:' + c2 + ';"></span> Slot ' + rr2.slot;
+                leg.appendChild(div);
+            }
+            var d2 = document.createElement('div');
+            d2.className = 'legend-item';
+            d2.innerHTML = '<span class="legend-color" style="background:#059669;"></span> Target';
+            leg.appendChild(d2);
+            var d3 = document.createElement('div');
+            d3.className = 'legend-item';
+            d3.innerHTML = '<span class="legend-color" style="background:rgba(220,38,38,0.55);border:1px solid #dc2626;"></span> Can (−100, D/2)';
+            leg.appendChild(d3);
+        }
+
+        var barCm = [100, 50, 25, 10].find(function(cm) { return cm * scaleY <= 110; }) || 10;
+        var bx = sx(mm.minX) + 10;
+        var barBot = h - pad - 14;
+        ctx.strokeStyle = '#1e293b';
         ctx.lineWidth = 3;
         ctx.beginPath();
-        ctx.moveTo(barX, barY);
-        ctx.lineTo(barX, barY - scaleBarPx);
+        ctx.moveTo(bx, barBot);
+        ctx.lineTo(bx, barBot - barCm * scaleY);
         ctx.stroke();
-        ctx.fillStyle = '#334155';
         ctx.font = '11px sans-serif';
+        ctx.fillStyle = '#1e293b';
         ctx.textAlign = 'left';
-        ctx.fillText(scaleBarCm + ' cm', barX + 8, barY - scaleBarPx / 2 + 4);
+        ctx.fillText(barCm + ' cm (+y)', bx + 8, barBot - barCm * scaleY / 2 + 4);
+    }
+
+    function runTrajectoryPlan() {
+        var alphaDeg = parseFloat(document.getElementById('trajAlphaDeg').value);
+        var D = parseFloat(document.getElementById('trajTargetD').value);
+        var turnLeft = document.getElementById('trajTurnLeft').value === 'left';
+        showTrajError('');
+        var tbody = document.getElementById('trajPlanTableBody');
+        if (tbody) tbody.innerHTML = '';
+
+        if (isNaN(alphaDeg) || isNaN(D) || D <= 0) {
+            showTrajError('Enter valid calibration α (deg) and target distance D (cm).');
+            window.__evTrajPlanState = null;
+            drawTrajectoryPlan([], Math.max(D || 800, 50));
+            return;
+        }
+        var alphaRad = alphaDeg * Math.PI / 180;
+        var radii = gatherTrajectoryRadii();
+        var slots = Object.keys(radii).map(Number).sort(function(a, b) { return a - b; });
+        if (slots.length === 0) {
+            showTrajError('Enter at least one slot radius R (cm), or load from arc calibration.');
+            window.__evTrajPlanState = null;
+            drawTrajectoryPlan([], D);
+            return;
+        }
+
+        var rows = [];
+        var warns = [];
+        for (var i = 0; i < slots.length; i++) {
+            var slot = slots[i];
+            var row = computeTrajectoryRow(slot, radii[slot], alphaRad, D, turnLeft);
+            rows.push(row);
+            if (!row.valid) warns.push('Slot ' + slot + ': ' + row.error);
+            else if (isNaN(row.xBlock)) warns.push('Slot ' + slot + ': block x undefined (psi - alpha near +/-90 deg)');
+            else if (isFinite(row.canMarginCm) && row.canMarginCm < 0) warns.push('Slot ' + slot + ': arc at D/2 passes left of can (x = −100) by ' + (-row.canMarginCm).toFixed(1) + ' cm');
+        }
+        if (warns.length) showTrajError(warns.join(' · '));
+
+        if (tbody) {
+            for (var j = 0; j < rows.length; j++) {
+                var r = rows[j];
+                var tr = document.createElement('tr');
+                if (!r.valid) {
+                    tr.innerHTML = '<td>' + r.slot + '</td><td colspan="4">' + r.error + '</td>';
+                } else {
+                    var xStr = isNaN(r.xBlock) ? '—' : r.xBlock.toFixed(2);
+                    var marginStr = isNaN(r.canMarginCm) ? '—' : r.canMarginCm.toFixed(2);
+                    tr.innerHTML = '<td>' + r.slot + '</td><td>' + r.psiDeg.toFixed(3) + '</td><td>' + r.psiMinusAlphaDeg.toFixed(3) + '</td><td>' + xStr + '</td><td>' + marginStr + '</td>';
+                }
+                tbody.appendChild(tr);
+            }
+        }
+
+        window.__evTrajPlanState = {
+            rows: rows,
+            D: D
+        };
+        drawTrajectoryPlan(rows, D);
+    }
+
+    function showArcError(msg) {
+        var el = document.getElementById('arcFitError');
+        el.textContent = msg || '';
+        el.classList.toggle('visible', !!msg);
+    }
+
+    function runArcFit() {
+        var raw = document.getElementById('arcDataInput').value;
+        var turnLeft = document.getElementById('arcTurnDirection').value === 'left';
+        var points = parseArcData(raw);
+        window.__evArcCalibState = { fitBundle: null, points: points, turnLeft: turnLeft };
+
+        showArcError('');
+        document.getElementById('arcFitResults').style.display = 'none';
+
+        if (points.length < 2) {
+            showArcError('Need at least two valid rows (sheet: y, slot, x — or x, y, slot).');
+            drawArcCalibration(null, points, turnLeft);
+            return;
+        }
+
+        var fit = fitSharedAlpha(points, turnLeft);
+        if (!fit) {
+            showArcError('Could not fit (try the other curve direction, or check coordinates).');
+            drawArcCalibration(null, points, turnLeft);
+            return;
+        }
+        window.__evArcCalibState = { fitBundle: fit, points: points, turnLeft: turnLeft };
+        window.__evArcCalibLastFit = {
+            alphaRad: fit.alpha,
+            radii: JSON.parse(JSON.stringify(fit.radii)),
+            turnLeft: turnLeft
+        };
+        populateTrajectoryRadiiTable();
+
+        var radRes = radialResiduals(points, fit.alpha, fit.radii, turnLeft);
+        var sumSq = 0;
+        for (var i = 0; i < radRes.length; i++) sumSq += radRes[i] * radRes[i];
+        var rmseRadial = Math.sqrt(sumSq / radRes.length);
+
+        document.getElementById('arcFitResults').style.display = 'block';
+        document.getElementById('arcResultAlpha').textContent = (fit.alpha * 180 / Math.PI).toFixed(3);
+        document.getElementById('arcResultRmse').textContent = rmseRadial.toFixed(3);
+
+        var tbody = document.getElementById('arcRadiiTableBody');
+        tbody.innerHTML = '';
+        var slotsMap = groupPointsBySlot(points);
+        var ids = fit.slotIds.slice().sort(function(a, b) { return a - b; });
+        for (var ri = 0; ri < ids.length; ri++) {
+            var sid = ids[ri];
+            var tr = document.createElement('tr');
+            tr.innerHTML = '<td>' + sid + '</td><td>' + fit.radii[sid].toFixed(2) + '</td><td>' + (slotsMap[sid] ? slotsMap[sid].length : 0) + '</td>';
+            tbody.appendChild(tr);
+        }
+
+        drawArcCalibration(fit, points, turnLeft);
     }
 
     function switchTab(tabId) {
@@ -1977,16 +2587,67 @@ void loop() {
             return;
         }
         document.querySelectorAll('.ev-tab').forEach(function(btn) {
-            btn.addEventListener('click', function() { switchTab(btn.getAttribute('data-tab')); });
+            btn.addEventListener('click', function() {
+                var tabId = btn.getAttribute('data-tab');
+                switchTab(tabId);
+                function redrawAfterLayout() {
+                    var st = window.__evArcCalibState;
+                    if (tabId === 'arc-calibration' && st) {
+                        drawArcCalibration(st.fitBundle, st.points, st.turnLeft);
+                    }
+                    if (tabId === 'trajectory') {
+                        runTrajectoryPlan();
+                    }
+                }
+                /* Trajectory canvas lives in a tab that was display:none — layout often needs a frame (or two) before sizes are real. */
+                if (tabId === 'trajectory') {
+                    requestAnimationFrame(function() {
+                        requestAnimationFrame(redrawAfterLayout);
+                    });
+                } else {
+                    requestAnimationFrame(redrawAfterLayout);
+                }
+            });
         });
-        ['trackDistance', 'marginDistance', 'wheelbase', 'scopeAngle', 'wheelsSightingAngle', 'showWheelSighting', 'discreteAngles', 'discreteAnglesList'].forEach(function(id) {
-            const el = document.getElementById(id);
+
+        var fitBtn = document.getElementById('arcFitButton');
+        if (fitBtn) fitBtn.addEventListener('click', runArcFit);
+        var turnSel = document.getElementById('arcTurnDirection');
+        if (turnSel) turnSel.addEventListener('change', runArcFit);
+
+        var trajSyncBtn = document.getElementById('trajSyncCalibBtn');
+        if (trajSyncBtn) trajSyncBtn.addEventListener('click', populateTrajectoryRadiiTable);
+        var trajGoBtn = document.getElementById('trajComputeBtn');
+        if (trajGoBtn) trajGoBtn.addEventListener('click', runTrajectoryPlan);
+
+        ['trajTargetD', 'trajAlphaDeg'].forEach(function(id) {
+            var el = document.getElementById(id);
             if (el) {
-                el.addEventListener('input', calculateAndDraw);
-                el.addEventListener('change', calculateAndDraw);
+                el.addEventListener('change', runTrajectoryPlan);
+                el.addEventListener('keydown', function(e) { if (e.key === 'Enter') runTrajectoryPlan(); });
             }
         });
-        calculateAndDraw();
+        var trajTurn = document.getElementById('trajTurnLeft');
+        if (trajTurn) trajTurn.addEventListener('change', runTrajectoryPlan);
+
+        var trajPane = document.getElementById('tab-trajectory');
+        if (trajPane) {
+            trajPane.addEventListener('change', function(e) {
+                var t = e.target;
+                if (t && t.matches && t.matches('#trajRadiiTableBody input[data-slot]')) runTrajectoryPlan();
+            });
+        }
+
+        window.addEventListener('resize', function() {
+            var st = window.__evArcCalibState;
+            if (st) drawArcCalibration(st.fitBundle, st.points, st.turnLeft);
+            var tp = window.__evTrajPlanState;
+            if (tp && tp.rows) drawTrajectoryPlan(tp.rows, tp.D);
+        });
+
+        populateTrajectoryRadiiTable();
+        runArcFit();
+        runTrajectoryPlan();
     });
 </script>
 {% endblock %}

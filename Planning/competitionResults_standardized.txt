@@ -1042,16 +1042,36 @@ Results: Pending competition
 ================================================================================
 
 NEW YORK STATE CHAMPIONSHIP 2025-26
-Date: March 14, 2026
+Date: March 20-21, 2026
 Type: Official State Championship
 Location: Le Moyne College, Syracuse, NY
-Overnight: Yes (March 13 10am - March 14 11pm)
-Teams: 1
-Registration Opens: February 22, 2026
-Registration Closes: February 28, 2026
-Roster Released: March 3, 2026
+Duosmium: https://www.duosmium.org/results/2026-03-20_NY_states_c/
 
-Results: Pending competition
+Team A Results:
+Anatomy and Physiology: 7
+Astronomy: 7
+Boomilever: 37
+Bungee Drop: 26
+Chemistry Lab: 5
+Circuit Lab: 54
+Codebusters: 8
+Designer Genes: 18
+Disease Detectives: 12
+Dynamic Planet: 3
+Electric Vehicle: 16
+Entomology: 24
+Experimental Design: 13
+Forensics: 6
+Helicopter: 34
+Hovercraft: 25
+Machines: 13
+Material Science: 37
+Remote Sensing: 18
+Robot Tour: 57
+Rocks and Minerals: 21
+Water Quality: 18
+Write It Do It: 23
+Overall: 12th out of 60 teams
 
 ================================================================================
 

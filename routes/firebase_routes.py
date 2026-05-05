@@ -5,9 +5,7 @@ import json
 from datetime import datetime
 import os
 import requests
-from bs4 import BeautifulSoup
 import re
-from urllib.parse import urlparse, parse_qs
 import logging
 import secrets
 from datetime import timedelta
@@ -326,7 +324,15 @@ def create(collection):
             # Regular document creation for other collections
             doc_ref = db.collection(collection).document()
             doc_ref.set(data)
-            
+
+            if collection == 'Meeting':
+                try:
+                    from google_sheets_attendance import on_meeting_created
+
+                    on_meeting_created(doc_ref.id, data)
+                except Exception as sync_err:
+                    logger.warning("Google Sheets meeting create sync skipped: %s", sync_err)
+
             return jsonify({"id": doc_ref.id, "message": "Document created successfully"}), 201
     except Exception as e:
         return jsonify({"error": str(e)}), 500
@@ -353,7 +359,17 @@ def update(collection, document_id):
         else:
             doc_ref.set(data)
             message = "Document replaced successfully"
-        
+
+        if collection == 'Meeting':
+            try:
+                from google_sheets_attendance import sync_meeting_column_from_firestore
+
+                snap = doc_ref.get()
+                if snap.exists:
+                    sync_meeting_column_from_firestore(document_id, snap.to_dict())
+            except Exception as sync_err:
+                logger.warning("Google Sheets meeting update sync skipped: %s", sync_err)
+
         return jsonify({"message": message}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
@@ -379,7 +395,14 @@ def meeting_checkin(meeting_id):
         meeting_ref.update({
             'attended': firestore.ArrayUnion([member_id])
         })
-        
+
+        try:
+            from google_sheets_attendance import on_meeting_checkin
+
+            on_meeting_checkin(meeting_id, meeting.to_dict(), member_id)
+        except Exception as sync_err:
+            logger.warning("Google Sheets check-in sync skipped: %s", sync_err)
+
         return jsonify({
             "message": "Attendance recorded successfully",
             "meetingId": meeting_id,
@@ -503,7 +526,17 @@ def generate_todays_meetings():
             # Create meeting
             meeting_ref = meetings_ref.document()
             meeting_ref.set(meeting_data)
-            
+
+            try:
+                from google_sheets_attendance import on_meeting_created
+
+                on_meeting_created(
+                    meeting_ref.id,
+                    {**meeting_data, 'id': meeting_ref.id},
+                )
+            except Exception as sync_err:
+                logger.warning("Google Sheets generate-today sync skipped: %s", sync_err)
+
             created_meetings.append({
                 'id': meeting_ref.id,
                 **meeting_data,
@@ -778,71 +811,6 @@ def add_competition_result(user_id):
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-@firebase_routes.route('/api/parse-duosmium', methods=['GET'])
-def parse_duosmium():
-    """Parse Duosmium results and store in database"""
-    try:
-        # Get URL parameter
-        url = request.args.get('url')
-        if not url:
-            return jsonify({"error": "No URL provided"}), 400
-        
-        # Parse the URL to extract competition info
-        parsed_url = urlparse(url)
-        query_params = parse_qs(parsed_url.query)
-        
-        # Extract competition name from URL path
-        path_parts = parsed_url.path.strip('/').split('/')
-        competition_name = path_parts[-1] if path_parts else "Unknown Competition"
-        
-        # Make request to Duosmium
-        response = requests.get(url)
-        response.raise_for_status()
-        
-        # Parse HTML content
-        soup = BeautifulSoup(response.content, 'html.parser')
-        
-        # Extract team results (this is a simplified example)
-        teams = []
-        team_elements = soup.find_all('tr', class_='team-row')  # Adjust selector based on actual HTML structure
-        
-        for i, team_elem in enumerate(team_elements[:10]):  # Limit to top 10 teams for demo
-            team_name = team_elem.find('td', class_='team-name')
-            team_rank = team_elem.find('td', class_='rank')
-            
-            if team_name and team_rank:
-                teams.append({
-                    'teamName': team_name.get_text(strip=True),
-                    'rank': int(team_rank.get_text(strip=True)) if team_rank.get_text(strip=True).isdigit() else i + 1,
-                    'totalScore': 0,  # Would need to extract from HTML
-                    'events': []  # Would need to extract from HTML
-                })
-        
-        # Create Duosmium document
-        duosmium_data = {
-            'url': url,
-            'competitionName': competition_name,
-            'date': firestore.SERVER_TIMESTAMP,
-            'location': 'Unknown',  # Would need to extract from HTML
-            'teams': teams,
-            'parsedAt': firestore.SERVER_TIMESTAMP
-        }
-        
-        # Save to database
-        doc_ref = db.collection('Duosmium').document()
-        doc_ref.set(duosmium_data)
-        
-        return jsonify({
-            "id": doc_ref.id,
-            "message": "Duosmium results parsed and stored successfully",
-            "teams_count": len(teams)
-        }), 201
-        
-    except requests.RequestException as e:
-        return jsonify({"error": f"Failed to fetch URL: {str(e)}"}), 500
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
-
 # Admin Authentication Routes
 @firebase_routes.route('/api/admin/check-auth', methods=['GET'])
 def check_admin_auth():
@@ -885,7 +853,70 @@ def check_admin_auth():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+
+def _require_attendance_admin():
+    """Full or EM admins may manage attendance Google Sheet actions."""
+    admin_id = request.headers.get('X-Admin-ID')
+    if not admin_id:
+        return jsonify({"error": "Admin authentication required"}), 401
+    member_doc = db.collection('Members').document(admin_id).get()
+    if not member_doc.exists:
+        return jsonify({"error": "Invalid admin session"}), 401
+    status = (member_doc.to_dict() or {}).get('adminStatus', 'none')
+    if status not in ('full', 'EM'):
+        return jsonify({"error": "Attendance admin privileges required"}), 403
+    return None
+
+
 # Admin Management Routes
+@firebase_routes.route('/api/admin/attendance/sheets/status', methods=['GET'])
+def attendance_sheets_status():
+    """Whether Google Sheets attendance sync is configured (service account + spreadsheet id)."""
+    err = _require_attendance_admin()
+    if err:
+        return err
+    try:
+        from google_sheets_attendance import sheets_enabled
+
+        return jsonify({"configured": sheets_enabled()}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+@firebase_routes.route('/api/admin/attendance/sheets/refresh-members', methods=['POST'])
+def attendance_sheets_refresh_members():
+    """Rebuild the Members tab from per-event attendance sheets."""
+    err = _require_attendance_admin()
+    if err:
+        return err
+    try:
+        from google_sheets_attendance import rebuild_members_summary
+
+        result = rebuild_members_summary()
+        if not result.get('ok'):
+            return jsonify(result), 500
+        return jsonify(result), 200
+    except Exception as e:
+        return jsonify({"ok": False, "error": str(e)}), 500
+
+
+@firebase_routes.route('/api/admin/attendance/sheets/init', methods=['POST'])
+def attendance_sheets_init():
+    """Rebuild Codes tab and ensure all Meeting docs have columns on event sheets."""
+    err = _require_attendance_admin()
+    if err:
+        return err
+    try:
+        from google_sheets_attendance import init_attendance_workbook
+
+        result = init_attendance_workbook()
+        if not result.get('ok'):
+            return jsonify(result), 500
+        return jsonify(result), 200
+    except Exception as e:
+        return jsonify({"ok": False, "error": str(e)}), 500
+
+
 @firebase_routes.route('/api/admin/attendance-events', methods=['GET'])
 def get_attendance_events():
     """Get all attendance events for admin"""
@@ -2479,65 +2510,6 @@ def admin_get_learning_conversations():
             data['id'] = doc.id
             items.append(data)
         return jsonify(items), 200
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
-
-@firebase_routes.route('/api/ai/conversation', methods=['POST'])
-def ai_conversation():
-    """Handle AI conversation for module validation"""
-    try:
-        data = request.get_json()
-        message = data.get('message')
-        system_prompt = data.get('systemPrompt', '')
-        conversation_history = data.get('conversationHistory', [])
-        
-        if not message:
-            return jsonify({"error": "Message is required"}), 400
-        
-        # Load OpenAI API key
-        with open('api_keys.json', 'r') as f:
-            api_keys = json.load(f)
-            openai_api_key = api_keys.get('OpenAiAPIKey')
-        
-        if not openai_api_key:
-            return jsonify({"error": "OpenAI API key not configured"}), 500
-        
-        # Prepare conversation for OpenAI
-        messages = []
-        if system_prompt:
-            messages.append({"role": "system", "content": system_prompt})
-        
-        # Add conversation history
-        for msg in conversation_history:
-            messages.append({
-                "role": "user" if msg.get('role') == 'user' else "assistant",
-                "content": msg.get('content', '')
-            })
-        
-        # Add current message
-        messages.append({"role": "user", "content": message})
-        
-        # Call OpenAI API
-        import openai
-        openai.api_key = openai_api_key
-        
-        response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
-            messages=messages,
-            max_tokens=500,
-            temperature=0.7
-        )
-        
-        ai_response = response.choices[0].message.content
-        
-        return jsonify({
-            "response": ai_response,
-            "conversation": conversation_history + [
-                {"role": "user", "content": message},
-                {"role": "assistant", "content": ai_response}
-            ]
-        }), 200
-        
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 

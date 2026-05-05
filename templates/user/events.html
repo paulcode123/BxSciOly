@@ -2920,7 +2920,7 @@
                                 <i class="fas fa-check"></i> ${module.rawData.validationType === 'none' ? 'Mark as Complete' : 
                                    module.rawData.validationType === 'notesUpload' ? 'Upload Notes' :
                                    module.rawData.validationType === 'problems' ? 'Answer Questions' :
-                                   module.rawData.validationType === 'AIconversation' ? 'Proceed to Conversation' : 'Mark as Complete'}
+                                   module.rawData.validationType === 'AIconversation' ? 'Proceed to reflection' : 'Mark as Complete'}
                             </button>`
                         }
                     </div>
@@ -3026,7 +3026,7 @@
                                 <i class="fas fa-check"></i> ${module.rawData.validationType === 'none' ? 'Mark as Complete' : 
                                    module.rawData.validationType === 'notesUpload' ? 'Upload Notes' :
                                    module.rawData.validationType === 'problems' ? 'Answer Questions' :
-                                   module.rawData.validationType === 'AIconversation' ? 'Proceed to Conversation' : 'Mark as Complete'}
+                                   module.rawData.validationType === 'AIconversation' ? 'Proceed to reflection' : 'Mark as Complete'}
                             </button>`
                         }
                     </div>
@@ -3327,27 +3327,25 @@
             const module = modules.find(m => m.id === moduleId);
             if (!module) return;
             
-            // Create modal for AI conversation
             const modal = document.createElement('div');
             modal.className = 'modal';
             modal.style.display = 'block';
             
             let conversationHistory = [];
-            const systemPrompt = module.rawData.systemPrompt || 'You are a helpful tutor for Science Olympiad.';
             
             modal.innerHTML = `
                 <div class="modal-content" style="max-width: 800px; height: 600px;">
                     <div class="modal-header">
-                        <h3>AI Tutor Conversation</h3>
+                        <h3>Module reflection</h3>
                         <button class="close-btn" onclick="this.closest('.modal').remove()">&times;</button>
                     </div>
                     <div class="modal-body" style="height: 500px; display: flex; flex-direction: column;">
+                        <p style="margin-bottom: 10px;">Jot your takeaways or questions. When you are done, click <strong>Complete</strong>.</p>
                         <div id="conversationArea" style="flex: 1; overflow-y: auto; border: 1px solid #ddd; padding: 15px; margin-bottom: 15px; background: #f9f9f9;">
-                            <p><strong>AI Tutor:</strong> Hello! I'm here to help you with this module. What would you like to discuss?</p>
                         </div>
                         <div style="display: flex; gap: 10px;">
-                            <input type="text" id="messageInput" placeholder="Type your message..." style="flex: 1; padding: 10px;">
-                            <button onclick="sendMessage()" class="btn-primary">Send</button>
+                            <input type="text" id="messageInput" placeholder="Type a note or takeaway..." style="flex: 1; padding: 10px;">
+                            <button onclick="sendMessage()" class="btn-primary">Add</button>
                             <button onclick="completeConversation()" class="btn-secondary">Complete</button>
                         </div>
                     </div>
@@ -3356,43 +3354,28 @@
             
             document.body.appendChild(modal);
             
-            // Add conversation functions to window
-            window.sendMessage = async () => {
+            window.sendMessage = () => {
                 const messageInput = document.getElementById('messageInput');
                 const message = messageInput.value.trim();
                 if (!message) return;
                 
                 const conversationArea = document.getElementById('conversationArea');
-                conversationArea.innerHTML += `<p><strong>You:</strong> ${message}</p>`;
+                const p = document.createElement('p');
+                const strong = document.createElement('strong');
+                strong.textContent = 'You: ';
+                p.appendChild(strong);
+                p.appendChild(document.createTextNode(message));
+                conversationArea.appendChild(p);
                 messageInput.value = '';
-                
-                try {
-                    const response = await fetch('/api/ai/conversation', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            message: message,
-                            systemPrompt: systemPrompt,
-                            conversationHistory: conversationHistory
-                        })
-                    });
-                    
-                    if (response.ok) {
-                        const result = await response.json();
-                        conversationHistory = result.conversation;
-                        conversationArea.innerHTML += `<p><strong>AI Tutor:</strong> ${result.response}</p>`;
-                        conversationArea.scrollTop = conversationArea.scrollHeight;
-                    } else {
-                        conversationArea.innerHTML += `<p><strong>AI Tutor:</strong> Sorry, I'm having trouble responding right now.</p>`;
-                    }
-                } catch (error) {
-                    conversationArea.innerHTML += `<p><strong>AI Tutor:</strong> Sorry, I'm having trouble responding right now.</p>`;
-                }
+                conversationHistory = conversationHistory.concat([
+                    { role: 'user', content: message }
+                ]);
+                conversationArea.scrollTop = conversationArea.scrollHeight;
             };
             
             window.completeConversation = async () => {
                 if (conversationHistory.length === 0) {
-                    alert('Please have at least one conversation exchange before completing.');
+                    alert('Please add at least one note before completing.');
                     return;
                 }
                 
@@ -3408,7 +3391,6 @@
                 modal.remove();
             };
             
-            // Allow Enter key to send message
             document.getElementById('messageInput').addEventListener('keypress', (e) => {
                 if (e.key === 'Enter') {
                     sendMessage();
@@ -3851,7 +3833,11 @@
         }
         
         function openTest(test) {
-            window.location.href = `/user/events/test?id=${test.id}`;
+            if (test.fileUrl) {
+                window.open(test.fileUrl, '_blank', 'noopener');
+            } else {
+                alert('No file is attached to this test yet.');
+            }
         }
         
         // Form handling functions

@@ -232,7 +232,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         const type = (t.competitionType || '').toString();
         const typeCap = type ? type.charAt(0).toUpperCase() + type.slice(1) : '';
         const title = t.testName || `${t.year || ''} Test`;
-        const action = t.fileUrl ? `<a class="btn" href="${t.fileUrl}" target="_blank" rel="noopener">View</a>` : `<a class="btn" href="/user/events/test?id=${t.id}">Open</a>`;
+        const action = t.fileUrl ? `<a class="btn" href="${t.fileUrl}" target="_blank" rel="noopener">View</a>` : '<span class="empty">No file</span>';
         return `<div class="test-card"><h4>${title}</h4><div>${t.year ? `Year: ${t.year}` : ''} ${typeCap ? `• ${typeCap}` : ''}</div>${action}</div>`;
       }).join('');
     }

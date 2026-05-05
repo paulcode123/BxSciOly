@@ -944,16 +944,34 @@ Roster: Pending roster release
 ================================================================================
 
 NEW YORK STATE CHAMPIONSHIP 2025-26
-Date: March 14, 2026
+Date: March 20-21, 2026
 Type: Official State Championship
 Location: Le Moyne College, Syracuse, NY
-Overnight: Yes (March 13 10am - March 14 11pm)
-Teams: 1
-Registration Opens: February 22, 2026
-Registration Closes: February 28, 2026
-Roster Released: March 3, 2026
 
-Roster: Pending roster release
+Team A:
+Anatomy and Physiology: Noelle Delosreyes, Linwang Li
+Astronomy: Johnny Lin (11th), Itamar Goshen
+Boomilever: Jonathan Yip, Edison Lee
+Bungee Drop: Edison Lee, Jin Zhao
+Chemistry Lab: Andrew Lin, Stanley Zhao
+Circuit Lab: Aaron Krasinski, Linwang Li
+Codebusters: Edison Lee, Andrew Lin, Simeon Chen
+Designer Genes: Stanley Zhao, Noelle Delosreyes
+Disease Detectives: Noelle Delosreyes, Stanley Zhao
+Dynamic Planet: Johnny Lin (11th), Simeon Chen
+Electric Vehicle: Andrew Lin, Jin Zhao
+Entomology: Elyn Wang, Jodi Zheng
+Experimental Design: Jonathan Yip, Simeon Chen, Brandon Lin
+Forensics: Elyn Wang, Xin Yue Wen
+Helicopter: Jin Zhao, Jonathan Yip
+Hovercraft: Edison Lee, Jin Zhao
+Machines: Jonathan Yip, Aaron Krasinski
+Material Science: Aaron Krasinski, Brandon Lin
+Remote Sensing: Johnny Lin (11th), Itamar Goshen
+Robot Tour: Andrew Lin, Linwang Li
+Rocks and Minerals: Itamar Goshen, Jodi Zheng
+Water Quality: Noelle Delosreyes, Xin Yue Wen
+Write It Do It: Jin Zhao, Brandon Lin
 
 ================================================================================
 
