@@ -331,6 +331,12 @@
             }
         });
     </script>
+    {% if vercel_analytics %}
+    <script>
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+    {% endif %}
     {% block extra_js %}{% endblock %}
 </body>
 </html> 

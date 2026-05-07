@@ -47,7 +47,10 @@ INTEREST_VERIFY_SALT = 'interest-meeting-verified'
 
 @app.context_processor
 def inject_now():
-    return {'now': datetime.now()}
+    return {
+        'now': datetime.now(),
+        'vercel_analytics': bool(os.environ.get('VERCEL')),
+    }
 
 @app.template_filter('datetime')
 def format_datetime(date_string):
