@@ -1,0 +1,8 @@
+**/__pycache__
+**/*.pyc
+.venv
+venv
+
+# Vercel Python functions have a ~245MB bundle cap; omit large binaries not required by routes.
+TestBase/**/TestsPDF/**
+Planning/meet the board/**

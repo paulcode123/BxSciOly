@@ -2,10 +2,11 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-from flask import Flask, render_template, url_for, send_from_directory, request, jsonify, make_response, redirect
+import os
 from urllib.parse import quote
 from datetime import datetime, timedelta
-import os
+
+from flask import Flask, render_template, url_for, send_from_directory, request, jsonify, make_response, redirect
 import secrets
 from itsdangerous import URLSafeTimedSerializer, BadSignature, SignatureExpired
 import csv
@@ -24,7 +25,13 @@ except ImportError:
     WIKIQA_AVAILABLE = False
     wikiqa_routes = None
 
-app = Flask(__name__)
+_ROOT = os.path.dirname(os.path.abspath(__file__))
+_PUBLIC_STATIC = os.path.join(_ROOT, 'public', 'static')
+app = Flask(
+    __name__,
+    static_folder=_PUBLIC_STATIC if os.path.isdir(_PUBLIC_STATIC) else 'static',
+    static_url_path='/static',
+)
 app.register_blueprint(firebase_routes)
 if WIKIQA_AVAILABLE:
     app.register_blueprint(wikiqa_routes)
@@ -379,8 +386,6 @@ def api_diag_results(user_id):
         print(f"Error fetching diag results: {e}")
         return jsonify({'error': 'Internal server error'}), 500
 
-import bungee_utils
-
 # ----------------------- Bungee Calculator -----------------------
 # Single shared document for team-wide bungee data
 
@@ -388,6 +393,12 @@ BUNGEE_DOC_ID = 'shared'  # Single document ID for all team data
 @app.route('/api/bungee/export', methods=['POST'])
 def export_bungee_model():
     """Calculate the full bungee model based on calibration and damping"""
+    try:
+        import bungee_utils
+    except ImportError:
+        return jsonify({
+            'error': 'Bungee export needs numpy/scipy (install full requirements.txt for local use)'
+        }), 503
     try:
         data = request.get_json()
         calibration_data = data.get('calibrationData', [])
@@ -969,7 +980,8 @@ def api_interest_submit():
     record_time = datetime.utcnow().isoformat()
     user_agent = request.headers.get('User-Agent', '')
     ip = request.headers.get('X-Forwarded-For', request.remote_addr)
-    csv_path = 'interest_meeting_attendance.csv'
+    _csv_base = '/tmp' if os.environ.get('VERCEL') else _ROOT
+    csv_path = os.path.join(_csv_base, 'interest_meeting_attendance.csv')
     try:
         need_header = not os.path.exists(csv_path) or os.path.getsize(csv_path) == 0
         with open(csv_path, 'a', encoding='utf-8', newline='') as f:
