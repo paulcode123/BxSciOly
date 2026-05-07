@@ -324,8 +324,12 @@
             loginBtn.textContent = 'Logging in...';
             loginBtn.disabled = true;
             
-            // Use the dedicated email lookup endpoint with DOE email
-            fetch(`/api/Members/find-by-doe-email/${encodeURIComponent(doeEmail)}`)
+            // POST avoids email-in-path encoding issues; server normalizes case
+            fetch('/api/Members/find-by-doe-email', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ doeEmail: doeEmail })
+            })
                 .then(response => {
                     if (!response.ok) {
                         if (response.status === 404) {

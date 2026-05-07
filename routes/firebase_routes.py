@@ -29,8 +29,23 @@ try:
 except ImportError:
     # If import fails, initialize Firebase here
     if not firebase_admin._apps:
-        cred = credentials.Certificate('service_key.json')
-        firebase_admin.initialize_app(cred, {
+        def _firebase_credentials():
+            for key in (
+                'FIREBASE_SERVICE_ACCOUNT_JSON',
+                'GOOGLE_APPLICATION_CREDENTIALS_JSON',
+                'GOOGLE_SHEETS_SERVICE_ACCOUNT_JSON',
+            ):
+                raw = os.environ.get(key, '').strip()
+                if raw:
+                    try:
+                        return credentials.Certificate(json.loads(raw))
+                    except json.JSONDecodeError:
+                        logging.warning('Invalid JSON in %s', key)
+                        break
+            path = (os.environ.get('GOOGLE_APPLICATION_CREDENTIALS') or '').strip() or 'service_key.json'
+            return credentials.Certificate(path)
+
+        firebase_admin.initialize_app(_firebase_credentials(), {
             'storageBucket': 'bxscioly-455318.appspot.com'
         })
     db = firestore.client()
@@ -589,20 +604,45 @@ def find_member_by_email(email):
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+def _members_by_doe_email_candidates(doe_email: str):
+    """Return Firestore docs matching doeEmail, trying exact and lowercased values."""
+    key = (doe_email or '').strip()
+    if not key:
+        return []
+    keys_to_try = [key]
+    low = key.lower()
+    if low not in keys_to_try:
+        keys_to_try.append(low)
+    for k in keys_to_try:
+        query = db.collection('Members').where('doeEmail', '==', k).limit(1).stream()
+        results = list(query)
+        if results:
+            return results
+    return []
+
+
+@firebase_routes.route('/api/Members/find-by-doe-email', methods=['POST'])
+def find_member_by_doe_email_post():
+    """Find a member by DOE email (JSON body avoids path encoding issues on some hosts)."""
+    try:
+        data = request.get_json(silent=True) or {}
+        doe_email = data.get('doeEmail') or data.get('email') or ''
+        results = _members_by_doe_email_candidates(doe_email)
+        if not results:
+            return jsonify({"error": "No member found with this DOE email"}), 404
+        doc = results[0]
+        return jsonify({doc.id: doc.to_dict()}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
 @firebase_routes.route('/api/Members/find-by-doe-email/<doe_email>', methods=['GET'])
 def find_member_by_doe_email(doe_email):
     """Find a member by DOE email address"""
     try:
-        # Query the Members collection for documents where doeEmail equals the provided email
-        query = db.collection('Members').where('doeEmail', '==', doe_email).limit(1).stream()
-        
-        # Convert the query result to a list
-        results = list(query)
-        
+        results = _members_by_doe_email_candidates(doe_email)
         if not results:
             return jsonify({"error": "No member found with this DOE email"}), 404
-        
-        # Get the first matching document
         doc = results[0]
         return jsonify({doc.id: doc.to_dict()}), 200
     except Exception as e:

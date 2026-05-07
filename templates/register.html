@@ -783,7 +783,11 @@
                 
                 // Debounce the API call
                 emailCheckTimeout = setTimeout(() => {
-                    fetch(`/api/Members/find-by-doe-email/${encodeURIComponent(doeEmail)}`)
+                    fetch('/api/Members/find-by-doe-email', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ doeEmail: doeEmail })
+                    })
                         .then(response => {
                             if (response.ok) {
                                 // Email already exists
