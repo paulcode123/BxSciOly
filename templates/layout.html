@@ -146,13 +146,11 @@
                     <li class="dropdown">
                         <a href="#" {% if request.path.startswith('/events/') %}class="active"{% endif %}><i class="fas fa-flask"></i> Events</a>
                         <div class="dropdown-content">
-                            <a href="{{ url_for('construction_build') }}" {% if request.path == url_for('construction_build') %}class="active"{% endif %}><i class="fas fa-hammer"></i> Construction Build</a>
-                            <a href="{{ url_for('precision_build') }}" {% if request.path == url_for('precision_build') %}class="active"{% endif %}><i class="fas fa-bullseye"></i> Precision Build</a>
-                            <a href="{{ url_for('physics_design') }}" {% if request.path == url_for('physics_design') %}class="active"{% endif %}><i class="fas fa-cogs"></i> Physics & Design</a>
-                            <a href="{{ url_for('events_earth_science') }}" {% if request.path == url_for('events_earth_science') %}class="active"{% endif %}><i class="fas fa-globe-americas"></i> Earth Science</a>
-                            <a href="{{ url_for('classification_compilation') }}" {% if request.path == url_for('classification_compilation') %}class="active"{% endif %}><i class="fas fa-search"></i> Classification & Compilation</a>
                             <a href="{{ url_for('events_biology') }}" {% if request.path == url_for('events_biology') %}class="active"{% endif %}><i class="fas fa-dna"></i> Biology</a>
-                            <a href="{{ url_for('chemistry_inquiry') }}" {% if request.path == url_for('chemistry_inquiry') %}class="active"{% endif %}><i class="fas fa-flask"></i> Chemistry & Inquiry</a>
+                            <a href="{{ url_for('events_chemistry') }}" {% if request.path == url_for('events_chemistry') %}class="active"{% endif %}><i class="fas fa-flask"></i> Chemistry</a>
+                            <a href="{{ url_for('events_inquiry') }}" {% if request.path == url_for('events_inquiry') %}class="active"{% endif %}><i class="fas fa-puzzle-piece"></i> Inquiry</a>
+                            <a href="{{ url_for('earth_science_classification') }}" {% if request.path == url_for('earth_science_classification') %}class="active"{% endif %}><i class="fas fa-globe-americas"></i> Earth Science &amp; Classification</a>
+                            <a href="{{ url_for('physics_design') }}" {% if request.path == url_for('physics_design') %}class="active"{% endif %}><i class="fas fa-cogs"></i> Physics &amp; Design</a>
                         </div>
                     </li>
                     <li class="dropdown">

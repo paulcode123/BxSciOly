@@ -1,0 +1,580 @@
+{% extends "layout.html" %}
+
+{% block title %}Earth Science &amp; Classification - Bronx Science Olympiad{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/subject_pages.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="subject-page subject-earth">
+  <p class="tentative-note">
+    <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+    <span><strong>Note:</strong> Team roles and the number of subject directors are <strong>tentative</strong> and may change as the season is finalized.</span>
+  </p>
+
+  <header class="subject-hero">
+    <div class="subject-hero-inner">
+      <p class="subject-kicker">Subject Area Hub</p>
+      <h1>Earth &amp; Space Science</h1>
+      <p class="subject-tagline">Unravel the complex systems that shape our planet and the cosmos. Study ocean currents, glacial movements, satellite electromagnetics, stellar astrophysics, and geological mineralogy.</p>
+      <span class="director-meta"><i class="fas fa-users" aria-hidden="true"></i> Tentative Leadership: 1 Subject Director</span>
+    </div>
+  </header>
+
+  <section class="subject-intro-card" aria-labelledby="earth-intro-heading">
+    <h2 id="earth-intro-heading"><i class="fas fa-globe-americas" aria-hidden="true"></i> Welcome to Bronx Science Earth &amp; Space</h2>
+    <div class="subject-intro-grid">
+      <div class="subject-intro-text">
+        <p>Earth &amp; Space Science is an incredibly diverse, research-heavy subject area. You will study planetary-scale geological and meteorological cycles, explore deep space stellar dynamics, and utilize Earth-observation satellite data. This is where we learn how to translate 2D satellite images and geological maps into comprehensive 3D system models.</p>
+        <p>Success in this division rewards meticulous organization, rapid data-retrieval strategies, and cohesive partner collaboration. You'll master the art of formatting high-density binders and cheat sheets that cover hundreds of pages of textbooks, geological charts, and astronomical catalogs. These skills prepare you directly for college geology, astronomy, and environmental engineering courses.</p>
+      </div>
+      <div class="expectations-box">
+        <h3><i class="fas fa-clipboard-check" aria-hidden="true"></i> Subject Lead Expectations</h3>
+        <ul>
+          <li>Collaborate with event managers (EMs) to produce high-density public reference binders.</li>
+          <li>Help curate extensive flashcard decks for Deep Sky Objects (DSOs) and hand-samples.</li>
+          <li>Design and grade weekly practice tests that mimic invitational timing and stress.</li>
+          <li>Foster a culture of sharing research summaries and geological observation guides.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="events-section-header">
+    <h2 class="events-section-title">Events &amp; Study Focus</h2>
+    <p class="events-section-subtitle">Select tabs within each event card to explore descriptions, topic lists, textbook pathways, and practice links.</p>
+  </div>
+
+  <div class="events-grid">
+
+    <!-- Event 1: Dynamic Planet -->
+    <article class="event-card" id="event-dynamic">
+      <div class="event-card-header">
+        <div class="event-title-area">
+          <i class="fas fa-globe" aria-hidden="true"></i>
+          <h3>Dynamic Planet</h3>
+        </div>
+        <span class="event-meta-badge"><i class="fas fa-user-friends"></i> Team of 2</span>
+      </div>
+      <p class="event-tagline-lead">Trace the flow of energy and materials across Earth's hydrosphere, exploring the geological and physical behaviors of either rivers and glaciers, or the global ocean.</p>
+
+      <div class="event-tabs">
+        <div class="tab-header">
+          <button class="tab-btn active" data-tab="overview"><i class="fas fa-info-circle"></i> Overview</button>
+          <button class="tab-btn" data-tab="topics"><i class="fas fa-list"></i> Topics</button>
+          <button class="tab-btn" data-tab="pathway"><i class="fas fa-graduation-cap"></i> Pathway</button>
+          <button class="tab-btn" data-tab="resources"><i class="fas fa-laptop-code"></i> Resources</button>
+        </div>
+
+        <div class="tab-content">
+          <div class="tab-pane active" data-pane="overview">
+            <div class="overview-grid">
+              <div>
+                <h4 class="overview-list-title"><i class="fas fa-star"></i> What You'll Learn</h4>
+                <ul class="overview-ul">
+                  <li>How global convective engines drive marine and freshwater currents.</li>
+                  <li>How to read and interpret complex hydrologic charts and hydrographs.</li>
+                  <li>The sediment transport dynamics that build river landscapes and shorelines.</li>
+                  <li>To analyze human alterations of global fluid reservoirs.</li>
+                </ul>
+              </div>
+              <div class="big-questions-box">
+                <h4 class="overview-list-title"><i class="fas fa-question-circle"></i> Big Questions</h4>
+                <div class="question-prompt">
+                  <i class="fas fa-quote-left"></i>
+                  <span>How does groundwater drawdown in coastal aquifers lead to saltwater intrusion? Trace the hydraulic gradient changes.</span>
+                </div>
+                <div class="question-prompt">
+                  <i class="fas fa-quote-left"></i>
+                  <span>How does thermohaline circulation link global sea-surface salinity and temperature profiles to maintain long-term climate equilibrium?</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane" data-pane="topics">
+            <div class="season-split">
+              <div class="season-column">
+                <span class="season-header-badge past"><i class="fas fa-tint"></i> 2025-2026 Focus</span>
+                <h4 class="season-topics-title">Freshwater Hydrology</h4>
+                <ul class="topic-list-ul">
+                  <li><strong>Groundwater Hydraulics:</strong> Darcy's Law, aquifers (confined vs. unconfined), water tables, artesian wells, and cone of depression drawdown dynamics.</li>
+                  <li><strong>Fluvial Geomorphology:</strong> Channel types (meandering, braided), stream ordering, sediment transport (saltation, bedload), flood recurrence intervals, hydrograph scaling.</li>
+                  <li><strong>Glaciology:</strong> Glacial mass balance (accumulation vs. ablation), ice movement mechanics, erosional features (cirques, fjords), depositional features (moraines, eskers).</li>
+                </ul>
+              </div>
+              <div class="season-column active-season">
+                <span class="season-header-badge future"><i class="fas fa-arrow-circle-right"></i> 2026-2027 Focus</span>
+                <h4 class="season-topics-title">Physical &amp; Geological Oceanography</h4>
+                <ul class="topic-list-ul">
+                  <li><strong>Ocean Currents:</strong> Wind-driven surface currents, Ekman transport, geostrophic gyres, and deep-sea thermohaline "global conveyor belt" dynamics.</li>
+                  <li><strong>Wave &amp; Tide Physics:</strong> Wave shoaling, refraction, tsunami mechanics, diurnal/semidiurnal tides, and solar-lunar alignment (spring vs. neap tides).</li>
+                  <li><strong>Marine Geology:</strong> Plate tectonics of mid-ocean ridges, trenches, hydrothermal vents, passive/active continental margins, and abyssal sedimentation.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane" data-pane="pathway">
+            <div class="pathway-grid">
+              <div>
+                <h4 class="overview-list-title"><i class="fas fa-book"></i> Standard Textbooks</h4>
+                <div class="textbook-card">
+                  <div class="textbook-icon"><i class="fas fa-book-open"></i></div>
+                  <div class="textbook-info">
+                    <h5>Essentials of Oceanography</h5>
+                    <p class="author">Trujillo &amp; Thurman</p>
+                    <span class="scope-tag">Standard Physical Oceanography</span>
+                  </div>
+                </div>
+                <div class="textbook-card">
+                  <div class="textbook-icon"><i class="fas fa-book-open"></i></div>
+                  <div class="textbook-info">
+                    <h5>Introduction to Hydrology</h5>
+                    <p class="author">Viessman &amp; Lewis</p>
+                    <span class="scope-tag">In-Depth Freshwater Hydraulics</span>
+                  </div>
+                </div>
+              </div>
+              <div class="courses-box">
+                <h4 class="overview-list-title"><i class="fas fa-university"></i> Related College Courses</h4>
+                <div class="course-tag-container">
+                  <span class="course-tag"><i class="fas fa-check"></i> Physical Geology</span>
+                  <span class="course-tag"><i class="fas fa-check"></i> Hydrology</span>
+                  <span class="course-tag"><i class="fas fa-check"></i> Physical Oceanography</span>
+                  <span class="course-tag"><i class="fas fa-check"></i> Climatology</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane" data-pane="resources">
+            <div class="resources-grid">
+              <a href="https://water.usgs.gov/edu/" target="_blank" class="resource-item">
+                <div class="resource-item-left">
+                  <div class="resource-type-icon"><i class="fas fa-tint"></i></div>
+                  <div class="resource-item-info">
+                    <h5>USGS Water Science School</h5>
+                    <p>Comprehensive interactive guides on hydrological cycles &amp; data</p>
+                  </div>
+                </div>
+                <i class="fas fa-chevron-right resource-arrow"></i>
+              </a>
+              <a href="https://oceanservice.noaa.gov/education/" target="_blank" class="resource-item">
+                <div class="resource-item-left">
+                  <div class="resource-type-icon"><i class="fas fa-globe"></i></div>
+                  <div class="resource-item-info">
+                    <h5>NOAA Ocean Service Education</h5>
+                    <p>Official physical oceanography tutorials, wave animations &amp; data portals</p>
+                  </div>
+                </div>
+                <i class="fas fa-chevron-right resource-arrow"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Event 2: Remote Sensing -->
+    <article class="event-card" id="event-remote">
+      <div class="event-card-header">
+        <div class="event-title-area">
+          <i class="fas fa-satellite" aria-hidden="true"></i>
+          <h3>Remote Sensing</h3>
+        </div>
+        <span class="event-meta-badge"><i class="fas fa-user-friends"></i> Team of 2</span>
+      </div>
+      <p class="event-tagline-lead">Observe global environmental changes from space. Learn how Earth-orbiting satellites capture, process, and analyze electromagnetic radiation to track planetary evolution.</p>
+
+      <div class="event-tabs">
+        <div class="tab-header">
+          <button class="tab-btn active" data-tab="overview"><i class="fas fa-info-circle"></i> Overview</button>
+          <button class="tab-btn" data-tab="topics"><i class="fas fa-list"></i> Topics</button>
+          <button class="tab-btn" data-tab="pathway"><i class="fas fa-graduation-cap"></i> Pathway</button>
+          <button class="tab-btn" data-tab="resources"><i class="fas fa-laptop-code"></i> Resources</button>
+        </div>
+
+        <div class="tab-content">
+          <div class="tab-pane active" data-pane="overview">
+            <div class="overview-grid">
+              <div>
+                <h4 class="overview-list-title"><i class="fas fa-star"></i> What You'll Learn</h4>
+                <ul class="overview-ul">
+                  <li>How specific electromagnetic wavelengths reveal chemical surface properties.</li>
+                  <li>To distinguish active (radar, lidar) from passive remote sensors.</li>
+                  <li>How spatial, spectral, temporal, and radiometric resolutions limit data.</li>
+                  <li>To calculate environmental indices (NDVI, NDWI, NDSI) from band datasets.</li>
+                </ul>
+              </div>
+              <div class="big-questions-box">
+                <h4 class="overview-list-title"><i class="fas fa-question-circle"></i> Big Questions</h4>
+                <div class="question-prompt">
+                  <i class="fas fa-quote-left"></i>
+                  <span>Why does healthy green vegetation exhibit an extremely sharp increase in reflectance (the "red edge") at near-infrared wavelengths?</span>
+                </div>
+                <div class="question-prompt">
+                  <i class="fas fa-quote-left"></i>
+                  <span>How can you utilize multiple bands from the Landsat 8 satellite to calculate a normalized index that maps wildfire burn severity?</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane" data-pane="topics">
+            <div class="season-split">
+              <div class="season-column">
+                <span class="season-header-badge past"><i class="fas fa-bolt"></i> Sensor Physics</span>
+                <h4 class="season-topics-title">Electromagnetics &amp; Orbits</h4>
+                <ul class="topic-list-ul">
+                  <li><strong>EM Spectrum:</strong> Ultraviolet, visible, near-IR, shortwave-IR, thermal-IR, and microwave properties. Refraction, scattering, absorption.</li>
+                  <li><strong>Orbit Dynamics:</strong> Sun-synchronous polar orbits (optimal for passive sensing) vs. Geostationary orbits (ideal for constant meteorological surveillance).</li>
+                  <li><strong>Sensor Systems:</strong> Active sensors (Lidar, RADAR) vs. passive optical sensors (multispectral scanners, spectrometers).</li>
+                </ul>
+              </div>
+              <div class="season-column active-season">
+                <span class="season-header-badge future"><i class="fas fa-arrow-circle-right"></i> Digital Image Analysis</span>
+                <h4 class="season-topics-title">Data &amp; Calculations</h4>
+                <ul class="topic-list-ul">
+                  <li><strong>Major Satellites:</strong> Landsat, Sentinel, MODIS, GRACE, Terra/Aqua band classifications and sensor configurations.</li>
+                  <li><strong>Spectral Indices:</strong> Calculating and mapping NDVI (Normalized Difference Vegetation Index), NDWI (Water), and NDSI (Snow) using band math.</li>
+                  <li><strong>Phenomenology:</strong> Image interpretation, false-color compositing, supervised vs. unsupervised classification, radiometric calibration, and atmospheric correction.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane" data-pane="pathway">
+            <div class="pathway-grid">
+              <div>
+                <h4 class="overview-list-title"><i class="fas fa-book"></i> Standard Textbooks</h4>
+                <div class="textbook-card">
+                  <div class="textbook-icon"><i class="fas fa-book-open"></i></div>
+                  <div class="textbook-info">
+                    <h5>Introduction to Remote Sensing</h5>
+                    <p class="author">James B. Campbell</p>
+                    <span class="scope-tag">Standard University Syllabus</span>
+                  </div>
+                </div>
+              </div>
+              <div class="courses-box">
+                <h4 class="overview-list-title"><i class="fas fa-university"></i> Related College Courses</h4>
+                <div class="course-tag-container">
+                  <span class="course-tag"><i class="fas fa-check"></i> Geographic Information Systems (GIS)</span>
+                  <span class="course-tag"><i class="fas fa-check"></i> Remote Sensing 101</span>
+                  <span class="course-tag"><i class="fas fa-check"></i> Satellite Meteorology</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane" data-pane="resources">
+            <div class="resources-grid">
+              <a href="https://appliedsciences.nasa.gov/what-we-do/capacity-building/arset" target="_blank" class="resource-item">
+                <div class="resource-item-left">
+                  <div class="resource-type-icon"><i class="fas fa-satellite"></i></div>
+                  <div class="resource-item-info">
+                    <h5>NASA ARSET Training</h5>
+                    <p>Official webinars and trace environmental data tutorials</p>
+                  </div>
+                </div>
+                <i class="fas fa-chevron-right resource-arrow"></i>
+              </a>
+              <a href="https://sentinel-playground.com" target="_blank" class="resource-item">
+                <div class="resource-item-left">
+                  <div class="resource-type-icon"><i class="fas fa-globe-americas"></i></div>
+                  <div class="resource-item-info">
+                    <h5>Sentinel Playground</h5>
+                    <p>Explore and manipulate live satellite spectral bands globally</p>
+                  </div>
+                </div>
+                <i class="fas fa-chevron-right resource-arrow"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Event 3: Astronomy -->
+    <article class="event-card" id="event-astronomy">
+      <div class="event-card-header">
+        <div class="event-title-area">
+          <i class="fas fa-user-astronaut" aria-hidden="true"></i>
+          <h3>Astronomy</h3>
+        </div>
+        <span class="event-meta-badge"><i class="fas fa-user-friends"></i> Team of 2</span>
+      </div>
+      <p class="event-tagline-lead">Explore stellar physics, orbital mechanics, and deep space cosmos. Apply astrophysics equations to solve binary orbits, exoplanet transits, and stellar evolutions.</p>
+
+      <div class="event-tabs">
+        <div class="tab-header">
+          <button class="tab-btn active" data-tab="overview"><i class="fas fa-info-circle"></i> Overview</button>
+          <button class="tab-btn" data-tab="topics"><i class="fas fa-list"></i> Topics</button>
+          <button class="tab-btn" data-tab="pathway"><i class="fas fa-graduation-cap"></i> Pathway</button>
+          <button class="tab-btn" data-tab="resources"><i class="fas fa-laptop-code"></i> Resources</button>
+        </div>
+
+        <div class="tab-content">
+          <div class="tab-pane active" data-pane="overview">
+            <div class="overview-grid">
+              <div>
+                <h4 class="overview-list-title"><i class="fas fa-star"></i> What You'll Learn</h4>
+                <ul class="overview-ul">
+                  <li>The lifecycle of stars from stellar nebulae to supermassive black holes.</li>
+                  <li>How to apply Kepler's and Newton's orbital equations to celestial systems.</li>
+                  <li>How stellar spectrums reveal temperature, composition, and velocity.</li>
+                  <li>To identify designated Deep Sky Objects (DSOs) of the season.</li>
+                </ul>
+              </div>
+              <div class="big-questions-box">
+                <h4 class="overview-list-title"><i class="fas fa-question-circle"></i> Big Questions</h4>
+                <div class="question-prompt">
+                  <i class="fas fa-quote-left"></i>
+                  <span>How can you derive the orbital distance, radius, and atmospheric composition of an exoplanet using transit light curves?</span>
+                </div>
+                <div class="question-prompt">
+                  <i class="fas fa-quote-left"></i>
+                  <span>What nucleosynthesis changes trigger the iron-core collapse of a massive star, and how does this create a Type II Supernova?</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane" data-pane="topics">
+            <div class="season-split">
+              <div class="season-column">
+                <span class="season-header-badge past"><i class="fas fa-fire-alt"></i> Stellar Astrophysics</span>
+                <h4 class="season-topics-title">Stellar Life &amp; HR Diagrams</h4>
+                <ul class="topic-list-ul">
+                  <li><strong>Stellar Lifecycles:</strong> Jeans instability, protostars, main-sequence nucleosynthesis, red giant pathways, white dwarf limits (Chandrasekhar mass), neutron stars, and black holes.</li>
+                  <li><strong>HR Diagrams:</strong> Classification of stellar luminosity, absolute and apparent magnitudes, spectroscopic parallax, and color indices.</li>
+                  <li><strong>Spectroscopy:</strong> Wien's Law, Stefan-Boltzmann Law, Balmer lines, and Doppler velocities.</li>
+                </ul>
+              </div>
+              <div class="season-column active-season">
+                <span class="season-header-badge future"><i class="fas fa-arrow-circle-right"></i> Orbital &amp; Observational Astronomy</span>
+                <h4 class="season-topics-title">Celestial Math &amp; Catalogs</h4>
+                <ul class="topic-list-ul">
+                  <li><strong>Orbital Mechanics:</strong> Kepler's laws, Newton's law of universal gravitation, binary star math (determining stellar masses and separations).</li>
+                  <li><strong>Exoplanets:</strong> Detection methodologies (radial velocity wobbles, transit light curves, gravitational microlensing).</li>
+                  <li><strong>Deep Sky Objects (DSOs):</strong> Catalog recognition, coordinates, and physical mechanisms of designated stellar nebulae, supernova remnants, and active galaxies.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane" data-pane="pathway">
+            <div class="pathway-grid">
+              <div>
+                <h4 class="overview-list-title"><i class="fas fa-book"></i> Standard Textbooks</h4>
+                <div class="textbook-card">
+                  <div class="textbook-icon"><i class="fas fa-book-open"></i></div>
+                  <div class="textbook-info">
+                    <h5>An Introduction to Modern Astrophysics</h5>
+                    <p class="author">Carroll &amp; Ostlie</p>
+                    <span class="scope-tag">"The Big Orange Book" (Standard Astro)</span>
+                  </div>
+                </div>
+                <div class="textbook-card">
+                  <div class="textbook-icon"><i class="fas fa-book-open"></i></div>
+                  <div class="textbook-info">
+                    <h5>Astronomy Today</h5>
+                    <p class="author">Chaisson &amp; McMillan</p>
+                    <span class="scope-tag">In-Depth Observational Systems</span>
+                  </div>
+                </div>
+              </div>
+              <div class="courses-box">
+                <h4 class="overview-list-title"><i class="fas fa-university"></i> Related College Courses</h4>
+                <div class="course-tag-container">
+                  <span class="course-tag"><i class="fas fa-check"></i> Astrophysics I/II</span>
+                  <span class="course-tag"><i class="fas fa-check"></i> General Astronomy</span>
+                  <span class="course-tag"><i class="fas fa-check"></i> Cosmology</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane" data-pane="resources">
+            <div class="resources-grid">
+              <a href="https://www.youtube.com/c/PBSSpaceTime" target="_blank" class="resource-item">
+                <div class="resource-item-left">
+                  <div class="resource-type-icon"><i class="fab fa-youtube"></i></div>
+                  <div class="resource-item-info">
+                    <h5>PBS Space Time</h5>
+                    <p>Fascinating, highly detailed mathematical astrophysics lectures</p>
+                  </div>
+                </div>
+                <i class="fas fa-chevron-right resource-arrow"></i>
+              </a>
+              <a href="https://chandra.harvard.edu/edu/" target="_blank" class="resource-item">
+                <div class="resource-item-left">
+                  <div class="resource-type-icon"><i class="fas fa-globe"></i></div>
+                  <div class="resource-item-info">
+                    <h5>Chandra Education</h5>
+                    <p>Official NASA X-Ray stellar lifecycle and spectroscopy guides</p>
+                  </div>
+                </div>
+                <i class="fas fa-chevron-right resource-arrow"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Event 4: Rocks & Minerals -->
+    <article class="event-card" id="event-rocks">
+      <div class="event-card-header">
+        <div class="event-title-area">
+          <i class="fas fa-gem" aria-hidden="true"></i>
+          <h3>Rocks &amp; Minerals</h3>
+        </div>
+        <span class="event-meta-badge"><i class="fas fa-user-friends"></i> Team of 2</span>
+      </div>
+      <p class="event-tagline-lead">Unveil the history written in Earth's crust, identifying minerals and rocks, and analyzing the petrological environments and economic contexts of their formation.</p>
+
+      <div class="event-tabs">
+        <div class="tab-header">
+          <button class="tab-btn active" data-tab="overview"><i class="fas fa-info-circle"></i> Overview</button>
+          <button class="tab-btn" data-tab="topics"><i class="fas fa-list"></i> Topics</button>
+          <button class="tab-btn" data-tab="pathway"><i class="fas fa-graduation-cap"></i> Pathway</button>
+          <button class="tab-btn" data-tab="resources"><i class="fas fa-laptop-code"></i> Resources</button>
+        </div>
+
+        <div class="tab-content">
+          <div class="tab-pane active" data-pane="overview">
+            <div class="overview-grid">
+              <div>
+                <h4 class="overview-list-title"><i class="fas fa-star"></i> What You'll Learn</h4>
+                <ul class="overview-ul">
+                  <li>To identify hand-samples using hardness, cleavage, and streak.</li>
+                  <li>How rock textures (aphanitic, foliated) indicate plate tectonic origins.</li>
+                  <li>The mineral structural chemistry of silicate and non-silicate groups.</li>
+                  <li>The industrial and economic uses of geological ore minerals.</li>
+                </ul>
+              </div>
+              <div class="big-questions-box">
+                <h4 class="overview-list-title"><i class="fas fa-question-circle"></i> Big Questions</h4>
+                <div class="question-prompt">
+                  <i class="fas fa-quote-left"></i>
+                  <span>How does Bowen's Reaction Series predict which minerals will crystallize first from cooling basaltic magma?</span>
+                </div>
+                <div class="question-prompt">
+                  <i class="fas fa-quote-left"></i>
+                  <span>How can you distinguish Igneous Obsidian from Metamorphic Coal using density, fracture, and specific gravity tests?</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane" data-pane="topics">
+            <div class="season-split">
+              <div class="season-column">
+                <span class="season-header-badge past"><i class="fas fa-atom"></i> Mineralogy</span>
+                <h4 class="season-topics-title">Mineral Physics &amp; Chemistry</h4>
+                <ul class="topic-list-ul">
+                  <li><strong>Mineral Properties:</strong> Hardness (Mohs scale), cleavage axes, luster, streak, specific gravity, crystal habits (isometric, hexagonal), and diagnostic indicators (magnetism, acid reactions).</li>
+                  <li><strong>Mineral Chemistry:</strong> Silicate tetrahedral groupings (nesosilicates, inosilicates, tectosilicates), carbonate groups, halide, oxide, and sulfide ores.</li>
+                  <li><strong>Bowen's Reaction Series:</strong> Continuous vs. discontinuous crystallization branches and mineral solid solutions.</li>
+                </ul>
+              </div>
+              <div class="season-column active-season">
+                <span class="season-header-badge future"><i class="fas fa-arrow-circle-right"></i> Petrology</span>
+                <h4 class="season-topics-title">Rock Classification &amp; Tectonics</h4>
+                <ul class="topic-list-ul">
+                  <li><strong>Igneous Rocks:</strong> Felsic vs. mafic composition, intrusive phaneritic textures (granite) vs. extrusive aphanitic textures (basalt, pumice, obsidian).</li>
+                  <li><strong>Sedimentary Rocks:</strong> Clastic (shale, sandstone) vs. chemical/biogenic (limestone, coal), sedimentary structures (cross-bedding, ripple marks, mudcracks).</li>
+                  <li><strong>Metamorphic Rocks:</strong> Foliated textures (slate, schist, gneiss) vs. non-foliated textures (marble, quartzite), metamorphic grade indices, and plate tectonic origins.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane" data-pane="pathway">
+            <div class="pathway-grid">
+              <div>
+                <h4 class="overview-list-title"><i class="fas fa-book"></i> Standard Textbooks</h4>
+                <div class="textbook-card">
+                  <div class="textbook-icon"><i class="fas fa-book-open"></i></div>
+                  <div class="textbook-info">
+                    <h5>Manual of Mineral Science</h5>
+                    <p class="author">Klein &amp; Dutrow</p>
+                    <span class="scope-tag">Standard University Mineralogy</span>
+                  </div>
+                </div>
+              </div>
+              <div class="courses-box">
+                <h4 class="overview-list-title"><i class="fas fa-university"></i> Related College Courses</h4>
+                <div class="course-tag-container">
+                  <span class="course-tag"><i class="fas fa-check"></i> Physical Geology</span>
+                  <span class="course-tag"><i class="fas fa-check"></i> Mineralogy</span>
+                  <span class="course-tag"><i class="fas fa-check"></i> Igneous &amp; Metamorphic Petrology</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane" data-pane="resources">
+            <div class="resources-grid">
+              <a href="https://www.mindat.org" target="_blank" class="resource-item">
+                <div class="resource-item-left">
+                  <div class="resource-type-icon"><i class="fas fa-gem"></i></div>
+                  <div class="resource-item-info">
+                    <h5>Mindat.org</h5>
+                    <p>World's largest mineral database, structural properties and images</p>
+                  </div>
+                </div>
+                <i class="fas fa-chevron-right resource-arrow"></i>
+              </a>
+              <a href="https://youtube.com/playlist?list=PL2-f8mepPclmN9D3p_g7q_m8b0870G7uG" target="_blank" class="resource-item">
+                <div class="resource-item-left">
+                  <div class="resource-type-icon"><i class="fab fa-youtube"></i></div>
+                  <div class="resource-item-info">
+                    <h5>Earth Rocks! Geology</h5>
+                    <p>Excellent visual walkthroughs of rock identification, textures, and field formations</p>
+                  </div>
+                </div>
+                <i class="fas fa-chevron-right resource-arrow"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Scoped Tab Interaction Script
+  document.querySelectorAll('.event-card').forEach(card => {
+    const buttons = card.querySelectorAll('.tab-btn');
+    const panes = card.querySelectorAll('.tab-pane');
+    
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Deactivate all buttons and panes inside this card only
+        buttons.forEach(b => b.classList.remove('active'));
+        panes.forEach(p => p.classList.remove('active'));
+        
+        // Activate current button
+        btn.classList.add('active');
+        const targetTab = btn.getAttribute('data-tab');
+        
+        // Find and activate matching pane inside this card
+        const targetPane = card.querySelector(`.tab-pane[data-pane="${targetTab}"]`);
+        if (targetPane) {
+          targetPane.classList.add('active');
+        }
+      });
+    });
+  });
+});
+</script>
+{% endblock %}

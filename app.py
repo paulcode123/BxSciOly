@@ -105,34 +105,56 @@ def calendar():
 def faq():
     return render_template('faq.html')
 
-# New subject-based event routes
-@app.route('/events/construction-build')
-def construction_build():
-    return render_template('events/construction_build.html')
+# Subject area pages (public)
+@app.route('/events/biology')
+def events_biology():
+    return render_template('events/biology.html')
 
-@app.route('/events/precision-build')
-def precision_build():
-    return render_template('events/precision_build.html')
+
+@app.route('/events/chemistry')
+def events_chemistry():
+    return render_template('events/chemistry.html')
+
+
+@app.route('/events/inquiry')
+def events_inquiry():
+    return render_template('events/inquiry.html')
+
+
+@app.route('/events/earth-science-classification')
+def earth_science_classification():
+    return render_template('events/earth_science_classification.html')
+
 
 @app.route('/events/physics-design')
 def physics_design():
     return render_template('events/physics_design.html')
 
+
+# Legacy URLs → current structure
+@app.route('/events/construction-build')
+def construction_build():
+    return redirect(url_for('home'), code=301)
+
+
+@app.route('/events/precision-build')
+def precision_build():
+    return redirect(url_for('home'), code=301)
+
+
 @app.route('/events/earth-science')
 def events_earth_science():
-    return render_template('events/earth_science.html')
+    return redirect(url_for('earth_science_classification'), code=301)
+
 
 @app.route('/events/classification-compilation')
 def classification_compilation():
-    return render_template('events/classification_compilation.html')
+    return redirect(url_for('earth_science_classification'), code=301)
 
-@app.route('/events/biology')
-def events_biology():
-    return render_template('events/biology.html')
 
 @app.route('/events/chemistry-inquiry')
 def chemistry_inquiry():
-    return render_template('events/chemistry_inquiry.html')
+    return redirect(url_for('events_chemistry'), code=301)
 
 @app.route('/firebase-demo')
 def firebase_demo():
