@@ -3,10 +3,15 @@
 {% block title %}What We Do - Bronx Science Olympiad{% endblock %}
 
 {% block content %}
-<div class="dept-hero" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/static/images/events-bg.jpg');">
-    <div class="hero-content">
-        <h1>What We Do</h1>
-        <p>Understanding Science Olympiad and our team activities</p>
+<div class="dept-hero what-we-do-hero">
+    <div class="what-we-do-hero-inner">
+        <div class="what-we-do-hero-logo">
+            <img src="/static/images/science-olympiad-logo.png" alt="Science Olympiad logo">
+        </div>
+        <div class="hero-content what-we-do-hero-text">
+            <h1>What We Do</h1>
+            <p>Understanding Science Olympiad and our team activities</p>
+        </div>
     </div>
 </div>
 
@@ -218,6 +223,70 @@
 
 {% block extra_css %}
 <style>
+    .what-we-do-hero {
+        background: linear-gradient(135deg, #0a2463 0%, #1a4a8a 55%, #3e92cc 100%);
+        flex-direction: column;
+        justify-content: center;
+        height: auto;
+        min-height: 55vh;
+        padding: 56px 24px 48px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .what-we-do-hero::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at 50% 0%, rgba(45, 199, 255, 0.22) 0%, transparent 65%);
+        pointer-events: none;
+    }
+
+    .what-we-do-hero-inner {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 820px;
+    }
+
+    .what-we-do-hero-logo {
+        background: #fff;
+        border-radius: 16px;
+        padding: 20px 32px;
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+        margin-bottom: 28px;
+    }
+
+    .what-we-do-hero-logo img {
+        display: block;
+        max-width: min(640px, 88vw);
+        max-height: 28vh;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .what-we-do-hero-text {
+        width: 100%;
+        max-width: 640px;
+        background: none;
+        padding: 0;
+        border: none;
+    }
+
+    .what-we-do-hero-text h1 {
+        margin-bottom: 10px;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    }
+
+    .what-we-do-hero-text p {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.88);
+    }
+
     .about-flex {
         display: flex;
         align-items: center;
