@@ -1,0 +1,1013 @@
+{% extends "layout.html" %}
+
+{% block title %}Year in Pictures 2025–26 – Bronx Science Olympiad{% endblock %}
+
+{% block extra_css %}
+<style>
+    :root {
+        --timeline-accent: #4fa3e0;
+        --section-gap: 80px;
+    }
+
+    /* ── Hero ──────────────────────────────────────────────────────── */
+    .yip-hero {
+        background: linear-gradient(135deg, #0d1b2a 0%, #1a3a5c 60%, #0d1b2a 100%);
+        padding: 90px 0 60px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .yip-hero::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at 50% 0%, rgba(79,163,224,0.18) 0%, transparent 70%);
+    }
+
+    .yip-hero-inner { position: relative; z-index: 1; }
+
+    .yip-hero-eyebrow {
+        display: inline-block;
+        background: rgba(79,163,224,0.18);
+        color: var(--timeline-accent);
+        border: 1px solid rgba(79,163,224,0.35);
+        border-radius: 20px;
+        padding: 6px 18px;
+        font-size: 0.78rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-weight: 600;
+        margin-bottom: 18px;
+    }
+
+    .yip-hero h1 {
+        font-size: clamp(2rem, 5vw, 3.4rem);
+        font-weight: 800;
+        color: #fff;
+        margin: 0 0 16px;
+        line-height: 1.15;
+    }
+
+    .yip-hero h1 span { color: var(--timeline-accent); }
+
+    .yip-hero p {
+        color: rgba(255,255,255,0.72);
+        font-size: 1.05rem;
+        max-width: 560px;
+        margin: 0 auto;
+        line-height: 1.65;
+    }
+
+    .yip-hero-stats {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        margin-top: 42px;
+        flex-wrap: wrap;
+    }
+
+    .yip-stat {
+        text-align: center;
+    }
+
+    .yip-stat-num {
+        display: block;
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--timeline-accent);
+        line-height: 1;
+    }
+
+    .yip-stat-label {
+        font-size: 0.78rem;
+        color: rgba(255,255,255,0.55);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-top: 5px;
+    }
+
+    /* ── Layout ────────────────────────────────────────────────────── */
+    .yip-body {
+        background: #0b1622;
+        padding: 0 0 80px;
+    }
+
+    .yip-layout {
+        max-width: 1240px;
+        margin: 0 auto;
+        padding: 0 24px;
+        display: flex;
+        gap: 0;
+        align-items: flex-start;
+        position: relative;
+    }
+
+    /* ── Sidebar Timeline ──────────────────────────────────────────── */
+    .yip-timeline {
+        width: 220px;
+        flex-shrink: 0;
+        position: sticky;
+        top: 100px;
+        padding: 40px 0;
+        max-height: calc(100vh - 120px);
+        overflow-y: auto;
+        scrollbar-width: none;
+    }
+
+    .yip-timeline::-webkit-scrollbar { display: none; }
+
+    .yip-timeline-track {
+        position: relative;
+        padding-left: 28px;
+    }
+
+    .yip-timeline-track::before {
+        content: '';
+        position: absolute;
+        left: 8px;
+        top: 12px;
+        bottom: 12px;
+        width: 2px;
+        background: linear-gradient(to bottom, transparent, rgba(79,163,224,0.4) 10%, rgba(79,163,224,0.4) 90%, transparent);
+    }
+
+    .yip-tl-item {
+        position: relative;
+        margin-bottom: 6px;
+    }
+
+    .yip-tl-item::before {
+        content: '';
+        position: absolute;
+        left: -28px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba(79,163,224,0.3);
+        border: 2px solid rgba(79,163,224,0.4);
+        transition: all 0.3s ease;
+        z-index: 1;
+    }
+
+    .yip-tl-item.active::before {
+        background: var(--timeline-accent);
+        border-color: var(--timeline-accent);
+        box-shadow: 0 0 12px rgba(79,163,224,0.6);
+        width: 12px;
+        height: 12px;
+        left: -29px;
+    }
+
+    .yip-tl-link {
+        display: block;
+        text-decoration: none;
+        padding: 9px 10px;
+        border-radius: 8px;
+        transition: all 0.2s ease;
+        cursor: pointer;
+    }
+
+    .yip-tl-link:hover {
+        background: rgba(79,163,224,0.1);
+    }
+
+    .yip-tl-link.active {
+        background: rgba(79,163,224,0.12);
+    }
+
+    .yip-tl-date {
+        display: block;
+        font-size: 0.68rem;
+        color: var(--timeline-accent);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-weight: 600;
+        opacity: 0.75;
+        margin-bottom: 2px;
+        transition: opacity 0.2s;
+    }
+
+    .yip-tl-item.active .yip-tl-date { opacity: 1; }
+
+    .yip-tl-name {
+        display: block;
+        font-size: 0.82rem;
+        color: rgba(255,255,255,0.55);
+        font-weight: 500;
+        line-height: 1.3;
+        transition: color 0.2s;
+    }
+
+    .yip-tl-item.active .yip-tl-name,
+    .yip-tl-item:hover .yip-tl-name {
+        color: rgba(255,255,255,0.9);
+    }
+
+    /* ── Main content ──────────────────────────────────────────────── */
+    .yip-main {
+        flex: 1;
+        min-width: 0;
+        padding: 40px 0 0 48px;
+    }
+
+    /* ── Section ───────────────────────────────────────────────────── */
+    .yip-section {
+        margin-bottom: var(--section-gap);
+    }
+
+    .yip-section-header {
+        display: flex;
+        align-items: flex-start;
+        gap: 18px;
+        margin-bottom: 28px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid rgba(79,163,224,0.15);
+    }
+
+    .yip-section-icon {
+        width: 46px;
+        height: 46px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, rgba(79,163,224,0.25), rgba(79,163,224,0.1));
+        border: 1px solid rgba(79,163,224,0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        font-size: 1.15rem;
+        color: var(--timeline-accent);
+    }
+
+    .yip-section-meta { flex: 1; }
+
+    .yip-section-tag {
+        display: inline-block;
+        font-size: 0.68rem;
+        color: var(--timeline-accent);
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        font-weight: 700;
+        margin-bottom: 4px;
+    }
+
+    .yip-section-title {
+        font-size: 1.55rem;
+        font-weight: 700;
+        color: #fff;
+        margin: 0 0 6px;
+        line-height: 1.25;
+    }
+
+    .yip-section-desc {
+        font-size: 0.88rem;
+        color: rgba(255,255,255,0.5);
+        line-height: 1.55;
+        margin: 0;
+    }
+
+    /* ── Photo grid ────────────────────────────────────────────────── */
+    .yip-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+    }
+
+    .yip-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+    .yip-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+    /* featured (spans 2 cols) */
+    .yip-card.featured { grid-column: span 2; }
+
+    .yip-card {
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        cursor: pointer;
+        background: #111d2b;
+        border: 1px solid rgba(255,255,255,0.06);
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .yip-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+        border-color: rgba(79,163,224,0.35);
+    }
+
+    .yip-card-img-wrap {
+        position: relative;
+        width: 100%;
+        padding-top: 66.666%;
+        overflow: hidden;
+        background: #0d1622;
+    }
+
+    .yip-card.featured .yip-card-img-wrap { padding-top: 56%; }
+
+    .yip-card-img-wrap img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease, filter 0.3s ease;
+        filter: brightness(0.92) saturate(1.05);
+    }
+
+    .yip-card:hover .yip-card-img-wrap img {
+        transform: scale(1.06);
+        filter: brightness(1) saturate(1.1);
+    }
+
+    .yip-card-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(5,15,28,0.9) 0%, rgba(5,15,28,0.3) 55%, transparent 100%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        display: flex;
+        align-items: flex-end;
+        padding: 16px;
+    }
+
+    .yip-card:hover .yip-card-overlay { opacity: 1; }
+
+    .yip-card-caption {
+        color: #fff;
+        font-size: 0.82rem;
+        line-height: 1.45;
+        font-weight: 400;
+    }
+
+    .yip-card-caption-static {
+        padding: 12px 14px;
+        font-size: 0.8rem;
+        color: rgba(255,255,255,0.52);
+        line-height: 1.45;
+        border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .yip-zoom-icon {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: rgba(0,0,0,0.55);
+        backdrop-filter: blur(4px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(255,255,255,0.8);
+        font-size: 0.75rem;
+        opacity: 0;
+        transform: scale(0.8);
+        transition: all 0.3s ease;
+    }
+
+    .yip-card:hover .yip-zoom-icon {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    /* ── Lightbox ──────────────────────────────────────────────────── */
+    .yip-lightbox {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        background: rgba(4,10,20,0.96);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        backdrop-filter: blur(8px);
+    }
+
+    .yip-lightbox.open {
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    .yip-lb-inner {
+        position: relative;
+        max-width: 1100px;
+        width: 100%;
+        max-height: 90vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .yip-lb-img-wrap {
+        width: 100%;
+        max-height: 78vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid rgba(79,163,224,0.2);
+    }
+
+    .yip-lb-img-wrap img {
+        max-width: 100%;
+        max-height: 78vh;
+        object-fit: contain;
+        display: block;
+    }
+
+    .yip-lb-caption {
+        color: rgba(255,255,255,0.75);
+        font-size: 0.9rem;
+        text-align: center;
+        max-width: 700px;
+        line-height: 1.55;
+    }
+
+    .yip-lb-section-tag {
+        font-size: 0.7rem;
+        color: var(--timeline-accent);
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        font-weight: 600;
+        margin-bottom: 4px;
+    }
+
+    .yip-lb-close {
+        position: absolute;
+        top: -44px;
+        right: 0;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.12);
+        border: 1px solid rgba(255,255,255,0.18);
+        color: #fff;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.85rem;
+        transition: background 0.2s;
+    }
+
+    .yip-lb-close:hover { background: rgba(255,255,255,0.22); }
+
+    .yip-lb-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.1);
+        border: 1px solid rgba(255,255,255,0.15);
+        color: #fff;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        transition: background 0.2s, transform 0.2s;
+        z-index: 1;
+    }
+
+    .yip-lb-nav:hover { background: rgba(255,255,255,0.2); }
+
+    .yip-lb-prev { left: -60px; }
+    .yip-lb-next { right: -60px; }
+
+    /* ── Responsive ────────────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+        .yip-timeline { display: none; }
+        .yip-main { padding-left: 0; }
+        .yip-layout { display: block; }
+        .yip-grid { grid-template-columns: repeat(2, 1fr); }
+        .yip-grid.cols-4 { grid-template-columns: repeat(2, 1fr); }
+        .yip-card.featured { grid-column: span 1; }
+        .yip-lb-prev { left: -14px; }
+        .yip-lb-next { right: -14px; }
+    }
+
+    @media (max-width: 600px) {
+        .yip-grid, .yip-grid.cols-2, .yip-grid.cols-4 {
+            grid-template-columns: 1fr;
+        }
+        .yip-card.featured { grid-column: span 1; }
+        .yip-card-overlay { opacity: 1; }
+        .yip-zoom-icon { opacity: 1; transform: scale(1); }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- ══════════════════════════════ HERO ══════════════════════════════ -->
+<section class="yip-hero">
+    <div class="container yip-hero-inner">
+        <span class="yip-hero-eyebrow"><i class="fas fa-camera"></i>&nbsp; Bronx Science Olympiad</span>
+        <h1>A Year in <span>Pictures</span></h1>
+        <p>Reliving the moments that defined our 2025–26 season — from the first kickoff meeting to the final buzzer at States.</p>
+        <div class="yip-hero-stats">
+            <div class="yip-stat">
+                <span class="yip-stat-num">21</span>
+                <span class="yip-stat-label">Photos</span>
+            </div>
+            <div class="yip-stat">
+                <span class="yip-stat-num">7</span>
+                <span class="yip-stat-label">Events &amp; Milestones</span>
+            </div>
+            <div class="yip-stat">
+                <span class="yip-stat-num">1</span>
+                <span class="yip-stat-label">Unforgettable Season</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════ BODY ══════════════════════════════════ -->
+<div class="yip-body">
+    <div class="yip-layout">
+
+        <!-- ── Sidebar Timeline ─────────────────────────────────── -->
+        <aside class="yip-timeline" aria-label="Photo album timeline">
+            <div class="yip-timeline-track">
+
+                <div class="yip-tl-item" data-target="sec-kickoff">
+                    <a class="yip-tl-link" href="#sec-kickoff" onclick="scrollToSection('sec-kickoff'); return false;">
+                        <span class="yip-tl-date">Sep 2025</span>
+                        <span class="yip-tl-name">Season Kickoff</span>
+                    </a>
+                </div>
+
+                <div class="yip-tl-item" data-target="sec-practices">
+                    <a class="yip-tl-link" href="#sec-practices" onclick="scrollToSection('sec-practices'); return false;">
+                        <span class="yip-tl-date">Oct – Nov 2025</span>
+                        <span class="yip-tl-name">Fall Practices</span>
+                    </a>
+                </div>
+
+                <div class="yip-tl-item" data-target="sec-yale">
+                    <a class="yip-tl-link" href="#sec-yale" onclick="scrollToSection('sec-yale'); return false;">
+                        <span class="yip-tl-date">Nov 2025</span>
+                        <span class="yip-tl-name">Yale Invitational</span>
+                    </a>
+                </div>
+
+                <div class="yip-tl-item" data-target="sec-southwest">
+                    <a class="yip-tl-link" href="#sec-southwest" onclick="scrollToSection('sec-southwest'); return false;">
+                        <span class="yip-tl-date">Jan 2026</span>
+                        <span class="yip-tl-name">Southwest Invitational</span>
+                    </a>
+                </div>
+
+                <div class="yip-tl-item" data-target="sec-buildprep">
+                    <a class="yip-tl-link" href="#sec-buildprep" onclick="scrollToSection('sec-buildprep'); return false;">
+                        <span class="yip-tl-date">Feb 2026</span>
+                        <span class="yip-tl-name">Build &amp; Prep</span>
+                    </a>
+                </div>
+
+                <div class="yip-tl-item" data-target="sec-regionals">
+                    <a class="yip-tl-link" href="#sec-regionals" onclick="scrollToSection('sec-regionals'); return false;">
+                        <span class="yip-tl-date">Mar 2026</span>
+                        <span class="yip-tl-name">Regionals</span>
+                    </a>
+                </div>
+
+                <div class="yip-tl-item" data-target="sec-yearend">
+                    <a class="yip-tl-link" href="#sec-yearend" onclick="scrollToSection('sec-yearend'); return false;">
+                        <span class="yip-tl-date">Apr – May 2026</span>
+                        <span class="yip-tl-name">End of Year</span>
+                    </a>
+                </div>
+
+            </div>
+        </aside>
+
+        <!-- ── Main content ─────────────────────────────────────── -->
+        <main class="yip-main">
+
+            <!-- ═══ SECTION 1: Season Kickoff ═══ -->
+            <section class="yip-section" id="sec-kickoff">
+                <div class="yip-section-header">
+                    <div class="yip-section-icon"><i class="fas fa-rocket"></i></div>
+                    <div class="yip-section-meta">
+                        <span class="yip-section-tag">September 2025</span>
+                        <h2 class="yip-section-title">Season Kickoff</h2>
+                        <p class="yip-section-desc">The 2025–26 season began with enthusiasm as returning veterans and excited newcomers united around a shared goal: compete harder than ever before.</p>
+                    </div>
+                </div>
+                <div class="yip-grid cols-2">
+                    {% set s1 = "Season Kickoff" %}
+                    <div class="yip-card featured" onclick="openLightbox(0)">
+                        <div class="yip-card-img-wrap">
+                            <img src="{{ url_for('static', filename='images/year_in_pictures/IMG_1776.jpg') }}" alt="Season kickoff meeting" loading="lazy">
+                            <div class="yip-card-overlay"><span class="yip-card-caption">Team members gather for the first general meeting of the 2025–26 season, kicking off what would be an unforgettable year of Science Olympiad.</span></div>
+                            <div class="yip-zoom-icon"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <p class="yip-card-caption-static">Team members gather for the first general meeting of the 2025–26 season, kicking off what would be an unforgettable year of Science Olympiad.</p>
+                    </div>
+                    <div class="yip-card" onclick="openLightbox(1)">
+                        <div class="yip-card-img-wrap">
+                            <img src="{{ url_for('static', filename='images/year_in_pictures/IMG_2899.jpg') }}" alt="Kickoff social" loading="lazy">
+                            <div class="yip-card-overlay"><span class="yip-card-caption">Returning members reconnect and welcome newcomers during our annual kickoff social, setting the tone for the season ahead.</span></div>
+                            <div class="yip-zoom-icon"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <p class="yip-card-caption-static">Returning members reconnect and welcome newcomers during our annual kickoff social, setting the tone for the season ahead.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ═══ SECTION 2: Fall Practices ═══ -->
+            <section class="yip-section" id="sec-practices">
+                <div class="yip-section-header">
+                    <div class="yip-section-icon"><i class="fas fa-flask"></i></div>
+                    <div class="yip-section-meta">
+                        <span class="yip-section-tag">October – November 2025</span>
+                        <h2 class="yip-section-title">Fall Practices</h2>
+                        <p class="yip-section-desc">Week after week of focused preparation — lab work, lectures, and late-night study sessions as everyone sharpened their skills across 23 events.</p>
+                    </div>
+                </div>
+                <div class="yip-grid">
+                    <div class="yip-card featured" onclick="openLightbox(2)">
+                        <div class="yip-card-img-wrap">
+                            <img src="{{ url_for('static', filename='images/year_in_pictures/IMG_3008.jpg') }}" alt="Fall practice session" loading="lazy">
+                            <div class="yip-card-overlay"><span class="yip-card-caption">Members dive deep into event preparation during an early-season practice, going through practice tests and drilling key concepts.</span></div>
+                            <div class="yip-zoom-icon"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <p class="yip-card-caption-static">Members dive deep into event preparation during an early-season practice, going through practice tests and drilling key concepts.</p>
+                    </div>
+                    <div class="yip-card" onclick="openLightbox(3)">
+                        <div class="yip-card-img-wrap">
+                            <img src="{{ url_for('static', filename='images/year_in_pictures/IMG_3026.jpg') }}" alt="Lab event practice" loading="lazy">
+                            <div class="yip-card-overlay"><span class="yip-card-caption">Lab event partners run through experimental procedures, building the precision and speed they'll need come competition day.</span></div>
+                            <div class="yip-zoom-icon"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <p class="yip-card-caption-static">Lab event partners run through experimental procedures, building the precision and speed they'll need come competition day.</p>
+                    </div>
+                    <div class="yip-card" onclick="openLightbox(4)">
+                        <div class="yip-card-img-wrap">
+                            <img src="{{ url_for('static', filename='images/year_in_pictures/IMG_3648.jpg') }}" alt="Study session" loading="lazy">
+                            <div class="yip-card-overlay"><span class="yip-card-caption">A focused fall study session as team members begin tackling the breadth of Science Olympiad material, notes spread across every table.</span></div>
+                            <div class="yip-zoom-icon"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <p class="yip-card-caption-static">A focused fall study session as team members tackle the breadth of Science Olympiad material, notes spread across every table.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ═══ SECTION 3: Yale Invitational ═══ -->
+            <section class="yip-section" id="sec-yale">
+                <div class="yip-section-header">
+                    <div class="yip-section-icon"><i class="fas fa-university"></i></div>
+                    <div class="yip-section-meta">
+                        <span class="yip-section-tag">November 2025</span>
+                        <h2 class="yip-section-title">Yale Invitational</h2>
+                        <p class="yip-section-desc">Our first major away invitational of the season brought both teams to New Haven for a challenging early test — complete with a surprise snowfall on arrival.</p>
+                    </div>
+                </div>
+                <div class="yip-grid cols-2">
+                    <div class="yip-card featured" onclick="openLightbox(5)">
+                        <div class="yip-card-img-wrap">
+                            <img src="{{ url_for('static', filename='images/year_in_pictures/YaleSnow.jpg') }}" alt="Arriving at Yale in the snow" loading="lazy">
+                            <div class="yip-card-overlay"><span class="yip-card-caption">The team arrives at Yale University, greeted by an early winter snowfall — a memorable backdrop for our first big invitational of the year.</span></div>
+                            <div class="yip-zoom-icon"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <p class="yip-card-caption-static">The team arrives at Yale University, greeted by an early winter snowfall — a memorable backdrop for our first big invitational of the year.</p>
+                    </div>
+                    <div class="yip-card" onclick="openLightbox(6)">
+                        <div class="yip-card-img-wrap">
+                            <img src="{{ url_for('static', filename='images/year_in_pictures/IMG_5008.jpg') }}" alt="Competing at Yale" loading="lazy">
+                            <div class="yip-card-overlay"><span class="yip-card-caption">Competing at Yale's prestigious Invitational gave the team invaluable tournament experience and a look at just how strong the competition would be this season.</span></div>
+                            <div class="yip-zoom-icon"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <p class="yip-card-caption-static">Competing at Yale's prestigious Invitational gave the team invaluable experience and a preview of just how strong the competition would be this season.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ═══ SECTION 4: Southwest Invitational ═══ -->
+            <section class="yip-section" id="sec-southwest">
+                <div class="yip-section-header">
+                    <div class="yip-section-icon"><i class="fas fa-trophy"></i></div>
+                    <div class="yip-section-meta">
+                        <span class="yip-section-tag">January 2026</span>
+                        <h2 class="yip-section-title">Southwest Invitational</h2>
+                        <p class="yip-section-desc">A full team weekend at Southwest — from the pre-competition dinner to device events on the competition floor, this invitational was a true team effort.</p>
+                    </div>
+                </div>
+                <div class="yip-grid cols-2">
+                    <div class="yip-card featured" onclick="openLightbox(7)">
+                        <div class="yip-card-img-wrap">
+                            <img src="{{ url_for('static', filename='images/year_in_pictures/SWEntrance.jpg') }}" alt="Southwest Invitational entrance" loading="lazy">
+                            <div class="yip-card-overlay"><span class="yip-card-caption">Team members arrive at the Southwest Invitational, badges on and ready to go — months of preparation about to be put to the test.</span></div>
+                            <div class="yip-zoom-icon"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <p class="yip-card-caption-static">Team members arrive at the Southwest Invitational, badges on and ready to go — months of preparation about to be put to the test.</p>
+                    </div>
+                    <div class="yip-card" onclick="openLightbox(8)">
+                        <div class="yip-card-img-wrap">
+                            <img src="{{ url_for('static', filename='images/year_in_pictures/SWDinner.jpg') }}" alt="Team dinner before Southwest" loading="lazy">
+                            <div class="yip-card-overlay"><span class="yip-card-caption">The night before competition, the team gathers for dinner — sharing last-minute strategies, laughing together, and building the chemistry that carries into every event room.</span></div>
+                            <div class="yip-zoom-icon"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <p class="yip-card-caption-static">The night before competition, the team gathers for dinner — sharing strategies and building the chemistry that carries into every event room.</p>
+                    </div>
+                    <div class="yip-card" onclick="openLightbox(9)">
+                        <div class="yip-card-img-wrap">
+                            <img src="{{ url_for('static', filename='images/year_in_pictures/SWHeli.jpg') }}" alt="Helicopter event at Southwest" loading="lazy">
+                            <div class="yip-card-overlay"><span class="yip-card-caption">Our Helicopter event specialists launch their build in competition, putting months of careful calibration and engineering to the ultimate test.</span></div>
+                            <div class="yip-zoom-icon"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <p class="yip-card-caption-static">Our Helicopter event specialists launch their build in competition, putting months of careful calibration and engineering to the ultimate test.</p>
+                    </div>
+                    <div class="yip-card" onclick="openLightbox(10)">
+                        <div class="yip-card-img-wrap">
+                            <img src="{{ url_for('static', filename='images/year_in_pictures/IMG_5047.jpg') }}" alt="Pre-event focus at Southwest" loading="lazy">
+                            <div class="yip-card-overlay"><span class="yip-card-caption">A moment of quiet focus in the hallway before entering an event room — the deep breath before the deep dive that every competitor knows well.</span></div>
+                            <div class="yip-zoom-icon"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <p class="yip-card-caption-static">A moment of quiet focus before entering an event room — the deep breath every competitor knows well before the deep dive begins.</p>
+                    </div>
+                    <div class="yip-card" onclick="openLightbox(11)">
+                        <div class="yip-card-img-wrap">
+                            <img src="{{ url_for('static', filename='images/year_in_pictures/IMG_5080.jpg') }}" alt="Post-event celebration at Southwest" loading="lazy">
+                            <div class="yip-card-overlay"><span class="yip-card-caption">Team members celebrate after wrapping up their events at Southwest, the weight of competition replaced by smiles and a sense of earned accomplishment.</span></div>
+                            <div class="yip-zoom-icon"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <p class="yip-card-caption-static">Team members celebrate after wrapping up events at Southwest, the weight of competition replaced by smiles and a sense of earned accomplishment.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ═══ SECTION 5: Build & Prep ═══ -->
+            <section class="yip-section" id="sec-buildprep">
+                <div class="yip-section-header">
+                    <div class="yip-section-icon"><i class="fas fa-tools"></i></div>
+                    <div class="yip-section-meta">
+                        <span class="yip-section-tag">February 2026</span>
+                        <h2 class="yip-section-title">Build Events &amp; Pre-Regional Prep</h2>
+                        <p class="yip-section-desc">The final stretch before Regionals — build teams ran test drop after test drop while study groups pushed deep into content, everyone locked in on the same goal.</p>
+                    </div>
+                </div>
+                <div class="yip-grid cols-2">
+                    <div class="yip-card featured" onclick="openLightbox(12)">
+                        <div class="yip-card-img-wrap">
+                            <img src="{{ url_for('static', filename='images/year_in_pictures/BoomiPrep.jpg') }}" alt="Boomilever preparation" loading="lazy">
+                            <div class="yip-card-overlay"><span class="yip-card-caption">The Boomilever team carefully tests their structure, fine-tuning the design to maximize the load-to-weight ratio ahead of the regional competition.</span></div>
+                            <div class="yip-zoom-icon"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <p class="yip-card-caption-static">The Boomilever team carefully tests their structure, fine-tuning the design to maximize the load-to-weight ratio ahead of the regional competition.</p>
+                    </div>
+                    <div class="yip-card" onclick="openLightbox(13)">
+                        <div class="yip-card-img-wrap">
+                            <img src="{{ url_for('static', filename='images/year_in_pictures/idk.jpg') }}" alt="Pre-regional preparation" loading="lazy">
+                            <div class="yip-card-overlay"><span class="yip-card-caption">A candid moment from one of many productive sessions in the final weeks before Regionals — focused, caffeinated, and determined.</span></div>
+                            <div class="yip-zoom-icon"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <p class="yip-card-caption-static">A candid moment from one of many productive sessions in the final weeks before Regionals — focused, caffeinated, and determined.</p>
+                    </div>
+                    <div class="yip-card" onclick="openLightbox(14)">
+                        <div class="yip-card-img-wrap">
+                            <img src="{{ url_for('static', filename='images/year_in_pictures/IMG_6525.jpg') }}" alt="Late-night prep session" loading="lazy">
+                            <div class="yip-card-overlay"><span class="yip-card-caption">Late-season prep sessions pushed well into the evening as members squeezed in every last review session before heading into Regionals.</span></div>
+                            <div class="yip-zoom-icon"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <p class="yip-card-caption-static">Late-season prep sessions pushed well into the evening as members squeezed in every last review session before heading into Regionals.</p>
+                    </div>
+                    <div class="yip-card" onclick="openLightbox(15)">
+                        <div class="yip-card-img-wrap">
+                            <img src="{{ url_for('static', filename='images/year_in_pictures/SAM_0222.jpg') }}" alt="Build event testing" loading="lazy">
+                            <div class="yip-card-overlay"><span class="yip-card-caption">Another build device test run captured on the team camera — each drop teaching the engineers something new about their design's tolerances.</span></div>
+                            <div class="yip-zoom-icon"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <p class="yip-card-caption-static">Another build device test run — each drop teaching the engineers something new about their design's tolerances.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ═══ SECTION 6: Regionals ═══ -->
+            <section class="yip-section" id="sec-regionals">
+                <div class="yip-section-header">
+                    <div class="yip-section-icon"><i class="fas fa-medal"></i></div>
+                    <div class="yip-section-meta">
+                        <span class="yip-section-tag">March 2026</span>
+                        <h2 class="yip-section-title">Regionals</h2>
+                        <p class="yip-section-desc">Competition day arrived — Bronx Science brought two full teams, and the work of an entire year came down to a single tournament. The results spoke for themselves.</p>
+                    </div>
+                </div>
+                <div class="yip-grid cols-2">
+                    <div class="yip-card featured" onclick="openLightbox(16)">
+                        <div class="yip-card-img-wrap">
+                            <img src="{{ url_for('static', filename='images/year_in_pictures/RegionalsStudying.jpg') }}" alt="Last-minute studying at Regionals" loading="lazy">
+                            <div class="yip-card-overlay"><span class="yip-card-caption">Members review notes and final details in the hour before competition — the calm before the storm, notes in hand and focus dialed in.</span></div>
+                            <div class="yip-zoom-icon"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <p class="yip-card-caption-static">Members review notes and final details in the hour before competition — the calm before the storm, notes in hand and focus dialed in.</p>
+                    </div>
+                    <div class="yip-card" onclick="openLightbox(17)">
+                        <div class="yip-card-img-wrap">
+                            <img src="{{ url_for('static', filename='images/year_in_pictures/RegMachines.jpg') }}" alt="Machines event at Regionals" loading="lazy">
+                            <div class="yip-card-overlay"><span class="yip-card-caption">Our Machines event competitors set up their device at Regionals, months of precision engineering on display in a single, high-stakes run.</span></div>
+                            <div class="yip-zoom-icon"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <p class="yip-card-caption-static">Our Machines event competitors set up their device at Regionals, months of precision engineering on full display in a single high-stakes run.</p>
+                    </div>
+                    <div class="yip-card" onclick="openLightbox(18)">
+                        <div class="yip-card-img-wrap">
+                            <img src="{{ url_for('static', filename='images/year_in_pictures/RegTeamB.jpg') }}" alt="Team B at Regionals" loading="lazy">
+                            <div class="yip-card-overlay"><span class="yip-card-caption">Team B gathers for a photo after a fantastic showing at Regionals — the smiles say it all about the kind of day they had.</span></div>
+                            <div class="yip-zoom-icon"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <p class="yip-card-caption-static">Team B gathers for a post-competition photo after a fantastic showing at Regionals — the smiles say everything about the kind of day they had.</p>
+                    </div>
+                    <div class="yip-card" onclick="openLightbox(19)">
+                        <div class="yip-card-img-wrap">
+                            <img src="{{ url_for('static', filename='images/year_in_pictures/IMG_6905.jpg') }}" alt="After Regionals" loading="lazy">
+                            <div class="yip-card-overlay"><span class="yip-card-caption">Post-regionals relief and celebration — the hard work paid off, and now the focus turns toward what comes next on the road to States.</span></div>
+                            <div class="yip-zoom-icon"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <p class="yip-card-caption-static">Post-Regionals relief and celebration — the hard work paid off, and the focus turns to what comes next on the road to States.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ═══ SECTION 7: End of Year ═══ -->
+            <section class="yip-section" id="sec-yearend">
+                <div class="yip-section-header">
+                    <div class="yip-section-icon"><i class="fas fa-star"></i></div>
+                    <div class="yip-section-meta">
+                        <span class="yip-section-tag">April – May 2026</span>
+                        <h2 class="yip-section-title">States &amp; End of Year</h2>
+                        <p class="yip-section-desc">The final chapter of a remarkable season — competing at the State level and then gathering one last time to celebrate everything we built together.</p>
+                    </div>
+                </div>
+                <div class="yip-grid cols-2">
+                    <div class="yip-card featured" onclick="openLightbox(20)">
+                        <div class="yip-card-img-wrap">
+                            <img src="{{ url_for('static', filename='images/year_in_pictures/PicnicSCIOLY.jpg') }}" alt="End of year picnic" loading="lazy">
+                            <div class="yip-card-overlay"><span class="yip-card-caption">The team wraps up a remarkable season at the annual Science Olympiad end-of-year picnic — friendships made, achievements celebrated, and memories locked in forever.</span></div>
+                            <div class="yip-zoom-icon"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <p class="yip-card-caption-static">The team wraps up a remarkable season at the annual Science Olympiad end-of-year picnic — friendships made, achievements celebrated, and memories locked in forever.</p>
+                    </div>
+                    <div class="yip-card" onclick="openLightbox(21)">
+                        <div class="yip-card-img-wrap">
+                            <img src="{{ url_for('static', filename='images/year_in_pictures/IMG_7803.jpg') }}" alt="States competition" loading="lazy">
+                            <div class="yip-card-overlay"><span class="yip-card-caption">Competing at the New York State Science Olympiad Tournament — representing Bronx Science on the biggest stage of the season after months of dedicated preparation.</span></div>
+                            <div class="yip-zoom-icon"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <p class="yip-card-caption-static">Competing at the NYS Science Olympiad Tournament — representing Bronx Science on the biggest stage of the season after months of dedicated preparation.</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+</div>
+
+<!-- ══════════════════════════ LIGHTBOX ══════════════════════════════ -->
+<div class="yip-lightbox" id="yipLightbox" role="dialog" aria-modal="true" aria-label="Photo lightbox">
+    <div class="yip-lb-inner">
+        <button class="yip-lb-close" id="yipLbClose" aria-label="Close"><i class="fas fa-times"></i></button>
+        <button class="yip-lb-nav yip-lb-prev" id="yipLbPrev" aria-label="Previous photo"><i class="fas fa-chevron-left"></i></button>
+        <button class="yip-lb-nav yip-lb-next" id="yipLbNext" aria-label="Next photo"><i class="fas fa-chevron-right"></i></button>
+        <div class="yip-lb-img-wrap">
+            <img id="yipLbImg" src="" alt="">
+        </div>
+        <div class="yip-lb-caption">
+            <div class="yip-lb-section-tag" id="yipLbSection"></div>
+            <div id="yipLbCaption"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // ── Photo data ──────────────────────────────────────────────────
+    const PHOTOS = [
+        // Section 1: Season Kickoff
+        { src: "{{ url_for('static', filename='images/year_in_pictures/IMG_1776.jpg') }}", section: "Season Kickoff", caption: "Team members gather for the first general meeting of the 2025–26 season, kicking off what would be an unforgettable year of Science Olympiad." },
+        { src: "{{ url_for('static', filename='images/year_in_pictures/IMG_2899.jpg') }}", section: "Season Kickoff", caption: "Returning members reconnect and welcome newcomers during our annual kickoff social, setting the tone for the season ahead." },
+        // Section 2: Fall Practices
+        { src: "{{ url_for('static', filename='images/year_in_pictures/IMG_3008.jpg') }}", section: "Fall Practices", caption: "Members dive deep into event preparation during an early-season practice, going through practice tests and drilling key concepts." },
+        { src: "{{ url_for('static', filename='images/year_in_pictures/IMG_3026.jpg') }}", section: "Fall Practices", caption: "Lab event partners run through experimental procedures, building the precision and speed they'll need come competition day." },
+        { src: "{{ url_for('static', filename='images/year_in_pictures/IMG_3648.jpg') }}", section: "Fall Practices", caption: "A focused fall study session as team members tackle the breadth of Science Olympiad material, notes spread across every table." },
+        // Section 3: Yale
+        { src: "{{ url_for('static', filename='images/year_in_pictures/YaleSnow.jpg') }}", section: "Yale Invitational", caption: "The team arrives at Yale University, greeted by an early winter snowfall — a memorable backdrop for our first big invitational of the year." },
+        { src: "{{ url_for('static', filename='images/year_in_pictures/IMG_5008.jpg') }}", section: "Yale Invitational", caption: "Competing at Yale's prestigious Invitational gave the team invaluable experience and a preview of just how strong the competition would be this season." },
+        // Section 4: Southwest
+        { src: "{{ url_for('static', filename='images/year_in_pictures/SWEntrance.jpg') }}", section: "Southwest Invitational", caption: "Team members arrive at the Southwest Invitational, badges on and ready to go — months of preparation about to be put to the test." },
+        { src: "{{ url_for('static', filename='images/year_in_pictures/SWDinner.jpg') }}", section: "Southwest Invitational", caption: "The night before competition, the team gathers for dinner — sharing strategies and building the chemistry that carries into every event room." },
+        { src: "{{ url_for('static', filename='images/year_in_pictures/SWHeli.jpg') }}", section: "Southwest Invitational", caption: "Our Helicopter event specialists launch their build in competition, putting months of careful calibration and engineering to the ultimate test." },
+        { src: "{{ url_for('static', filename='images/year_in_pictures/IMG_5047.jpg') }}", section: "Southwest Invitational", caption: "A moment of quiet focus before entering an event room — the deep breath every competitor knows well before the deep dive begins." },
+        { src: "{{ url_for('static', filename='images/year_in_pictures/IMG_5080.jpg') }}", section: "Southwest Invitational", caption: "Team members celebrate after wrapping up events at Southwest, the weight of competition replaced by smiles and a sense of earned accomplishment." },
+        // Section 5: Build & Prep
+        { src: "{{ url_for('static', filename='images/year_in_pictures/BoomiPrep.jpg') }}", section: "Build Events & Pre-Regional Prep", caption: "The Boomilever team carefully tests their structure, fine-tuning the design to maximize the load-to-weight ratio ahead of the regional competition." },
+        { src: "{{ url_for('static', filename='images/year_in_pictures/idk.jpg') }}", section: "Build Events & Pre-Regional Prep", caption: "A candid moment from one of many productive sessions in the final weeks before Regionals — focused, caffeinated, and determined." },
+        { src: "{{ url_for('static', filename='images/year_in_pictures/IMG_6525.jpg') }}", section: "Build Events & Pre-Regional Prep", caption: "Late-season prep sessions pushed well into the evening as members squeezed in every last review session before heading into Regionals." },
+        { src: "{{ url_for('static', filename='images/year_in_pictures/SAM_0222.jpg') }}", section: "Build Events & Pre-Regional Prep", caption: "Another build device test run — each drop teaching the engineers something new about their design's tolerances." },
+        // Section 6: Regionals
+        { src: "{{ url_for('static', filename='images/year_in_pictures/RegionalsStudying.jpg') }}", section: "Regionals", caption: "Members review notes and final details in the hour before competition — the calm before the storm, notes in hand and focus dialed in." },
+        { src: "{{ url_for('static', filename='images/year_in_pictures/RegMachines.jpg') }}", section: "Regionals", caption: "Our Machines event competitors set up their device at Regionals, months of precision engineering on full display in a single high-stakes run." },
+        { src: "{{ url_for('static', filename='images/year_in_pictures/RegTeamB.jpg') }}", section: "Regionals", caption: "Team B gathers for a post-competition photo after a fantastic showing at Regionals — the smiles say everything about the kind of day they had." },
+        { src: "{{ url_for('static', filename='images/year_in_pictures/IMG_6905.jpg') }}", section: "Regionals", caption: "Post-Regionals relief and celebration — the hard work paid off, and the focus turns to what comes next on the road to States." },
+        // Section 7: End of Year
+        { src: "{{ url_for('static', filename='images/year_in_pictures/PicnicSCIOLY.jpg') }}", section: "States & End of Year", caption: "The team wraps up a remarkable season at the annual Science Olympiad end-of-year picnic — friendships made, achievements celebrated, and memories locked in forever." },
+        { src: "{{ url_for('static', filename='images/year_in_pictures/IMG_7803.jpg') }}", section: "States & End of Year", caption: "Competing at the NYS Science Olympiad Tournament — representing Bronx Science on the biggest stage of the season after months of dedicated preparation." },
+    ];
+
+    // ── Lightbox ────────────────────────────────────────────────────
+    let lbIndex = 0;
+
+    function openLightbox(index) {
+        lbIndex = index;
+        renderLightbox();
+        document.getElementById('yipLightbox').classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        document.getElementById('yipLightbox').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    function renderLightbox() {
+        const p = PHOTOS[lbIndex];
+        const img = document.getElementById('yipLbImg');
+        img.src = p.src;
+        img.alt = p.caption;
+        document.getElementById('yipLbSection').textContent = p.section;
+        document.getElementById('yipLbCaption').textContent = p.caption;
+    }
+
+    document.getElementById('yipLbClose').addEventListener('click', closeLightbox);
+
+    document.getElementById('yipLbPrev').addEventListener('click', () => {
+        lbIndex = (lbIndex - 1 + PHOTOS.length) % PHOTOS.length;
+        renderLightbox();
+    });
+
+    document.getElementById('yipLbNext').addEventListener('click', () => {
+        lbIndex = (lbIndex + 1) % PHOTOS.length;
+        renderLightbox();
+    });
+
+    document.getElementById('yipLightbox').addEventListener('click', function(e) {
+        if (e.target === this) closeLightbox();
+    });
+
+    document.addEventListener('keydown', function(e) {
+        const lb = document.getElementById('yipLightbox');
+        if (!lb.classList.contains('open')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') { lbIndex = (lbIndex - 1 + PHOTOS.length) % PHOTOS.length; renderLightbox(); }
+        if (e.key === 'ArrowRight') { lbIndex = (lbIndex + 1) % PHOTOS.length; renderLightbox(); }
+    });
+
+    // ── Timeline scroll spy ─────────────────────────────────────────
+    function scrollToSection(id) {
+        const el = document.getElementById(id);
+        if (!el) return;
+        const offset = 90;
+        const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+    }
+
+    const sections = [
+        { id: 'sec-kickoff',   target: 'sec-kickoff' },
+        { id: 'sec-practices', target: 'sec-practices' },
+        { id: 'sec-yale',      target: 'sec-yale' },
+        { id: 'sec-southwest', target: 'sec-southwest' },
+        { id: 'sec-buildprep', target: 'sec-buildprep' },
+        { id: 'sec-regionals', target: 'sec-regionals' },
+        { id: 'sec-yearend',   target: 'sec-yearend' },
+    ];
+
+    function updateTimeline() {
+        const scrollY = window.pageYOffset + 160;
+        let active = sections[0].id;
+        for (const s of sections) {
+            const el = document.getElementById(s.id);
+            if (el && el.offsetTop <= scrollY) active = s.id;
+        }
+        document.querySelectorAll('.yip-tl-item').forEach(item => {
+            const t = item.getAttribute('data-target');
+            item.classList.toggle('active', t === active);
+            item.querySelector('.yip-tl-link').classList.toggle('active', t === active);
+        });
+    }
+
+    window.addEventListener('scroll', updateTimeline, { passive: true });
+    updateTimeline();
+</script>
+{% endblock %}

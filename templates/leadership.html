@@ -10,9 +10,27 @@
     </div>
 </div>
 
+<div class="leadership-body">
+    <div class="leadership-layout">
+        <aside class="board-year-nav board-year-nav--desktop" aria-label="Jump to board year">
+            <p class="board-year-nav__label">Season</p>
+            <ul class="board-year-nav__list">
+                <li><a href="#board-2026-27" class="board-year-nav__link" data-year="board-2026-27">2026–27</a></li>
+                <li><a href="#board-2025-26" class="board-year-nav__link" data-year="board-2025-26">2025–26</a></li>
+                <li><a href="#board-2024-25" class="board-year-nav__link" data-year="board-2024-25">2024–25</a></li>
+            </ul>
+        </aside>
+
+        <div class="leadership-main">
+            <nav class="board-year-nav board-year-nav--mobile" aria-label="Jump to board year">
+                <a href="#board-2026-27" class="board-year-nav__link" data-year="board-2026-27">2026–27</a>
+                <a href="#board-2025-26" class="board-year-nav__link" data-year="board-2025-26">2025–26</a>
+                <a href="#board-2024-25" class="board-year-nav__link" data-year="board-2024-25">2024–25</a>
+            </nav>
+
 <section class="board-section">
     <div class="container">
-        <div class="section-title board-year-title">
+        <div class="section-title board-year-title board-year-anchor" id="board-2026-27">
             <h2>2026–2027 Executive Board</h2>
         </div>
         <div class="section-content">
@@ -126,7 +144,7 @@
             <h2>Past boards</h2>
         </div>
         <div class="section-content">
-            <div class="board-year-subtitle">
+            <div class="board-year-subtitle board-year-anchor" id="board-2025-26">
                 <h3>2025–2026</h3>
             </div>
             <!-- Co-Presidents -->
@@ -598,16 +616,226 @@
                     </div>
                 </div>
             </div>
+
+            <div class="board-archive board-year-anchor" id="board-2024-25">
+                <div class="board-year-subtitle board-year-subtitle--archive">
+                    <h3>2024–2025</h3>
+                </div>
+                <figure class="board-archive-photo">
+                    <img src="/static/images/board/board-2024-25.jpg" alt="2024–2025 Bronx Science Science Olympiad executive board">
+                </figure>
+                <dl class="condensed-board">
+                    <div class="condensed-board-row">
+                        <dt>Co-Captains</dt>
+                        <dd>Enes Banushi, Prasangi Patel</dd>
+                    </div>
+                    <div class="condensed-board-row">
+                        <dt>Secretary</dt>
+                        <dd>Tiffany Chen</dd>
+                    </div>
+                    <div class="condensed-board-row">
+                        <dt>Head of Logistics</dt>
+                        <dd>Jayden Lin</dd>
+                    </div>
+                    <div class="condensed-board-row">
+                        <dt>Build Directors</dt>
+                        <dd>Jonathan Yip, Vinayak Sharma</dd>
+                    </div>
+                    <div class="condensed-board-row">
+                        <dt>Physics Director</dt>
+                        <dd>Yuming Zhu</dd>
+                    </div>
+                    <div class="condensed-board-row">
+                        <dt>Biology Director</dt>
+                        <dd>Noelle Delosreyes</dd>
+                    </div>
+                    <div class="condensed-board-row">
+                        <dt>Earth Science Director</dt>
+                        <dd>Teresa Pathadan</dd>
+                    </div>
+                    <div class="condensed-board-row">
+                        <dt>Chemistry Director</dt>
+                        <dd>Connie Chen</dd>
+                    </div>
+                </dl>
+            </div>
         </div>
     </div>
 </section>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+(function () {
+    var anchors = document.querySelectorAll('.board-year-anchor');
+    var links = document.querySelectorAll('.board-year-nav__link');
+    if (!anchors.length || !links.length) return;
+
+    var setActive = function (id) {
+        links.forEach(function (link) {
+            link.classList.toggle('is-active', link.getAttribute('data-year') === id);
+        });
+    };
+
+    if ('IntersectionObserver' in window) {
+        var visible = new Map();
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                visible.set(entry.target.id, entry.intersectionRatio);
+            });
+
+            var bestId = null;
+            var bestRatio = 0;
+            visible.forEach(function (ratio, id) {
+                if (ratio > bestRatio) {
+                    bestRatio = ratio;
+                    bestId = id;
+                }
+            });
+
+            if (bestId) setActive(bestId);
+        }, {
+            rootMargin: '-20% 0px -55% 0px',
+            threshold: [0, 0.1, 0.25, 0.5, 0.75, 1]
+        });
+
+        anchors.forEach(function (anchor) { observer.observe(anchor); });
+    }
+
+    links.forEach(function (link) {
+        link.addEventListener('click', function () {
+            setActive(link.getAttribute('data-year'));
+        });
+    });
+})();
+</script>
 {% endblock %}
 
 {% block extra_css %}
 <style>
+    .board-year-anchor {
+        scroll-margin-top: 120px;
+    }
+
+    .leadership-body {
+        background: linear-gradient(180deg, #f8f9fa 0%, #eef1f4 100%);
+    }
+
+    .leadership-layout {
+        display: flex;
+        align-items: flex-start;
+        gap: 32px;
+        max-width: 1320px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .leadership-main {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .board-year-nav__label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: #6c757d;
+        margin: 0 0 12px;
+    }
+
+    .board-year-nav__list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .board-year-nav__list li + li {
+        margin-top: 4px;
+    }
+
+    .board-year-nav__link {
+        display: block;
+        padding: 8px 12px;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #495057;
+        text-decoration: none;
+        border-left: 3px solid transparent;
+        transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .board-year-nav__link:hover {
+        color: var(--primary-color);
+        background: rgba(62, 146, 204, 0.08);
+    }
+
+    .board-year-nav__link.is-active {
+        color: var(--primary-color);
+        background: rgba(62, 146, 204, 0.12);
+        border-left-color: var(--accent-color);
+    }
+
+    .board-year-nav--desktop {
+        display: none;
+    }
+
+    .board-year-nav--mobile {
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        padding: 14px 0 18px;
+        background: #f8f9fa;
+        position: sticky;
+        top: 72px;
+        z-index: 900;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .board-year-nav--mobile::-webkit-scrollbar {
+        display: none;
+    }
+
+    .board-year-nav--mobile .board-year-nav__link {
+        flex: 0 0 auto;
+        border-left: none;
+        border: 1px solid #dee2e6;
+        padding: 7px 14px;
+        white-space: nowrap;
+    }
+
+    .board-year-nav--mobile .board-year-nav__link.is-active {
+        border-color: var(--accent-color);
+        background: rgba(45, 199, 255, 0.12);
+    }
+
+    @media (min-width: 1280px) {
+        .board-year-nav--mobile {
+            display: none;
+        }
+
+        .board-year-nav--desktop {
+            display: block;
+            position: sticky;
+            top: 96px;
+            width: 124px;
+            flex-shrink: 0;
+            padding: 80px 0 40px;
+        }
+
+        .board-year-anchor {
+            scroll-margin-top: 96px;
+        }
+    }
+
     /* Board Section Styling */
     .board-section {
-        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        background: transparent;
         padding: 80px 0;
     }
 
@@ -624,8 +852,9 @@
     }
 
     .past-boards-section {
-        background: linear-gradient(135deg, #eef1f4 0%, #e2e6ea 100%);
+        background: transparent;
         border-top: 1px solid rgba(0, 0, 0, 0.06);
+        padding-top: 0;
     }
 
     .past-boards-section .section-title {
@@ -651,6 +880,67 @@
         font-weight: 600;
         margin: 0;
         letter-spacing: 0.02em;
+    }
+
+    .board-archive {
+        max-width: 640px;
+        margin: 48px auto 0;
+        padding-top: 48px;
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .board-year-subtitle--archive {
+        margin-bottom: 20px;
+    }
+
+    .board-archive-photo {
+        margin: 0 auto 24px;
+        max-width: 640px;
+    }
+
+    .board-archive-photo img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 16px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .condensed-board {
+        background: white;
+        border-radius: 16px;
+        padding: 8px 24px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+        margin: 0;
+    }
+
+    .condensed-board-row {
+        display: grid;
+        grid-template-columns: 11rem 1fr;
+        gap: 16px;
+        padding: 14px 0;
+        border-bottom: 1px solid #eef1f4;
+        align-items: baseline;
+    }
+
+    .condensed-board-row:last-child {
+        border-bottom: none;
+    }
+
+    .condensed-board dt {
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--accent-color);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin: 0;
+    }
+
+    .condensed-board dd {
+        font-size: 1rem;
+        color: var(--primary-color);
+        font-weight: 500;
+        margin: 0;
     }
     
     .board-category {
@@ -882,6 +1172,15 @@
         .member-photo {
             width: 100px;
             height: 100px;
+        }
+
+        .condensed-board-row {
+            grid-template-columns: 1fr;
+            gap: 4px;
+        }
+
+        .condensed-board {
+            padding: 8px 18px;
         }
     }
 </style>

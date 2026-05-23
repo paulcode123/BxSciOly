@@ -1,0 +1,107 @@
+{% extends "layout.html" %}
+
+{% block title %}The Ultimate Guide to BxSciOly – Bronx Science Olympiad{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/articles.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="guide-hero">
+    <div class="container guide-hero-inner">
+        <a href="{{ url_for('articles') }}" class="guide-back"><i class="fas fa-arrow-left"></i> All articles</a>
+        <span class="guide-eyebrow">For Members</span>
+        <h1>The Ultimate Guide to BxSciOly: Making the Most of Your Journey</h1>
+        <p class="guide-hero-lead">Find your footing, build lasting friendships, master your events, and rise through the ranks of our community.</p>
+    </div>
+</section>
+
+<div class="guide-body">
+    <div class="guide-intro">
+        <div class="guide-intro-card">
+            <p>Welcome to the team! Our diagnostic process selects only the most passionate and talented underclassmen, and you should be incredibly proud of the hard work that got you here.</p>
+            <p>Because BxSciOly is a large organization, it is completely normal to feel a bit intimidated at first. This guide is designed to help you find your footing, build lasting friendships, master your events, and rise through the ranks of our community.</p>
+        </div>
+    </div>
+
+    <div class="guide-steps">
+        <article class="guide-step">
+            <div class="guide-step-num">1</div>
+            <div class="guide-step-content">
+                <h2>Find Your Passion, Find Your People</h2>
+                <p>As a member of BxSciOly, you have the flexibility to choose your own path. On this team, a "subject" is more than just a list of events or a scientific discipline—it is a tight-knit community of novices, varsity members, and Subject Directors (SDs).</p>
+                <ul>
+                    <li><strong>Explore the Culture:</strong> Every subject has its own unique community, meeting style, and expectations. Take the time to talk to current members and SDs to find where you feel most at home.</li>
+                    <li><strong>Dive into the Content:</strong> Look through the event rosters to find the specific topics that genuinely fascinate you and that you want to dedicate your year to studying.</li>
+                    <li><strong>Look to Mentors:</strong> Finding inspiration in the older members and leadership is a crucial catalyst for your own success.</li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="guide-step">
+            <div class="guide-step-num">2</div>
+            <div class="guide-step-content">
+                <h2>Take Charge of Your Learning</h2>
+                <p>It is common to walk out of your first few meetings wondering, "Where do I even begin?" The good news is that every event maps to a largely standardized introductory college course curriculum. For example, Circuit Lab covers the same fundamental Electricity &amp; Magnetism taught in senior-year AP Physics C or a college-level intro physics class.</p>
+                <ul>
+                    <li><strong>Utilize College Textbooks:</strong> Textbooks are your ultimate resource. Because they can be dense or assume advanced math prerequisites (like calculus), use them as a roadmap for what to study.</li>
+                    <li><strong>Diversify Your Tools:</strong> Supplement textbook topics with YouTube videos, educational websites, and AI tools to learn the material in a way that clicks for you.</li>
+                    <li><strong>Leverage the Event Manual:</strong> Released every September, this is your rulebook. Use it to establish the exact boundaries of what you need to know and to understand the specific rules for lab and build events.</li>
+                </ul>
+            </div>
+        </article>
+
+        <div class="guide-callout">
+            <div class="guide-callout-inner">
+                <p><strong>The SciOly Learning Model:</strong> Unlike a traditional classroom where a teacher outlines every test question, Science Olympiad places the responsibility on you. You get out what you put in. Becoming an expert in your events opens the door to racking up medals, earning promotions, and having an unforgettable experience.</p>
+            </div>
+        </div>
+
+        <article class="guide-step">
+            <div class="guide-step-num">3</div>
+            <div class="guide-step-content">
+                <h2>Embed Yourself in the Community</h2>
+                <p>Once you have established your academic footing and demonstrated your capacity to master event content, it is time to become a core part of the team culture.</p>
+                <ul>
+                    <li><strong>Collaborate with Leadership:</strong> Actively engage with your SDs. Show them what you've learned, ask targeted questions about competition prep, and seek their guidance.</li>
+                    <li><strong>Study with Varsity Members:</strong> Learning alongside veteran team members helps you master critical competition-day strategies, such as understanding what graders look for and effectively splitting up a test under a time crunch.</li>
+                    <li><strong>Build Team Cohesion:</strong> Your subject is your support system, not your competition. The most successful divisions are those where members regularly communicate and genuinely enjoy attending meetings. To support this, the Primary Board collaborates with subject leadership to organize social events that help everyone bond.</li>
+                </ul>
+            </div>
+        </article>
+
+        <div class="guide-callout">
+            <div class="guide-callout-inner">
+                <p>The reason SciOly members historically achieve exceptional college and academic outcomes is not just about the medals—it is the result of surrounding yourself with an incredibly ambitious, motivated peer group that pushes you to excel in research, classes, and beyond.</p>
+            </div>
+        </div>
+
+        <article class="guide-step">
+            <div class="guide-step-num">4</div>
+            <div class="guide-step-content">
+                <h2>Prepare and Win Big</h2>
+                <p>When you have a strong command of your material and have built momentum with your event partners, it is your time to shine. Whether you are competing on the A, B, or C team, every tournament is a chance to showcase the value of your hard work.</p>
+                <ul>
+                    <li><strong>Adopt a Growth Mindset:</strong> After every practice test or official competition, ask yourself: How can I do just a little bit better next time?</li>
+                    <li><strong>Do the Deep Dives:</strong> Adding layers of nuance to your existing knowledge guarantees a competitive edge in future placements. This relentless attitude is exactly what elevates a competitor from Regionals to invitationals, and ultimately onto the 15-spot State Tournament roster.</li>
+                    <li><strong>Make Every Opportunity Count:</strong> The tournament season flies by, and competition spots are limited. We must make the most of every single round to consistently compete with the top schools in the Northeast.</li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="guide-step">
+            <div class="guide-step-num">5</div>
+            <div class="guide-step-content">
+                <h2>Pay It Forward</h2>
+                <p>As you transition into an upperclassman, earn your spot on the Primary Board, or step up as an SD, you will look back on a formidable collection of medals and friendships that defined your high school career.</p>
+                <p>Your final responsibility is to pass that torch. Share your passion for the natural world and scientific exploration with the next generation of competitors, ensuring their experience is even more rewarding than your own.</p>
+                <p>By mentoring, listening to, and guiding new members, you will develop lifelong leadership skills and ensure that the legacy of BxSciOly continues to grow long after you graduate.</p>
+            </div>
+        </article>
+    </div>
+
+    <div class="guide-footer-cta">
+        <a href="{{ url_for('articles') }}"><i class="fas fa-newspaper"></i> Browse more articles</a>
+    </div>
+</div>
+{% endblock %}

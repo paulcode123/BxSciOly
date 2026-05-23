@@ -212,6 +212,8 @@
         align-items: center;
         text-align: center;
         transition: transform 0.3s ease;
+        text-decoration: none;
+        color: inherit;
     }
 
     .sponsor-logo:hover {
@@ -228,6 +230,11 @@
         border-radius: 10px;
         box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         transition: box-shadow 0.3s ease;
+    }
+
+    .sponsor-logo.wide img {
+        max-width: 320px;
+        max-height: 100px;
     }
 
     .sponsor-logo:hover img {
@@ -609,24 +616,43 @@
         <div class="sponsor-tier">
             <h3>Wolverine Sponsors ($1500+)</h3>
             <div class="sponsor-logos">
+                <a href="https://mathpix.com/" target="_blank" rel="noopener noreferrer" class="sponsor-logo">
+                    <img src="{{ url_for('static', filename='images/sponsors/mathpix-logo.svg') }}" alt="Mathpix" />
+                    <p>Mathpix</p>
+                </a>
+                <a href="https://alumni.bxscience.edu/" target="_blank" rel="noopener noreferrer" class="sponsor-logo wide">
+                    <img src="{{ url_for('static', filename='images/sponsors/bxscience-alumni-foundation.png') }}" alt="Bronx Science Alumni Foundation" />
+                    <p>Bronx Science Alumni Foundation</p>
+                </a>
                 <div class="sponsor-logo">
-                    <img src="/static/images/ABCMath.png" alt="ABC Math" />
+                    <img src="{{ url_for('static', filename='images/ABCMath.png') }}" alt="ABC Math" />
                     <p>ABC Math</p>
                 </div>
+            </div>
+        </div>
+
+        <!-- Bronze Tier Sponsors -->
+        <div class="sponsor-tier">
+            <h3>Bronze Sponsors ($100–299)</h3>
+            <div class="sponsor-logos">
+                <a href="https://www.mathnasium.com/" target="_blank" rel="noopener noreferrer" class="sponsor-logo">
+                    <img src="{{ url_for('static', filename='images/sponsors/mathnasium.jpg') }}" alt="Mathnasium" />
+                    <p>Mathnasium</p>
+                </a>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Sponsorship Submission Form Section -->
+<!-- Contact Section -->
 <section class="sponsorship-form-section">
     <div class="container">
         <div class="form-container">
-            <h2><a href="https://forms.gle/4t4diyWJ9ksujmQa7" target="_blank" class="form-link">Sponsorship Submission Form</a></h2>
+            <h2>Interested in Sponsoring?</h2>
             <p class="form-description">
-                Interested in donating? Visit this form below and contact us at 
-                <a href="mailto:bxsciolycaptain@bxscience.edu">bxsciolycaptain@bxscience.edu</a> 
-                for any inquiries or further comments.
+                Contact us at
+                <a href="mailto:bxsciolycaptain@bxscience.edu">bxsciolycaptain@bxscience.edu</a>
+                for any inquiries or to discuss sponsorship opportunities.
             </p>
         </div>
     </div>

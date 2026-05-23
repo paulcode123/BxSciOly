@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}Articles – Bronx Science Olympiad{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/articles.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="articles-hero">
+    <div class="container articles-hero-inner">
+        <span class="articles-eyebrow">From the team</span>
+        <h1>Articles</h1>
+        <p>Guides, stories, and highlights from Bronx Science Olympiad — written for members, alumni, and anyone curious about what we do.</p>
+    </div>
+</section>
+
+<section class="articles-grid-section">
+    <div class="container">
+        <div class="articles-grid">
+            {% for article in articles %}
+            <a href="{{ url_for(article.route) }}" class="article-card">
+                <div class="article-card-icon">
+                    <i class="fas {{ article.icon }}"></i>
+                </div>
+                <span class="article-card-category">{{ article.category }}</span>
+                <h2>{{ article.title }}</h2>
+                <p class="article-card-subtitle">{{ article.subtitle }}</p>
+                <p class="article-card-desc">{{ article.description }}</p>
+                <span class="article-card-link">Read article <i class="fas fa-arrow-right"></i></span>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

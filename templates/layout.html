@@ -133,12 +133,12 @@
             <nav>
                 <ul>
                     <li class="dropdown">
-                        <a href="#" {% if request.path.startswith('/about') or request.path == url_for('leadership') or request.path == url_for('our_team') or request.path == url_for('what_we_do') or request.path == url_for('faq') or request.path == url_for('sponsors') or request.path == url_for('calendar') %}class="active"{% endif %}><i class="fas fa-info-circle"></i> About Us</a>
+                        <a href="#" {% if request.path.startswith('/about') or request.path == url_for('leadership') or request.path == url_for('our_team') or request.path == url_for('what_we_do') or request.path.startswith('/articles') or request.path == url_for('year_in_pictures') or request.path == url_for('sponsors') or request.path == url_for('calendar') %}class="active"{% endif %}><i class="fas fa-info-circle"></i> About Us</a>
                         <div class="dropdown-content">
                             <a href="{{ url_for('leadership') }}" {% if request.path == url_for('leadership') %}class="active"{% endif %}><i class="fas fa-users"></i> Leadership</a>
                             <a href="{{ url_for('our_team') }}" {% if request.path == url_for('our_team') %}class="active"{% endif %}><i class="fas fa-trophy"></i> Our Team</a>
                             <a href="{{ url_for('what_we_do') }}" {% if request.path == url_for('what_we_do') %}class="active"{% endif %}><i class="fas fa-flask"></i> What We Do</a>
-                            <a href="{{ url_for('faq') }}" {% if request.path == url_for('faq') %}class="active"{% endif %}><i class="fas fa-question-circle"></i> FAQ</a>
+                            <a href="{{ url_for('articles') }}" {% if request.path.startswith('/articles') or request.path == url_for('year_in_pictures') %}class="active"{% endif %}><i class="fas fa-newspaper"></i> Articles</a>
                             <a href="{{ url_for('sponsors') }}" {% if request.path == url_for('sponsors') %}class="active"{% endif %}><i class="fas fa-handshake"></i> Sponsors</a>
                             <a href="{{ url_for('calendar') }}" {% if request.path == url_for('calendar') %}class="active"{% endif %}><i class="fas fa-calendar-alt"></i> Calendar</a>
                         </div>

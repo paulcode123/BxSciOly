@@ -10,6 +10,7 @@ from flask import Flask, render_template, url_for, send_from_directory, request,
 import secrets
 from itsdangerous import URLSafeTimedSerializer, BadSignature, SignatureExpired
 import csv
+from articles import ARTICLES
 from routes.firebase_routes import firebase_routes
 try:
     # Prefer shared initialization
@@ -101,9 +102,19 @@ def calendar():
 
 
 
+@app.route('/articles')
+def articles():
+    return render_template('articles.html', articles=ARTICLES)
+
+
+@app.route('/articles/ultimate-guide')
+def article_ultimate_guide():
+    return render_template('articles/ultimate_guide.html')
+
+
 @app.route('/faq')
 def faq():
-    return render_template('faq.html')
+    return redirect(url_for('articles'), code=301)
 
 # Subject area pages (public)
 @app.route('/events/biology')
@@ -606,6 +617,10 @@ def platform():
 @app.route('/sponsors')
 def sponsors():
     return render_template('sponsors.html')
+
+@app.route('/year-in-pictures')
+def year_in_pictures():
+    return render_template('year_in_pictures.html')
 
 @app.route('/templates/approved_emails.txt')
 def serve_approved_emails():
