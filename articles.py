@@ -12,7 +12,7 @@ ARTICLES = [
     },
     {
         'slug': 'ultimate-guide',
-        'title': 'The Ultimate Guide to BxSciOly',
+        'title': 'A simple guide to being a SciOly Member',
         'subtitle': 'Making the most of your journey',
         'description': 'Find your footing, build lasting friendships, master your events, and rise through the ranks of our community.',
         'icon': 'fa-compass',

@@ -243,6 +243,74 @@
     margin-bottom: 0;
 }
 
+.guide-prose {
+    max-width: 720px;
+    margin: -40px auto 0;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.guide-prose-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 36px 40px;
+    box-shadow: 0 8px 32px rgba(10, 36, 99, 0.1);
+    border: 1px solid rgba(10, 36, 99, 0.06);
+}
+
+.guide-prose-card p {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: #444;
+    margin: 0 0 16px;
+}
+
+.guide-prose-card p:last-child {
+    margin-bottom: 0;
+}
+
+.guide-prose-card h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #0a2463;
+    margin: 2rem 0 14px;
+    line-height: 1.35;
+}
+
+.guide-prose-card h2:first-of-type {
+    margin-top: 0;
+}
+
+.guide-prose-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 16px;
+}
+
+.guide-prose-card li {
+    position: relative;
+    padding: 8px 0 8px 28px;
+    font-size: 1rem;
+    line-height: 1.65;
+    color: #444;
+}
+
+.guide-prose-card li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 16px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #3e92cc;
+}
+
+.guide-prose-card li strong {
+    color: #0a2463;
+}
+
 .guide-steps {
     max-width: 820px;
     margin: 56px auto 0;
@@ -383,7 +451,8 @@
         padding: 28px 24px;
     }
 
-    .guide-intro-card {
+    .guide-intro-card,
+    .guide-prose-card {
         padding: 28px 24px;
     }
 
