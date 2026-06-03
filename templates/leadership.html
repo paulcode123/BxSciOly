@@ -247,7 +247,14 @@
                     </div>
 
                     <div class="board-member">
-                        <div class="member-photo member-photo--pending" role="img" aria-label="Photo coming soon"></div>
+                        <div class="member-photo">
+                            <img src="/static/images/board/adeline-nurenie.png" alt="Adeline Nurenie">
+                            <div class="member-overlay">
+                                <div class="member-social">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                            </div>
+                        </div>
                         <div class="member-info">
                             <h4>Adeline Nurenie</h4>
                             <p class="member-role">Math &amp; Physics Director</p>
@@ -1255,7 +1262,8 @@
     .board-member:has(img[alt="Sophia Weng"]) .member-photo img,
     .board-member:has(img[alt="Anushka Biswas"]) .member-photo img,
     .board-member:has(img[alt="Simeon Chen"]) .member-photo img,
-    .board-member:has(img[alt="Jacqueline Wang"]) .member-photo img {
+    .board-member:has(img[alt="Jacqueline Wang"]) .member-photo img,
+    .board-member:has(img[alt="Adeline Nurenie"]) .member-photo img {
         transform: scale(1.3);
         object-position: center 25%;
     }
