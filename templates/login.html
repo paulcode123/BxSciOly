@@ -324,37 +324,27 @@
             loginBtn.textContent = 'Logging in...';
             loginBtn.disabled = true;
             
-            // POST avoids email-in-path encoding issues; server normalizes case
-            fetch('/api/Members/find-by-doe-email', {
+            fetch('/api/auth/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ doeEmail: doeEmail })
+                body: JSON.stringify({ doeEmail: doeEmail, password: password })
             })
                 .then(response => {
-                    if (!response.ok) {
-                        if (response.status === 404) {
-                            throw new Error('No account found with this email');
+                    return response.json().then(data => {
+                        if (!response.ok) {
+                            throw new Error(data.error || 'Login failed. Please try again.');
                         }
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json();
+                        return data;
+                    });
                 })
                 .then(data => {
-                    // Get the member ID and data
                     const memberId = Object.keys(data)[0];
                     const memberData = data[memberId];
                     
-                    // Check password (in a real app, this should be done server-side!)
-                    if (memberData.password !== password) {
-                        throw new Error('Incorrect password');
-                    }
-                    
-                    // Login successful
-                    // Store complete user info in session storage
                     const userInfo = {
                         id: memberId,
                         uid: memberId,
-                        ...memberData  // Include all fields from the database
+                        ...memberData
                     };
                     
                     BxSciOlyAuth.setUser(userInfo, rememberMe);

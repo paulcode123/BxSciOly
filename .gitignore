@@ -11,3 +11,4 @@ astronomy_search_store/
 
 
 .vercel
+.env*

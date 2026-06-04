@@ -1,6 +1,9 @@
 from dotenv import load_dotenv
+from pathlib import Path
 
-load_dotenv()
+_ROOT_ENV = Path(__file__).resolve().parent
+load_dotenv(_ROOT_ENV / ".env")
+load_dotenv(_ROOT_ENV / ".env.local")
 
 import os
 from urllib.parse import quote

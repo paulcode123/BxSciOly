@@ -166,6 +166,21 @@ def _event_members_and_name(event_name: str) -> Tuple[str, List[Tuple[str, str]]
     member_ids = data.get("members") or []
     rows: List[Tuple[str, str]] = []
     for mid in member_ids:
+        try:
+            from db.connection import postgres_enabled
+            from routes import member_store
+
+            if postgres_enabled():
+                row = member_store.get_row(mid)
+                if row:
+                    from db import members as members_db
+
+                    m_data = members_db.row_to_api_public(row) or {}
+                    display = f"{m_data.get('firstName', '')} {m_data.get('lastName', '')}".strip()
+                    rows.append((mid, display or mid))
+                continue
+        except Exception:
+            pass
         md = db.collection("Members").document(mid).get()
         if not md.exists:
             rows.append((mid, mid))

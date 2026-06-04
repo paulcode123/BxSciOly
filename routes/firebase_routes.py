@@ -15,6 +15,9 @@ from email.utils import parsedate_to_datetime
 import csv
 from collections import defaultdict
 
+from routes import member_store
+from db.connection import postgres_enabled
+
 # Import competition parser
 try:
     from competition_parser import get_all_competitions
@@ -71,29 +74,32 @@ def request_password_reset():
         if not email:
             return jsonify({"error": "doeEmail is required"}), 400
 
-        # Find member by DOE email
-        query = db.collection('Members').where('doeEmail', '==', email).limit(1).stream()
-        results = list(query)
-        if not results:
-            # Do not reveal account existence
+        from db import members as members_db
+
+        row = members_db.find_by_doe_email(email) if postgres_enabled() else None
+        if not row and not postgres_enabled():
+            query = db.collection('Members').where('doeEmail', '==', email).limit(1).stream()
+            results = list(query)
+            if not results:
+                return jsonify({"message": "If an account exists, a reset email was sent."}), 200
+            user_id = results[0].id
+        elif not row:
             return jsonify({"message": "If an account exists, a reset email was sent."}), 200
+        else:
+            user_id = row["id"]
 
-        member = results[0]
-        user_id = member.id
-
-        # Generate secure token
-        token = secrets.token_urlsafe(32)
-        expires_at = firestore.SERVER_TIMESTAMP  # placeholder; also store explicit ttl_seconds
-
-        # Store token doc
-        reset_ref = db.collection('PasswordResets').document(token)
-        reset_ref.set({
-            'userId': user_id,
-            'doeEmail': email,
-            'createdAt': firestore.SERVER_TIMESTAMP,
-            'expiresInSeconds': 3600,
-            'used': False
-        })
+        if postgres_enabled():
+            token = members_db.create_password_reset(user_id, email)
+        else:
+            token = secrets.token_urlsafe(32)
+            reset_ref = db.collection('PasswordResets').document(token)
+            reset_ref.set({
+                'userId': user_id,
+                'doeEmail': email,
+                'createdAt': firestore.SERVER_TIMESTAMP,
+                'expiresInSeconds': 3600,
+                'used': False
+            })
 
         # Build reset link
         base_url = request.host_url.rstrip('/')
@@ -125,7 +131,14 @@ def reset_password():
         if not token or not new_password:
             return jsonify({"error": "token and newPassword are required"}), 400
 
-        # Fetch token doc
+        from db import members as members_db
+
+        if postgres_enabled():
+            ok, message = members_db.reset_password_with_token(token, new_password)
+            if not ok:
+                return jsonify({"error": message}), 400
+            return jsonify({"message": message}), 200
+
         token_doc = db.collection('PasswordResets').document(token).get()
         if not token_doc.exists:
             return jsonify({"error": "Invalid or expired token"}), 400
@@ -134,35 +147,56 @@ def reset_password():
         if token_data.get('used'):
             return jsonify({"error": "Token already used"}), 400
 
-        # Basic expiry check: if createdAt older than expiresInSeconds
         created_at = token_data.get('createdAt')
         ttl = int(token_data.get('expiresInSeconds', 3600))
         try:
-            # Firestore timestamp has .timestamp() when running in server
             if created_at and hasattr(created_at, 'timestamp'):
                 import time
                 if time.time() - created_at.timestamp() > ttl:
                     return jsonify({"error": "Token expired"}), 400
         except Exception:
-            # If we cannot compute, allow but still mark used
             pass
 
         user_id = token_data.get('userId')
         if not user_id:
             return jsonify({"error": "Invalid token data"}), 400
 
-        # Update password on Member document
         user_ref = db.collection('Members').document(user_id)
         if not user_ref.get().exists:
             return jsonify({"error": "User not found"}), 404
         user_ref.update({'password': new_password, 'updatedAt': firestore.SERVER_TIMESTAMP})
-
-        # Invalidate token
         db.collection('PasswordResets').document(token).update({'used': True, 'usedAt': firestore.SERVER_TIMESTAMP})
 
         return jsonify({"message": "Password has been reset successfully"}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
+
+@firebase_routes.route('/api/auth/login', methods=['POST'])
+def auth_login():
+    """Server-side login: verify DOE email + password, return public member profile."""
+    try:
+        from db import members as members_db
+
+        data = request.get_json() or {}
+        doe_email = data.get('doeEmail') or data.get('email')
+        password = data.get('password') or ''
+        if not doe_email or not password:
+            return jsonify({"error": "doeEmail and password are required"}), 400
+
+        if not postgres_enabled():
+            return jsonify({"error": "Login database not configured"}), 503
+
+        profile = members_db.authenticate(doe_email, password)
+        if not profile:
+            return jsonify({"error": "Invalid email or password"}), 401
+
+        member_id = profile.get("id")
+        session["currentUser"] = profile
+        return jsonify({member_id: profile}), 200
+    except Exception as e:
+        logger.error("Login error: %s", e)
+        return jsonify({"error": "Login failed"}), 500
 
 
 @firebase_routes.route('/api/auth/sync-session', methods=['POST'])
@@ -173,6 +207,14 @@ def sync_session():
         user_info = data.get('user')
         
         if user_info:
+            uid = user_info.get("id") or user_info.get("uid")
+            if postgres_enabled() and uid:
+                from db import members as members_db
+
+                row = members_db.get_by_id(uid)
+                if row:
+                    user_info = members_db.row_to_api_public(row)
+            user_info.pop("password", None)
             session['currentUser'] = user_info
             return jsonify({"status": "success", "message": "Session synced"}), 200
         else:
@@ -267,6 +309,9 @@ def get_all(collection):
     # Skip Competitions collection - handled by specific route
     if collection == 'Competitions':
         return get_competitions()
+
+    if collection == 'Members' and postgres_enabled():
+        return jsonify(member_store.list_all_api_shape()), 200
     
     try:
         docs = db.collection(collection).stream()
@@ -279,9 +324,18 @@ def get_all(collection):
 def get_one(collection, document_id):
     """Get a specific document from a collection"""
     try:
+        if collection == 'Members' and postgres_enabled():
+            api = member_store.get_api(document_id)
+            if not api:
+                return jsonify({"error": "Document not found"}), 404
+            mid = api.pop("id", document_id)
+            return jsonify({mid: api}), 200
         doc = db.collection(collection).document(document_id).get()
         if doc.exists:
-            return jsonify({doc.id: doc.to_dict()}), 200
+            data = doc.to_dict()
+            if collection == 'Members':
+                data.pop('password', None)
+            return jsonify({doc.id: data}), 200
         return jsonify({"error": "Document not found"}), 404
     except Exception as e:
         return jsonify({"error": str(e)}), 500
@@ -296,12 +350,17 @@ def create(collection):
         
         # Special handling for Members collection - check for duplicate DOE email
         if collection == 'Members':
+            from db import members as members_db
+
             doe_email = data.get('doeEmail')
             if doe_email:
-                # Check if a member with this DOE email already exists
-                existing_members = db.collection('Members').where('doeEmail', '==', doe_email).limit(1).stream()
-                if list(existing_members):
-                    return jsonify({"error": "Email already in use. Try again."}), 409
+                if postgres_enabled():
+                    if members_db.find_by_doe_email(doe_email):
+                        return jsonify({"error": "Email already in use. Try again."}), 409
+                else:
+                    existing_members = db.collection('Members').where('doeEmail', '==', doe_email).limit(1).stream()
+                    if list(existing_members):
+                        return jsonify({"error": "Email already in use. Try again."}), 409
             
             # Extract selected events before creating member
             selected_events = data.get('events', [])
@@ -309,10 +368,12 @@ def create(collection):
             # Remove events from member data since it's not part of the Members schema
             member_data = {k: v for k, v in data.items() if k != 'events'}
             
-            # Create the member first
-            doc_ref = db.collection(collection).document()
-            doc_ref.set(member_data)
-            member_id = doc_ref.id
+            if postgres_enabled():
+                member_id = members_db.create(member_data)
+            else:
+                doc_ref = db.collection(collection).document()
+                doc_ref.set(member_data)
+                member_id = doc_ref.id
             
             # Add member ID to each selected event's members array
             if selected_events:
@@ -359,6 +420,19 @@ def update(collection, document_id):
         data = request.get_json()
         if not data:
             return jsonify({"error": "No data provided"}), 400
+
+        if collection == 'Members' and postgres_enabled():
+            from db import members as members_db
+
+            if not members_db.exists(document_id):
+                return jsonify({"error": "Document not found"}), 404
+            if request.method == 'PATCH':
+                members_db.update(document_id, data, merge=True)
+                message = "Document updated successfully"
+            else:
+                members_db.replace(document_id, data)
+                message = "Document replaced successfully"
+            return jsonify({"message": message}), 200
         
         doc_ref = db.collection(collection).document(document_id)
         doc = doc_ref.get()
@@ -574,6 +648,13 @@ def generate_todays_meetings():
 def delete(collection, document_id):
     """Delete a document from a collection"""
     try:
+        if collection == 'Members' and postgres_enabled():
+            from db import members as members_db
+
+            if not members_db.delete(document_id):
+                return jsonify({"error": "Document not found"}), 404
+            return jsonify({"message": "Document deleted successfully"}), 200
+
         doc_ref = db.collection(collection).document(document_id)
         doc = doc_ref.get()
         
@@ -589,35 +670,31 @@ def delete(collection, document_id):
 def find_member_by_email(email):
     """Find a member by email address (legacy endpoint)"""
     try:
-        # Query the Members collection for documents where email equals the provided email
+        if postgres_enabled():
+            from db import members as members_db
+
+            row = members_db.find_by_legacy_email(email)
+            if not row:
+                return jsonify({"error": "No member found with this email"}), 404
+            api = members_db.row_to_api_public(row) or {}
+            return jsonify({row["id"]: api}), 200
         query = db.collection('Members').where('email', '==', email).limit(1).stream()
-        
-        # Convert the query result to a list
         results = list(query)
-        
         if not results:
             return jsonify({"error": "No member found with this email"}), 404
-        
-        # Get the first matching document
         doc = results[0]
-        return jsonify({doc.id: doc.to_dict()}), 200
+        data = doc.to_dict() or {}
+        data.pop('password', None)
+        return jsonify({doc.id: data}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
 def _members_by_doe_email_candidates(doe_email: str):
-    """Return Firestore docs matching doeEmail, trying exact and lowercased values."""
-    key = (doe_email or '').strip()
-    if not key:
-        return []
-    keys_to_try = [key]
-    low = key.lower()
-    if low not in keys_to_try:
-        keys_to_try.append(low)
-    for k in keys_to_try:
-        query = db.collection('Members').where('doeEmail', '==', k).limit(1).stream()
-        results = list(query)
-        if results:
-            return results
+    """Return member id + api dict for doeEmail lookup (Postgres or Firestore)."""
+    shaped = member_store.find_by_doe_email_shape(doe_email)
+    if shaped:
+        mid, data = next(iter(shaped.items()))
+        return [(mid, data)]
     return []
 
 
@@ -630,8 +707,8 @@ def find_member_by_doe_email_post():
         results = _members_by_doe_email_candidates(doe_email)
         if not results:
             return jsonify({"error": "No member found with this DOE email"}), 404
-        doc = results[0]
-        return jsonify({doc.id: doc.to_dict()}), 200
+        mid, data = results[0]
+        return jsonify({mid: data}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
@@ -643,19 +720,17 @@ def find_member_by_doe_email(doe_email):
         results = _members_by_doe_email_candidates(doe_email)
         if not results:
             return jsonify({"error": "No member found with this DOE email"}), 404
-        doc = results[0]
-        return jsonify({doc.id: doc.to_dict()}), 200
+        mid, data = results[0]
+        return jsonify({mid: data}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
 @firebase_routes.route('/api/user/<user_id>', methods=['GET'])
 def get_user_data(user_id):
-    """Get user data by Firebase Auth UID (which is also the Firestore document ID)"""
+    """Get user data by member id (legacy Firebase document id preserved)."""
     try:
-        doc = db.collection('Members').document(user_id).get()
-        if doc.exists:
-            user_data = doc.to_dict()
-            user_data['id'] = doc.id
+        user_data = member_store.get_api(user_id)
+        if user_data:
             return jsonify(user_data), 200
         return jsonify({"error": "User not found"}), 404
     except Exception as e:
@@ -757,12 +832,18 @@ def upload_profile_photo():
         # Get the public URL
         url = blob.public_url
         
-        # Update user document with the profile picture URL
-        user_ref = db.collection('Members').document(user_id)
-        user_ref.update({
-            'profilePicUrl': url,
-            'updatedAt': firestore.SERVER_TIMESTAMP
-        })
+        from db import members as members_db
+
+        if postgres_enabled():
+            if not members_db.exists(user_id):
+                return jsonify({"error": "User not found"}), 404
+            members_db.update(user_id, {"profilePicUrl": url}, merge=True)
+        else:
+            user_ref = db.collection('Members').document(user_id)
+            user_ref.update({
+                'profilePicUrl': url,
+                'updatedAt': firestore.SERVER_TIMESTAMP
+            })
         
         return jsonify({"url": url, "success": True})
     
@@ -832,14 +913,22 @@ def add_competition_result(user_id):
         if not competition_result or 'competitionName' not in competition_result:
             return jsonify({'error': 'Invalid competition result data'}), 400
         
-        # Get a reference to the user document
-        user_ref = db.collection('Members').document(user_id)
-        
-        # Update the user document with the new competition result
-        # Use arrayUnion to add to the existing array without duplicates
-        user_ref.update({
-            'competitionResults': firestore.ArrayUnion([competition_result])
-        })
+        from db import members as members_db
+
+        if postgres_enabled():
+            profile = members_db.get_api(user_id)
+            if not profile:
+                return jsonify({'error': 'User not found'}), 404
+            existing = profile.get('competitionResults') or []
+            if not isinstance(existing, list):
+                existing = []
+            existing.append(competition_result)
+            members_db.update(user_id, {'competitionResults': existing}, merge=True)
+        else:
+            user_ref = db.collection('Members').document(user_id)
+            user_ref.update({
+                'competitionResults': firestore.ArrayUnion([competition_result])
+            })
         
         # Return success response
         return jsonify({
@@ -861,12 +950,10 @@ def check_admin_auth():
         if not admin_id:
             return jsonify({"error": "Admin ID required"}), 401
         
-        # Check if member exists and has admin status
-        member_doc = db.collection('Members').document(admin_id).get()
-        if not member_doc.exists:
+        member_data = member_store.get_api(admin_id)
+        if not member_data:
             return jsonify({"error": "Invalid admin session"}), 401
         
-        member_data = member_doc.to_dict()
         admin_status = member_data.get('adminStatus', 'none')
         
         # Only full admins can access admin console
@@ -899,10 +986,10 @@ def _require_attendance_admin():
     admin_id = request.headers.get('X-Admin-ID')
     if not admin_id:
         return jsonify({"error": "Admin authentication required"}), 401
-    member_doc = db.collection('Members').document(admin_id).get()
-    if not member_doc.exists:
+    member_data = member_store.get_api(admin_id)
+    if not member_data:
         return jsonify({"error": "Invalid admin session"}), 401
-    status = (member_doc.to_dict() or {}).get('adminStatus', 'none')
+    status = member_data.get('adminStatus', 'none')
     if status not in ('full', 'EM'):
         return jsonify({"error": "Attendance admin privileges required"}), 403
     return None
@@ -1030,30 +1117,15 @@ def create_attendance_event():
 def get_members():
     """Get all members for admin management"""
     try:
-        # Check admin auth
-        admin_id = request.headers.get('X-Admin-ID')
-        if not admin_id:
-            return jsonify({"error": "Admin authentication required"}), 401
-        
-        # Verify full admin status
-        member_doc = db.collection('Members').document(admin_id).get()
-        if not member_doc.exists:
-            return jsonify({"error": "Invalid admin session"}), 401
-        
-        member_data = member_doc.to_dict()
-        admin_status = member_data.get('adminStatus', 'none')
-        if admin_status != 'full':
-            return jsonify({"error": "Full admin privileges required"}), 403
-        
-        # Get members
-        members_query = db.collection('Members').order_by('lastName').stream()
+        from db import members as members_db
+
+        _, err = member_store.require_full_admin()
+        if err:
+            return err
+
         members = []
-        
-        for member in members_query:
-            member_data = member.to_dict()
-            member_data['id'] = member.id
-            # Remove sensitive data
-            member_data.pop('password', None)
+        for row in member_store.list_all_rows(order_by_last_name=True):
+            member_data = members_db.row_to_api_public(row) or {}
             members.append(member_data)
         
         return jsonify(members), 200
@@ -1065,21 +1137,10 @@ def get_members():
 def search_members():
     """Search members by name for autocomplete"""
     try:
-        # Check admin auth
-        admin_id = request.headers.get('X-Admin-ID')
-        if not admin_id:
-            return jsonify({"error": "Admin authentication required"}), 401
-        
-        # Verify full admin status
-        member_doc = db.collection('Members').document(admin_id).get()
-        if not member_doc.exists:
-            return jsonify({"error": "Invalid admin session"}), 401
-        
-        member_data = member_doc.to_dict()
-        admin_status = member_data.get('adminStatus', 'none')
-        if admin_status != 'full':
-            return jsonify({"error": "Full admin privileges required"}), 403
-        
+        _, err = member_store.require_full_admin()
+        if err:
+            return err
+
         query = request.args.get('q', '').strip().lower()
         if not query or len(query) < 2:
             return jsonify([]), 200
@@ -1099,23 +1160,21 @@ def search_members():
             # If we can't load the team file, fall back to all members
             team_member_ids = None
         
-        # Get all members and filter
-        members_query = db.collection('Members').stream()
+        from db import members as members_db
+
         results = []
-        
-        for member in members_query:
-            # Skip if not in team (unless we couldn't load the team file)
-            if team_member_ids is not None and member.id not in team_member_ids:
+        for row in member_store.list_all_rows():
+            mid = row["id"]
+            if team_member_ids is not None and mid not in team_member_ids:
                 continue
-            
-            member_data = member.to_dict()
+            member_data = members_db.row_to_api_public(row) or {}
             first_name = (member_data.get('firstName', '') or '').lower()
             last_name = (member_data.get('lastName', '') or '').lower()
             full_name = f"{first_name} {last_name}".strip()
             
             if query in first_name or query in last_name or query in full_name:
                 results.append({
-                    'id': member.id,
+                    'id': mid,
                     'firstName': member_data.get('firstName', ''),
                     'lastName': member_data.get('lastName', ''),
                     'doeEmail': member_data.get('doeEmail', ''),
@@ -1138,12 +1197,9 @@ def search_members():
 def debug_mason_data(member_id):
     """Debug endpoint to check Mason data for a member"""
     try:
-        # Get member data
-        member_doc = db.collection('Members').document(member_id).get()
-        if not member_doc.exists:
+        member_data = member_store.get_api(member_id)
+        if not member_data:
             return jsonify({"error": "Member not found"}), 404
-        
-        member_data = member_doc.to_dict()
         member_name = f"{member_data.get('firstName', '')} {member_data.get('lastName', '')}".strip()
         
         # Read Mason placements
@@ -1239,31 +1295,13 @@ def debug_mason_data(member_id):
 def get_member_full_data(member_id):
     """Get comprehensive member data including CSV data, attendance, etc."""
     try:
-        # Check admin auth
-        admin_id = request.headers.get('X-Admin-ID')
-        if not admin_id:
-            return jsonify({"error": "Admin authentication required"}), 401
-        
-        # Verify full admin status
-        admin_doc = db.collection('Members').document(admin_id).get()
-        if not admin_doc.exists:
-            return jsonify({"error": "Invalid admin session"}), 401
-        
-        admin_data = admin_doc.to_dict()
-        admin_status = admin_data.get('adminStatus', 'none')
-        if admin_status != 'full':
-            return jsonify({"error": "Full admin privileges required"}), 403
-        
-        # Get member from database
-        member_doc = db.collection('Members').document(member_id).get()
-        if not member_doc.exists:
+        _, err = member_store.require_full_admin()
+        if err:
+            return err
+
+        member_data = member_store.get_api(member_id)
+        if not member_data:
             return jsonify({"error": "Member not found"}), 404
-        
-        member_data = member_doc.to_dict()
-        member_data['id'] = member_doc.id
-        
-        # Remove password
-        member_data.pop('password', None)
         
         # Get bxsciolyID from mapping CSV
         bxscioly_id = None
@@ -1464,14 +1502,15 @@ def get_member_full_data(member_id):
         # Get competition placements
         try:
             # First, get all members to create a name map for partner resolution
+            from db import members as members_db
+
             members_map = {}
-            members_query = db.collection('Members').stream()
-            for m in members_query:
-                m_data = m.to_dict()
+            for row in member_store.list_all_rows():
+                m_data = members_db.row_to_api_public(row) or {}
                 first_name = m_data.get('firstName', '')
                 last_name = m_data.get('lastName', '')
                 full_name = f"{first_name} {last_name}".strip()
-                members_map[m.id] = full_name
+                members_map[row['id']] = full_name
             
             # Helper function to normalize names for comparison (matches competitions.html)
             def normalize_name(name):
@@ -2396,9 +2435,8 @@ def get_event_leaderboard(event_name):
         leaderboard = []
         for user_id, total_points in user_points.items():
             # Get user details
-            user_doc = db.collection('Members').document(user_id).get()
-            if user_doc.exists:
-                user_data = user_doc.to_dict()
+            user_data = member_store.get_api(user_id)
+            if user_data:
                 leaderboard.append({
                     'userId': user_id,
                     'firstName': user_data.get('firstName', ''),
@@ -3626,12 +3664,9 @@ def check_merch_eligibility(user_id):
         # First check if user has admin status (admins can access even if not in CSV)
         is_admin = False
         try:
-            member_doc = db.collection('Members').document(user_id).get()
-            if member_doc.exists:
-                member_data = member_doc.to_dict()
-                admin_status = member_data.get('adminStatus', 'none')
-                if admin_status != 'none':
-                    is_admin = True
+            profile = member_store.get_api(user_id)
+            if profile and profile.get('adminStatus', 'none') != 'none':
+                is_admin = True
         except Exception as e:
             logger.warning(f"Error checking admin status for {user_id}: {e}")
         
@@ -3686,19 +3721,15 @@ def submit_merch_order():
         
         # Check admin status first
         try:
-            member_doc = db.collection('Members').document(user_id).get()
-            if member_doc.exists:
-                firestore_member_data = member_doc.to_dict()
-                admin_status = firestore_member_data.get('adminStatus', 'none')
-                if admin_status != 'none':
-                    is_admin = True
-                    # For admins, use data from Firestore
-                    member_data = {
-                        'bxsciolyID': firestore_member_data.get('bxsciolyID', ''),
-                        'firstName': firestore_member_data.get('firstName', ''),
-                        'lastName': firestore_member_data.get('lastName', ''),
-                        'house': firestore_member_data.get('house', '')
-                    }
+            profile = member_store.get_api(user_id)
+            if profile and profile.get('adminStatus', 'none') != 'none':
+                is_admin = True
+                member_data = {
+                    'bxsciolyID': profile.get('bxsciolyID', ''),
+                    'firstName': profile.get('firstName', ''),
+                    'lastName': profile.get('lastName', ''),
+                    'house': profile.get('house', '')
+                }
         except Exception as e:
             logger.warning(f"Error checking admin status for {user_id}: {e}")
         
