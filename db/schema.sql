@@ -1,5 +1,4 @@
 -- Bronx Science Olympiad — Postgres schema (Neon)
--- Members migrated from Firebase; other collections remain on Firestore until needed.
 
 CREATE TABLE IF NOT EXISTS members (
     id TEXT PRIMARY KEY,
@@ -47,3 +46,15 @@ CREATE TABLE IF NOT EXISTS password_resets (
 );
 
 CREATE INDEX IF NOT EXISTS password_resets_member_id_idx ON password_resets (member_id);
+
+CREATE TABLE IF NOT EXISTS merch_orders (
+    id TEXT PRIMARY KEY,
+    member_id TEXT NOT NULL REFERENCES members (id) ON DELETE CASCADE,
+    design_votes JSONB NOT NULL DEFAULT '[]'::jsonb,
+    items JSONB NOT NULL DEFAULT '[]'::jsonb,
+    spend_limit DOUBLE PRECISION,
+    status TEXT NOT NULL DEFAULT 'pending',
+    submitted_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE UNIQUE INDEX IF NOT EXISTS merch_orders_member_id_idx ON merch_orders (member_id);

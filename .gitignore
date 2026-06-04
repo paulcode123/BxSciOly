@@ -1,9 +1,15 @@
-# ignore service_key.json
+# Secrets (never commit)
 service_key.json
 service_key3.json
 google_sheets_service_key.json
+api_keys.json
 
-# Offline Wikipedia QA artifacts (large)
+# Local env
+.env
+.env.*
+!.env.example
+
+# Offline Wikipedia QA artifacts (legacy)
 astronomy_search_store/
 
 

@@ -352,8 +352,6 @@
                     
                     if (redirectUrl) {
                         window.location.href = redirectUrl;
-                    } else if (memberData.adminStatus === 'full') {
-                        window.location.href = '/admin/dashboard';
                     } else {
                         window.location.href = '/';
                     }

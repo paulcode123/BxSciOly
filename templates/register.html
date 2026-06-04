@@ -1047,7 +1047,6 @@
                     applicationStatus: 'incomplete' // Track application completion
                 };
                 
-                // Post to Firebase Members collection
                 fetch('/api/Members', {
                     method: 'POST',
                     headers: {
@@ -1065,7 +1064,7 @@
                 })
                 .then(data => {
                     // Success - redirect to login page
-                    alert('Registration successful! Please log in to complete your application.');
+                    alert('Registration successful! Please log in.');
                     window.location.href = '/login';
                 })
                 .catch(error => {

@@ -1,18 +1,16 @@
 ---
-description: Neon Postgres members DB — how to query and migrate safely
+description: Neon Postgres data layer for BxSciOly
 globs:
   - db/**
-  - scripts/db/**
   - routes/member_store.py
-  - routes/firebase_routes.py
-  - docs/DATABASE.md
+  - routes/api_routes.py
+  - scripts/db/**
 ---
 
 # Members database (Neon Postgres)
 
-- Member login data is in Postgres (`members`, `password_resets`), not Firestore.
-- Use `db.members` or `routes.member_store`; never introduce new Firestore `Members` reads/writes.
+- All persistence is Postgres (`members`, `password_resets`, `merch_orders`).
+- Use `db.members` or `routes.member_store`; HTTP API in `routes/api_routes.py`.
 - Schema: `db/schema.sql`. Human docs: `docs/DATABASE.md`.
 - Passwords: bcrypt only; strip passwords from all API JSON.
-- Scripts: `scripts/db/apply_schema.py`, `scripts/db/migrate_from_firebase.py`, `scripts/db/set_admin.py`.
-- Other collections (Events, Meeting, …) remain Firebase until explicitly migrated.
+- Scripts: `scripts/db/apply_schema.py`, `scripts/db/set_admin.py`, `scripts/db/import_members_json.py`.

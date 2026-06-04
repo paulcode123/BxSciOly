@@ -27,7 +27,7 @@ def main() -> None:
     path = Path(sys.argv[1] if len(sys.argv) > 1 else _ROOT / "data" / "members_export.json")
     if not path.exists():
         print(f"Missing file: {path}")
-        print("Export Firestore Members to this path, or pass a JSON file argument.")
+        print("Pass a JSON file path (member export), e.g. data/members_export.json")
         sys.exit(1)
     raw = json.loads(path.read_text(encoding="utf-8"))
     items = []

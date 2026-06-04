@@ -1,0 +1,8 @@
+{
+  "SMTP_HOST": "smtp.gmail.com",
+  "SMTP_PORT": 587,
+  "SMTP_USER": "your-service-account@example.com",
+  "SMTP_PASSWORD": "app-password-here",
+  "SMTP_FROM": "your-service-account@example.com",
+  "SMTP_USE_TLS": true
+}
