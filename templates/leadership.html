@@ -39,7 +39,7 @@
                 <div class="board-grid presidents">
                     <div class="board-member">
                         <div class="member-photo">
-                            <img src="/static/images/board/queenie-tang.png" alt="Queenie Tang">
+                            <img src="/static/images/board/queenie-tang1.png" alt="Queenie Tang" style="transform:scale(1);">
                             <div class="member-overlay">
                                 <div class="member-social">
                                     <i class="fas fa-envelope"></i>
@@ -75,7 +75,7 @@
                 <div class="board-grid logistics">
                     <div class="board-member">
                         <div class="member-photo">
-                            <img src="/static/images/board/ileene-ng.png" alt="Ileene Ng">
+                            <img src="/static/images/board/ileene-ng1.png" alt="Ileene Ng">
                             <div class="member-overlay">
                                 <div class="member-social">
                                     <i class="fas fa-envelope"></i>
@@ -132,7 +132,7 @@
                 <div class="board-grid build-directors">
                     <div class="board-member">
                         <div class="member-photo">
-                            <img src="/static/images/board/senna-shiau1.png" alt="Senna Shiau">
+                            <img src="/static/images/board/senna-shiau1.png" alt="Senna Shiau" style="transform:scale(1);">
                             <div class="member-overlay">
                                 <div class="member-social">
                                     <i class="fas fa-envelope"></i>
@@ -184,7 +184,7 @@
 
                     <div class="board-member">
                         <div class="member-photo">
-                            <img src="/static/images/board/stanley-zhao1.png" alt="Stanley Zhao">
+                            <img src="/static/images/board/stanley-zhao.png" alt="Stanley Zhao">
                             <div class="member-overlay">
                                 <div class="member-social">
                                     <i class="fas fa-envelope"></i>
@@ -1320,6 +1320,11 @@
         .condensed-board {
             padding: 8px 18px;
         }
+        .board-member:has(img[alt="Senna Shiau"]) .member-photo,
+.board-member:has(img[alt="Stanley Zhao"]) .member-photo {
+    width: 40px;
+    height: 40px;
+}
     }
 </style>
 {% endblock %} 
