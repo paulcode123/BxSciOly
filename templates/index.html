@@ -429,6 +429,44 @@
     </div>
 </section>
 
+<section id="gallery" class="section gallery-section">
+    <div class="container">
+        <div class="gallery-header animate-on-scroll">
+            <div class="section-badge">Year in Pictures</div>
+            <h2>Our Season in <span class="gradient-text">Photos</span></h2>
+            <p>From kickoff meetings to invitational wins and Regionals — relive the 2025–26 season through the moments that defined it.</p>
+        </div>
+        <div class="gallery-preview animate-on-scroll">
+            <a href="{{ url_for('gallery') }}" class="gallery-photo gallery-photo-large">
+                <img src="{{ url_for('static', filename='images/year_in_pictures/YaleSnow.jpg') }}" alt="Yale Invitational in the snow" loading="lazy">
+                <span class="gallery-photo-label">Yale Invitational</span>
+            </a>
+            <a href="{{ url_for('gallery') }}" class="gallery-photo">
+                <img src="{{ url_for('static', filename='images/year_in_pictures/SWHeli.jpg') }}" alt="Helicopter event at Southwest" loading="lazy">
+                <span class="gallery-photo-label">Southwest Invitational</span>
+            </a>
+            <a href="{{ url_for('gallery') }}" class="gallery-photo">
+                <img src="{{ url_for('static', filename='images/year_in_pictures/RegTeamB.jpg') }}" alt="Team B at Regionals" loading="lazy">
+                <span class="gallery-photo-label">Regionals</span>
+            </a>
+            <a href="{{ url_for('gallery') }}" class="gallery-photo">
+                <img src="{{ url_for('static', filename='images/year_in_pictures/IMG_3008.jpg') }}" alt="Fall practice session" loading="lazy">
+                <span class="gallery-photo-label">Fall Practices</span>
+            </a>
+            <a href="{{ url_for('gallery') }}" class="gallery-photo gallery-photo-wide">
+                <img src="{{ url_for('static', filename='images/year_in_pictures/PicnicSCIOLY.jpg') }}" alt="End of year picnic" loading="lazy">
+                <span class="gallery-photo-label">End of Year</span>
+            </a>
+        </div>
+        <div class="gallery-cta animate-on-scroll">
+            <a href="{{ url_for('gallery') }}" class="btn btn-primary">
+                <i class="fas fa-images"></i> View Full Gallery
+            </a>
+            <span class="gallery-stat"><strong>21</strong> photos &middot; <strong>7</strong> chapters</span>
+        </div>
+    </div>
+</section>
+
 <section class="section cta-section">
     <div class="container">
         <div class="cta-content animate-on-scroll">
@@ -953,6 +991,101 @@
         color: #999;
         font-style: italic;
     }
+
+    /* Gallery Section */
+    .gallery-section {
+        padding: 100px 0;
+        background: linear-gradient(180deg, #f8f9fc 0%, #eef2f7 100%);
+    }
+
+    .gallery-header {
+        text-align: center;
+        max-width: 640px;
+        margin: 0 auto 48px;
+    }
+
+    .gallery-header h2 {
+        font-size: 2.6rem;
+        color: var(--primary-color);
+        margin-bottom: 16px;
+    }
+
+    .gallery-header p {
+        color: #666;
+        line-height: 1.7;
+        font-size: 1.05rem;
+    }
+
+    .gallery-preview {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 220px 220px;
+        gap: 16px;
+        margin-bottom: 40px;
+    }
+
+    .gallery-photo {
+        position: relative;
+        display: block;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery-photo:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+    }
+
+    .gallery-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.4s ease;
+    }
+
+    .gallery-photo:hover img {
+        transform: scale(1.05);
+    }
+
+    .gallery-photo-label {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 32px 16px 14px;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
+        color: white;
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 0.03em;
+    }
+
+    .gallery-photo-large {
+        grid-row: span 2;
+    }
+
+    .gallery-photo-wide {
+        grid-column: span 2;
+    }
+
+    .gallery-cta {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .gallery-stat {
+        color: #888;
+        font-size: 0.9rem;
+    }
+
+    .gallery-stat strong {
+        color: var(--primary-color);
+    }
     
     /* CTA Section */
     .cta-section {
@@ -1275,6 +1408,23 @@
         .colleges-grid {
             grid-template-columns: repeat(3, minmax(0, 1fr));
         }
+
+        .gallery-preview {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: auto;
+        }
+
+        .gallery-photo-large {
+            grid-row: span 1;
+        }
+
+        .gallery-photo-wide {
+            grid-column: span 2;
+        }
+
+        .gallery-photo {
+            height: 200px;
+        }
     }
     
     /* Responsive Design */
@@ -1302,6 +1452,7 @@
         
         .discover-text h2,
         .achievements-content h2,
+        .gallery-header h2,
         .showcase-header h2,
         .cta-content h2 {
             font-size: 2rem;
@@ -1338,6 +1489,18 @@
         
         .subjects-grid {
             grid-template-columns: 1fr;
+        }
+
+        .gallery-preview {
+            grid-template-columns: 1fr;
+        }
+
+        .gallery-photo-wide {
+            grid-column: span 1;
+        }
+
+        .gallery-photo {
+            height: 180px;
         }
         
         .cta-buttons {

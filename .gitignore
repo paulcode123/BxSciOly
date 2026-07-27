@@ -18,3 +18,13 @@ astronomy_search_store/
 
 .vercel
 .env*
+
+
+*.mov
+*.MOV
+*.mp4
+*.MP4
+
+*.ARW
+*.arw
+python-installer.exe
