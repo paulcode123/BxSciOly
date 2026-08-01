@@ -54,7 +54,7 @@ MEMBER_PORTAL_PATHS = (
 # static/gallery/events/<season>/<album>/*.jpg and builds the album list
 # the gallery page needs. Drop a new photo or folder in and it shows up
 # automatically -- no code changes needed.
-GALLERY_ROOT = os.path.join(_PUBLIC_STATIC, "gallery")
+GALLERY_ROOT = os.path.join(app.static_folder, "gallery")
 
 
 def _humanize(name):
