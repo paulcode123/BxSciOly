@@ -7,9 +7,46 @@
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon2.png') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Existing Fonts & CSS -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- NEW: Tailwind & Home Page Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bg: '#F4F6F8',
+                        'bg-elevated': '#FFFFFF',
+                        'bg-warm': '#FAFCFD',
+                        'bg-gold-dark': '#EEF3F6',
+                        'bg-sponsors': '#EDF1F5',
+                        fg: '#1B222C',
+                        muted: '#66717F',
+                        accent: '#4FADC9',
+                        'accent-hover': '#6FC2DB',
+                        border: '#DCE3EA',
+                        'border-light': '#E4E9EE',
+                        'border-sponsor': '#D7DEE6',
+                        'medal-gold': '#F0C860',
+                        'medal-silver': '#C7CCD6',
+                        'medal-bronze': '#CD7F32',
+                    },
+                    fontFamily: {
+                        serif: ['"Anton"', 'sans-serif'],
+                        sans: ['"DM Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Layout CSS -->
     <style>
         /* Logo link styles */
         .logo-link {
@@ -229,6 +266,8 @@
             }
         }
     </style>
+
+    <!-- Child pages can safely add their own CSS here without breaking the header -->
     {% block extra_css %}{% endblock %}
 </head>
 <body>
@@ -268,6 +307,7 @@
     </header>
 
     <main>
+        <!-- Child pages inject their HTML here -->
         {% block content %}{% endblock %}
     </main>
 
@@ -283,6 +323,10 @@
 
     <script src="{{ url_for('static', filename='js/auth.js') }}"></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    
+    <!-- NEW: Lucide Icons Script -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+
     <script>
         // Mobile dropdown functionality
         document.addEventListener('DOMContentLoaded', function() {
@@ -370,12 +414,15 @@
                 .catch(function () { applyRosterAccess(false); });
         });
     </script>
+    
     {% if vercel_analytics %}
     <script>
       window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
     </script>
     <script defer src="/_vercel/insights/script.js"></script>
     {% endif %}
+
+    <!-- Child pages can safely add their own JS here -->
     {% block extra_js %}{% endblock %}
 </body>
-</html> 
+</html>
