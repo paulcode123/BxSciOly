@@ -197,9 +197,12 @@ def debug_gallery_check():
         "GALLERY_ROOT": GALLERY_ROOT,
         "gallery_root_exists": os.path.isdir(GALLERY_ROOT),
         "static_folder": app.static_folder,
-        "static_folder_exists": os.path.isdir(app.static_folder),
         "static_folder_contents": os.listdir(app.static_folder) if os.path.isdir(app.static_folder) else "NOT FOUND",
         "heic_support": HEIC_SUPPORT,
+        "root_contents": os.listdir(_ROOT) if os.path.isdir(_ROOT) else "ROOT NOT FOUND",
+        "public_exists": os.path.isdir(os.path.join(_ROOT, "public")),
+        "public_static_exists": os.path.isdir(_PUBLIC_STATIC),
+        "public_static_contents": os.listdir(_PUBLIC_STATIC) if os.path.isdir(_PUBLIC_STATIC) else "NOT FOUND",
     }
     return json.dumps(info, indent=2)
 
