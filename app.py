@@ -191,20 +191,7 @@ def build_gallery_albums():
                 })
     return albums
 # ---------------------------------------------------------------------------
-@app.route("/debug/gallery-check")
-def debug_gallery_check():
-    info = {
-        "GALLERY_ROOT": GALLERY_ROOT,
-        "gallery_root_exists": os.path.isdir(GALLERY_ROOT),
-        "static_folder": app.static_folder,
-        "static_folder_contents": os.listdir(app.static_folder) if os.path.isdir(app.static_folder) else "NOT FOUND",
-        "heic_support": HEIC_SUPPORT,
-        "root_contents": os.listdir(_ROOT) if os.path.isdir(_ROOT) else "ROOT NOT FOUND",
-        "public_exists": os.path.isdir(os.path.join(_ROOT, "public")),
-        "public_static_exists": os.path.isdir(_PUBLIC_STATIC),
-        "public_static_contents": os.listdir(_PUBLIC_STATIC) if os.path.isdir(_PUBLIC_STATIC) else "NOT FOUND",
-    }
-    return json.dumps(info, indent=2)
+
 
 @app.context_processor
 def inject_now():
@@ -291,9 +278,36 @@ def chemistry_inquiry():
 @app.route("/sponsors")
 def sponsors():
     return render_template("sponsors.html")
+@app.route("/debug/gallery-check")
+def debug_gallery_check():
+    manifest_path = os.path.join(_ROOT, "gallery_manifest.json")
+    info = {
+        "manifest_path": manifest_path,
+        "manifest_exists": os.path.isfile(manifest_path),
+        "root_contents": os.listdir(_ROOT) if os.path.isdir(_ROOT) else "ROOT NOT FOUND",
+    }
+    if info["manifest_exists"]:
+        with open(manifest_path, "r") as f:
+            albums = json.load(f)
+        info["album_count"] = len(albums)
+        info["album_titles"] = [f"{a['season']} / {a['title']}" for a in albums]
+    return json.dumps(info, indent=2)
+
+
 @app.route("/gallery")
 def gallery():
-    albums = build_gallery_albums()
+    # NOTE: this reads a pre-built manifest instead of scanning
+    # public/static/gallery live, because Vercel serves everything in
+    # public/ via CDN and never gives the running Python function
+    # access to that folder. Run generate_gallery_manifest.py locally
+    # any time you add/remove photos, then commit the updated
+    # gallery_manifest.json along with them.
+    manifest_path = os.path.join(_ROOT, "gallery_manifest.json")
+    if os.path.isfile(manifest_path):
+        with open(manifest_path, "r") as f:
+            albums = json.load(f)
+    else:
+        albums = []
     return render_template("gallery.html", albums_json=json.dumps(albums))
 @app.route("/Merch")
 def merch():
