@@ -1,6 +1,565 @@
 [
   {
     "season": "2025-26",
+    "title": "South Windsor",
+    "date": "December 2025",
+    "category": "competitions",
+    "cover": "/static/gallery/competitions/2025-26/1-South Windsor/_converted/cover.jpg",
+    "photos": [
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/3A561CC0-3AD2-4478-B807-67D917998F60.jpg",
+        "caption": "3A561CC0 3AD2 4478 B807 67D917998F60",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/_converted/IMG_2977.jpg",
+        "caption": "IMG 2977",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/_converted/IMG_2996.jpg",
+        "caption": "IMG 2996",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_2999.MOV",
+        "caption": "IMG 2999",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_3001.MOV",
+        "caption": "IMG 3001",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_3004.MOV",
+        "caption": "IMG 3004",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_3005.MOV",
+        "caption": "IMG 3005",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/_converted/IMG_3008.jpg",
+        "caption": "IMG 3008",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_3011.MOV",
+        "caption": "IMG 3011",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/_converted/IMG_3022.jpg",
+        "caption": "IMG 3022",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_3024.MOV",
+        "caption": "IMG 3024",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/_converted/IMG_3028.jpg",
+        "caption": "IMG 3028",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_3044.MOV",
+        "caption": "IMG 3044",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_3046.MOV",
+        "caption": "IMG 3046",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_3074.MOV",
+        "caption": "IMG 3074",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_3792.JPG",
+        "caption": "IMG 3792",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_3793.JPG",
+        "caption": "IMG 3793",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_3794.JPG",
+        "caption": "IMG 3794",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_3795.JPG",
+        "caption": "IMG 3795",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_3796.MOV",
+        "caption": "IMG 3796",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_3797.MOV",
+        "caption": "IMG 3797",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_3798.MOV",
+        "caption": "IMG 3798",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_3799.JPG",
+        "caption": "IMG 3799",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_3800.JPG",
+        "caption": "IMG 3800",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_3801.JPG",
+        "caption": "IMG 3801",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_3802.JPG",
+        "caption": "IMG 3802",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_3803.JPG",
+        "caption": "IMG 3803",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_3804.JPG",
+        "caption": "IMG 3804",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_3805.MOV",
+        "caption": "IMG 3805",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_3807.JPG",
+        "caption": "IMG 3807",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_3808.JPG",
+        "caption": "IMG 3808",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_3809.JPG",
+        "caption": "IMG 3809",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_3811.JPG",
+        "caption": "IMG 3811",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_3812.JPG",
+        "caption": "IMG 3812",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_3813.JPG",
+        "caption": "IMG 3813",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_3814.JPG",
+        "caption": "IMG 3814",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_3815.JPG",
+        "caption": "IMG 3815",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_3818.JPG",
+        "caption": "IMG 3818",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_3819.MOV",
+        "caption": "IMG 3819",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_3820.MOV",
+        "caption": "IMG 3820",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_3821.JPG",
+        "caption": "IMG 3821",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_3823.JPG",
+        "caption": "IMG 3823",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_3825.JPG",
+        "caption": "IMG 3825",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_3827.MOV",
+        "caption": "IMG 3827",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_3829.JPG",
+        "caption": "IMG 3829",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_3830.JPG",
+        "caption": "IMG 3830",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_3831.JPG",
+        "caption": "IMG 3831",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_3832.JPG",
+        "caption": "IMG 3832",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_3835.MOV",
+        "caption": "IMG 3835",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_5856.JPG",
+        "caption": "IMG 5856",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/_converted/IMG_5863.jpg",
+        "caption": "IMG 5863",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_5866.MOV",
+        "caption": "IMG 5866",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/_converted/IMG_5878.jpg",
+        "caption": "IMG 5878",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_5879.JPG",
+        "caption": "IMG 5879",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/_converted/IMG_5880.jpg",
+        "caption": "IMG 5880",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_5881.MOV",
+        "caption": "IMG 5881",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_5882.MOV",
+        "caption": "IMG 5882",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_5883.MOV",
+        "caption": "IMG 5883",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_5885.MOV",
+        "caption": "IMG 5885",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_5887.MOV",
+        "caption": "IMG 5887",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/_converted/IMG_5888.jpg",
+        "caption": "IMG 5888",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/_converted/IMG_5890.jpg",
+        "caption": "IMG 5890",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/_converted/IMG_5894.jpg",
+        "caption": "IMG 5894",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/_converted/IMG_5896.jpg",
+        "caption": "IMG 5896",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/_converted/IMG_5897.jpg",
+        "caption": "IMG 5897",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/_converted/IMG_5902.jpg",
+        "caption": "IMG 5902",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_7468.MOV",
+        "caption": "IMG 7468",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_7534.MOV",
+        "caption": "IMG 7534",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_7535.JPG",
+        "caption": "IMG 7535",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_7536.MOV",
+        "caption": "IMG 7536",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_7541.JPG",
+        "caption": "IMG 7541",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_7544.MOV",
+        "caption": "IMG 7544",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_7545.JPG",
+        "caption": "IMG 7545",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_7548.JPG",
+        "caption": "IMG 7548",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_7550.MOV",
+        "caption": "IMG 7550",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_7551.MOV",
+        "caption": "IMG 7551",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_7552.JPG",
+        "caption": "IMG 7552",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_7553.MOV",
+        "caption": "IMG 7553",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_7554.JPG",
+        "caption": "IMG 7554",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_7555.JPG",
+        "caption": "IMG 7555",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_7556 (1).MOV",
+        "caption": "IMG 7556 (1)",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_7556.MOV",
+        "caption": "IMG 7556",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_7557.MOV",
+        "caption": "IMG 7557",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_7558.JPG",
+        "caption": "IMG 7558",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_7559.JPG",
+        "caption": "IMG 7559",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_7560.JPG",
+        "caption": "IMG 7560",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_7562.JPG",
+        "caption": "IMG 7562",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_7563.JPG",
+        "caption": "IMG 7563",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_7565.JPG",
+        "caption": "IMG 7565",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_7569.MOV",
+        "caption": "IMG 7569",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_7572.JPG",
+        "caption": "IMG 7572",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_7581.JPG",
+        "caption": "IMG 7581",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_7591.JPG",
+        "caption": "IMG 7591",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_7593.MOV",
+        "caption": "IMG 7593",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_7597.MOV",
+        "caption": "IMG 7597",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_7598.MOV",
+        "caption": "IMG 7598",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_7599.JPG",
+        "caption": "IMG 7599",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_7601.MOV",
+        "caption": "IMG 7601",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_7612.JPG",
+        "caption": "IMG 7612",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_7617.JPG",
+        "caption": "IMG 7617",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_7625.JPG",
+        "caption": "IMG 7625",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_7629.JPG",
+        "caption": "IMG 7629",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_7630.JPG",
+        "caption": "IMG 7630",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/IMG_7633.JPG",
+        "caption": "IMG 7633",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/_converted/IMG_7796.jpg",
+        "caption": "IMG 7796",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/_converted/IMG_7797.jpg",
+        "caption": "IMG 7797",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/_converted/IMG_7802.jpg",
+        "caption": "IMG 7802",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/_converted/IMG_7803.jpg",
+        "caption": "IMG 7803",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/_converted/IMG_7809.jpg",
+        "caption": "IMG 7809",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/1-South Windsor/_converted/cover.jpg",
+        "caption": "cover",
+        "type": "image"
+      }
+    ]
+  },
+  {
+    "season": "2025-26",
     "title": "Regionals",
     "date": "January 2026",
     "category": "competitions",
