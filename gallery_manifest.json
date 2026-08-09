@@ -3290,7 +3290,7 @@
     "title": "Regionals",
     "date": "January 2025",
     "category": "competitions",
-    "cover": "/static/gallery/competitions/2024-25/Regionals/_converted/IMG_0824.jpg",
+    "cover": "/static/gallery/competitions/2024-25/Regionals/_converted/cover.jpg.jpg",
     "photos": [
       {
         "src": "/static/gallery/competitions/2024-25/Regionals/IMG_0819.MOV",
@@ -4308,11 +4308,6 @@
         "type": "image"
       },
       {
-        "src": "/static/gallery/competitions/2024-25/Regionals/_converted/IMG_7970.jpg",
-        "caption": "IMG 7970",
-        "type": "image"
-      },
-      {
         "src": "/static/gallery/competitions/2024-25/Regionals/_converted/IMG_7971.jpg",
         "caption": "IMG 7971",
         "type": "image"
@@ -4355,6 +4350,780 @@
       {
         "src": "/static/gallery/competitions/2024-25/Regionals/V_pre-award_ceremony.MOV",
         "caption": "V pre award ceremony",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/Regionals/_converted/cover.jpg.jpg",
+        "caption": "cover.jpg",
+        "type": "image"
+      }
+    ]
+  },
+  {
+    "season": "2024-25",
+    "title": "States",
+    "date": "March 2025",
+    "category": "competitions",
+    "cover": "/static/gallery/competitions/2024-25/States/94780F76-8A6F-4B21-B901-ADC3A0634D05.jpg",
+    "photos": [
+      {
+        "src": "/static/gallery/competitions/2024-25/States/054eb109b0974eea8ba7efc979e24d39.mov",
+        "caption": "054eb109b0974eea8ba7efc979e24d39",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/94780F76-8A6F-4B21-B901-ADC3A0634D05.jpg",
+        "caption": "94780F76 8A6F 4B21 B901 ADC3A0634D05",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/A3F8A283-298B-4484-B231-59010B6A8B89.jpg",
+        "caption": "A3F8A283 298B 4484 B231 59010B6A8B89",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0519.MOV",
+        "caption": "IMG 0519",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0520.MOV",
+        "caption": "IMG 0520",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0521.MOV",
+        "caption": "IMG 0521",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0522.MOV",
+        "caption": "IMG 0522",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0531.MOV",
+        "caption": "IMG 0531",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0532.MOV",
+        "caption": "IMG 0532",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0533.JPG",
+        "caption": "IMG 0533",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0534.JPG",
+        "caption": "IMG 0534",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0535.MOV",
+        "caption": "IMG 0535",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0537.MOV",
+        "caption": "IMG 0537",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_0538.jpg",
+        "caption": "IMG 0538",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_0550.jpg",
+        "caption": "IMG 0550",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_0551.jpg",
+        "caption": "IMG 0551",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_0583.jpg",
+        "caption": "IMG 0583",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_0584.jpg",
+        "caption": "IMG 0584",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_0585.jpg",
+        "caption": "IMG 0585",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0599.MOV",
+        "caption": "IMG 0599",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0600.MOV",
+        "caption": "IMG 0600",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0601.MOV",
+        "caption": "IMG 0601",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_0602.jpg",
+        "caption": "IMG 0602",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_0603.jpg",
+        "caption": "IMG 0603",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_0604.jpg",
+        "caption": "IMG 0604",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_0605.jpg",
+        "caption": "IMG 0605",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_0607.jpg",
+        "caption": "IMG 0607",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_0608.jpg",
+        "caption": "IMG 0608",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_0609.jpg",
+        "caption": "IMG 0609",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_0610.jpg",
+        "caption": "IMG 0610",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_0611.jpg",
+        "caption": "IMG 0611",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0617.JPG",
+        "caption": "IMG 0617",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0618.MOV",
+        "caption": "IMG 0618",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0621.MOV",
+        "caption": "IMG 0621",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0622.MOV",
+        "caption": "IMG 0622",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0624.MOV",
+        "caption": "IMG 0624",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0626.MOV",
+        "caption": "IMG 0626",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0627.MOV",
+        "caption": "IMG 0627",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0628.MOV",
+        "caption": "IMG 0628",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0631.MOV",
+        "caption": "IMG 0631",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0632.MOV",
+        "caption": "IMG 0632",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0633.MOV",
+        "caption": "IMG 0633",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0634.MOV",
+        "caption": "IMG 0634",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0635.MOV",
+        "caption": "IMG 0635",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0636.MOV",
+        "caption": "IMG 0636",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0637.MOV",
+        "caption": "IMG 0637",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0638.MOV",
+        "caption": "IMG 0638",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0639.MOV",
+        "caption": "IMG 0639",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0640.MOV",
+        "caption": "IMG 0640",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0641.MOV",
+        "caption": "IMG 0641",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0642.MOV",
+        "caption": "IMG 0642",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0643.MOV",
+        "caption": "IMG 0643",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0644.MOV",
+        "caption": "IMG 0644",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0645.MOV",
+        "caption": "IMG 0645",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0646.MOV",
+        "caption": "IMG 0646",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_0679.jpg",
+        "caption": "IMG 0679",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_0680.jpg",
+        "caption": "IMG 0680",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0685.MOV",
+        "caption": "IMG 0685",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_0696.jpg",
+        "caption": "IMG 0696",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_0697.jpg",
+        "caption": "IMG 0697",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_0698.jpg",
+        "caption": "IMG 0698",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_0699.jpg",
+        "caption": "IMG 0699",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_0700.jpg",
+        "caption": "IMG 0700",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0701.MOV",
+        "caption": "IMG 0701",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0702.MOV",
+        "caption": "IMG 0702",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0703.MOV",
+        "caption": "IMG 0703",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0704.MOV",
+        "caption": "IMG 0704",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0707.MOV",
+        "caption": "IMG 0707",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_0716.jpg",
+        "caption": "IMG 0716",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_0717.jpg",
+        "caption": "IMG 0717",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_0718.jpg",
+        "caption": "IMG 0718",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_0719.jpg",
+        "caption": "IMG 0719",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_0720.jpg",
+        "caption": "IMG 0720",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_0721.jpg",
+        "caption": "IMG 0721",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_0722.jpg",
+        "caption": "IMG 0722",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_0723.jpg",
+        "caption": "IMG 0723",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_0724.jpg",
+        "caption": "IMG 0724",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_0725.jpg",
+        "caption": "IMG 0725",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_0726.jpg",
+        "caption": "IMG 0726",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_0727.jpg",
+        "caption": "IMG 0727",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_0728.jpg",
+        "caption": "IMG 0728",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0730.MOV",
+        "caption": "IMG 0730",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0731.MOV",
+        "caption": "IMG 0731",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_0732.MOV",
+        "caption": "IMG 0732",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_0734.jpg",
+        "caption": "IMG 0734",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_0735.jpg",
+        "caption": "IMG 0735",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_0736.jpg",
+        "caption": "IMG 0736",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_1046.MOV",
+        "caption": "IMG 1046",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_1047.MOV",
+        "caption": "IMG 1047",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_1049.MOV",
+        "caption": "IMG 1049",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_1051.MOV",
+        "caption": "IMG 1051",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_1052.MOV",
+        "caption": "IMG 1052",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_1055.jpg",
+        "caption": "IMG 1055",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_1056 (1).MOV",
+        "caption": "IMG 1056 (1)",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_1056.MOV",
+        "caption": "IMG 1056",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_1057.MOV",
+        "caption": "IMG 1057",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_1058.MOV",
+        "caption": "IMG 1058",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_1059.MOV",
+        "caption": "IMG 1059",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_1060.MOV",
+        "caption": "IMG 1060",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_1061.MOV",
+        "caption": "IMG 1061",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_1062.MOV",
+        "caption": "IMG 1062",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_1063.MOV",
+        "caption": "IMG 1063",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_1064.MOV",
+        "caption": "IMG 1064",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_1065.MOV",
+        "caption": "IMG 1065",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_1066.MOV",
+        "caption": "IMG 1066",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_1067.MOV",
+        "caption": "IMG 1067",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_1068.MOV",
+        "caption": "IMG 1068",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_1069.MOV",
+        "caption": "IMG 1069",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_1070.MOV",
+        "caption": "IMG 1070",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_1071.MOV",
+        "caption": "IMG 1071",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_1072.MOV",
+        "caption": "IMG 1072",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_7302.jpg",
+        "caption": "IMG 7302",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_7303.jpg",
+        "caption": "IMG 7303",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_7304.MOV",
+        "caption": "IMG 7304",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_7305.MOV",
+        "caption": "IMG 7305",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_7306.MOV",
+        "caption": "IMG 7306",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_7307.MOV",
+        "caption": "IMG 7307",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_7310.MOV",
+        "caption": "IMG 7310",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_7311.MOV",
+        "caption": "IMG 7311",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_7312.MOV",
+        "caption": "IMG 7312",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_7313.MOV",
+        "caption": "IMG 7313",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_7316.MOV",
+        "caption": "IMG 7316",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_7317.MOV",
+        "caption": "IMG 7317",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_7318.MOV",
+        "caption": "IMG 7318",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_7329.MOV",
+        "caption": "IMG 7329",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_7332.MOV",
+        "caption": "IMG 7332",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_7334.jpg",
+        "caption": "IMG 7334",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_7335.jpg",
+        "caption": "IMG 7335",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_7336.jpg",
+        "caption": "IMG 7336",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_7337.jpg",
+        "caption": "IMG 7337",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_7344.jpg",
+        "caption": "IMG 7344",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_7345.jpg",
+        "caption": "IMG 7345",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_7346.jpg",
+        "caption": "IMG 7346",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_7351.MOV",
+        "caption": "IMG 7351",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_7352.MOV",
+        "caption": "IMG 7352",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_7356.jpg",
+        "caption": "IMG 7356",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_7357.jpg",
+        "caption": "IMG 7357",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_7358.jpg",
+        "caption": "IMG 7358",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_7359.MOV",
+        "caption": "IMG 7359",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_7360.MOV",
+        "caption": "IMG 7360",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_7372.MOV",
+        "caption": "IMG 7372",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_8241.MOV",
+        "caption": "IMG 8241",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_8242.MOV",
+        "caption": "IMG 8242",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_8243.jpg",
+        "caption": "IMG 8243",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_8257.MOV",
+        "caption": "IMG 8257",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_8258.jpg",
+        "caption": "IMG 8258",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_8269.MOV",
+        "caption": "IMG 8269",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_8272.MOV",
+        "caption": "IMG 8272",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_8273.MOV",
+        "caption": "IMG 8273",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/_converted/IMG_8277.jpg",
+        "caption": "IMG 8277",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_8278.MOV",
+        "caption": "IMG 8278",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/IMG_8283.MOV",
+        "caption": "IMG 8283",
         "type": "video"
       }
     ]
