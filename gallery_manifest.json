@@ -4364,7 +4364,7 @@
     "title": "States",
     "date": "March 2025",
     "category": "competitions",
-    "cover": "/static/gallery/competitions/2024-25/States/94780F76-8A6F-4B21-B901-ADC3A0634D05.jpg",
+    "cover": "/static/gallery/competitions/2024-25/States/cover.png.png",
     "photos": [
       {
         "src": "/static/gallery/competitions/2024-25/States/054eb109b0974eea8ba7efc979e24d39.mov",
@@ -5125,6 +5125,11 @@
         "src": "/static/gallery/competitions/2024-25/States/IMG_8283.MOV",
         "caption": "IMG 8283",
         "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2024-25/States/cover.png.png",
+        "caption": "cover.png",
+        "type": "image"
       }
     ]
   },
