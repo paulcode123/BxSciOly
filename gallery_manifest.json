@@ -1719,6 +1719,1566 @@
     "cover": "/static/gallery/competitions/2025-26/4-States/_converted/cover.jpg.jpg",
     "photos": [
       {
+        "src": "/static/gallery/competitions/2025-26/4-States/0fa865be6dfa4fe18d19554851c0741c.mov",
+        "caption": "0fa865be6dfa4fe18d19554851c0741c",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/2D1771D3-3C1A-457E-A5AC-3C2C135592E8.jpg",
+        "caption": "2D1771D3 3C1A 457E A5AC 3C2C135592E8",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/44F8F264-8AA7-4487-B465-E8ECD2C3EEBC.jpg",
+        "caption": "44F8F264 8AA7 4487 B465 E8ECD2C3EEBC",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/BAA481FC-CA57-4A78-8BF0-227BECC1DDA5.jpg",
+        "caption": "BAA481FC CA57 4A78 8BF0 227BECC1DDA5",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/E0CCC90E-B070-4B12-BE56-CC10EDC4E3CB.mov",
+        "caption": "E0CCC90E B070 4B12 BE56 CC10EDC4E3CB",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_0482.MOV",
+        "caption": "IMG 0482",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_0535.MOV",
+        "caption": "IMG 0535",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_20260320_111411256_AE.jpg",
+        "caption": "IMG 20260320 111411256 AE",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_20260320_111618735_HDR_AE.jpg",
+        "caption": "IMG 20260320 111618735 HDR AE",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_20260320_111802146_AE.jpg",
+        "caption": "IMG 20260320 111802146 AE",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_20260320_112413511_AE.jpg",
+        "caption": "IMG 20260320 112413511 AE",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_20260320_200720487_AE.jpg",
+        "caption": "IMG 20260320 200720487 AE",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_20260321_073741566_AE.jpg",
+        "caption": "IMG 20260321 073741566 AE",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_20260321_112620440_AE.jpg",
+        "caption": "IMG 20260321 112620440 AE",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_20260321_112626191_AE.jpg",
+        "caption": "IMG 20260321 112626191 AE",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_20260321_133906238_HDR_AE.jpg",
+        "caption": "IMG 20260321 133906238 HDR AE",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_20260321_142047026_HDR_AE.jpg",
+        "caption": "IMG 20260321 142047026 HDR AE",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_20260321_154717587_AE.jpg",
+        "caption": "IMG 20260321 154717587 AE",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_20260321_154729783_AE.jpg",
+        "caption": "IMG 20260321 154729783 AE",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_2841.jpg",
+        "caption": "IMG 2841",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_2842.jpg",
+        "caption": "IMG 2842",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_2846.jpg",
+        "caption": "IMG 2846",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_2848.jpg",
+        "caption": "IMG 2848",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_2851.jpg",
+        "caption": "IMG 2851",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_2852.jpg",
+        "caption": "IMG 2852",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_2856.jpg",
+        "caption": "IMG 2856",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_2860.jpg",
+        "caption": "IMG 2860",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_2861.MOV",
+        "caption": "IMG 2861",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_2862.jpg",
+        "caption": "IMG 2862",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_2865.jpg",
+        "caption": "IMG 2865",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_2866.jpg",
+        "caption": "IMG 2866",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_2870.mov",
+        "caption": "IMG 2870",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_2873.jpg",
+        "caption": "IMG 2873",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_2875.jpg",
+        "caption": "IMG 2875",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_2877.jpg",
+        "caption": "IMG 2877",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_2878.jpg",
+        "caption": "IMG 2878",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_2879.jpg",
+        "caption": "IMG 2879",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_2882.jpg",
+        "caption": "IMG 2882",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_2884.jpg",
+        "caption": "IMG 2884",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_2885.jpg",
+        "caption": "IMG 2885",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_2886.jpg",
+        "caption": "IMG 2886",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_2887.jpg",
+        "caption": "IMG 2887",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_2895.jpg",
+        "caption": "IMG 2895",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_2899.jpg",
+        "caption": "IMG 2899",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_2901.jpeg",
+        "caption": "IMG 2901",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_2904.MOV",
+        "caption": "IMG 2904",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_2909.jpg",
+        "caption": "IMG 2909",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_3021.jpg",
+        "caption": "IMG 3021",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_3024.jpg",
+        "caption": "IMG 3024",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_3025.jpg",
+        "caption": "IMG 3025",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_3025.jpg",
+        "caption": "IMG 3025",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_3026.jpg",
+        "caption": "IMG 3026",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_3026.jpg",
+        "caption": "IMG 3026",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_3027.jpg",
+        "caption": "IMG 3027",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_3028.jpg",
+        "caption": "IMG 3028",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_3029.jpg",
+        "caption": "IMG 3029",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_3030.jpg",
+        "caption": "IMG 3030",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4880.jpg",
+        "caption": "IMG 4880",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4881.jpg",
+        "caption": "IMG 4881",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4882.jpg",
+        "caption": "IMG 4882",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4889.jpg",
+        "caption": "IMG 4889",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4891.jpg",
+        "caption": "IMG 4891",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4893.jpg",
+        "caption": "IMG 4893",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4902.jpg",
+        "caption": "IMG 4902",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4903.jpg",
+        "caption": "IMG 4903",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4904.jpg",
+        "caption": "IMG 4904",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4908.jpg",
+        "caption": "IMG 4908",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4909.jpg",
+        "caption": "IMG 4909",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4910.jpg",
+        "caption": "IMG 4910",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4912.jpg",
+        "caption": "IMG 4912",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4913.jpg",
+        "caption": "IMG 4913",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4914.jpg",
+        "caption": "IMG 4914",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4915.jpg",
+        "caption": "IMG 4915",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4916.jpg",
+        "caption": "IMG 4916",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4917.jpg",
+        "caption": "IMG 4917",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4919.jpg",
+        "caption": "IMG 4919",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4920.jpg",
+        "caption": "IMG 4920",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4921.jpg",
+        "caption": "IMG 4921",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4922.jpg",
+        "caption": "IMG 4922",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4923.jpg",
+        "caption": "IMG 4923",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4924.jpg",
+        "caption": "IMG 4924",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4926.jpg",
+        "caption": "IMG 4926",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4927.jpg",
+        "caption": "IMG 4927",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4928.jpg",
+        "caption": "IMG 4928",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4967.jpg",
+        "caption": "IMG 4967",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4968.jpg",
+        "caption": "IMG 4968",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4969.jpg",
+        "caption": "IMG 4969",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4971.jpg",
+        "caption": "IMG 4971",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4973.jpg",
+        "caption": "IMG 4973",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4974.jpg",
+        "caption": "IMG 4974",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4976.jpg",
+        "caption": "IMG 4976",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4977.jpg",
+        "caption": "IMG 4977",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4981.jpg",
+        "caption": "IMG 4981",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4984.jpg",
+        "caption": "IMG 4984",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4987.jpg",
+        "caption": "IMG 4987",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4988.jpg",
+        "caption": "IMG 4988",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_4993.MOV",
+        "caption": "IMG 4993",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4994.jpg",
+        "caption": "IMG 4994",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4995.jpg",
+        "caption": "IMG 4995",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4996.jpg",
+        "caption": "IMG 4996",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4998.jpg",
+        "caption": "IMG 4998",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_4999.jpg",
+        "caption": "IMG 4999",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_5004.jpg",
+        "caption": "IMG 5004",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_5005.jpg",
+        "caption": "IMG 5005",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_5006.jpg",
+        "caption": "IMG 5006",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_5007.jpg",
+        "caption": "IMG 5007",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_5008.jpg",
+        "caption": "IMG 5008",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_5009.jpg",
+        "caption": "IMG 5009",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_5013.jpg",
+        "caption": "IMG 5013",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_5014.MOV",
+        "caption": "IMG 5014",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_5016.jpg",
+        "caption": "IMG 5016",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_5017.jpg",
+        "caption": "IMG 5017",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_5018.jpg",
+        "caption": "IMG 5018",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_5019.jpg",
+        "caption": "IMG 5019",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_5020.jpg",
+        "caption": "IMG 5020",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_5021.jpg",
+        "caption": "IMG 5021",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_5022.jpg",
+        "caption": "IMG 5022",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_5023.jpg",
+        "caption": "IMG 5023",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_5025.jpg",
+        "caption": "IMG 5025",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_5026.jpg",
+        "caption": "IMG 5026",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_5030.jpg",
+        "caption": "IMG 5030",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_5031.jpg",
+        "caption": "IMG 5031",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_5032.jpg",
+        "caption": "IMG 5032",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_5033.jpg",
+        "caption": "IMG 5033",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_5034.jpg",
+        "caption": "IMG 5034",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_5035.jpg",
+        "caption": "IMG 5035",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_5036.jpg",
+        "caption": "IMG 5036",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_5038.jpg",
+        "caption": "IMG 5038",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_5040.jpg",
+        "caption": "IMG 5040",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_5042.jpg",
+        "caption": "IMG 5042",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_5043.jpg",
+        "caption": "IMG 5043",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_5045.jpg",
+        "caption": "IMG 5045",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_5046.jpg",
+        "caption": "IMG 5046",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_5047.jpg",
+        "caption": "IMG 5047",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_5048.jpg",
+        "caption": "IMG 5048",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_5049.jpg",
+        "caption": "IMG 5049",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_5050.jpg",
+        "caption": "IMG 5050",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_5051.jpg",
+        "caption": "IMG 5051",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_5052.jpg",
+        "caption": "IMG 5052",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_5077.jpg",
+        "caption": "IMG 5077",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_5078.jpg",
+        "caption": "IMG 5078",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_5079.jpg",
+        "caption": "IMG 5079",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_5080.jpg",
+        "caption": "IMG 5080",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_5081.jpg",
+        "caption": "IMG 5081",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_5082.jpg",
+        "caption": "IMG 5082",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6105.JPG",
+        "caption": "IMG 6105",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6106.JPG",
+        "caption": "IMG 6106",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6108.JPG",
+        "caption": "IMG 6108",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6109.JPG",
+        "caption": "IMG 6109",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6110.JPG",
+        "caption": "IMG 6110",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6111.JPG",
+        "caption": "IMG 6111",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6112.JPG",
+        "caption": "IMG 6112",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6113.JPG",
+        "caption": "IMG 6113",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6115.JPG",
+        "caption": "IMG 6115",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6116.JPG",
+        "caption": "IMG 6116",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6117.JPG",
+        "caption": "IMG 6117",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6118.JPG",
+        "caption": "IMG 6118",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6119.JPG",
+        "caption": "IMG 6119",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6120.JPG",
+        "caption": "IMG 6120",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6121.JPG",
+        "caption": "IMG 6121",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6122.JPG",
+        "caption": "IMG 6122",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6123.JPG",
+        "caption": "IMG 6123",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6126.JPG",
+        "caption": "IMG 6126",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6127.JPG",
+        "caption": "IMG 6127",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6128.JPG",
+        "caption": "IMG 6128",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6130.JPG",
+        "caption": "IMG 6130",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6131.JPG",
+        "caption": "IMG 6131",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6132.JPG",
+        "caption": "IMG 6132",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6133.JPG",
+        "caption": "IMG 6133",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6134.JPG",
+        "caption": "IMG 6134",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6136.JPG",
+        "caption": "IMG 6136",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6137.JPG",
+        "caption": "IMG 6137",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6138.JPG",
+        "caption": "IMG 6138",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6139.JPG",
+        "caption": "IMG 6139",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6140.JPG",
+        "caption": "IMG 6140",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6141.JPG",
+        "caption": "IMG 6141",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6142.JPG",
+        "caption": "IMG 6142",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6143.JPG",
+        "caption": "IMG 6143",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6144.JPG",
+        "caption": "IMG 6144",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6146.JPG",
+        "caption": "IMG 6146",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6147.JPG",
+        "caption": "IMG 6147",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6148.JPG",
+        "caption": "IMG 6148",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6149.JPG",
+        "caption": "IMG 6149",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6151.JPG",
+        "caption": "IMG 6151",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6152.JPG",
+        "caption": "IMG 6152",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6154.JPG",
+        "caption": "IMG 6154",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6155.JPG",
+        "caption": "IMG 6155",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6156.JPG",
+        "caption": "IMG 6156",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6157.JPG",
+        "caption": "IMG 6157",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6158.JPG",
+        "caption": "IMG 6158",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6160.JPG",
+        "caption": "IMG 6160",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6162.JPG",
+        "caption": "IMG 6162",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6165.JPG",
+        "caption": "IMG 6165",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6166.JPG",
+        "caption": "IMG 6166",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6167.jpeg",
+        "caption": "IMG 6167",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6185.JPG",
+        "caption": "IMG 6185",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6205.jpeg",
+        "caption": "IMG 6205",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6216.MOV",
+        "caption": "IMG 6216",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6221.JPG",
+        "caption": "IMG 6221",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6222.MOV",
+        "caption": "IMG 6222",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6223.JPG",
+        "caption": "IMG 6223",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6224.JPG",
+        "caption": "IMG 6224",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6225.JPG",
+        "caption": "IMG 6225",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6227.JPG",
+        "caption": "IMG 6227",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6230.JPG",
+        "caption": "IMG 6230",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6231.JPG",
+        "caption": "IMG 6231",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6232.JPG",
+        "caption": "IMG 6232",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6233.JPG",
+        "caption": "IMG 6233",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6233.MOV",
+        "caption": "IMG 6233",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6234.JPG",
+        "caption": "IMG 6234",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6235.JPG",
+        "caption": "IMG 6235",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6235.MOV",
+        "caption": "IMG 6235",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6236.JPG",
+        "caption": "IMG 6236",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6237.JPG",
+        "caption": "IMG 6237",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6238.JPG",
+        "caption": "IMG 6238",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6239.JPG",
+        "caption": "IMG 6239",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6243.JPG",
+        "caption": "IMG 6243",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6244.JPG",
+        "caption": "IMG 6244",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6245.JPG",
+        "caption": "IMG 6245",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6247.JPG",
+        "caption": "IMG 6247",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6248.JPG",
+        "caption": "IMG 6248",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6249.JPG",
+        "caption": "IMG 6249",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6250.JPG",
+        "caption": "IMG 6250",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6252.JPG",
+        "caption": "IMG 6252",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6253.JPG",
+        "caption": "IMG 6253",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6254.JPG",
+        "caption": "IMG 6254",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6256.JPG",
+        "caption": "IMG 6256",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6258.JPG",
+        "caption": "IMG 6258",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6264.JPG",
+        "caption": "IMG 6264",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6265.JPG",
+        "caption": "IMG 6265",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6266.JPG",
+        "caption": "IMG 6266",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6267.JPG",
+        "caption": "IMG 6267",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6270.JPG",
+        "caption": "IMG 6270",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6271.JPG",
+        "caption": "IMG 6271",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6272.JPG",
+        "caption": "IMG 6272",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6273.JPG",
+        "caption": "IMG 6273",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6274.JPG",
+        "caption": "IMG 6274",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6277.JPG",
+        "caption": "IMG 6277",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6278.JPG",
+        "caption": "IMG 6278",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6279.JPG",
+        "caption": "IMG 6279",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6280.JPG",
+        "caption": "IMG 6280",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6281.JPG",
+        "caption": "IMG 6281",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_6299.JPG",
+        "caption": "IMG 6299",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_6327.jpg",
+        "caption": "IMG 6327",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_6328.jpg",
+        "caption": "IMG 6328",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_6335.jpg",
+        "caption": "IMG 6335",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_6336.jpg",
+        "caption": "IMG 6336",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_6337.jpg",
+        "caption": "IMG 6337",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_6353.jpg",
+        "caption": "IMG 6353",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_6354.jpg",
+        "caption": "IMG 6354",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_6357.jpg",
+        "caption": "IMG 6357",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_6358.jpg",
+        "caption": "IMG 6358",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_6359.jpg",
+        "caption": "IMG 6359",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_6364.jpg",
+        "caption": "IMG 6364",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_6371.jpg",
+        "caption": "IMG 6371",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_6372.jpg",
+        "caption": "IMG 6372",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_6373.jpg",
+        "caption": "IMG 6373",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_6866.jpg",
+        "caption": "IMG 6866",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_6867.jpg",
+        "caption": "IMG 6867",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_6882.jpg",
+        "caption": "IMG 6882",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_6889.jpg",
+        "caption": "IMG 6889",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_6894.jpg",
+        "caption": "IMG 6894",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_6902.jpg",
+        "caption": "IMG 6902",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_6903.jpg",
+        "caption": "IMG 6903",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_6904.jpg",
+        "caption": "IMG 6904",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_6905.jpg",
+        "caption": "IMG 6905",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_6920.jpg",
+        "caption": "IMG 6920",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_6925.jpg",
+        "caption": "IMG 6925",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_6928.jpg",
+        "caption": "IMG 6928",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_8259.jpg",
+        "caption": "IMG 8259",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_8262.jpg",
+        "caption": "IMG 8262",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_8263.jpg",
+        "caption": "IMG 8263",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_8268.jpg",
+        "caption": "IMG 8268",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_8269.jpg",
+        "caption": "IMG 8269",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_8278.MOV",
+        "caption": "IMG 8278",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_8279.MOV",
+        "caption": "IMG 8279",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_8284.jpg",
+        "caption": "IMG 8284",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_8286.jpg",
+        "caption": "IMG 8286",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_8290.jpg",
+        "caption": "IMG 8290",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_8294.jpg",
+        "caption": "IMG 8294",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_8305.jpg",
+        "caption": "IMG 8305",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_8310.jpg",
+        "caption": "IMG 8310",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_8315.jpg",
+        "caption": "IMG 8315",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_8321.jpg",
+        "caption": "IMG 8321",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_8325.jpg",
+        "caption": "IMG 8325",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_8326.jpg",
+        "caption": "IMG 8326",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_8332.jpg",
+        "caption": "IMG 8332",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_8348.jpg",
+        "caption": "IMG 8348",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_8349.jpg",
+        "caption": "IMG 8349",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_8359.jpg",
+        "caption": "IMG 8359",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_8361.jpg",
+        "caption": "IMG 8361",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_8363.jpg",
+        "caption": "IMG 8363",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_8364.MOV",
+        "caption": "IMG 8364",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_8366.jpg",
+        "caption": "IMG 8366",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_8369.MOV",
+        "caption": "IMG 8369",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_8373.jpg",
+        "caption": "IMG 8373",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_8388.jpg",
+        "caption": "IMG 8388",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_8935.MOV",
+        "caption": "IMG 8935",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_9478.jpg",
+        "caption": "IMG 9478",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_9501.jpg",
+        "caption": "IMG 9501",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/IMG_9502.JPG",
+        "caption": "IMG 9502",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_9511.jpg",
+        "caption": "IMG 9511",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_9513.jpg",
+        "caption": "IMG 9513",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/_converted/IMG_9517.jpg",
+        "caption": "IMG 9517",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/MVI_6114.AVI",
+        "caption": "MVI 6114",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/MVI_6153.AVI",
+        "caption": "MVI 6153",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/MVI_6279.AVI",
+        "caption": "MVI 6279",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/PXL_20260320_151930952.MP.jpg",
+        "caption": "PXL 20260320 151930952.MP",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/PXL_20260320_154014616.MP.jpg",
+        "caption": "PXL 20260320 154014616.MP",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/PXL_20260320_154019294.MP.jpg",
+        "caption": "PXL 20260320 154019294.MP",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/PXL_20260321_004926854.MP.jpg",
+        "caption": "PXL 20260321 004926854.MP",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/4-States/Untitled404_20260324220245.png",
+        "caption": "Untitled404 20260324220245",
+        "type": "image"
+      },
+      {
         "src": "/static/gallery/competitions/2025-26/4-States/_converted/cover.jpg.jpg",
         "caption": "cover.jpg",
         "type": "image"
