@@ -566,8 +566,658 @@
     "cover": "/static/gallery/competitions/2025-26/2-Regionals/_converted/cover.jpg.jpg",
     "photos": [
       {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/HOVERCRAFT.jpg",
+        "caption": "HOVERCRAFT",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1501.JPG",
+        "caption": "IMG 1501",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1502.JPG",
+        "caption": "IMG 1502",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1503.JPG",
+        "caption": "IMG 1503",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1520.JPG",
+        "caption": "IMG 1520",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1521.JPG",
+        "caption": "IMG 1521",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1522.JPG",
+        "caption": "IMG 1522",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1523.JPG",
+        "caption": "IMG 1523",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1524.JPG",
+        "caption": "IMG 1524",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1530.JPG",
+        "caption": "IMG 1530",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1531.JPG",
+        "caption": "IMG 1531",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1532.JPG",
+        "caption": "IMG 1532",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1536.JPG",
+        "caption": "IMG 1536",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1539.JPG",
+        "caption": "IMG 1539",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1545.JPG",
+        "caption": "IMG 1545",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1546.JPG",
+        "caption": "IMG 1546",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1547.JPG",
+        "caption": "IMG 1547",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1551.JPG",
+        "caption": "IMG 1551",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1552.JPG",
+        "caption": "IMG 1552",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1553.JPG",
+        "caption": "IMG 1553",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1554.JPG",
+        "caption": "IMG 1554",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1555.JPG",
+        "caption": "IMG 1555",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1556.JPG",
+        "caption": "IMG 1556",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1557.JPG",
+        "caption": "IMG 1557",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1558.JPG",
+        "caption": "IMG 1558",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1559.JPG",
+        "caption": "IMG 1559",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1560.JPG",
+        "caption": "IMG 1560",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1561.JPG",
+        "caption": "IMG 1561",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1566.JPG",
+        "caption": "IMG 1566",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1567.JPG",
+        "caption": "IMG 1567",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1568.JPG",
+        "caption": "IMG 1568",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1569.JPG",
+        "caption": "IMG 1569",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1570.JPG",
+        "caption": "IMG 1570",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1592.JPG",
+        "caption": "IMG 1592",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1593.JPG",
+        "caption": "IMG 1593",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1598.mov",
+        "caption": "IMG 1598",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1599.mov",
+        "caption": "IMG 1599",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1603.mov",
+        "caption": "IMG 1603",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1604.JPG",
+        "caption": "IMG 1604",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1608.mov",
+        "caption": "IMG 1608",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/IMG_1612.jpg",
+        "caption": "IMG 1612",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1612.JPG",
+        "caption": "IMG 1612",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1613.JPG",
+        "caption": "IMG 1613",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1614.JPG",
+        "caption": "IMG 1614",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1614.mov",
+        "caption": "IMG 1614",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1617.MOV",
+        "caption": "IMG 1617",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1618.MOV",
+        "caption": "IMG 1618",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1619.MOV",
+        "caption": "IMG 1619",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/IMG_1622.jpg",
+        "caption": "IMG 1622",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1628.mov",
+        "caption": "IMG 1628",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1632.MOV",
+        "caption": "IMG 1632",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1636.mov",
+        "caption": "IMG 1636",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/IMG_1642.jpg",
+        "caption": "IMG 1642",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1729.JPG",
+        "caption": "IMG 1729",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1730.JPG",
+        "caption": "IMG 1730",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1731.JPG",
+        "caption": "IMG 1731",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_1732.JPG",
+        "caption": "IMG 1732",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_2126.MOV",
+        "caption": "IMG 2126",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_2127.MOV",
+        "caption": "IMG 2127",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/IMG_2132.jpg",
+        "caption": "IMG 2132",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_2133.MOV",
+        "caption": "IMG 2133",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_2135.MOV",
+        "caption": "IMG 2135",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_2136.MOV",
+        "caption": "IMG 2136",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_2138.MOV",
+        "caption": "IMG 2138",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_2141.MOV",
+        "caption": "IMG 2141",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_2142.MOV",
+        "caption": "IMG 2142",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/IMG_2145.jpg",
+        "caption": "IMG 2145",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/IMG_2262.jpg",
+        "caption": "IMG 2262",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/IMG_2263.jpg",
+        "caption": "IMG 2263",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/IMG_2265.jpg",
+        "caption": "IMG 2265",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/IMG_2266.jpg",
+        "caption": "IMG 2266",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/IMG_2267.jpg",
+        "caption": "IMG 2267",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/IMG_2268.jpg",
+        "caption": "IMG 2268",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/IMG_2269.jpg",
+        "caption": "IMG 2269",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/IMG_2271.jpg",
+        "caption": "IMG 2271",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/IMG_2274.jpg",
+        "caption": "IMG 2274",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/IMG_2276.jpg",
+        "caption": "IMG 2276",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_2553.mov",
+        "caption": "IMG 2553",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_3598.MOV",
+        "caption": "IMG 3598",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_3599.MOV",
+        "caption": "IMG 3599",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/IMG_3600.jpg",
+        "caption": "IMG 3600",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/IMG_3601.jpg",
+        "caption": "IMG 3601",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/IMG_3614.jpg",
+        "caption": "IMG 3614",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/IMG_3615.jpg",
+        "caption": "IMG 3615",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_3623.MOV",
+        "caption": "IMG 3623",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_3624.MOV",
+        "caption": "IMG 3624",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/IMG_3626.jpg",
+        "caption": "IMG 3626",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/IMG_3627.jpg",
+        "caption": "IMG 3627",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/IMG_3628.jpg",
+        "caption": "IMG 3628",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/IMG_3635.jpg",
+        "caption": "IMG 3635",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/IMG_3642.jpg",
+        "caption": "IMG 3642",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/IMG_3647.jpg",
+        "caption": "IMG 3647",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/IMG_3648.jpg",
+        "caption": "IMG 3648",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_3649.MOV",
+        "caption": "IMG 3649",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_3650.MOV",
+        "caption": "IMG 3650",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/IMG_3651.jpg",
+        "caption": "IMG 3651",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/IMG_3655.jpg",
+        "caption": "IMG 3655",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/IMG_3657.jpg",
+        "caption": "IMG 3657",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_3658.MOV",
+        "caption": "IMG 3658",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/IMG_3682.jpg",
+        "caption": "IMG 3682",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/IMG_3683.jpg",
+        "caption": "IMG 3683",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/IMG_3688.jpg",
+        "caption": "IMG 3688",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_3695.MOV",
+        "caption": "IMG 3695",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_3696.MOV",
+        "caption": "IMG 3696",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/IMG_3713.jpg",
+        "caption": "IMG 3713",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/IMG_3714.jpg",
+        "caption": "IMG 3714",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/IMG_3715.jpg",
+        "caption": "IMG 3715",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/IMG_3716.jpg",
+        "caption": "IMG 3716",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_4380.JPG",
+        "caption": "IMG 4380",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_4381.JPG",
+        "caption": "IMG 4381",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_4382.JPG",
+        "caption": "IMG 4382",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_4384.MOV",
+        "caption": "IMG 4384",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/IMG_6524.jpg",
+        "caption": "IMG 6524",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/IMG_6525.jpg",
+        "caption": "IMG 6525",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/IMG_6526.jpg",
+        "caption": "IMG 6526",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_8212.MOV",
+        "caption": "IMG 8212",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_8213.MOV",
+        "caption": "IMG 8213",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_8214.MOV",
+        "caption": "IMG 8214",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_8215.MOV",
+        "caption": "IMG 8215",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_8216.mov",
+        "caption": "IMG 8216",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/IMG_8217.jpg",
+        "caption": "IMG 8217",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/IMG_8218.jpg",
+        "caption": "IMG 8218",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_8220.MOV",
+        "caption": "IMG 8220",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_8221.MOV",
+        "caption": "IMG 8221",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_8224.MOV",
+        "caption": "IMG 8224",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/IMG_8302.jpg",
+        "caption": "IMG 8302",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_9233.MOV",
+        "caption": "IMG 9233",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/IMG_9234.MOV",
+        "caption": "IMG 9234",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/VID_20260211_191449.mp4",
+        "caption": "VID 20260211 191449",
+        "type": "video"
+      },
+      {
         "src": "/static/gallery/competitions/2025-26/2-Regionals/_converted/cover.jpg.jpg",
         "caption": "cover.jpg",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2025-26/2-Regionals/group photo.jpg",
+        "caption": "group photo",
         "type": "image"
       }
     ]
