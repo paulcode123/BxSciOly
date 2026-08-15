@@ -61,6 +61,23 @@
             opacity: 0.9;
             transform: scale(1.02);
         }
+
+        .logo h2 {
+            font-family: 'Anton', sans-serif;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 1.9rem;
+            margin: 0;
+        }
+
+        header {
+            background: #233256;
+        }
+
+        footer {
+            background: #233256;
+        }
         
         /* Dropdown styles */
         .dropdown {
@@ -276,17 +293,16 @@
             <a href="{{ url_for('home') }}" class="logo-link">
                 <div class="logo">
                     <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Bronx Science Logo">
-                    <h2>Bronx Science Olympiad</h2>
+                    <h2>Bronx Science</h2>
                 </div>
             </a>
             <nav>
                 <ul>
                     <li class="dropdown">
-                        <a href="#" {% if request.path.startswith('/about') or request.path == url_for('leadership') or request.path == url_for('our_team') or request.path == url_for('calendar') %}class="active"{% endif %}><i class="fas fa-info-circle"></i> About Us</a>
+                        <a href="#" {% if request.path.startswith('/about') or request.path == url_for('leadership') or request.path == url_for('our_team') %}class="active"{% endif %}><i class="fas fa-info-circle"></i> About Us</a>
                         <div class="dropdown-content">
                             <a href="{{ url_for('leadership') }}" {% if request.path == url_for('leadership') %}class="active"{% endif %}><i class="fas fa-users"></i> Leadership</a>
                             <a href="{{ url_for('our_team') }}" {% if request.path == url_for('our_team') %}class="active"{% endif %}><i class="fas fa-trophy"></i> Our Team</a>
-                            <a href="{{ url_for('calendar') }}" {% if request.path == url_for('calendar') %}class="active"{% endif %}><i class="fas fa-calendar-alt"></i> Calendar</a>
                         </div>
                     </li>
                     <li class="dropdown">
