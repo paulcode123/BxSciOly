@@ -1,470 +1,228 @@
 {% extends "layout.html" %}
 
-{% block title %}Chemistry - Bronx Science Olympiad{% endblock %}
+{% block title %}Chemistry – BxSciOly{% endblock %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/subject_pages.css') }}">
+<style>
+    .gradient-text-light{background:linear-gradient(135deg,#5eead4 0%,#2dd4bf 40%,#0d9488 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+    /* z-index:0 (not just position:relative) is required here — it makes this
+       section its own stacking context, so the canvas/scrim/grid/fade layers
+       inside it (z-index 2-5) are contained and can never render on top of the
+       site header or its dropdown, no matter what z-index the header uses. */
+    .hero-section{position:relative;z-index:0;min-height:65vh;overflow:hidden;background:linear-gradient(160deg,#060a18 0%,#0f172a 50%,#0c1220 100%)}
+
+    #chem-canvas{position:absolute;top:0;left:0;width:100%;height:100%;display:block;z-index:2;opacity:0.85}
+
+    .hero-scrim{position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(to right,rgba(6,10,24,0.88) 0%,rgba(6,10,24,0.7) 18%,rgba(6,10,24,0.45) 34%,rgba(6,10,24,0.2) 48%,rgba(6,10,24,0.06) 60%,transparent 72%)}
+    .hero-grid-pattern{position:absolute;inset:0;z-index:4;pointer-events:none;background-image:linear-gradient(rgba(45,212,191,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(45,212,191,0.02) 1px,transparent 1px);background-size:48px 48px}
+    .emission-spectrum{position:absolute;inset:0;z-index:4;pointer-events:none;opacity:0.12;background:linear-gradient(90deg,transparent 15.2%,rgba(255,50,50,0.6) 15.25%,rgba(255,50,50,0.6) 15.35%,transparent 15.4%),linear-gradient(90deg,transparent 35.5%,rgba(255,220,50,0.5) 35.55%,rgba(255,220,50,0.5) 35.65%,transparent 35.7%),linear-gradient(90deg,transparent 50.8%,rgba(80,255,120,0.4) 50.85%,rgba(80,255,120,0.4) 50.95%,transparent 51%),linear-gradient(90deg,transparent 68.5%,rgba(0,220,255,0.4) 68.55%,rgba(0,220,255,0.4) 68.65%,transparent 68.7%),linear-gradient(90deg,transparent 84.5%,rgba(100,50,255,0.3) 84.55%,rgba(100,50,255,0.3) 84.65%,transparent 84.7%),transparent}
+    .hero-fade{position:absolute;bottom:0;left:0;right:0;height:200px;pointer-events:none;z-index:5;background:linear-gradient(to bottom,rgba(6,10,24,0) 0%,rgba(15,23,42,0.55) 18%,rgba(18,22,60,0.35) 38%,rgba(100,130,190,0.3) 55%,rgba(200,215,245,0.6) 75%,#f8f9ff 100%)}
+
+    @keyframes chevronBounce{0%,100%{transform:translateY(0);opacity:0.4}50%{transform:translateY(10px);opacity:0.9}}
+    .scroll-chevron{animation:chevronBounce 2s ease-in-out infinite;cursor:pointer;text-decoration:none}
+
+    .reveal{opacity:0;transform:translateY(28px);animation:revealUp 0.75s cubic-bezier(0.22,1,0.36,1) forwards}
+    .reveal-d1{animation-delay:0.12s}.reveal-d2{animation-delay:0.24s}
+    @keyframes revealUp{to{opacity:1;transform:translateY(0)}}
+
+    .btn-hero{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.85);transition:all 0.3s cubic-bezier(0.22,1,0.36,1);font-weight:600}
+    .btn-hero:hover{background:rgba(255,255,255,0.1);transform:translateY(-2px);box-shadow:0 8px 24px rgba(45,212,191,0.2);border-color:rgba(255,255,255,1)}
+
+    .event-card{background:#ffffff;border:1px solid #e2e8f0;border-radius:14px;transition:all 0.35s cubic-bezier(0.22,1,0.36,1);opacity:0;transform:translateY(24px);border-left:3px solid var(--card-accent)}
+    .event-card.visible{opacity:1;transform:translateY(0)}
+    .event-card:hover{box-shadow:0 10px 36px rgba(13,148,136,0.08);border-color:rgba(13,148,136,0.15);border-left-color:var(--card-accent)}
+
+    .section-label{font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#64748b;margin-bottom:10px}
+    .learn-item{display:flex;align-items:flex-start;gap:10px;padding:5px 0}
+    .learn-dot{width:5px;height:5px;border-radius:50%;margin-top:8px;flex-shrink:0}
+    .learn-text{font-size:14px;color:#475569;line-height:1.5}
+    .team-badge{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:100px;font-size:10px;font-weight:700;font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;border:1.5px solid rgba(13,148,136,0.2);color:#64748b;background:transparent}
+
+    .hero-heading{text-shadow:0 2px 16px rgba(0,0,0,0.55)}
+
+    @media(prefers-reduced-motion:reduce){
+        .reveal{animation:none;opacity:1;transform:none}
+        .event-card{opacity:1;transform:none}
+        .scroll-chevron{animation:none}
+    }
+</style>
 {% endblock %}
 
 {% block content %}
-<div class="subject-page subject-chemistry">
-  <p class="tentative-note">
-    <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
-    <span><strong>Note:</strong> Team roles and the number of subject directors are <strong>tentative</strong> and may change as the season is finalized.</span>
-  </p>
 
-  <header class="subject-hero">
-    <div class="subject-hero-inner">
-      <p class="subject-kicker">Subject Area Hub</p>
-      <h1>Chemistry &amp; Analytical Lab</h1>
-      <p class="subject-tagline">Where molecular theory meets hands-on lab discipline. Master qualitative analysis, chemical thermodynamics, kinetics, and structural biochemistry while refining precision measurement and safety habits.</p>
-      <span class="director-meta"><i class="fas fa-users" aria-hidden="true"></i> Tentative Leadership: 1 Subject Director</span>
-    </div>
-  </header>
-
-  <section class="subject-intro-card" aria-labelledby="chem-intro-heading">
-    <h2 id="chem-intro-heading"><i class="fas fa-flask" aria-hidden="true"></i> Welcome to Bronx Science Chemistry</h2>
-    <div class="subject-intro-grid">
-      <div class="subject-intro-text">
-        <p>Chemistry in Science Olympiad is highly practical and quantitative. Here, you'll go far beyond simple stoichiometry; you'll balance complex redox systems, derive chemical rate laws from raw kinetic datasets, build qualitative decision trees to identify unknown powders in minutes, and analyze the 3D structures of proteins on a molecular scale.</p>
-        <p>This division emphasizes rigorous laboratory technique, error propagation analysis, and collaborative coordination. Under strict time pressure, partners must divide labor—one running wet chemistry titrations while the other drafts the calculation sheets. Our curriculum aligns perfectly with AP Chemistry and introductory college courses, equipping you with unparalleled lab confidence.</p>
-      </div>
-      <div class="expectations-box">
-        <h3><i class="fas fa-clipboard-check" aria-hidden="true"></i> Subject Lead Expectations</h3>
-        <ul>
-          <li>Be comfortable coordinating with teachers and lab techs to safely manage reagents.</li>
-          <li>Bring strong organizational skills to set up mock qualitative lab stations.</li>
-          <li>Maintain and organize the equipment boxes (goggles, lab aprons, beakers, pipettes).</li>
-          <li>Train members in advanced calculation speed and volumetric precision techniques.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <div class="events-section-header">
-    <h2 class="events-section-title">Events &amp; Study Focus</h2>
-    <p class="events-section-subtitle">Select tabs within each event card to explore descriptions, topic lists, textbook pathways, and practice links.</p>
-  </div>
-
-  <div class="events-grid">
-
-    <!-- Event 1: Chemistry Lab -->
-    <article class="event-card" id="event-chemlab">
-      <div class="event-card-header">
-        <div class="event-title-area">
-          <i class="fas fa-vial" aria-hidden="true"></i>
-          <h3>Chemistry Lab</h3>
+    <!-- HERO -->
+    <section class="hero-section" id="heroSection">
+        <canvas id="chem-canvas"></canvas>
+        <div class="hero-scrim"></div>
+        <div class="hero-grid-pattern"></div>
+        <div class="emission-spectrum"></div>
+        <div class="hero-fade"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-6 pt-28 pb-8 flex items-center" style="min-height:65vh">
+            <div class="max-w-[480px]">
+                <h1 class="font-display leading-[0.92] mb-5 hero-heading">
+                    <span class="gradient-text-light font-extrabold text-6xl sm:text-7xl lg:text-8xl reveal">Chemistry</span>
+                    <span class="text-white font-bold text-4xl sm:text-5xl lg:text-6xl block mt-1 reveal reveal-d1">Events</span>
+                </h1>
+                <p class="text-slate-300/90 text-base sm:text-lg leading-relaxed mb-8 max-w-md reveal reveal-d2">
+                    Explore the chemistry behind reactions, crime scenes, and the proteins that make life possible.
+                </p>
+                <a href="#events" class="btn-hero inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm reveal reveal-d2">
+                    View All Events <i class="fa-solid fa-arrow-down text-xs"></i>
+                </a>
+            </div>
         </div>
-        <span class="event-meta-badge"><i class="fas fa-user-friends"></i> Team of 2</span>
-      </div>
-      <p class="event-tagline-lead">Become a master of quantitative chemistry, combining theoretical stoichiometry and advanced thermodynamics or kinetics with high-precision laboratory procedures.</p>
+        <a href="#events" class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 scroll-chevron" aria-label="Scroll to events">
+            <i class="fa-solid fa-chevron-down text-white/50 text-lg"></i>
+        </a>
+    </section>
 
-      <div class="event-tabs">
-        <div class="tab-header">
-          <button class="tab-btn active" data-tab="overview"><i class="fas fa-info-circle"></i> Overview</button>
-          <button class="tab-btn" data-tab="topics"><i class="fas fa-list"></i> Topics</button>
-          <button class="tab-btn" data-tab="pathway"><i class="fas fa-graduation-cap"></i> Pathway</button>
-          <button class="tab-btn" data-tab="resources"><i class="fas fa-laptop-code"></i> Resources</button>
+    <!-- EVENTS SECTION -->
+    <section id="events" class="pt-12 pb-24" style="background:radial-gradient(ellipse at 30% 0%,rgba(13,148,136,0.05) 0%,transparent 50%),#f8f9ff">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-slate-800 mb-2">3 Competitive Events</h2>
+                <p class="text-slate-500 text-base max-w-md mx-auto">The Chemistry subject area covers laboratory technique, forensic analysis, and protein structure.</p>
+            </div>
+            <div class="grid grid-cols-1 gap-6 items-start max-w-3xl mx-auto" id="cardsGrid"></div>
         </div>
+    </section>
 
-        <div class="tab-content">
-          <div class="tab-pane active" data-pane="overview">
-            <div class="overview-grid">
-              <div>
-                <h4 class="overview-list-title"><i class="fas fa-star"></i> What You'll Learn</h4>
-                <ul class="overview-ul">
-                  <li>To perform safe, volumetric-perfect acid-base and redox titrations.</li>
-                  <li>How to derive mathematical rate laws and reaction orders from experimental data.</li>
-                  <li>The thermodynamic boundaries of ideal and non-ideal gases.</li>
-                  <li>To perform rigorous propagation of error calculations on lab results.</li>
-                </ul>
-              </div>
-              <div class="big-questions-box">
-                <h4 class="overview-list-title"><i class="fas fa-question-circle"></i> Big Questions</h4>
-                <div class="question-prompt">
-                  <i class="fas fa-quote-left"></i>
-                  <span>How do intermolecular forces drive the deviation of real gases from ideal behavior at high pressures and low temperatures?</span>
-                </div>
-                <div class="question-prompt">
-                  <i class="fas fa-quote-left"></i>
-                  <span>How can you linearize kinetic data to mathematically extract the activation energy ($E_a$) of a reaction using the Arrhenius equation?</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-pane" data-pane="topics">
-            <div class="season-split">
-              <div class="season-column">
-                <span class="season-header-badge past"><i class="fas fa-history"></i> 2025-2026 Focus</span>
-                <h4 class="season-topics-title">Gases &amp; Kinetics</h4>
-                <ul class="topic-list-ul">
-                  <li><strong>Ideal &amp; Real Gases:</strong> Ideal gas law calculations, gas stoichiometry, partial pressures (Dalton's Law), effusion (Graham's Law), Van der Waals equations for real gas deviations.</li>
-                  <li><strong>Kinetics Basics:</strong> Rates of reactions, differential and integrated rate laws for zero, first, and second-order systems.</li>
-                  <li><strong>Mechanism Models:</strong> Collision theory, reaction profiles (reactants, transition state, products), role of homogeneous and heterogeneous catalysts.</li>
-                </ul>
-              </div>
-              <div class="season-column active-season">
-                <span class="season-header-badge future"><i class="fas fa-arrow-circle-right"></i> 2026-2027 Focus</span>
-                <h4 class="season-topics-title">Reactions, Stoichiometry &amp; Kinetics</h4>
-                <ul class="topic-list-ul">
-                  <li><strong>Chemical Reactions:</strong> Classification of reactions, solubility guidelines, predicting products of metathesis (double-replacement) and redox reactions.</li>
-                  <li><strong>Advanced Stoichiometry:</strong> Limiting reactant math, percent yield, hydration stoichiometry, and analytical solution concentrations (molarity, molality).</li>
-                  <li><strong>Quantitative Kinetics:</strong> Deriving rate laws from initial rate tables, half-life relationships, temperature dependence, and the Arrhenius equation.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-pane" data-pane="pathway">
-            <div class="pathway-grid">
-              <div>
-                <h4 class="overview-list-title"><i class="fas fa-book"></i> Standard Textbooks</h4>
-                <div class="textbook-card">
-                  <div class="textbook-icon"><i class="fas fa-book-open"></i></div>
-                  <div class="textbook-info">
-                    <h5>Chemistry</h5>
-                    <p class="author">Zumdahl &amp; Zumdahl</p>
-                    <span class="scope-tag">Standard General Chemistry</span>
-                  </div>
-                </div>
-                <div class="textbook-card">
-                  <div class="textbook-icon"><i class="fas fa-book-open"></i></div>
-                  <div class="textbook-info">
-                    <h5>Chemistry: The Central Science</h5>
-                    <p class="author">Brown, LeMay, Bursten</p>
-                    <span class="scope-tag">Excellent Equilibrium &amp; Kinetics Depth</span>
-                  </div>
-                </div>
-              </div>
-              <div class="courses-box">
-                <h4 class="overview-list-title"><i class="fas fa-university"></i> Related College Courses</h4>
-                <div class="course-tag-container">
-                  <span class="course-tag"><i class="fas fa-check"></i> General Chemistry I/II</span>
-                  <span class="course-tag"><i class="fas fa-check"></i> Analytical Chemistry</span>
-                  <span class="course-tag"><i class="fas fa-check"></i> Physical Chemistry (Kinetics)</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-pane" data-pane="resources">
-            <div class="resources-grid">
-              <a href="https://www.youtube.com/c/TheOrganicChemistryTutor" target="_blank" class="resource-item">
-                <div class="resource-item-left">
-                  <div class="resource-type-icon"><i class="fab fa-youtube"></i></div>
-                  <div class="resource-item-info">
-                    <h5>The Organic Chemistry Tutor</h5>
-                    <p>Incredible quantitative step-by-step kinetics tutorials</p>
-                  </div>
-                </div>
-                <i class="fas fa-chevron-right resource-arrow"></i>
-              </a>
-              <a href="http://chemcollective.org/vlabs" target="_blank" class="resource-item">
-                <div class="resource-item-left">
-                  <div class="resource-type-icon"><i class="fas fa-flask"></i></div>
-                  <div class="resource-item-info">
-                    <h5>ChemCollective Virtual Labs</h5>
-                    <p>Practice volumetric titrations &amp; dilutions online</p>
-                  </div>
-                </div>
-                <i class="fas fa-chevron-right resource-arrow"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </article>
-
-    <!-- Event 2: Forensics -->
-    <article class="event-card" id="event-forensics">
-      <div class="event-card-header">
-        <div class="event-title-area">
-          <i class="fas fa-search" aria-hidden="true"></i>
-          <h3>Forensics</h3>
-        </div>
-        <span class="event-meta-badge"><i class="fas fa-user-friends"></i> Team of 2</span>
-      </div>
-      <p class="event-tagline-lead">Put your analytical detective skills to the test, identifying unknown chemical powders, analyzing fibers and polymers, and evaluating crime scenes using physical evidence.</p>
-
-      <div class="event-tabs">
-        <div class="tab-header">
-          <button class="tab-btn active" data-tab="overview"><i class="fas fa-info-circle"></i> Overview</button>
-          <button class="tab-btn" data-tab="topics"><i class="fas fa-list"></i> Topics</button>
-          <button class="tab-btn" data-tab="pathway"><i class="fas fa-graduation-cap"></i> Pathway</button>
-          <button class="tab-btn" data-tab="resources"><i class="fas fa-laptop-code"></i> Resources</button>
-        </div>
-
-        <div class="tab-content">
-          <div class="tab-pane active" data-pane="overview">
-            <div class="overview-grid">
-              <div>
-                <h4 class="overview-list-title"><i class="fas fa-star"></i> What You'll Learn</h4>
-                <ul class="overview-ul">
-                  <li>To run systematic qualitative chemistry tests to identify unknown white powders.</li>
-                  <li>How to distinguish plastics and fibers using burn, solubility, and density tests.</li>
-                  <li>Chromatography analysis, including calculating $R_f$ values.</li>
-                  <li>To interpret blood splatter, fingerprint patterns, and glass fractures.</li>
-                </ul>
-              </div>
-              <div class="big-questions-box">
-                <h4 class="overview-list-title"><i class="fas fa-question-circle"></i> Big Questions</h4>
-                <div class="question-prompt">
-                  <i class="fas fa-quote-left"></i>
-                  <span>How can you differentiate Sodium Hydrogen Carbonate ($NaHCO_3$) from Sodium Carbonate ($Na_2CO_3$) using simple qualitative lab reagents?</span>
-                </div>
-                <div class="question-prompt">
-                  <i class="fas fa-quote-left"></i>
-                  <span>What polymer structural differences allow us to easily separate High-Density Polyethylene (HDPE) from Polyethylene Terephthalate (PET) in a density column?</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-pane" data-pane="topics">
-            <div class="season-split">
-              <div class="season-column">
-                <span class="season-header-badge past"><i class="fas fa-vials"></i> Qualitative &amp; Chemical ID</span>
-                <h4 class="season-topics-title">Lab Science Topics</h4>
-                <ul class="topic-list-ul">
-                  <li><strong>Powder Identification:</strong> Qualitative schemes for common compounds (salt, sugar, cornstarch, sodium bicarbonate, calcium carbonate) using flame tests, pH indicators, iodine, and HCl reactions.</li>
-                  <li><strong>Polymers &amp; Plastics:</strong> Distinguishing recycling codes 1-6 (PET, HDPE, PVC, LDPE, PP, PS) using water, alcohol, and oil density solutions.</li>
-                  <li><strong>Chromatography:</strong> Thin-layer chromatography (TLC) mechanics, mobile vs. stationary phases, and calculating $R_f$ values.</li>
-                </ul>
-              </div>
-              <div class="season-column active-season">
-                <span class="season-header-badge future"><i class="fas fa-arrow-circle-right"></i> Physical &amp; Biological Evidence</span>
-                <h4 class="season-topics-title">Criminalistics Topics</h4>
-                <ul class="topic-list-ul">
-                  <li><strong>Microscopic Analysis:</strong> Differentiating human vs. animal hair (medulla index) and synthetic vs. natural fibers (cotton, wool, nylon, polyester).</li>
-                  <li><strong>Crime Scene Analysis:</strong> Evaluating fingerprint minutiae (loops, whorls, arches), blood spatter impact angles, and glass fracture directions (radial vs. concentric).</li>
-                  <li><strong>Soil &amp; Glass:</strong> Utilizing density columns and refractometry to analyze soil and glass fragments.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-pane" data-pane="pathway">
-            <div class="pathway-grid">
-              <div>
-                <h4 class="overview-list-title"><i class="fas fa-book"></i> Standard Textbooks</h4>
-                <div class="textbook-card">
-                  <div class="textbook-icon"><i class="fas fa-book-open"></i></div>
-                  <div class="textbook-info">
-                    <h5>Criminalistics: An Introduction to Forensic Science</h5>
-                    <p class="author">Richard Saferstein</p>
-                    <span class="scope-tag">The Crime-Lab Standard</span>
-                  </div>
-                </div>
-                <div class="textbook-card">
-                  <div class="textbook-icon"><i class="fas fa-book-open"></i></div>
-                  <div class="textbook-info">
-                    <h5>Forensic Science</h5>
-                    <p class="author">James, Nordby, Bell</p>
-                    <span class="scope-tag">In-Depth Analytical Evidence</span>
-                  </div>
-                </div>
-              </div>
-              <div class="courses-box">
-                <h4 class="overview-list-title"><i class="fas fa-university"></i> Related College Courses</h4>
-                <div class="course-tag-container">
-                  <span class="course-tag"><i class="fas fa-check"></i> Introduction to Forensics</span>
-                  <span class="course-tag"><i class="fas fa-check"></i> Analytical Chemistry</span>
-                  <span class="course-tag"><i class="fas fa-check"></i> Polymer Chemistry</span>
-                  <span class="course-tag"><i class="fas fa-check"></i> Quantitative Analysis</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-pane" data-pane="resources">
-            <div class="resources-grid">
-              <a href="https://www.youtube.com/playlist?list=PL46EF391219CE6C55" target="_blank" class="resource-item">
-                <div class="resource-item-left">
-                  <div class="resource-type-icon"><i class="fab fa-youtube"></i></div>
-                  <div class="resource-item-info">
-                    <h5>Crash Course Forensics</h5>
-                    <p>Overview of physical and chemical evidence analysis</p>
-                  </div>
-                </div>
-                <i class="fas fa-chevron-right resource-arrow"></i>
-              </a>
-              <a href="https://www.forensicscolleges.com/blog/resources/forensic-science-resources" target="_blank" class="resource-item">
-                <div class="resource-item-left">
-                  <div class="resource-type-icon"><i class="fas fa-globe"></i></div>
-                  <div class="resource-item-info">
-                    <h5>Forensics Colleges Hub</h5>
-                    <p>Comprehensive articles and trace evidence tutorials</p>
-                  </div>
-                </div>
-                <i class="fas fa-chevron-right resource-arrow"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </article>
-
-    <!-- Event 3: Protein Modeling -->
-    <article class="event-card full-width" id="event-protein">
-      <div class="event-card-header">
-        <div class="event-title-area">
-          <i class="fas fa-dna" aria-hidden="true"></i>
-          <h3>Protein Modeling</h3>
-        </div>
-        <span class="event-meta-badge"><i class="fas fa-user-friends"></i> Team of 2</span>
-      </div>
-      <p class="event-tagline-lead">Explore structural biology, folding proteins physically according to precise scaling rules and using professional computational visualization tools to investigate molecular mechanisms.</p>
-
-      <div class="event-tabs">
-        <div class="tab-header">
-          <button class="tab-btn active" data-tab="overview"><i class="fas fa-info-circle"></i> Overview</button>
-          <button class="tab-btn" data-tab="topics"><i class="fas fa-list"></i> Topics</button>
-          <button class="tab-btn" data-tab="pathway"><i class="fas fa-graduation-cap"></i> Pathway</button>
-          <button class="tab-btn" data-tab="resources"><i class="fas fa-laptop-code"></i> Resources</button>
-        </div>
-
-        <div class="tab-content">
-          <div class="tab-pane active" data-pane="overview">
-            <div class="overview-grid">
-              <div>
-                <h4 class="overview-list-title"><i class="fas fa-star"></i> What You'll Learn</h4>
-                <ul class="overview-ul">
-                  <li>The biochemical structures and folding properties of the 20 amino acids.</li>
-                  <li>How hydrogen bonds and hydrophobic collapse organize 3D protein shapes.</li>
-                  <li>To navigate the Protein Data Bank (PDB) to download structural coordinate files.</li>
-                  <li>To program custom 3D protein visualizations in PyMOL or Jmol.</li>
-                </ul>
-              </div>
-              <div class="big-questions-box">
-                <h4 class="overview-list-title"><i class="fas fa-question-circle"></i> Big Questions</h4>
-                <div class="question-prompt">
-                  <i class="fas fa-quote-left"></i>
-                  <span>How does a single point mutation replacing glutamic acid with valine in hemoglobin drive sickling at the molecular level?</span>
-                </div>
-                <div class="question-prompt">
-                  <i class="fas fa-quote-left"></i>
-                  <span>What non-covalent forces stabilize alpha-helices compared to beta-pleated sheets? Trace the backbone carbonyl and amide spacing.</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-pane" data-pane="topics">
-            <div class="season-split">
-              <div class="season-column">
-                <span class="season-header-badge past"><i class="fas fa-mortar-pestle"></i> Biochemistry Fundamentals</span>
-                <h4 class="season-topics-title">Amino Acids &amp; Folding</h4>
-                <ul class="topic-list-ul">
-                  <li><strong>Amino Acid Chemistry:</strong> Memorizing structures, charges, and classification of all 20 standard amino acid R-groups.</li>
-                  <li><strong>Levels of Structure:</strong> Primary sequences, secondary structures (H-bonds), tertiary folding (hydrophobic effect, salt bridges, disulfide bonds), and quaternary assemblies.</li>
-                  <li><strong>Enzyme Mechanics:</strong> Active sites, substrate lock-and-key vs. induced fit models, allosteric inhibitors, and enzyme-substrate kinetics.</li>
-                </ul>
-              </div>
-              <div class="season-column active-season">
-                <span class="season-header-badge future"><i class="fas fa-arrow-circle-right"></i> Molecular Modeling Workflow</span>
-                <h4 class="season-topics-title">Tools &amp; Practical Modeling</h4>
-                <ul class="topic-list-ul">
-                  <li><strong>Protein Data Bank (PDB):</strong> Reading PDB files, identifying specific atoms, chains, active ligand sites, and research-specific structures.</li>
-                  <li><strong>Physical Modeling:</strong> Scaling and folding precise physical protein models using Mini-Toobers, designating key residues, and adding accurate beta-sheet spacing.</li>
-                  <li><strong>Software Rendering:</strong> Executing commands in PyMOL or Jmol to display ribbon models, color-code residue types, and highlights.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-pane" data-pane="pathway">
-            <div class="pathway-grid">
-              <div>
-                <h4 class="overview-list-title"><i class="fas fa-book"></i> Standard Textbooks</h4>
-                <div class="textbook-card">
-                  <div class="textbook-icon"><i class="fas fa-book-open"></i></div>
-                  <div class="textbook-info">
-                    <h5>Lehninger Principles of Biochemistry</h5>
-                    <p class="author">Nelson &amp; Cox</p>
-                    <span class="scope-tag">Standard College Biochemistry</span>
-                  </div>
-                </div>
-              </div>
-              <div class="courses-box">
-                <h4 class="overview-list-title"><i class="fas fa-university"></i> Related College Courses</h4>
-                <div class="course-tag-container">
-                  <span class="course-tag"><i class="fas fa-check"></i> General Biochemistry</span>
-                  <span class="course-tag"><i class="fas fa-check"></i> Structural Biology</span>
-                  <span class="course-tag"><i class="fas fa-check"></i> Molecular Biophysics</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-pane" data-pane="resources">
-            <div class="resources-grid">
-              <a href="https://www.rcsb.org" target="_blank" class="resource-item">
-                <div class="resource-item-left">
-                  <div class="resource-type-icon"><i class="fas fa-database"></i></div>
-                  <div class="resource-item-info">
-                    <h5>RCSB Protein Data Bank</h5>
-                    <p>Official coordinate database of all solved macromolecular structures</p>
-                  </div>
-                </div>
-                <i class="fas fa-chevron-right resource-arrow"></i>
-              </a>
-              <a href="https://cbm.msoe.edu/scienceolympiad/" target="_blank" class="resource-item">
-                <div class="resource-item-left">
-                  <div class="resource-type-icon"><i class="fas fa-globe"></i></div>
-                  <div class="resource-item-info">
-                    <h5>MSOE Center for BioMolecular Modeling</h5>
-                    <p>Official Science Olympiad event rules, design guides, and tutorials</p>
-                  </div>
-                </div>
-                <i class="fas fa-chevron-right resource-arrow"></i>
-              </a>
-              <a href="https://pymolwiki.org" target="_blank" class="resource-item">
-                <div class="resource-item-left">
-                  <div class="resource-type-icon"><i class="fas fa-search"></i></div>
-                  <div class="resource-item-info">
-                    <h5>PyMOL Wiki</h5>
-                    <p>Comprehensive guide for molecular script commands and formatting</p>
-                  </div>
-                </div>
-                <i class="fas fa-chevron-right resource-arrow"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </article>
-
-  </div>
-</div>
 {% endblock %}
 
 {% block extra_js %}
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  // Scoped Tab Interaction Script
-  document.querySelectorAll('.event-card').forEach(card => {
-    const buttons = card.querySelectorAll('.tab-btn');
-    const panes = card.querySelectorAll('.tab-pane');
-    
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        // Deactivate all buttons and panes inside this card only
-        buttons.forEach(b => b.classList.remove('active'));
-        panes.forEach(p => p.classList.remove('active'));
-        
-        // Activate current button
-        btn.classList.add('active');
-        const targetTab = btn.getAttribute('data-tab');
-        
-        // Find and activate matching pane inside this card
-        const targetPane = card.querySelector(`.tab-pane[data-pane="${targetTab}"]`);
-        if (targetPane) {
-          targetPane.classList.add('active');
+
+    <script type="importmap">
+    {"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}
+    </script>
+    <script type="module">
+        import * as THREE from 'three';
+        import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+        import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+        import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+        import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+        import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
+        import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+
+        const heroSection=document.getElementById('heroSection'),canvas=document.getElementById('chem-canvas'),scene=new THREE.Scene();
+        scene.background=null;
+        const camera=new THREE.PerspectiveCamera(32,heroSection.offsetWidth/Math.max(1,heroSection.offsetHeight),0.1,100);
+        camera.position.set(1.8,0.3,9);
+        const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
+        renderer.setSize(heroSection.offsetWidth,heroSection.offsetHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+        renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.2;renderer.setClearColor(0x000000,0);
+        const pmremGenerator=new THREE.PMREMGenerator(renderer);
+        scene.environment=pmremGenerator.fromScene(new RoomEnvironment(),0.04).texture;pmremGenerator.dispose();
+
+        const keyLight=new THREE.DirectionalLight(0xfff5e6,2.0);keyLight.position.set(-5,5,5);scene.add(keyLight);
+        const fillLight=new THREE.DirectionalLight(0xe6f0ff,0.8);fillLight.position.set(5,-2,4);scene.add(fillLight);
+        const rimLight=new THREE.DirectionalLight(0x818cf8,1.2);rimLight.position.set(0,2,-6);scene.add(rimLight);
+        scene.add(new THREE.AmbientLight(0xffffff,0.25));
+
+        const moleculeGroup=new THREE.Group();
+        const atomMats={
+            C:new THREE.MeshPhysicalMaterial({color:0x0d9488,metalness:0.35,roughness:0.15,clearcoat:1,clearcoatRoughness:0.05,emissive:0x0d9488,emissiveIntensity:0.06,envMapIntensity:1}),
+            N:new THREE.MeshPhysicalMaterial({color:0x3b82f6,metalness:0.35,roughness:0.15,clearcoat:1,clearcoatRoughness:0.05,emissive:0x3b82f6,emissiveIntensity:0.06,envMapIntensity:1}),
+            O:new THREE.MeshPhysicalMaterial({color:0xef4444,metalness:0.35,roughness:0.15,clearcoat:1,clearcoatRoughness:0.05,emissive:0xef4444,emissiveIntensity:0.08,envMapIntensity:1}),
+            H:new THREE.MeshPhysicalMaterial({color:0xe2e8f0,metalness:0.1,roughness:0.3,clearcoat:0.5,clearcoatRoughness:0.2,envMapIntensity:0.8}),
+        };
+        const bondMat=new THREE.MeshPhysicalMaterial({color:0x94a3b8,metalness:0.2,roughness:0.3,clearcoat:0.5});
+        const doubleBondMat=new THREE.MeshPhysicalMaterial({color:0x64748b,metalness:0.25,roughness:0.25,clearcoat:0.5});
+
+        const atoms=[
+            {p:[0,0,0],t:'C'},{p:[1.15,0.35,0.2],t:'N'},{p:[1.15,1.55,-0.15],t:'C'},{p:[0,2.0,0.1],t:'N'},{p:[-1.15,1.55,-0.2],t:'C'},{p:[-1.15,0.35,0.15],t:'C'},
+            {p:[-1.85,2.6,0.5],t:'N'},{p:[-0.85,3.5,0.3],t:'C'},{p:[0.45,3.1,-0.2],t:'N'},
+            {p:[0,-1.15,-0.3],t:'O'},{p:[2.15,2.0,-0.4],t:'O'},{p:[-2.9,2.85,0.8],t:'C'},{p:[1.35,3.9,0.1],t:'C'},{p:[-2.1,-0.05,0.5],t:'C'},{p:[2.15,-0.2,-0.5],t:'C'},
+            {p:[0.15,-2.0,-0.55],t:'H'},{p:[-3.6,2.4,1.1],t:'H'},{p:[-2.8,3.7,1.2],t:'H'},{p:[-3.4,3.3,0.1],t:'H'},
+            {p:[2.1,4.7,0.3],t:'H'},{p:[1.4,4.1,-0.8],t:'H'},{p:[2.2,3.5,0.3],t:'H'},
+            {p:[-2.8,-0.5,0.9],t:'H'},{p:[-2.1,-0.8,-0.2],t:'H'},{p:[-2.3,0.8,1.0],t:'H'},
+            {p:[2.8,-0.6,-0.9],t:'H'},{p:[2.1,-0.9,0.4],t:'H'},{p:[2.7,0.5,-0.9],t:'H'},
+        ];
+        const bonds=[[0,1],[1,2],[2,3],[3,4],[4,5],[5,0],[4,6],[6,7],[7,8],[8,3],[0,9],[2,10],[6,11],[8,12],[5,13],[1,14],[9,15],[11,16],[11,17],[11,18],[12,19],[12,20],[12,21],[13,22],[13,23],[13,24],[14,25],[14,26],[14,27]];
+        const doubleBonds=[[0,1],[2,3],[4,5],[0,9],[2,10]];
+
+        const radii={C:0.28,N:0.25,O:0.24,H:0.14};
+        atoms.forEach(a=>{const r=radii[a.t],seg=a.t==='H'?16:32;const m=new THREE.Mesh(new THREE.SphereGeometry(r,seg,seg),atomMats[a.t]);m.position.set(a.p[0],a.p[1],a.p[2]);moleculeGroup.add(m)});
+
+        function mkBond(si,ei,mat,rad=0.06){const s=new THREE.Vector3(...atoms[si].p),e=new THREE.Vector3(...atoms[ei].p);const d=new THREE.Vector3().subVectors(e,s),l=d.length();if(l<0.001)return;const g=new THREE.CylinderGeometry(rad,rad,l,12);const m=new THREE.Mesh(g,mat);m.position.copy(s).add(e).multiplyScalar(0.5);m.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),d.normalize());moleculeGroup.add(m)}
+        bonds.forEach(([s,e])=>mkBond(s,e,bondMat,0.06));
+        doubleBonds.forEach(([si,ei])=>{const sv=new THREE.Vector3(...atoms[si].p),ev=new THREE.Vector3(...atoms[ei].p);const dir=new THREE.Vector3().subVectors(ev,sv).normalize();let perp=new THREE.Vector3().crossVectors(dir,new THREE.Vector3(0,0,1));if(perp.length()<0.001)perp.set(1,0,0);perp.normalize().multiplyScalar(0.09);[{s:sv.clone().add(perp),e:ev.clone().add(perp)},{s:sv.clone().sub(perp),e:ev.clone().sub(perp)}].forEach(({s,e})=>{const d=new THREE.Vector3().subVectors(e,s),l=d.length();if(l<0.001)return;const g=new THREE.CylinderGeometry(0.04,0.04,l,8);const m=new THREE.Mesh(g,doubleBondMat);m.position.copy(s).add(e).multiplyScalar(0.5);m.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),d.normalize());moleculeGroup.add(m)})});
+
+        const electrons=[];const eMat=new THREE.MeshPhysicalMaterial({color:0x2dd4bf,metalness:0.15,roughness:0.2,clearcoat:1,clearcoatRoughness:0.1,transparent:true,opacity:0.3,emissive:0x0d9488,emissiveIntensity:0.15,envMapIntensity:0.8});
+        for(let i=0;i<30;i++){const a=(i/30)*Math.PI*2,r=0.85+Math.random()*0.3,y=0.8+Math.random()*0.4;const m=new THREE.Mesh(new THREE.SphereGeometry(0.03+Math.random()*0.02,16,16),eMat.clone());m.material.opacity=0.2+Math.random()*0.2;m.position.set(r*Math.cos(a),y,r*Math.sin(a));m.userData={angle:a,radius:r,baseY:y,speed:0.3+Math.random()*0.4,yAmp:0.1+Math.random()*0.15};moleculeGroup.add(m);electrons.push(m)}
+
+        const orbitParticles=[];const pMat=new THREE.MeshPhysicalMaterial({color:0x0d9488,metalness:0.15,roughness:0.2,clearcoat:1,clearcoatRoughness:0.1,transparent:true,opacity:0.22+Math.random()*0.14,emissive:0x0d9488,emissiveIntensity:0.15,envMapIntensity:0.8});
+        for(let i=0;i<50;i++){const sz=0.012+Math.random()*0.04;const m=new THREE.Mesh(new THREE.SphereGeometry(sz,16,16),pMat.clone());m.material.opacity=0.22+Math.random()*0.14;m.userData={angle:Math.random()*Math.PI*2,radius:2.0+Math.random()*2.5,height:(Math.random()-0.5)*8,speed:0.001+Math.random()*0.004,fSpeed:0.0005+Math.random()*0.0015,fAmp:0.1+Math.random()*0.25};moleculeGroup.add(m);orbitParticles.push(m)}
+
+        // 50% smaller + positioned right to clear text column
+        moleculeGroup.position.set(2.8,-0.6,0);
+        moleculeGroup.rotation.x=0.15;moleculeGroup.rotation.z=-0.1;
+        scene.add(moleculeGroup);
+
+        const composer=new EffectComposer(renderer);composer.addPass(new RenderPass(scene,camera));
+        const bloomPass=new UnrealBloomPass(new THREE.Vector2(heroSection.offsetWidth,heroSection.offsetHeight),0.3,0.5,0.82);composer.addPass(bloomPass);
+        const customShader={uniforms:{tDiffuse:{value:null},uVignette:{value:0.4},uChromatic:{value:0.002},uTime:{value:0}},vertexShader:`varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}`,fragmentShader:`uniform sampler2D tDiffuse;uniform float uVignette;uniform float uChromatic;uniform float uTime;varying vec2 vUv;void main(){vec2 uv=vUv;vec2 c=uv-0.5;float dist=length(c);float r=texture2D(tDiffuse,uv+c*dist*uChromatic).r;float g=texture2D(tDiffuse,uv).g;float b=texture2D(tDiffuse,uv-c*dist*uChromatic).b;vec3 col=vec3(r,g,b);float lum=dot(col,vec3(0.299,0.587,0.114));col+=vec3(0.0,0.012,0.035)*(1.0-lum)*0.5;col+=vec3(0.02,0.01,0.0)*lum*0.3;col=(col-0.5)*1.06+0.5;float v=1.0-dist*uVignette;v=smoothstep(0.0,1.0,v);col*=v;gl_FragColor=vec4(col,1.0);}`};
+        composer.addPass(new ShaderPass(customShader));composer.addPass(new OutputPass());
+
+        let introProgress=0;const introStart=performance.now();
+        moleculeGroup.scale.set(0.005,0.005,0.005);
+
+        let mouseX=0,mouseY=0,smoothMX=0,smoothMY=0;
+        window.addEventListener('mousemove',e=>{mouseX=(e.clientX/window.innerWidth-0.5)*2;mouseY=(e.clientY/window.innerHeight-0.5)*2});
+
+        let baseRotY=0;
+        function animate(){
+            requestAnimationFrame(animate);
+            const now=performance.now(),elapsed=now*0.001;
+            if(introProgress<1){introProgress=Math.min(1,(now-introStart)/1600);const s=(1-Math.pow(1-introProgress,3))*0.5;moleculeGroup.scale.set(s,s,s)}
+            baseRotY+=0.004;
+            smoothMX+=(mouseX*0.18-smoothMX)*0.04;smoothMY+=(mouseY*0.1-smoothMY)*0.04;
+            moleculeGroup.rotation.y=baseRotY+smoothMX;moleculeGroup.rotation.x=0.15+smoothMY;
+            moleculeGroup.position.y=-0.6+Math.sin(now*0.0007)*0.1;
+            electrons.forEach(e=>{const ud=e.userData;ud.angle+=ud.speed*0.01;e.position.x=ud.radius*Math.cos(ud.angle);e.position.z=ud.radius*Math.sin(ud.angle);e.position.y=ud.baseY+Math.sin(elapsed*ud.speed*2+ud.angle)*ud.yAmp});
+            orbitParticles.forEach(p=>{const ud=p.userData;ud.angle+=ud.speed;p.position.x=ud.radius*Math.cos(ud.angle)+2.8;p.position.z=ud.radius*Math.sin(ud.angle);p.position.y=ud.height+Math.sin(now*ud.fSpeed)*ud.fAmp});
+            customShader.uniforms.uTime.value=now*0.001;
+            composer.render();
         }
-      });
-    });
-  });
-});
-</script>
+        animate();
+
+        window.addEventListener('resize',()=>{const w=heroSection.offsetWidth,h=Math.max(1,heroSection.offsetHeight);camera.aspect=w/h;camera.updateProjectionMatrix();renderer.setSize(w,h);composer.setSize(w,h);bloomPass.resolution.set(w,h)});
+    </script>
+
+    <!-- UI + EVENT DATA -->
+    <script>
+        const TEAL='#0d9488';
+        const events=[
+            {name:'Chemistry Lab',teamSize:2,desc:'Precision lab work and problem-solving focused on chemical reactions, stoichiometry, and kinetics.',learn:['Balancing equations and stoichiometric calculations','Reaction rates, rate laws, and kinetics concepts','Hands-on lab tasks: titrations, gas laws, calorimetry','Reading and interpreting lab data accurately under time pressure']},
+            {name:'Forensics',teamSize:2,desc:'Given a scenario and a list of suspects, teams run a series of chemical tests to help solve a simulated crime.',learn:['Identifying unknown powders and polymers','Paper chromatography to compare ink or dye samples','Qualitative tests: solubility, pH, and precipitation reactions','Piecing test results together into a case conclusion']},
+            {name:'Protein Modeling',teamSize:2,desc:'Explore protein structure using online visualization tools, then build a physical 3D model by hand.',learn:['Navigating protein structure databases like the PDB','Understanding primary, secondary, tertiary, and quaternary structure','Hands-on modeling with foam wire ("Toobers") to represent folding','This year\'s focus: engineered Cas9 variants used for gene base-editing']},
+        ];
+
+        const grid=document.getElementById('cardsGrid');
+        events.forEach((ev,i)=>{
+            const card=document.createElement('div');
+            card.className='event-card p-7 sm:p-8 pb-8';
+            card.style.setProperty('--card-accent',TEAL);
+            card.style.transitionDelay=`${i*50}ms`;
+            card.innerHTML=`
+                <div class="flex items-start justify-between gap-3 mb-3">
+                    <h3 class="font-display font-bold text-xl text-slate-800 leading-tight">${ev.name}</h3>
+                    <span class="team-badge"><i class="fa-solid fa-user-group text-[9px]"></i> TEAM OF ${ev.teamSize}</span>
+                </div>
+                <p class="text-sm text-slate-500 leading-relaxed mb-5">${ev.desc}</p>
+                <div><p class="section-label">What You'll Learn</p><div class="space-y-0.5">${ev.learn.map(l=>`<div class="learn-item"><span class="learn-dot" style="background:${TEAL}"></span><span class="learn-text">${l}</span></div>`).join('')}</div></div>`;
+            grid.appendChild(card);
+        });
+
+        const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}})},{threshold:0.06,rootMargin:'0px 0px -20px 0px'});
+        document.querySelectorAll('.event-card').forEach(c=>observer.observe(c));
+
+        const backToTop=document.getElementById('backToTop');
+        if (backToTop) {
+            window.addEventListener('scroll',()=>{backToTop.classList.toggle('show',window.scrollY>350)});
+            backToTop.addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'})});
+        }
+    </script>
+
 {% endblock %}

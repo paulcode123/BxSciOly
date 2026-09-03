@@ -1,0 +1,470 @@
+{% extends "layout.html" %}
+
+{% block title %}Chemistry - Bronx Science Olympiad{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/subject_pages.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="subject-page subject-chemistry">
+  <p class="tentative-note">
+    <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+    <span><strong>Note:</strong> Team roles and the number of subject directors are <strong>tentative</strong> and may change as the season is finalized.</span>
+  </p>
+
+  <header class="subject-hero">
+    <div class="subject-hero-inner">
+      <p class="subject-kicker">Subject Area Hub</p>
+      <h1>Chemistry &amp; Analytical Lab</h1>
+      <p class="subject-tagline">Where molecular theory meets hands-on lab discipline. Master qualitative analysis, chemical thermodynamics, kinetics, and structural biochemistry while refining precision measurement and safety habits.</p>
+      <span class="director-meta"><i class="fas fa-users" aria-hidden="true"></i> Tentative Leadership: 1 Subject Director</span>
+    </div>
+  </header>
+
+  <section class="subject-intro-card" aria-labelledby="chem-intro-heading">
+    <h2 id="chem-intro-heading"><i class="fas fa-flask" aria-hidden="true"></i> Welcome to Bronx Science Chemistry</h2>
+    <div class="subject-intro-grid">
+      <div class="subject-intro-text">
+        <p>Chemistry in Science Olympiad is highly practical and quantitative. Here, you'll go far beyond simple stoichiometry; you'll balance complex redox systems, derive chemical rate laws from raw kinetic datasets, build qualitative decision trees to identify unknown powders in minutes, and analyze the 3D structures of proteins on a molecular scale.</p>
+        <p>This division emphasizes rigorous laboratory technique, error propagation analysis, and collaborative coordination. Under strict time pressure, partners must divide labor—one running wet chemistry titrations while the other drafts the calculation sheets. Our curriculum aligns perfectly with AP Chemistry and introductory college courses, equipping you with unparalleled lab confidence.</p>
+      </div>
+      <div class="expectations-box">
+        <h3><i class="fas fa-clipboard-check" aria-hidden="true"></i> Subject Lead Expectations</h3>
+        <ul>
+          <li>Be comfortable coordinating with teachers and lab techs to safely manage reagents.</li>
+          <li>Bring strong organizational skills to set up mock qualitative lab stations.</li>
+          <li>Maintain and organize the equipment boxes (goggles, lab aprons, beakers, pipettes).</li>
+          <li>Train members in advanced calculation speed and volumetric precision techniques.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="events-section-header">
+    <h2 class="events-section-title">Events &amp; Study Focus</h2>
+    <p class="events-section-subtitle">Select tabs within each event card to explore descriptions, topic lists, textbook pathways, and practice links.</p>
+  </div>
+
+  <div class="events-grid">
+
+    <!-- Event 1: Chemistry Lab -->
+    <article class="event-card" id="event-chemlab">
+      <div class="event-card-header">
+        <div class="event-title-area">
+          <i class="fas fa-vial" aria-hidden="true"></i>
+          <h3>Chemistry Lab</h3>
+        </div>
+        <span class="event-meta-badge"><i class="fas fa-user-friends"></i> Team of 2</span>
+      </div>
+      <p class="event-tagline-lead">Become a master of quantitative chemistry, combining theoretical stoichiometry and advanced thermodynamics or kinetics with high-precision laboratory procedures.</p>
+
+      <div class="event-tabs">
+        <div class="tab-header">
+          <button class="tab-btn active" data-tab="overview"><i class="fas fa-info-circle"></i> Overview</button>
+          <button class="tab-btn" data-tab="topics"><i class="fas fa-list"></i> Topics</button>
+          <button class="tab-btn" data-tab="pathway"><i class="fas fa-graduation-cap"></i> Pathway</button>
+          <button class="tab-btn" data-tab="resources"><i class="fas fa-laptop-code"></i> Resources</button>
+        </div>
+
+        <div class="tab-content">
+          <div class="tab-pane active" data-pane="overview">
+            <div class="overview-grid">
+              <div>
+                <h4 class="overview-list-title"><i class="fas fa-star"></i> What You'll Learn</h4>
+                <ul class="overview-ul">
+                  <li>To perform safe, volumetric-perfect acid-base and redox titrations.</li>
+                  <li>How to derive mathematical rate laws and reaction orders from experimental data.</li>
+                  <li>The thermodynamic boundaries of ideal and non-ideal gases.</li>
+                  <li>To perform rigorous propagation of error calculations on lab results.</li>
+                </ul>
+              </div>
+              <div class="big-questions-box">
+                <h4 class="overview-list-title"><i class="fas fa-question-circle"></i> Big Questions</h4>
+                <div class="question-prompt">
+                  <i class="fas fa-quote-left"></i>
+                  <span>How do intermolecular forces drive the deviation of real gases from ideal behavior at high pressures and low temperatures?</span>
+                </div>
+                <div class="question-prompt">
+                  <i class="fas fa-quote-left"></i>
+                  <span>How can you linearize kinetic data to mathematically extract the activation energy ($E_a$) of a reaction using the Arrhenius equation?</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane" data-pane="topics">
+            <div class="season-split">
+              <div class="season-column">
+                <span class="season-header-badge past"><i class="fas fa-history"></i> 2025-2026 Focus</span>
+                <h4 class="season-topics-title">Gases &amp; Kinetics</h4>
+                <ul class="topic-list-ul">
+                  <li><strong>Ideal &amp; Real Gases:</strong> Ideal gas law calculations, gas stoichiometry, partial pressures (Dalton's Law), effusion (Graham's Law), Van der Waals equations for real gas deviations.</li>
+                  <li><strong>Kinetics Basics:</strong> Rates of reactions, differential and integrated rate laws for zero, first, and second-order systems.</li>
+                  <li><strong>Mechanism Models:</strong> Collision theory, reaction profiles (reactants, transition state, products), role of homogeneous and heterogeneous catalysts.</li>
+                </ul>
+              </div>
+              <div class="season-column active-season">
+                <span class="season-header-badge future"><i class="fas fa-arrow-circle-right"></i> 2026-2027 Focus</span>
+                <h4 class="season-topics-title">Reactions, Stoichiometry &amp; Kinetics</h4>
+                <ul class="topic-list-ul">
+                  <li><strong>Chemical Reactions:</strong> Classification of reactions, solubility guidelines, predicting products of metathesis (double-replacement) and redox reactions.</li>
+                  <li><strong>Advanced Stoichiometry:</strong> Limiting reactant math, percent yield, hydration stoichiometry, and analytical solution concentrations (molarity, molality).</li>
+                  <li><strong>Quantitative Kinetics:</strong> Deriving rate laws from initial rate tables, half-life relationships, temperature dependence, and the Arrhenius equation.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane" data-pane="pathway">
+            <div class="pathway-grid">
+              <div>
+                <h4 class="overview-list-title"><i class="fas fa-book"></i> Standard Textbooks</h4>
+                <div class="textbook-card">
+                  <div class="textbook-icon"><i class="fas fa-book-open"></i></div>
+                  <div class="textbook-info">
+                    <h5>Chemistry</h5>
+                    <p class="author">Zumdahl &amp; Zumdahl</p>
+                    <span class="scope-tag">Standard General Chemistry</span>
+                  </div>
+                </div>
+                <div class="textbook-card">
+                  <div class="textbook-icon"><i class="fas fa-book-open"></i></div>
+                  <div class="textbook-info">
+                    <h5>Chemistry: The Central Science</h5>
+                    <p class="author">Brown, LeMay, Bursten</p>
+                    <span class="scope-tag">Excellent Equilibrium &amp; Kinetics Depth</span>
+                  </div>
+                </div>
+              </div>
+              <div class="courses-box">
+                <h4 class="overview-list-title"><i class="fas fa-university"></i> Related College Courses</h4>
+                <div class="course-tag-container">
+                  <span class="course-tag"><i class="fas fa-check"></i> General Chemistry I/II</span>
+                  <span class="course-tag"><i class="fas fa-check"></i> Analytical Chemistry</span>
+                  <span class="course-tag"><i class="fas fa-check"></i> Physical Chemistry (Kinetics)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane" data-pane="resources">
+            <div class="resources-grid">
+              <a href="https://www.youtube.com/c/TheOrganicChemistryTutor" target="_blank" class="resource-item">
+                <div class="resource-item-left">
+                  <div class="resource-type-icon"><i class="fab fa-youtube"></i></div>
+                  <div class="resource-item-info">
+                    <h5>The Organic Chemistry Tutor</h5>
+                    <p>Incredible quantitative step-by-step kinetics tutorials</p>
+                  </div>
+                </div>
+                <i class="fas fa-chevron-right resource-arrow"></i>
+              </a>
+              <a href="http://chemcollective.org/vlabs" target="_blank" class="resource-item">
+                <div class="resource-item-left">
+                  <div class="resource-type-icon"><i class="fas fa-flask"></i></div>
+                  <div class="resource-item-info">
+                    <h5>ChemCollective Virtual Labs</h5>
+                    <p>Practice volumetric titrations &amp; dilutions online</p>
+                  </div>
+                </div>
+                <i class="fas fa-chevron-right resource-arrow"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Event 2: Forensics -->
+    <article class="event-card" id="event-forensics">
+      <div class="event-card-header">
+        <div class="event-title-area">
+          <i class="fas fa-search" aria-hidden="true"></i>
+          <h3>Forensics</h3>
+        </div>
+        <span class="event-meta-badge"><i class="fas fa-user-friends"></i> Team of 2</span>
+      </div>
+      <p class="event-tagline-lead">Put your analytical detective skills to the test, identifying unknown chemical powders, analyzing fibers and polymers, and evaluating crime scenes using physical evidence.</p>
+
+      <div class="event-tabs">
+        <div class="tab-header">
+          <button class="tab-btn active" data-tab="overview"><i class="fas fa-info-circle"></i> Overview</button>
+          <button class="tab-btn" data-tab="topics"><i class="fas fa-list"></i> Topics</button>
+          <button class="tab-btn" data-tab="pathway"><i class="fas fa-graduation-cap"></i> Pathway</button>
+          <button class="tab-btn" data-tab="resources"><i class="fas fa-laptop-code"></i> Resources</button>
+        </div>
+
+        <div class="tab-content">
+          <div class="tab-pane active" data-pane="overview">
+            <div class="overview-grid">
+              <div>
+                <h4 class="overview-list-title"><i class="fas fa-star"></i> What You'll Learn</h4>
+                <ul class="overview-ul">
+                  <li>To run systematic qualitative chemistry tests to identify unknown white powders.</li>
+                  <li>How to distinguish plastics and fibers using burn, solubility, and density tests.</li>
+                  <li>Chromatography analysis, including calculating $R_f$ values.</li>
+                  <li>To interpret blood splatter, fingerprint patterns, and glass fractures.</li>
+                </ul>
+              </div>
+              <div class="big-questions-box">
+                <h4 class="overview-list-title"><i class="fas fa-question-circle"></i> Big Questions</h4>
+                <div class="question-prompt">
+                  <i class="fas fa-quote-left"></i>
+                  <span>How can you differentiate Sodium Hydrogen Carbonate ($NaHCO_3$) from Sodium Carbonate ($Na_2CO_3$) using simple qualitative lab reagents?</span>
+                </div>
+                <div class="question-prompt">
+                  <i class="fas fa-quote-left"></i>
+                  <span>What polymer structural differences allow us to easily separate High-Density Polyethylene (HDPE) from Polyethylene Terephthalate (PET) in a density column?</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane" data-pane="topics">
+            <div class="season-split">
+              <div class="season-column">
+                <span class="season-header-badge past"><i class="fas fa-vials"></i> Qualitative &amp; Chemical ID</span>
+                <h4 class="season-topics-title">Lab Science Topics</h4>
+                <ul class="topic-list-ul">
+                  <li><strong>Powder Identification:</strong> Qualitative schemes for common compounds (salt, sugar, cornstarch, sodium bicarbonate, calcium carbonate) using flame tests, pH indicators, iodine, and HCl reactions.</li>
+                  <li><strong>Polymers &amp; Plastics:</strong> Distinguishing recycling codes 1-6 (PET, HDPE, PVC, LDPE, PP, PS) using water, alcohol, and oil density solutions.</li>
+                  <li><strong>Chromatography:</strong> Thin-layer chromatography (TLC) mechanics, mobile vs. stationary phases, and calculating $R_f$ values.</li>
+                </ul>
+              </div>
+              <div class="season-column active-season">
+                <span class="season-header-badge future"><i class="fas fa-arrow-circle-right"></i> Physical &amp; Biological Evidence</span>
+                <h4 class="season-topics-title">Criminalistics Topics</h4>
+                <ul class="topic-list-ul">
+                  <li><strong>Microscopic Analysis:</strong> Differentiating human vs. animal hair (medulla index) and synthetic vs. natural fibers (cotton, wool, nylon, polyester).</li>
+                  <li><strong>Crime Scene Analysis:</strong> Evaluating fingerprint minutiae (loops, whorls, arches), blood spatter impact angles, and glass fracture directions (radial vs. concentric).</li>
+                  <li><strong>Soil &amp; Glass:</strong> Utilizing density columns and refractometry to analyze soil and glass fragments.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane" data-pane="pathway">
+            <div class="pathway-grid">
+              <div>
+                <h4 class="overview-list-title"><i class="fas fa-book"></i> Standard Textbooks</h4>
+                <div class="textbook-card">
+                  <div class="textbook-icon"><i class="fas fa-book-open"></i></div>
+                  <div class="textbook-info">
+                    <h5>Criminalistics: An Introduction to Forensic Science</h5>
+                    <p class="author">Richard Saferstein</p>
+                    <span class="scope-tag">The Crime-Lab Standard</span>
+                  </div>
+                </div>
+                <div class="textbook-card">
+                  <div class="textbook-icon"><i class="fas fa-book-open"></i></div>
+                  <div class="textbook-info">
+                    <h5>Forensic Science</h5>
+                    <p class="author">James, Nordby, Bell</p>
+                    <span class="scope-tag">In-Depth Analytical Evidence</span>
+                  </div>
+                </div>
+              </div>
+              <div class="courses-box">
+                <h4 class="overview-list-title"><i class="fas fa-university"></i> Related College Courses</h4>
+                <div class="course-tag-container">
+                  <span class="course-tag"><i class="fas fa-check"></i> Introduction to Forensics</span>
+                  <span class="course-tag"><i class="fas fa-check"></i> Analytical Chemistry</span>
+                  <span class="course-tag"><i class="fas fa-check"></i> Polymer Chemistry</span>
+                  <span class="course-tag"><i class="fas fa-check"></i> Quantitative Analysis</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane" data-pane="resources">
+            <div class="resources-grid">
+              <a href="https://www.youtube.com/playlist?list=PL46EF391219CE6C55" target="_blank" class="resource-item">
+                <div class="resource-item-left">
+                  <div class="resource-type-icon"><i class="fab fa-youtube"></i></div>
+                  <div class="resource-item-info">
+                    <h5>Crash Course Forensics</h5>
+                    <p>Overview of physical and chemical evidence analysis</p>
+                  </div>
+                </div>
+                <i class="fas fa-chevron-right resource-arrow"></i>
+              </a>
+              <a href="https://www.forensicscolleges.com/blog/resources/forensic-science-resources" target="_blank" class="resource-item">
+                <div class="resource-item-left">
+                  <div class="resource-type-icon"><i class="fas fa-globe"></i></div>
+                  <div class="resource-item-info">
+                    <h5>Forensics Colleges Hub</h5>
+                    <p>Comprehensive articles and trace evidence tutorials</p>
+                  </div>
+                </div>
+                <i class="fas fa-chevron-right resource-arrow"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Event 3: Protein Modeling -->
+    <article class="event-card full-width" id="event-protein">
+      <div class="event-card-header">
+        <div class="event-title-area">
+          <i class="fas fa-dna" aria-hidden="true"></i>
+          <h3>Protein Modeling</h3>
+        </div>
+        <span class="event-meta-badge"><i class="fas fa-user-friends"></i> Team of 2</span>
+      </div>
+      <p class="event-tagline-lead">Explore structural biology, folding proteins physically according to precise scaling rules and using professional computational visualization tools to investigate molecular mechanisms.</p>
+
+      <div class="event-tabs">
+        <div class="tab-header">
+          <button class="tab-btn active" data-tab="overview"><i class="fas fa-info-circle"></i> Overview</button>
+          <button class="tab-btn" data-tab="topics"><i class="fas fa-list"></i> Topics</button>
+          <button class="tab-btn" data-tab="pathway"><i class="fas fa-graduation-cap"></i> Pathway</button>
+          <button class="tab-btn" data-tab="resources"><i class="fas fa-laptop-code"></i> Resources</button>
+        </div>
+
+        <div class="tab-content">
+          <div class="tab-pane active" data-pane="overview">
+            <div class="overview-grid">
+              <div>
+                <h4 class="overview-list-title"><i class="fas fa-star"></i> What You'll Learn</h4>
+                <ul class="overview-ul">
+                  <li>The biochemical structures and folding properties of the 20 amino acids.</li>
+                  <li>How hydrogen bonds and hydrophobic collapse organize 3D protein shapes.</li>
+                  <li>To navigate the Protein Data Bank (PDB) to download structural coordinate files.</li>
+                  <li>To program custom 3D protein visualizations in PyMOL or Jmol.</li>
+                </ul>
+              </div>
+              <div class="big-questions-box">
+                <h4 class="overview-list-title"><i class="fas fa-question-circle"></i> Big Questions</h4>
+                <div class="question-prompt">
+                  <i class="fas fa-quote-left"></i>
+                  <span>How does a single point mutation replacing glutamic acid with valine in hemoglobin drive sickling at the molecular level?</span>
+                </div>
+                <div class="question-prompt">
+                  <i class="fas fa-quote-left"></i>
+                  <span>What non-covalent forces stabilize alpha-helices compared to beta-pleated sheets? Trace the backbone carbonyl and amide spacing.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane" data-pane="topics">
+            <div class="season-split">
+              <div class="season-column">
+                <span class="season-header-badge past"><i class="fas fa-mortar-pestle"></i> Biochemistry Fundamentals</span>
+                <h4 class="season-topics-title">Amino Acids &amp; Folding</h4>
+                <ul class="topic-list-ul">
+                  <li><strong>Amino Acid Chemistry:</strong> Memorizing structures, charges, and classification of all 20 standard amino acid R-groups.</li>
+                  <li><strong>Levels of Structure:</strong> Primary sequences, secondary structures (H-bonds), tertiary folding (hydrophobic effect, salt bridges, disulfide bonds), and quaternary assemblies.</li>
+                  <li><strong>Enzyme Mechanics:</strong> Active sites, substrate lock-and-key vs. induced fit models, allosteric inhibitors, and enzyme-substrate kinetics.</li>
+                </ul>
+              </div>
+              <div class="season-column active-season">
+                <span class="season-header-badge future"><i class="fas fa-arrow-circle-right"></i> Molecular Modeling Workflow</span>
+                <h4 class="season-topics-title">Tools &amp; Practical Modeling</h4>
+                <ul class="topic-list-ul">
+                  <li><strong>Protein Data Bank (PDB):</strong> Reading PDB files, identifying specific atoms, chains, active ligand sites, and research-specific structures.</li>
+                  <li><strong>Physical Modeling:</strong> Scaling and folding precise physical protein models using Mini-Toobers, designating key residues, and adding accurate beta-sheet spacing.</li>
+                  <li><strong>Software Rendering:</strong> Executing commands in PyMOL or Jmol to display ribbon models, color-code residue types, and highlights.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane" data-pane="pathway">
+            <div class="pathway-grid">
+              <div>
+                <h4 class="overview-list-title"><i class="fas fa-book"></i> Standard Textbooks</h4>
+                <div class="textbook-card">
+                  <div class="textbook-icon"><i class="fas fa-book-open"></i></div>
+                  <div class="textbook-info">
+                    <h5>Lehninger Principles of Biochemistry</h5>
+                    <p class="author">Nelson &amp; Cox</p>
+                    <span class="scope-tag">Standard College Biochemistry</span>
+                  </div>
+                </div>
+              </div>
+              <div class="courses-box">
+                <h4 class="overview-list-title"><i class="fas fa-university"></i> Related College Courses</h4>
+                <div class="course-tag-container">
+                  <span class="course-tag"><i class="fas fa-check"></i> General Biochemistry</span>
+                  <span class="course-tag"><i class="fas fa-check"></i> Structural Biology</span>
+                  <span class="course-tag"><i class="fas fa-check"></i> Molecular Biophysics</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane" data-pane="resources">
+            <div class="resources-grid">
+              <a href="https://www.rcsb.org" target="_blank" class="resource-item">
+                <div class="resource-item-left">
+                  <div class="resource-type-icon"><i class="fas fa-database"></i></div>
+                  <div class="resource-item-info">
+                    <h5>RCSB Protein Data Bank</h5>
+                    <p>Official coordinate database of all solved macromolecular structures</p>
+                  </div>
+                </div>
+                <i class="fas fa-chevron-right resource-arrow"></i>
+              </a>
+              <a href="https://cbm.msoe.edu/scienceolympiad/" target="_blank" class="resource-item">
+                <div class="resource-item-left">
+                  <div class="resource-type-icon"><i class="fas fa-globe"></i></div>
+                  <div class="resource-item-info">
+                    <h5>MSOE Center for BioMolecular Modeling</h5>
+                    <p>Official Science Olympiad event rules, design guides, and tutorials</p>
+                  </div>
+                </div>
+                <i class="fas fa-chevron-right resource-arrow"></i>
+              </a>
+              <a href="https://pymolwiki.org" target="_blank" class="resource-item">
+                <div class="resource-item-left">
+                  <div class="resource-type-icon"><i class="fas fa-search"></i></div>
+                  <div class="resource-item-info">
+                    <h5>PyMOL Wiki</h5>
+                    <p>Comprehensive guide for molecular script commands and formatting</p>
+                  </div>
+                </div>
+                <i class="fas fa-chevron-right resource-arrow"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Scoped Tab Interaction Script
+  document.querySelectorAll('.event-card').forEach(card => {
+    const buttons = card.querySelectorAll('.tab-btn');
+    const panes = card.querySelectorAll('.tab-pane');
+    
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Deactivate all buttons and panes inside this card only
+        buttons.forEach(b => b.classList.remove('active'));
+        panes.forEach(p => p.classList.remove('active'));
+        
+        // Activate current button
+        btn.classList.add('active');
+        const targetTab = btn.getAttribute('data-tab');
+        
+        // Find and activate matching pane inside this card
+        const targetPane = card.querySelector(`.tab-pane[data-pane="${targetTab}"]`);
+        if (targetPane) {
+          targetPane.classList.add('active');
+        }
+      });
+    });
+  });
+});
+</script>
+{% endblock %}
