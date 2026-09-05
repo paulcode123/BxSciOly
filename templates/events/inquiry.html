@@ -1,451 +1,288 @@
 {% extends "layout.html" %}
 
-{% block title %}Inquiry &amp; Reasoning - Bronx Science Olympiad{% endblock %}
+{% block title %}Inquiry – BxSciOly{% endblock %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/subject_pages.css') }}">
+<style>
+    .gradient-text-light{background:linear-gradient(135deg,#c084fc 0%,#9333ea 40%,#4a148c 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+    /* z-index:0 (not just position:relative) makes this its own stacking
+       context, so the canvas/scrim/grid/fade layers inside (z-index 2-5)
+       stay contained and can never render on top of the site header. */
+    .hero-section{position:relative;z-index:0;min-height:65vh;overflow:hidden;background:linear-gradient(160deg,#060a18 0%,#0f172a 50%,#0c1220 100%)}
+
+    #inquiry-canvas{position:absolute;top:0;left:0;width:100%;height:100%;display:block;z-index:2;opacity:0.85}
+
+    .hero-loader{position:absolute;inset:0;z-index:6;display:flex;align-items:center;justify-content:center;background:#060a18;transition:opacity 0.5s ease}
+    .hero-loader.hidden{opacity:0;pointer-events:none}
+    .loader-spinner{width:40px;height:40px;border:3px solid rgba(147,51,234,0.2);border-top-color:#9333ea;border-radius:50%;animation:spin 1s linear infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    .hero-scrim{position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(to right,rgba(6,10,24,0.88) 0%,rgba(6,10,24,0.7) 18%,rgba(6,10,24,0.45) 34%,rgba(6,10,24,0.2) 48%,rgba(6,10,24,0.06) 60%,transparent 72%)}
+    .hero-grid-pattern{position:absolute;inset:0;z-index:4;pointer-events:none;background-image:linear-gradient(rgba(147,51,234,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(147,51,234,0.02) 1px,transparent 1px);background-size:48px 48px}
+    .hero-fade{position:absolute;bottom:0;left:0;right:0;height:200px;pointer-events:none;z-index:5;background:linear-gradient(to bottom,rgba(6,10,24,0) 0%,rgba(15,10,42,0.55) 18%,rgba(40,22,70,0.35) 38%,rgba(120,90,180,0.3) 55%,rgba(225,215,245,0.6) 75%,#f8f9ff 100%)}
+
+    .hero-heading{text-shadow:0 2px 16px rgba(0,0,0,0.55)}
+
+    @keyframes chevronBounce{0%,100%{transform:translateY(0);opacity:0.4}50%{transform:translateY(10px);opacity:0.9}}
+    .scroll-chevron{animation:chevronBounce 2s ease-in-out infinite;cursor:pointer;text-decoration:none}
+
+    .reveal{opacity:0;transform:translateY(28px);animation:revealUp 0.75s cubic-bezier(0.22,1,0.36,1) forwards}
+    .reveal-d1{animation-delay:0.12s}.reveal-d2{animation-delay:0.24s}
+    @keyframes revealUp{to{opacity:1;transform:translateY(0)}}
+
+    .btn-hero{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.85);transition:all 0.3s cubic-bezier(0.22,1,0.36,1);font-weight:600}
+    .btn-hero:hover{background:rgba(255,255,255,0.1);transform:translateY(-2px);box-shadow:0 8px 24px rgba(147,51,234,0.2);border-color:rgba(255,255,255,1)}
+
+    .event-card{background:#ffffff;border:1px solid #e2e8f0;border-radius:14px;transition:all 0.35s cubic-bezier(0.22,1,0.36,1);opacity:0;transform:translateY(24px);border-left:3px solid var(--card-accent)}
+    .event-card.visible{opacity:1;transform:translateY(0)}
+    .event-card:hover{box-shadow:0 10px 36px rgba(147,51,234,0.06);border-color:rgba(147,51,234,0.12);border-left-color:var(--card-accent)}
+
+    .section-label{font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#64748b;margin-bottom:10px}
+    .learn-item{display:flex;align-items:flex-start;gap:10px;padding:5px 0}
+    .learn-dot{width:5px;height:5px;border-radius:50%;margin-top:8px;flex-shrink:0}
+    .learn-text{font-size:14px;color:#475569;line-height:1.5}
+    .team-badge{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:100px;font-size:10px;font-weight:700;font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;border:1.5px solid rgba(147,51,234,0.2);color:#64748b;background:transparent}
+
+    @media(prefers-reduced-motion:reduce){
+        .reveal{animation:none;opacity:1;transform:none}
+        .event-card{opacity:1;transform:none}
+        .scroll-chevron{animation:none}
+    }
+</style>
 {% endblock %}
 
 {% block content %}
-<div class="subject-page subject-inquiry">
-  <p class="tentative-note">
-    <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
-    <span><strong>Note:</strong> Team roles and the number of subject directors are <strong>tentative</strong> and may change as the season is finalized. <strong>Write It Do It</strong> is listed as tentative for this season.</span>
-  </p>
 
-  <header class="subject-hero">
-    <div class="subject-hero-inner">
-      <p class="subject-kicker">Subject Area Hub</p>
-      <h1>Inquiry &amp; Scientific Reasoning</h1>
-      <p class="subject-tagline">The intellectual backbone of a championship team. Master classical cryptanalysis speed-cracking, mathematical experimental designs, and high-precision spatial communication.</p>
-      <span class="director-meta"><i class="fas fa-users" aria-hidden="true"></i> Tentative Leadership: 1 Subject Director</span>
-    </div>
-  </header>
-
-  <section class="subject-intro-card" aria-labelledby="inquiry-intro-heading">
-    <h2 id="inquiry-intro-heading"><i class="fas fa-puzzle-piece" aria-hidden="true"></i> Welcome to Bronx Science Inquiry</h2>
-    <div class="subject-intro-grid">
-      <div class="subject-intro-text">
-        <p>Inquiry is the division that separates the top-tier schools from the rest of the field. Here, we don't study a singular scientific domain; instead, we study the scientific method itself. We learn how to think, analyze, and communicate with flawless, mathematical precision.</p>
-        <p>Whether you're breaking advanced matrix ciphers, designing an entire scientific experiment from a random box of household materials in under 20 minutes, or writing step-by-step spatial blueprints that allow your partner to construct a complex 3D model sight-unseen, you are building the ultimate analytical cognitive habits. These skills map directly to university research methods, discrete mathematics, and computer science paths.</p>
-      </div>
-      <div class="expectations-box">
-        <h3><i class="fas fa-clipboard-check" aria-hidden="true"></i> Subject Lead Expectations</h3>
-        <ul>
-          <li>Administer timed full-length practice exams and mock experimental design trials.</li>
-          <li>Safely manage, categorize, and transport experimental materials.</li>
-          <li>Train members in discrete mathematical calculations and cryptanalysis patterns.</li>
-          <li>Maintain comprehensive grading rubrics and provide constructive feedback loops.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <div class="events-section-header">
-    <h2 class="events-section-title">Events &amp; Study Focus</h2>
-    <p class="events-section-subtitle">Select tabs within each event card to explore descriptions, topic lists, textbook pathways, and practice links.</p>
-  </div>
-
-  <div class="events-grid">
-
-    <!-- Event 1: Codebusters -->
-    <article class="event-card" id="event-code">
-      <div class="event-card-header">
-        <div class="event-title-area">
-          <i class="fas fa-key" aria-hidden="true"></i>
-          <h3>Codebusters</h3>
+    <!-- HERO -->
+    <section class="hero-section" id="heroSection">
+        <canvas id="inquiry-canvas"></canvas>
+        <div id="hero-loader" class="hero-loader"><div class="loader-spinner"></div></div>
+        <div class="hero-scrim"></div>
+        <div class="hero-grid-pattern"></div>
+        <div class="hero-fade"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-6 pt-28 pb-8 flex items-center" style="min-height:65vh">
+            <div class="max-w-[440px]">
+                <h1 class="font-display leading-[0.92] mb-5 hero-heading reveal">
+                    <span class="gradient-text-light font-extrabold text-6xl sm:text-7xl lg:text-8xl">Inquiry</span>
+                    <span class="text-white font-bold text-4xl sm:text-5xl lg:text-6xl block mt-1">Events</span>
+                </h1>
+                <p class="text-slate-300/90 text-base sm:text-lg leading-relaxed mb-10 max-w-md reveal reveal-d1">
+                    Break the cipher. Design the experiment. Turn a structure into words someone else can build from.
+                </p>
+                <a href="#events" class="btn-hero inline-block px-7 py-3.5 rounded-lg font-display reveal reveal-d2">View All Events</a>
+            </div>
         </div>
-        <span class="event-meta-badge"><i class="fas fa-user-friends"></i> Team of 3</span>
-      </div>
-      <p class="event-tagline-lead">A high-velocity cryptanalysis race. Apply modular arithmetic, frequency analysis, and pattern recognition to decrypt complex monoalphabetic and polyalphabetic ciphers under a tight timer.</p>
+        <a href="#events" class="scroll-chevron absolute bottom-6 left-1/2 -translate-x-1/2 z-10">
+            <i class="fa-solid fa-chevron-down text-white/50 text-lg"></i>
+        </a>
+    </section>
 
-      <div class="event-tabs">
-        <div class="tab-header">
-          <button class="tab-btn active" data-tab="overview"><i class="fas fa-info-circle"></i> Overview</button>
-          <button class="tab-btn" data-tab="topics"><i class="fas fa-list"></i> Topics</button>
-          <button class="tab-btn" data-tab="pathway"><i class="fas fa-graduation-cap"></i> Pathway</button>
-          <button class="tab-btn" data-tab="resources"><i class="fas fa-laptop-code"></i> Resources</button>
+    <!-- EVENTS SECTION -->
+    <section id="events" class="pt-12 pb-24" style="background:radial-gradient(ellipse at 30% 0%,rgba(147,51,234,0.06) 0%,transparent 50%),#f8f9ff">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-slate-800 mb-2">3 Competitive Events</h2>
+                <p class="text-slate-500 text-base max-w-md mx-auto">Cryptanalysis, on-the-spot experiments, and pure written communication.</p>
+            </div>
+            <div id="events-grid" class="grid grid-cols-1 gap-6 items-start max-w-3xl mx-auto"></div>
         </div>
+    </section>
 
-        <div class="tab-content">
-          <div class="tab-pane active" data-pane="overview">
-            <div class="overview-grid">
-              <div>
-                <h4 class="overview-list-title"><i class="fas fa-star"></i> What You'll Learn</h4>
-                <ul class="overview-ul">
-                  <li>To crack substitution ciphers using letter frequency profiles.</li>
-                  <li>How modular arithmetic underlies classical cryptosystems.</li>
-                  <li>How to compute matrix determinants and modular inverses.</li>
-                  <li>To divide labor across a 3-person sprint team for peak speed.</li>
-                </ul>
-              </div>
-              <div class="big-questions-box">
-                <h4 class="overview-list-title"><i class="fas fa-question-circle"></i> Big Questions</h4>
-                <div class="question-prompt">
-                  <i class="fas fa-quote-left"></i>
-                  <span>How can you utilize the Kasiski examination to mathematically determine the key length of a Vigenère cipher?</span>
-                </div>
-                <div class="question-prompt">
-                  <i class="fas fa-quote-left"></i>
-                  <span>How does modular multiplicative inverse recovery ($a^{-1} \pmod m$) restrict your key choices in Affine ciphers?</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-pane" data-pane="topics">
-            <div class="season-split">
-              <div class="season-column">
-                <span class="season-header-badge past"><i class="fas fa-brain"></i> Monoalphabetic Substitution</span>
-                <h4 class="season-topics-title">Frequency &amp; Pattern Analysis</h4>
-                <ul class="topic-list-ul">
-                  <li><strong>Aristocrats &amp; Patristocrats:</strong> Decrypting 1-to-1 letter substitutions (with or without spacing/punctuation) using frequency graphs, double-letter guides, and common word patterns (cribs).</li>
-                  <li><strong>Xenocrypts:</strong> Cracking Spanish monoalphabetic substitutions using Spanish letter frequencies (e.g., high-frequency 'E', 'A', 'O', 'S') and accent configurations.</li>
-                  <li><strong>Baconian &amp; Atbash:</strong> Structural decoding of bilateral binary-style Bacon ciphers and simple mirror-alphabet Atbash.</li>
-                </ul>
-              </div>
-              <div class="season-column active-season">
-                <span class="season-header-badge future"><i class="fas fa-arrow-circle-right"></i> Polyalphabetic &amp; Mathematical</span>
-                <h4 class="season-topics-title">Advanced Modular Ciphers</h4>
-                <ul class="topic-list-ul">
-                  <li><strong>Modular Arithmetic Ciphers:</strong> Solving Caesar, Affine ($E(x) = (ax + b) \pmod{26}$), and Hill Ciphers (utilizing $2 \times 2$ and $3 \times 3$ matrix operations, determinants, and cofactors).</li>
-                  <li><strong>Polyalphabetic Ciphers:</strong> Decrypting Vigenère ciphers using key placement grids and tabular structures.</li>
-                  <li><strong>Transposition Ciphers:</strong> Navigating Rail Fence, Pollux/Morbit Morse conversions, and RSA Public Key fundamentals (prime selection, totient, modular exponentiation).</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-pane" data-pane="pathway">
-            <div class="pathway-grid">
-              <div>
-                <h4 class="overview-list-title"><i class="fas fa-book"></i> Standard Textbooks</h4>
-                <div class="textbook-card">
-                  <div class="textbook-icon"><i class="fas fa-book-open"></i></div>
-                  <div class="textbook-info">
-                    <h5>Elementary Cryptanalysis: A Mathematical Approach</h5>
-                    <p class="author">Abraham Sinkov</p>
-                    <span class="scope-tag">Standard Mathematical Cryptography</span>
-                  </div>
-                </div>
-                <div class="textbook-card">
-                  <div class="textbook-icon"><i class="fas fa-book-open"></i></div>
-                  <div class="textbook-info">
-                    <h5>Cryptanalysis: A Study of Ciphers and Their Solution</h5>
-                    <p class="author">Helen Fouché Gaines</p>
-                    <span class="scope-tag">Comprehensive Solving Techniques</span>
-                  </div>
-                </div>
-              </div>
-              <div class="courses-box">
-                <h4 class="overview-list-title"><i class="fas fa-university"></i> Related College Courses</h4>
-                <div class="course-tag-container">
-                  <span class="course-tag"><i class="fas fa-check"></i> Discrete Mathematics</span>
-                  <span class="course-tag"><i class="fas fa-check"></i> Number Theory</span>
-                  <span class="course-tag"><i class="fas fa-check"></i> Introduction to Cryptography</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-pane" data-pane="resources">
-            <div class="resources-grid">
-              <a href="https://toebuster.com" target="_blank" class="resource-item">
-                <div class="resource-item-left">
-                  <div class="resource-type-icon"><i class="fas fa-keyboard"></i></div>
-                  <div class="resource-item-info">
-                    <h5>Toebuster</h5>
-                    <p>Standard, high-speed interactive online Codebusters solver practice engine</p>
-                  </div>
-                </div>
-                <i class="fas fa-chevron-right resource-arrow"></i>
-              </a>
-              <a href="https://cryptograms.puzzlebaron.com" target="_blank" class="resource-item">
-                <div class="resource-item-left">
-                  <div class="resource-type-icon"><i class="fas fa-puzzle-piece"></i></div>
-                  <div class="resource-item-info">
-                    <h5>Puzzle Baron's Cryptograms</h5>
-                    <p>Infinite generated Aristocrats to train pattern recognition speed</p>
-                  </div>
-                </div>
-                <i class="fas fa-chevron-right resource-arrow"></i>
-              </a>
-              <a href="https://rumkin.com/tools/cipher/" target="_blank" class="resource-item">
-                <div class="resource-item-left">
-                  <div class="resource-type-icon"><i class="fas fa-tools"></i></div>
-                  <div class="resource-item-info">
-                    <h5>Rumkin Cipher Tools</h5>
-                    <p>Clean, comprehensive encoding and decoding visualizers</p>
-                  </div>
-                </div>
-                <i class="fas fa-chevron-right resource-arrow"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </article>
-
-    <!-- Event 2: Experimental Design -->
-    <article class="event-card" id="event-experiment">
-      <div class="event-card-header">
-        <div class="event-title-area">
-          <i class="fas fa-microscope" aria-hidden="true"></i>
-          <h3>Experimental Design</h3>
-        </div>
-        <span class="event-meta-badge"><i class="fas fa-user-friends"></i> Team of 3</span>
-      </div>
-      <p class="event-tagline-lead">Given a box of random materials and a prompt, design, conduct, statistically analyze, and write up a complete, rigorous scientific experiment in 50 minutes.</p>
-
-      <div class="event-tabs">
-        <div class="tab-header">
-          <button class="tab-btn active" data-tab="overview"><i class="fas fa-info-circle"></i> Overview</button>
-          <button class="tab-btn" data-tab="topics"><i class="fas fa-list"></i> Topics</button>
-          <button class="tab-btn" data-tab="pathway"><i class="fas fa-graduation-cap"></i> Pathway</button>
-          <button class="tab-btn" data-tab="resources"><i class="fas fa-laptop-code"></i> Resources</button>
-        </div>
-
-        <div class="tab-content">
-          <div class="tab-pane active" data-pane="overview">
-            <div class="overview-grid">
-              <div>
-                <h4 class="overview-list-title"><i class="fas fa-star"></i> What You'll Learn</h4>
-                <ul class="overview-ul">
-                  <li>To structure hypotheses around independent &amp; dependent variables.</li>
-                  <li>To procedurize step-by-step experimental instructions.</li>
-                  <li>To apply basic biostatistics (means, standard deviations, range, trends).</li>
-                  <li>To evaluate experimental limitations, biases, and future extensions.</li>
-                </ul>
-              </div>
-              <div class="big-questions-box">
-                <h4 class="overview-list-title"><i class="fas fa-question-circle"></i> Big Questions</h4>
-                <div class="question-prompt">
-                  <i class="fas fa-quote-left"></i>
-                  <span>How can you distinguish random experimental variability from a statistically significant treatment trend with minimal trial repetitions?</span>
-                </div>
-                <div class="question-prompt">
-                  <i class="fas fa-quote-left"></i>
-                  <span>How do confounding variables introduce systemic bias into your design, and how can they be structurally mitigated?</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-pane" data-pane="topics">
-            <div class="season-split">
-              <div class="season-column">
-                <span class="season-header-badge past"><i class="fas fa-vial"></i> Formulation &amp; Execution</span>
-                <h4 class="season-topics-title">Designing the Test</h4>
-                <ul class="topic-list-ul">
-                  <li><strong>Hypothesis Logic:</strong> Structuring testable "If... then... because..." statements linking a singular independent variable to a measurable dependent variable.</li>
-                  <li><strong>Procedural Detail:</strong> Drafting highly detailed, repeatable sequential instructions, defining control groups, and incorporating safety/ethical protocols.</li>
-                  <li><strong>Data Bookkeeping:</strong> Designing multi-trial data tables, tracking correct units, calculating averages, and graphing boundaries.</li>
-                </ul>
-              </div>
-              <div class="season-column active-season">
-                <span class="season-header-badge future"><i class="fas fa-arrow-circle-right"></i> Statistical Analysis</span>
-                <h4 class="season-topics-title">Data Evaluation</h4>
-                <ul class="topic-list-ul">
-                  <li><strong>Calculations:</strong> Calculating sample means, ranges, percentages, and standard deviations to assess data spread and reliability.</li>
-                  <li><strong>Graphing Standards:</strong> Choosing correct axes, scaling intervals, plotting data points, and adding linear or non-linear lines of best fit.</li>
-                  <li><strong>Error &amp; Reflection:</strong> Distinguishing random human errors from systemic experimental limits, and proposing concrete future modifications.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-pane" data-pane="pathway">
-            <div class="pathway-grid">
-              <div>
-                <h4 class="overview-list-title"><i class="fas fa-book"></i> Standard Textbooks</h4>
-                <div class="textbook-card">
-                  <div class="textbook-icon"><i class="fas fa-book-open"></i></div>
-                  <div class="textbook-info">
-                    <h5>Research Design: Qualitative, Quantitative, and Mixed Methods</h5>
-                    <p class="author">John W. Creswell</p>
-                    <span class="scope-tag">Standard Research Methodology</span>
-                  </div>
-                </div>
-              </div>
-              <div class="courses-box">
-                <h4 class="overview-list-title"><i class="fas fa-university"></i> Related College Courses</h4>
-                <div class="course-tag-container">
-                  <span class="course-tag"><i class="fas fa-check"></i> Research Methods</span>
-                  <span class="course-tag"><i class="fas fa-check"></i> Applied Statistics</span>
-                  <span class="course-tag"><i class="fas fa-check"></i> Experimental Physics Lab</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-pane" data-pane="resources">
-            <div class="resources-grid">
-              <a href="http://www.bozemanscience.com/scientific-method" target="_blank" class="resource-item">
-                <div class="resource-item-left">
-                  <div class="resource-type-icon"><i class="fab fa-youtube"></i></div>
-                  <div class="resource-item-info">
-                    <h5>Bozeman Science</h5>
-                    <p>Clean breakdowns of experimental variables, controls, and hypothesis logic</p>
-                  </div>
-                </div>
-                <i class="fas fa-chevron-right resource-arrow"></i>
-              </a>
-              <a href="https://www.youtube.com/playlist?list=PL8dPuuaLjXtNM_Y-bUAhIBToOGKEMb6OP" target="_blank" class="resource-item">
-                <div class="resource-item-left">
-                  <div class="resource-type-icon"><i class="fab fa-youtube"></i></div>
-                  <div class="resource-item-info">
-                    <h5>Crash Course Statistics</h5>
-                    <p>Learn variance, standard deviation, and data distributions</p>
-                  </div>
-                </div>
-                <i class="fas fa-chevron-right resource-arrow"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </article>
-
-    <!-- Event 3: Write It Do It -->
-    <article class="event-card full-width" id="event-widi">
-      <div class="event-card-header">
-        <div class="event-title-area">
-          <i class="fas fa-file-signature" aria-hidden="true"></i>
-          <h3>Write It Do It</h3>
-        </div>
-        <span class="event-meta-badge"><i class="fas fa-user-friends"></i> Team of 2 (Writer/Doer)</span>
-      </div>
-      <p class="event-tagline-lead">The ultimate test of clear communication. One partner writes detailed text instructions of a complex, hidden structure; the other partner builds it using only those written words.</p>
-
-      <div class="event-tabs">
-        <div class="tab-header">
-          <button class="tab-btn active" data-tab="overview"><i class="fas fa-info-circle"></i> Overview</button>
-          <button class="tab-btn" data-tab="topics"><i class="fas fa-list"></i> Topics</button>
-          <button class="tab-btn" data-tab="pathway"><i class="fas fa-graduation-cap"></i> Pathway</button>
-          <button class="tab-btn" data-tab="resources"><i class="fas fa-laptop-code"></i> Resources</button>
-        </div>
-
-        <div class="tab-content">
-          <div class="tab-pane active" data-pane="overview">
-            <div class="overview-grid">
-              <div>
-                <h4 class="overview-list-title"><i class="fas fa-star"></i> What You'll Learn</h4>
-                <ul class="overview-ul">
-                  <li>To establish unambiguous absolute and relative spatial coordinates.</li>
-                  <li>To construct step-by-step checklists under tight time restrictions.</li>
-                  <li>How to interpret written blueprints literally without making assumptions.</li>
-                  <li>To develop unified abbreviation codes and terminology standards.</li>
-                </ul>
-              </div>
-              <div class="big-questions-box">
-                <h4 class="overview-list-title"><i class="fas fa-question-circle"></i> Big Questions</h4>
-                <div class="question-prompt">
-                  <i class="fas fa-quote-left"></i>
-                  <span>How can you write instructions that prevent your partner from falling into three-dimensional mirror symmetry traps?</span>
-                </div>
-                <div class="question-prompt">
-                  <i class="fas fa-quote-left"></i>
-                  <span>What is the mathematical threshold where adding descriptive adjectives starts to slow down your partner's construction speed?</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-pane" data-pane="topics">
-            <div class="season-split">
-              <div class="season-column">
-                <span class="season-header-badge past"><i class="fas fa-pencil-alt"></i> The Writer's Strategy</span>
-                <h4 class="season-topics-title">Blueprinting &amp; Terminology</h4>
-                <ul class="topic-list-ul">
-                  <li><strong>Spatial Reference Frames:</strong> Defining a static origin point and using clear, absolute coordinate directions (e.g., "positive z-axis", "pointing towards you") instead of ambiguous relative terms.</li>
-                  <li><strong>Standardized Taxonomy:</strong> Cataloging complex build components (Lego, K'Nex, craft stems) using standardized terminology (dimensions, color, texture).</li>
-                  <li><strong>Step Sequencing:</strong> Structuring instructions so foundational components are anchored before complex sub-assemblies are layered on.</li>
-                </ul>
-              </div>
-              <div class="season-column active-season">
-                <span class="season-header-badge future"><i class="fas fa-tools"></i> The Doer's Strategy</span>
-                <h4 class="season-topics-title">Literal Construction</h4>
-                <ul class="topic-list-ul">
-                  <li><strong>Literal Interpretation:</strong> Suppressing the urge to assume what the model "should" look like, and strictly following the literal written words.</li>
-                  <li><strong>Verification Checks:</strong> Constantly verifying spatial angles, layer orders, and connection points against preceding instruction steps.</li>
-                  <li><strong>Time Management:</strong> Budgeting building speed to ensure complex final steps aren't rushed due to initial hesitation.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-pane" data-pane="pathway">
-            <div class="pathway-grid">
-              <div>
-                <h4 class="overview-list-title"><i class="fas fa-book"></i> Recommended Standards</h4>
-                <div class="textbook-card">
-                  <div class="textbook-icon"><i class="fas fa-book-open"></i></div>
-                  <div class="textbook-info">
-                    <h5>Technical Communication</h5>
-                    <p class="author">Mike Markel</p>
-                    <span class="scope-tag">Standard Guidelines for Spatial Clarity</span>
-                  </div>
-                </div>
-              </div>
-              <div class="courses-box">
-                <h4 class="overview-list-title"><i class="fas fa-university"></i> Related College Courses</h4>
-                <div class="course-tag-container">
-                  <span class="course-tag"><i class="fas fa-check"></i> Technical Writing</span>
-                  <span class="course-tag"><i class="fas fa-check"></i> Spatial Communication</span>
-                  <span class="course-tag"><i class="fas fa-check"></i> Instructional Design</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-pane" data-pane="resources">
-            <div class="resources-grid">
-              <a href="https://www.youtube.com/watch?v=gCfzeONu3Mo" target="_blank" class="resource-item">
-                <div class="resource-item-left">
-                  <div class="resource-type-icon"><i class="fab fa-youtube"></i></div>
-                  <div class="resource-item-info">
-                    <h5>TED-Ed Communication Guide</h5>
-                    <p>How spatial reference frames and literal vocabulary affect listener actions</p>
-                  </div>
-                </div>
-                <i class="fas fa-chevron-right resource-arrow"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </article>
-
-  </div>
-</div>
 {% endblock %}
 
 {% block extra_js %}
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  // Scoped Tab Interaction Script
-  document.querySelectorAll('.event-card').forEach(card => {
-    const buttons = card.querySelectorAll('.tab-btn');
-    const panes = card.querySelectorAll('.tab-pane');
-    
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        // Deactivate all buttons and panes inside this card only
-        buttons.forEach(b => b.classList.remove('active'));
-        panes.forEach(p => p.classList.remove('active'));
-        
-        // Activate current button
-        btn.classList.add('active');
-        const targetTab = btn.getAttribute('data-tab');
-        
-        // Find and activate matching pane inside this card
-        const targetPane = card.querySelector(`.tab-pane[data-pane="${targetTab}"]`);
-        if (targetPane) {
-          targetPane.classList.add('active');
+
+    <!-- Same CDN + version as the biology/chemistry pages on purpose: once a
+         visitor has loaded one department page, the browser caches these
+         Three.js modules and the other pages load them instantly instead of
+         re-downloading. Mixing CDNs across pages defeats this. -->
+    <script type="importmap">
+    {"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}
+    </script>
+    <script type="module">
+        import * as THREE from 'three';
+        import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+        import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+        import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+        import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+        import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
+        import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+        // ^ fixed a typo here: the original imported EffectComposer from
+        // ".../post-processing/..." (with a hyphen), a path that doesn't
+        // exist. That 404 broke the whole module — since ES module imports
+        // are all-or-nothing, none of this script ever ran, animate() never
+        // fired, and the loading spinner below never got told to hide. That
+        // was almost certainly the "takes forever to load" bug.
+
+        const heroSection = document.getElementById('heroSection');
+        const canvas = document.getElementById('inquiry-canvas');
+        const heroLoader = document.getElementById('hero-loader');
+
+        const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.setSize(heroSection.offsetWidth, heroSection.offsetHeight);
+        renderer.toneMapping = THREE.ACESFilmicToneMapping;
+        renderer.toneMappingExposure = 1.2;
+        renderer.setClearColor(0x000000, 0);
+
+        const scene = new THREE.Scene();
+        scene.background = null;
+        const camera = new THREE.PerspectiveCamera(32, heroSection.offsetWidth / Math.max(1, heroSection.offsetHeight), 0.1, 100);
+        camera.position.set(1.8, 0.3, 9);
+
+        const pmrem = new THREE.PMREMGenerator(renderer);
+        scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+        pmrem.dispose();
+
+        scene.add(new THREE.AmbientLight(0xffffff, 0.25));
+        const keyLight = new THREE.DirectionalLight(0xfff5e6, 2.0); keyLight.position.set(-5, 5, 5); scene.add(keyLight);
+        const fillLight = new THREE.DirectionalLight(0xe6f0ff, 0.8); fillLight.position.set(5, -2, 4); scene.add(fillLight);
+        const rimLight = new THREE.DirectionalLight(0x818cf8, 1.2); rimLight.position.set(0, 2, -6); scene.add(rimLight);
+
+        const inquiryGroup = new THREE.Group();
+        inquiryGroup.position.set(2.8, -0.6, 0);
+        inquiryGroup.rotation.x = 0.15; inquiryGroup.rotation.z = -0.1;
+        scene.add(inquiryGroup);
+
+        const coreGeo = new THREE.IcosahedronGeometry(1.5, 1);
+        const coreMat = new THREE.MeshPhysicalMaterial({ color: 0x4a148c, metalness: 0.4, roughness: 0.1, transmission: 0.8, thickness: 1.5, envMapIntensity: 1.5, clearcoat: 1, clearcoatRoughness: 0.1 });
+        const core = new THREE.Mesh(coreGeo, coreMat);
+        inquiryGroup.add(core);
+
+        const wireGeo = new THREE.IcosahedronGeometry(1.6, 1);
+        const wireMat = new THREE.MeshBasicMaterial({ color: 0xc084fc, wireframe: true, transparent: true, opacity: 0.6 });
+        const wire = new THREE.Mesh(wireGeo, wireMat);
+        inquiryGroup.add(wire);
+
+        const floatMats = [
+            new THREE.MeshStandardMaterial({ color: 0x9333ea, emissive: 0x9333ea, emissiveIntensity: 0.8, metalness: 0.5, roughness: 0.2 }),
+            new THREE.MeshStandardMaterial({ color: 0xc084fc, emissive: 0xc084fc, emissiveIntensity: 0.8, metalness: 0.5, roughness: 0.2 }),
+        ];
+        const floats = [];
+        for (let i = 0; i < 6; i++) {
+            const r = 0.2 + Math.random() * 0.2;
+            const geo = i % 2 === 0 ? new THREE.OctahedronGeometry(r) : new THREE.TetrahedronGeometry(r);
+            const m = new THREE.Mesh(geo, floatMats[i % 2]);
+            m.userData = { angle: Math.random() * Math.PI * 2, radius: 2.2 + Math.random() * 0.8, speed: 0.002 + Math.random() * 0.004, yOffset: (Math.random() - 0.5) * 2 };
+            floats.push(m); inquiryGroup.add(m);
         }
-      });
-    });
-  });
-});
-</script>
+
+        const particleGroup = new THREE.Group();
+        const particleMat = new THREE.MeshPhysicalMaterial({ color: 0x9333ea, metalness: 0.15, roughness: 0.2, clearcoat: 1, clearcoatRoughness: 0.1, transparent: true, opacity: 0.22, emissive: 0x9333ea, emissiveIntensity: 0.15, envMapIntensity: 0.8 });
+        const particles = [];
+        for (let i = 0; i < 50; i++) {
+            const sz = 0.012 + Math.random() * 0.04;
+            const p = new THREE.Mesh(new THREE.SphereGeometry(sz, 16, 16), particleMat.clone());
+            p.material.opacity = 0.22 + Math.random() * 0.14;
+            p.userData = { angle: Math.random() * Math.PI * 2, radius: 2.0 + Math.random() * 2.5, height: (Math.random() - 0.5) * 8, speed: 0.001 + Math.random() * 0.004, fSpeed: 0.0005 + Math.random() * 0.0015, fAmp: 0.1 + Math.random() * 0.25 };
+            particles.push(p); particleGroup.add(p);
+        }
+        scene.add(particleGroup);
+
+        const composer = new EffectComposer(renderer);
+        composer.addPass(new RenderPass(scene, camera));
+        const bloomPass = new UnrealBloomPass(new THREE.Vector2(heroSection.offsetWidth, heroSection.offsetHeight), 0.3, 0.5, 0.82);
+        composer.addPass(bloomPass);
+
+        const shaderPass = new ShaderPass({
+            uniforms: { tDiffuse: { value: null }, uVignette: { value: 0.4 }, uChromatic: { value: 0.002 }, uTime: { value: 0 } },
+            vertexShader: `varying vec2 vUv; void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}`,
+            fragmentShader: `uniform sampler2D tDiffuse;uniform float uVignette;uniform float uChromatic;uniform float uTime;varying vec2 vUv;void main(){vec2 c=vUv-0.5;float dist=length(c);vec2 offset=c*dist*uChromatic;vec4 col;col.r=texture2D(tDiffuse,vUv-offset).r;col.g=texture2D(tDiffuse,vUv).g;col.b=texture2D(tDiffuse,vUv+offset).b;col.a=1.0;float lum=dot(col.rgb,vec3(0.299,0.587,0.114));col.rgb+=vec3(0.0,0.012,0.035)*(1.0-lum)*0.5;col.rgb+=vec3(0.02,0.01,0.0)*lum*0.3;col.rgb=(col.rgb-0.5)*1.06+0.5;float v=1.0-dist*uVignette;v=smoothstep(0.0,1.0,v);col.rgb*=v;gl_FragColor=col;}`
+        });
+        composer.addPass(shaderPass);
+        composer.addPass(new OutputPass());
+
+        let mouseX = 0, mouseY = 0, smoothMX = 0, smoothMY = 0, baseRotY = 0;
+        window.addEventListener('mousemove', e => { mouseX = (e.clientX / window.innerWidth - 0.5) * 2; mouseY = (e.clientY / window.innerHeight - 0.5) * 2; });
+
+        let introScale = 0, firstFrameRendered = false;
+        const introStart = performance.now();
+
+        function animate() {
+            requestAnimationFrame(animate);
+            const now = performance.now();
+            shaderPass.uniforms.uTime.value = now * 0.001;
+
+            if (!firstFrameRendered) { heroLoader.classList.add('hidden'); firstFrameRendered = true; }
+
+            if (introScale < 1) {
+                const progress = Math.min(1, (now - introStart) / 1600);
+                introScale = 1 - Math.pow(1 - progress, 3);
+                inquiryGroup.scale.set(0.5 * introScale, 0.5 * introScale, 0.5 * introScale);
+            }
+
+            baseRotY += 0.004;
+            smoothMX += (mouseX * 0.18 - smoothMX) * 0.04;
+            smoothMY += (mouseY * 0.1 - smoothMY) * 0.04;
+            inquiryGroup.rotation.y = baseRotY + smoothMX;
+            inquiryGroup.rotation.x = 0.15 + smoothMY;
+            inquiryGroup.position.y = -0.6 + Math.sin(now * 0.0007) * 0.1;
+
+            wire.rotation.x -= 0.002; wire.rotation.y -= 0.003; core.rotation.x += 0.001;
+
+            floats.forEach(f => {
+                f.userData.angle += f.userData.speed;
+                f.position.x = f.userData.radius * Math.cos(f.userData.angle);
+                f.position.z = f.userData.radius * Math.sin(f.userData.angle);
+                f.position.y = f.userData.yOffset + Math.sin(now * 0.001 + f.userData.angle) * 0.3;
+                f.rotation.x += 0.01; f.rotation.y += 0.02;
+            });
+
+            particles.forEach(p => {
+                p.userData.angle += p.userData.speed;
+                p.position.x = p.userData.radius * Math.cos(p.userData.angle) + 2.8;
+                p.position.z = p.userData.radius * Math.sin(p.userData.angle);
+                p.position.y = p.userData.height + Math.sin(now * p.userData.fSpeed) * p.userData.fAmp;
+            });
+
+            composer.render();
+        }
+        animate();
+
+        window.addEventListener('resize', () => {
+            const w = heroSection.offsetWidth, h = Math.max(1, heroSection.offsetHeight);
+            camera.aspect = w / h; camera.updateProjectionMatrix();
+            renderer.setSize(w, h); composer.setSize(w, h);
+            bloomPass.resolution.set(w, h);
+        });
+    </script>
+
+    <!-- UI + EVENT DATA -->
+    <script>
+        const PURPLE = '#4a148c';
+        const events = [
+            { name: 'Codebusters', teamSize: 3, desc: 'A timed cryptanalysis exam — decode encrypted messages using both historical and modern ciphers.', learn: ['Solving monoalphabetic ciphers: Aristocrats, Patristocrats, Xenocrypts', 'Cryptanalysis of Vigenère, Hill, and other polyalphabetic ciphers', 'Letter-frequency analysis and pattern recognition', 'Splitting problems across a team of three to work efficiently under time pressure'] },
+            { name: 'Experimental Design', teamSize: 3, desc: 'Given unfamiliar materials, teams design, run, and write up an original experiment entirely on the spot.', learn: ['Writing a testable problem statement and hypothesis', 'Identifying independent, dependent, and controlled variables', 'Collecting and graphing real data within a roughly 50-minute window', 'Analyzing results and reporting conclusions in a structured write-up'] },
+            { name: 'Write It Do It', teamSize: 2, desc: 'One teammate writes instructions for building a structure; the other builds it from those instructions alone, with no drawings allowed.', learn: ['Writing clear, unambiguous step-by-step instructions', 'Describing a 3D structure using only text', "Building an accurate replica from a partner's written directions", "Scored on how closely the final build matches the original"] },
+        ];
+
+        const grid = document.getElementById('events-grid');
+        events.forEach((ev, i) => {
+            const card = document.createElement('div');
+            card.className = 'event-card p-7 sm:p-8 pb-8';
+            card.style.setProperty('--card-accent', PURPLE);
+            card.style.transitionDelay = `${i * 50}ms`;
+            card.innerHTML = `
+                <div class="flex items-start justify-between gap-3 mb-3">
+                    <h3 class="font-display font-bold text-xl text-slate-800 leading-tight">${ev.name}</h3>
+                    <span class="team-badge"><i class="fa-solid fa-user-group text-[9px]"></i> TEAM OF ${ev.teamSize}</span>
+                </div>
+                <p class="text-sm text-slate-500 leading-relaxed mb-5">${ev.desc}</p>
+                <div><p class="section-label">What You'll Learn</p><div class="space-y-0.5">${ev.learn.map(l => `<div class="learn-item"><span class="learn-dot" style="background:${PURPLE}"></span><span class="learn-text">${l}</span></div>`).join('')}</div></div>`;
+            grid.appendChild(card);
+        });
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+        }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
+        document.querySelectorAll('.event-card').forEach(c => observer.observe(c));
+
+        const backToTop = document.getElementById('backToTop');
+        if (backToTop) {
+            window.addEventListener('scroll', () => backToTop.classList.toggle('show', window.scrollY > 350));
+            backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        }
+    </script>
+
 {% endblock %}
