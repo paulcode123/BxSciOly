@@ -281,8 +281,6 @@
     background: #BBD1EF;
     border: 4px solid #2F6FE0;
     box-shadow: 0 4px 16px rgba(47,111,224,0.18);
-    content-visibility: auto;
-    contain-intrinsic-size: 280px 350px;
   }
 
   .album-card img {
@@ -414,15 +412,6 @@
     background: #F0F3F8;
     opacity: 0;
     animation: fadeUp 0.4s ease forwards;
-    /* Skip layout/paint/decode work for photos that are off-screen -
-       this is the big win for low-end machines on large albums */
-    content-visibility: auto;
-    contain-intrinsic-size: 240px 180px;
-  }
-
-  .album-photo.no-anim {
-    opacity: 1;
-    animation: none;
   }
 
   @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
@@ -554,7 +543,7 @@
   <button class="lightbox-nav prev" id="lightboxPrev">&#8249;</button>
   <button class="lightbox-nav next" id="lightboxNext">&#8250;</button>
   <div class="lightbox-inner">
-    <img id="lightboxImg" src="" alt="" decoding="async">
+    <img id="lightboxImg" src="" alt="">
     <video id="lightboxVideo" controls style="display:none; max-width:100%; max-height:75vh; border-radius:6px; border:1px solid #F0F3F8;"></video>
     <div class="lightbox-caption" id="lightboxCaption"></div>
   </div>
@@ -609,7 +598,7 @@ seasons.forEach(season => {
     card.className = "album-card";
     card.innerHTML = `
       <span class="count-badge">${album.photos.length} photos</span>
-      <img src="${album.cover}" alt="${album.title}" loading="lazy" decoding="async" fetchpriority="low">
+      <img src="${album.cover}" alt="${album.title}" loading="lazy">
       <div class="info">
         <span class="date">${album.date}</span>
         <h3>${album.title}</h3>
@@ -640,17 +629,10 @@ function openAlbum(index) {
   currentAlbum.photos.forEach((photo, i) => {
     const item = document.createElement("div");
     item.className = "album-photo";
-    // Only stagger-animate the first screenful of items; the rest just
-    // appear instantly. Keeps large albums from making a low-end CPU
-    // juggle dozens of simultaneous CSS animations on open.
-    if (i < 16) {
-      item.style.animationDelay = (i * 0.03) + "s";
-    } else {
-      item.classList.add("no-anim");
-    }
+    item.style.animationDelay = (i * 0.03) + "s";
     const mediaTag = photo.type === "video"
-      ? `<video data-src="${photo.src}" muted playsinline preload="none"></video>`
-      : `<img src="${photo.src}" alt="${photo.caption}" loading="lazy" decoding="async" fetchpriority="low">`;
+      ? `<video src="${photo.src}" muted playsinline preload="metadata"></video>`
+      : `<img src="${photo.src}" alt="${photo.caption}" loading="lazy">`;
     item.innerHTML = `
       ${mediaTag}
       <div class="caption">${photo.caption}</div>
@@ -659,29 +641,10 @@ function openAlbum(index) {
     albumPhotoGrid.appendChild(item);
   });
 
-  // Videos can't use the native `loading="lazy"` attribute, and browsers
-  // will otherwise start fetching every video's metadata the instant the
-  // grid is built. Defer that fetch until each video is actually about
-  // to scroll into view.
-  albumPhotoGrid.querySelectorAll("video[data-src]").forEach(v => videoObserver.observe(v));
-
   albumView.classList.add("open");
   albumView.scrollTop = 0;
   document.body.style.overflow = "hidden";
 }
-
-const videoObserver = new IntersectionObserver((entries, obs) => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    const v = entry.target;
-    if (v.dataset.src) {
-      v.preload = "metadata";
-      v.src = v.dataset.src;
-      delete v.dataset.src;
-    }
-    obs.unobserve(v);
-  });
-}, { rootMargin: "300px 0px" });
 
 backBtn.addEventListener("click", closeAlbum);
 
