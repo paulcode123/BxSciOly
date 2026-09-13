@@ -4,88 +4,197 @@
 
 {% block extra_css %}
 <style>
-    .gradient-text-light{background:linear-gradient(135deg,#c084fc 0%,#9333ea 40%,#4a148c 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .gradient-text-light {
+        background: linear-gradient(135deg, #d8b4fe 0%, #c084fc 40%, #9333ea 100%);
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
 
     /* z-index:0 (not just position:relative) makes this its own stacking
        context, so the canvas/scrim/grid/fade layers inside (z-index 2-5)
        stay contained and can never render on top of the site header. */
-    .hero-section{position:relative;z-index:0;min-height:65vh;overflow:hidden;background:linear-gradient(160deg,#060a18 0%,#0f172a 50%,#0c1220 100%)}
+    .hero-section {
+        position: relative;
+        z-index: 0;
+        min-height: 65vh;
+        overflow: hidden;
+        background: linear-gradient(160deg, #060a18 0%, #0f172a 50%, #0c1220 100%);
+    }
 
-    #inquiry-canvas{position:absolute;top:0;left:0;width:100%;height:100%;display:block;z-index:2;opacity:0.85}
+    #inq-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: block; z-index: 2; opacity: 0.85; }
 
-    .hero-loader{position:absolute;inset:0;z-index:6;display:flex;align-items:center;justify-content:center;background:#060a18;transition:opacity 0.5s ease}
-    .hero-loader.hidden{opacity:0;pointer-events:none}
-    .loader-spinner{width:40px;height:40px;border:3px solid rgba(147,51,234,0.2);border-top-color:#9333ea;border-radius:50%;animation:spin 1s linear infinite}
-    @keyframes spin{to{transform:rotate(360deg)}}
+    .hero-scrim {
+        position: absolute; inset: 0; z-index: 3; pointer-events: none;
+        background: linear-gradient(to right,
+            rgba(6, 10, 24, 0.88) 0%, rgba(6, 10, 24, 0.7) 18%, rgba(6, 10, 24, 0.45) 34%,
+            rgba(6, 10, 24, 0.2) 48%, rgba(6, 10, 24, 0.06) 60%, transparent 72%);
+    }
 
-    .hero-scrim{position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(to right,rgba(6,10,24,0.88) 0%,rgba(6,10,24,0.7) 18%,rgba(6,10,24,0.45) 34%,rgba(6,10,24,0.2) 48%,rgba(6,10,24,0.06) 60%,transparent 72%)}
-    .hero-grid-pattern{position:absolute;inset:0;z-index:4;pointer-events:none;background-image:linear-gradient(rgba(147,51,234,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(147,51,234,0.02) 1px,transparent 1px);background-size:48px 48px}
-    .hero-fade{position:absolute;bottom:0;left:0;right:0;height:200px;pointer-events:none;z-index:5;background:linear-gradient(to bottom,rgba(6,10,24,0) 0%,rgba(15,10,42,0.55) 18%,rgba(40,22,70,0.35) 38%,rgba(120,90,180,0.3) 55%,rgba(225,215,245,0.6) 75%,#f8f9ff 100%)}
+    .hero-grid-pattern {
+        position: absolute; inset: 0; z-index: 4; pointer-events: none;
+        background-image: linear-gradient(rgba(192, 132, 252, 0.02) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(192, 132, 252, 0.02) 1px, transparent 1px);
+        background-size: 48px 48px;
+    }
 
-    .hero-heading{text-shadow:0 2px 16px rgba(0,0,0,0.55)}
+    .hero-fade {
+        position: absolute; bottom: 0; left: 0; right: 0; height: 200px; pointer-events: none; z-index: 5;
+        background: linear-gradient(to bottom,
+            rgba(6, 10, 24, 0) 0%, rgba(15, 23, 42, 0.55) 18%, rgba(18, 22, 60, 0.35) 38%,
+            rgba(100, 130, 190, 0.3) 55%, rgba(200, 215, 245, 0.6) 75%, #f8f9ff 100%);
+    }
 
-    @keyframes chevronBounce{0%,100%{transform:translateY(0);opacity:0.4}50%{transform:translateY(10px);opacity:0.9}}
-    .scroll-chevron{animation:chevronBounce 2s ease-in-out infinite;cursor:pointer;text-decoration:none}
+    .scroll-chevron {
+        position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); z-index: 10;
+        cursor: pointer; text-decoration: none; animation: chevronBounce 2s ease-in-out infinite;
+    }
+    @keyframes chevronBounce {
+        0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.4; }
+        50% { transform: translateX(-50%) translateY(10px); opacity: 0.9; }
+    }
 
-    .reveal{opacity:0;transform:translateY(28px);animation:revealUp 0.75s cubic-bezier(0.22,1,0.36,1) forwards}
-    .reveal-d1{animation-delay:0.12s}.reveal-d2{animation-delay:0.24s}
-    @keyframes revealUp{to{opacity:1;transform:translateY(0)}}
+    .reveal { opacity: 0; transform: translateY(28px); animation: revealUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+    .reveal-d1 { animation-delay: 0.12s; }
+    .reveal-d2 { animation-delay: 0.24s; }
+    @keyframes revealUp { to { opacity: 1; transform: translateY(0); } }
 
-    .btn-hero{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.85);transition:all 0.3s cubic-bezier(0.22,1,0.36,1);font-weight:600}
-    .btn-hero:hover{background:rgba(255,255,255,0.1);transform:translateY(-2px);box-shadow:0 8px 24px rgba(147,51,234,0.2);border-color:rgba(255,255,255,1)}
+    .btn-hero {
+        background: transparent; color: #ffffff; border: 2px solid rgba(255, 255, 255, 0.85);
+        transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1); font-weight: 600;
+    }
+    .btn-hero:hover {
+        background: rgba(255, 255, 255, 0.1); transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(147, 51, 234, 0.2); border-color: rgba(255, 255, 255, 1);
+    }
 
-    .event-card{background:#ffffff;border:1px solid #e2e8f0;border-radius:14px;transition:all 0.35s cubic-bezier(0.22,1,0.36,1);opacity:0;transform:translateY(24px);border-left:3px solid var(--card-accent)}
-    .event-card.visible{opacity:1;transform:translateY(0)}
-    .event-card:hover{box-shadow:0 10px 36px rgba(147,51,234,0.06);border-color:rgba(147,51,234,0.12);border-left-color:var(--card-accent)}
+    .event-card {
+        background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px;
+        transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1); opacity: 0; transform: translateY(24px);
+        border-left: 3px solid #9333ea;
+    }
+    .event-card.visible { opacity: 1; transform: translateY(0); }
+    .event-card:hover { box-shadow: 0 10px 36px rgba(147, 51, 234, 0.06); border-color: rgba(147, 51, 234, 0.12); }
 
-    .section-label{font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#64748b;margin-bottom:10px}
-    .learn-item{display:flex;align-items:flex-start;gap:10px;padding:5px 0}
-    .learn-dot{width:5px;height:5px;border-radius:50%;margin-top:8px;flex-shrink:0}
-    .learn-text{font-size:14px;color:#475569;line-height:1.5}
-    .team-badge{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:100px;font-size:10px;font-weight:700;font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;border:1.5px solid rgba(147,51,234,0.2);color:#64748b;background:transparent}
+    .section-label {
+        font-family: 'Space Grotesk', sans-serif; font-size: 10px; font-weight: 700;
+        letter-spacing: 0.1em; text-transform: uppercase; color: #64748b; margin-bottom: 10px;
+    }
+    .learn-item { display: flex; align-items: flex-start; gap: 10px; padding: 5px 0; }
+    .learn-dot { width: 5px; height: 5px; border-radius: 50%; margin-top: 8px; flex-shrink: 0; background: #9333ea; }
+    .learn-text { font-size: 14px; color: #475569; line-height: 1.5; }
 
-    @media(prefers-reduced-motion:reduce){
-        .reveal{animation:none;opacity:1;transform:none}
-        .event-card{opacity:1;transform:none}
-        .scroll-chevron{animation:none}
+    .team-badge {
+        display: inline-flex; align-items: center; gap: 5px; padding: 3px 10px; border-radius: 100px;
+        font-size: 10px; font-weight: 700; font-family: 'Space Grotesk', sans-serif; letter-spacing: 0.08em;
+        border: 1.5px solid rgba(147, 51, 234, 0.2); color: #64748b; background: transparent;
+    }
+
+    .hero-heading { text-shadow: 0 2px 16px rgba(0, 0, 0, 0.55); }
+
+    .events-section {
+        padding-bottom: 96px; padding-top: 48px;
+        background: radial-gradient(ellipse at 30% 0%, rgba(147, 51, 234, 0.05) 0%, transparent 50%), #f8f9ff;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .reveal { animation: none; opacity: 1; transform: none; }
+        .event-card { opacity: 1; transform: none; }
+        .scroll-chevron { animation: none; }
     }
 </style>
 {% endblock %}
 
 {% block content %}
 
-    <!-- HERO -->
-    <section class="hero-section" id="heroSection">
-        <canvas id="inquiry-canvas"></canvas>
-        <div id="hero-loader" class="hero-loader"><div class="loader-spinner"></div></div>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <canvas id="inq-canvas"></canvas>
         <div class="hero-scrim"></div>
         <div class="hero-grid-pattern"></div>
-        <div class="hero-fade"></div>
-        <div class="relative z-10 max-w-7xl mx-auto px-6 pt-28 pb-8 flex items-center" style="min-height:65vh">
-            <div class="max-w-[440px]">
-                <h1 class="font-display leading-[0.92] mb-5 hero-heading reveal">
-                    <span class="gradient-text-light font-extrabold text-6xl sm:text-7xl lg:text-8xl">Inquiry</span>
+
+        <div class="max-w-7xl mx-auto px-6 pt-28 pb-8 flex items-center min-h-[65vh] relative z-10">
+            <div class="max-w-[480px]">
+                <h1 class="hero-heading font-display leading-[0.92] mb-5 reveal">
+                    <span class="gradient-text-light font-extrabold text-6xl sm:text-7xl lg:text-8xl block">Inquiry</span>
                     <span class="text-white font-bold text-4xl sm:text-5xl lg:text-6xl block mt-1">Events</span>
                 </h1>
-                <p class="text-slate-300/90 text-base sm:text-lg leading-relaxed mb-10 max-w-md reveal reveal-d1">
-                    Break the cipher. Design the experiment. Turn a structure into words someone else can build from.
+                <p class="text-slate-300/90 text-base sm:text-lg leading-relaxed mb-8 max-w-md reveal reveal-d1">
+                    Cryptanalysis, on-the-spot experiments, and pure written communication. Solve what can't be looked up.
                 </p>
-                <a href="#events" class="btn-hero inline-block px-7 py-3.5 rounded-lg font-display reveal reveal-d2">View All Events</a>
+                <a href="#events" class="btn-hero inline-block px-6 py-3 rounded-lg text-sm reveal reveal-d2">View All Events</a>
             </div>
         </div>
-        <a href="#events" class="scroll-chevron absolute bottom-6 left-1/2 -translate-x-1/2 z-10">
+
+        <a href="#events" class="scroll-chevron">
             <i class="fa-solid fa-chevron-down text-white/50 text-lg"></i>
         </a>
+        <div class="hero-fade"></div>
     </section>
 
-    <!-- EVENTS SECTION -->
-    <section id="events" class="pt-12 pb-24" style="background:radial-gradient(ellipse at 30% 0%,rgba(147,51,234,0.06) 0%,transparent 50%),#f8f9ff">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-12">
+    <!-- Events Section -->
+    <section id="events" class="events-section">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
                 <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-slate-800 mb-2">3 Competitive Events</h2>
                 <p class="text-slate-500 text-base max-w-md mx-auto">Cryptanalysis, on-the-spot experiments, and pure written communication.</p>
             </div>
-            <div id="events-grid" class="grid grid-cols-1 gap-6 items-start max-w-3xl mx-auto"></div>
+
+            <div class="grid grid-cols-1 gap-6 items-start">
+
+                <!-- Card 1: Codebusters -->
+                <div class="event-card p-7 sm:p-8 pb-8" style="transition-delay: 0ms">
+                    <div class="flex items-start justify-between gap-3 mb-3">
+                        <h3 class="font-display font-bold text-xl text-slate-800 leading-tight">Codebusters</h3>
+                        <span class="team-badge"><i class="fa-solid fa-user-group text-[9px]"></i><span>TEAM OF 3</span></span>
+                    </div>
+                    <p class="text-sm text-slate-500 leading-relaxed mb-5">A timed cryptanalysis exam — decode encrypted messages using both historical and modern ciphers.</p>
+                    <div>
+                        <h4 class="section-label">What You'll Learn</h4>
+                        <div class="space-y-0.5">
+                            <div class="learn-item"><span class="learn-dot"></span><span class="learn-text">Solving monoalphabetic ciphers: Aristocrats, Patristocrats, Xenocrypts</span></div>
+                            <div class="learn-item"><span class="learn-dot"></span><span class="learn-text">Cryptanalysis of Vigenère, Hill, and other polyalphabetic ciphers</span></div>
+                            <div class="learn-item"><span class="learn-dot"></span><span class="learn-text">Letter-frequency analysis and pattern recognition</span></div>
+                            <div class="learn-item"><span class="learn-dot"></span><span class="learn-text">Splitting problems across a team of three to work efficiently under time pressure</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Experimental Design -->
+                <div class="event-card p-7 sm:p-8 pb-8" style="transition-delay: 50ms">
+                    <div class="flex items-start justify-between gap-3 mb-3">
+                        <h3 class="font-display font-bold text-xl text-slate-800 leading-tight">Experimental Design</h3>
+                        <span class="team-badge"><i class="fa-solid fa-user-group text-[9px]"></i><span>TEAM OF 3</span></span>
+                    </div>
+                    <p class="text-sm text-slate-500 leading-relaxed mb-5">Given unfamiliar materials, teams design, run, and write up an original experiment entirely on the spot.</p>
+                    <div>
+                        <h4 class="section-label">What You'll Learn</h4>
+                        <div class="space-y-0.5">
+                            <div class="learn-item"><span class="learn-dot"></span><span class="learn-text">Writing a testable problem statement and hypothesis</span></div>
+                            <div class="learn-item"><span class="learn-dot"></span><span class="learn-text">Identifying independent, dependent, and controlled variables</span></div>
+                            <div class="learn-item"><span class="learn-dot"></span><span class="learn-text">Collecting and graphing real data within a roughly 50-minute window</span></div>
+                            <div class="learn-item"><span class="learn-dot"></span><span class="learn-text">Analyzing results and reporting conclusions in a structured write-up</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Write It Do It -->
+                <div class="event-card p-7 sm:p-8 pb-8" style="transition-delay: 100ms">
+                    <div class="flex items-start justify-between gap-3 mb-3">
+                        <h3 class="font-display font-bold text-xl text-slate-800 leading-tight">Write It Do It</h3>
+                        <span class="team-badge"><i class="fa-solid fa-user-group text-[9px]"></i><span>TEAM OF 2</span></span>
+                    </div>
+                    <p class="text-sm text-slate-500 leading-relaxed mb-5">One teammate writes instructions for building a structure; the other builds it from those instructions alone, with no drawings allowed.</p>
+                    <div>
+                        <h4 class="section-label">What You'll Learn</h4>
+                        <div class="space-y-0.5">
+                            <div class="learn-item"><span class="learn-dot"></span><span class="learn-text">Writing clear, unambiguous step-by-step instructions</span></div>
+                            <div class="learn-item"><span class="learn-dot"></span><span class="learn-text">Describing a 3D structure using only text</span></div>
+                            <div class="learn-item"><span class="learn-dot"></span><span class="learn-text">Building an accurate replica from a partner's written directions</span></div>
+                            <div class="learn-item"><span class="learn-dot"></span><span class="learn-text">Scored on how closely the final build matches the original</span></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 
@@ -93,196 +202,399 @@
 
 {% block extra_js %}
 
-    <!-- Same CDN + version as the biology/chemistry pages on purpose: once a
-         visitor has loaded one department page, the browser caches these
-         Three.js modules and the other pages load them instantly instead of
-         re-downloading. Mixing CDNs across pages defeats this. -->
     <script type="importmap">
     {"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}
     </script>
+
     <script type="module">
         import * as THREE from 'three';
-        import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
         import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
         import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
         import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
         import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
         import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
-        // ^ fixed a typo here: the original imported EffectComposer from
-        // ".../post-processing/..." (with a hyphen), a path that doesn't
-        // exist. That 404 broke the whole module — since ES module imports
-        // are all-or-nothing, none of this script ever ran, animate() never
-        // fired, and the loading spinner below never got told to hide. That
-        // was almost certainly the "takes forever to load" bug.
+        import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 
-        const heroSection = document.getElementById('heroSection');
-        const canvas = document.getElementById('inquiry-canvas');
-        const heroLoader = document.getElementById('hero-loader');
-
-        const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-        renderer.setSize(heroSection.offsetWidth, heroSection.offsetHeight);
-        renderer.toneMapping = THREE.ACESFilmicToneMapping;
-        renderer.toneMappingExposure = 1.2;
-        renderer.setClearColor(0x000000, 0);
+        const heroSection = document.querySelector('.hero-section');
+        const canvas = document.getElementById('inq-canvas');
 
         const scene = new THREE.Scene();
         scene.background = null;
+
         const camera = new THREE.PerspectiveCamera(32, heroSection.offsetWidth / Math.max(1, heroSection.offsetHeight), 0.1, 100);
-        camera.position.set(1.8, 0.3, 9);
+        camera.position.set(0, 0, 9);
+
+        const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+        renderer.toneMapping = THREE.ACESFilmicToneMapping;
+        renderer.toneMappingExposure = 1.2;
+        renderer.setClearColor(0x000000, 0);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.setSize(heroSection.offsetWidth, heroSection.offsetHeight);
 
         const pmrem = new THREE.PMREMGenerator(renderer);
-        scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+        const envTexture = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+        scene.environment = envTexture;
         pmrem.dispose();
 
+        // Lighting
+        const keyLight = new THREE.DirectionalLight(0xfff5e6, 2.0);
+        keyLight.position.set(-5, 5, 5);
+        scene.add(keyLight);
+
+        const fillLight = new THREE.DirectionalLight(0xe6f0ff, 0.8);
+        fillLight.position.set(5, -2, 4);
+        scene.add(fillLight);
+
+        const rimLight = new THREE.DirectionalLight(0x818cf8, 1.2);
+        rimLight.position.set(0, 2, -6);
+        scene.add(rimLight);
+
         scene.add(new THREE.AmbientLight(0xffffff, 0.25));
-        const keyLight = new THREE.DirectionalLight(0xfff5e6, 2.0); keyLight.position.set(-5, 5, 5); scene.add(keyLight);
-        const fillLight = new THREE.DirectionalLight(0xe6f0ff, 0.8); fillLight.position.set(5, -2, 4); scene.add(fillLight);
-        const rimLight = new THREE.DirectionalLight(0x818cf8, 1.2); rimLight.position.set(0, 2, -6); scene.add(rimLight);
 
-        const inquiryGroup = new THREE.Group();
-        inquiryGroup.position.set(2.8, -0.6, 0);
-        inquiryGroup.rotation.x = 0.15; inquiryGroup.rotation.z = -0.1;
-        scene.add(inquiryGroup);
+        // Cryptex Group — right half of hero (even split with left text column), caps bleed out of frame
+        const FINAL_SCALE = 1.9;
+        const cryptexGroup = new THREE.Group();
+        cryptexGroup.position.set(0, 0, 0);
+        cryptexGroup.scale.set(FINAL_SCALE, FINAL_SCALE, FINAL_SCALE);
 
-        const coreGeo = new THREE.IcosahedronGeometry(1.5, 1);
-        const coreMat = new THREE.MeshPhysicalMaterial({ color: 0x4a148c, metalness: 0.4, roughness: 0.1, transmission: 0.8, thickness: 1.5, envMapIntensity: 1.5, clearcoat: 1, clearcoatRoughness: 0.1 });
-        const core = new THREE.Mesh(coreGeo, coreMat);
-        inquiryGroup.add(core);
+        // Even two-column layout: text owns left half, column owns right half (recomputed on resize)
+        function layoutColumnX() {
+            const vH = 2 * Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)) * camera.position.z;
+            const vW = vH * camera.aspect;
+            cryptexGroup.position.x = vW * 0.26; // center of the right half
+        }
+        layoutColumnX();
 
-        const wireGeo = new THREE.IcosahedronGeometry(1.6, 1);
-        const wireMat = new THREE.MeshBasicMaterial({ color: 0xc084fc, wireframe: true, transparent: true, opacity: 0.6 });
-        const wire = new THREE.Mesh(wireGeo, wireMat);
-        inquiryGroup.add(wire);
+        const darkMetal = new THREE.MeshPhysicalMaterial({
+            color: 0x232427, metalness: 0.8, roughness: 0.35, clearcoat: 0.5, envMapIntensity: 0.8
+        });
 
-        const floatMats = [
-            new THREE.MeshStandardMaterial({ color: 0x9333ea, emissive: 0x9333ea, emissiveIntensity: 0.8, metalness: 0.5, roughness: 0.2 }),
-            new THREE.MeshStandardMaterial({ color: 0xc084fc, emissive: 0xc084fc, emissiveIntensity: 0.8, metalness: 0.5, roughness: 0.2 }),
-        ];
-        const floats = [];
-        for (let i = 0; i < 6; i++) {
-            const r = 0.2 + Math.random() * 0.2;
-            const geo = i % 2 === 0 ? new THREE.OctahedronGeometry(r) : new THREE.TetrahedronGeometry(r);
-            const m = new THREE.Mesh(geo, floatMats[i % 2]);
-            m.userData = { angle: Math.random() * Math.PI * 2, radius: 2.2 + Math.random() * 0.8, speed: 0.002 + Math.random() * 0.004, yOffset: (Math.random() - 0.5) * 2 };
-            floats.push(m); inquiryGroup.add(m);
+        const endCapMat = new THREE.MeshPhysicalMaterial({
+            color: 0x1a1b1e, metalness: 0.9, roughness: 0.2, clearcoat: 1.0
+        });
+
+        const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".split("");
+        const tilesPerRing = 16;
+        const RING_SPACING = 0.42; // widened stack so ~6-7 rings stay in frame while caps bleed out
+        const radius = 0.8;
+
+        // TRUE SOLVE: one letter per wheel at the reading line, stacked VERTICALLY down the column
+        const solvedLetters = { 1: 'C', 2: 'R', 3: 'Y', 4: 'P', 5: 'T' };
+
+        function createCharCanvas(char, isGlowing) {
+            const canvas = document.createElement('canvas');
+            canvas.width = 128;
+            canvas.height = 128;
+            const ctx = canvas.getContext('2d');
+
+            ctx.fillStyle = '#232427';
+            ctx.fillRect(0, 0, 128, 128);
+
+            ctx.strokeStyle = '#3a3c40';
+            ctx.lineWidth = 6;
+            ctx.strokeRect(3, 3, 122, 122);
+
+            ctx.font = 'bold 80px Space Grotesk, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+
+            if (isGlowing) {
+                ctx.shadowColor = 'rgba(255, 154, 46, 0.85)';
+                ctx.shadowBlur = 8;
+                ctx.fillStyle = '#FFC46B';
+                ctx.fillText(char, 64, 64);
+                ctx.shadowBlur = 0;
+                ctx.shadowColor = 'transparent';
+                ctx.fillStyle = '#FFD9A0';
+                ctx.fillText(char, 64, 64);
+            } else {
+                ctx.shadowColor = 'rgba(0,0,0,0.85)';
+                ctx.shadowBlur = 4;
+                ctx.shadowOffsetY = 2;
+                ctx.fillStyle = '#d9dce6';
+                ctx.fillText(char, 64, 64);
+                ctx.shadowColor = 'transparent';
+                ctx.shadowOffsetY = 0;
+                ctx.fillStyle = 'rgba(15,16,20,0.25)';
+                ctx.fillText(char, 64, 62.5);
+                ctx.fillStyle = '#d9dce6';
+                ctx.fillText(char, 64, 64);
+            }
+            return new THREE.CanvasTexture(canvas);
         }
 
-        const particleGroup = new THREE.Group();
-        const particleMat = new THREE.MeshPhysicalMaterial({ color: 0x9333ea, metalness: 0.15, roughness: 0.2, clearcoat: 1, clearcoatRoughness: 0.1, transparent: true, opacity: 0.22, emissive: 0x9333ea, emissiveIntensity: 0.15, envMapIntensity: 0.8 });
-        const particles = [];
+        const tileGeo = new THREE.BoxGeometry(0.25, 0.22, 0.15);
+        const ringGroups = [];
+        const glowMats = [];
+
+        for (let r = 0; r < 8; r++) {
+            const ringGroup = new THREE.Group();
+            const y = (3.5 - r) * RING_SPACING;
+            ringGroup.position.y = y;
+
+            for (let i = 0; i < tilesPerRing; i++) {
+                const angle = (i / tilesPerRing) * Math.PI * 2;
+                let char = chars[Math.floor(Math.random() * chars.length)];
+                let isGlowing = false;
+
+                if (solvedLetters[r] && i === 0) {
+                    char = solvedLetters[r];
+                    isGlowing = true;
+                }
+
+                const charTex = createCharCanvas(char, isGlowing);
+                const frontMat = new THREE.MeshPhysicalMaterial({
+                    map: charTex,
+                    metalness: 0.6,
+                    roughness: 0.4,
+                    emissive: isGlowing ? 0xFFA32B : 0x000000,
+                    emissiveIntensity: isGlowing ? 0.85 : 0,
+                    emissiveMap: isGlowing ? charTex : null,
+                    envMapIntensity: 0.5
+                });
+                if (isGlowing) glowMats.push(frontMat);
+
+                const tile = new THREE.Mesh(tileGeo, [
+                    darkMetal, darkMetal, darkMetal, darkMetal, frontMat, darkMetal
+                ]);
+
+                tile.position.x = Math.sin(angle) * radius;
+                tile.position.z = Math.cos(angle) * radius;
+                tile.rotation.y = angle;
+
+                tile.position.x += (Math.random() - 0.5) * 0.01;
+                tile.position.z += (Math.random() - 0.5) * 0.01;
+                tile.rotation.z = (Math.random() - 0.5) * 0.02;
+
+                ringGroup.add(tile);
+            }
+            ringGroups.push(ringGroup);
+            cryptexGroup.add(ringGroup);
+        }
+
+        const capGeo = new THREE.CylinderGeometry(radius + 0.15, radius + 0.15, 0.15, 32);
+        const topCap = new THREE.Mesh(capGeo, endCapMat);
+        topCap.position.y = ringGroups[0].position.y + 0.33;
+        cryptexGroup.add(topCap);
+
+        const bottomCap = new THREE.Mesh(capGeo, endCapMat);
+        bottomCap.position.y = ringGroups[7].position.y - 0.33;
+        cryptexGroup.add(bottomCap);
+
+        const solveLight = new THREE.PointLight(0xffa32b, 1.5, 10, 2);
+        solveLight.position.set(0, ringGroups[3].position.y, 1.2);
+        cryptexGroup.add(solveLight);
+
+        // Orbiting glyph halo
+        const haloGroup = new THREE.Group();
+        haloGroup.rotation.x = THREE.MathUtils.degToRad(30);
+        haloGroup.position.y = ringGroups[3].position.y;
+
+        const glyphGeo = new THREE.PlaneGeometry(0.12, 0.12);
+        const glyphParticles = [];
+
+        function createGlyphCanvas(char) {
+            const canvas = document.createElement('canvas');
+            canvas.width = 64; canvas.height = 64;
+            const ctx = canvas.getContext('2d');
+            ctx.font = 'bold 48px Space Grotesk, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.shadowColor = '#FFA32B';
+            ctx.shadowBlur = 15;
+            ctx.fillStyle = '#FFD27A';
+            ctx.fillText(char, 32, 32);
+            return new THREE.CanvasTexture(canvas);
+        }
+
         for (let i = 0; i < 50; i++) {
-            const sz = 0.012 + Math.random() * 0.04;
-            const p = new THREE.Mesh(new THREE.SphereGeometry(sz, 16, 16), particleMat.clone());
-            p.material.opacity = 0.22 + Math.random() * 0.14;
-            p.userData = { angle: Math.random() * Math.PI * 2, radius: 2.0 + Math.random() * 2.5, height: (Math.random() - 0.5) * 8, speed: 0.001 + Math.random() * 0.004, fSpeed: 0.0005 + Math.random() * 0.0015, fAmp: 0.1 + Math.random() * 0.25 };
-            particles.push(p); particleGroup.add(p);
+            const char = chars[Math.floor(Math.random() * chars.length)];
+            const tex = createGlyphCanvas(char);
+            const mat = new THREE.MeshBasicMaterial({
+                map: tex, transparent: true, side: THREE.DoubleSide, depthWrite: false, blending: THREE.AdditiveBlending
+            });
+            const mesh = new THREE.Mesh(glyphGeo, mat);
+            const angle = Math.random() * Math.PI * 2;
+            const r = 1.0 + Math.random() * 1.4;
+            mesh.position.set(Math.cos(angle) * r, (Math.random() - 0.5) * 0.5, Math.sin(angle) * r);
+            mesh.rotation.y = Math.random() * Math.PI;
+            mesh.userData = { angle: angle, radius: r, speed: 0.002 + Math.random() * 0.005, yBase: mesh.position.y, fSpeed: 0.001 + Math.random() * 0.002, fAmp: 0.1 + Math.random() * 0.2 };
+            haloGroup.add(mesh);
+            glyphParticles.push(mesh);
         }
-        scene.add(particleGroup);
 
+        // Spark / ember trail
+        const pCount = 150;
+        const pGeo = new THREE.BufferGeometry();
+        const pPositions = new Float32Array(pCount * 3);
+        const pData = [];
+
+        const pCanvas = document.createElement('canvas');
+        pCanvas.width = 32; pCanvas.height = 32;
+        const pCtx = pCanvas.getContext('2d');
+        const grad = pCtx.createRadialGradient(16, 16, 0, 16, 16, 16);
+        grad.addColorStop(0, 'rgba(255, 210, 122, 1)');
+        grad.addColorStop(0.4, 'rgba(255, 163, 43, 0.8)');
+        grad.addColorStop(1, 'rgba(255, 163, 43, 0)');
+        pCtx.fillStyle = grad;
+        pCtx.fillRect(0, 0, 32, 32);
+        const pTex = new THREE.CanvasTexture(pCanvas);
+
+        for (let i = 0; i < pCount; i++) {
+            const angle = Math.random() * Math.PI * 2;
+            const r = 1.0 + Math.random() * 1.6;
+            pPositions[i * 3] = Math.cos(angle) * r;
+            pPositions[i * 3 + 1] = (Math.random() - 0.5) * 0.8;
+            pPositions[i * 3 + 2] = Math.sin(angle) * r;
+            pData.push({
+                angle: angle, radius: r, speed: 0.003 + Math.random() * 0.008,
+                yBase: pPositions[i * 3 + 1], fSpeed: 0.002 + Math.random() * 0.003, fAmp: 0.2 + Math.random() * 0.3
+            });
+        }
+        pGeo.setAttribute('position', new THREE.BufferAttribute(pPositions, 3));
+
+        const pMat = new THREE.PointsMaterial({
+            size: 0.05, map: pTex, transparent: true, blending: THREE.AdditiveBlending, depthWrite: false
+        });
+        const particles = new THREE.Points(pGeo, pMat);
+        haloGroup.add(particles);
+
+        cryptexGroup.add(haloGroup);
+        scene.add(cryptexGroup);
+
+        // Post-processing
         const composer = new EffectComposer(renderer);
         composer.addPass(new RenderPass(scene, camera));
-        const bloomPass = new UnrealBloomPass(new THREE.Vector2(heroSection.offsetWidth, heroSection.offsetHeight), 0.3, 0.5, 0.82);
+
+        const bloomPass = new UnrealBloomPass(
+            new THREE.Vector2(heroSection.offsetWidth, heroSection.offsetHeight), 0.3, 0.5, 0.82
+        );
         composer.addPass(bloomPass);
 
-        const shaderPass = new ShaderPass({
+        const CustomShader = {
             uniforms: { tDiffuse: { value: null }, uVignette: { value: 0.4 }, uChromatic: { value: 0.002 }, uTime: { value: 0 } },
-            vertexShader: `varying vec2 vUv; void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}`,
-            fragmentShader: `uniform sampler2D tDiffuse;uniform float uVignette;uniform float uChromatic;uniform float uTime;varying vec2 vUv;void main(){vec2 c=vUv-0.5;float dist=length(c);vec2 offset=c*dist*uChromatic;vec4 col;col.r=texture2D(tDiffuse,vUv-offset).r;col.g=texture2D(tDiffuse,vUv).g;col.b=texture2D(tDiffuse,vUv+offset).b;col.a=1.0;float lum=dot(col.rgb,vec3(0.299,0.587,0.114));col.rgb+=vec3(0.0,0.012,0.035)*(1.0-lum)*0.5;col.rgb+=vec3(0.02,0.01,0.0)*lum*0.3;col.rgb=(col.rgb-0.5)*1.06+0.5;float v=1.0-dist*uVignette;v=smoothstep(0.0,1.0,v);col.rgb*=v;gl_FragColor=col;}`
-        });
-        composer.addPass(shaderPass);
+            vertexShader: `
+                varying vec2 vUv;
+                void main() {
+                    vUv = uv;
+                    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+                }
+            `,
+            fragmentShader: `
+                uniform sampler2D tDiffuse;
+                uniform float uVignette;
+                uniform float uChromatic;
+                uniform float uTime;
+                varying vec2 vUv;
+                void main() {
+                    vec2 uv = vUv;
+                    vec2 center = vec2(0.5);
+                    float dist = distance(uv, center);
+
+                    float r = texture2D(tDiffuse, uv + vec2(dist * uChromatic, 0.0)).r;
+                    float g = texture2D(tDiffuse, uv).g;
+                    float b = texture2D(tDiffuse, uv - vec2(dist * uChromatic, 0.0)).b;
+                    vec3 col = vec3(r, g, b);
+
+                    float lum = dot(col, vec3(0.299, 0.587, 0.114));
+                    col += vec3(0.03, 0.0, 0.05) * (1.0 - lum) * 0.5;
+                    col += vec3(0.02, 0.01, 0.0) * lum * 0.3;
+
+                    col = (col - 0.5) * 1.06 + 0.5;
+
+                    float v = 1.0 - dist * uVignette;
+                    v = smoothstep(0.0, 1.0, v);
+                    col *= v;
+
+                    gl_FragColor = vec4(col, 1.0);
+                }
+            `
+        };
+        composer.addPass(new ShaderPass(CustomShader));
         composer.addPass(new OutputPass());
 
-        let mouseX = 0, mouseY = 0, smoothMX = 0, smoothMY = 0, baseRotY = 0;
-        window.addEventListener('mousemove', e => { mouseX = (e.clientX / window.innerWidth - 0.5) * 2; mouseY = (e.clientY / window.innerHeight - 0.5) * 2; });
-
-        let introScale = 0, firstFrameRendered = false;
-        const introStart = performance.now();
+        // Animation — single-axis (Y) motion: gentle showcase sway so the vertical solve stays readable;
+        // solved wheels (1-5) are locked in alignment, unsolved wheels keep spinning
+        let introProgress = 0;
+        const introDuration = 1.6;
+        const startTime = Date.now();
 
         function animate() {
             requestAnimationFrame(animate);
-            const now = performance.now();
-            shaderPass.uniforms.uTime.value = now * 0.001;
+            const now = Date.now();
+            const elapsed = (now - startTime) / 1000;
 
-            if (!firstFrameRendered) { heroLoader.classList.add('hidden'); firstFrameRendered = true; }
-
-            if (introScale < 1) {
-                const progress = Math.min(1, (now - introStart) / 1600);
-                introScale = 1 - Math.pow(1 - progress, 3);
-                inquiryGroup.scale.set(0.5 * introScale, 0.5 * introScale, 0.5 * introScale);
+            if (introProgress < 1) {
+                introProgress = Math.min(1, elapsed / introDuration);
+                const ease = 1 - Math.pow(1 - introProgress, 3);
+                cryptexGroup.scale.setScalar(ease * FINAL_SCALE);
             }
 
-            baseRotY += 0.004;
-            smoothMX += (mouseX * 0.18 - smoothMX) * 0.04;
-            smoothMY += (mouseY * 0.1 - smoothMY) * 0.04;
-            inquiryGroup.rotation.y = baseRotY + smoothMX;
-            inquiryGroup.rotation.x = 0.15 + smoothMY;
-            inquiryGroup.position.y = -0.6 + Math.sin(now * 0.0007) * 0.1;
+            cryptexGroup.rotation.y = Math.sin(now * 0.0003) * 0.3;
+            cryptexGroup.position.y = Math.sin(now * 0.0007) * 0.08;
 
-            wire.rotation.x -= 0.002; wire.rotation.y -= 0.003; core.rotation.x += 0.001;
-
-            floats.forEach(f => {
-                f.userData.angle += f.userData.speed;
-                f.position.x = f.userData.radius * Math.cos(f.userData.angle);
-                f.position.z = f.userData.radius * Math.sin(f.userData.angle);
-                f.position.y = f.userData.yOffset + Math.sin(now * 0.001 + f.userData.angle) * 0.3;
-                f.rotation.x += 0.01; f.rotation.y += 0.02;
+            ringGroups.forEach((rg, idx) => {
+                if (idx >= 1 && idx <= 5) return;
+                const dir = idx % 2 === 0 ? 1 : -1;
+                const speed = 0.002 + (idx * 0.0005);
+                rg.rotation.y += speed * dir;
             });
 
-            particles.forEach(p => {
-                p.userData.angle += p.userData.speed;
-                p.position.x = p.userData.radius * Math.cos(p.userData.angle) + 2.8;
-                p.position.z = p.userData.radius * Math.sin(p.userData.angle);
-                p.position.y = p.userData.height + Math.sin(now * p.userData.fSpeed) * p.userData.fAmp;
+            const pulse = 1 + Math.sin(now * 0.002094) * 0.1;
+            glowMats.forEach(m => { m.emissiveIntensity = 0.85 * pulse; });
+            solveLight.intensity = 1.5 * pulse;
+
+            glyphParticles.forEach(g => {
+                g.userData.angle += g.userData.speed;
+                g.position.x = Math.cos(g.userData.angle) * g.userData.radius;
+                g.position.z = Math.sin(g.userData.angle) * g.userData.radius;
+                g.position.y = g.userData.yBase + Math.sin(now * g.userData.fSpeed) * g.userData.fAmp;
+                g.rotation.y += 0.01;
             });
+
+            const positions = particles.geometry.attributes.position.array;
+            for (let i = 0; i < pCount; i++) {
+                const d = pData[i];
+                d.angle += d.speed;
+                positions[i * 3] = Math.cos(d.angle) * d.radius;
+                positions[i * 3 + 2] = Math.sin(d.angle) * d.radius;
+                positions[i * 3 + 1] = d.yBase + Math.sin(now * d.fSpeed) * d.fAmp;
+            }
+            particles.geometry.attributes.position.needsUpdate = true;
 
             composer.render();
         }
         animate();
 
         window.addEventListener('resize', () => {
-            const w = heroSection.offsetWidth, h = Math.max(1, heroSection.offsetHeight);
-            camera.aspect = w / h; camera.updateProjectionMatrix();
-            renderer.setSize(w, h); composer.setSize(w, h);
+            const w = heroSection.offsetWidth;
+            const h = heroSection.offsetHeight;
+            camera.aspect = w / h;
+            camera.updateProjectionMatrix();
+            renderer.setSize(w, h);
+            composer.setSize(w, h);
             bloomPass.resolution.set(w, h);
+            layoutColumnX();
         });
     </script>
 
-    <!-- UI + EVENT DATA -->
     <script>
-        const PURPLE = '#4a148c';
-        const events = [
-            { name: 'Codebusters', teamSize: 3, desc: 'A timed cryptanalysis exam — decode encrypted messages using both historical and modern ciphers.', learn: ['Solving monoalphabetic ciphers: Aristocrats, Patristocrats, Xenocrypts', 'Cryptanalysis of Vigenère, Hill, and other polyalphabetic ciphers', 'Letter-frequency analysis and pattern recognition', 'Splitting problems across a team of three to work efficiently under time pressure'] },
-            { name: 'Experimental Design', teamSize: 3, desc: 'Given unfamiliar materials, teams design, run, and write up an original experiment entirely on the spot.', learn: ['Writing a testable problem statement and hypothesis', 'Identifying independent, dependent, and controlled variables', 'Collecting and graphing real data within a roughly 50-minute window', 'Analyzing results and reporting conclusions in a structured write-up'] },
-            { name: 'Write It Do It', teamSize: 2, desc: 'One teammate writes instructions for building a structure; the other builds it from those instructions alone, with no drawings allowed.', learn: ['Writing clear, unambiguous step-by-step instructions', 'Describing a 3D structure using only text', "Building an accurate replica from a partner's written directions", "Scored on how closely the final build matches the original"] },
-        ];
-
-        const grid = document.getElementById('events-grid');
-        events.forEach((ev, i) => {
-            const card = document.createElement('div');
-            card.className = 'event-card p-7 sm:p-8 pb-8';
-            card.style.setProperty('--card-accent', PURPLE);
-            card.style.transitionDelay = `${i * 50}ms`;
-            card.innerHTML = `
-                <div class="flex items-start justify-between gap-3 mb-3">
-                    <h3 class="font-display font-bold text-xl text-slate-800 leading-tight">${ev.name}</h3>
-                    <span class="team-badge"><i class="fa-solid fa-user-group text-[9px]"></i> TEAM OF ${ev.teamSize}</span>
-                </div>
-                <p class="text-sm text-slate-500 leading-relaxed mb-5">${ev.desc}</p>
-                <div><p class="section-label">What You'll Learn</p><div class="space-y-0.5">${ev.learn.map(l => `<div class="learn-item"><span class="learn-dot" style="background:${PURPLE}"></span><span class="learn-text">${l}</span></div>`).join('')}</div></div>`;
-            grid.appendChild(card);
-        });
-
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
-        }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
-        document.querySelectorAll('.event-card').forEach(c => observer.observe(c));
-
         const backToTop = document.getElementById('backToTop');
         if (backToTop) {
             window.addEventListener('scroll', () => backToTop.classList.toggle('show', window.scrollY > 350));
             backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
         }
+
+        const cards = document.querySelectorAll('.event-card');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
+        cards.forEach(card => observer.observe(card));
     </script>
 
 {% endblock %}
