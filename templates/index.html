@@ -75,6 +75,18 @@
         mask-image: radial-gradient(ellipse 55% 45% at 50% 50%, black 20%, transparent 70%);
         will-change: transform, mask-image, -webkit-mask-image;
     }
+
+    /* Season calendar */
+    .cal-row { position: relative; transition: background 0.2s ease, padding-left 0.2s ease; }
+    .cal-row::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: #4FADC9; transform: scaleY(0); transform-origin: top; transition: transform 0.25s ease; }
+    .cal-row:hover { background: rgba(79, 173, 201, 0.05); }
+    .cal-row:hover::before, .cal-row.is-next::before { transform: scaleY(1); }
+    .cal-row.is-next { background: rgba(79, 173, 201, 0.07); }
+    .cal-row .next-tag { display: none; }
+    .cal-row.is-next .next-tag { display: inline-block; }
+    .cal-row.satellite .cal-name { color: #B4BBCB; }
+    .cal-mark { width: 9px; height: 9px; border: 1.5px solid #4FADC9; flex-shrink: 0; }
+    .cal-mark.solid { background: #4FADC9; }
 </style>
 {% endblock %}
 
@@ -297,13 +309,133 @@
 
 
     <!-- ───── UPCOMING EVENTS ───── -->
-    <section id="upcoming" class="relative z-10 bg-bg-elevated">
+    <section id="upcoming" class="relative z-10 bg-[#101E33]">
         <div class="section-accent"></div>
-        <div class="max-w-7xl mx-auto px-8 py-28 md:py-40 text-center">
-            <div class="reveal">
-                <i data-lucide="calendar-clock" class="w-10 h-10 text-accent mx-auto mb-6"></i>
-                <h2 class="font-serif uppercase text-4xl md:text-5xl text-fg mb-4">Coming Soon</h2>
-                <p class="text-muted text-lg max-w-xl mx-auto leading-relaxed">Our schedule for the upcoming season hasn't been finalized yet. Check back soon for confirmed tournament dates.</p>
+        <div class="w-full max-w-[96rem] mx-auto px-6 md:px-12 py-24 md:py-36">
+            <div class="reveal flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-14 md:mb-20">
+                <div>
+                    <p class="text-accent text-sm font-semibold tracking-[0.2em] uppercase mb-5">2026&ndash;27 Season</p>
+                    <h2 class="font-serif uppercase text-5xl md:text-7xl leading-[1.05] text-[#F2F4F8]">Where we'll be</h2>
+                    <div class="gold-rule mt-8"></div>
+                </div>
+                <div class="flex flex-wrap gap-x-10 gap-y-3 text-base text-[#8B93A7] md:pb-2">
+                    <p class="flex items-center gap-3"><span class="cal-mark solid"></span>In person</p>
+                    <p class="flex items-center gap-3"><span class="cal-mark"></span>Satellite</p>
+                </div>
+            </div>
+            <div class="reveal grid lg:grid-cols-2 lg:grid-flow-col lg:grid-rows-4 lg:gap-x-16 border-b border-[#1E2F4A]">
+                <div class="cal-row satellite flex items-start gap-6 md:gap-8 py-8 md:py-10 px-4 md:px-8 border-t border-[#1E2F4A]" data-end="2026-11-07">
+                    <div class="w-28 md:w-40 shrink-0">
+                        <p class="text-sm md:text-base font-semibold uppercase tracking-[0.2em] text-accent">Oct</p>
+                        <p class="font-serif text-7xl md:text-8xl leading-none text-[#F2F4F8] tabular mt-2">31</p>
+                        <p class="text-sm md:text-base text-[#8B93A7] mt-2">through Nov 7</p>
+                    </div>
+                    <div class="flex-1 pt-2">
+                        <p class="cal-name font-serif uppercase text-3xl md:text-4xl leading-tight">Rickards</p>
+                        <p class="flex flex-wrap items-center gap-2.5 text-base md:text-lg text-[#8B93A7] mt-4">
+                            <span class="cal-mark"></span>Satellite
+                            <span class="next-tag ml-2 text-xs font-semibold uppercase tracking-[0.15em] text-[#0A1420] bg-accent px-2 py-0.5">Next up</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="cal-row satellite flex items-start gap-6 md:gap-8 py-8 md:py-10 px-4 md:px-8 border-t border-[#1E2F4A]" data-end="2026-12-05">
+                    <div class="w-28 md:w-40 shrink-0">
+                        <p class="text-sm md:text-base font-semibold uppercase tracking-[0.2em] text-accent">Nov</p>
+                        <p class="font-serif text-7xl md:text-8xl leading-none text-[#F2F4F8] tabular mt-2">29</p>
+                        <p class="text-sm md:text-base text-[#8B93A7] mt-2">through Dec 5</p>
+                    </div>
+                    <div class="flex-1 pt-2">
+                        <p class="cal-name font-serif uppercase text-3xl md:text-4xl leading-tight">Boyceville Invitational</p>
+                        <p class="flex flex-wrap items-center gap-2.5 text-base md:text-lg text-[#8B93A7] mt-4">
+                            <span class="cal-mark"></span>Satellite
+                            <span class="next-tag ml-2 text-xs font-semibold uppercase tracking-[0.15em] text-[#0A1420] bg-accent px-2 py-0.5">Next up</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="cal-row flex items-start gap-6 md:gap-8 py-8 md:py-10 px-4 md:px-8 border-t border-[#1E2F4A]" data-end="2026-12-12">
+                    <div class="w-28 md:w-40 shrink-0">
+                        <p class="text-sm md:text-base font-semibold uppercase tracking-[0.2em] text-accent">Dec</p>
+                        <p class="font-serif text-7xl md:text-8xl leading-none text-[#F2F4F8] tabular mt-2">12</p>
+                        
+                    </div>
+                    <div class="flex-1 pt-2">
+                        <p class="cal-name font-serif uppercase text-3xl md:text-4xl leading-tight">South Windsor Invitational</p>
+                        <p class="flex flex-wrap items-center gap-2.5 text-base md:text-lg text-[#8B93A7] mt-4">
+                            <span class="cal-mark solid"></span>In person · Overnight
+                            <span class="next-tag ml-2 text-xs font-semibold uppercase tracking-[0.15em] text-[#0A1420] bg-accent px-2 py-0.5">Next up</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="cal-row flex items-start gap-6 md:gap-8 py-8 md:py-10 px-4 md:px-8 border-t border-[#1E2F4A]" data-end="2026-12-12">
+                    <div class="w-28 md:w-40 shrink-0">
+                        <p class="text-sm md:text-base font-semibold uppercase tracking-[0.2em] text-accent">Dec</p>
+                        <p class="font-serif text-7xl md:text-8xl leading-none text-[#F2F4F8] tabular mt-2">12</p>
+                        
+                    </div>
+                    <div class="flex-1 pt-2">
+                        <p class="cal-name font-serif uppercase text-3xl md:text-4xl leading-tight">Stuyvesant Invitational</p>
+                        <p class="flex flex-wrap items-center gap-2.5 text-base md:text-lg text-[#8B93A7] mt-4">
+                            <span class="cal-mark solid"></span>In person · Day trip
+                            <span class="next-tag ml-2 text-xs font-semibold uppercase tracking-[0.15em] text-[#0A1420] bg-accent px-2 py-0.5">Next up</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="cal-row flex items-start gap-6 md:gap-8 py-8 md:py-10 px-4 md:px-8 border-t border-[#1E2F4A]" data-end="2027-01-23">
+                    <div class="w-28 md:w-40 shrink-0">
+                        <p class="text-sm md:text-base font-semibold uppercase tracking-[0.2em] text-accent">Jan</p>
+                        <p class="font-serif text-7xl md:text-8xl leading-none text-[#F2F4F8] tabular mt-2">23</p>
+                        
+                    </div>
+                    <div class="flex-1 pt-2">
+                        <p class="cal-name font-serif uppercase text-3xl md:text-4xl leading-tight">Regionals Competition</p>
+                        <p class="flex flex-wrap items-center gap-2.5 text-base md:text-lg text-[#8B93A7] mt-4">
+                            <span class="cal-mark solid"></span>In person · Day trip
+                            <span class="next-tag ml-2 text-xs font-semibold uppercase tracking-[0.15em] text-[#0A1420] bg-accent px-2 py-0.5">Next up</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="cal-row flex items-start gap-6 md:gap-8 py-8 md:py-10 px-4 md:px-8 border-t border-[#1E2F4A]" data-end="2027-02-06">
+                    <div class="w-28 md:w-40 shrink-0">
+                        <p class="text-sm md:text-base font-semibold uppercase tracking-[0.2em] text-accent">Feb</p>
+                        <p class="font-serif text-7xl md:text-8xl leading-none text-[#F2F4F8] tabular mt-2">6</p>
+                        
+                    </div>
+                    <div class="flex-1 pt-2">
+                        <p class="cal-name font-serif uppercase text-3xl md:text-4xl leading-tight">Princeton University Science Olympiad Invitational</p>
+                        <p class="flex flex-wrap items-center gap-2.5 text-base md:text-lg text-[#8B93A7] mt-4">
+                            <span class="cal-mark solid"></span>In person · Day trip or overnight
+                            <span class="next-tag ml-2 text-xs font-semibold uppercase tracking-[0.15em] text-[#0A1420] bg-accent px-2 py-0.5">Next up</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="cal-row flex items-start gap-6 md:gap-8 py-8 md:py-10 px-4 md:px-8 border-t border-[#1E2F4A]" data-end="2027-03-21">
+                    <div class="w-28 md:w-40 shrink-0">
+                        <p class="text-sm md:text-base font-semibold uppercase tracking-[0.2em] text-accent">Mar</p>
+                        <p class="font-serif text-7xl md:text-8xl leading-none text-[#F2F4F8] tabular mt-2">21</p>
+                        
+                    </div>
+                    <div class="flex-1 pt-2">
+                        <p class="cal-name font-serif uppercase text-3xl md:text-4xl leading-tight">States Competition</p>
+                        <p class="flex flex-wrap items-center gap-2.5 text-base md:text-lg text-[#8B93A7] mt-4">
+                            <span class="cal-mark solid"></span>In person · Overnight
+                            <span class="next-tag ml-2 text-xs font-semibold uppercase tracking-[0.15em] text-[#0A1420] bg-accent px-2 py-0.5">Next up</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="cal-row satellite flex items-start gap-6 md:gap-8 py-8 md:py-10 px-4 md:px-8 border-t border-[#1E2F4A]" data-end="2027-04-25">
+                    <div class="w-28 md:w-40 shrink-0">
+                        <p class="text-sm md:text-base font-semibold uppercase tracking-[0.2em] text-accent">Apr</p>
+                        <p class="font-serif text-7xl md:text-8xl leading-none text-[#F2F4F8] tabular mt-2">11</p>
+                        <p class="text-sm md:text-base text-[#8B93A7] mt-2">through Apr 25</p>
+                    </div>
+                    <div class="flex-1 pt-2">
+                        <p class="cal-name font-serif uppercase text-3xl md:text-4xl leading-tight">Lexington Invitational</p>
+                        <p class="flex flex-wrap items-center gap-2.5 text-base md:text-lg text-[#8B93A7] mt-4">
+                            <span class="cal-mark"></span>Satellite
+                            <span class="next-tag ml-2 text-xs font-semibold uppercase tracking-[0.15em] text-[#0A1420] bg-accent px-2 py-0.5">Next up</span>
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -324,6 +456,13 @@
             entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
         }, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
         revealEls.forEach(el => revealObserver.observe(el));
+
+        // Highlight the next upcoming event in the season calendar
+        const calRows = document.querySelectorAll('.cal-row[data-end]');
+        const today = new Date(); today.setHours(0,0,0,0);
+        for (const row of calRows) {
+            if (new Date(row.dataset.end + 'T00:00:00') >= today) { row.classList.add('is-next'); break; }
+        }
 
         // ───── Dot grid + active nav (native scroll) ─────
         let currentMaskSize = 55;
