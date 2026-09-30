@@ -3,7 +3,7 @@
   "functions": {
     "app.py": {
       "includeFiles": "public/static/**",
-      "excludeFiles": "public/static/gallery/**/*.{jpg,jpeg,heic,heif,arw,ARW}"
+      "excludeFiles": "public/static/gallery/**"
     }
   }
 }
