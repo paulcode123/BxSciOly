@@ -1,0 +1,270 @@
+{% extends "layout.html" %}
+
+{% block title %}Competitions | Bronx Science Olympiad{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
+<style>
+    .map-page-wrapper {
+        background:
+            radial-gradient(circle at 6% 0%, rgba(79, 173, 201, 0.30), transparent 38%),
+            radial-gradient(circle at 100% 55%, rgba(16, 30, 51, 0.08), transparent 32%),
+            radial-gradient(circle at 0% 100%, rgba(79, 173, 201, 0.14), transparent 34%),
+            linear-gradient(180deg, #D3E2EC 0%, #E4EDF3 40%, #D9E5EE 100%);
+        color: #101426;
+        font-family: 'DM Sans', sans-serif;
+        min-height: 100vh;
+    }
+
+    /* Mole mascot watermark */
+    .bg-mole { position: absolute; z-index: -1; pointer-events: none; user-select: none; mix-blend-mode: multiply; opacity: 0.14; }
+    .bg-mole-a { right: -90px; top: 300px; width: clamp(280px, 36vw, 580px); transform: rotate(8deg); }
+    .bg-mole-b { left: -90px; bottom: 30px; width: clamp(240px, 30vw, 480px); transform: rotate(-10deg); }
+    /* Oversized ghost numerals behind the heading */
+    .ghost-year { position: absolute; right: -10px; top: -70px; z-index: -1; pointer-events: none; user-select: none; white-space: nowrap;
+        font-size: clamp(160px, 24vw, 360px); line-height: 1; color: rgba(79, 173, 201, 0.12); }
+
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.25,0.46,0.45,0.94), transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    .gold-rule { width: 56px; height: 3px; background: #4FADC9; }
+
+    /* Map */
+    #comp-map { height: 680px; background: #EAF0F5; border: 1px solid #DCE3EC; box-shadow: 14px 14px 0 rgba(79, 173, 201, 0.28); }
+    /* Soften the OpenStreetMap colours so the pins stand out */
+    .leaflet-tile-pane { filter: saturate(0.55) contrast(0.96) brightness(1.04); }
+    @media (max-width: 1023px) { #comp-map { height: 440px; } }
+    .leaflet-container { font-family: 'DM Sans', sans-serif; }
+    .leaflet-bar { border: 1px solid #DCE3EC !important; box-shadow: none !important; }
+    .leaflet-bar a { background: #fff; color: #101426; border-bottom-color: #DCE3EC; }
+    .leaflet-bar a:hover { background: #F4F8FB; color: #2E86A6; }
+
+    .pin { position: relative; width: 44px; height: 56px; transform-origin: 50% 100%; animation: pin-drop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) backwards; transition: transform 0.2s ease; }
+    .pin svg { display: block; width: 44px; height: 56px; overflow: visible; filter: drop-shadow(0 6px 6px rgba(16, 30, 51, 0.35)); }
+    .pin .pin-body { fill: #101E33; transition: fill 0.2s ease; }
+    .pin .pin-dot { fill: #fff; }
+    .pin-num { position: absolute; left: 8px; top: 8px; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; color: #101E33; font-family: 'Anton', 'Bebas Neue', sans-serif; font-size: 17px; line-height: 1; padding-top: 1px; }
+    .pin-ground { position: absolute; left: 50%; bottom: -3px; width: 18px; height: 7px; margin-left: -9px; border-radius: 50%; background: rgba(16, 30, 51, 0.35); filter: blur(2px); z-index: -1; }
+    .pin-pulse { position: absolute; left: 50%; bottom: -5px; width: 14px; height: 14px; margin-left: -7px; border-radius: 50%; border: 2px solid #2E86A6; opacity: 0; z-index: -1; }
+    .pin.active { transform: scale(1.18); }
+    .pin.active .pin-body { fill: #2E86A6; }
+    .pin.active .pin-pulse { animation: pin-pulse 1.6s ease-out infinite; }
+    @keyframes pin-drop { 0% { opacity: 0; transform: translateY(-28px) scale(0.6); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
+    @keyframes pin-pulse { 0% { opacity: 0.8; transform: scale(0.6); } 100% { opacity: 0; transform: scale(3.4); } }
+
+    .leaflet-popup-content-wrapper { background: #fff; color: #101426; border-radius: 0; border-top: 3px solid #4FADC9; box-shadow: 0 16px 40px rgba(16, 30, 51, 0.25); }
+    .leaflet-popup-tip { background: #fff; }
+    .leaflet-popup-content { margin: 16px 20px; }
+    .popup-link { color: #2E86A6; font-weight: 600; font-size: 13px; text-decoration: none; letter-spacing: 0.04em; }
+    .popup-link:hover { text-decoration: underline; }
+
+    /* Stop list */
+    .stop { position: relative; width: 100%; text-align: left; background: #fff; border: 0; border-top: 1px solid #E3E7EE; cursor: pointer; transition: background 0.2s ease; color: inherit; font: inherit; }
+    .stop::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: #4FADC9; transform: scaleY(0); transform-origin: top; transition: transform 0.25s ease; }
+    .stop:hover, .stop.active { background: #F4F8FB; }
+    .stop:hover::before, .stop.active::before { transform: scaleY(1); }
+    .stop-num { width: 34px; height: 34px; background: #101E33; color: #fff; display: flex; align-items: center; justify-content: center; font-family: 'Anton', 'Bebas Neue', sans-serif; font-size: 17px; flex-shrink: 0; transition: background 0.2s ease; }
+    .stop:hover .stop-num, .stop.active .stop-num { background: #2E86A6; }
+
+    .sat-card { position: relative; overflow: hidden; background: #FFFFFF; border-top: 3px solid #4FADC9; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .sat-icon { position: absolute; right: -4px; bottom: -16px; font-size: 104px; color: rgba(79, 173, 201, 0.16); pointer-events: none; }
+    .sat-card:hover { transform: translateY(-3px); box-shadow: 0 16px 30px -16px rgba(16, 30, 51, 0.3); }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="map-page-wrapper">
+
+    <section class="relative z-10 overflow-hidden pt-28 md:pt-40 pb-24 md:pb-32">
+        <img class="bg-mole bg-mole-a" src="{{ url_for('static', filename='images/favicon.png') }}" alt="" aria-hidden="true">
+        <img class="bg-mole bg-mole-b" src="{{ url_for('static', filename='images/favicon.png') }}" alt="" aria-hidden="true">
+        <div class="w-full max-w-[96rem] mx-auto px-6 md:px-12">
+
+            <!-- Heading -->
+            <div class="reveal relative flex flex-col md:flex-row md:items-end md:justify-between gap-10 mb-14 md:mb-20">
+                <div class="ghost-year font-serif" aria-hidden="true">26&ndash;27</div>
+                <div>
+                    <p class="text-[#2E86A6] text-sm font-semibold tracking-[0.2em] uppercase mb-5">2026&ndash;27 Season</p>
+                    <h1 class="font-serif uppercase text-5xl md:text-8xl leading-[1.02] text-[#101426]">Competitions</h1>
+                    <div class="gold-rule mt-8"></div>
+                </div>
+                <div class="flex gap-12 md:gap-16">
+                    <div>
+                        <p class="font-serif text-6xl md:text-7xl leading-none text-[#101426]">5</p>
+                        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-[#5B6472] mt-3">In person</p>
+                    </div>
+                    <div>
+                        <p class="font-serif text-6xl md:text-7xl leading-none text-[#101426]">3</p>
+                        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-[#5B6472] mt-3">Satellite</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map + in-person list -->
+            <div class="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start bg-white/75 border border-[#C9D6E2] p-6 md:p-10">
+                <div class="lg:col-span-8">
+                    <div id="comp-map"></div>
+                </div>
+
+                <div class="lg:col-span-4 reveal">
+                    <p class="text-[#5B6472] text-sm font-semibold tracking-[0.2em] uppercase mb-5">In person</p>
+                    <div class="border-b border-[#E3E7EE]">
+
+                        <button type="button" class="stop flex items-start gap-5 py-7 px-5" data-lat="41.836" data-lng="-72.564" data-place="South Windsor High School, South Windsor, CT">
+                            <span class="stop-num">1</span>
+                            <span class="flex-1">
+                                <span class="block text-sm font-semibold uppercase tracking-[0.2em] text-[#2E86A6]">Dec 12</span>
+                                <span class="stop-name block font-serif uppercase text-2xl md:text-3xl leading-tight mt-1 text-[#101426]">South Windsor Invitational</span>
+                                <span class="stop-meta block text-[#5B6472] mt-2">South Windsor, CT &middot; Overnight</span>
+                            </span>
+                        </button>
+
+                        <button type="button" class="stop flex items-start gap-5 py-7 px-5" data-lat="40.7176" data-lng="-74.0139" data-place="Stuyvesant High School, New York, NY">
+                            <span class="stop-num">2</span>
+                            <span class="flex-1">
+                                <span class="block text-sm font-semibold uppercase tracking-[0.2em] text-[#2E86A6]">Dec 12</span>
+                                <span class="stop-name block font-serif uppercase text-2xl md:text-3xl leading-tight mt-1 text-[#101426]">Stuyvesant Invitational</span>
+                                <span class="stop-meta block text-[#5B6472] mt-2">Stuyvesant High School, Manhattan &middot; Day trip</span>
+                            </span>
+                        </button>
+
+                        <button type="button" class="stop flex items-start gap-5 py-7 px-5" data-lat="40.8779" data-lng="-73.8906" data-place="Bronx High School of Science, Bronx, NY">
+                            <span class="stop-num">3</span>
+                            <span class="flex-1">
+                                <span class="block text-sm font-semibold uppercase tracking-[0.2em] text-[#2E86A6]">Jan 23</span>
+                                <span class="stop-name block font-serif uppercase text-2xl md:text-3xl leading-tight mt-1 text-[#101426]">Regionals Competition</span>
+                                <span class="stop-meta block text-[#5B6472] mt-2">Bronx Science &middot; Day trip</span>
+                            </span>
+                        </button>
+
+                        <button type="button" class="stop flex items-start gap-5 py-7 px-5" data-lat="40.3431" data-lng="-74.6551" data-place="Princeton University, Princeton, NJ">
+                            <span class="stop-num">4</span>
+                            <span class="flex-1">
+                                <span class="block text-sm font-semibold uppercase tracking-[0.2em] text-[#2E86A6]">Feb 6</span>
+                                <span class="stop-name block font-serif uppercase text-2xl md:text-3xl leading-tight mt-1 text-[#101426]">Princeton University Science Olympiad Invitational</span>
+                                <span class="stop-meta block text-[#5B6472] mt-2">Princeton, NJ &middot; Day trip or overnight</span>
+                            </span>
+                        </button>
+
+                        <button type="button" class="stop flex items-start gap-5 py-7 px-5" data-lat="43.0367" data-lng="-76.0913" data-place="Le Moyne College, Syracuse, NY">
+                            <span class="stop-num">5</span>
+                            <span class="flex-1">
+                                <span class="block text-sm font-semibold uppercase tracking-[0.2em] text-[#2E86A6]">Mar 21</span>
+                                <span class="stop-name block font-serif uppercase text-2xl md:text-3xl leading-tight mt-1 text-[#101426]">States Competition</span>
+                                <span class="stop-meta block text-[#5B6472] mt-2">Syracuse, NY &middot; Overnight</span>
+                            </span>
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-xs text-[#8B93A7] mt-5 text-right">Map data &copy; <a href="https://www.openstreetmap.org/copyright" class="underline hover:text-[#2E86A6]" target="_blank" rel="noopener">OpenStreetMap</a> contributors</p>
+
+            <!-- Satellite events -->
+            <div class="reveal mt-24 md:mt-32">
+                <div class="flex items-end justify-between gap-6 mb-8">
+                    <div>
+                        <p class="text-[#2E86A6] text-sm font-semibold tracking-[0.2em] uppercase mb-3">Satellite</p>
+                        <h2 class="font-serif uppercase text-3xl md:text-5xl leading-tight text-[#101426]">We compete from school</h2>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="sat-card p-8">
+                        <i class="fas fa-laptop sat-icon"></i>
+                        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-[#2E86A6]">Oct 31 &ndash; Nov 7</p>
+                        <p class="font-serif uppercase text-3xl md:text-4xl leading-tight mt-3 text-[#101426]">Rickards</p>
+                    </div>
+                    <div class="sat-card p-8">
+                        <i class="fas fa-laptop sat-icon"></i>
+                        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-[#2E86A6]">Nov 29 &ndash; Dec 5</p>
+                        <p class="font-serif uppercase text-3xl md:text-4xl leading-tight mt-3 text-[#101426]">Boyceville Invitational</p>
+                    </div>
+                    <div class="sat-card p-8">
+                        <i class="fas fa-laptop sat-icon"></i>
+                        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-[#2E86A6]">Apr 11 &ndash; Apr 25</p>
+                        <p class="font-serif uppercase text-3xl md:text-4xl leading-tight mt-3 text-[#101426]">Lexington Invitational</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Scroll reveal
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // Map
+        const map = L.map('comp-map', { scrollWheelZoom: false, attributionControl: false });
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        const stops = Array.from(document.querySelectorAll('.stop'));
+        const markers = [];
+        const bounds = [];
+
+        stops.forEach((el, i) => {
+            const lat = parseFloat(el.dataset.lat);
+            const lng = parseFloat(el.dataset.lng);
+            const name = el.querySelector('.stop-name').textContent;
+            const date = el.querySelector('.stop-name').previousElementSibling.textContent;
+            const meta = el.querySelector('.stop-meta').textContent.split('·').pop().trim();
+            const mapsUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(el.dataset.place);
+
+            const icon = L.divIcon({
+                className: '',
+                html: '<div class="pin" style="animation-delay:' + (i * 0.12) + 's">' +
+                      '<span class="pin-pulse"></span><span class="pin-ground"></span>' +
+                      '<svg viewBox="0 0 44 56" xmlns="http://www.w3.org/2000/svg">' +
+                      '<path class="pin-body" d="M22 0C9.85 0 0 9.85 0 22c0 16.5 22 34 22 34s22-17.5 22-34C44 9.85 34.15 0 22 0z"/>' +
+                      '<circle class="pin-dot" cx="22" cy="22" r="14"/></svg>' +
+                      '<span class="pin-num">' + (i + 1) + '</span></div>',
+                iconSize: [44, 56],
+                iconAnchor: [22, 56],
+                popupAnchor: [0, -54]
+            });
+            const marker = L.marker([lat, lng], { icon: icon, title: name, riseOnHover: true }).addTo(map);
+            marker.bindPopup(
+                '<p style="font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#2E86A6;margin:0 0 6px;">' + date + ' &middot; ' + meta + '</p>' +
+                '<p style="font-family:Anton,Bebas Neue,sans-serif;text-transform:uppercase;font-size:20px;line-height:1.15;margin:0 0 8px;">' + name + '</p>' +
+                '<p style="margin:0 0 10px;color:#5B6472;font-size:14px;">' + el.dataset.place + '</p>' +
+                '<a class="popup-link" href="' + mapsUrl + '" target="_blank" rel="noopener">Open in Maps &rarr;</a>',
+                { minWidth: 220 }
+            );
+            marker.on('click', () => setActive(i));
+            markers.push(marker);
+            bounds.push([lat, lng]);
+
+            el.addEventListener('click', () => {
+                setActive(i);
+                map.flyTo([lat, lng], 11, { duration: 0.8 });
+                marker.openPopup();
+            });
+        });
+
+        function setActive(idx) {
+            stops.forEach((s, i) => s.classList.toggle('active', i === idx));
+            markers.forEach((m, i) => {
+                const pin = m.getElement() && m.getElement().querySelector('.pin');
+                if (pin) pin.classList.toggle('active', i === idx);
+            });
+        }
+
+        map.fitBounds(bounds, { paddingTopLeft: [70, 100], paddingBottomRight: [70, 70] });
+        // Keep sizing right once the page has finished laying out
+        setTimeout(() => map.invalidateSize(), 300);
+    });
+</script>
+{% endblock %}

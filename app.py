@@ -360,5 +360,8 @@ def removed_member_pages():
 @app.route("/templates/approved_emails.txt")
 def serve_approved_emails():
     return send_from_directory("templates", "approved_emails.txt")
+@app.route("/schedule")
+def schedule():
+    return render_template("schedule.html")
 if __name__ == "__main__":
     app.run(debug=True, host="localhost", port=8000)
