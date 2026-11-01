@@ -1,580 +1,826 @@
 {% extends "layout.html" %}
 
-{% block title %}Earth Science &amp; Classification - Bronx Science Olympiad{% endblock %}
+{% block title %}Earth Science – BxSciOly{% endblock %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/subject_pages.css') }}">
+<style>
+    .gradient-text-light{background:linear-gradient(135deg,#7dd3fc 0%,#38bdf8 40%,#0ea5e9 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+    /* z-index:0 (not just position:relative) is required here — it makes this
+       section its own stacking context, so the canvas/scrim/grid/fade layers
+       inside it (z-index 2-5) are contained and can never render on top of the
+       site header or its dropdown, no matter what z-index the header uses. */
+    .hero-section{position:relative;z-index:0;min-height:65vh;overflow:hidden;background:linear-gradient(160deg,#060a18 0%,#0f172a 50%,#0c1220 100%)}
+
+    #es-canvas{position:absolute;top:0;left:0;width:100%;height:100%;display:block;z-index:2;opacity:0.85}
+
+    .hero-scrim{position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(to right,rgba(6,10,24,0.88) 0%,rgba(6,10,24,0.7) 18%,rgba(6,10,24,0.45) 34%,rgba(6,10,24,0.2) 48%,rgba(6,10,24,0.06) 60%,transparent 72%)}
+    .hero-grid-pattern{position:absolute;inset:0;z-index:4;pointer-events:none;background-image:linear-gradient(rgba(56,189,248,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(56,189,248,0.02) 1px,transparent 1px);background-size:48px 48px}
+    .earth-atmosphere{position:absolute;inset:0;z-index:4;pointer-events:none;opacity:0.1;background:radial-gradient(ellipse at 25% 35%,rgba(56,189,248,0.25) 0%,transparent 55%),radial-gradient(ellipse at 75% 65%,rgba(34,197,94,0.18) 0%,transparent 45%),radial-gradient(ellipse at 55% 25%,rgba(255,255,255,0.12) 0%,transparent 35%)}
+    .hero-fade{position:absolute;bottom:0;left:0;right:0;height:200px;pointer-events:none;z-index:5;background:linear-gradient(to bottom,rgba(6,10,24,0) 0%,rgba(15,23,42,0.55) 18%,rgba(18,22,60,0.35) 38%,rgba(100,130,190,0.3) 55%,rgba(200,215,245,0.6) 75%,#f8f9ff 100%)}
+
+    @keyframes chevronBounce{0%,100%{transform:translateY(0);opacity:0.4}50%{transform:translateY(10px);opacity:0.9}}
+    .scroll-chevron{animation:chevronBounce 2s ease-in-out infinite;cursor:pointer;text-decoration:none}
+
+    .reveal{opacity:0;transform:translateY(28px);animation:revealUp 0.75s cubic-bezier(0.22,1,0.36,1) forwards}
+    .reveal-d1{animation-delay:0.12s}.reveal-d2{animation-delay:0.24s}
+    @keyframes revealUp{to{opacity:1;transform:translateY(0)}}
+
+    .btn-hero{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.85);transition:all 0.3s cubic-bezier(0.22,1,0.36,1);font-weight:600}
+    .btn-hero:hover{background:rgba(255,255,255,0.1);transform:translateY(-2px);box-shadow:0 8px 24px rgba(56,189,248,0.2);border-color:rgba(255,255,255,1)}
+
+    .event-card{background:#ffffff;border:1px solid #e2e8f0;border-radius:14px;transition:all 0.35s cubic-bezier(0.22,1,0.36,1);opacity:0;transform:translateY(24px);border-left:3px solid var(--card-accent)}
+    .event-card.visible{opacity:1;transform:translateY(0)}
+    .event-card:hover{box-shadow:0 10px 36px rgba(14,165,233,0.08);border-color:rgba(14,165,233,0.15);border-left-color:var(--card-accent)}
+
+    .section-label{font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#64748b;margin-bottom:10px}
+    .learn-item{display:flex;align-items:flex-start;gap:10px;padding:5px 0}
+    .learn-dot{width:5px;height:5px;border-radius:50%;margin-top:8px;flex-shrink:0}
+    .learn-text{font-size:14px;color:#475569;line-height:1.5}
+    .team-badge{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:100px;font-size:10px;font-weight:700;font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;border:1.5px solid rgba(14,165,233,0.2);color:#64748b;background:transparent}
+
+    .hero-heading{text-shadow:0 2px 16px rgba(0,0,0,0.55)}
+
+    @media(prefers-reduced-motion:reduce){
+        .reveal{animation:none;opacity:1;transform:none}
+        .event-card{opacity:1;transform:none}
+        .scroll-chevron{animation:none}
+    }
+</style>
 {% endblock %}
 
 {% block content %}
-<div class="subject-page subject-earth">
-  <p class="tentative-note">
-    <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
-    <span><strong>Note:</strong> Team roles and the number of subject directors are <strong>tentative</strong> and may change as the season is finalized.</span>
-  </p>
 
-  <header class="subject-hero">
-    <div class="subject-hero-inner">
-      <p class="subject-kicker">Subject Area Hub</p>
-      <h1>Earth &amp; Space Science</h1>
-      <p class="subject-tagline">Unravel the complex systems that shape our planet and the cosmos. Study ocean currents, glacial movements, satellite electromagnetics, stellar astrophysics, and geological mineralogy.</p>
-      <span class="director-meta"><i class="fas fa-users" aria-hidden="true"></i> Tentative Leadership: 1 Subject Director</span>
-    </div>
-  </header>
-
-  <section class="subject-intro-card" aria-labelledby="earth-intro-heading">
-    <h2 id="earth-intro-heading"><i class="fas fa-globe-americas" aria-hidden="true"></i> Welcome to Bronx Science Earth &amp; Space</h2>
-    <div class="subject-intro-grid">
-      <div class="subject-intro-text">
-        <p>Earth &amp; Space Science is an incredibly diverse, research-heavy subject area. You will study planetary-scale geological and meteorological cycles, explore deep space stellar dynamics, and utilize Earth-observation satellite data. This is where we learn how to translate 2D satellite images and geological maps into comprehensive 3D system models.</p>
-        <p>Success in this division rewards meticulous organization, rapid data-retrieval strategies, and cohesive partner collaboration. You'll master the art of formatting high-density binders and cheat sheets that cover hundreds of pages of textbooks, geological charts, and astronomical catalogs. These skills prepare you directly for college geology, astronomy, and environmental engineering courses.</p>
-      </div>
-      <div class="expectations-box">
-        <h3><i class="fas fa-clipboard-check" aria-hidden="true"></i> Subject Lead Expectations</h3>
-        <ul>
-          <li>Collaborate with event managers (EMs) to produce high-density public reference binders.</li>
-          <li>Help curate extensive flashcard decks for Deep Sky Objects (DSOs) and hand-samples.</li>
-          <li>Design and grade weekly practice tests that mimic invitational timing and stress.</li>
-          <li>Foster a culture of sharing research summaries and geological observation guides.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <div class="events-section-header">
-    <h2 class="events-section-title">Events &amp; Study Focus</h2>
-    <p class="events-section-subtitle">Select tabs within each event card to explore descriptions, topic lists, textbook pathways, and practice links.</p>
-  </div>
-
-  <div class="events-grid">
-
-    <!-- Event 1: Dynamic Planet -->
-    <article class="event-card" id="event-dynamic">
-      <div class="event-card-header">
-        <div class="event-title-area">
-          <i class="fas fa-globe" aria-hidden="true"></i>
-          <h3>Dynamic Planet</h3>
+    <!-- HERO -->
+    <section class="hero-section" id="heroSection">
+        <canvas id="es-canvas"></canvas>
+        <div class="hero-scrim"></div>
+        <div class="hero-grid-pattern"></div>
+        <div class="earth-atmosphere"></div>
+        <div class="hero-fade"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-6 pt-28 pb-8 flex items-center" style="min-height:65vh">
+            <div class="max-w-[480px]">
+                <h1 class="font-display leading-[0.92] mb-5 hero-heading">
+                    <span class="gradient-text-light font-extrabold text-6xl sm:text-7xl lg:text-8xl reveal">Earth Science</span>
+                    <span class="gradient-text-light font-extrabold text-4xl sm:text-5xl lg:text-5xl block mt-2 reveal reveal-d1">&amp; Classification</span>
+                    <span class="text-white font-bold text-4xl sm:text-5xl lg:text-6xl block mt-1 reveal reveal-d2">Events</span>
+                </h1>
+                <p class="text-slate-300/90 text-base sm:text-lg leading-relaxed mb-8 max-w-md reveal reveal-d2">
+                    From plate tectonics to deep time, from the chemistry of minerals to the life cycles of stars — decode the planet beneath your feet and the universe beyond.
+                </p>
+                <a href="#events" class="btn-hero inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm reveal reveal-d2">
+                    View All Events <i class="fa-solid fa-arrow-down text-xs"></i>
+                </a>
+            </div>
         </div>
-        <span class="event-meta-badge"><i class="fas fa-user-friends"></i> Team of 2</span>
-      </div>
-      <p class="event-tagline-lead">Trace the flow of energy and materials across Earth's hydrosphere, exploring the geological and physical behaviors of either rivers and glaciers, or the global ocean.</p>
+        <a href="#events" class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 scroll-chevron" aria-label="Scroll to events">
+            <i class="fa-solid fa-chevron-down text-white/50 text-lg"></i>
+        </a>
+    </section>
 
-      <div class="event-tabs">
-        <div class="tab-header">
-          <button class="tab-btn active" data-tab="overview"><i class="fas fa-info-circle"></i> Overview</button>
-          <button class="tab-btn" data-tab="topics"><i class="fas fa-list"></i> Topics</button>
-          <button class="tab-btn" data-tab="pathway"><i class="fas fa-graduation-cap"></i> Pathway</button>
-          <button class="tab-btn" data-tab="resources"><i class="fas fa-laptop-code"></i> Resources</button>
+    <!-- EVENTS SECTION -->
+    <section id="events" class="pt-12 pb-24" style="background:radial-gradient(ellipse at 30% 0%,rgba(14,165,233,0.05) 0%,transparent 50%),#f8f9ff">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-slate-800 mb-2">6 Competitive Events</h2>
+                <p class="text-slate-500 text-base max-w-md mx-auto">Explore our planet's past, present, and future through the lens of Earth Science and Classification.</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start" id="cardsGrid"></div>
         </div>
+    </section>
 
-        <div class="tab-content">
-          <div class="tab-pane active" data-pane="overview">
-            <div class="overview-grid">
-              <div>
-                <h4 class="overview-list-title"><i class="fas fa-star"></i> What You'll Learn</h4>
-                <ul class="overview-ul">
-                  <li>How global convective engines drive marine and freshwater currents.</li>
-                  <li>How to read and interpret complex hydrologic charts and hydrographs.</li>
-                  <li>The sediment transport dynamics that build river landscapes and shorelines.</li>
-                  <li>To analyze human alterations of global fluid reservoirs.</li>
-                </ul>
-              </div>
-              <div class="big-questions-box">
-                <h4 class="overview-list-title"><i class="fas fa-question-circle"></i> Big Questions</h4>
-                <div class="question-prompt">
-                  <i class="fas fa-quote-left"></i>
-                  <span>How does groundwater drawdown in coastal aquifers lead to saltwater intrusion? Trace the hydraulic gradient changes.</span>
-                </div>
-                <div class="question-prompt">
-                  <i class="fas fa-quote-left"></i>
-                  <span>How does thermohaline circulation link global sea-surface salinity and temperature profiles to maintain long-term climate equilibrium?</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-pane" data-pane="topics">
-            <div class="season-split">
-              <div class="season-column">
-                <span class="season-header-badge past"><i class="fas fa-tint"></i> 2025-2026 Focus</span>
-                <h4 class="season-topics-title">Freshwater Hydrology</h4>
-                <ul class="topic-list-ul">
-                  <li><strong>Groundwater Hydraulics:</strong> Darcy's Law, aquifers (confined vs. unconfined), water tables, artesian wells, and cone of depression drawdown dynamics.</li>
-                  <li><strong>Fluvial Geomorphology:</strong> Channel types (meandering, braided), stream ordering, sediment transport (saltation, bedload), flood recurrence intervals, hydrograph scaling.</li>
-                  <li><strong>Glaciology:</strong> Glacial mass balance (accumulation vs. ablation), ice movement mechanics, erosional features (cirques, fjords), depositional features (moraines, eskers).</li>
-                </ul>
-              </div>
-              <div class="season-column active-season">
-                <span class="season-header-badge future"><i class="fas fa-arrow-circle-right"></i> 2026-2027 Focus</span>
-                <h4 class="season-topics-title">Physical &amp; Geological Oceanography</h4>
-                <ul class="topic-list-ul">
-                  <li><strong>Ocean Currents:</strong> Wind-driven surface currents, Ekman transport, geostrophic gyres, and deep-sea thermohaline "global conveyor belt" dynamics.</li>
-                  <li><strong>Wave &amp; Tide Physics:</strong> Wave shoaling, refraction, tsunami mechanics, diurnal/semidiurnal tides, and solar-lunar alignment (spring vs. neap tides).</li>
-                  <li><strong>Marine Geology:</strong> Plate tectonics of mid-ocean ridges, trenches, hydrothermal vents, passive/active continental margins, and abyssal sedimentation.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-pane" data-pane="pathway">
-            <div class="pathway-grid">
-              <div>
-                <h4 class="overview-list-title"><i class="fas fa-book"></i> Standard Textbooks</h4>
-                <div class="textbook-card">
-                  <div class="textbook-icon"><i class="fas fa-book-open"></i></div>
-                  <div class="textbook-info">
-                    <h5>Essentials of Oceanography</h5>
-                    <p class="author">Trujillo &amp; Thurman</p>
-                    <span class="scope-tag">Standard Physical Oceanography</span>
-                  </div>
-                </div>
-                <div class="textbook-card">
-                  <div class="textbook-icon"><i class="fas fa-book-open"></i></div>
-                  <div class="textbook-info">
-                    <h5>Introduction to Hydrology</h5>
-                    <p class="author">Viessman &amp; Lewis</p>
-                    <span class="scope-tag">In-Depth Freshwater Hydraulics</span>
-                  </div>
-                </div>
-              </div>
-              <div class="courses-box">
-                <h4 class="overview-list-title"><i class="fas fa-university"></i> Related College Courses</h4>
-                <div class="course-tag-container">
-                  <span class="course-tag"><i class="fas fa-check"></i> Physical Geology</span>
-                  <span class="course-tag"><i class="fas fa-check"></i> Hydrology</span>
-                  <span class="course-tag"><i class="fas fa-check"></i> Physical Oceanography</span>
-                  <span class="course-tag"><i class="fas fa-check"></i> Climatology</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-pane" data-pane="resources">
-            <div class="resources-grid">
-              <a href="https://water.usgs.gov/edu/" target="_blank" class="resource-item">
-                <div class="resource-item-left">
-                  <div class="resource-type-icon"><i class="fas fa-tint"></i></div>
-                  <div class="resource-item-info">
-                    <h5>USGS Water Science School</h5>
-                    <p>Comprehensive interactive guides on hydrological cycles &amp; data</p>
-                  </div>
-                </div>
-                <i class="fas fa-chevron-right resource-arrow"></i>
-              </a>
-              <a href="https://oceanservice.noaa.gov/education/" target="_blank" class="resource-item">
-                <div class="resource-item-left">
-                  <div class="resource-type-icon"><i class="fas fa-globe"></i></div>
-                  <div class="resource-item-info">
-                    <h5>NOAA Ocean Service Education</h5>
-                    <p>Official physical oceanography tutorials, wave animations &amp; data portals</p>
-                  </div>
-                </div>
-                <i class="fas fa-chevron-right resource-arrow"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </article>
-
-    <!-- Event 2: Remote Sensing -->
-    <article class="event-card" id="event-remote">
-      <div class="event-card-header">
-        <div class="event-title-area">
-          <i class="fas fa-satellite" aria-hidden="true"></i>
-          <h3>Remote Sensing</h3>
-        </div>
-        <span class="event-meta-badge"><i class="fas fa-user-friends"></i> Team of 2</span>
-      </div>
-      <p class="event-tagline-lead">Observe global environmental changes from space. Learn how Earth-orbiting satellites capture, process, and analyze electromagnetic radiation to track planetary evolution.</p>
-
-      <div class="event-tabs">
-        <div class="tab-header">
-          <button class="tab-btn active" data-tab="overview"><i class="fas fa-info-circle"></i> Overview</button>
-          <button class="tab-btn" data-tab="topics"><i class="fas fa-list"></i> Topics</button>
-          <button class="tab-btn" data-tab="pathway"><i class="fas fa-graduation-cap"></i> Pathway</button>
-          <button class="tab-btn" data-tab="resources"><i class="fas fa-laptop-code"></i> Resources</button>
-        </div>
-
-        <div class="tab-content">
-          <div class="tab-pane active" data-pane="overview">
-            <div class="overview-grid">
-              <div>
-                <h4 class="overview-list-title"><i class="fas fa-star"></i> What You'll Learn</h4>
-                <ul class="overview-ul">
-                  <li>How specific electromagnetic wavelengths reveal chemical surface properties.</li>
-                  <li>To distinguish active (radar, lidar) from passive remote sensors.</li>
-                  <li>How spatial, spectral, temporal, and radiometric resolutions limit data.</li>
-                  <li>To calculate environmental indices (NDVI, NDWI, NDSI) from band datasets.</li>
-                </ul>
-              </div>
-              <div class="big-questions-box">
-                <h4 class="overview-list-title"><i class="fas fa-question-circle"></i> Big Questions</h4>
-                <div class="question-prompt">
-                  <i class="fas fa-quote-left"></i>
-                  <span>Why does healthy green vegetation exhibit an extremely sharp increase in reflectance (the "red edge") at near-infrared wavelengths?</span>
-                </div>
-                <div class="question-prompt">
-                  <i class="fas fa-quote-left"></i>
-                  <span>How can you utilize multiple bands from the Landsat 8 satellite to calculate a normalized index that maps wildfire burn severity?</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-pane" data-pane="topics">
-            <div class="season-split">
-              <div class="season-column">
-                <span class="season-header-badge past"><i class="fas fa-bolt"></i> Sensor Physics</span>
-                <h4 class="season-topics-title">Electromagnetics &amp; Orbits</h4>
-                <ul class="topic-list-ul">
-                  <li><strong>EM Spectrum:</strong> Ultraviolet, visible, near-IR, shortwave-IR, thermal-IR, and microwave properties. Refraction, scattering, absorption.</li>
-                  <li><strong>Orbit Dynamics:</strong> Sun-synchronous polar orbits (optimal for passive sensing) vs. Geostationary orbits (ideal for constant meteorological surveillance).</li>
-                  <li><strong>Sensor Systems:</strong> Active sensors (Lidar, RADAR) vs. passive optical sensors (multispectral scanners, spectrometers).</li>
-                </ul>
-              </div>
-              <div class="season-column active-season">
-                <span class="season-header-badge future"><i class="fas fa-arrow-circle-right"></i> Digital Image Analysis</span>
-                <h4 class="season-topics-title">Data &amp; Calculations</h4>
-                <ul class="topic-list-ul">
-                  <li><strong>Major Satellites:</strong> Landsat, Sentinel, MODIS, GRACE, Terra/Aqua band classifications and sensor configurations.</li>
-                  <li><strong>Spectral Indices:</strong> Calculating and mapping NDVI (Normalized Difference Vegetation Index), NDWI (Water), and NDSI (Snow) using band math.</li>
-                  <li><strong>Phenomenology:</strong> Image interpretation, false-color compositing, supervised vs. unsupervised classification, radiometric calibration, and atmospheric correction.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-pane" data-pane="pathway">
-            <div class="pathway-grid">
-              <div>
-                <h4 class="overview-list-title"><i class="fas fa-book"></i> Standard Textbooks</h4>
-                <div class="textbook-card">
-                  <div class="textbook-icon"><i class="fas fa-book-open"></i></div>
-                  <div class="textbook-info">
-                    <h5>Introduction to Remote Sensing</h5>
-                    <p class="author">James B. Campbell</p>
-                    <span class="scope-tag">Standard University Syllabus</span>
-                  </div>
-                </div>
-              </div>
-              <div class="courses-box">
-                <h4 class="overview-list-title"><i class="fas fa-university"></i> Related College Courses</h4>
-                <div class="course-tag-container">
-                  <span class="course-tag"><i class="fas fa-check"></i> Geographic Information Systems (GIS)</span>
-                  <span class="course-tag"><i class="fas fa-check"></i> Remote Sensing 101</span>
-                  <span class="course-tag"><i class="fas fa-check"></i> Satellite Meteorology</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-pane" data-pane="resources">
-            <div class="resources-grid">
-              <a href="https://appliedsciences.nasa.gov/what-we-do/capacity-building/arset" target="_blank" class="resource-item">
-                <div class="resource-item-left">
-                  <div class="resource-type-icon"><i class="fas fa-satellite"></i></div>
-                  <div class="resource-item-info">
-                    <h5>NASA ARSET Training</h5>
-                    <p>Official webinars and trace environmental data tutorials</p>
-                  </div>
-                </div>
-                <i class="fas fa-chevron-right resource-arrow"></i>
-              </a>
-              <a href="https://sentinel-playground.com" target="_blank" class="resource-item">
-                <div class="resource-item-left">
-                  <div class="resource-type-icon"><i class="fas fa-globe-americas"></i></div>
-                  <div class="resource-item-info">
-                    <h5>Sentinel Playground</h5>
-                    <p>Explore and manipulate live satellite spectral bands globally</p>
-                  </div>
-                </div>
-                <i class="fas fa-chevron-right resource-arrow"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </article>
-
-    <!-- Event 3: Astronomy -->
-    <article class="event-card" id="event-astronomy">
-      <div class="event-card-header">
-        <div class="event-title-area">
-          <i class="fas fa-user-astronaut" aria-hidden="true"></i>
-          <h3>Astronomy</h3>
-        </div>
-        <span class="event-meta-badge"><i class="fas fa-user-friends"></i> Team of 2</span>
-      </div>
-      <p class="event-tagline-lead">Explore stellar physics, orbital mechanics, and deep space cosmos. Apply astrophysics equations to solve binary orbits, exoplanet transits, and stellar evolutions.</p>
-
-      <div class="event-tabs">
-        <div class="tab-header">
-          <button class="tab-btn active" data-tab="overview"><i class="fas fa-info-circle"></i> Overview</button>
-          <button class="tab-btn" data-tab="topics"><i class="fas fa-list"></i> Topics</button>
-          <button class="tab-btn" data-tab="pathway"><i class="fas fa-graduation-cap"></i> Pathway</button>
-          <button class="tab-btn" data-tab="resources"><i class="fas fa-laptop-code"></i> Resources</button>
-        </div>
-
-        <div class="tab-content">
-          <div class="tab-pane active" data-pane="overview">
-            <div class="overview-grid">
-              <div>
-                <h4 class="overview-list-title"><i class="fas fa-star"></i> What You'll Learn</h4>
-                <ul class="overview-ul">
-                  <li>The lifecycle of stars from stellar nebulae to supermassive black holes.</li>
-                  <li>How to apply Kepler's and Newton's orbital equations to celestial systems.</li>
-                  <li>How stellar spectrums reveal temperature, composition, and velocity.</li>
-                  <li>To identify designated Deep Sky Objects (DSOs) of the season.</li>
-                </ul>
-              </div>
-              <div class="big-questions-box">
-                <h4 class="overview-list-title"><i class="fas fa-question-circle"></i> Big Questions</h4>
-                <div class="question-prompt">
-                  <i class="fas fa-quote-left"></i>
-                  <span>How can you derive the orbital distance, radius, and atmospheric composition of an exoplanet using transit light curves?</span>
-                </div>
-                <div class="question-prompt">
-                  <i class="fas fa-quote-left"></i>
-                  <span>What nucleosynthesis changes trigger the iron-core collapse of a massive star, and how does this create a Type II Supernova?</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-pane" data-pane="topics">
-            <div class="season-split">
-              <div class="season-column">
-                <span class="season-header-badge past"><i class="fas fa-fire-alt"></i> Stellar Astrophysics</span>
-                <h4 class="season-topics-title">Stellar Life &amp; HR Diagrams</h4>
-                <ul class="topic-list-ul">
-                  <li><strong>Stellar Lifecycles:</strong> Jeans instability, protostars, main-sequence nucleosynthesis, red giant pathways, white dwarf limits (Chandrasekhar mass), neutron stars, and black holes.</li>
-                  <li><strong>HR Diagrams:</strong> Classification of stellar luminosity, absolute and apparent magnitudes, spectroscopic parallax, and color indices.</li>
-                  <li><strong>Spectroscopy:</strong> Wien's Law, Stefan-Boltzmann Law, Balmer lines, and Doppler velocities.</li>
-                </ul>
-              </div>
-              <div class="season-column active-season">
-                <span class="season-header-badge future"><i class="fas fa-arrow-circle-right"></i> Orbital &amp; Observational Astronomy</span>
-                <h4 class="season-topics-title">Celestial Math &amp; Catalogs</h4>
-                <ul class="topic-list-ul">
-                  <li><strong>Orbital Mechanics:</strong> Kepler's laws, Newton's law of universal gravitation, binary star math (determining stellar masses and separations).</li>
-                  <li><strong>Exoplanets:</strong> Detection methodologies (radial velocity wobbles, transit light curves, gravitational microlensing).</li>
-                  <li><strong>Deep Sky Objects (DSOs):</strong> Catalog recognition, coordinates, and physical mechanisms of designated stellar nebulae, supernova remnants, and active galaxies.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-pane" data-pane="pathway">
-            <div class="pathway-grid">
-              <div>
-                <h4 class="overview-list-title"><i class="fas fa-book"></i> Standard Textbooks</h4>
-                <div class="textbook-card">
-                  <div class="textbook-icon"><i class="fas fa-book-open"></i></div>
-                  <div class="textbook-info">
-                    <h5>An Introduction to Modern Astrophysics</h5>
-                    <p class="author">Carroll &amp; Ostlie</p>
-                    <span class="scope-tag">"The Big Orange Book" (Standard Astro)</span>
-                  </div>
-                </div>
-                <div class="textbook-card">
-                  <div class="textbook-icon"><i class="fas fa-book-open"></i></div>
-                  <div class="textbook-info">
-                    <h5>Astronomy Today</h5>
-                    <p class="author">Chaisson &amp; McMillan</p>
-                    <span class="scope-tag">In-Depth Observational Systems</span>
-                  </div>
-                </div>
-              </div>
-              <div class="courses-box">
-                <h4 class="overview-list-title"><i class="fas fa-university"></i> Related College Courses</h4>
-                <div class="course-tag-container">
-                  <span class="course-tag"><i class="fas fa-check"></i> Astrophysics I/II</span>
-                  <span class="course-tag"><i class="fas fa-check"></i> General Astronomy</span>
-                  <span class="course-tag"><i class="fas fa-check"></i> Cosmology</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-pane" data-pane="resources">
-            <div class="resources-grid">
-              <a href="https://www.youtube.com/c/PBSSpaceTime" target="_blank" class="resource-item">
-                <div class="resource-item-left">
-                  <div class="resource-type-icon"><i class="fab fa-youtube"></i></div>
-                  <div class="resource-item-info">
-                    <h5>PBS Space Time</h5>
-                    <p>Fascinating, highly detailed mathematical astrophysics lectures</p>
-                  </div>
-                </div>
-                <i class="fas fa-chevron-right resource-arrow"></i>
-              </a>
-              <a href="https://chandra.harvard.edu/edu/" target="_blank" class="resource-item">
-                <div class="resource-item-left">
-                  <div class="resource-type-icon"><i class="fas fa-globe"></i></div>
-                  <div class="resource-item-info">
-                    <h5>Chandra Education</h5>
-                    <p>Official NASA X-Ray stellar lifecycle and spectroscopy guides</p>
-                  </div>
-                </div>
-                <i class="fas fa-chevron-right resource-arrow"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </article>
-
-    <!-- Event 4: Rocks & Minerals -->
-    <article class="event-card" id="event-rocks">
-      <div class="event-card-header">
-        <div class="event-title-area">
-          <i class="fas fa-gem" aria-hidden="true"></i>
-          <h3>Rocks &amp; Minerals</h3>
-        </div>
-        <span class="event-meta-badge"><i class="fas fa-user-friends"></i> Team of 2</span>
-      </div>
-      <p class="event-tagline-lead">Unveil the history written in Earth's crust, identifying minerals and rocks, and analyzing the petrological environments and economic contexts of their formation.</p>
-
-      <div class="event-tabs">
-        <div class="tab-header">
-          <button class="tab-btn active" data-tab="overview"><i class="fas fa-info-circle"></i> Overview</button>
-          <button class="tab-btn" data-tab="topics"><i class="fas fa-list"></i> Topics</button>
-          <button class="tab-btn" data-tab="pathway"><i class="fas fa-graduation-cap"></i> Pathway</button>
-          <button class="tab-btn" data-tab="resources"><i class="fas fa-laptop-code"></i> Resources</button>
-        </div>
-
-        <div class="tab-content">
-          <div class="tab-pane active" data-pane="overview">
-            <div class="overview-grid">
-              <div>
-                <h4 class="overview-list-title"><i class="fas fa-star"></i> What You'll Learn</h4>
-                <ul class="overview-ul">
-                  <li>To identify hand-samples using hardness, cleavage, and streak.</li>
-                  <li>How rock textures (aphanitic, foliated) indicate plate tectonic origins.</li>
-                  <li>The mineral structural chemistry of silicate and non-silicate groups.</li>
-                  <li>The industrial and economic uses of geological ore minerals.</li>
-                </ul>
-              </div>
-              <div class="big-questions-box">
-                <h4 class="overview-list-title"><i class="fas fa-question-circle"></i> Big Questions</h4>
-                <div class="question-prompt">
-                  <i class="fas fa-quote-left"></i>
-                  <span>How does Bowen's Reaction Series predict which minerals will crystallize first from cooling basaltic magma?</span>
-                </div>
-                <div class="question-prompt">
-                  <i class="fas fa-quote-left"></i>
-                  <span>How can you distinguish Igneous Obsidian from Metamorphic Coal using density, fracture, and specific gravity tests?</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-pane" data-pane="topics">
-            <div class="season-split">
-              <div class="season-column">
-                <span class="season-header-badge past"><i class="fas fa-atom"></i> Mineralogy</span>
-                <h4 class="season-topics-title">Mineral Physics &amp; Chemistry</h4>
-                <ul class="topic-list-ul">
-                  <li><strong>Mineral Properties:</strong> Hardness (Mohs scale), cleavage axes, luster, streak, specific gravity, crystal habits (isometric, hexagonal), and diagnostic indicators (magnetism, acid reactions).</li>
-                  <li><strong>Mineral Chemistry:</strong> Silicate tetrahedral groupings (nesosilicates, inosilicates, tectosilicates), carbonate groups, halide, oxide, and sulfide ores.</li>
-                  <li><strong>Bowen's Reaction Series:</strong> Continuous vs. discontinuous crystallization branches and mineral solid solutions.</li>
-                </ul>
-              </div>
-              <div class="season-column active-season">
-                <span class="season-header-badge future"><i class="fas fa-arrow-circle-right"></i> Petrology</span>
-                <h4 class="season-topics-title">Rock Classification &amp; Tectonics</h4>
-                <ul class="topic-list-ul">
-                  <li><strong>Igneous Rocks:</strong> Felsic vs. mafic composition, intrusive phaneritic textures (granite) vs. extrusive aphanitic textures (basalt, pumice, obsidian).</li>
-                  <li><strong>Sedimentary Rocks:</strong> Clastic (shale, sandstone) vs. chemical/biogenic (limestone, coal), sedimentary structures (cross-bedding, ripple marks, mudcracks).</li>
-                  <li><strong>Metamorphic Rocks:</strong> Foliated textures (slate, schist, gneiss) vs. non-foliated textures (marble, quartzite), metamorphic grade indices, and plate tectonic origins.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-pane" data-pane="pathway">
-            <div class="pathway-grid">
-              <div>
-                <h4 class="overview-list-title"><i class="fas fa-book"></i> Standard Textbooks</h4>
-                <div class="textbook-card">
-                  <div class="textbook-icon"><i class="fas fa-book-open"></i></div>
-                  <div class="textbook-info">
-                    <h5>Manual of Mineral Science</h5>
-                    <p class="author">Klein &amp; Dutrow</p>
-                    <span class="scope-tag">Standard University Mineralogy</span>
-                  </div>
-                </div>
-              </div>
-              <div class="courses-box">
-                <h4 class="overview-list-title"><i class="fas fa-university"></i> Related College Courses</h4>
-                <div class="course-tag-container">
-                  <span class="course-tag"><i class="fas fa-check"></i> Physical Geology</span>
-                  <span class="course-tag"><i class="fas fa-check"></i> Mineralogy</span>
-                  <span class="course-tag"><i class="fas fa-check"></i> Igneous &amp; Metamorphic Petrology</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-pane" data-pane="resources">
-            <div class="resources-grid">
-              <a href="https://www.mindat.org" target="_blank" class="resource-item">
-                <div class="resource-item-left">
-                  <div class="resource-type-icon"><i class="fas fa-gem"></i></div>
-                  <div class="resource-item-info">
-                    <h5>Mindat.org</h5>
-                    <p>World's largest mineral database, structural properties and images</p>
-                  </div>
-                </div>
-                <i class="fas fa-chevron-right resource-arrow"></i>
-              </a>
-              <a href="https://youtube.com/playlist?list=PL2-f8mepPclmN9D3p_g7q_m8b0870G7uG" target="_blank" class="resource-item">
-                <div class="resource-item-left">
-                  <div class="resource-type-icon"><i class="fab fa-youtube"></i></div>
-                  <div class="resource-item-info">
-                    <h5>Earth Rocks! Geology</h5>
-                    <p>Excellent visual walkthroughs of rock identification, textures, and field formations</p>
-                  </div>
-                </div>
-                <i class="fas fa-chevron-right resource-arrow"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </article>
-
-  </div>
-</div>
 {% endblock %}
 
 {% block extra_js %}
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  // Scoped Tab Interaction Script
-  document.querySelectorAll('.event-card').forEach(card => {
-    const buttons = card.querySelectorAll('.tab-btn');
-    const panes = card.querySelectorAll('.tab-pane');
-    
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        // Deactivate all buttons and panes inside this card only
-        buttons.forEach(b => b.classList.remove('active'));
-        panes.forEach(p => p.classList.remove('active'));
-        
-        // Activate current button
-        btn.classList.add('active');
-        const targetTab = btn.getAttribute('data-tab');
-        
-        // Find and activate matching pane inside this card
-        const targetPane = card.querySelector(`.tab-pane[data-pane="${targetTab}"]`);
-        if (targetPane) {
-          targetPane.classList.add('active');
+
+    <script type="importmap">
+    {"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js"}}
+    </script>
+    <script type="module">
+        import * as THREE from 'three';
+
+        const canvas = document.getElementById('es-canvas');
+        const heroSection = document.getElementById('heroSection');
+
+        // ---- Device capability tier ----
+        const isMobile = /Android|iPhone|iPad|iPod|Mobi/i.test(navigator.userAgent);
+        const cores = navigator.hardwareConcurrency || 4;
+        const mem = navigator.deviceMemory || 4;
+        const LOW = isMobile || cores <= 4 || mem <= 4;
+
+        initScene(THREE);
+
+        function initScene(THREE) {
+            const SEG = LOW ? 32 : 48;
+            const TEX_W = LOW ? 512 : 1024;
+            const TEX_H = TEX_W / 2;
+
+            const scene = new THREE.Scene();
+            scene.background = null;
+
+            const camera = new THREE.PerspectiveCamera(32,
+                heroSection.offsetWidth / Math.max(1, heroSection.offsetHeight), 0.1, 100);
+            camera.position.set(1.2, 0.5, 9);
+            camera.lookAt(1.8, -0.55, 0);
+
+            const renderer = new THREE.WebGLRenderer({
+                canvas, antialias: !LOW, alpha: true, powerPreference: 'high-performance'
+            });
+            renderer.setSize(heroSection.offsetWidth, heroSection.offsetHeight);
+            renderer.setPixelRatio(LOW ? 1 : Math.min(window.devicePixelRatio, 1.5));
+            renderer.toneMapping = THREE.ACESFilmicToneMapping;
+            renderer.toneMappingExposure = 1.1;
+            renderer.setClearColor(0x000000, 0);
+
+            // ---- Cheap environment: tiny gradient canvas -> PMREM (no addon scene) ----
+            const envCanvas = document.createElement('canvas');
+            envCanvas.width = 128; envCanvas.height = 64;
+            const ectx = envCanvas.getContext('2d');
+            const eg = ectx.createLinearGradient(0, 0, 0, 64);
+            eg.addColorStop(0, '#3a4a6a');
+            eg.addColorStop(0.5, '#10141f');
+            eg.addColorStop(1, '#05060a');
+            ectx.fillStyle = eg;
+            ectx.fillRect(0, 0, 128, 64);
+            ectx.fillStyle = 'rgba(255,240,210,0.9)';
+            ectx.beginPath(); ectx.arc(40, 18, 10, 0, Math.PI * 2); ectx.fill();
+            const envTex = new THREE.CanvasTexture(envCanvas);
+            envTex.mapping = THREE.EquirectangularReflectionMapping;
+            const pmrem = new THREE.PMREMGenerator(renderer);
+            scene.environment = pmrem.fromEquirectangular(envTex).texture;
+            envTex.dispose(); pmrem.dispose();
+
+            // ---- Lights ----
+            const keyLight = new THREE.DirectionalLight(0xfff5e6, 2.2);
+            keyLight.position.set(-5, 5, 5);
+            scene.add(keyLight);
+            const fillLight = new THREE.DirectionalLight(0xe6f0ff, 0.8);
+            fillLight.position.set(5, -2, 4);
+            scene.add(fillLight);
+            const rimLight = new THREE.DirectionalLight(0x818cf8, 1.2);
+            rimLight.position.set(0, 2, -6);
+            scene.add(rimLight);
+            scene.add(new THREE.AmbientLight(0xffffff, 0.3));
+
+            // ---- Earth textures (scaled coords, fewer paint ops) ----
+            function generateEarthTextures() {
+                const W = TEX_W, H = TEX_H;
+                const sx = v => v * W / 2048, sy = v => v * H / 1024;
+
+                const colorCanvas = document.createElement('canvas');
+                colorCanvas.width = W; colorCanvas.height = H;
+                const cctx = colorCanvas.getContext('2d');
+                const bumpCanvas = document.createElement('canvas');
+                bumpCanvas.width = W; bumpCanvas.height = H;
+                const bctx = bumpCanvas.getContext('2d');
+                const specCanvas = document.createElement('canvas');
+                specCanvas.width = W; specCanvas.height = H;
+                const sctx = specCanvas.getContext('2d');
+                const cloudCanvas = document.createElement('canvas');
+                cloudCanvas.width = W; cloudCanvas.height = H;
+                const clctx = cloudCanvas.getContext('2d');
+
+                const og = cctx.createLinearGradient(0, 0, 0, H);
+                og.addColorStop(0, '#0a2a4a'); og.addColorStop(0.15, '#0f3a5a');
+                og.addColorStop(0.5, '#124a6a'); og.addColorStop(0.85, '#0f3a5a');
+                og.addColorStop(1, '#0a2a4a');
+                cctx.fillStyle = og; cctx.fillRect(0, 0, W, H);
+                bctx.fillStyle = '#1a1a1a'; bctx.fillRect(0, 0, W, H);
+                sctx.fillStyle = '#ffffff'; sctx.fillRect(0, 0, W, H);
+
+                const continents = [
+                    { shape: [[380,180],[450,160],[520,170],[540,220],[560,280],[540,340],[500,380],[460,400],[400,380],[360,320],[350,260],[360,220]], base:'#3a7a2a',
+                      mounts:[[420,220,80,40],[480,280,60,30]], deserts:[[380,320,40,30]], forests:[[380,280,80,50]] },
+                    { shape: [[480,440],[540,420],[560,480],[570,560],[550,640],[520,680],[480,660],[450,580],[440,500]], base:'#3a8a2a',
+                      mounts:[[500,480,40,120]], deserts:[[460,500,30,40]], forests:[[500,540,80,80]] },
+                    { shape: [[960,200],[1020,180],[1080,190],[1100,230],[1080,270],[1040,290],[980,280],[950,250]], base:'#4a7a2a',
+                      mounts:[[1000,240,60,30]], deserts:[], forests:[[980,220,80,40]] },
+                    { shape: [[980,320],[1060,300],[1120,340],[1140,420],[1130,520],[1100,600],[1060,640],[1020,620],[980,540],[960,440],[970,360]], base:'#7a6a3a',
+                      mounts:[[1040,380,50,40]], deserts:[[1020,360,100,60]], forests:[[1060,520,60,80]] },
+                    { shape: [[1120,160],[1300,140],[1450,160],[1600,200],[1650,280],[1620,360],[1500,380],[1350,360],[1200,320],[1140,260],[1100,200]], base:'#3a7a2a',
+                      mounts:[[1300,240,200,60],[1450,280,80,40]], deserts:[[1250,300,120,50]], forests:[[1400,220,100,60]] },
+                    { shape: [[1520,560],[1620,540],[1700,560],[1740,620],[1700,680],[1620,700],[1540,680],[1500,620]], base:'#8a6a2a',
+                      mounts:[[1580,600,80,40]], deserts:[[1600,620,100,60]], forests:[[1560,580,40,30]] },
+                    { shape: [[200,880],[1800,880],[1850,1000],[150,1000]], base:'#e8e8e8', mounts:[], deserts:[], forests:[] },
+                    { shape: [[560,100],[660,80],[700,120],[680,180],[620,200],[560,180],[540,140]], base:'#d8d8d8', mounts:[], deserts:[], forests:[] }
+                ];
+
+                const trace = (ctx, pts) => {
+                    ctx.beginPath();
+                    ctx.moveTo(sx(pts[0][0]), sy(pts[0][1]));
+                    for (let i = 1; i < pts.length; i++) {
+                        const [x, y] = pts[i], [px, py] = pts[i - 1];
+                        ctx.quadraticCurveTo(
+                            sx((x + px) / 2 + (Math.random() - 0.5) * 40),
+                            sy((y + py) / 2 + (Math.random() - 0.5) * 40),
+                            sx(x), sy(y));
+                    }
+                    ctx.closePath();
+                };
+
+                continents.forEach(cont => {
+                    trace(cctx, cont.shape); cctx.fillStyle = cont.base; cctx.fill();
+                    trace(bctx, cont.shape); bctx.fillStyle = '#808080'; bctx.fill();
+                    trace(sctx, cont.shape); sctx.fillStyle = '#000000'; sctx.fill();
+
+                    cctx.save(); cctx.clip();
+                    cont.mounts.forEach(m => {
+                        for (let i = 0; i < 6; i++) {
+                            const mx = sx(m[0] + Math.random() * m[2]);
+                            const my = sy(m[1] + Math.random() * m[3]);
+                            cctx.fillStyle = `rgba(40,30,20,${0.2 + Math.random() * 0.15})`;
+                            cctx.beginPath();
+                            cctx.ellipse(mx, my, sx(10 + Math.random() * 20), sy(5 + Math.random() * 12), Math.random() * Math.PI, 0, Math.PI * 2);
+                            cctx.fill();
+                        }
+                    });
+                    cont.forests.forEach(f => {
+                        cctx.fillStyle = 'rgba(20,80,20,0.3)';
+                        cctx.beginPath();
+                        cctx.ellipse(sx(f[0] + f[2] / 2), sy(f[1] + f[3] / 2), sx(f[2] / 2), sy(f[3] / 2), 0, 0, Math.PI * 2);
+                        cctx.fill();
+                    });
+                    cont.deserts.forEach(d => {
+                        cctx.fillStyle = 'rgba(180,150,90,0.35)';
+                        cctx.beginPath();
+                        cctx.ellipse(sx(d[0] + d[2] / 2), sy(d[1] + d[3] / 2), sx(d[2] / 2), sy(d[3] / 2), 0.2, 0, Math.PI * 2);
+                        cctx.fill();
+                    });
+                    cctx.restore();
+                });
+
+                // Sparse clouds
+                clctx.globalAlpha = 0.45;
+                clctx.fillStyle = '#ffffff';
+                const wisps = LOW ? 10 : 14;
+                for (let i = 0; i < wisps; i++) {
+                    clctx.beginPath();
+                    const r = sx(15 + Math.random() * 60);
+                    clctx.ellipse(Math.random() * W, Math.random() * H, r, r * 0.2, Math.random() * Math.PI, 0, Math.PI * 2);
+                    clctx.fill();
+                }
+                clctx.globalAlpha = 0.25;
+                for (let c = 0; c < 2; c++) {
+                    const cx = Math.random() * W, cy = H * 0.25 + Math.random() * H * 0.5;
+                    for (let i = 0; i < 6; i++) {
+                        clctx.beginPath();
+                        clctx.arc(cx + (Math.random() - 0.5) * sx(90), cy + (Math.random() - 0.5) * sy(40), sx(12 + Math.random() * 20), 0, Math.PI * 2);
+                        clctx.fill();
+                    }
+                }
+                clctx.globalAlpha = 1;
+
+                return {
+                    color: new THREE.CanvasTexture(colorCanvas),
+                    bump: new THREE.CanvasTexture(bumpCanvas),
+                    spec: new THREE.CanvasTexture(specCanvas),
+                    clouds: new THREE.CanvasTexture(cloudCanvas)
+                };
+            }
+
+            const textures = generateEarthTextures();
+            if (THREE.SRGBColorSpace) textures.color.colorSpace = THREE.SRGBColorSpace;
+
+            const globeRadius = 2.8;
+            const globe = new THREE.Mesh(
+                new THREE.SphereGeometry(globeRadius, SEG, SEG),
+                new THREE.MeshPhongMaterial({
+                    map: textures.color,
+                    bumpMap: textures.bump,
+                    bumpScale: 0.08,
+                    specularMap: textures.spec,
+                    specular: new THREE.Color(0x333333),
+                    shininess: 15
+                })
+            );
+
+            const clouds = new THREE.Mesh(
+                new THREE.SphereGeometry(globeRadius + 0.02, SEG, SEG),
+                new THREE.MeshPhongMaterial({ map: textures.clouds, transparent: true, opacity: 0.18, depthWrite: false })
+            );
+
+            const atmosphere = new THREE.Mesh(
+                new THREE.SphereGeometry(globeRadius * 1.04, 32, 32),
+                new THREE.ShaderMaterial({
+                    vertexShader: `varying vec3 vNormal; void main(){ vNormal = normalize(normalMatrix * normal); gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0); }`,
+                    fragmentShader: `varying vec3 vNormal; void main(){ float i = pow(0.65 - dot(vNormal, vec3(0.0,0.0,1.0)), 2.5); gl_FragColor = vec4(0.3,0.6,1.0,1.0) * i * 1.2; }`,
+                    blending: THREE.AdditiveBlending,
+                    side: THREE.BackSide,
+                    transparent: true
+                })
+            );
+
+            // ---- Dung beetle (standard materials, low-poly tubes) ----
+            function createDungBeetle() {
+                const beetle = new THREE.Group();
+                const shellMat = new THREE.MeshStandardMaterial({
+                    color: 0x10151d, metalness: 0.85, roughness: 0.28, envMapIntensity: 1.4
+                });
+                const legMat = new THREE.MeshStandardMaterial({
+                    color: 0x1a1410, metalness: 0.5, roughness: 0.5, envMapIntensity: 0.9
+                });
+                const dungMat = new THREE.MeshStandardMaterial({ color: 0x5c3a1e, roughness: 0.92, metalness: 0.0 });
+                const eyeMat = new THREE.MeshStandardMaterial({ color: 0x050505, metalness: 0.4, roughness: 0.15 });
+
+                const BS = LOW ? 12 : 20; // sphere segments
+
+                const abdomenL = new THREE.Mesh(new THREE.SphereGeometry(0.45, BS, BS), shellMat);
+                abdomenL.scale.set(0.95, 0.68, 1.15); abdomenL.position.set(-0.015, 0, -0.32);
+                beetle.add(abdomenL);
+                const abdomenR = new THREE.Mesh(new THREE.SphereGeometry(0.45, BS, BS), shellMat);
+                abdomenR.scale.set(0.95, 0.68, 1.15); abdomenR.position.set(0.015, 0, -0.32);
+                beetle.add(abdomenR);
+
+                const seam = new THREE.Mesh(new THREE.BoxGeometry(0.008, 0.05, 0.9),
+                    new THREE.MeshStandardMaterial({ color: 0x000000, roughness: 0.8 }));
+                seam.position.set(0, 0.3, -0.32);
+                beetle.add(seam);
+
+                const thorax = new THREE.Mesh(new THREE.SphereGeometry(0.38, BS, BS), shellMat);
+                thorax.scale.set(1.25, 0.7, 0.9); thorax.position.set(0, 0.02, 0.18);
+                beetle.add(thorax);
+
+                const head = new THREE.Mesh(new THREE.SphereGeometry(0.26, BS, BS), shellMat);
+                head.scale.set(1.2, 0.65, 0.85); head.position.set(0, 0.02, 0.48);
+                beetle.add(head);
+
+                const clypeusShape = new THREE.Shape();
+                clypeusShape.moveTo(-0.22, 0);
+                clypeusShape.quadraticCurveTo(-0.24, 0.08, -0.18, 0.12);
+                clypeusShape.lineTo(0.18, 0.12);
+                clypeusShape.quadraticCurveTo(0.24, 0.08, 0.22, 0);
+                clypeusShape.lineTo(-0.22, 0);
+                const clypeus = new THREE.Mesh(
+                    new THREE.ExtrudeGeometry(clypeusShape, { depth: 0.04, bevelEnabled: true, bevelThickness: 0.01, bevelSize: 0.01, bevelSegments: 1 }),
+                    shellMat);
+                clypeus.rotation.x = -Math.PI / 2;
+                clypeus.position.set(0, 0.02, 0.62);
+                beetle.add(clypeus);
+
+                for (let side = -1; side <= 1; side += 2) {
+                    const tooth = new THREE.Mesh(new THREE.ConeGeometry(0.025, 0.06, 5), shellMat);
+                    tooth.rotation.x = Math.PI / 2;
+                    tooth.position.set(side * 0.1, 0.03, 0.73);
+                    beetle.add(tooth);
+
+                    const eye = new THREE.Mesh(new THREE.SphereGeometry(0.06, 10, 8), eyeMat);
+                    eye.scale.set(0.7, 0.85, 1);
+                    eye.position.set(side * 0.25, 0.1, 0.45);
+                    beetle.add(eye);
+
+                    const stalkCurve = new THREE.QuadraticBezierCurve3(
+                        new THREE.Vector3(side * 0.14, 0.13, 0.55),
+                        new THREE.Vector3(side * 0.2, 0.22, 0.62),
+                        new THREE.Vector3(side * 0.24, 0.28, 0.68));
+                    beetle.add(new THREE.Mesh(new THREE.TubeGeometry(stalkCurve, 6, 0.012, 5, false), legMat));
+                    const club = new THREE.Mesh(new THREE.SphereGeometry(0.03, 8, 6), legMat);
+                    club.scale.set(0.5, 1, 1);
+                    club.position.set(side * 0.26, 0.3, 0.71);
+                    beetle.add(club);
+                }
+
+                const hornCurve = new THREE.CubicBezierCurve3(
+                    new THREE.Vector3(0, 0.12, 0.5), new THREE.Vector3(0, 0.35, 0.6),
+                    new THREE.Vector3(0, 0.55, 0.55), new THREE.Vector3(0, 0.6, 0.42));
+                beetle.add(new THREE.Mesh(new THREE.TubeGeometry(hornCurve, 10, 0.035, 6, false), shellMat));
+                const hornTip = new THREE.Mesh(new THREE.ConeGeometry(0.035, 0.06, 6), shellMat);
+                hornTip.position.set(0, 0.63, 0.42); hornTip.rotation.x = -0.3;
+                beetle.add(hornTip);
+                const thoraxHornCurve = new THREE.QuadraticBezierCurve3(
+                    new THREE.Vector3(0, 0.22, 0.2), new THREE.Vector3(0, 0.42, 0.22), new THREE.Vector3(0, 0.38, 0.08));
+                beetle.add(new THREE.Mesh(new THREE.TubeGeometry(thoraxHornCurve, 8, 0.028, 6, false), shellMat));
+
+                // Legs pivot at the hip so they can swing in a running gait.
+                // Tripod gait: front-left + mid-right + hind-left move together.
+                const legs = [];
+                [{ z: 0.32, h: false, i: 0, amp: 0.42 }, { z: 0.05, h: false, i: 1, amp: 0.45 }, { z: -0.3, h: true, i: 2, amp: 0.5 }].forEach(pair => {
+                    for (let side = -1; side <= 1; side += 2) {
+                        const dz1 = pair.h ? -0.15 : 0.05, dz2 = pair.h ? -0.2 : 0.1, dz3 = pair.h ? -0.25 : 0.15;
+                        const legGroup = new THREE.Group();
+                        legGroup.position.set(side * 0.3, -0.1, pair.z);
+                        const legCurve = new THREE.CubicBezierCurve3(
+                            new THREE.Vector3(0, 0, 0),
+                            new THREE.Vector3(side * 0.2, -0.25, dz1),
+                            new THREE.Vector3(side * 0.3, -0.6, dz2),
+                            new THREE.Vector3(side * 0.25, -0.8, dz3));
+                        legGroup.add(new THREE.Mesh(new THREE.TubeGeometry(legCurve, 8, 0.048, 6, false), legMat));
+                        const foot = new THREE.Mesh(new THREE.SphereGeometry(0.065, 8, 6), legMat);
+                        foot.scale.set(1, 0.6, 1.3);
+                        foot.position.set(side * 0.25, -0.8, dz3);
+                        legGroup.add(foot);
+                        beetle.add(legGroup);
+                        legs.push({ g: legGroup, side, amp: pair.amp, hx: side * 0.3, hz: pair.z, fx: side * 0.25, dz3, phase: ((pair.i + (side > 0 ? 1 : 0)) % 2) ? Math.PI : 0 });
+                    }
+                });
+
+                const underside = new THREE.Mesh(new THREE.SphereGeometry(0.4, 12, 8),
+                    new THREE.MeshStandardMaterial({ color: 0x0a0604, roughness: 0.7, metalness: 0.3 }));
+                underside.scale.set(0.9, 0.3, 1.1);
+                underside.position.set(0, -0.15, -0.1);
+                beetle.add(underside);
+
+                const BALL_SCALE = 1.35;
+                const dungBall = new THREE.Group();
+                dungBall.add(new THREE.Mesh(new THREE.SphereGeometry(0.42, BS, BS), dungMat));
+                const bumpMat = new THREE.MeshStandardMaterial({ color: 0x3a2412, roughness: 1, metalness: 0 });
+                const strawMat = new THREE.MeshStandardMaterial({ color: 0x9a7a45, roughness: 1, metalness: 0 });
+                for (let i = 0; i < 22; i++) {
+                    const dir = new THREE.Vector3(Math.random() - 0.5, Math.random() - 0.5, Math.random() - 0.5).normalize();
+                    const bump = new THREE.Mesh(new THREE.SphereGeometry(0.05 + Math.random() * 0.06, 8, 6), i % 4 === 0 ? strawMat : bumpMat);
+                    bump.position.copy(dir.multiplyScalar(0.41));
+                    dungBall.add(bump);
+                }
+                dungBall.scale.setScalar(BALL_SCALE);
+                dungBall.position.set(0, -0.54, 1.38);   // in FRONT of the beetle, touching its head: it pushes the ball
+                beetle.add(dungBall);
+
+                return { beetle, legs, ball: dungBall };
+            }
+
+            const built = createDungBeetle();
+            const beetle = built.beetle, legs = built.legs, dungBall = built.ball;
+            const BEETLE_SCALE = 1.05;
+            const BODY_HEIGHT = 0.8;                     // beetle-centre height above the rock (beetle units); legs flex to reach the ground
+            beetle.scale.setScalar(BEETLE_SCALE);
+
+            // The beetle runs all the way around the planet, feet toward the surface.
+            const runner = new THREE.Group();
+            runner.add(beetle);
+            // spinGroup turns about the camera axis; pitchGroup tips the beetle toward the camera, so its path
+            // is a circle around the FRONT of the planet (like a line of latitude seen from above).
+            // The beetle therefore stays in view the whole lap and never goes behind the planet.
+            const LAT_TILT = 0.78;  // radians toward the camera; 0 = rim of the planet, bigger = more over the face
+            const tiltGroup = new THREE.Group();
+            const spinGroup = new THREE.Group();
+            const pitchGroup = new THREE.Group();
+            pitchGroup.rotation.x = LAT_TILT;
+            pitchGroup.add(runner);
+            spinGroup.add(pitchGroup);
+            tiltGroup.add(spinGroup);
+            runner.position.set(0, globeRadius + BODY_HEIGHT * BEETLE_SCALE, 0);
+            runner.rotation.y = Math.PI / 2;
+
+            const beetleLight = new THREE.PointLight(0xfff0d8, 1.2, 4);
+            beetleLight.position.set(0.4, globeRadius + 1.9, 2);
+
+            const planet = new THREE.Group();
+            planet.add(globe, clouds);
+
+            const mainGroup = new THREE.Group();
+            mainGroup.add(planet, atmosphere, tiltGroup, beetleLight);
+            mainGroup.position.set(1.8, -0.2, 0);
+            mainGroup.rotation.x = 0.15;
+            mainGroup.rotation.z = -0.1;
+            scene.add(mainGroup);
+
+            // Speeds are tied together so the feet and the ball don't slide on the ground.
+            const RUN_W = 0.6;                                       // beetle's lap speed around the Earth, rad/s
+            const PATH_R = globeRadius * Math.cos(LAT_TILT);             // radius of the beetle's circle
+            const LEG_W = Math.PI * RUN_W * PATH_R / 0.9;      // leg cycle, rad/s (1.06 = foot travel per step)
+            const BALL_W = RUN_W * PATH_R / (0.42 * 1.35 * BEETLE_SCALE); // ball roll, rad/s
+
+            // ---- Orbit dust: ONE Points draw call instead of 50 meshes ----
+            const P_COUNT = LOW ? 16 : 30;
+            const pPositions = new Float32Array(P_COUNT * 3);
+            const pData = [];
+            for (let i = 0; i < P_COUNT; i++) {
+                pData.push({
+                    angle: Math.random() * Math.PI * 2,
+                    radius: 2.0 + Math.random() * 2.5,
+                    height: (Math.random() - 0.5) * 8,
+                    speed: 0.001 + Math.random() * 0.004,
+                    fSpeed: 0.0005 + Math.random() * 0.0015,
+                    fAmp: 0.1 + Math.random() * 0.25
+                });
+            }
+            const pGeo = new THREE.BufferGeometry();
+            pGeo.setAttribute('position', new THREE.BufferAttribute(pPositions, 3));
+            const pMat = new THREE.PointsMaterial({
+                color: 0x38bdf8, size: 0.07, transparent: true, opacity: 0.55,
+                sizeAttenuation: true, depthWrite: false, blending: THREE.AdditiveBlending
+            });
+            const points = new THREE.Points(pGeo, pMat);
+            scene.add(points);
+
+            // ---- Background: stars, distant planets, and a moon ----
+            const starSprite = (() => {
+                const c = document.createElement('canvas'); c.width = c.height = 32;
+                const x = c.getContext('2d');
+                const g = x.createRadialGradient(16, 16, 0, 16, 16, 16);
+                g.addColorStop(0, 'rgba(255,255,255,1)'); g.addColorStop(0.35, 'rgba(255,255,255,0.7)'); g.addColorStop(1, 'rgba(255,255,255,0)');
+                x.fillStyle = g; x.fillRect(0, 0, 32, 32);
+                return new THREE.CanvasTexture(c);
+            })();
+            const starGroup = new THREE.Group();
+            const starLayers = [];
+            function makeStars(count, size, baseOpacity) {
+                const pos = new Float32Array(count * 3), col = new Float32Array(count * 3);
+                const tints = [[1, 1, 1], [0.75, 0.88, 1], [1, 0.93, 0.78], [0.85, 0.8, 1]];
+                for (let i = 0; i < count; i++) {
+                    pos[i * 3]     = (Math.random() - 0.5) * 120;
+                    pos[i * 3 + 1] = (Math.random() - 0.5) * 60;
+                    pos[i * 3 + 2] = -25 - Math.random() * 45;
+                    const t = tints[Math.floor(Math.random() * tints.length)], b = 0.6 + Math.random() * 0.4;
+                    col[i * 3] = t[0] * b; col[i * 3 + 1] = t[1] * b; col[i * 3 + 2] = t[2] * b;
+                }
+                const geo = new THREE.BufferGeometry();
+                geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+                geo.setAttribute('color', new THREE.BufferAttribute(col, 3));
+                const mat = new THREE.PointsMaterial({ size, map: starSprite, vertexColors: true, transparent: true, opacity: baseOpacity,
+                    depthWrite: false, blending: THREE.AdditiveBlending, sizeAttenuation: true });
+                const pts = new THREE.Points(geo, mat);
+                starGroup.add(pts);
+                starLayers.push({ mat, base: baseOpacity, phase: Math.random() * 6.28, speed: 0.6 + Math.random() * 0.8 });
+            }
+            makeStars(LOW ? 220 : 520, 0.32, 0.85);
+            makeStars(LOW ? 60 : 160, 0.55, 0.8);
+            makeStars(LOW ? 10 : 36, 1.0, 0.9);
+            scene.add(starGroup);
+
+            function canvasTex(w, h, draw) {
+                const c = document.createElement('canvas'); c.width = w; c.height = h;
+                const x = c.getContext('2d'); draw(x, w, h, h / 128);
+                const t = new THREE.CanvasTexture(c);
+                if (THREE.SRGBColorSpace) t.colorSpace = THREE.SRGBColorSpace;
+                return t;
+            }
+            const TW = LOW ? 128 : 256, TH = TW / 2;
+            const pick = arr => arr[Math.floor(Math.random() * arr.length)];
+            const blotch = (x, w, h, n, colors, alpha, rx, ry) => {
+                for (let i = 0; i < n; i++) {
+                    x.globalAlpha = alpha * (0.5 + Math.random() * 0.5); x.fillStyle = pick(colors);
+                    x.beginPath(); x.ellipse(Math.random() * w, Math.random() * h, rx * (0.4 + Math.random()), ry * (0.4 + Math.random()), 0, 0, 6.283); x.fill();
+                }
+                x.globalAlpha = 1;
+            };
+            const gasTex = (palette, storm) => canvasTex(TW, TH, (x, w, h, k) => {
+                let y = 0;
+                while (y < h) { const bh = (3 + Math.random() * 12) * k; x.fillStyle = pick(palette); x.fillRect(0, y, w, bh + 1); y += bh; }
+                blotch(x, w, h, 40, ['#ffffff', '#6b4a2a'], 0.12, 30 * k, 3 * k);
+                if (storm) { x.fillStyle = storm; x.globalAlpha = 0.8; x.beginPath(); x.ellipse(w * 0.3, h * 0.62, 14 * k, 7 * k, 0, 0, 6.283); x.fill(); x.globalAlpha = 1; }
+            });
+            const rockTex = (base, dark, light, caps) => canvasTex(TW, TH, (x, w, h, k) => {
+                x.fillStyle = base; x.fillRect(0, 0, w, h);
+                blotch(x, w, h, 36, [dark], 0.4, 22 * k, 10 * k);
+                blotch(x, w, h, 24, [light], 0.3, 18 * k, 8 * k);
+                if (caps) { x.fillStyle = 'rgba(255,255,255,0.85)'; x.fillRect(0, 0, w, 4 * k); x.fillRect(0, h - 4 * k, w, 4 * k); }
+            });
+            const moonTex = canvasTex(TW, TH, (x, w, h, k) => {
+                x.fillStyle = '#9d9d9d'; x.fillRect(0, 0, w, h);
+                blotch(x, w, h, 50, ['#6c6c6c', '#bdbdbd'], 0.45, 7 * k, 7 * k);
+            });
+            const glowMat = color => new THREE.ShaderMaterial({
+                uniforms: { c: { value: new THREE.Color(color) } },
+                vertexShader: `varying vec3 vNormal; void main(){ vNormal = normalize(normalMatrix * normal); gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0); }`,
+                fragmentShader: `uniform vec3 c; varying vec3 vNormal; void main(){ float i = pow(max(0.0, 0.72 - dot(vNormal, vec3(0.0,0.0,1.0))), 2.5); gl_FragColor = vec4(c,1.0) * i * 1.1; }`,
+                blending: THREE.AdditiveBlending, side: THREE.BackSide, transparent: true, depthWrite: false
+            });
+            const bgPlanets = [];
+            function addPlanet(map, r, x, y, z, glowColor, spin) {
+                const grp = new THREE.Group(); grp.position.set(x, y, z);
+                const body = new THREE.Mesh(new THREE.SphereGeometry(r, LOW ? 24 : 40, LOW ? 24 : 40), new THREE.MeshStandardMaterial({ map, roughness: 0.95, metalness: 0 }));
+                grp.add(body);
+                grp.add(new THREE.Mesh(new THREE.SphereGeometry(r * 1.16, 24, 24), glowMat(glowColor)));
+                scene.add(grp); bgPlanets.push({ body, spin });
+                return grp;
+            }
+            // ringed gas giant (upper right)
+            const giant = addPlanet(gasTex(['#d9b98a', '#c99a62', '#e8d3a8', '#b57f4a', '#f0e0bd'], '#b4552d'), 1.5, 9.2, 1.95, -13, 0x8a6a3a, 0.05);
+            const ringTex = (() => {
+                const c = document.createElement('canvas'); c.width = c.height = 256;
+                const x = c.getContext('2d'), g = x.createRadialGradient(128, 128, 0, 128, 128, 128);
+                const bands = [[0.0, 0], [0.62, 0], [0.63, 0.6], [0.70, 0.6], [0.705, 0.12], [0.73, 0.12], [0.735, 0.55], [0.9, 0.55], [0.905, 0], [0.93, 0], [0.935, 0.35], [1, 0.35]];
+                bands.forEach(([o, a]) => g.addColorStop(o, `rgba(222,202,166,${a})`));
+                x.fillStyle = g; x.fillRect(0, 0, 256, 256);
+                return new THREE.CanvasTexture(c);
+            })();
+            const ring = new THREE.Mesh(new THREE.RingGeometry(1.9, 3.0, 64), new THREE.MeshBasicMaterial({ map: ringTex, transparent: true, side: THREE.DoubleSide, depthWrite: false }));
+            ring.rotation.x = Math.PI / 2;
+            giant.add(ring);
+            giant.rotation.x = 0.45; giant.rotation.z = -0.3;
+            // small red planet (lower right)
+            addPlanet(rockTex('#b4552d', '#7e3519', '#d98a57', true), 0.42, 6.4, -2.2, -5, 0xd9703c, 0.12);
+            // pale ice planet (upper left, behind the text scrim)
+            addPlanet(gasTex(['#8fd3e3', '#6bbfd6', '#bde8f0', '#4fa3c0'], null), 1.1, -1.4, 2.5, -17, 0x38bdf8, 0.04);
+            // violet planet (far right)
+            addPlanet(gasTex(['#9b87d6', '#7f6cc4', '#b9a9ea', '#6a58b0'], null), 0.9, 13.5, -1.4, -18, 0x818cf8, 0.06);
+
+            // moon orbiting the Earth
+            const moon = new THREE.Mesh(new THREE.SphereGeometry(0.3, 24, 24), new THREE.MeshStandardMaterial({ map: moonTex, roughness: 1, metalness: 0 }));
+            mainGroup.add(moon);
+            const MOON_R = 5.4, MOON_TILT = -0.5;
+
+            // ---- Visibility gating: don't burn GPU off-screen or in background tabs ----
+            let heroVisible = true, tabVisible = true;
+            new IntersectionObserver(([e]) => { heroVisible = e.isIntersecting; }, { threshold: 0 })
+                .observe(heroSection);
+            document.addEventListener('visibilitychange', () => { tabVisible = !document.hidden; });
+
+            let smoothMX = 0, smoothMY = 0, mouseX = 0, mouseY = 0;
+            const startTime = performance.now();
+            let firstFrame = false;
+            let last = startTime, runAngle = 0, legT = 0, moonA = 0.8;
+            const beetleWorld = new THREE.Vector3();
+
+            heroSection.addEventListener('mousemove', (e) => {
+                const rect = heroSection.getBoundingClientRect();
+                mouseX = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+                mouseY = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+            }, { passive: true });
+
+            // Finds the leg length (vertical stretch) that puts the foot at distance targetR from the planet's centre.
+            function solveReach(leg, th, lift, targetR) {
+                const cz = Math.cos(lift), sz = Math.sin(lift), cx = Math.cos(th), sx = Math.sin(th);
+                const baseY = runner.position.y + beetle.position.y;
+                let lo = 0.3, hi = 2.4;
+                for (let i = 0; i < 14; i++) {
+                    const k = (lo + hi) / 2;
+                    const vy = -0.8 * k;
+                    const ax = leg.fx * cz - vy * sz, ay = leg.fx * sz + vy * cz;        // lift (about z)
+                    const by = ay * cx - leg.dz3 * sx, bz = ay * sx + leg.dz3 * cx;     // step swing (about x)
+                    const px = leg.hx + ax, py = -0.1 + by, pz = leg.hz + bz;
+                    const X = pz * BEETLE_SCALE, Y = baseY + py * BEETLE_SCALE, Z = -px * BEETLE_SCALE;
+                    if (Math.sqrt(X * X + Y * Y + Z * Z) > targetR) lo = k; else hi = k;
+                }
+                return (lo + hi) / 2;
+            }
+
+            function animate() {
+                requestAnimationFrame(animate);
+                const now = performance.now();
+                if (!heroVisible || !tabVisible) { last = now; return; }
+                const dt = Math.min(0.05, (now - last) / 1000); last = now;
+                const elapsed = (now - startTime) / 1000;
+
+                const FINAL_SCALE = 0.4;
+                let scale = FINAL_SCALE;
+                if (elapsed < 1.6) scale = (1 - Math.pow(1 - elapsed / 1.6, 3)) * FINAL_SCALE;
+                mainGroup.scale.setScalar(scale);
+
+                // Earth spins slowly; the beetle laps its front face (clockwise, heading right across the top)
+                globe.rotation.y += dt * 0.12;
+                clouds.rotation.y += dt * 0.15;
+                runAngle += dt * RUN_W;
+                spinGroup.rotation.z = -runAngle;
+                runner.getWorldPosition(beetleWorld);
+                mainGroup.worldToLocal(beetleWorld);
+                beetleLight.position.set(beetleWorld.x * 1.2, beetleWorld.y * 1.2, beetleWorld.z + 2.2);
+
+                // running gait. The body bobs first, then each leg's reach is solved so the
+                // foot touches the planet's surface during the step and lifts off in an arc on the swing.
+                legT += dt * LEG_W;
+                beetle.position.y = Math.sin(legT * 2) * 0.025;
+                for (const leg of legs) {
+                    const phi = legT + leg.phase;
+                    const th = leg.amp * Math.sin(phi);
+                    const swing = Math.max(0, -Math.cos(phi));            // 0 on the ground, 1 at mid-swing
+                    const lift = leg.side * 0.3 * swing;
+                    leg.g.rotation.x = th;
+                    leg.g.rotation.z = lift;
+                    leg.g.scale.y = solveReach(leg, th, lift, globeRadius - 0.05 + 0.26 * swing);
+                }
+
+                beetle.rotation.x = Math.sin(legT) * 0.03;
+                dungBall.rotation.x += dt * BALL_W;
+
+                // moon
+                moonA += dt * 0.25;
+                moon.position.set(MOON_R * Math.cos(moonA), MOON_R * Math.sin(moonA) * Math.sin(MOON_TILT), MOON_R * Math.sin(moonA) * Math.cos(MOON_TILT));
+                moon.rotation.y += dt * 0.2;
+
+                // mouse parallax
+                smoothMX += (mouseX * 0.18 - smoothMX) * 0.04;
+                smoothMY += (mouseY * 0.1 - smoothMY) * 0.04;
+                mainGroup.rotation.y = smoothMX;
+                mainGroup.rotation.x = 0.15 + smoothMY;
+                mainGroup.position.y = -0.2 + Math.sin(now * 0.0007) * 0.1;
+
+                // background
+                starGroup.position.x = -smoothMX * 2.5;
+                starGroup.position.y = smoothMY * 1.2;
+                starGroup.rotation.z = elapsed * 0.004;
+                for (const L of starLayers) L.mat.opacity = L.base * (0.65 + 0.35 * Math.sin(elapsed * L.speed + L.phase));
+                for (const bp of bgPlanets) bp.body.rotation.y += dt * bp.spin;
+
+                for (let i = 0; i < P_COUNT; i++) {
+                    const d = pData[i];
+                    d.angle += d.speed;
+                    pPositions[i * 3]     = d.radius * Math.cos(d.angle) + 1.8;
+                    pPositions[i * 3 + 1] = d.height + Math.sin(now * d.fSpeed) * d.fAmp;
+                    pPositions[i * 3 + 2] = d.radius * Math.sin(d.angle);
+                }
+                pGeo.attributes.position.needsUpdate = true;
+
+                renderer.render(scene, camera);
+                if (!firstFrame) { firstFrame = true; canvas.classList.add('ready'); }
+            }
+            animate();
+
+            window.addEventListener('resize', () => {
+                const w = heroSection.offsetWidth, h = heroSection.offsetHeight;
+                camera.aspect = w / h;
+                camera.updateProjectionMatrix();
+                renderer.setSize(w, h);
+            });
         }
-      });
-    });
-  });
-});
-</script>
+    </script>
+
+    <!-- UI + EVENT DATA -->
+    <script>
+        const SKY='#0ea5e9';
+        const events=[
+            {
+                        "name": "Dynamic Planet",
+                        "teamSize": 2,
+                        "desc": "Investigate the geologic forces that shape our world — from tectonic collisions and volcanic eruptions to the slow erosion that carves canyons over millions of years.",
+                        "learn": [
+                                    "Plate tectonics and continental drift",
+                                    "Volcanic processes and hazards",
+                                    "Earthquake mechanics and seismic waves",
+                                    "Surface processes: erosion, weathering, deposition"
+                        ]
+            },
+            {
+                        "name": "Fossils",
+                        "teamSize": 2,
+                        "desc": "Journey through deep time by identifying and analyzing fossils from different geological periods. Reconstruct ancient ecosystems and trace the evolution of life on Earth.",
+                        "learn": [
+                                    "Fossil identification across major phyla",
+                                    "Geologic time scale and index fossils",
+                                    "Paleoenvironmental reconstruction",
+                                    "Evolutionary patterns and mass extinctions"
+                        ]
+            },
+            {
+                        "name": "Meteorology",
+                        "teamSize": 2,
+                        "desc": "Decode the atmosphere: analyze weather maps, interpret atmospheric soundings, and forecast conditions using the tools and data of modern meteorology.",
+                        "learn": [
+                                    "Weather map interpretation (surface, upper-air)",
+                                    "Atmospheric thermodynamics and stability",
+                                    "Storm systems: thunderstorms, tornadoes, hurricanes",
+                                    "Climate patterns, ENSO, and long-range trends"
+                        ]
+            },
+            {
+                        "name": "Geologic Mapping",
+                        "teamSize": 2,
+                        "desc": "Read the story written in stone. Interpret geologic maps to reconstruct the three-dimensional structure and history of a region from two-dimensional data.",
+                        "learn": [
+                                    "Geologic map symbols and conventions",
+                                    "Structural geology: folds, faults, unconformities",
+                                    "Stratigraphic correlation and cross-sections",
+                                    "Interpreting geologic history from map patterns"
+                        ]
+            },
+            {
+                        "name": "Astronomy",
+                        "teamSize": 2,
+                        "desc": "Look up and look deep. Study stellar evolution, galactic structure, and the large-scale architecture of the universe through observational and theoretical lenses.",
+                        "learn": [
+                                    "Stellar classification and the H-R diagram",
+                                    "Stellar life cycles: from nebula to remnant",
+                                    "Galactic structure and the Milky Way",
+                                    "Cosmology, dark matter, and the Big Bang"
+                        ]
+            },
+            {
+                        "name": "Ecology",
+                        "teamSize": 2,
+                        "desc": "Study the web of life. Investigate how organisms interact with each other and their environment, from population dynamics to global biogeochemical cycles.",
+                        "learn": [
+                                    "Population dynamics and growth models",
+                                    "Community ecology and food web analysis",
+                                    "Biogeochemical cycles (carbon, nitrogen, phosphorus)",
+                                    "Conservation biology and biodiversity metrics"
+                        ]
+            }
+];
+
+        const grid=document.getElementById('cardsGrid');
+        events.forEach((ev,i)=>{
+            const card=document.createElement('div');
+            card.className='event-card p-7 sm:p-8 pb-8';
+            card.style.setProperty('--card-accent',SKY);
+            card.style.transitionDelay=`${i*50}ms`;
+            card.innerHTML=`
+                <div class="flex items-start justify-between gap-3 mb-3">
+                    <h3 class="font-display font-bold text-xl text-slate-800 leading-tight">${ev.name}</h3>
+                    <span class="team-badge"><i class="fa-solid fa-user-group text-[9px]"></i> TEAM OF ${ev.teamSize}</span>
+                </div>
+                <p class="text-sm text-slate-500 leading-relaxed mb-5">${ev.desc}</p>
+                <div><p class="section-label">What You'll Learn</p><div class="space-y-0.5">${ev.learn.map(l=>`<div class="learn-item"><span class="learn-dot" style="background:${SKY}"></span><span class="learn-text">${l}</span></div>`).join('')}</div></div>`;
+            grid.appendChild(card);
+        });
+
+        const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}})},{threshold:0.06,rootMargin:'0px 0px -20px 0px'});
+        document.querySelectorAll('.event-card').forEach(c=>observer.observe(c));
+
+        const backToTop=document.getElementById('backToTop');
+        if (backToTop) {
+            window.addEventListener('scroll',()=>{backToTop.classList.toggle('show',window.scrollY>350)});
+            backToTop.addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'})});
+        }
+    </script>
+
 {% endblock %}

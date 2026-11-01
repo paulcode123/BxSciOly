@@ -1,0 +1,670 @@
+{% extends "layout.html" %}
+
+{% block title %}Earth Science – BxSciOly{% endblock %}
+
+{% block extra_css %}
+<style>
+    .gradient-text-light{background:linear-gradient(135deg,#7dd3fc 0%,#38bdf8 40%,#0ea5e9 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+    /* z-index:0 (not just position:relative) is required here — it makes this
+       section its own stacking context, so the canvas/scrim/grid/fade layers
+       inside it (z-index 2-5) are contained and can never render on top of the
+       site header or its dropdown, no matter what z-index the header uses. */
+    .hero-section{position:relative;z-index:0;min-height:65vh;overflow:hidden;background:linear-gradient(160deg,#060a18 0%,#0f172a 50%,#0c1220 100%)}
+
+    #es-canvas{position:absolute;top:0;left:0;width:100%;height:100%;display:block;z-index:2;opacity:0;transition:opacity 0.8s ease}
+    #es-canvas.ready{opacity:0.85}
+
+    .hero-scrim{position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(to right,rgba(6,10,24,0.88) 0%,rgba(6,10,24,0.7) 18%,rgba(6,10,24,0.45) 34%,rgba(6,10,24,0.2) 48%,rgba(6,10,24,0.06) 60%,transparent 72%)}
+    .hero-grid-pattern{position:absolute;inset:0;z-index:4;pointer-events:none;background-image:linear-gradient(rgba(56,189,248,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(56,189,248,0.02) 1px,transparent 1px);background-size:48px 48px}
+    .earth-atmosphere{position:absolute;inset:0;z-index:4;pointer-events:none;opacity:0.1;background:radial-gradient(ellipse at 25% 35%,rgba(56,189,248,0.25) 0%,transparent 55%),radial-gradient(ellipse at 75% 65%,rgba(34,197,94,0.18) 0%,transparent 45%),radial-gradient(ellipse at 55% 25%,rgba(255,255,255,0.12) 0%,transparent 35%)}
+    .hero-fade{position:absolute;bottom:0;left:0;right:0;height:200px;pointer-events:none;z-index:5;background:linear-gradient(to bottom,rgba(6,10,24,0) 0%,rgba(15,23,42,0.55) 18%,rgba(18,22,60,0.35) 38%,rgba(100,130,190,0.3) 55%,rgba(200,215,245,0.6) 75%,#f8f9ff 100%)}
+
+    @keyframes chevronBounce{0%,100%{transform:translateY(0);opacity:0.4}50%{transform:translateY(10px);opacity:0.9}}
+    .scroll-chevron{animation:chevronBounce 2s ease-in-out infinite;cursor:pointer;text-decoration:none}
+
+    .reveal{opacity:0;transform:translateY(28px);animation:revealUp 0.75s cubic-bezier(0.22,1,0.36,1) forwards}
+    .reveal-d1{animation-delay:0.12s}.reveal-d2{animation-delay:0.24s}
+    @keyframes revealUp{to{opacity:1;transform:translateY(0)}}
+
+    .btn-hero{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.85);transition:all 0.3s cubic-bezier(0.22,1,0.36,1);font-weight:600}
+    .btn-hero:hover{background:rgba(255,255,255,0.1);transform:translateY(-2px);box-shadow:0 8px 24px rgba(56,189,248,0.2);border-color:rgba(255,255,255,1)}
+
+    .event-card{background:#ffffff;border:1px solid #e2e8f0;border-radius:14px;transition:all 0.35s cubic-bezier(0.22,1,0.36,1);opacity:0;transform:translateY(24px);border-left:3px solid var(--card-accent)}
+    .event-card.visible{opacity:1;transform:translateY(0)}
+    .event-card:hover{box-shadow:0 10px 36px rgba(14,165,233,0.08);border-color:rgba(14,165,233,0.15);border-left-color:var(--card-accent)}
+
+    .section-label{font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#64748b;margin-bottom:10px}
+    .learn-item{display:flex;align-items:flex-start;gap:10px;padding:5px 0}
+    .learn-dot{width:5px;height:5px;border-radius:50%;margin-top:8px;flex-shrink:0}
+    .learn-text{font-size:14px;color:#475569;line-height:1.5}
+    .question-item{display:flex;align-items:flex-start;gap:10px;padding:7px 0}
+    .question-num{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12px;flex-shrink:0;width:20px;height:20px;border-radius:5px;display:flex;align-items:center;justify-content:center;margin-top:2px}
+    .question-text{font-size:14px;color:#334155;line-height:1.55;font-weight:500}
+    .team-badge{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:100px;font-size:10px;font-weight:700;font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;border:1.5px solid rgba(14,165,233,0.2);color:#64748b;background:transparent}
+
+    .hero-heading{text-shadow:0 2px 16px rgba(0,0,0,0.55)}
+
+    @media(prefers-reduced-motion:reduce){
+        .reveal{animation:none;opacity:1;transform:none}
+        .event-card{opacity:1;transform:none}
+        .scroll-chevron{animation:none}
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+
+    <!-- HERO -->
+    <section class="hero-section" id="heroSection">
+        <canvas id="es-canvas"></canvas>
+        <div class="hero-scrim"></div>
+        <div class="hero-grid-pattern"></div>
+        <div class="earth-atmosphere"></div>
+        <div class="hero-fade"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-6 pt-28 pb-8 flex items-center" style="min-height:65vh">
+            <div class="max-w-[480px]">
+                <h1 class="font-display leading-[0.92] mb-5 hero-heading">
+                    <span class="gradient-text-light font-extrabold text-6xl sm:text-7xl lg:text-8xl reveal">Earth Science</span>
+                    <span class="text-white font-bold text-4xl sm:text-5xl lg:text-6xl block mt-1 reveal reveal-d1">Events</span>
+                </h1>
+                <p class="text-slate-300/90 text-base sm:text-lg leading-relaxed mb-8 max-w-md reveal reveal-d2">
+                    From plate tectonics to deep time, from the chemistry of minerals to the life cycles of stars — decode the planet beneath your feet and the universe beyond.
+                </p>
+                <a href="#events" class="btn-hero inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm reveal reveal-d2">
+                    View All Events <i class="fa-solid fa-arrow-down text-xs"></i>
+                </a>
+            </div>
+        </div>
+        <a href="#events" class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 scroll-chevron" aria-label="Scroll to events">
+            <i class="fa-solid fa-chevron-down text-white/50 text-lg"></i>
+        </a>
+    </section>
+
+    <!-- EVENTS SECTION -->
+    <section id="events" class="pt-12 pb-24" style="background:radial-gradient(ellipse at 30% 0%,rgba(14,165,233,0.05) 0%,transparent 50%),#f8f9ff">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-slate-800 mb-2">6 Competitive Events</h2>
+                <p class="text-slate-500 text-base max-w-md mx-auto">Explore our planet's past, present, and future through the lens of Earth Science and Classification.</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start" id="cardsGrid"></div>
+        </div>
+    </section>
+
+{% endblock %}
+
+{% block extra_js %}
+
+    <script type="module">
+    (async () => {
+        const canvas = document.getElementById('es-canvas');
+        const heroSection = document.querySelector('.hero-section');
+
+        // ---- Device capability tier ----
+        const isMobile = /Android|iPhone|iPad|iPod|Mobi/i.test(navigator.userAgent);
+        const cores = navigator.hardwareConcurrency || 4;
+        const mem = navigator.deviceMemory || 4;
+        const LOW = isMobile || cores <= 4 || mem <= 4;
+
+        // ---- Loader with per-CDN timeout so a hanging host can't freeze us ----
+        const withTimeout = (promise, ms) =>
+            Promise.race([promise, new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), ms))]);
+
+        async function loadThree() {
+            const urls = [
+                'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js',
+                'https://unpkg.com/three@0.160.0/build/three.module.js',
+                'https://esm.sh/three@0.160.0'
+            ];
+            for (const url of urls) {
+                try { return await withTimeout(import(url), 8000); } catch (e) { /* next CDN */ }
+            }
+            return null;
+        }
+
+        // ---- Start only after first paint so HTML/CSS never waits on 3D ----
+        function boot() {
+            requestAnimationFrame(() => requestAnimationFrame(async () => {
+                const THREE = await loadThree();
+                if (!THREE) { canvas.style.display = 'none'; return; }
+                try { initScene(THREE); }
+                catch (err) { console.warn('3D init failed:', err); canvas.style.display = 'none'; }
+            }));
+        }
+        if (document.readyState === 'complete') boot();
+        else window.addEventListener('load', boot, { once: true });
+
+        function initScene(THREE) {
+            const SEG = LOW ? 32 : 48;
+            const TEX_W = LOW ? 512 : 1024;
+            const TEX_H = TEX_W / 2;
+
+            const scene = new THREE.Scene();
+            scene.background = null;
+
+            const camera = new THREE.PerspectiveCamera(32,
+                heroSection.offsetWidth / Math.max(1, heroSection.offsetHeight), 0.1, 100);
+            camera.position.set(1.2, 0.5, 9);
+            camera.lookAt(1.8, -0.2, 0);
+
+            const renderer = new THREE.WebGLRenderer({
+                canvas, antialias: !LOW, alpha: true, powerPreference: 'high-performance'
+            });
+            renderer.setSize(heroSection.offsetWidth, heroSection.offsetHeight);
+            renderer.setPixelRatio(LOW ? 1 : Math.min(window.devicePixelRatio, 1.5));
+            renderer.toneMapping = THREE.ACESFilmicToneMapping;
+            renderer.toneMappingExposure = 1.1;
+            renderer.setClearColor(0x000000, 0);
+
+            // ---- Cheap environment: tiny gradient canvas -> PMREM (no addon scene) ----
+            const envCanvas = document.createElement('canvas');
+            envCanvas.width = 128; envCanvas.height = 64;
+            const ectx = envCanvas.getContext('2d');
+            const eg = ectx.createLinearGradient(0, 0, 0, 64);
+            eg.addColorStop(0, '#3a4a6a');
+            eg.addColorStop(0.5, '#10141f');
+            eg.addColorStop(1, '#05060a');
+            ectx.fillStyle = eg;
+            ectx.fillRect(0, 0, 128, 64);
+            ectx.fillStyle = 'rgba(255,240,210,0.9)';
+            ectx.beginPath(); ectx.arc(40, 18, 10, 0, Math.PI * 2); ectx.fill();
+            const envTex = new THREE.CanvasTexture(envCanvas);
+            envTex.mapping = THREE.EquirectangularReflectionMapping;
+            const pmrem = new THREE.PMREMGenerator(renderer);
+            scene.environment = pmrem.fromEquirectangular(envTex).texture;
+            envTex.dispose(); pmrem.dispose();
+
+            // ---- Lights ----
+            const keyLight = new THREE.DirectionalLight(0xfff5e6, 2.2);
+            keyLight.position.set(-5, 5, 5);
+            scene.add(keyLight);
+            const fillLight = new THREE.DirectionalLight(0xe6f0ff, 0.8);
+            fillLight.position.set(5, -2, 4);
+            scene.add(fillLight);
+            const rimLight = new THREE.DirectionalLight(0x818cf8, 1.2);
+            rimLight.position.set(0, 2, -6);
+            scene.add(rimLight);
+            scene.add(new THREE.AmbientLight(0xffffff, 0.3));
+
+            // ---- Earth textures (scaled coords, fewer paint ops) ----
+            function generateEarthTextures() {
+                const W = TEX_W, H = TEX_H;
+                const sx = v => v * W / 2048, sy = v => v * H / 1024;
+
+                const colorCanvas = document.createElement('canvas');
+                colorCanvas.width = W; colorCanvas.height = H;
+                const cctx = colorCanvas.getContext('2d');
+                const bumpCanvas = document.createElement('canvas');
+                bumpCanvas.width = W; bumpCanvas.height = H;
+                const bctx = bumpCanvas.getContext('2d');
+                const specCanvas = document.createElement('canvas');
+                specCanvas.width = W; specCanvas.height = H;
+                const sctx = specCanvas.getContext('2d');
+                const cloudCanvas = document.createElement('canvas');
+                cloudCanvas.width = W; cloudCanvas.height = H;
+                const clctx = cloudCanvas.getContext('2d');
+
+                const og = cctx.createLinearGradient(0, 0, 0, H);
+                og.addColorStop(0, '#0a2a4a'); og.addColorStop(0.15, '#0f3a5a');
+                og.addColorStop(0.5, '#124a6a'); og.addColorStop(0.85, '#0f3a5a');
+                og.addColorStop(1, '#0a2a4a');
+                cctx.fillStyle = og; cctx.fillRect(0, 0, W, H);
+                bctx.fillStyle = '#1a1a1a'; bctx.fillRect(0, 0, W, H);
+                sctx.fillStyle = '#ffffff'; sctx.fillRect(0, 0, W, H);
+
+                const continents = [
+                    { shape: [[380,180],[450,160],[520,170],[540,220],[560,280],[540,340],[500,380],[460,400],[400,380],[360,320],[350,260],[360,220]], base:'#3a7a2a',
+                      mounts:[[420,220,80,40],[480,280,60,30]], deserts:[[380,320,40,30]], forests:[[380,280,80,50]] },
+                    { shape: [[480,440],[540,420],[560,480],[570,560],[550,640],[520,680],[480,660],[450,580],[440,500]], base:'#3a8a2a',
+                      mounts:[[500,480,40,120]], deserts:[[460,500,30,40]], forests:[[500,540,80,80]] },
+                    { shape: [[960,200],[1020,180],[1080,190],[1100,230],[1080,270],[1040,290],[980,280],[950,250]], base:'#4a7a2a',
+                      mounts:[[1000,240,60,30]], deserts:[], forests:[[980,220,80,40]] },
+                    { shape: [[980,320],[1060,300],[1120,340],[1140,420],[1130,520],[1100,600],[1060,640],[1020,620],[980,540],[960,440],[970,360]], base:'#7a6a3a',
+                      mounts:[[1040,380,50,40]], deserts:[[1020,360,100,60]], forests:[[1060,520,60,80]] },
+                    { shape: [[1120,160],[1300,140],[1450,160],[1600,200],[1650,280],[1620,360],[1500,380],[1350,360],[1200,320],[1140,260],[1100,200]], base:'#3a7a2a',
+                      mounts:[[1300,240,200,60],[1450,280,80,40]], deserts:[[1250,300,120,50]], forests:[[1400,220,100,60]] },
+                    { shape: [[1520,560],[1620,540],[1700,560],[1740,620],[1700,680],[1620,700],[1540,680],[1500,620]], base:'#8a6a2a',
+                      mounts:[[1580,600,80,40]], deserts:[[1600,620,100,60]], forests:[[1560,580,40,30]] },
+                    { shape: [[200,880],[1800,880],[1850,1000],[150,1000]], base:'#e8e8e8', mounts:[], deserts:[], forests:[] },
+                    { shape: [[560,100],[660,80],[700,120],[680,180],[620,200],[560,180],[540,140]], base:'#d8d8d8', mounts:[], deserts:[], forests:[] }
+                ];
+
+                const trace = (ctx, pts) => {
+                    ctx.beginPath();
+                    ctx.moveTo(sx(pts[0][0]), sy(pts[0][1]));
+                    for (let i = 1; i < pts.length; i++) {
+                        const [x, y] = pts[i], [px, py] = pts[i - 1];
+                        ctx.quadraticCurveTo(
+                            sx((x + px) / 2 + (Math.random() - 0.5) * 40),
+                            sy((y + py) / 2 + (Math.random() - 0.5) * 40),
+                            sx(x), sy(y));
+                    }
+                    ctx.closePath();
+                };
+
+                continents.forEach(cont => {
+                    trace(cctx, cont.shape); cctx.fillStyle = cont.base; cctx.fill();
+                    trace(bctx, cont.shape); bctx.fillStyle = '#808080'; bctx.fill();
+                    trace(sctx, cont.shape); sctx.fillStyle = '#000000'; sctx.fill();
+
+                    cctx.save(); cctx.clip();
+                    cont.mounts.forEach(m => {
+                        for (let i = 0; i < 6; i++) {
+                            const mx = sx(m[0] + Math.random() * m[2]);
+                            const my = sy(m[1] + Math.random() * m[3]);
+                            cctx.fillStyle = `rgba(40,30,20,${0.2 + Math.random() * 0.15})`;
+                            cctx.beginPath();
+                            cctx.ellipse(mx, my, sx(10 + Math.random() * 20), sy(5 + Math.random() * 12), Math.random() * Math.PI, 0, Math.PI * 2);
+                            cctx.fill();
+                        }
+                    });
+                    cont.forests.forEach(f => {
+                        cctx.fillStyle = 'rgba(20,80,20,0.3)';
+                        cctx.beginPath();
+                        cctx.ellipse(sx(f[0] + f[2] / 2), sy(f[1] + f[3] / 2), sx(f[2] / 2), sy(f[3] / 2), 0, 0, Math.PI * 2);
+                        cctx.fill();
+                    });
+                    cont.deserts.forEach(d => {
+                        cctx.fillStyle = 'rgba(180,150,90,0.35)';
+                        cctx.beginPath();
+                        cctx.ellipse(sx(d[0] + d[2] / 2), sy(d[1] + d[3] / 2), sx(d[2] / 2), sy(d[3] / 2), 0.2, 0, Math.PI * 2);
+                        cctx.fill();
+                    });
+                    cctx.restore();
+                });
+
+                // Sparse clouds
+                clctx.globalAlpha = 0.45;
+                clctx.fillStyle = '#ffffff';
+                const wisps = LOW ? 10 : 14;
+                for (let i = 0; i < wisps; i++) {
+                    clctx.beginPath();
+                    const r = sx(15 + Math.random() * 60);
+                    clctx.ellipse(Math.random() * W, Math.random() * H, r, r * 0.2, Math.random() * Math.PI, 0, Math.PI * 2);
+                    clctx.fill();
+                }
+                clctx.globalAlpha = 0.25;
+                for (let c = 0; c < 2; c++) {
+                    const cx = Math.random() * W, cy = H * 0.25 + Math.random() * H * 0.5;
+                    for (let i = 0; i < 6; i++) {
+                        clctx.beginPath();
+                        clctx.arc(cx + (Math.random() - 0.5) * sx(90), cy + (Math.random() - 0.5) * sy(40), sx(12 + Math.random() * 20), 0, Math.PI * 2);
+                        clctx.fill();
+                    }
+                }
+                clctx.globalAlpha = 1;
+
+                return {
+                    color: new THREE.CanvasTexture(colorCanvas),
+                    bump: new THREE.CanvasTexture(bumpCanvas),
+                    spec: new THREE.CanvasTexture(specCanvas),
+                    clouds: new THREE.CanvasTexture(cloudCanvas)
+                };
+            }
+
+            const textures = generateEarthTextures();
+            if (THREE.SRGBColorSpace) textures.color.colorSpace = THREE.SRGBColorSpace;
+
+            const globeRadius = 2.8;
+            const globe = new THREE.Mesh(
+                new THREE.SphereGeometry(globeRadius, SEG, SEG),
+                new THREE.MeshPhongMaterial({
+                    map: textures.color,
+                    bumpMap: textures.bump,
+                    bumpScale: 0.08,
+                    specularMap: textures.spec,
+                    specular: new THREE.Color(0x333333),
+                    shininess: 15
+                })
+            );
+
+            const clouds = new THREE.Mesh(
+                new THREE.SphereGeometry(globeRadius + 0.02, SEG, SEG),
+                new THREE.MeshPhongMaterial({ map: textures.clouds, transparent: true, opacity: 0.18, depthWrite: false })
+            );
+
+            const atmosphere = new THREE.Mesh(
+                new THREE.SphereGeometry(globeRadius * 1.04, 32, 32),
+                new THREE.ShaderMaterial({
+                    vertexShader: `varying vec3 vNormal; void main(){ vNormal = normalize(normalMatrix * normal); gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0); }`,
+                    fragmentShader: `varying vec3 vNormal; void main(){ float i = pow(0.65 - dot(vNormal, vec3(0.0,0.0,1.0)), 2.5); gl_FragColor = vec4(0.3,0.6,1.0,1.0) * i * 1.2; }`,
+                    blending: THREE.AdditiveBlending,
+                    side: THREE.BackSide,
+                    transparent: true
+                })
+            );
+
+            // ---- Dung beetle (standard materials, low-poly tubes) ----
+            function createDungBeetle() {
+                const beetle = new THREE.Group();
+                const shellMat = new THREE.MeshStandardMaterial({
+                    color: 0x10151d, metalness: 0.85, roughness: 0.28, envMapIntensity: 1.4
+                });
+                const legMat = new THREE.MeshStandardMaterial({
+                    color: 0x1a1410, metalness: 0.5, roughness: 0.5, envMapIntensity: 0.9
+                });
+                const dungMat = new THREE.MeshStandardMaterial({ color: 0x5c3a1e, roughness: 0.92, metalness: 0.0 });
+                const eyeMat = new THREE.MeshStandardMaterial({ color: 0x050505, metalness: 0.4, roughness: 0.15 });
+
+                const BS = LOW ? 12 : 20; // sphere segments
+
+                const abdomenL = new THREE.Mesh(new THREE.SphereGeometry(0.45, BS, BS), shellMat);
+                abdomenL.scale.set(0.95, 0.68, 1.15); abdomenL.position.set(-0.015, 0, -0.32);
+                beetle.add(abdomenL);
+                const abdomenR = new THREE.Mesh(new THREE.SphereGeometry(0.45, BS, BS), shellMat);
+                abdomenR.scale.set(0.95, 0.68, 1.15); abdomenR.position.set(0.015, 0, -0.32);
+                beetle.add(abdomenR);
+
+                const seam = new THREE.Mesh(new THREE.BoxGeometry(0.008, 0.05, 0.9),
+                    new THREE.MeshStandardMaterial({ color: 0x000000, roughness: 0.8 }));
+                seam.position.set(0, 0.3, -0.32);
+                beetle.add(seam);
+
+                const thorax = new THREE.Mesh(new THREE.SphereGeometry(0.38, BS, BS), shellMat);
+                thorax.scale.set(1.25, 0.7, 0.9); thorax.position.set(0, 0.02, 0.18);
+                beetle.add(thorax);
+
+                const head = new THREE.Mesh(new THREE.SphereGeometry(0.26, BS, BS), shellMat);
+                head.scale.set(1.2, 0.65, 0.85); head.position.set(0, 0.02, 0.48);
+                beetle.add(head);
+
+                const clypeusShape = new THREE.Shape();
+                clypeusShape.moveTo(-0.22, 0);
+                clypeusShape.quadraticCurveTo(-0.24, 0.08, -0.18, 0.12);
+                clypeusShape.lineTo(0.18, 0.12);
+                clypeusShape.quadraticCurveTo(0.24, 0.08, 0.22, 0);
+                clypeusShape.lineTo(-0.22, 0);
+                const clypeus = new THREE.Mesh(
+                    new THREE.ExtrudeGeometry(clypeusShape, { depth: 0.04, bevelEnabled: true, bevelThickness: 0.01, bevelSize: 0.01, bevelSegments: 1 }),
+                    shellMat);
+                clypeus.rotation.x = -Math.PI / 2;
+                clypeus.position.set(0, 0.02, 0.62);
+                beetle.add(clypeus);
+
+                for (let side = -1; side <= 1; side += 2) {
+                    const tooth = new THREE.Mesh(new THREE.ConeGeometry(0.025, 0.06, 5), shellMat);
+                    tooth.rotation.x = Math.PI / 2;
+                    tooth.position.set(side * 0.1, 0.03, 0.73);
+                    beetle.add(tooth);
+
+                    const eye = new THREE.Mesh(new THREE.SphereGeometry(0.06, 10, 8), eyeMat);
+                    eye.scale.set(0.7, 0.85, 1);
+                    eye.position.set(side * 0.25, 0.1, 0.45);
+                    beetle.add(eye);
+
+                    const stalkCurve = new THREE.QuadraticBezierCurve3(
+                        new THREE.Vector3(side * 0.14, 0.13, 0.55),
+                        new THREE.Vector3(side * 0.2, 0.22, 0.62),
+                        new THREE.Vector3(side * 0.24, 0.28, 0.68));
+                    beetle.add(new THREE.Mesh(new THREE.TubeGeometry(stalkCurve, 6, 0.012, 5, false), legMat));
+                    const club = new THREE.Mesh(new THREE.SphereGeometry(0.03, 8, 6), legMat);
+                    club.scale.set(0.5, 1, 1);
+                    club.position.set(side * 0.26, 0.3, 0.71);
+                    beetle.add(club);
+                }
+
+                const hornCurve = new THREE.CubicBezierCurve3(
+                    new THREE.Vector3(0, 0.12, 0.5), new THREE.Vector3(0, 0.35, 0.6),
+                    new THREE.Vector3(0, 0.55, 0.55), new THREE.Vector3(0, 0.6, 0.42));
+                beetle.add(new THREE.Mesh(new THREE.TubeGeometry(hornCurve, 10, 0.035, 6, false), shellMat));
+                const hornTip = new THREE.Mesh(new THREE.ConeGeometry(0.035, 0.06, 6), shellMat);
+                hornTip.position.set(0, 0.63, 0.42); hornTip.rotation.x = -0.3;
+                beetle.add(hornTip);
+                const thoraxHornCurve = new THREE.QuadraticBezierCurve3(
+                    new THREE.Vector3(0, 0.22, 0.2), new THREE.Vector3(0, 0.42, 0.22), new THREE.Vector3(0, 0.38, 0.08));
+                beetle.add(new THREE.Mesh(new THREE.TubeGeometry(thoraxHornCurve, 8, 0.028, 6, false), shellMat));
+
+                [{ z: 0.32, h: false }, { z: 0.05, h: false }, { z: -0.3, h: true }].forEach(pair => {
+                    for (let side = -1; side <= 1; side += 2) {
+                        const legCurve = new THREE.CubicBezierCurve3(
+                            new THREE.Vector3(side * 0.3, -0.1, pair.z),
+                            new THREE.Vector3(side * 0.5, -0.35, pair.z + (pair.h ? -0.15 : 0.05)),
+                            new THREE.Vector3(side * 0.6, -0.7, pair.z + (pair.h ? -0.2 : 0.1)),
+                            new THREE.Vector3(side * 0.55, -0.9, pair.z + (pair.h ? -0.25 : 0.15)));
+                        beetle.add(new THREE.Mesh(new THREE.TubeGeometry(legCurve, 8, 0.028, 5, false), legMat));
+                        const foot = new THREE.Mesh(new THREE.SphereGeometry(0.035, 8, 6), legMat);
+                        foot.scale.set(1, 0.6, 1.2);
+                        foot.position.set(side * 0.55, -0.9, pair.z + (pair.h ? -0.25 : 0.15));
+                        beetle.add(foot);
+                    }
+                });
+
+                const underside = new THREE.Mesh(new THREE.SphereGeometry(0.4, 12, 8),
+                    new THREE.MeshStandardMaterial({ color: 0x0a0604, roughness: 0.7, metalness: 0.3 }));
+                underside.scale.set(0.9, 0.3, 1.1);
+                underside.position.set(0, -0.15, -0.1);
+                beetle.add(underside);
+
+                const dungBall = new THREE.Mesh(new THREE.SphereGeometry(0.42, BS, BS), dungMat);
+                dungBall.position.set(0, -0.35, -1.0);
+                beetle.add(dungBall);
+
+                return beetle;
+            }
+
+            const beetle = createDungBeetle();
+            beetle.position.set(0, globeRadius + 0.55, 0);
+            beetle.scale.setScalar(1.1);
+            beetle.lookAt(new THREE.Vector3(0, globeRadius + 0.55, -10));
+
+            const beetleLight = new THREE.PointLight(0xfff0d8, 1.2, 4);
+            beetleLight.position.set(0, globeRadius + 1.5, 1.5);
+
+            const mainGroup = new THREE.Group();
+            mainGroup.add(globe, clouds, atmosphere, beetle, beetleLight);
+            mainGroup.position.set(1.8, -0.2, 0);
+            mainGroup.rotation.x = 0.15;
+            mainGroup.rotation.z = -0.1;
+            scene.add(mainGroup);
+
+            // ---- Orbit dust: ONE Points draw call instead of 50 meshes ----
+            const P_COUNT = LOW ? 16 : 30;
+            const pPositions = new Float32Array(P_COUNT * 3);
+            const pData = [];
+            for (let i = 0; i < P_COUNT; i++) {
+                pData.push({
+                    angle: Math.random() * Math.PI * 2,
+                    radius: 2.0 + Math.random() * 2.5,
+                    height: (Math.random() - 0.5) * 8,
+                    speed: 0.001 + Math.random() * 0.004,
+                    fSpeed: 0.0005 + Math.random() * 0.0015,
+                    fAmp: 0.1 + Math.random() * 0.25
+                });
+            }
+            const pGeo = new THREE.BufferGeometry();
+            pGeo.setAttribute('position', new THREE.BufferAttribute(pPositions, 3));
+            const pMat = new THREE.PointsMaterial({
+                color: 0x38bdf8, size: 0.07, transparent: true, opacity: 0.55,
+                sizeAttenuation: true, depthWrite: false, blending: THREE.AdditiveBlending
+            });
+            const points = new THREE.Points(pGeo, pMat);
+            scene.add(points);
+
+            // ---- Visibility gating: don't burn GPU off-screen or in background tabs ----
+            let heroVisible = true, tabVisible = true;
+            new IntersectionObserver(([e]) => { heroVisible = e.isIntersecting; }, { threshold: 0 })
+                .observe(heroSection);
+            document.addEventListener('visibilitychange', () => { tabVisible = !document.hidden; });
+
+            const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            let baseRotY = 0, cloudRotY = 0, smoothMX = 0, smoothMY = 0, mouseX = 0, mouseY = 0;
+            const startTime = performance.now();
+            let firstFrame = false;
+
+            heroSection.addEventListener('mousemove', (e) => {
+                const rect = heroSection.getBoundingClientRect();
+                mouseX = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+                mouseY = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+            }, { passive: true });
+
+            function animate() {
+                requestAnimationFrame(animate);
+                if (!heroVisible || !tabVisible) return;
+                const now = performance.now();
+
+                if (!reducedMotion) {
+                    const elapsed = (now - startTime) / 1000;
+                    let scale = 0.5;
+                    if (elapsed < 1.6) scale = (1 - Math.pow(1 - elapsed / 1.6, 3)) * 0.5;
+                    mainGroup.scale.setScalar(scale);
+
+                    baseRotY += 0.002; cloudRotY += 0.0008;
+                    globe.rotation.y = baseRotY;
+                    clouds.rotation.y = cloudRotY;
+
+                    smoothMX += (mouseX * 0.18 - smoothMX) * 0.04;
+                    smoothMY += (mouseY * 0.1 - smoothMY) * 0.04;
+                    mainGroup.rotation.y = smoothMX;
+                    mainGroup.rotation.x = 0.15 + smoothMY;
+                    mainGroup.position.y = -0.2 + Math.sin(now * 0.0007) * 0.1;
+
+                    for (let i = 0; i < P_COUNT; i++) {
+                        const d = pData[i];
+                        d.angle += d.speed;
+                        pPositions[i * 3]     = d.radius * Math.cos(d.angle) + 1.8;
+                        pPositions[i * 3 + 1] = d.height + Math.sin(now * d.fSpeed) * d.fAmp;
+                        pPositions[i * 3 + 2] = d.radius * Math.sin(d.angle);
+                    }
+                    pGeo.attributes.position.needsUpdate = true;
+                }
+
+                renderer.render(scene, camera);
+                if (!firstFrame) { firstFrame = true; canvas.classList.add('ready'); }
+            }
+            animate();
+
+            window.addEventListener('resize', () => {
+                const w = heroSection.offsetWidth, h = heroSection.offsetHeight;
+                camera.aspect = w / h;
+                camera.updateProjectionMatrix();
+                renderer.setSize(w, h);
+            });
+        }
+    })();
+    </script>
+
+    <!-- UI + EVENT DATA -->
+    <script>
+        const SKY='#0ea5e9';
+        const events=[
+            {
+                        "name": "Dynamic Planet",
+                        "teamSize": 2,
+                        "desc": "Investigate the geologic forces that shape our world — from tectonic collisions and volcanic eruptions to the slow erosion that carves canyons over millions of years.",
+                        "learn": [
+                                    "Plate tectonics and continental drift",
+                                    "Volcanic processes and hazards",
+                                    "Earthquake mechanics and seismic waves",
+                                    "Surface processes: erosion, weathering, deposition"
+                        ],
+                        "questions": [
+                                    "How do tectonic plates shape the geography we see today?",
+                                    "What can ancient geologic formations teach us about Earth's future?"
+                        ]
+            },
+            {
+                        "name": "Fossils",
+                        "teamSize": 2,
+                        "desc": "Journey through deep time by identifying and analyzing fossils from different geological periods. Reconstruct ancient ecosystems and trace the evolution of life on Earth.",
+                        "learn": [
+                                    "Fossil identification across major phyla",
+                                    "Geologic time scale and index fossils",
+                                    "Paleoenvironmental reconstruction",
+                                    "Evolutionary patterns and mass extinctions"
+                        ],
+                        "questions": [
+                                    "How do fossils tell the story of life on Earth?",
+                                    "What caused the great mass extinctions — and could they happen again?"
+                        ]
+            },
+            {
+                        "name": "Meteorology",
+                        "teamSize": 2,
+                        "desc": "Decode the atmosphere: analyze weather maps, interpret atmospheric soundings, and forecast conditions using the tools and data of modern meteorology.",
+                        "learn": [
+                                    "Weather map interpretation (surface, upper-air)",
+                                    "Atmospheric thermodynamics and stability",
+                                    "Storm systems: thunderstorms, tornadoes, hurricanes",
+                                    "Climate patterns, ENSO, and long-range trends"
+                        ],
+                        "questions": [
+                                    "How do meteorologists predict the path of a hurricane days in advance?",
+                                    "What drives the formation of a supercell thunderstorm?"
+                        ]
+            },
+            {
+                        "name": "Geologic Mapping",
+                        "teamSize": 2,
+                        "desc": "Read the story written in stone. Interpret geologic maps to reconstruct the three-dimensional structure and history of a region from two-dimensional data.",
+                        "learn": [
+                                    "Geologic map symbols and conventions",
+                                    "Structural geology: folds, faults, unconformities",
+                                    "Stratigraphic correlation and cross-sections",
+                                    "Interpreting geologic history from map patterns"
+                        ],
+                        "questions": [
+                                    "How can a flat map reveal the 3D structure of folded mountains?",
+                                    "What stories do rock layers tell about ancient environments and climates?"
+                        ]
+            },
+            {
+                        "name": "Astronomy",
+                        "teamSize": 2,
+                        "desc": "Look up and look deep. Study stellar evolution, galactic structure, and the large-scale architecture of the universe through observational and theoretical lenses.",
+                        "learn": [
+                                    "Stellar classification and the H-R diagram",
+                                    "Stellar life cycles: from nebula to remnant",
+                                    "Galactic structure and the Milky Way",
+                                    "Cosmology, dark matter, and the Big Bang"
+                        ],
+                        "questions": [
+                                    "How do stars forge the elements that make up planets and people?",
+                                    "What is the ultimate fate of the universe — heat death, big rip, or something else?"
+                        ]
+            },
+            {
+                        "name": "Ecology",
+                        "teamSize": 2,
+                        "desc": "Study the web of life. Investigate how organisms interact with each other and their environment, from population dynamics to global biogeochemical cycles.",
+                        "learn": [
+                                    "Population dynamics and growth models",
+                                    "Community ecology and food web analysis",
+                                    "Biogeochemical cycles (carbon, nitrogen, phosphorus)",
+                                    "Conservation biology and biodiversity metrics"
+                        ],
+                        "questions": [
+                                    "How do changes in one species ripple through an entire ecosystem?",
+                                    "What can ecology teach us about sustaining human civilization on a finite planet?"
+                        ]
+            }
+];
+
+        const grid=document.getElementById('cardsGrid');
+        events.forEach((ev,i)=>{
+            const card=document.createElement('div');
+            card.className='event-card p-7 sm:p-8 pb-8';
+            card.style.setProperty('--card-accent',SKY);
+            card.style.transitionDelay=`${i*50}ms`;
+            card.innerHTML=`
+                <div class="flex items-start justify-between gap-3 mb-3">
+                    <h3 class="font-display font-bold text-xl text-slate-800 leading-tight">${ev.name}</h3>
+                    <span class="team-badge"><i class="fa-solid fa-user-group text-[9px]"></i> TEAM OF ${ev.teamSize}</span>
+                </div>
+                <p class="text-sm text-slate-500 leading-relaxed mb-5">${ev.desc}</p>
+                <div class="mb-5"><p class="section-label">What You'll Learn</p><div class="space-y-0.5">${ev.learn.map(l=>`<div class="learn-item"><span class="learn-dot" style="background:${SKY}"></span><span class="learn-text">${l}</span></div>`).join('')}</div></div>
+                <div><p class="section-label">Big Questions</p><div class="space-y-0.5">${ev.questions.map((q,n)=>`<div class="question-item"><span class="question-num" style="background:${SKY}14;color:${SKY}">${n+1}</span><span class="question-text">${q}</span></div>`).join('')}</div></div>`;
+            grid.appendChild(card);
+        });
+
+        const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}})},{threshold:0.06,rootMargin:'0px 0px -20px 0px'});
+        document.querySelectorAll('.event-card').forEach(c=>observer.observe(c));
+
+        const backToTop=document.getElementById('backToTop');
+        if (backToTop) {
+            window.addEventListener('scroll',()=>{backToTop.classList.toggle('show',window.scrollY>350)});
+            backToTop.addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'})});
+        }
+    </script>
+
+{% endblock %}
