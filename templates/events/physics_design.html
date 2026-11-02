@@ -1,467 +1,386 @@
 {% extends "layout.html" %}
 
-{% block title %}Physics &amp; Design - Bronx Science Olympiad{% endblock %}
+{% block title %}Physics &amp; Design – BxSciOly{% endblock %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/subject_pages.css') }}">
+<style>
+    .gradient-text-light{background:linear-gradient(135deg,#fde68a 0%,#fbbf24 38%,#f97316 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+        /* the gradient only paints inside the element box, so extend it below the line to keep descenders (y, g, p) from being clipped */
+        padding-bottom:0.16em;margin-bottom:-0.16em}
+
+    /* z-index:0 (not just position:relative) is required here — it makes this
+       section its own stacking context, so the canvas/scrim/grid/fade layers
+       inside it (z-index 2-5) are contained and can never render on top of the
+       site header or its dropdown, no matter what z-index the header uses. */
+    .hero-section{position:relative;z-index:0;min-height:65vh;overflow:hidden;background:linear-gradient(160deg,#060a18 0%,#0f172a 50%,#0c1220 100%)}
+
+    #phys-canvas{position:absolute;top:0;left:0;width:100%;height:100%;display:block;z-index:2;opacity:0.95}
+
+    .hero-scrim{position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(to right,rgba(6,10,24,0.88) 0%,rgba(6,10,24,0.7) 18%,rgba(6,10,24,0.45) 34%,rgba(6,10,24,0.2) 48%,rgba(6,10,24,0.06) 60%,transparent 72%)}
+    .hero-grid-pattern{position:absolute;inset:0;z-index:4;pointer-events:none;background-image:linear-gradient(rgba(251,146,60,0.035) 1px,transparent 1px),linear-gradient(90deg,rgba(251,146,60,0.035) 1px,transparent 1px);background-size:48px 48px}
+    .blueprint-glow{position:absolute;inset:0;z-index:4;pointer-events:none;opacity:0.14;background:radial-gradient(ellipse at 72% 45%,rgba(249,115,22,0.55) 0%,transparent 48%),radial-gradient(ellipse at 90% 15%,rgba(251,191,36,0.35) 0%,transparent 38%)}
+    .hero-fade{position:absolute;bottom:0;left:0;right:0;height:200px;pointer-events:none;z-index:5;background:linear-gradient(to bottom,rgba(6,10,24,0) 0%,rgba(15,23,42,0.55) 18%,rgba(18,22,60,0.35) 38%,rgba(100,130,190,0.3) 55%,rgba(200,215,245,0.6) 75%,#f8f9ff 100%)}
+
+    @keyframes chevronBounce{0%,100%{transform:translateY(0);opacity:0.4}50%{transform:translateY(10px);opacity:0.9}}
+    .scroll-chevron{animation:chevronBounce 2s ease-in-out infinite;cursor:pointer;text-decoration:none}
+
+    .reveal{opacity:0;transform:translateY(28px);animation:revealUp 0.75s cubic-bezier(0.22,1,0.36,1) forwards}
+    .reveal-d1{animation-delay:0.12s}.reveal-d2{animation-delay:0.24s}
+    @keyframes revealUp{to{opacity:1;transform:translateY(0)}}
+
+    .btn-hero{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.85);transition:all 0.3s cubic-bezier(0.22,1,0.36,1);font-weight:600}
+    .btn-hero:hover{background:rgba(255,255,255,0.1);transform:translateY(-2px);box-shadow:0 8px 24px rgba(249,115,22,0.25);border-color:rgba(255,255,255,1)}
+
+    .event-card{background:#ffffff;border:1px solid #e2e8f0;border-radius:14px;transition:all 0.35s cubic-bezier(0.22,1,0.36,1);opacity:0;transform:translateY(24px);border-left:3px solid var(--card-accent)}
+    .event-card.visible{opacity:1;transform:translateY(0)}
+    .event-card:hover{box-shadow:0 10px 36px rgba(234,88,12,0.10);border-color:rgba(234,88,12,0.2);border-left-color:var(--card-accent)}
+
+    .type-label{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:6px}
+    .section-label{font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#64748b;margin-bottom:10px}
+    .learn-item{display:flex;align-items:flex-start;gap:10px;padding:5px 0}
+    .learn-dot{width:5px;height:5px;border-radius:50%;margin-top:8px;flex-shrink:0}
+    .learn-text{font-size:15px;color:#475569;line-height:1.5}
+    .team-badge{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:100px;font-size:10px;font-weight:700;font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;border:1.5px solid rgba(234,88,12,0.22);color:#64748b;background:transparent;white-space:nowrap}
+
+    .hero-heading{filter:drop-shadow(0 2px 14px rgba(0,0,0,0.55))}
+
+    @media(prefers-reduced-motion:reduce){
+        .reveal{animation:none;opacity:1;transform:none}
+        .event-card{opacity:1;transform:none}
+        .scroll-chevron{animation:none}
+    }
+</style>
 {% endblock %}
 
 {% block content %}
-<div class="subject-page subject-physics">
-  <p class="tentative-note">
-    <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
-    <span><strong>Note:</strong> Team roles and the number of subject directors are <strong>tentative</strong> and may change as the season is finalized.</span>
-  </p>
 
-  <header class="subject-hero">
-    <div class="subject-hero-inner">
-      <p class="subject-kicker">Subject Area Hub</p>
-      <h1>Physics &amp; Engineering Design</h1>
-      <p class="subject-tagline">Where mathematical theory meets functional engineering. Master thermodynamic power cycles, advanced DC and logic circuit analysis, and parametric 3D computer-aided design (CAD).</p>
-      <span class="director-meta"><i class="fas fa-users" aria-hidden="true"></i> Tentative Leadership: 1 Subject Director</span>
-    </div>
-  </header>
-
-  <section class="subject-intro-card" aria-labelledby="physics-intro-heading">
-    <h2 id="physics-intro-heading"><i class="fas fa-cogs" aria-hidden="true"></i> Welcome to Bronx Science Physics &amp; Design</h2>
-    <div class="subject-intro-grid">
-      <div class="subject-intro-text">
-        <p>Physics &amp; Design bridges the gap between pure mathematics and mechanical reality. In this division, you will learn to calculate the heat-transfer efficiency of custom thermodynamic chambers, analyze the voltage division of complex circuit networks, and sketch fully-constrained parametric parts using professional CAD software.</p>
-        <p>This program emphasizes rigorous quantitative problem-solving, rapid prototyping, and empirical troubleshooting. Whether you're debugging an open circuit on a crowded breadboard or repairing an export mesh error on a 3D CAD drawing, you'll build deep mechanical intuition and engineering discipline. Our curriculum directly maps to university physics and mechanical/electrical engineering paths.</p>
-      </div>
-      <div class="expectations-box">
-        <h3><i class="fas fa-clipboard-check" aria-hidden="true"></i> Subject Lead Expectations</h3>
-        <ul>
-          <li>Help manage and maintain advanced laboratory probes and calorimeter equipment.</li>
-          <li>Conduct hands-on workshops for breadboarding, multimeter diagnostics, and logic gates.</li>
-          <li>Provide CAD modeling tutorials and peer review technical engineering drawings.</li>
-          <li>Train newer members in advanced physics problem-solving and unit-checking speed.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <div class="events-section-header">
-    <h2 class="events-section-title">Events &amp; Study Focus</h2>
-    <p class="events-section-subtitle">Select tabs within each event card to explore descriptions, topic lists, textbook pathways, and practice links.</p>
-  </div>
-
-  <div class="events-grid">
-
-    <!-- Event 1: Thermodynamics -->
-    <article class="event-card" id="event-thermo">
-      <div class="event-card-header">
-        <div class="event-title-area">
-          <i class="fas fa-fire" aria-hidden="true"></i>
-          <h3>Thermodynamics</h3>
+    <!-- HERO -->
+    <section class="hero-section" id="heroSection">
+        <canvas id="phys-canvas"></canvas>
+        <div class="hero-scrim"></div>
+        <div class="hero-grid-pattern"></div>
+        <div class="blueprint-glow"></div>
+        <div class="hero-fade"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-6 pt-28 pb-8 flex items-center" style="min-height:65vh">
+            <div class="max-w-[480px]">
+                <h1 class="font-display leading-[0.92] mb-5 hero-heading">
+                    <span class="gradient-text-light font-extrabold text-6xl sm:text-7xl lg:text-8xl block reveal">Physics</span>
+                    <span class="gradient-text-light font-extrabold text-6xl sm:text-7xl lg:text-8xl block reveal reveal-d1">&amp; Design</span>
+                    <span class="text-white font-bold text-4xl sm:text-5xl lg:text-6xl block mt-1 reveal reveal-d2">Events</span>
+                </h1>
+                <p class="text-slate-300/90 text-base sm:text-lg leading-relaxed mb-8 max-w-md reveal reveal-d2">
+                    From circuits and heat flow to 3D engineering design, put the laws of physics to work.
+                </p>
+                <a href="#events" class="btn-hero inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm reveal reveal-d2">
+                    View All Events <i class="fa-solid fa-arrow-down text-xs"></i>
+                </a>
+            </div>
         </div>
-        <span class="event-meta-badge"><i class="fas fa-user-friends"></i> Team of 2</span>
-      </div>
-      <p class="event-tagline-lead">Investigate thermal energy and the laws of heat transfer. Construct a physical calorimeter device and apply state-variable thermodynamics equations to analyze ideal gas engines.</p>
+        <a href="#events" class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 scroll-chevron" aria-label="Scroll to events">
+            <i class="fa-solid fa-chevron-down text-white/50 text-lg"></i>
+        </a>
+    </section>
 
-      <div class="event-tabs">
-        <div class="tab-header">
-          <button class="tab-btn active" data-tab="overview"><i class="fas fa-info-circle"></i> Overview</button>
-          <button class="tab-btn" data-tab="topics"><i class="fas fa-list"></i> Topics</button>
-          <button class="tab-btn" data-tab="pathway"><i class="fas fa-graduation-cap"></i> Pathway</button>
-          <button class="tab-btn" data-tab="resources"><i class="fas fa-laptop-code"></i> Resources</button>
+    <!-- EVENTS SECTION -->
+    <section id="events" class="pt-12 pb-24" style="background:radial-gradient(ellipse at 30% 0%,rgba(249,115,22,0.06) 0%,transparent 50%),#f8f9ff">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-slate-800 mb-2">3 Competitive Events</h2>
+                <p class="text-slate-500 text-base max-w-md mx-auto">The Physics &amp; Design subject area covers electricity, heat and energy, and computer-aided engineering design.</p>
+            </div>
+            <div class="grid grid-cols-1 gap-6 items-start max-w-3xl mx-auto" id="cardsGrid"></div>
         </div>
+    </section>
 
-        <div class="tab-content">
-          <div class="tab-pane active" data-pane="overview">
-            <div class="overview-grid">
-              <div>
-                <h4 class="overview-list-title"><i class="fas fa-star"></i> What You'll Learn</h4>
-                <ul class="overview-ul">
-                  <li>To calculate specific and latent heat transitions during phase changes.</li>
-                  <li>How to trace and evaluate cyclic engines on pressure-volume (PV) diagrams.</li>
-                  <li>The thermodynamic boundaries of the Carnot and Stirling cycles.</li>
-                  <li>To build and calibrate insulated calorimetric chambers.</li>
-                </ul>
-              </div>
-              <div class="big-questions-box">
-                <h4 class="overview-list-title"><i class="fas fa-question-circle"></i> Big Questions</h4>
-                <div class="question-prompt">
-                  <i class="fas fa-quote-left"></i>
-                  <span>How do isothermal and adiabatic expansion steps on a Carnot PV diagram mathematically limit a thermal engine's theoretical efficiency?</span>
-                </div>
-                <div class="question-prompt">
-                  <i class="fas fa-quote-left"></i>
-                  <span>How can you quantify heat-loss error in a real-world calorimeter and mathematically calibrate your calculations?</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-pane" data-pane="topics">
-            <div class="season-split">
-              <div class="season-column">
-                <span class="season-header-badge past"><i class="fas fa-thermometer-half"></i> Calorimetry &amp; Heat Transfer</span>
-                <h4 class="season-topics-title">Core Principles</h4>
-                <ul class="topic-list-ul">
-                  <li><strong>Thermal Properties:</strong> Temperature scales, specific heat capacity ($Q = mc\Delta T$), latent heat of fusion/vaporization ($Q = mL$), and calorimetry equations.</li>
-                  <li><strong>Conduction, Convection &amp; Radiation:</strong> Mechanisms of thermal transfer, thermal conductivity ($k$), Stefan-Boltzmann radiation law.</li>
-                  <li><strong>Experimental Design:</strong> Calibrating calorimeter insulation, minimizing air-gap convection, and using temperature data probes.</li>
-                </ul>
-              </div>
-              <div class="season-column active-season">
-                <span class="season-header-badge future"><i class="fas fa-arrow-circle-right"></i> Gas Laws &amp; Thermal Cycles</span>
-                <h4 class="season-topics-title">Advanced Gas Engines</h4>
-                <ul class="topic-list-ul">
-                  <li><strong>First Law of Thermodynamics:</strong> Conservation of energy ($\Delta U = Q - W$), molar heat capacities ($C_v, C_p$), work integrals.</li>
-                  <li><strong>State Changes:</strong> Isothermal (constant $T$), Isobaric (constant $P$), Isochoric (constant $V$), and Adiabatic (no heat flow, $PV^\gamma = K$) processes.</li>
-                  <li><strong>Cyclic Engines:</strong> Drawing and evaluating Carnot and Stirling engine PV loops to calculate work output, heat input, and net thermal efficiency.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-pane" data-pane="pathway">
-            <div class="pathway-grid">
-              <div>
-                <h4 class="overview-list-title"><i class="fas fa-book"></i> Standard Textbooks</h4>
-                <div class="textbook-card">
-                  <div class="textbook-icon"><i class="fas fa-book-open"></i></div>
-                  <div class="textbook-info">
-                    <h5>Fundamentals of Physics</h5>
-                    <p class="author">Halliday, Resnick, Walker</p>
-                    <span class="scope-tag">Standard University Physics</span>
-                  </div>
-                </div>
-                <div class="textbook-card">
-                  <div class="textbook-icon"><i class="fas fa-book-open"></i></div>
-                  <div class="textbook-info">
-                    <h5>University Physics</h5>
-                    <p class="author">Young &amp; Freedman</p>
-                    <span class="scope-tag">In-Depth Thermal Cycles</span>
-                  </div>
-                </div>
-              </div>
-              <div class="courses-box">
-                <h4 class="overview-list-title"><i class="fas fa-university"></i> Related College Courses</h4>
-                <div class="course-tag-container">
-                  <span class="course-tag"><i class="fas fa-check"></i> General Physics I/II</span>
-                  <span class="course-tag"><i class="fas fa-check"></i> Thermal Physics</span>
-                  <span class="course-tag"><i class="fas fa-check"></i> Thermodynamics</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-pane" data-pane="resources">
-            <div class="resources-grid">
-              <a href="https://www.youtube.com/c/FlippingPhysics" target="_blank" class="resource-item">
-                <div class="resource-item-left">
-                  <div class="resource-type-icon"><i class="fab fa-youtube"></i></div>
-                  <div class="resource-item-info">
-                    <h5>Flipping Physics</h5>
-                    <p>Highly conceptual, step-by-step kinetic and thermal video reviews</p>
-                  </div>
-                </div>
-                <i class="fas fa-chevron-right resource-arrow"></i>
-              </a>
-              <a href="https://phet.colorado.edu/en/simulations/category/physics/thermodynamics" target="_blank" class="resource-item">
-                <div class="resource-item-left">
-                  <div class="resource-type-icon"><i class="fas fa-globe"></i></div>
-                  <div class="resource-item-info">
-                    <h5>PhET Thermodynamics Sims</h5>
-                    <p>Interactive virtual lab animations of molecular heat and gas states</p>
-                  </div>
-                </div>
-                <i class="fas fa-chevron-right resource-arrow"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </article>
-
-    <!-- Event 2: Circuit Lab -->
-    <article class="event-card" id="event-circuit">
-      <div class="event-card-header">
-        <div class="event-title-area">
-          <i class="fas fa-bolt" aria-hidden="true"></i>
-          <h3>Circuit Lab</h3>
-        </div>
-        <span class="event-meta-badge"><i class="fas fa-user-friends"></i> Team of 2</span>
-      </div>
-      <p class="event-tagline-lead">Unveil the physics of current flow. Analyze complex series-parallel circuits, solve digital logic gate combinations, and troubleshoot electrical paths on physical breadboards.</p>
-
-      <div class="event-tabs">
-        <div class="tab-header">
-          <button class="tab-btn active" data-tab="overview"><i class="fas fa-info-circle"></i> Overview</button>
-          <button class="tab-btn" data-tab="topics"><i class="fas fa-list"></i> Topics</button>
-          <button class="tab-btn" data-tab="pathway"><i class="fas fa-graduation-cap"></i> Pathway</button>
-          <button class="tab-btn" data-tab="resources"><i class="fas fa-laptop-code"></i> Resources</button>
-        </div>
-
-        <div class="tab-content">
-          <div class="tab-pane active" data-pane="overview">
-            <div class="overview-grid">
-              <div>
-                <h4 class="overview-list-title"><i class="fas fa-star"></i> What You'll Learn</h4>
-                <ul class="overview-ul">
-                  <li>To calculate voltage, current, and power across complex resistor networks.</li>
-                  <li>How to apply Kirchhoff's Voltage (KVL) and Current (KCL) Laws.</li>
-                  <li>The truth tables and gate structures of Boolean digital logic.</li>
-                  <li>To wire and diagnose DC circuits on physical breadboards using multimeters.</li>
-                </ul>
-              </div>
-              <div class="big-questions-box">
-                <h4 class="overview-list-title"><i class="fas fa-question-circle"></i> Big Questions</h4>
-                <div class="question-prompt">
-                  <i class="fas fa-quote-left"></i>
-                  <span>How does a voltmeter's internal resistance introduce measurement loading error into a high-resistance voltage divider?</span>
-                </div>
-                <div class="question-prompt">
-                  <i class="fas fa-quote-left"></i>
-                  <span>How can you utilize De Morgan's laws to simplify a complex digital logic gate network down to basic NAND configurations?</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-pane" data-pane="topics">
-            <div class="season-split">
-              <div class="season-column">
-                <span class="season-header-badge past"><i class="fas fa-battery-half"></i> DC Circuit Analysis</span>
-                <h4 class="season-topics-title">Analog Electronics</h4>
-                <ul class="topic-list-ul">
-                  <li><strong>Fundamental Laws:</strong> Ohm's law ($V = IR$), series vs. parallel resistors, calculating equivalent resistances ($R_{eq}$), and power dissipation ($P = IV$).</li>
-                  <li><strong>Advanced Analysis:</strong> Kirchhoff's Current Law (KCL node analysis), Kirchhoff's Voltage Law (KVL mesh analysis), and voltage/current divider formulas.</li>
-                  <li><strong>RC Capacitors:</strong> Capacitance physics, capacitors in series/parallel, charging and discharging curves (time constant $\tau = RC$).</li>
-                </ul>
-              </div>
-              <div class="season-column active-season">
-                <span class="season-header-badge future"><i class="fas fa-arrow-circle-right"></i> Digital Logic &amp; Lab Practical</span>
-                <h4 class="season-topics-title">Digital &amp; Laboratory Skills</h4>
-                <ul class="topic-list-ul">
-                  <li><strong>Digital Logic Gates:</strong> Truth tables and Boolean operations for AND, OR, NOT, NAND, NOR, XOR, and XNOR gates.</li>
-                  <li><strong>Breadboarding Strategy:</strong> Routing clean DC circuit layouts on physical protoboards to prevent shorts and parasitic resistance.</li>
-                  <li><strong>Multimeter Fluency:</strong> Configuring multimeter dials to measure voltage drop, series current, and static resistance.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-pane" data-pane="pathway">
-            <div class="pathway-grid">
-              <div>
-                <h4 class="overview-list-title"><i class="fas fa-book"></i> Standard Textbooks</h4>
-                <div class="textbook-card">
-                  <div class="textbook-icon"><i class="fas fa-book-open"></i></div>
-                  <div class="textbook-info">
-                    <h5>Introductory Circuit Analysis</h5>
-                    <p class="author">Robert L. Boylestad</p>
-                    <span class="scope-tag">Standard EE Curriculum</span>
-                  </div>
-                </div>
-                <div class="textbook-card">
-                  <div class="textbook-icon"><i class="fas fa-book-open"></i></div>
-                  <div class="textbook-info">
-                    <h5>Electric Circuits</h5>
-                    <p class="author">Nilsson &amp; Riedel</p>
-                    <span class="scope-tag">In-Depth Mathematical Mesh/Node Analysis</span>
-                  </div>
-                </div>
-              </div>
-              <div class="courses-box">
-                <h4 class="overview-list-title"><i class="fas fa-university"></i> Related College Courses</h4>
-                <div class="course-tag-container">
-                  <span class="course-tag"><i class="fas fa-check"></i> Electric Circuits I/II</span>
-                  <span class="course-tag"><i class="fas fa-check"></i> Digital Logic Design</span>
-                  <span class="course-tag"><i class="fas fa-check"></i> Intro to Electronics Lab</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-pane" data-pane="resources">
-            <div class="resources-grid">
-              <a href="https://www.falstad.com/circuit/" target="_blank" class="resource-item">
-                <div class="resource-item-left">
-                  <div class="resource-type-icon"><i class="fas fa-network-wired"></i></div>
-                  <div class="resource-item-info">
-                    <h5>Falstad Simulator</h5>
-                    <p>Incredibly powerful interactive virtual breadboard &amp; schematic modeler</p>
-                  </div>
-                </div>
-                <i class="fas fa-chevron-right resource-arrow"></i>
-              </a>
-              <a href="https://www.allaboutcircuits.com" target="_blank" class="resource-item">
-                <div class="resource-item-left">
-                  <div class="resource-type-icon"><i class="fas fa-globe"></i></div>
-                  <div class="resource-item-info">
-                    <h5>AllAboutCircuits</h5>
-                    <p>Standard textbook reference, electrical guides, and interactive calculators</p>
-                  </div>
-                </div>
-                <i class="fas fa-chevron-right resource-arrow"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </article>
-
-    <!-- Event 3: Engineering CAD -->
-    <article class="event-card full-width" id="event-cad">
-      <div class="event-card-header">
-        <div class="event-title-area">
-          <i class="fas fa-drafting-compass" aria-hidden="true"></i>
-          <h3>Engineering CAD</h3>
-        </div>
-        <span class="event-meta-badge"><i class="fas fa-laptop"></i> Team of 2</span>
-      </div>
-      <p class="event-tagline-lead">Master parametric 3D computer-aided design. Read technical engineering blueprints, constrain dimensional sketches, establish assemblies, and export files according to tight tolerances.</p>
-
-      <div class="event-tabs">
-        <div class="tab-header">
-          <button class="tab-btn active" data-tab="overview"><i class="fas fa-info-circle"></i> Overview</button>
-          <button class="tab-btn" data-tab="topics"><i class="fas fa-list"></i> Topics</button>
-          <button class="tab-btn" data-tab="pathway"><i class="fas fa-graduation-cap"></i> Pathway</button>
-          <button class="tab-btn" data-tab="resources"><i class="fas fa-laptop-code"></i> Resources</button>
-        </div>
-
-        <div class="tab-content">
-          <div class="tab-pane active" data-pane="overview">
-            <div class="overview-grid">
-              <div>
-                <h4 class="overview-list-title"><i class="fas fa-star"></i> What You'll Learn</h4>
-                <ul class="overview-ul">
-                  <li>To sketch 2D geometries using robust geometric and dimensional constraints.</li>
-                  <li>How to construct 3D parts using extrudes, revolves, and sweeps.</li>
-                  <li>To establish 3D assemblies using relational mates and limits.</li>
-                  <li>To generate professional 2D technical drawings with orthographic views.</li>
-                </ul>
-              </div>
-              <div class="big-questions-box">
-                <h4 class="overview-list-title"><i class="fas fa-question-circle"></i> Big Questions</h4>
-                <div class="question-prompt">
-                  <i class="fas fa-quote-left"></i>
-                  <span>How does "design intent" determine how you structure parent sketches to ensure a model adapts when variables change?</span>
-                </div>
-                <div class="question-prompt">
-                  <i class="fas fa-quote-left"></i>
-                  <span>How do you calculate clearance and interference fits between two sliding parts in an assembly using tolerances?</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-pane" data-pane="topics">
-            <div class="season-split">
-              <div class="season-column">
-                <span class="season-header-badge past"><i class="fas fa-cube"></i> Part &amp; Assembly Design</span>
-                <h4 class="season-topics-title">Parametric Modeling</h4>
-                <ul class="topic-list-ul">
-                  <li><strong>2D Sketching:</strong> Constraining lines, circles, arcs using parallel, vertical, horizontal, concentric, and equal geometric rules.</li>
-                  <li><strong>3D Features:</strong> Part creation using Extrude, Revolve, Sweep (following curves), Loft (connecting shapes), Shell, Fillet, and Chamfer tools.</li>
-                  <li><strong>Mating Assemblies:</strong> Aligning parts using Fasten, Revolute, Slider, and Cylindrical mates, checking degrees of freedom, and finding interferences.</li>
-                </ul>
-              </div>
-              <div class="season-column active-season">
-                <span class="season-header-badge future"><i class="fas fa-arrow-circle-right"></i> Technical Drawings &amp; Exporter</span>
-                <h4 class="season-topics-title">Drafting &amp; Prototyping Standards</h4>
-                <ul class="topic-list-ul">
-                  <li><strong>Orthographic Views:</strong> Generating Front, Top, Right, and Isometric projections on a 2D technical drawing sheet.</li>
-                  <li><strong>Dimensional Drafts:</strong> Detailing dimensions, adding centerlines, defining section views, and applying tolerancing standards (symmetric, limits).</li>
-                  <li><strong>Exporting Mesh:</strong> Managing file formats (STEP, STL, IGES), configuring tessellation density, and fixing open-boundary mesh errors.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-pane" data-pane="pathway">
-            <div class="pathway-grid">
-              <div>
-                <h4 class="overview-list-title"><i class="fas fa-book"></i> Standard Textbooks</h4>
-                <div class="textbook-card">
-                  <div class="textbook-icon"><i class="fas fa-book-open"></i></div>
-                  <div class="textbook-info">
-                    <h5>Parametric Modeling with Onshape</h5>
-                    <p class="author">Randy H. Shih</p>
-                    <span class="scope-tag">Official Onshape Reference</span>
-                  </div>
-                </div>
-                <div class="textbook-card">
-                  <div class="textbook-icon"><i class="fas fa-book-open"></i></div>
-                  <div class="textbook-info">
-                    <h5>Engineering Design with SOLIDWORKS</h5>
-                    <p class="author">David C. Planchard</p>
-                    <span class="scope-tag">Standard Mechanical Drafting Reference</span>
-                  </div>
-                </div>
-              </div>
-              <div class="courses-box">
-                <h4 class="overview-list-title"><i class="fas fa-university"></i> Related College Courses</h4>
-                <div class="course-tag-container">
-                  <span class="course-tag"><i class="fas fa-check"></i> Computer-Aided Design (CAD)</span>
-                  <span class="course-tag"><i class="fas fa-check"></i> Mechanical Drafting</span>
-                  <span class="course-tag"><i class="fas fa-check"></i> Manufacturing Processes</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-pane" data-pane="resources">
-            <div class="resources-grid">
-              <a href="https://learn.onshape.com" target="_blank" class="resource-item">
-                <div class="resource-item-left">
-                  <div class="resource-type-icon"><i class="fas fa-laptop-code"></i></div>
-                  <div class="resource-item-info">
-                    <h5>Onshape Learning Center</h5>
-                    <p>Official interactive CAD bootcamps, courses, and certifications</p>
-                  </div>
-                </div>
-                <i class="fas fa-chevron-right resource-arrow"></i>
-              </a>
-              <a href="https://www.youtube.com/c/TeachingTech" target="_blank" class="resource-item">
-                <div class="resource-item-left">
-                  <div class="resource-type-icon"><i class="fab fa-youtube"></i></div>
-                  <div class="resource-item-info">
-                    <h5>Teaching Tech</h5>
-                    <p>Excellent tutorials on 3D printing tolerance design and CAD exports</p>
-                  </div>
-                </div>
-                <i class="fas fa-chevron-right resource-arrow"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </article>
-
-  </div>
-</div>
 {% endblock %}
 
 {% block extra_js %}
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  // Scoped Tab Interaction Script
-  document.querySelectorAll('.event-card').forEach(card => {
-    const buttons = card.querySelectorAll('.tab-btn');
-    const panes = card.querySelectorAll('.tab-pane');
-    
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        // Deactivate all buttons and panes inside this card only
-        buttons.forEach(b => b.classList.remove('active'));
-        panes.forEach(p => p.classList.remove('active'));
-        
-        // Activate current button
-        btn.classList.add('active');
-        const targetTab = btn.getAttribute('data-tab');
-        
-        // Find and activate matching pane inside this card
-        const targetPane = card.querySelector(`.tab-pane[data-pane="${targetTab}"]`);
-        if (targetPane) {
-          targetPane.classList.add('active');
+
+    <script type="importmap">
+    {"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}
+    </script>
+    <script type="module">
+        import * as THREE from 'three';
+        import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+        const heroSection = document.getElementById('heroSection');
+        const canvas = document.getElementById('phys-canvas');
+
+        // Lighter settings on phones / low-power machines
+        const LOW = /Android|iPhone|iPad|iPod|Mobi/i.test(navigator.userAgent) || (navigator.hardwareConcurrency || 4) <= 4 || (navigator.deviceMemory || 4) <= 4;
+        const SEG = LOW ? 24 : 48;
+
+        const scene = new THREE.Scene();
+        scene.background = null;
+        const camera = new THREE.PerspectiveCamera(32, heroSection.offsetWidth / Math.max(1, heroSection.offsetHeight), 0.1, 100);
+        camera.position.set(1.8, 0.3, 9);
+
+        const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+        renderer.setSize(heroSection.offsetWidth, heroSection.offsetHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.toneMapping = THREE.ACESFilmicToneMapping;
+        renderer.toneMappingExposure = 1.15;
+        renderer.setClearColor(0x000000, 0);
+
+        // Reflections for the chrome / copper
+        const pmrem = new THREE.PMREMGenerator(renderer);
+        scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+        pmrem.dispose();
+
+        const keyLight = new THREE.DirectionalLight(0xfff1de, 2.0); keyLight.position.set(-5, 5, 5); scene.add(keyLight);
+        const fillLight = new THREE.DirectionalLight(0xe6f0ff, 0.8); fillLight.position.set(5, -2, 4); scene.add(fillLight);
+        const rimLight = new THREE.DirectionalLight(0xfb923c, 1.6); rimLight.position.set(2, 3, -6); scene.add(rimLight);
+        scene.add(new THREE.AmbientLight(0xffffff, 0.25));
+
+        // soft round sprite used for glows, trails and dust
+        const dotSprite = (() => {
+            const c = document.createElement('canvas'); c.width = c.height = 64;
+            const x = c.getContext('2d'), g = x.createRadialGradient(32, 32, 0, 32, 32, 32);
+            g.addColorStop(0, 'rgba(255,255,255,1)'); g.addColorStop(0.3, 'rgba(255,255,255,0.55)'); g.addColorStop(1, 'rgba(255,255,255,0)');
+            x.fillStyle = g; x.fillRect(0, 0, 64, 64);
+            return new THREE.CanvasTexture(c);
+        })();
+
+        // ---------- everything for the pendulum lives in one group ----------
+        const rig = new THREE.Group();
+        scene.add(rig);
+
+        const copper = new THREE.MeshPhysicalMaterial({ color: 0xe9873a, metalness: 0.95, roughness: 0.22, clearcoat: 0.6, envMapIntensity: 1.3 });
+        const chrome = new THREE.MeshPhysicalMaterial({ color: 0xf4f7fb, metalness: 0.9, roughness: 0.14, clearcoat: 1, clearcoatRoughness: 0.05, envMapIntensity: 2.6, emissive: 0xff8a1f, emissiveIntensity: 0.1 });
+
+        // ----- engineering dial behind the pendulum (the "design" half) -----
+        const DIAL_R = 3.3, DIAL_Z = -0.3;
+        const dialMat = new THREE.MeshBasicMaterial({ color: 0xfb923c, transparent: true, opacity: 0.42 });
+        const dialOuter = new THREE.Mesh(new THREE.TorusGeometry(DIAL_R, 0.014, 8, 180), dialMat);
+        const dialInner = new THREE.Mesh(new THREE.TorusGeometry(1.6, 0.008, 8, 120), dialMat.clone());
+        dialInner.material.opacity = 0.2;
+        dialOuter.position.z = dialInner.position.z = DIAL_Z;
+        const tickPts = [];
+        for (let deg = 0; deg < 360; deg += 5) {
+            const a = deg * Math.PI / 180, r1 = DIAL_R + 0.02, r2 = DIAL_R + (deg % 45 === 0 ? 0.34 : deg % 15 === 0 ? 0.2 : 0.1);
+            tickPts.push(r1 * Math.sin(a), -r1 * Math.cos(a), 0, r2 * Math.sin(a), -r2 * Math.cos(a), 0);
         }
-      });
-    });
-  });
-});
-</script>
+        const tickGeo = new THREE.BufferGeometry();
+        tickGeo.setAttribute('position', new THREE.Float32BufferAttribute(tickPts, 3));
+        const ticks = new THREE.LineSegments(tickGeo, new THREE.LineBasicMaterial({ color: 0xfdba74, transparent: true, opacity: 0.5 }));
+        ticks.position.z = DIAL_Z;
+        const crossGeo = new THREE.BufferGeometry();
+        crossGeo.setAttribute('position', new THREE.Float32BufferAttribute([-DIAL_R, 0, 0, DIAL_R, 0, 0, 0, -DIAL_R, 0, 0, DIAL_R, 0], 3));
+        const cross = new THREE.LineSegments(crossGeo, new THREE.LineBasicMaterial({ color: 0xfb923c, transparent: true, opacity: 0.16 }));
+        cross.position.z = DIAL_Z;
+        rig.add(dialOuter, dialInner, ticks, cross);
+
+        // ----- the real pendulum (copper arms, chrome bobs) -----
+        const L1 = 1.6, L2 = 1.6, G = 11;
+        const hub = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.22, 0.3, 40), copper);
+        hub.rotation.x = Math.PI / 2; rig.add(hub);
+        const hubCap = new THREE.Mesh(new THREE.SphereGeometry(0.1, 24, 24), chrome);
+        hubCap.position.z = 0.16; rig.add(hubCap);
+
+        const armGeo = new THREE.CylinderGeometry(0.055, 0.055, 1, 16);
+        const arm1 = new THREE.Mesh(armGeo, copper), arm2 = new THREE.Mesh(armGeo, copper);
+        const bob1 = new THREE.Mesh(new THREE.SphereGeometry(0.27, SEG, SEG), chrome);
+        const bob2 = new THREE.Mesh(new THREE.SphereGeometry(0.34, SEG, SEG), chrome);
+        const joint = new THREE.Mesh(new THREE.SphereGeometry(0.1, 20, 20), copper);
+        rig.add(arm1, arm2, bob1, bob2, joint);
+
+        const halo = (color, size, opacity) => {
+            const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: dotSprite, color, transparent: true, opacity, depthWrite: false, blending: THREE.AdditiveBlending }));
+            sp.scale.set(size, size, 1); return sp;
+        };
+        const haloA = halo(0xffa23a, 1.9, 0.75); rig.add(haloA);
+
+        // ----- the "ghost" pendulum: starts a hair away from the first one -----
+        const ghostArmMat = new THREE.MeshBasicMaterial({ color: 0x7dd3fc, transparent: true, opacity: 0.5 });
+        const ghostBobMat = new THREE.MeshStandardMaterial({ color: 0x38bdf8, emissive: 0x38bdf8, emissiveIntensity: 0.9, roughness: 0.3, metalness: 0.2 });
+        const gArmGeo = new THREE.CylinderGeometry(0.022, 0.022, 1, 8);
+        const garm1 = new THREE.Mesh(gArmGeo, ghostArmMat), garm2 = new THREE.Mesh(gArmGeo, ghostArmMat);
+        const gbob1 = new THREE.Mesh(new THREE.SphereGeometry(0.1, 20, 20), ghostBobMat);
+        const gbob2 = new THREE.Mesh(new THREE.SphereGeometry(0.15, 24, 24), ghostBobMat);
+        const haloB = halo(0x38bdf8, 1.2, 0.65);
+        [garm1, garm2, gbob1, gbob2, haloB].forEach(m => { m.position.z = 0.02; rig.add(m); });
+
+        // ----- glowing light trails (newest point first, older points fade out) -----
+        const TRAIL_N = LOW ? 700 : 1500;
+        function makeTrail(r, g, b, z) {
+            const pos = new Float32Array(TRAIL_N * 3), col = new Float32Array(TRAIL_N * 3);
+            for (let i = 0; i < TRAIL_N; i++) {
+                const f = Math.pow(1 - i / TRAIL_N, 1.7);
+                col[i * 3] = r * f; col[i * 3 + 1] = g * f; col[i * 3 + 2] = b * f;
+                pos[i * 3 + 2] = z;
+            }
+            const geo = new THREE.BufferGeometry();
+            geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+            geo.setAttribute('color', new THREE.BufferAttribute(col, 3));
+            const pts = new THREE.Points(geo, new THREE.PointsMaterial({ size: 0.17, map: dotSprite, vertexColors: true, transparent: true, opacity: 0.32, depthWrite: false, blending: THREE.AdditiveBlending, sizeAttenuation: true }));
+            pts.frustumCulled = false; rig.add(pts);
+            return { pos, geo, z, init: false,
+                push(x, y) {
+                    if (!this.init) { for (let i = 0; i < TRAIL_N; i++) { pos[i * 3] = x; pos[i * 3 + 1] = y; } this.init = true; }
+                    pos.copyWithin(3, 0, (TRAIL_N - 1) * 3);
+                    pos[0] = x; pos[1] = y; pos[2] = this.z;
+                } };
+        }
+        const trailA = makeTrail(1.0, 0.48, 0.06, 0.0);
+        const trailB = makeTrail(0.08, 0.5, 1.0, -0.04);
+
+        // ----- double-pendulum physics (RK4) -----
+        function deriv(s) {
+            const [t1, t2, w1, w2] = s, d = t1 - t2, den = 2 + 1 - Math.cos(2 * d);   // m1 = m2 = 1
+            const a1 = (-G * 3 * Math.sin(t1) - G * Math.sin(t1 - 2 * t2) - 2 * Math.sin(d) * (w2 * w2 * L2 + w1 * w1 * L1 * Math.cos(d))) / (L1 * den);
+            const a2 = (2 * Math.sin(d) * (w1 * w1 * L1 * 2 + G * 2 * Math.cos(t1) + w2 * w2 * L2 * Math.cos(d))) / (L2 * den);
+            return [w1, w2, a1, a2];
+        }
+        function rk4(s, h) {
+            const add = (a, b, k) => a.map((v, i) => v + b[i] * k);
+            const k1 = deriv(s), k2 = deriv(add(s, k1, h / 2)), k3 = deriv(add(s, k2, h / 2)), k4 = deriv(add(s, k3, h));
+            return s.map((v, i) => v + (h / 6) * (k1[i] + 2 * k2[i] + 2 * k3[i] + k4[i]));
+        }
+        let stA = [2.15, 2.55, 0, 0];
+        let stB = [2.15 + 0.003, 2.55, 0, 0];     // almost identical start: the paths drift apart (chaos)
+        const XY = s => { const x1 = L1 * Math.sin(s[0]), y1 = -L1 * Math.cos(s[0]); return [x1, y1, x1 + L2 * Math.sin(s[1]), y1 - L2 * Math.cos(s[1])]; };
+
+        const UP = new THREE.Vector3(0, 1, 0), _d = new THREE.Vector3(), _a = new THREE.Vector3(), _b = new THREE.Vector3();
+        function setCylinder(mesh, a, b) {
+            _d.subVectors(b, a);
+            const len = _d.length();
+            mesh.position.copy(a).addScaledVector(_d, 0.5);
+            mesh.scale.set(1, len, 1);
+            mesh.quaternion.setFromUnitVectors(UP, _d.normalize());
+        }
+        function pose(sA, sB) {
+            let [x1, y1, x2, y2] = XY(sA);
+            _a.set(0, 0, 0); _b.set(x1, y1, 0); setCylinder(arm1, _a, _b);
+            _a.set(x1, y1, 0); _b.set(x2, y2, 0); setCylinder(arm2, _a, _b);
+            bob1.position.set(x1, y1, 0); joint.position.set(x1, y1, 0.12); bob2.position.set(x2, y2, 0); haloA.position.set(x2, y2, 0);
+            [x1, y1, x2, y2] = XY(sB);
+            _a.set(0, 0, 0.02); _b.set(x1, y1, 0.02); setCylinder(garm1, _a, _b);
+            _a.set(x1, y1, 0.02); _b.set(x2, y2, 0.02); setCylinder(garm2, _a, _b);
+            gbob1.position.set(x1, y1, 0.02); gbob2.position.set(x2, y2, 0.02); haloB.position.set(x2, y2, 0.02);
+        }
+        pose(stA, stB);
+
+        rig.position.set(3.5, 0.35, 0);
+
+        // ---------- floating spark dust ----------
+        const P = LOW ? 28 : 60;
+        const pPos = new Float32Array(P * 3), pData = [];
+        for (let i = 0; i < P; i++) pData.push({ a: Math.random() * 6.283, r: 2.6 + Math.random() * 3.2, h: (Math.random() - 0.5) * 6.2, s: 0.0015 + Math.random() * 0.004, fs: 0.0005 + Math.random() * 0.0015, fa: 0.1 + Math.random() * 0.3 });
+        const pGeo = new THREE.BufferGeometry();
+        pGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
+        const dust = new THREE.Points(pGeo, new THREE.PointsMaterial({ color: 0xfdba74, size: 0.11, map: dotSprite, transparent: true, opacity: 0.7, depthWrite: false, blending: THREE.AdditiveBlending, sizeAttenuation: true }));
+        scene.add(dust);
+
+        // ---------- animation ----------
+        let heroVisible = true, tabVisible = true;
+        new IntersectionObserver(([e]) => { heroVisible = e.isIntersecting; }, { threshold: 0 }).observe(heroSection);
+        document.addEventListener('visibilitychange', () => { tabVisible = !document.hidden; });
+
+        let mouseX = 0, mouseY = 0, smoothMX = 0, smoothMY = 0;
+        heroSection.addEventListener('mousemove', e => {
+            const r = heroSection.getBoundingClientRect();
+            mouseX = ((e.clientX - r.left) / r.width - 0.5) * 2;
+            mouseY = ((e.clientY - r.top) / r.height - 0.5) * 2;
+        }, { passive: true });
+
+        const FINAL_SCALE = 0.5;
+        const H = 1 / 240;              // physics time step
+        const t0 = performance.now();
+        let last = t0, acc = 0;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            const now = performance.now();
+            if (!heroVisible || !tabVisible) { last = now; return; }
+            const dt = Math.min(0.05, (now - last) / 1000); last = now;
+            const elapsed = (now - t0) / 1000;
+
+            // intro
+            let s = FINAL_SCALE;
+            if (elapsed < 1.5) s = (1 - Math.pow(1 - elapsed / 1.5, 3)) * FINAL_SCALE;
+            rig.scale.setScalar(s);
+
+            // physics: several small steps per frame, leaving a trail point at each step
+            acc += dt;
+            let steps = 0;
+            while (acc >= H && steps < 16) {
+                stA = rk4(stA, H); stB = rk4(stB, H);
+                const a = XY(stA), b = XY(stB);
+                trailA.push(a[2], a[3]); trailB.push(b[2], b[3]);
+                acc -= H; steps++;
+            }
+            if (steps === 16) acc = 0;
+            pose(stA, stB);
+            trailA.geo.attributes.position.needsUpdate = true;
+            trailB.geo.attributes.position.needsUpdate = true;
+
+            // gentle camera-angle drift + mouse parallax
+            smoothMX += (mouseX * 0.3 - smoothMX) * 0.04;
+            smoothMY += (mouseY * 0.1 - smoothMY) * 0.04;
+            rig.rotation.y = 0.22 + Math.sin(elapsed * 0.25) * 0.14 + smoothMX;
+            rig.rotation.x = -0.04 + smoothMY;
+            rig.position.y = 0.35 + Math.sin(now * 0.0007) * 0.05;
+
+            // dust
+            for (let i = 0; i < P; i++) {
+                const d = pData[i]; d.a += d.s;
+                pPos[i * 3]     = d.r * Math.cos(d.a) + 3.5;
+                pPos[i * 3 + 1] = d.h + Math.sin(now * d.fs) * d.fa;
+                pPos[i * 3 + 2] = d.r * Math.sin(d.a) * 0.8;
+            }
+            pGeo.attributes.position.needsUpdate = true;
+
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        window.addEventListener('resize', () => {
+            const w = heroSection.offsetWidth, h = Math.max(1, heroSection.offsetHeight);
+            camera.aspect = w / h; camera.updateProjectionMatrix();
+            renderer.setSize(w, h);
+        });
+    </script>
+
+    <!-- UI + EVENT DATA -->
+    <script>
+        const ORANGE = '#ea580c';
+        const events = [
+            { name: 'Circuit Lab', type: 'Physics', teamSize: 2,
+              desc: 'Combine circuit theory with hands-on work: answer questions about how electricity behaves, then test and measure real circuits.',
+              learn: ['Ohm\u2019s law, series circuits, and parallel circuits', 'Measuring voltage, current, and resistance with a multimeter', 'How capacitors and inductors respond over time'] },
+            { name: 'Thermodynamics', type: 'Physics', teamSize: 2,
+              desc: 'Explore how heat and energy move through matter, from temperature and phase changes to the laws of thermodynamics.',
+              learn: ['Heat, temperature, and thermal equilibrium', 'Conduction, convection, and radiation', 'Specific heat, calorimetry, and phase changes'] },
+            { name: 'Engineering CAD', type: 'Design', teamSize: 2,
+              desc: 'Model parts and assemblies in 3D design software, then answer questions that show you can read, design, and fix engineering drawings.',
+              learn: ['3D modeling in CAD software like Onshape', 'Reading engineering drawings and dimensions', 'Building assemblies and checking that parts fit'] },
+        ];
+
+        const grid = document.getElementById('cardsGrid');
+        events.forEach((ev, i) => {
+            const card = document.createElement('div');
+            card.className = 'event-card p-7 sm:p-8 pb-8';
+            card.style.setProperty('--card-accent', ORANGE);
+            card.style.transitionDelay = `${i * 50}ms`;
+            card.innerHTML = `
+                <p class="type-label" style="color:${ORANGE}">${ev.type}</p>
+                <div class="flex items-start justify-between gap-3 mb-3">
+                    <h3 class="font-display font-bold text-2xl text-slate-800 leading-tight">${ev.name}</h3>
+                    <span class="team-badge"><i class="fa-solid fa-user-group text-[9px]"></i> TEAM OF ${ev.teamSize}</span>
+                </div>
+                <p class="text-base text-slate-500 leading-relaxed mb-6">${ev.desc}</p>
+                <div><p class="section-label">What You'll Learn</p><div class="space-y-0.5">${ev.learn.map(l => `<div class="learn-item"><span class="learn-dot" style="background:${ORANGE}"></span><span class="learn-text">${l}</span></div>`).join('')}</div></div>`;
+            grid.appendChild(card);
+        });
+
+        const observer = new IntersectionObserver(entries => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
+        document.querySelectorAll('.event-card').forEach(c => observer.observe(c));
+
+        const backToTop = document.getElementById('backToTop');
+        if (backToTop) {
+            window.addEventListener('scroll', () => { backToTop.classList.toggle('show', window.scrollY > 350); });
+            backToTop.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+        }
+    </script>
+
 {% endblock %}
