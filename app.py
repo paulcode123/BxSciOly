@@ -363,5 +363,10 @@ def serve_approved_emails():
 @app.route("/schedule")
 def schedule():
     return render_template("schedule.html")
+
+@app.route("/events/build")
+def build():
+    return render_template("events/build.html")
+
 if __name__ == "__main__":
     app.run(debug=True, host="localhost", port=8000)

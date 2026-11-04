@@ -1,0 +1,715 @@
+{% extends "layout.html" %}
+
+{% block title %}Build – BxSciOly{% endblock %}
+
+{% block extra_css %}
+<style>
+    .gradient-text-light{background:linear-gradient(135deg,#e4d9ff 0%,#b794f6 40%,#8b5cf6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+        /* the gradient only paints inside the element box, so extend it below the line to keep descenders from being clipped */
+        padding-bottom:0.16em;margin-bottom:-0.16em}
+
+    /* z-index:0 (not just position:relative) is required here — it makes this
+       section its own stacking context, so the canvas/scrim/grid/fade layers
+       inside it (z-index 2-5) are contained and can never render on top of the
+       site header or its dropdown, no matter what z-index the header uses. */
+    .hero-section{position:relative;z-index:0;min-height:65vh;overflow:hidden;background:linear-gradient(160deg,#060a18 0%,#0f172a 50%,#0c1220 100%)}
+
+    #build-canvas{position:absolute;top:0;left:0;width:100%;height:100%;display:block;z-index:2;opacity:0.95}
+
+    .hero-scrim{position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(to right,rgba(6,10,24,0.88) 0%,rgba(6,10,24,0.7) 18%,rgba(6,10,24,0.45) 34%,rgba(6,10,24,0.2) 48%,rgba(6,10,24,0.06) 60%,transparent 72%)}
+    .hero-grid-pattern{position:absolute;inset:0;z-index:4;pointer-events:none;background-image:linear-gradient(rgba(167,139,250,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(167,139,250,0.04) 1px,transparent 1px);background-size:48px 48px}
+    .build-glow{position:absolute;inset:0;z-index:4;pointer-events:none;opacity:0.14;background:radial-gradient(ellipse at 72% 45%,rgba(139,92,246,0.6) 0%,transparent 48%),radial-gradient(ellipse at 90% 15%,rgba(192,132,252,0.35) 0%,transparent 38%)}
+    .hero-fade{position:absolute;bottom:0;left:0;right:0;height:200px;pointer-events:none;z-index:5;background:linear-gradient(to bottom,rgba(6,10,24,0) 0%,rgba(15,23,42,0.55) 18%,rgba(18,22,60,0.35) 38%,rgba(100,130,190,0.3) 55%,rgba(200,215,245,0.6) 75%,#f8f9ff 100%)}
+
+    @keyframes chevronBounce{0%,100%{transform:translateY(0);opacity:0.4}50%{transform:translateY(10px);opacity:0.9}}
+    .scroll-chevron{animation:chevronBounce 2s ease-in-out infinite;cursor:pointer;text-decoration:none}
+
+    .reveal{opacity:0;transform:translateY(28px);animation:revealUp 0.75s cubic-bezier(0.22,1,0.36,1) forwards}
+    .reveal-d1{animation-delay:0.12s}.reveal-d2{animation-delay:0.24s}
+    @keyframes revealUp{to{opacity:1;transform:translateY(0)}}
+
+    .btn-hero{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.85);transition:all 0.3s cubic-bezier(0.22,1,0.36,1);font-weight:600}
+    .btn-hero:hover{background:rgba(255,255,255,0.1);transform:translateY(-2px);box-shadow:0 8px 24px rgba(139,92,246,0.3);border-color:rgba(255,255,255,1)}
+
+    .event-card{background:#ffffff;border:1px solid #e2e8f0;border-radius:14px;transition:all 0.35s cubic-bezier(0.22,1,0.36,1);opacity:0;transform:translateY(24px);border-left:3px solid var(--card-accent)}
+    .event-card.visible{opacity:1;transform:translateY(0)}
+    .event-card:hover{box-shadow:0 10px 36px rgba(124,58,237,0.10);border-color:rgba(124,58,237,0.2);border-left-color:var(--card-accent)}
+
+    .type-label{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:6px}
+    .section-label{font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#64748b;margin-bottom:10px}
+    .learn-item{display:flex;align-items:flex-start;gap:10px;padding:5px 0}
+    .learn-dot{width:5px;height:5px;border-radius:50%;margin-top:8px;flex-shrink:0}
+    .learn-text{font-size:15px;color:#475569;line-height:1.5}
+    .team-badge{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:100px;font-size:10px;font-weight:700;font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;border:1.5px solid rgba(124,58,237,0.25);color:#64748b;background:transparent;white-space:nowrap}
+
+    .hero-heading{filter:drop-shadow(0 2px 14px rgba(0,0,0,0.55))}
+
+    @media(prefers-reduced-motion:reduce){
+        .reveal{animation:none;opacity:1;transform:none}
+        .event-card{opacity:1;transform:none}
+        .scroll-chevron{animation:none}
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+
+    <!-- HERO -->
+    <section class="hero-section" id="heroSection">
+        <canvas id="build-canvas"></canvas>
+        <div class="hero-scrim"></div>
+        <div class="hero-grid-pattern"></div>
+        <div class="build-glow"></div>
+        <div class="hero-fade"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-6 pt-28 pb-8 flex items-center" style="min-height:65vh">
+            <div class="max-w-[480px]">
+                <h1 class="font-display leading-[0.92] mb-5 hero-heading">
+                    <span class="gradient-text-light font-extrabold text-6xl sm:text-7xl lg:text-8xl block reveal">Build</span>
+                    <span class="text-white font-bold text-4xl sm:text-5xl lg:text-6xl block mt-1 reveal reveal-d1">Events</span>
+                </h1>
+                <p class="text-slate-300/90 text-base sm:text-lg leading-relaxed mb-8 max-w-md reveal reveal-d2">
+                    Design it, build it, test it. Towers, vehicles, and aircraft where the device you make does the talking.
+                </p>
+                <a href="#events" class="btn-hero inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm reveal reveal-d2">
+                    View All Events <i class="fa-solid fa-arrow-down text-xs"></i>
+                </a>
+            </div>
+        </div>
+        <a href="#events" class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 scroll-chevron" aria-label="Scroll to events">
+            <i class="fa-solid fa-chevron-down text-white/50 text-lg"></i>
+        </a>
+    </section>
+
+    <!-- EVENTS SECTION -->
+    <section id="events" class="pt-12 pb-24" style="background:radial-gradient(ellipse at 30% 0%,rgba(139,92,246,0.06) 0%,transparent 50%),#f8f9ff">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-slate-800 mb-2">6 Competitive Events</h2>
+                <p class="text-slate-500 text-base max-w-md mx-auto">Six events where the structure, vehicle, or machine you build is what gets scored.</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start" id="cardsGrid"></div>
+        </div>
+    </section>
+
+{% endblock %}
+
+{% block extra_js %}
+
+    <script type="importmap">
+    {"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}
+    </script>
+    <script type="module">
+        import * as THREE from 'three';
+        import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+        const heroSection = document.getElementById('heroSection');
+        const canvas = document.getElementById('build-canvas');
+
+        // Lighter settings on phones / low-power machines
+        const LOW = /Android|iPhone|iPad|iPod|Mobi/i.test(navigator.userAgent) || (navigator.hardwareConcurrency || 4) <= 4 || (navigator.deviceMemory || 4) <= 4;
+        const SEG = LOW ? 16 : 32;
+
+        const scene = new THREE.Scene();
+        scene.background = null;
+        const camera = new THREE.PerspectiveCamera(32, heroSection.offsetWidth / Math.max(1, heroSection.offsetHeight), 0.1, 100);
+        camera.position.set(1.8, 0.3, 9);
+
+        const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+        renderer.setSize(heroSection.offsetWidth, heroSection.offsetHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.toneMapping = THREE.ACESFilmicToneMapping;
+        renderer.toneMappingExposure = 1.15;
+        renderer.setClearColor(0x000000, 0);
+
+        const pmrem = new THREE.PMREMGenerator(renderer);
+        scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+        pmrem.dispose();
+
+        const keyLight = new THREE.DirectionalLight(0xfff1de, 2.0); keyLight.position.set(-5, 5, 5); scene.add(keyLight);
+        const fillLight = new THREE.DirectionalLight(0xe6f0ff, 0.8); fillLight.position.set(5, -2, 4); scene.add(fillLight);
+        const rimLight = new THREE.DirectionalLight(0x8b5cf6, 1.8); rimLight.position.set(2, 3, -6); scene.add(rimLight);
+        scene.add(new THREE.AmbientLight(0xffffff, 0.25));
+
+        // ---------- shared helpers ----------
+        // Everything below is modelled at 1 unit = 10 cm, so real rule dimensions can be used directly.
+        const clamp01 = v => Math.min(1, Math.max(0, v));
+        const easeOut = v => 1 - Math.pow(1 - v, 3);
+        const easeIn = v => v * v * v;
+        const smooth = v => v * v * (3 - 2 * v);
+        const rnd = (a, b) => a + Math.random() * (b - a);
+
+        const dotSprite = (() => {
+            const c = document.createElement('canvas'); c.width = c.height = 64;
+            const x = c.getContext('2d'), g = x.createRadialGradient(32, 32, 0, 32, 32, 32);
+            g.addColorStop(0, 'rgba(255,255,255,1)'); g.addColorStop(0.3, 'rgba(255,255,255,0.55)'); g.addColorStop(1, 'rgba(255,255,255,0)');
+            x.fillStyle = g; x.fillRect(0, 0, 64, 64);
+            return new THREE.CanvasTexture(c);
+        })();
+
+        // small text label (canvas texture) as a sprite or a flat plane
+        function labelTexture(text, color, font) {
+            const c = document.createElement('canvas'); c.width = 512; c.height = 128;
+            const x = c.getContext('2d');
+            x.font = font || '700 52px Montserrat, Arial, sans-serif';
+            x.textAlign = 'center'; x.textBaseline = 'middle'; x.fillStyle = color || '#ddd6fe';
+            x.fillText(text, 256, 66);
+            const t = new THREE.CanvasTexture(c); if (THREE.SRGBColorSpace) t.colorSpace = THREE.SRGBColorSpace; return { tex: t, canvas: c, ctx: x };
+        }
+        function makeLabelSprite(text, w, color, opacity) {
+            const { tex } = labelTexture(text, color);
+            const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, transparent: true, depthWrite: false, opacity: opacity === undefined ? 0.9 : opacity }));
+            sp.scale.set(w, w / 4, 1); return sp;
+        }
+        function makeLabelPlane(text, w, color) {
+            const { tex } = labelTexture(text, color);
+            return new THREE.Mesh(new THREE.PlaneGeometry(w, w / 4), new THREE.MeshBasicMaterial({ map: tex, transparent: true, depthWrite: false }));
+        }
+
+        const UP = new THREE.Vector3(0, 1, 0), _d = new THREE.Vector3(), _a = new THREE.Vector3(), _b = new THREE.Vector3();
+        function setBar(mesh, a, b) {
+            _d.subVectors(b, a);
+            const len = Math.max(0.0001, _d.length());
+            mesh.position.copy(a).addScaledVector(_d, 0.5);
+            mesh.scale.set(1, len, 1);
+            mesh.quaternion.setFromUnitVectors(UP, _d.normalize());
+        }
+        // cubic Hermite through keyframes {t, x, v}: smooth motion that respects the velocity at each key
+        function hermite(keys, t) {
+            if (t <= keys[0].t) return keys[0].x;
+            for (let i = 0; i < keys.length - 1; i++) {
+                const a = keys[i], b = keys[i + 1];
+                if (t <= b.t) {
+                    const dt = b.t - a.t, s = (t - a.t) / dt, s2 = s * s, s3 = s2 * s;
+                    return (2 * s3 - 3 * s2 + 1) * a.x + (s3 - 2 * s2 + s) * dt * a.v + (-2 * s3 + 3 * s2) * b.x + (s3 - s2) * dt * b.v;
+                }
+            }
+            return keys[keys.length - 1].x;
+        }
+
+        const chrome = new THREE.MeshPhysicalMaterial({ color: 0xf4f7fb, metalness: 0.9, roughness: 0.14, clearcoat: 1, clearcoatRoughness: 0.05, envMapIntensity: 2.4 });
+        const darkMetal = new THREE.MeshPhysicalMaterial({ color: 0x46557a, metalness: 0.35, roughness: 0.55, clearcoat: 0.2, envMapIntensity: 0.9 });
+        const copper = new THREE.MeshPhysicalMaterial({ color: 0xe9873a, metalness: 0.95, roughness: 0.22, clearcoat: 0.6, envMapIntensity: 1.3 });
+        const VIOLET = 0xa78bfa;
+
+        // =====================================================================
+        // 1) COMPRESSION BOOMILEVER TEST (2027 Division C)
+        //    - compression type: the long diagonal is in compression, the horizontal member is in tension
+        //    - structure length (wall to chain centre line): 40-45 cm  -> 43 cm here
+        //    - Div C contact depth < 15 cm below the bolt line (bonus < 10 cm), contact width > 8 cm
+        //    - load block bottom starts ABOVE the horizontal plane through the mounting bolt centre line
+        //    - load block 5 x 5 x 2 cm, 8 mm eyebolt hole, chain, bucket, sand (15 kg max)
+        // =====================================================================
+        const rig = new THREE.Group(); scene.add(rig);
+        const bench = new THREE.Group(); bench.position.set(-2.2, 0.55, 0); rig.add(bench);
+
+        const LEN = 4.3;                       // 43 cm
+        const CD = 1.4;                        // lowest wall contact: 14 cm below the bolt line (limit 15 cm)
+        const TIP_H = 0.35;                    // load block seat sits 3.5 cm above the bolt line
+        const Z_SIDE = 0.5;                    // truss sides 5 cm either side of centre -> contact width 10 cm (> 8 cm)
+
+        // test wall (40 x 30 cm, 3/4 in thick) with the standard marking lines
+        const wall = new THREE.Mesh(new THREE.BoxGeometry(0.19, 3.0, 4.0), darkMetal);
+        wall.position.set(-0.095, -0.5, 0); bench.add(wall);
+        const lineSeg = (pts, color, opacity) => {
+            const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(pts, 3));
+            return new THREE.LineSegments(g, new THREE.LineBasicMaterial({ color, transparent: true, opacity }));
+        };
+        const wx = 0.004;
+        bench.add(lineSeg([wx, 1.0, 0, wx, -2.0, 0], 0xc4b5fd, 0.35));                       // centre line
+        bench.add(lineSeg([wx, 0, -2, wx, 0, 2], 0xc4b5fd, 0.45));                           // bolt centre line
+        bench.add(lineSeg([wx, 1.0, 0.4, wx, -CD - 0.1, 0.4, wx, 1.0, -0.4, wx, -CD - 0.1, -0.4], 0xc4b5fd, 0.5)); // contact width lines (4 cm each side)
+        bench.add(lineSeg([wx, -1.5, -2, wx, -1.5, 2], 0xffffff, 0.8));                      // contact depth line: Div C 15 cm
+        bench.add(lineSeg([wx, -1.0, -2, wx, -1.0, 2], 0xfbbf24, 0.75));                     // contact depth line: Div C bonus 10 cm
+        const lblC = makeLabelPlane('DIV C  15 cm', 2.5, '#ffffff'); lblC.rotation.y = Math.PI / 2; lblC.position.set(0.01, -1.69, -0.75); bench.add(lblC);
+        const lblB = makeLabelPlane('BONUS  10 cm', 2.5, '#fbbf24'); lblB.rotation.y = Math.PI / 2; lblB.position.set(0.01, -1.19, -0.75); bench.add(lblB);
+
+        // mounting bolt + the small wood block the tension members bond to
+        const boltShaft = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.07, 0.8, 20), chrome);
+        boltShaft.rotation.z = Math.PI / 2; boltShaft.position.set(0.4, 0, 0); bench.add(boltShaft);
+        const boltNut = new THREE.Mesh(new THREE.CylinderGeometry(0.13, 0.13, 0.07, 6), chrome);
+        boltNut.rotation.z = Math.PI / 2; boltNut.position.set(0.78, 0, 0); bench.add(boltNut);
+        const boltBlock = new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.3, 0.3), new THREE.MeshStandardMaterial({ color: 0xb98a4e, roughness: 0.8 }));
+        boltBlock.position.set(0.2, 0, 0); bench.add(boltBlock);
+
+        // dashed bolt-plane reference (the load block must start above this plane)
+        (() => {
+            const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute([0, 0, 0, LEN + 0.7, 0, 0], 3));
+            const l = new THREE.Line(g, new THREE.LineDashedMaterial({ color: 0xfbbf24, transparent: true, opacity: 0.45, dashSize: 0.12, gapSize: 0.1 }));
+            l.computeLineDistances(); bench.add(l);
+        })();
+
+        // nodes (rest positions): per side s = 0 (+z) and 1 (-z)
+        const NODE = { tieW: 0, tieT: 1, diagW: 2, diagT: 3, seat: 4 };
+        const nodeBase = [], nid = (s, k) => s * 5 + k;
+        for (let s = 0; s < 2; s++) {
+            const sg = s === 0 ? 1 : -1;
+            nodeBase[nid(s, NODE.tieW)]  = new THREE.Vector3(0.05, 0, sg * 0.18);
+            nodeBase[nid(s, NODE.tieT)]  = new THREE.Vector3(LEN, 0, sg * Z_SIDE);
+            nodeBase[nid(s, NODE.diagW)] = new THREE.Vector3(0.0, -CD, sg * Z_SIDE);
+            nodeBase[nid(s, NODE.diagT)] = new THREE.Vector3(LEN, TIP_H, sg * Z_SIDE);
+            nodeBase[nid(s, NODE.seat)]  = new THREE.Vector3(LEN, TIP_H, sg * 0.12);
+        }
+        const P = nodeBase.map(v => v.clone());           // flexed positions
+        // endpoint spec: [nodeA, nodeB, u] = point u of the way from A to B
+        const pt = (s, k) => [nid(s, k), nid(s, k), 0];
+        const along = (s, ka, kb, u) => [nid(s, ka), nid(s, kb), u];
+        const pairs = [];     // {a, b, kind}
+        for (let s = 0; s < 2; s++) {
+            pairs.push({ a: pt(s, NODE.tieW), b: pt(s, NODE.tieT), kind: 'tension' });                 // horizontal tie, in tension
+            pairs.push({ a: pt(s, NODE.diagW), b: pt(s, NODE.diagT), kind: 'compression' });           // long diagonal, in compression
+            pairs.push({ a: pt(s, NODE.tieT), b: pt(s, NODE.diagT), kind: 'compression' });            // tip post
+            const D = u => along(s, NODE.diagW, NODE.diagT, u), T = u => along(s, NODE.tieW, NODE.tieT, u);
+            pairs.push({ a: D(0), b: T(0.25), kind: 'web' }, { a: T(0.25), b: D(0.5), kind: 'web' },
+                       { a: D(0.5), b: T(0.75), kind: 'web' }, { a: T(0.75), b: D(1), kind: 'web' });   // Warren web
+            pairs.push({ a: pt(s, NODE.diagT), b: pt(s, NODE.seat), kind: 'seat' });                    // seat for the load block
+        }
+        for (const u of [0.35, 0.7]) pairs.push({ a: along(0, NODE.diagW, NODE.diagT, u), b: along(1, NODE.diagW, NODE.diagT, u), kind: 'cross' });
+        pairs.push({ a: along(0, NODE.tieW, NODE.tieT, 0.5), b: along(1, NODE.tieW, NODE.tieT, 0.5), kind: 'cross' });
+        const specX = sp => nodeBase[sp[0]].x + (nodeBase[sp[1]].x - nodeBase[sp[0]].x) * sp[2];
+        pairs.sort((p, q) => Math.min(specX(p.a), specX(p.b)) - Math.min(specX(q.a), specX(q.b)));
+        const specPos = (sp, out) => out.copy(P[sp[0]]).lerp(P[sp[1]], sp[2]);
+
+        const memGeo = new THREE.BoxGeometry(0.065, 1, 0.065);
+        const woodBase = new THREE.Color(0xe3b778);
+        const rndDir = () => new THREE.Vector3(rnd(-1, 1), rnd(-1, 1), rnd(-1, 1)).normalize();
+        const N_MEM = pairs.length;
+        const members = pairs.map((pr, i) => {
+            const mat = new THREE.MeshStandardMaterial({ color: woodBase.clone().offsetHSL(rnd(-0.01, 0.01), rnd(-0.05, 0.05), rnd(-0.05, 0.04)), roughness: 0.78, metalness: 0,
+                emissive: pr.kind === 'tension' ? 0x38bdf8 : 0xff3d7f, emissiveIntensity: 0, transparent: true, opacity: 0 });
+            const mesh = new THREE.Mesh(memGeo, mat); mesh.visible = false; bench.add(mesh);
+            return { pr, mesh, mat, kind: pr.kind, delay: 0.3 + i * 0.12, dis: 13.2 + (N_MEM - 1 - i) * 0.06,
+                SA: rndDir().multiplyScalar(rnd(3.5, 6.5)), SB: rndDir().multiplyScalar(rnd(3.5, 6.5)) };
+        });
+        // glue-joint flashes at the structure's nodes
+        const flashSprites = nodeBase.map(() => {
+            const h = new THREE.Sprite(new THREE.SpriteMaterial({ map: dotSprite, color: 0xb794f6, transparent: true, opacity: 0, depthWrite: false, blending: THREE.AdditiveBlending }));
+            h.scale.set(0.7, 0.7, 1); bench.add(h); return h;
+        });
+        const nodeMembers = nodeBase.map(() => []);
+        members.forEach((m, i) => { for (const sp of [m.pr.a, m.pr.b]) { if (sp[2] === 0) nodeMembers[sp[0]].push(i); } });
+
+        // ----- loading assembly: block + eyebolt + wing nut + chain + bucket + sand -----
+        const loadRig = new THREE.Group(); bench.add(loadRig);
+        const blockMat = new THREE.MeshStandardMaterial({ color: 0xc9a46a, roughness: 0.75 });
+        const block = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.2, 0.5), blockMat); loadRig.add(block);
+        const eyeShaft = new THREE.Mesh(new THREE.CylinderGeometry(0.032, 0.032, 0.95, 12), chrome); eyeShaft.position.y = -0.3; loadRig.add(eyeShaft);
+        const wingNut = new THREE.Group();
+        wingNut.add(new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.06, 0.1), chrome));
+        for (const sg of [-1, 1]) { const w = new THREE.Mesh(new THREE.BoxGeometry(0.02, 0.12, 0.09), chrome); w.position.set(sg * 0.09, 0.05, 0); w.rotation.z = sg * 0.35; wingNut.add(w); }
+        wingNut.position.y = 0.13; loadRig.add(wingNut);
+        const eyeRing = new THREE.Mesh(new THREE.TorusGeometry(0.095, 0.022, 10, 24), chrome); eyeRing.position.y = -0.82; eyeRing.rotation.y = Math.PI / 2; loadRig.add(eyeRing);
+        const chain = new THREE.Group(); chain.position.y = -0.92; loadRig.add(chain);
+        const linkGeo = new THREE.TorusGeometry(0.05, 0.013, 8, 16); linkGeo.scale(1, 1.5, 1);
+        for (let i = 0; i < 9; i++) { const l = new THREE.Mesh(linkGeo, chrome); l.position.y = -i * 0.085; l.rotation.y = (i % 2) * Math.PI / 2; chain.add(l); }
+        const pail = new THREE.Group(); pail.position.y = -1.85; loadRig.add(pail);
+        const pailMat = new THREE.MeshPhysicalMaterial({ color: 0xdfe6f2, metalness: 0.2, roughness: 0.35, clearcoat: 0.8, side: THREE.DoubleSide, transparent: true, opacity: 0.55, envMapIntensity: 1.5 });
+        pail.add(new THREE.Mesh(new THREE.CylinderGeometry(0.4, 0.33, 0.7, SEG * 2, 1, true), pailMat));
+        const pailBase = new THREE.Mesh(new THREE.CylinderGeometry(0.33, 0.33, 0.03, SEG * 2), pailMat); pailBase.position.y = -0.35; pail.add(pailBase);
+        const pailRim = new THREE.Mesh(new THREE.TorusGeometry(0.4, 0.022, 10, SEG * 2), copper); pailRim.rotation.x = Math.PI / 2; pailRim.position.y = 0.35; pail.add(pailRim);
+        const handle = new THREE.Mesh(new THREE.TorusGeometry(0.4, 0.012, 8, 32, Math.PI), chrome); handle.position.y = 0.35; pail.add(handle);
+        const sand = new THREE.Mesh(new THREE.CylinderGeometry(0.37, 0.335, 1, SEG * 2), new THREE.MeshStandardMaterial({ color: 0xe8c98a, roughness: 1, emissive: 0x6d4a14, emissiveIntensity: 0.25 }));
+        pail.add(sand);
+        const loadLabel = (() => { const L = labelTexture('0.0 kg', '#ddd6fe', '700 64px Montserrat, Arial, sans-serif');
+            const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: L.tex, transparent: true, depthWrite: false })); sp.scale.set(1.5, 0.375, 1); sp.position.set(1.05, -1.85, 0.4); loadRig.add(sp); return { sp, ...L, last: '' }; })();
+        function setLoadText(txt, color) {
+            if (loadLabel.last === txt + color) return; loadLabel.last = txt + color;
+            const c = loadLabel.ctx; c.clearRect(0, 0, 512, 128);
+            c.font = '700 64px Montserrat, Arial, sans-serif'; c.textAlign = 'center'; c.textBaseline = 'middle'; c.fillStyle = color; c.fillText(txt, 256, 66);
+            loadLabel.tex.needsUpdate = true;
+        }
+        // sand pouring in
+        const POUR_N = 36, pourPos = new Float32Array(POUR_N * 3), pourPh = Array.from({ length: POUR_N }, () => Math.random());
+        const pourGeo = new THREE.BufferGeometry(); pourGeo.setAttribute('position', new THREE.BufferAttribute(pourPos, 3));
+        const pour = new THREE.Points(pourGeo, new THREE.PointsMaterial({ color: 0xe8c98a, size: 0.07, map: dotSprite, transparent: true, depthWrite: false, sizeAttenuation: true }));
+        pour.frustumCulled = false; loadRig.add(pour);
+
+        // dimension line: wall face to chain centre line, with its length
+        bench.add(lineSeg([0, -2.25, 0, LEN, -2.25, 0, 0, -2.15, 0, 0, -2.35, 0, LEN, -2.15, 0, LEN, -2.35, 0], VIOLET, 0.6));
+        const lblLen = makeLabelSprite('43 cm', 1.4, '#ddd6fe', 0.9); lblLen.position.set(LEN / 2, -2.55, 0); bench.add(lblLen);
+
+        // =====================================================================
+        // 2) ELECTRIC VEHICLE - 2027 TASK
+        //    drive forward -> capture the water bottle in the pusher -> push it fully past the Bottle Line
+        //    -> release it -> reverse until the rear Measurement Point stops on the Target Point -> complete stop (>= 3 s)
+        //    Vehicle: <= 80 x 35 cm, <= 8 AA cells, rigid front pusher, rear Measurement Point (<= 1 cm high)
+        //    (track distances are shortened for the hero; the vehicle and the bottle are at true relative size)
+        // =====================================================================
+        const evRig = new THREE.Group(); scene.add(evRig);
+        const X_START = 0, X_BOTTLE0 = 5.5, X_TARGET = 9.5, X_LINE = 13.5;
+        const EV_LEN = 3.6;                                      // 36 cm long, rear Measurement Point to pusher tips
+        const BOTTLE_R = 0.325, PUSH_DEPTH = 0.40;               // 6.5 cm bottle; bottle centre sits 4 cm behind the pusher tips
+        const EV_CYCLE = 19;
+
+        // floor + tapes
+        const floor = new THREE.Mesh(new THREE.PlaneGeometry(19, 4.8), new THREE.MeshStandardMaterial({ color: 0x1a2440, roughness: 0.8, metalness: 0.05, envMapIntensity: 0.25 }));
+        floor.rotation.x = -Math.PI / 2; floor.position.set(6, -0.001, 0); evRig.add(floor);
+        const edge = lineSeg([-3.5, 0.002, -2.4, 15.5, 0.002, -2.4, -3.5, 0.002, 2.4, 15.5, 0.002, 2.4], VIOLET, 0.5); evRig.add(edge);
+        function tape(x, sx, sz, color) {
+            const m = new THREE.Mesh(new THREE.PlaneGeometry(sx, sz), new THREE.MeshBasicMaterial({ color }));
+            m.rotation.x = -Math.PI / 2; m.position.set(x, 0.004, 0); evRig.add(m); return m;
+        }
+        tape(X_START, 0.5, 0.25, 0xffffff);                        // Start Point tape, about 5 x 2.5 cm
+        tape(X_TARGET, 0.5, 0.25, 0x4ade80);                       // Target Point tape
+        tape(X_LINE + 0.125, 0.25, 4.3, 0xfb923c);                 // Bottle Line tape, about 2.5 cm wide (shortened here)
+        for (const x of [X_START, X_TARGET]) {                     // dot at the centre of each point tape
+            const d = new THREE.Mesh(new THREE.CircleGeometry(0.045, 16), new THREE.MeshBasicMaterial({ color: 0x0b1020 }));
+            d.rotation.x = -Math.PI / 2; d.position.set(x, 0.006, 0); evRig.add(d);
+        }
+        const mkFloorLabel = (txt, x, color) => { const s = makeLabelSprite(txt, 2.9, color, 0.85); s.position.set(x, 0.1, -2.75); evRig.add(s); };
+        mkFloorLabel('START POINT', X_START + 0.6, '#ffffff');
+        mkFloorLabel('TARGET POINT', X_TARGET, '#86efac');
+        mkFloorLabel('BOTTLE LINE', X_LINE, '#fdba74');
+        const targetPulse = new THREE.Mesh(new THREE.RingGeometry(0.2, 0.26, 40), new THREE.MeshBasicMaterial({ color: 0x4ade80, transparent: true, opacity: 0, side: THREE.DoubleSide, depthWrite: false, blending: THREE.AdditiveBlending }));
+        targetPulse.rotation.x = -Math.PI / 2; targetPulse.position.set(X_TARGET, 0.01, 0); evRig.add(targetPulse);
+
+        // the vehicle: local origin = rear Measurement Point, +x = forward
+        const ev = new THREE.Group(); evRig.add(ev);
+        const evBody = new THREE.Group(); ev.add(evBody);
+        const carbon = new THREE.MeshStandardMaterial({ color: 0x121a2b, metalness: 0.3, roughness: 0.55, envMapIntensity: 0.45 });
+        const violetMetal = new THREE.MeshPhysicalMaterial({ color: 0x8b5cf6, metalness: 0.6, roughness: 0.28, clearcoat: 0.8, envMapIntensity: 1.6, emissive: 0x3b1d9a, emissiveIntensity: 0.35 });
+        // chassis plate (chamfered)
+        const plateShape = new THREE.Shape();
+        plateShape.moveTo(0.45, -0.7); plateShape.lineTo(2.7, -0.9); plateShape.lineTo(3.05, -0.55); plateShape.lineTo(3.05, 0.55);
+        plateShape.lineTo(2.7, 0.9); plateShape.lineTo(0.45, 0.7); plateShape.lineTo(0.3, 0.5); plateShape.lineTo(0.3, -0.5); plateShape.closePath();
+        const plateGeo = new THREE.ExtrudeGeometry(plateShape, { depth: 0.07, bevelEnabled: true, bevelSize: 0.02, bevelThickness: 0.02, bevelSegments: 2 });
+        plateGeo.rotateX(-Math.PI / 2); plateGeo.translate(0, 0.38, 0);
+        // after rotateX(-90deg) the shape's y axis maps to -z; the plate is symmetric so that is fine
+        evBody.add(new THREE.Mesh(plateGeo, carbon));
+        // rear Measurement Point: stiff pin, rearmost part, <= 1 cm above the track
+        const mp = new THREE.Mesh(new THREE.CylinderGeometry(0.022, 0.022, 0.55, 10), chrome); mp.rotation.z = Math.PI / 2; mp.position.set(0.275, 0.085, 0); evBody.add(mp);
+        const mpTip = new THREE.Mesh(new THREE.SphereGeometry(0.03, 10, 10), new THREE.MeshBasicMaterial({ color: 0xff5470 })); mpTip.position.set(0.0, 0.085, 0); evBody.add(mpTip);
+        // wheels (drive wheels at the rear, smaller front wheels), axles along z
+        const tireMat = new THREE.MeshStandardMaterial({ color: 0x0a0d14, roughness: 0.92 });
+        const rimMat = new THREE.MeshPhysicalMaterial({ color: 0xdfe4ee, metalness: 0.95, roughness: 0.22, envMapIntensity: 2 });
+        const wheels = [];
+        function makeWheel(r, w, x, z) {
+            const g = new THREE.Group(); g.position.set(x, r, z);
+            const spin = new THREE.Group(); g.add(spin);
+            const tire = new THREE.Mesh(new THREE.CylinderGeometry(r, r, w, SEG * 2), tireMat); tire.rotation.x = Math.PI / 2; spin.add(tire);
+            const rim = new THREE.Mesh(new THREE.CylinderGeometry(r * 0.66, r * 0.66, w * 1.04, SEG * 2), rimMat); rim.rotation.x = Math.PI / 2; spin.add(rim);
+            for (let i = 0; i < 5; i++) {            // spokes so the rotation is visible
+                const sp = new THREE.Mesh(new THREE.BoxGeometry(r * 1.2, r * 0.13, w * 1.1), new THREE.MeshStandardMaterial({ color: 0x0f1522, roughness: 0.5, metalness: 0.5 }));
+                sp.rotation.z = i * Math.PI * 2 / 5; spin.add(sp);
+            }
+            const hub = new THREE.Mesh(new THREE.CylinderGeometry(r * 0.16, r * 0.16, w * 1.2, 16), chrome); hub.rotation.x = Math.PI / 2; spin.add(hub);
+            evBody.add(g); wheels.push({ spin, r }); return g;
+        }
+        makeWheel(0.36, 0.26, 0.95, 1.06); makeWheel(0.36, 0.26, 0.95, -1.06);
+        makeWheel(0.27, 0.2, 2.55, 0.98); makeWheel(0.27, 0.2, 2.55, -0.98);
+        // rear axle + encoder discs
+        const axle = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 2.3, 12), chrome); axle.rotation.x = Math.PI / 2; axle.position.set(0.95, 0.36, 0); evBody.add(axle);
+        // battery holder: 8 AA cells (2 x 4), original labels showing
+        const holder = new THREE.Mesh(new THREE.BoxGeometry(0.78, 0.08, 1.2), new THREE.MeshStandardMaterial({ color: 0x151a26, roughness: 0.6 })); holder.position.set(1.55, 0.46, 0); evBody.add(holder);
+        const aaBody = new THREE.CylinderGeometry(0.0725, 0.0725, 0.5, 14), aaBand = new THREE.CylinderGeometry(0.0735, 0.0735, 0.13, 14), aaCap = new THREE.CylinderGeometry(0.03, 0.03, 0.04, 8);
+        const aaMat = new THREE.MeshStandardMaterial({ color: 0x1b1b1f, roughness: 0.45, metalness: 0.4 }), aaBandMat = new THREE.MeshStandardMaterial({ color: 0xd2842f, roughness: 0.35, metalness: 0.7 });
+        for (let i = 0; i < 4; i++) for (const sg of [-1, 1]) {
+            const cell = new THREE.Group(); cell.rotation.x = Math.PI / 2; cell.position.set(1.28 + i * 0.165, 0.585, sg * 0.28);
+            cell.add(new THREE.Mesh(aaBody, aaMat)); const band = new THREE.Mesh(aaBand, aaBandMat); band.position.y = 0.17; cell.add(band);
+            const cap = new THREE.Mesh(aaCap, chrome); cap.position.y = 0.27; cell.add(cap); evBody.add(cell);
+        }
+        // electronics: microcontroller, motor driver, gyro, wheel encoders
+        const pcb = (w, d, x, z, color) => { const b = new THREE.Mesh(new THREE.BoxGeometry(w, 0.035, d), new THREE.MeshStandardMaterial({ color, roughness: 0.5, metalness: 0.2 })); b.position.set(x, 0.47, z); evBody.add(b);
+            const chip = new THREE.Mesh(new THREE.BoxGeometry(w * 0.4, 0.04, d * 0.35), new THREE.MeshStandardMaterial({ color: 0x0c0c10, roughness: 0.4 })); chip.position.set(x, 0.51, z); evBody.add(chip); };
+        pcb(0.62, 0.45, 2.15, 0.42, 0x0f7a4a);    // microcontroller
+        pcb(0.46, 0.34, 2.15, -0.42, 0xb42d3d);   // H-bridge motor driver (drives both directions)
+        pcb(0.22, 0.22, 0.75, 0.0, 0x1f5fbf);     // gyro / IMU for heading
+        for (const sg of [-1, 1]) { const enc = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.12, 0.08), new THREE.MeshStandardMaterial({ color: 0x14161d, roughness: 0.5 })); enc.position.set(0.95, 0.58, sg * 0.84); evBody.add(enc); }
+        // status LEDs
+        const led = (color, x, y, z) => { const m = new THREE.Mesh(new THREE.SphereGeometry(0.035, 10, 10), new THREE.MeshBasicMaterial({ color })); m.position.set(x, y, z); evBody.add(m); return m; };
+        const ledStatus = led(0x4ade80, 2.45, 0.52, 0.0);
+        const headL = led(0x7dd3fc, 3.0, 0.46, 0.4), headR = led(0x7dd3fc, 3.0, 0.46, -0.4);
+        const tailL = led(0xff3d5a, 0.4, 0.46, 0.35), tailR = led(0xff3d5a, 0.4, 0.46, -0.35);
+        // Bottle Pusher: rigid, frontmost, rounded tips; mouth opening 12 cm (narrower mouth = bigger bonus)
+        const pusher = new THREE.Group(); evBody.add(pusher);
+        const backPlate = new THREE.Mesh(new THREE.BoxGeometry(0.07, 0.22, 0.56), violetMetal); backPlate.position.set(3.0, 0.2, 0); pusher.add(backPlate);
+        const armLen = Math.hypot(0.6, 0.34), armAng = Math.atan2(0.34, 0.6);
+        for (const sg of [-1, 1]) {
+            const arm = new THREE.Mesh(new THREE.BoxGeometry(armLen, 0.22, 0.065), violetMetal);
+            arm.position.set(3.3, 0.2, sg * 0.43); arm.rotation.y = -sg * armAng; pusher.add(arm);
+            const tipMesh = new THREE.Mesh(new THREE.SphereGeometry(0.045, 12, 12), violetMetal); tipMesh.scale.set(1, 2.4, 1); tipMesh.position.set(3.6, 0.2, sg * 0.6); pusher.add(tipMesh);   // rounded edge, at least pencil thickness
+        }
+        // underglow
+        const glow = new THREE.Mesh(new THREE.PlaneGeometry(4.6, 2.9), new THREE.MeshBasicMaterial({ map: dotSprite, color: 0x8b5cf6, transparent: true, opacity: 0.4, depthWrite: false, blending: THREE.AdditiveBlending }));
+        glow.rotation.x = -Math.PI / 2; glow.position.set(1.8, 0.012, 0); ev.add(glow);
+        const evLight = new THREE.PointLight(0x8b5cf6, 0.9, 1.6); evLight.position.set(1.8, 0.3, 0); ev.add(evLight);
+
+        // the water bottle (16.9 oz): 6.5 cm across, 20 cm tall, with ridges, a cap, and BBs for mass
+        const bottle = new THREE.Group(); evRig.add(bottle);
+        (() => {
+            const prof = [[0.0, 0], [0.29, 0], [0.31, 0.04], [0.325, 0.12], [0.325, 0.5], [0.31, 0.55], [0.325, 0.6], [0.325, 0.95], [0.31, 1.0], [0.325, 1.05], [0.325, 1.35], [0.28, 1.55], [0.17, 1.7], [0.14, 1.78], [0.14, 1.9]];
+            const lathe = new THREE.LatheGeometry(prof.map(([r, y]) => new THREE.Vector2(r, y)), SEG * 2);
+            bottle.add(new THREE.Mesh(lathe, new THREE.MeshPhysicalMaterial({ color: 0xcfe9ff, metalness: 0, roughness: 0.08, transparent: true, opacity: 0.38, clearcoat: 1, envMapIntensity: 2, side: THREE.DoubleSide, depthWrite: false })));
+            const cap = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.16, 0.12, 20), new THREE.MeshStandardMaterial({ color: 0x38bdf8, roughness: 0.5 })); cap.position.y = 1.96; bottle.add(cap);
+            for (let i = 0; i < 26; i++) { const bb = new THREE.Mesh(new THREE.SphereGeometry(0.03, 8, 8), chrome); bb.position.set(rnd(-0.2, 0.2), 0.04 + rnd(0, 0.06), rnd(-0.2, 0.2)); bottle.add(bb); }
+        })();
+
+        // EV timeline (seconds): hold at the start, forward, slow capture, push, brief stop, reverse, complete stop (>= 3 s)
+        const EV_KEYS = [
+            { t: 0, x: 0, v: 0 }, { t: 1.4, x: 0, v: 0 },
+            { t: 3.0, x: 1.3, v: 1.6 },
+            { t: 4.4, x: 2.3, v: 0.55 },           // gentle contact with the bottle (x_m = 2.3 -> pusher tips reach the bottle)
+            { t: 6.6, x: 7.6, v: 2.2 }, { t: 8.6, x: 10.3, v: 1.0 },
+            { t: 9.9, x: 11.0, v: 0 }, { t: 10.9, x: 11.0, v: 0 },     // brief stop (< 3 s) to release the bottle
+            { t: 12.1, x: 10.1, v: -1.0 }, { t: 13.1, x: 9.65, v: -0.45 }, { t: 14.1, x: 9.5, v: 0 },   // reverse, creep onto the Target Point
+            { t: 17.6, x: 9.5, v: 0 }
+        ];
+        const T_STOP = 9.9, SLIDE = 0.12, T_END = 17.6;
+        const xAt = t => hermite(EV_KEYS, t);
+
+        // =====================================================================
+        // 3) WRIGHT STUFF (Division C) flying in the background
+        //    monoplane, wing <= 45 x 9 cm, stabilizer <= 28 x 7 cm, propeller <= 24 cm, rubber-powered
+        // =====================================================================
+        const plane = new THREE.Group(); scene.add(plane);
+        const planeBody = new THREE.Group(); plane.add(planeBody);
+        plane.rotation.order = 'YXZ';
+        const balsa = new THREE.MeshStandardMaterial({ color: 0xe8cfa0, roughness: 0.7 });
+        const stick = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.026, 4.8, 8), balsa); stick.rotation.z = Math.PI / 2; planeBody.add(stick);
+        const rubber = new THREE.Mesh(new THREE.CylinderGeometry(0.024, 0.024, 4.3, 8), new THREE.MeshStandardMaterial({ color: 0xc9955a, roughness: 0.5, transparent: true, opacity: 0.85 }));
+        rubber.rotation.z = Math.PI / 2; rubber.position.set(-0.1, -0.06, 0); planeBody.add(rubber);
+        const skin = new THREE.MeshStandardMaterial({ color: 0xffd27a, roughness: 0.4, emissive: 0x7a4a00, emissiveIntensity: 0.9, transparent: true, opacity: 0.7, side: THREE.DoubleSide, depthWrite: false });
+        const ribMat = new THREE.LineBasicMaterial({ color: 0x3a2a14, transparent: true, opacity: 0.55 });
+        function planform(span, chord, x, y, z) {      // elliptical flying surface in the horizontal plane
+            const shp = new THREE.Shape(); shp.absellipse(0, 0, chord / 2, span / 2, 0, Math.PI * 2, false, 0);
+            const g = new THREE.Group();
+            const m = new THREE.Mesh(new THREE.ShapeGeometry(shp, 48), skin); m.rotation.x = -Math.PI / 2; g.add(m);
+            const pts = [];
+            for (let s = -span / 2 + 0.25; s < span / 2 - 0.1; s += 0.3) { const hx = (chord / 2) * Math.sqrt(Math.max(0, 1 - (s / (span / 2)) ** 2)); pts.push(-hx, 0.004, s, hx, 0.004, s); }
+            g.add(lineSeg(pts, 0x3a2a14, 0.55)); g.add(lineSeg([chord * 0.12, 0.004, -span / 2 + 0.2, chord * 0.12, 0.004, span / 2 - 0.2], 0x1a1a1a, 0.8));   // ribs + carbon spar
+            g.position.set(x, y, z); return g;
+        }
+        const wing = planform(4.5, 0.9, 0.55, 0.14, 0); planeBody.add(wing);       // 45 cm x 9 cm
+        const stab = planform(2.8, 0.7, -2.15, 0.06, 0); planeBody.add(stab);      // 28 cm x 7 cm
+        (() => { const shp = new THREE.Shape(); shp.absellipse(0, 0, 0.35, 0.35, 0, Math.PI * 2, false, 0);
+            const fin = new THREE.Mesh(new THREE.ShapeGeometry(shp, 32), skin); fin.position.set(-2.25, 0.35, 0); planeBody.add(fin); })();
+        const pylon = new THREE.Mesh(new THREE.CylinderGeometry(0.018, 0.018, 0.2, 6), balsa); pylon.position.set(0.55, 0.07, 0); planeBody.add(pylon);
+        // propeller: 24 cm, two blades, spinning on the nose
+        const prop = new THREE.Group(); prop.position.set(2.45, 0, 0); planeBody.add(prop);
+        const bladeShape = new THREE.Shape(); bladeShape.moveTo(-0.03, 0.04); bladeShape.bezierCurveTo(-0.07, 0.35, -0.13, 0.8, -0.09, 1.2); bladeShape.bezierCurveTo(-0.05, 1.22, 0.05, 1.22, 0.09, 1.16);
+        bladeShape.bezierCurveTo(0.13, 0.8, 0.07, 0.35, 0.03, 0.04); bladeShape.closePath();
+        const bladeMat = new THREE.MeshStandardMaterial({ color: 0xff9f43, roughness: 0.4, emissive: 0x7a3000, emissiveIntensity: 0.5, side: THREE.DoubleSide, transparent: true, opacity: 0.9 });
+        for (let i = 0; i < 2; i++) {
+            const b = new THREE.Mesh(new THREE.ShapeGeometry(bladeShape, 24), bladeMat);
+            b.rotation.y = Math.PI / 2; const holder = new THREE.Group(); holder.add(b); holder.rotation.y = 0.5;          // blade pitch
+            const arm = new THREE.Group(); arm.add(holder); arm.rotation.x = i * Math.PI; prop.add(arm);
+        }
+        const propHub = new THREE.Mesh(new THREE.SphereGeometry(0.07, 12, 12), copper); propHub.position.set(2.5, 0, 0); planeBody.add(propHub);
+        const propDisc = new THREE.Mesh(new THREE.CircleGeometry(1.2, 40), new THREE.MeshBasicMaterial({ color: 0xffc27a, transparent: true, opacity: 0, side: THREE.DoubleSide, depthWrite: false }));
+        propDisc.rotation.y = Math.PI / 2; propDisc.position.set(2.45, 0, 0); planeBody.add(propDisc);
+        plane.scale.setScalar(0.6);
+        const FLY = { cx: 4.7, cy: 1.35, cz: -10, R: 3.4, period: 17 };
+
+        // ---------- floating dust ----------
+        const PN = LOW ? 24 : 50;
+        const pPos = new Float32Array(PN * 3), pData = [];
+        for (let i = 0; i < PN; i++) pData.push({ a: Math.random() * 6.283, r: 2.6 + Math.random() * 3.4, h: (Math.random() - 0.5) * 6.2, s: 0.0015 + Math.random() * 0.004, fs: 0.0005 + Math.random() * 0.0015, fa: 0.1 + Math.random() * 0.3 });
+        const pGeo = new THREE.BufferGeometry(); pGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
+        scene.add(new THREE.Points(pGeo, new THREE.PointsMaterial({ color: 0xc4b5fd, size: 0.11, map: dotSprite, transparent: true, opacity: 0.7, depthWrite: false, blending: THREE.AdditiveBlending, sizeAttenuation: true })));
+
+        // ---------- placement ----------
+        rig.position.set(4.35, 1.2, 0);
+        evRig.position.set(1.0, -1.15, 0.2);
+        evRig.rotation.set(0.3, -0.08, 0);
+        const BOOMI_SCALE = 0.55, EV_SCALE = 0.36;
+
+        // ---------- boomilever timeline (seconds) ----------
+        const CYCLE = 17;
+        const ASM_LEN = 0.8;
+        const BLOCK_ON = 3.9, LOAD_FROM = 5.2, LOAD_TO = 9.4, UNLOAD = 12.4;
+        const SAG = 0.26;          // tip deflection under full load (exaggerated for visibility)
+        const LOAD_KG = 15.0;      // maximum test load for Division C
+
+        // ---------- animation ----------
+        let heroVisible = true, tabVisible = true;
+        new IntersectionObserver(([e]) => { heroVisible = e.isIntersecting; }, { threshold: 0 }).observe(heroSection);
+        document.addEventListener('visibilitychange', () => { tabVisible = !document.hidden; });
+        let mouseX = 0, mouseY = 0, smoothMX = 0, smoothMY = 0;
+        heroSection.addEventListener('mousemove', e => {
+            const r = heroSection.getBoundingClientRect();
+            mouseX = ((e.clientX - r.left) / r.width - 0.5) * 2;
+            mouseY = ((e.clientY - r.top) / r.height - 0.5) * 2;
+        }, { passive: true });
+
+        const t0 = performance.now();
+        const nodeE = new Float32Array(nodeBase.length), nodeFlash = new Float32Array(nodeBase.length);
+        let bottleX = X_BOTTLE0, lastSand = 0;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            const now = performance.now();
+            if (!heroVisible || !tabVisible) return;
+            const elapsed = (now - t0) / 1000;
+            const intro = elapsed < 1.5 ? 1 - Math.pow(1 - elapsed / 1.5, 3) : 1;
+
+            // ================= boomilever =================
+            const T = elapsed % CYCLE;
+            rig.scale.setScalar(BOOMI_SCALE * intro);
+
+            // load (0..1): sand pours in, structure flexes; springs a little as the sand settles
+            let load = 0;
+            if (T >= LOAD_FROM && T < UNLOAD) { const u = clamp01((T - LOAD_FROM) / (LOAD_TO - LOAD_FROM)); load = smooth(u); if (T > LOAD_TO) load = 1 - 0.04 * Math.exp(-(T - LOAD_TO) * 3) * Math.cos((T - LOAD_TO) * 9); }
+            else if (T >= UNLOAD) load = 1 - smooth(clamp01((T - UNLOAD) / 0.7));
+            for (let s = 0; s < 2; s++) for (const k of [NODE.tieT, NODE.diagT, NODE.seat]) { const i = nid(s, k); P[i].set(nodeBase[i].x, nodeBase[i].y - SAG * load, nodeBase[i].z); }
+
+            nodeE.fill(0); nodeFlash.fill(0);
+            for (const m of members) {
+                const asm = easeOut(clamp01((T - m.delay) / ASM_LEN)), dis = easeIn(clamp01((T - m.dis) / 0.7)), e = asm * (1 - dis);
+                if (e < 0.002) { m.mesh.visible = false; continue; }
+                m.mesh.visible = true;
+                specPos(m.pr.a, _a).addScaledVector(m.SA, 1 - e); specPos(m.pr.b, _b).addScaledVector(m.SB, 1 - e);
+                setBar(m.mesh, _a, _b);
+                m.mat.opacity = Math.min(1, e * 3);
+                // red = compression, blue = tension; shown where the members carry the load
+                m.mat.emissiveIntensity = (m.kind === 'compression' ? 0.5 : m.kind === 'tension' ? 0.55 : 0.0) * load;
+                const done = m.delay + ASM_LEN;
+                for (const sp of [m.pr.a, m.pr.b]) { if (sp[2] !== 0) continue; nodeE[sp[0]] = Math.max(nodeE[sp[0]], e);
+                    if (T >= done && T < m.dis) nodeFlash[sp[0]] = Math.max(nodeFlash[sp[0]], Math.exp(-(T - done) * 2.8)); }
+            }
+            for (let i = 0; i < nodeBase.length; i++) { flashSprites[i].position.copy(P[i]); flashSprites[i].material.opacity = nodeFlash[i] * 0.9; }
+
+            // load assembly: block drops onto the seat, then the bucket fills with sand
+            const seatY = (P[nid(0, NODE.seat)].y + P[nid(1, NODE.seat)].y) / 2;
+            const drop = easeOut(clamp01((T - BLOCK_ON) / 0.6)), lift = easeIn(clamp01((T - (UNLOAD + 0.3)) / 0.7));
+            const present = clamp01((T - BLOCK_ON + 0.15) / 0.2) * (1 - clamp01((T - (UNLOAD + 0.9)) / 0.2));
+            loadRig.visible = present > 0.01;
+            if (loadRig.visible) {
+                loadRig.position.set(LEN, seatY + 0.0325 + 0.1 + (1 - drop) * 0.9 + lift * 0.9, 0);
+                loadRig.scale.setScalar(Math.max(0.01, present));
+                loadRig.rotation.z = Math.sin(T * 3.1) * 0.01 * (1 - drop) + Math.sin((T - LOAD_TO) * 6) * 0.012 * Math.exp(-Math.max(0, T - LOAD_TO) * 1.4) * (T > LOAD_TO ? 1 : 0);
+                const lvl = Math.max(0.001, load * 0.55);
+                sand.scale.set(1, lvl, 1); sand.position.y = -0.33 + lvl / 2;
+                const kg = (load * LOAD_KG);
+                setLoadText(kg.toFixed(1) + ' kg', load >= 0.995 ? '#86efac' : '#ddd6fe');
+                loadLabel.sp.material.opacity = clamp01((T - LOAD_FROM + 0.2) / 0.3) * (1 - clamp01((T - UNLOAD - 0.4) / 0.3));
+                const pouring = T > LOAD_FROM && T < LOAD_TO;
+                pour.visible = pouring;
+                if (pouring) {
+                    const topY = 1.9, botY = -1.5 + load * 0.55;
+                    for (let i = 0; i < POUR_N; i++) {
+                        const ph = (pourPh[i] + elapsed * 0.9) % 1, y = topY + (botY - topY) * ph;
+                        pourPos[i * 3] = Math.sin(i * 12.9) * 0.025; pourPos[i * 3 + 1] = y + (-1.85 + 1.85) * 0; pourPos[i * 3 + 2] = Math.cos(i * 7.3) * 0.025;
+                    }
+                    pourGeo.attributes.position.needsUpdate = true;
+                }
+            }
+
+            // ================= electric vehicle =================
+            evRig.scale.setScalar(EV_SCALE * intro);
+            const E = elapsed % EV_CYCLE;
+            const xm = xAt(Math.min(E, T_END));
+            ev.position.x = xm;
+            const vNow = (xAt(Math.min(E + 0.03, T_END)) - xAt(Math.max(E - 0.03, 0))) / 0.06;
+            const aNow = (xAt(Math.min(E + 0.2, T_END)) - 2 * xm + xAt(Math.max(E - 0.2, 0))) / 0.04;
+            evBody.rotation.z = Math.max(-0.04, Math.min(0.04, aNow * 0.012));
+            for (const w of wheels) w.spin.rotation.z = -xm / w.r;
+            const evScale = smooth(clamp01(E / 0.4)) * (1 - smooth(clamp01((E - T_END) / 0.6)));
+            ev.scale.setScalar(Math.max(0.001, evScale)); bottle.scale.setScalar(Math.max(0.001, evScale));
+            ev.visible = bottle.visible = evScale > 0.002;
+            // bottle: waits, is captured in the pusher, pushed, slides a little when the vehicle stops, then is left behind
+            const frontX = xm + EV_LEN;
+            if (E < 0.2) bottleX = X_BOTTLE0;
+            const bPush = Math.max(X_BOTTLE0, frontX - PUSH_DEPTH);
+            const slide = SLIDE * smooth(clamp01((E - 8.6) / 1.3));
+            if (E < T_STOP) bottleX = bPush + slide; else bottleX = xAt(T_STOP) + EV_LEN - PUSH_DEPTH + SLIDE;
+            bottle.position.set(bottleX, 0, 0);
+            // lights: reverse = bright tail lights; complete stop = green confirmation + pulse on the Target Point
+            const rev = vNow < -0.05;
+            tailL.material.color.set(rev ? 0xffffff : 0xff3d5a); tailR.material.color.set(rev ? 0xffffff : 0xff3d5a);
+            const done = E > 14.1 && E < T_END;
+            ledStatus.material.color.set(done ? 0x4ade80 : (Math.floor(E * 4) % 2 ? 0xfbbf24 : 0x6b7280));
+            targetPulse.material.opacity = done ? 0.9 * (1 - ((E - 14.1) * 1.2 % 1)) : 0;
+            targetPulse.scale.setScalar(1 + (done ? ((E - 14.1) * 1.2 % 1) * 3.2 : 0));
+
+            // ================= Wright Stuff =================
+            const ph = (elapsed / FLY.period) * Math.PI * 2;
+            const fx = FLY.cx + FLY.R * Math.cos(ph), fz = FLY.cz + FLY.R * Math.sin(ph);
+            const climb = Math.cos(ph - 0.6);                       // >0 climbing under power, <0 gliding down
+            const fy = FLY.cy + 1.4 * Math.sin(ph - 0.6);
+            plane.position.set(fx, fy, fz);
+            plane.rotation.y = Math.atan2(-Math.cos(ph), -Math.sin(ph));
+            plane.rotation.x = 0.32;                                // banked into the turn
+            plane.rotation.z = climb * 0.12;                        // nose up when climbing
+            const power = clamp01(climb * 1.6 + 0.25);
+            prop.rotation.x += (power > 0.3 ? 38 : 5) * 0.016;
+            propDisc.material.opacity = (power > 0.3 ? 0.16 : 0.0);
+
+            // camera-angle drift + mouse parallax
+            smoothMX += (mouseX * 0.3 - smoothMX) * 0.04;
+            smoothMY += (mouseY * 0.1 - smoothMY) * 0.04;
+            rig.rotation.y = -0.55 + Math.sin(elapsed * 0.25) * 0.1 + smoothMX;
+            rig.rotation.x = 0.06 + smoothMY;
+            rig.position.y = 1.2 + Math.sin(now * 0.0007) * 0.04;
+            evRig.rotation.y = -0.08 + smoothMX * 0.4;
+
+            // dust
+            for (let i = 0; i < PN; i++) {
+                const d = pData[i]; d.a += d.s;
+                pPos[i * 3]     = d.r * Math.cos(d.a) + 3.8;
+                pPos[i * 3 + 1] = d.h + Math.sin(now * d.fs) * d.fa;
+                pPos[i * 3 + 2] = d.r * Math.sin(d.a) * 0.8;
+            }
+            pGeo.attributes.position.needsUpdate = true;
+
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        window.addEventListener('resize', () => {
+            const w = heroSection.offsetWidth, h = Math.max(1, heroSection.offsetHeight);
+            camera.aspect = w / h; camera.updateProjectionMatrix();
+            renderer.setSize(w, h);
+        });
+    </script>
+
+    <!-- UI + EVENT DATA -->
+    <script>
+        const VIOLET = '#7c3aed';
+        const events = [
+            { name: 'Boomilever', type: 'Structure', teamSize: 2,
+              desc: 'Build a lightweight wooden structure that sticks out from a test wall and holds as much sand as possible. New for 2027: a compression-type design.',
+              learn: ['How a long diagonal in compression and a horizontal tie in tension share the load', 'Bracing long members so they do not buckle', 'Testing to failure and improving the next version'] },
+            { name: 'Hovercraft', type: 'Vehicle', teamSize: 2,
+              desc: 'Design and build a vehicle that rides on a cushion of air down a track, and be ready to explain how it works.',
+              learn: ['Air pressure, lift, and cushion design', 'Cutting friction to go faster and straighter', 'Tuning and troubleshooting a device'] },
+            { name: 'Electric Vehicle', type: 'Vehicle', teamSize: 2,
+              desc: 'Build a battery-powered vehicle that drives forward, pushes a water bottle past a line, then reverses to stop as close to a target point as possible.',
+              learn: ['A reversible drive: motors, gearing, and backlash', 'Calibrating distance with wheel encoders', 'A pusher that captures the bottle without tipping it'] },
+            { name: 'Wright Stuff', type: 'Flight', teamSize: 2,
+              desc: 'Build and fly a rubber-powered monoplane, scored on how long it stays in the air.',
+              learn: ['Lift, drag, thrust, and stability', 'Building an ultra-light airframe and a large, efficient propeller', 'Trimming and winding for the longest flight'] },
+            { name: 'Mission Possible', type: 'Machine', teamSize: 2,
+              desc: 'Engineer a chain-reaction machine that completes a series of tasks in order, with every step triggering the next.',
+              learn: ['Energy transfer and mechanical advantage', 'Designing reliable, repeatable chain reactions', 'Debugging and iterating on a long build'] },
+            { name: 'Ping Pong Parachute', type: 'Flight', teamSize: 2,
+              desc: 'Design a launcher and parachute system that sends a ping pong ball up, then keeps it floating down for as long as possible.',
+              learn: ['Drag, air resistance, and descent time', 'Launch design and safe testing', 'Tuning parachute size and shape'] },
+        ];
+
+        const grid = document.getElementById('cardsGrid');
+        events.forEach((ev, i) => {
+            const card = document.createElement('div');
+            card.className = 'event-card p-7 sm:p-8 pb-8';
+            card.style.setProperty('--card-accent', VIOLET);
+            card.style.transitionDelay = `${(i % 2) * 50}ms`;
+            card.innerHTML = `
+                <p class="type-label" style="color:${VIOLET}">${ev.type}</p>
+                <div class="flex items-start justify-between gap-3 mb-3">
+                    <h3 class="font-display font-bold text-2xl text-slate-800 leading-tight">${ev.name}</h3>
+                    <span class="team-badge"><i class="fa-solid fa-user-group text-[9px]"></i> TEAM OF ${ev.teamSize}</span>
+                </div>
+                <p class="text-base text-slate-500 leading-relaxed mb-6">${ev.desc}</p>
+                <div><p class="section-label">What You'll Learn</p><div class="space-y-0.5">${ev.learn.map(l => `<div class="learn-item"><span class="learn-dot" style="background:${VIOLET}"></span><span class="learn-text">${l}</span></div>`).join('')}</div></div>`;
+            grid.appendChild(card);
+        });
+
+        const observer = new IntersectionObserver(entries => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
+        document.querySelectorAll('.event-card').forEach(c => observer.observe(c));
+
+        const backToTop = document.getElementById('backToTop');
+        if (backToTop) {
+            window.addEventListener('scroll', () => { backToTop.classList.toggle('show', window.scrollY > 350); });
+            backToTop.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+        }
+    </script>
+
+{% endblock %}

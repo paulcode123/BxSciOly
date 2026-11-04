@@ -320,6 +320,7 @@
                             <a href="{{ url_for('events_inquiry') }}" {% if request.path == url_for('events_inquiry') %}class="active"{% endif %}><i class="fas fa-puzzle-piece"></i> Inquiry</a>
                             <a href="{{ url_for('earth_science_classification') }}" {% if request.path == url_for('earth_science_classification') %}class="active"{% endif %}><i class="fas fa-globe-americas"></i> Earth Science &amp; Classification</a>
                             <a href="{{ url_for('physics_design') }}" {% if request.path == url_for('physics_design') %}class="active"{% endif %}><i class="fas fa-cogs"></i> Physics &amp; Design</a>
+                            <a href="/events/build" {% if request.path == '/events/build' %}class="active"{% endif %}><i class="fas fa-hammer"></i> Build</a>
                         </div>
                     </li>
                     <li><a href="{{ url_for('gallery') }}" {% if request.path == url_for('gallery') %}class="active"{% endif %}><i class="fas fa-images"></i> Gallery</a></li>
