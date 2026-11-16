@@ -1,5 +1,589 @@
 [
   {
+    "season": "2026-27",
+    "title": "Cornell Invitational",
+    "date": "November 2026",
+    "category": "competitions",
+    "cover": "/static/gallery/competitions/2026-27/Cornell Invitational/cover.JPG",
+    "photos": [
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/81826ED5-5F61-4C99-8703-EFEB8FDED648.jpg",
+        "caption": "81826ED5 5F61 4C99 8703 EFEB8FDED648",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/97D043AE-6560-4A62-B6E1-5DA60259C458.jpg",
+        "caption": "97D043AE 6560 4A62 B6E1 5DA60259C458",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/Boomi B.mp4",
+        "caption": "Boomi B",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/CBE93B02-451C-41D5-9B57-639B2DC8CBA3.jpg",
+        "caption": "CBE93B02 451C 41D5 9B57 639B2DC8CBA3",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/FF31124F-D25A-40DB-B7B4-F6E035451D0B.jpg",
+        "caption": "FF31124F D25A 40DB B7B4 F6E035451D0B",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/FFD490C2-8479-42A8-BDCC-34F2F3C6987E.jpg",
+        "caption": "FFD490C2 8479 42A8 BDCC 34F2F3C6987E",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/_converted/IMG_0617.jpg",
+        "caption": "IMG 0617",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_0623.MOV",
+        "caption": "IMG 0623",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/_converted/IMG_0624.jpg",
+        "caption": "IMG 0624",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/_converted/IMG_0625.jpg",
+        "caption": "IMG 0625",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/_converted/IMG_0628.jpg",
+        "caption": "IMG 0628",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/_converted/IMG_0633.jpg",
+        "caption": "IMG 0633",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/_converted/IMG_0634.jpg",
+        "caption": "IMG 0634",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/_converted/IMG_0635.jpg",
+        "caption": "IMG 0635",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/_converted/IMG_0636.jpg",
+        "caption": "IMG 0636",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/_converted/IMG_0637.jpg",
+        "caption": "IMG 0637",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/_converted/IMG_0638.jpg",
+        "caption": "IMG 0638",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/_converted/IMG_0639.jpg",
+        "caption": "IMG 0639",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/_converted/IMG_0641.jpg",
+        "caption": "IMG 0641",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/_converted/IMG_0642.jpg",
+        "caption": "IMG 0642",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/_converted/IMG_0643.jpg",
+        "caption": "IMG 0643",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/_converted/IMG_0644.jpg",
+        "caption": "IMG 0644",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/_converted/IMG_0645.jpg",
+        "caption": "IMG 0645",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/_converted/IMG_0646.jpg",
+        "caption": "IMG 0646",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/_converted/IMG_0647.jpg",
+        "caption": "IMG 0647",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/_converted/IMG_4126.jpg",
+        "caption": "IMG 4126",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/_converted/IMG_4137.jpg",
+        "caption": "IMG 4137",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/_converted/IMG_4138.jpg",
+        "caption": "IMG 4138",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/_converted/IMG_4139.jpg",
+        "caption": "IMG 4139",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/_converted/IMG_4156.jpg",
+        "caption": "IMG 4156",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_4162.MOV",
+        "caption": "IMG 4162",
+        "type": "video"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/_converted/IMG_4164.jpg",
+        "caption": "IMG 4164",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/_converted/IMG_4172.jpg",
+        "caption": "IMG 4172",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/_converted/IMG_4175.jpg",
+        "caption": "IMG 4175",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/_converted/IMG_4179.jpg",
+        "caption": "IMG 4179",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/_converted/IMG_6224.jpg",
+        "caption": "IMG 6224",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/_converted/IMG_7007.jpg",
+        "caption": "IMG 7007",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/_converted/IMG_7027.jpg",
+        "caption": "IMG 7027",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/_converted/IMG_7030.jpg",
+        "caption": "IMG 7030",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9451.JPG",
+        "caption": "IMG 9451",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9452.JPG",
+        "caption": "IMG 9452",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9453.JPG",
+        "caption": "IMG 9453",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9454.JPG",
+        "caption": "IMG 9454",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9455.JPG",
+        "caption": "IMG 9455",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9456.JPG",
+        "caption": "IMG 9456",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9457.JPG",
+        "caption": "IMG 9457",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9458.JPG",
+        "caption": "IMG 9458",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9459.JPG",
+        "caption": "IMG 9459",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9460.JPG",
+        "caption": "IMG 9460",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9461.JPG",
+        "caption": "IMG 9461",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9462.JPG",
+        "caption": "IMG 9462",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9463.JPG",
+        "caption": "IMG 9463",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9464.JPG",
+        "caption": "IMG 9464",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9465.JPG",
+        "caption": "IMG 9465",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9466.JPG",
+        "caption": "IMG 9466",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9467.JPG",
+        "caption": "IMG 9467",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9468.JPG",
+        "caption": "IMG 9468",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9469.JPG",
+        "caption": "IMG 9469",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9470.JPG",
+        "caption": "IMG 9470",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9471.JPG",
+        "caption": "IMG 9471",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9472.JPG",
+        "caption": "IMG 9472",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9473.JPG",
+        "caption": "IMG 9473",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9474.JPG",
+        "caption": "IMG 9474",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9475.JPG",
+        "caption": "IMG 9475",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9476.JPG",
+        "caption": "IMG 9476",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9477.JPG",
+        "caption": "IMG 9477",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9478.JPG",
+        "caption": "IMG 9478",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9479.JPG",
+        "caption": "IMG 9479",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9480.JPG",
+        "caption": "IMG 9480",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9481.JPG",
+        "caption": "IMG 9481",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9482.JPG",
+        "caption": "IMG 9482",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9483.JPG",
+        "caption": "IMG 9483",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9484.JPG",
+        "caption": "IMG 9484",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9485.JPG",
+        "caption": "IMG 9485",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9486.JPG",
+        "caption": "IMG 9486",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9487.JPG",
+        "caption": "IMG 9487",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9488.JPG",
+        "caption": "IMG 9488",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9489.JPG",
+        "caption": "IMG 9489",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9490.JPG",
+        "caption": "IMG 9490",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9491.JPG",
+        "caption": "IMG 9491",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9492.JPG",
+        "caption": "IMG 9492",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9493.JPG",
+        "caption": "IMG 9493",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9494.JPG",
+        "caption": "IMG 9494",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9495.JPG",
+        "caption": "IMG 9495",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9496.JPG",
+        "caption": "IMG 9496",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9497.JPG",
+        "caption": "IMG 9497",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9498.JPG",
+        "caption": "IMG 9498",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9499.JPG",
+        "caption": "IMG 9499",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9500.JPG",
+        "caption": "IMG 9500",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9501.JPG",
+        "caption": "IMG 9501",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9502.JPG",
+        "caption": "IMG 9502",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9503.JPG",
+        "caption": "IMG 9503",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9504.JPG",
+        "caption": "IMG 9504",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9505.JPG",
+        "caption": "IMG 9505",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9506.JPG",
+        "caption": "IMG 9506",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9507.JPG",
+        "caption": "IMG 9507",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9508.JPG",
+        "caption": "IMG 9508",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9509.JPG",
+        "caption": "IMG 9509",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9510.JPG",
+        "caption": "IMG 9510",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9511.JPG",
+        "caption": "IMG 9511",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9512.JPG",
+        "caption": "IMG 9512",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9513.JPG",
+        "caption": "IMG 9513",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9514.JPG",
+        "caption": "IMG 9514",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9515.JPG",
+        "caption": "IMG 9515",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_9516.JPG",
+        "caption": "IMG 9516",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/PXL_20261114_044609241.jpg",
+        "caption": "PXL 20261114 044609241",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/PXL_20261114_051724317.jpg",
+        "caption": "PXL 20261114 051724317",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/PXL_20261114_150009574.jpg",
+        "caption": "PXL 20261114 150009574",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/PXL_20261114_153236431.jpg",
+        "caption": "PXL 20261114 153236431",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/PXL_20261114_172645818.jpg",
+        "caption": "PXL 20261114 172645818",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/cover.JPG",
+        "caption": "cover",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/snapseed__1794633870339.jpeg",
+        "caption": "snapseed  1794633870339",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/snapseed__1794637660155.jpeg",
+        "caption": "snapseed  1794637660155",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/snapseed__1794641899983.jpeg",
+        "caption": "snapseed  1794641899983",
+        "type": "image"
+      },
+      {
+        "src": "/static/gallery/competitions/2026-27/Cornell Invitational/snapseed__1794650373679.jpeg",
+        "caption": "snapseed  1794650373679",
+        "type": "image"
+      }
+    ]
+  },
+  {
     "season": "2025-26",
     "title": "South Windsor",
     "date": "December 2025",
