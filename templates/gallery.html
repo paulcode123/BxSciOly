@@ -577,6 +577,34 @@
    ================================================================ */
 const albums = {{ albums_json | safe }};
 
+/* ================================================================
+   MANUAL ALBUMS (optional)
+   Use this only if an album is NOT coming from the static/gallery
+   folders. Fill in the photos list and it shows up under its season.
+   - "season" must match your existing season label exactly.
+   - An entry with an empty photos list is ignored (no broken card).
+   - If a folder album with the same season + title already exists,
+     the manual entry is skipped, so it can't duplicate.
+   ================================================================ */
+const manualAlbums = [
+  {
+    season: "2026-27",
+    title: "Cornell Invitational",
+    date: "November 2026",
+    cover: "",   // leave blank to use the first photo
+    photos: [
+      // { src: "/static/gallery/competitions/2026-27/Cornell Invitational/IMG_0001.jpg", caption: "", type: "image" },
+      // { src: "/static/gallery/competitions/2026-27/Cornell Invitational/clip1.mp4", caption: "", type: "video" },
+    ]
+  }
+];
+manualAlbums.forEach(m => {
+  if (!m.photos.length) return;
+  if (albums.some(a => a.season === m.season && a.title === m.title)) return;
+  if (!m.cover) m.cover = m.photos[0].src;
+  albums.push(m);
+});
+
 const seasonsContainer = document.getElementById("seasonsContainer");
 const albumCountLabel = document.getElementById("albumCountLabel");
 const heroBg = document.getElementById("heroBg");
